@@ -84,6 +84,18 @@ public and CC0-licensed.
   `python3 -m unittest` runs all. The renderer never drops text
   silently: unmodelled elements keep their text and are warned about at
   build time (currently `milestone`, `ptr`, `formula` — deliberate).
+- **Commentary parser (done):** `pipeline/parse_kom.py` — docstring is
+  the contract. Key facts: 4376 notes corpus-wide, uniformly
+  `<label>` (lemma) + `<p>` (prose); `@n="*"` on a persName marks the
+  note's *biographical subject* (290 notes, 218 persons — the bio
+  pipeline's primary grounding); 1096 distinct persName keys, 284 in
+  >1 volume; `@sameAs` is an alias *string* (55 corpus-wide — merge
+  candidates: married/maiden names, "Jette"); two `persName key=""`
+  exist (b241, b43); 1864 notes cross-reference other notes; refs to
+  other volumes use *uppercase* dirs (`../B1/txt.xml`) and 18 point at
+  non-vendored journal volumes (would dangle as links). Bio prose uses
+  dense abbreviations (`da.`, `ty.`, `prof.`, `ktl.` = SK's auction
+  catalogue) worth expanding for display.
 - **Design (slice 4, done): "Eckersberg"** — Maria's pick from three
   mockup directions (see `design/varianter/`, uncommitted). Museum
   formidling: plaster ground, Prussian header band, sea-green metadata
