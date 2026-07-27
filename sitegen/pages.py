@@ -168,20 +168,31 @@ def _sequence_navigation(previous, following):
 
 
 def _same_correspondence(view, section):
-    """The other letters of this correspondence, in letter-number order."""
-    if not section:
+    """All letters of this correspondence, in letter-number order.
+
+    The current letter is included in its place so the reader can see
+    where they stand in the exchange — as marked text, never as a link
+    to itself.
+    """
+    if not section or len(section["letters"]) < 2:
         return ""
-    siblings = [other for other in section["letters"] if other["id"] != view["id"]]
-    if not siblings:
-        return ""
-    items = "".join(
-        element(
-            "li",
-            element("a", text(other["title"]), href=_letter_href(other))
-            + element("span", " · " + text(other["date_text"]), class_="muted"),
-        )
-        for other in siblings
-    )
+    items = ""
+    for other in section["letters"]:
+        date = element("span", " · " + text(other["date_text"]), class_="muted")
+        if other["id"] == view["id"]:
+            items += element(
+                "li",
+                text(other["title"])
+                + date
+                + element("span", " ← dette brev", class_="current-marker"),
+                class_="current",
+                aria_current="page",
+            )
+        else:
+            items += element(
+                "li",
+                element("a", text(other["title"]), href=_letter_href(other)) + date,
+            )
     return element(
         "section",
         element("h2", "Samme brevveksling")

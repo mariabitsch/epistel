@@ -291,6 +291,14 @@ class SiteBuildTest(unittest.TestCase):
         self.assertIn("Samme brevveksling", page)
         self.assertIn('href="../41/"', page)
 
+    def test_the_current_letter_is_listed_in_its_correspondence_as_text(self):
+        # The reader should see where they stand in the exchange: the
+        # current letter appears in its place in the list, but as text
+        # with a marker, never as a link to itself.
+        page = self.read("brev", "40", "index.html")
+        self.assertIn("← dette brev", page)
+        self.assertNotIn('href="../40/"', page)
+
     def test_no_raw_data_artifacts_reach_the_pages(self):
         pages = [self.read("index.html")] + [
             self.read("brev", str(number), "index.html") for number in range(1, 43)
