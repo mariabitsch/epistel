@@ -1,0 +1,142 @@
+/* Placeholder stylesheet.
+ *
+ * Slice 3 is about getting the real text onto real pages; the design pass
+ * comes later. This file therefore does the minimum: a readable measure, a
+ * visible structure, and enough styling of the TEI classes that page markers
+ * and manuscript emphasis do not read as noise. No fonts are loaded -- the
+ * site must stay self-contained -- so everything uses the reader's own.
+ */
+
+:root {
+  --ink: #1a1a1a;
+  --muted: #5a5a5a;
+  --rule: #d8d4cc;
+  --paper: #fbfaf7;
+  --measure: 34rem;
+}
+
+html { font-size: 100%; }
+
+body {
+  margin: 0;
+  padding: 0 1.25rem 4rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+main, .site-header, .site-footer { max-width: var(--measure); margin: 0 auto; }
+
+a { color: inherit; }
+
+.skip-link {
+  position: absolute;
+  left: -100vw;
+}
+.skip-link:focus {
+  position: static;
+  display: inline-block;
+  padding: 0.5rem;
+}
+
+.site-header { padding: 1.5rem 0 0.5rem; }
+.site-title { margin: 0; font-weight: bold; letter-spacing: 0.08em; }
+.site-title a { text-decoration: none; }
+.site-tagline, .muted, .group-count, .group-note, .date-provenance {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.site-tagline { margin: 0 0 1.5rem; }
+
+.site-footer {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+h1 { font-size: 1.6rem; line-height: 1.25; }
+h2 { font-size: 1.15rem; margin-top: 2.5rem; }
+h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+.lead { color: var(--muted); }
+
+/* Index --------------------------------------------------------------- */
+
+.correspondence { border-top: 1px solid var(--rule); }
+.group-note, .group-count { margin: 0.15rem 0; }
+.letter-list { list-style: none; padding: 0; }
+.letter-entry { margin: 1.25rem 0; }
+
+.letter-meta { margin: 0; font-size: 0.9rem; }
+.letter-meta > div { display: flex; gap: 0.5rem; }
+.letter-meta dt { color: var(--muted); min-width: 6.5rem; }
+.letter-meta dd { margin: 0; }
+
+/* Letter -------------------------------------------------------------- */
+
+.crumb { font-size: 0.85rem; }
+.letter .letter-meta {
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.transcription { margin: 2rem 0; }
+
+.letter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+}
+.nav-next { margin-left: auto; text-align: right; }
+.sibling-list { padding-left: 1.1rem; }
+
+/* TEI ----------------------------------------------------------------- */
+
+.tei-opener, .tei-closer, .tei-postscript, .tei-trailer, .tei-lg {
+  margin: 1.25rem 0;
+}
+.tei-l { display: block; }
+.tei-lg { padding-left: 1.5rem; }
+.tei-signed, .tei-dateline { color: inherit; }
+.tei-table { border-collapse: collapse; margin: 0.5rem 0; }
+.tei-cell { padding: 0 0.75rem 0 0; vertical-align: top; }
+
+/* Page and leaf boundaries: present, but out of the way of the reading. */
+.tei-pb {
+  color: var(--muted);
+  font-size: 0.7em;
+  vertical-align: 0.35em;
+  white-space: nowrap;
+  cursor: help;
+}
+.tei-pb--print { opacity: 0.7; }
+
+.tei-figure-caption { display: block; color: var(--muted); font-size: 0.85rem; }
+.tei-supplied { color: #333; }
+
+/* The manuscript's own emphasis, as close as HTML gets. */
+.r-und { text-decoration: underline; }
+.r-dun { text-decoration: underline double; }
+.r-size1 { font-size: 1.3em; }
+
+/* Layout hints from the edition's rendition vocabulary. */
+.r-ind { text-indent: 1.5em; }
+.r-cen { text-align: center; }
+.r-bag, .r-baglang, .r-bagxlang, .r-bagind { text-align: right; }
+.tei-p { margin: 0 0 0.35rem; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8e6e1;
+    --muted: #a5a09a;
+    --rule: #3a3733;
+    --paper: #16150f;
+  }
+  .tei-supplied { color: #ddd; }
+}
