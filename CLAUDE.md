@@ -78,6 +78,23 @@ public and CC0-licensed.
   Kierkegaard). No place data in `correspAction` — places only occur in
   datelines inside letter text. b1 as JSON ≈ 494 KB, so the site build
   must split output per letter rather than ship volume blobs.
+- **Display layer (slice 3, done):** `build.py` → `sitegen/` (escaping,
+  dates, TEI-tree renderer, pages, site assembly; templates are plain
+  Python string functions). 49 display tests alongside the 21 parser
+  tests — `python3 -m unittest` runs all. The renderer never drops text
+  silently: unmodelled elements keep their text and are warned about at
+  build time (currently `milestone`, `ptr`, `formula` — deliberate).
+- Source-fidelity gaps found in slice 3 (all upstream, all left as-is per
+  the preserve-uncertainty principle): `correspDesc` under-reports
+  co-signers (letters 3, 29–32 have "og SK"-style headings but single
+  `<name>` per action); the source sometimes omits whitespace between
+  adjacent elements ("Cand:Theol:", "frcoHamburg"); letter 1 has a
+  one-off encoding slip — "Hel&lt;pb/&gt;sing\ør," duplicated next to
+  `<placeName>Helsingør</placeName>` (the file's only backslash). The
+  normal convention is `<placeName key="normalized">as-written</placeName>`
+  (same for persName). Letter 39's missing display-string half lives in a
+  correspAction `<note>` ("· udateret [1846-47]") — shown as "Note i
+  kilden".
 - **Do not clone the upstream repo** (~190 MB, mostly images across all
   volumes). Fetch only the files you need via
   `https://raw.githubusercontent.com/kb-dk/SKS_tei/master/data/v1.9/...`.
