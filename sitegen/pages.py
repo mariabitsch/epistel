@@ -19,25 +19,24 @@ INDEX_TO_ROOT = ""
 LETTER_TO_ROOT = "../../"
 
 
-def index_page(volume, sections):
-    """The front page: every letter, grouped by correspondence."""
-    count = sum(len(section["letters"]) for section in sections)
-    intro = element(
-        "p",
-        "Søren Kierkegaards breve, læst direkte fra den TEI-kodede udgave "
-        "<i>Søren Kierkegaards Skrifter</i>. Denne demonstration viser bindet "
-        + element("strong", "%s — %s" % (text(volume["shortTitle"]), text(volume["title"])))
-        + ": %s, ordnet efter brevveksling." % _letter_count(count),
-        class_="lead",
-    )
-    body = element("h1", "Breve") + intro
-    body += "".join(_section(section) for section in sections)
+def index_page(books):
+    """The front page: every letter, by volume and then by correspondence.
+
+    One page for the whole corpus. The edition's own two levels of order are
+    the two levels of the page -- the volume it was printed in, and the
+    correspondence it belongs to -- so a reader who knows the edition can find
+    a letter the way they would in print. Filtering and search are a later
+    slice; this page is the plain list they will filter.
+    """
+    count = sum(len(book["letters"]) for book in books)
+    body = element("h1", "Breve") + _intro(books, count) + _volume_navigation(books)
+    body += "".join(_book(book) for book in books)
     return _document(
         title="Breve",
         main=body,
         root=INDEX_TO_ROOT,
-        description="Kierkegaards breve fra %s, vist fra offentlige TEI-filer."
-        % volume["shortTitle"],
+        description="Søren Kierkegaards %s i %s, vist fra offentlige TEI-filer."
+        % (_letter_count(count), _volume_count(len(books))),
     )
 
 
@@ -52,7 +51,7 @@ def letter_page(view, previous, following, section):
     header += _metadata(view, section)
 
     article = element("header", header)
-    article += element("div", view["body"], class_="transcription", lang="da")
+    article += _transcription(view)
     article += _sequence_navigation(previous, following)
     article += _same_correspondence(view, section)
 
@@ -70,14 +69,78 @@ def letter_page(view, previous, following, section):
 # ---------------------------------------------------------------------------
 
 
+def _intro(books, count):
+    """What the reader is looking at -- as many volumes as were built.
+
+    Written from the list, not from a sentence about one volume, so a build of
+    b1 alone and a build of the whole corpus both describe themselves
+    truthfully.
+    """
+    return element(
+        "p",
+        "Søren Kierkegaards breve, læst direkte fra den TEI-kodede udgave "
+        "<i>Søren Kierkegaards Skrifter</i>. Denne demonstration viser "
+        + element(
+            "strong", "%s i %s" % (_letter_count(count), _volume_count(len(books)))
+        )
+        + ", ordnet efter bind og brevveksling.",
+        class_="lead",
+    )
+
+
+def _volume_navigation(books):
+    """A jump list to each volume's section. Fourteen anchors, no script."""
+    if len(books) < 2:
+        return ""
+    items = "".join(
+        element(
+            "li",
+            element(
+                "a",
+                element("b", text(book["shortTitle"])) + " " + text(book["title"]),
+                href="#%s" % book["anchor"],
+            ),
+        )
+        for book in books
+    )
+    return element(
+        "nav",
+        element("ol", items, class_="volume-list"),
+        class_="volume-nav",
+        aria_label="Bind",
+    )
+
+
+def _book(book):
+    """One volume: a band naming it, then its correspondences."""
+    heading = element(
+        "h2",
+        element("b", text(book["shortTitle"])) + " " + text(book["title"]),
+    )
+    count = element(
+        "p", _letter_count(len(book["letters"])), class_="volume-count"
+    )
+    return element(
+        "section",
+        element("div", heading + count, class_="volume-head")
+        + "".join(_section(section) for section in book["sections"]),
+        class_="volume",
+        id=book["anchor"],
+    )
+
+
 def _section(section):
     """One correspondence: who it is with, and every letter in it.
 
     Heading, note and count are wrapped as one block, because they are one
     thing -- the label on the group -- and the design sets them as a band
     above the letters rather than as three loose paragraphs.
+
+    A correspondence sits inside a volume, so its heading is an ``h3``: the
+    document outline is h1 Breve / h2 volume / h3 correspondence / h4 letter.
+    The band looks the same as it did when there was only one volume.
     """
-    heading = element("h2", text(section["heading"]))
+    heading = element("h3", text(section["heading"]))
     notes = "".join(
         element("p", text(note), class_="group-note")
         for note in section["notes"]
@@ -97,7 +160,7 @@ def _section(section):
 def _entry(view):
     """One line in the index: a linked heading and the bare facts."""
     heading = element(
-        "h3", element("a", text(view["title"]), href="brev/%s/" % view["id"])
+        "h4", element("a", text(view["title"]), href="brev/%s/" % view["slug"])
     )
     return element("li", heading + _summary(view), class_="letter-entry")
 
@@ -116,6 +179,22 @@ def _summary(view):
 # ---------------------------------------------------------------------------
 # Letter parts
 # ---------------------------------------------------------------------------
+
+
+def _transcription(view):
+    """The letter as it reads -- or a plain sentence when the edition has none.
+
+    Three letters in b171 are printed as cross-references: the edition records
+    who wrote to whom and when, and prints the text under another number. An
+    empty sheet of paper would read as a fault in the display, so the page
+    says what the source holds instead. The edition's own pointer ("se Brev
+    193") is already in the metadata panel above, as the source's words.
+    """
+    if view["body"].strip():
+        return element("div", view["body"], class_="transcription", lang="da")
+    return element(
+        "p", "Udgaven trykker ingen brevtekst her.", class_="no-transcription"
+    )
 
 
 def _metadata(view, section):
@@ -148,15 +227,34 @@ def _metadata(view, section):
                 ),
             )
         )
+    # Which of the edition's volumes printed this letter -- the reader's way
+    # back into the index at the right place.
+    volume = view["volume"]
+    rows.append(
+        (
+            "Bind",
+            element(
+                "a",
+                "%s — %s" % (text(volume["shortTitle"]), text(volume["title"])),
+                href="%s#%s" % (LETTER_TO_ROOT, volume["anchor"]),
+            ),
+        )
+    )
     return _definition_list(rows, class_name="letter-meta")
 
 
 def _sequence_navigation(previous, following):
+    """Previous and next in the edition's order, across volume boundaries.
+
+    Letter 42 closes b1 and letter 43 opens b43; the edition numbers them one
+    after the other, so the reader walks straight through. The three letters
+    the edition prints without a number are named rather than numbered.
+    """
     links = ""
     if previous:
         links += element(
             "a",
-            "← Forrige brev (%s)" % text(previous["id"]),
+            "← Forrige brev%s" % _in_brackets(previous),
             href=_letter_href(previous),
             rel="prev",
             class_="nav-previous",
@@ -164,7 +262,7 @@ def _sequence_navigation(previous, following):
     if following:
         links += element(
             "a",
-            "Næste brev (%s) →" % text(following["id"]),
+            "Næste brev%s →" % _in_brackets(following),
             href=_letter_href(following),
             rel="next",
             class_="nav-next",
@@ -175,7 +273,11 @@ def _sequence_navigation(previous, following):
 
 
 def _same_correspondence(view, section):
-    """All letters of this correspondence, in letter-number order.
+    """All letters of this correspondence, in the order the edition prints them.
+
+    A correspondence never crosses a volume: the edition groups letters by
+    who they were exchanged with, and that is what a volume is made of. So
+    this list stays inside one volume while prev/next runs through them all.
 
     The current letter is included in its place so the reader can see
     where they stand in the exchange — as marked text, never as a link
@@ -186,7 +288,7 @@ def _same_correspondence(view, section):
     items = ""
     for other in section["letters"]:
         date = element("span", " · " + text(other["date_text"]), class_="muted")
-        if other["id"] == view["id"]:
+        if other["slug"] == view["slug"]:
             items += element(
                 "li",
                 text(other["title"])
@@ -211,7 +313,12 @@ def _same_correspondence(view, section):
 
 def _letter_href(view):
     """Letter to letter: both live in ``brev/``, so one step up is enough."""
-    return "../%s/" % view["id"]
+    return "../%s/" % view["slug"]
+
+
+def _in_brackets(view):
+    """" (42)" for a numbered letter, nothing for one the edition left blank."""
+    return " (%s)" % text(view["number"]) if view["numbered"] else ""
 
 
 # ---------------------------------------------------------------------------
@@ -247,6 +354,10 @@ def _date(view):
 
 def _letter_count(count):
     return "%d brev" % count if count == 1 else "%d breve" % count
+
+
+def _volume_count(count):
+    return "%d bind" % count
 
 
 def _document(title, main, root, description):

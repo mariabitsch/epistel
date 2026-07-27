@@ -7,6 +7,9 @@ class names, no Danish labels. It also never repairs the source: whatever the
 edition encodes is what comes out, with raw values kept next to anything
 derived from them.
 
+One file at a time. ``pipeline.corpus`` knows which files make up the corpus
+and in what order; this module only ever sees one of them.
+
 Result shape
 ------------
 
@@ -115,6 +118,7 @@ ELEMENT_ATTRIBUTES = {
     "pb": ("n", "rend", "edRef", "facs"),
     "milestone": ("unit", "type", "n", "edRef", "spanTo"),
     "figure": ("type", "rend"),
+    "figDesc": (),
     "graphic": ("url",),
     "ptr": ("type", "target"),
     "ref": ("type", "target"),
@@ -127,7 +131,10 @@ ELEMENT_ATTRIBUTES = {
     "rs": ("type", "key"),
     "date": ("when", "notBefore", "notAfter", "from", "to", "source"),
     "formula": ("notation",),
-    "note": ("type", "resp"),
+    # A footnote by the letter's author. @place says where it sat on the
+    # sheet; @anchored="false" means the edition found no marker for it in
+    # the text, which is a fact about the manuscript worth keeping.
+    "note": ("type", "place", "anchored", "resp"),
     # Editorial and genetic markup.
     "add": ("instant", "place", "rend", "rendition"),
     "del": ("instant", "rend", "rendition"),
@@ -161,6 +168,9 @@ STRUCTURAL_ELEMENTS = frozenset(
         "div",
         "figure",
         "lg",
+        # A footnote holds a reference marker and one or more paragraphs; the
+        # whitespace the file sets between them is layout, not text.
+        "note",
         "opener",
         "postscript",
         "rdgGrp",

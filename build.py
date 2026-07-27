@@ -4,8 +4,8 @@
     python3 build.py [output directory]
 
 This is the whole build, and it is the contract Netlify runs (see
-``netlify.toml``). Standard library only, no network, no state: the vendored
-TEI file is parsed, the pages are generated, and the output directory is
+``netlify.toml``). Standard library only, no network, no state: every vendored
+letter volume is parsed, the pages are generated, and the output directory is
 recreated from scratch every time.
 
 Anything the pipeline or the renderer could not make sense of is printed as a
@@ -16,28 +16,31 @@ page, but the build says which ones they were. Warnings do not fail the build.
 import os
 import sys
 
-from pipeline.parse_tei import parse_volume
+from pipeline.corpus import parse_corpus
 from sitegen.site import build_site
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-
-# Slice 3 ships the first volume only; the rest of the b* volumes come later.
-VOLUME = "b1"
+VENDOR = os.path.join(ROOT, "data", "vendor")
 
 
 def main(argv):
     out_dir = argv[1] if len(argv) > 1 else os.path.join(ROOT, "dist")
-    source = os.path.join(ROOT, "data", "vendor", VOLUME, "txt.xml")
 
-    print("build: parsing %s" % _relative(source))
-    volume = parse_volume(source)
-    for warning in volume["warnings"]:
-        print(
-            "warning: parser: letter %s: <%s>: %s"
-            % (warning["letterId"], warning["tag"], warning["message"])
-        )
+    print("build: parsing %s" % _relative(VENDOR))
+    volumes = parse_corpus(VENDOR)
+    for volume in volumes:
+        for warning in volume["warnings"]:
+            print(
+                "warning: parser: %s letter %s: <%s>: %s"
+                % (
+                    volume["volume"],
+                    warning["letterId"],
+                    warning["tag"],
+                    warning["message"],
+                )
+            )
 
-    result = build_site(volume, out_dir)
+    result = build_site(volumes, out_dir)
     for warning in result["warnings"]:
         print(
             "warning: renderer: unmodelled TEI element <%s> (%d %s, first seen "
@@ -55,9 +58,14 @@ def main(argv):
             % result["ungrouped"]
         )
 
+    for volume in volumes:
+        print(
+            "build: %-5s %-46s %3d breve"
+            % (volume["volume"], volume["title"], len(volume["letters"]))
+        )
     print(
-        "build: %s -- %d letters in %d correspondence groups"
-        % (volume["shortTitle"], result["letters"], result["sections"])
+        "build: %d letters in %d correspondence groups across %d volumes"
+        % (result["letters"], result["sections"], result["volumes"])
     )
     print("build: wrote %d pages to %s" % (result["letters"] + 1, _relative(out_dir)))
     return 0

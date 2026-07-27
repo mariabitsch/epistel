@@ -281,8 +281,87 @@ h1::before {                       /* the gilt tick: one accent, top left */
 .lead strong { font-weight: 600; color: var(--ink); }
 
 /* ================================================================ INDEX
-   Eight correspondence groups, each hung as its own section of gallery
-   wall: a tinted heading band above a clean run of entry rows.          */
+   Two levels of order, both the edition's own: the volume a letter was
+   printed in, and the correspondence it belongs to. A volume is a room —
+   named on the wall by its own rule and label — and each correspondence
+   inside it is hung as its own section of gallery wall: a tinted heading
+   band above a clean run of entry rows.
+
+   The band design is unchanged from the one-volume build; only its heading
+   level moved (h2 -> h3) to make room for the volume above it.          */
+
+/* --- the volume: a room, announced ----------------------------------- */
+
+.volume-nav {
+  margin: 2.6rem 0 0;
+  padding: 1.25rem 1.5rem 1.35rem;
+  background: var(--plaster);
+  border-top: 2px solid var(--gilt);
+  border-bottom: 1px solid var(--rule-warm);
+}
+.volume-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+  gap: 0.15rem 1.5rem;
+}
+.volume-list li { line-height: 1.5; }
+.volume-list a {
+  display: block;
+  padding: 0.18rem 0;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.volume-list a:hover { border-bottom-color: var(--gilt); }
+.volume-list b {
+  font-family: var(--label);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--gilt-text);            /* 5.06:1 on plaster */
+}
+
+.volume { margin-top: 4.2rem; }
+
+.volume-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 0 1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 2px solid var(--gilt);
+}
+.volume-head h2 {
+  grid-column: 1;
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(1.75rem, 4.5vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+.volume-head h2 b {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--label);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gilt-text);            /* 5.68:1 on ground */
+}
+.volume-head .volume-count {
+  grid-column: 2;
+  margin: 0;
+  font-family: var(--label);
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
 
 .correspondence {
   margin-top: 3rem;
@@ -290,6 +369,9 @@ h1::before {                       /* the gilt tick: one accent, top left */
   border: 1px solid var(--rule);
   border-top: 2px solid var(--gilt);
 }
+/* Inside a volume the first correspondence sits close under the volume
+   rule; the gap belongs between groups, not above the first one.       */
+.volume-head + .correspondence { margin-top: 1.7rem; }
 
 .group-head {
   display: grid;
@@ -306,7 +388,7 @@ h1::before {                       /* the gilt tick: one accent, top left */
   border-bottom-color: var(--rule-cool);
 }
 
-.group-head h2 {
+.group-head h3 {
   grid-column: 1;
   margin: 0;
   font-family: var(--display);
@@ -355,18 +437,18 @@ h1::before {                       /* the gilt tick: one accent, top left */
 .letter-entry:first-child { border-top: 0; }
 .letter-entry:hover { background: var(--hover); }
 
-.letter-entry h3 {
+.letter-entry h4 {
   margin: 0;
   font-family: var(--display);
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.2;
 }
-.letter-entry h3 a {
+.letter-entry h4 a {
   text-decoration: none;
   border-bottom: 1px solid rgba(46, 74, 90, 0.28);
 }
-.letter-entry h3 a:hover { border-bottom-color: var(--gilt); }
+.letter-entry h4 a:hover { border-bottom-color: var(--gilt); }
 
 /* The label rhythm: tiny caps over the value, three fields in fixed columns.
    Fixed (not auto) columns on purpose — the fields must line up down the whole
@@ -478,6 +560,17 @@ h1::before {                       /* the gilt tick: one accent, top left */
   box-shadow: 0 14px 30px -26px rgba(46, 74, 90, 0.55);
   line-height: 1.78;
 }
+/* No paper where the edition prints none: three letters in b171 are
+   cross-references to text printed under another number. An editorial
+   line, in the same gilt italic the other honest gaps use. */
+.no-transcription {
+  margin: 2.6rem 0 0;
+  padding: 1.4rem 0 0;
+  border-top: 1px solid var(--rule);
+  font-style: italic;
+  color: var(--gilt-text);            /* 5.68:1 on ground */
+}
+
 /* Closing mark: a small gilt lozenge, drawn with borders so screen
    readers have nothing to announce. */
 .transcription::after {
@@ -558,6 +651,36 @@ h1::before {                       /* the gilt tick: one accent, top left */
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+/* --- the writer's own footnote ----------------------------------------
+   Seven letters carry one. On the sheet it sits under a rule at the foot
+   of the page, in a smaller hand; here it keeps that relationship to the
+   text — set below, set smaller, ruled off — without pretending to be a
+   page. The reference marker the edition prints (<seg type="refMarker">)
+   is lifted to a superscript, as it is in print.                        */
+.tei-note {
+  display: block;
+  margin: 1.9rem 0 0.4rem;
+  padding: 0.9rem 0 0;
+  border-top: 1px solid var(--rule);
+  font-size: 0.93rem;
+  line-height: 1.62;
+  color: var(--ink-soft);              /* 8.98:1 on paper */
+}
+/* The marker leads the note's first line, as it does in print. Floated
+   rather than inlined, because the note's text is a block of its own. */
+.tei-note .tei-seg--refMarker {
+  float: left;
+  margin: 0.1em 0.45em 0 0;
+  font-size: 0.72em;
+  vertical-align: 0.5em;
+  color: var(--gilt-text);            /* 5.68:1 on paper */
+}
+.tei-note .tei-p:last-child { margin-bottom: 0; }
+
+/* A number the edition sets as a formula: only the digits survive the
+   encoding, so they are set as digits and marked as what they are. */
+.tei-formula { font-variant-numeric: lining-nums; }
 
 /* --- page and leaf boundaries ----------------------------------------
    Two pagination series, two tones: blue-grey for the manuscript leaves,
@@ -728,6 +851,9 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
 @media (max-width: 34rem) {
   body { font-size: 1rem; }
   h1 { margin-top: 2.2rem; }
+  .volume-nav { padding-inline: 1.1rem; }
+  .volume-head { grid-template-columns: 1fr; }
+  .volume-head .volume-count { grid-column: 1; margin-top: 0.45rem; }
   .group-head { grid-template-columns: 1fr; }
   .group-head .group-count {
     grid-column: 1;

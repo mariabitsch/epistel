@@ -1,21 +1,25 @@
 """What a build is: view models, file layout, writing the files.
 
-``build_site(volume, out_dir)`` turns one parsed volume into a directory of
+``build_site(volumes, out_dir)`` turns the parsed corpus into a directory of
 static files::
 
-    index.html              every letter, grouped by correspondence
-    brev/<letter>/index.html    one letter
-    assets/site.css         plus assets/fonts/ -- everything static/ holds
+    index.html                  every letter, by volume and correspondence
+    brev/<slug>/index.html      one letter
+    assets/site.css             plus assets/fonts/ -- everything static/ holds
 
-The output directory is recreated from scratch on every build, and the same
-input always produces byte-identical output.
+It takes a *list* of volumes and never asks how many there are, so a build of
+one volume and a build of all fourteen go down the same path. The output
+directory is recreated from scratch on every build, and the same input always
+produces byte-identical output.
 
 This module also holds the small display decisions that are neither dates nor
-markup -- what a letter is called, how a person's name reads in a sentence --
-because that is what a view model is for.
+markup -- what a letter is called, what its URL is, how a person's name reads
+in a sentence -- because that is what a view model is for.
 """
 
+import collections
 import os
+import re
 import shutil
 
 from . import dates, pages
@@ -23,37 +27,42 @@ from .tei_html import BodyRenderer
 
 STATIC_DIRECTORY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
 
-# Letters the volume's correspondence groups do not account for still get
+# Letters a volume's correspondence groups do not account for still get
 # listed; the build reports how many, because it should never be more than 0.
 UNGROUPED_HEADING = "Uden for brevvekslingerne"
 UNGROUPED_ID = "uden-brevveksling"
 
+# A letter number as the edition writes it: 42, or 159.1 for a draft.
+NUMBER = re.compile(r"^\d+(\.\d+)*$")
 
-def build_site(volume, out_dir):
+
+def build_site(volumes, out_dir):
     """Generate the whole site. Returns a small report for the build script."""
     renderer = BodyRenderer()
-    views = [_letter_view(letter, renderer) for letter in _in_letter_order(volume)]
-    sections = _sections(volume, views)
+    books = [_book(volume, renderer) for volume in volumes]
+    # The edition's own order: volume after volume, letters as printed.
+    views = [view for book in books for view in book["letters"]]
+    sections = [section for book in books for section in book["sections"]]
     section_of = {
-        view["id"]: section for section in sections for view in section["letters"]
+        view["slug"]: section for section in sections for view in section["letters"]
     }
 
     _reset(out_dir)
-    _write(out_dir, ["index.html"], pages.index_page(volume, sections))
+    _write(out_dir, ["index.html"], pages.index_page(books))
     for previous, view, following in _neighbours(views):
         _write(
             out_dir,
-            ["brev", view["id"], "index.html"],
-            pages.letter_page(view, previous, following, section_of.get(view["id"])),
+            ["brev", view["slug"], "index.html"],
+            pages.letter_page(view, previous, following, section_of.get(view["slug"])),
         )
     _copy_static(out_dir)
 
     return {
+        "volumes": len(books),
         "letters": len(views),
         "sections": len(sections),
         "ungrouped": sum(
-            1 for section in sections if section["id"] == UNGROUPED_ID
-            for _ in section["letters"]
+            len(section["letters"]) for section in sections if section["ungrouped"]
         ),
         "warnings": renderer.warnings(),
     }
@@ -64,16 +73,54 @@ def build_site(volume, out_dir):
 # ---------------------------------------------------------------------------
 
 
-def _letter_view(letter, renderer):
+def letter_slug(letter, volume):
+    """The URL segment a letter lives at.
+
+    Normally the edition's own number, which is unique across the whole
+    corpus -- ``brev/42/``, and ``brev/159.1/`` for a draft. Three letters in
+    b171 are printed without one (``@n="-"``): they are cross-references to
+    letters printed elsewhere, and all three would otherwise claim the same
+    URL. Those fall back to the volume plus the letter's xml:id, which is
+    unique inside its file, so no two letters can collide.
+    """
+    identifier = letter.get("id") or ""
+    if NUMBER.match(identifier):
+        return identifier
+    return "%s-%s" % (volume, letter.get("xmlId") or "brev")
+
+
+def _book(volume, renderer):
+    """One volume, as the index and the letter pages need it."""
+    identity = {
+        "id": volume["volume"],
+        "anchor": "bind-%s" % volume["volume"],
+        "shortTitle": volume["shortTitle"] or volume["volume"].upper(),
+        "title": volume["title"] or "Uden titel",
+    }
+    letters = [_letter_view(letter, identity, renderer) for letter in volume["letters"]]
+    book = dict(identity)
+    book["letters"] = letters
+    book["sections"] = _sections(volume, letters)
+    return book
+
+
+def _letter_view(letter, book, renderer):
     """One letter, as a page needs it: no parser shapes past this point."""
     sender = letter.get("sender") or {}
     recipient = letter.get("recipient") or {}
     # The edition dates the act of sending; a received date would be a
-    # different fact, and b1 records none.
+    # different fact, and the corpus records none.
     date = sender.get("date")
+    number = letter["id"]
+    numbered = bool(NUMBER.match(number or ""))
     return {
-        "id": letter["id"],
-        "title": "Brev %s" % letter["id"],
+        "slug": letter_slug(letter, book["id"]),
+        "number": number,
+        "numbered": numbered,
+        # "Brev -" would read the edition's placeholder as if it were a name.
+        # The three unnumbered letters say what they are instead.
+        "title": "Brev %s" % number if numbered else "Brev uden nummer",
+        "volume": book,
         "sender": display_name(sender.get("name")) or "ukendt afsender",
         "sender_raw": sender.get("name"),
         "recipient": display_name(recipient.get("name")) or "ukendt modtager",
@@ -84,7 +131,7 @@ def _letter_view(letter, renderer):
         "place": (sender.get("place") or {}).get("name"),
         "note": sender.get("note"),
         "group_id": (letter.get("context") or {}).get("groupId"),
-        "body": renderer.render(letter["body"], letter["id"]),
+        "body": renderer.render(letter["body"], "%s/%s" % (book["id"], number)),
     }
 
 
@@ -106,48 +153,60 @@ def display_name(name):
 
 
 def _sections(volume, views):
-    """The index's groups, in the order the edition lists them."""
-    by_id = {view["id"]: view for view in views}
+    """One volume's correspondence groups, in the order the edition lists them.
+
+    Groups name their letters by number, and three letters have no number of
+    their own, so the two lists are walked in step rather than looked up by
+    key: both are in document order, which is the only thing that tells those
+    three apart.
+    """
+    waiting = collections.defaultdict(collections.deque)
+    for view in views:
+        waiting[view["number"]].append(view)
+
     placed = set()
     sections = []
     for group in volume.get("groups", []):
-        letters = [by_id[letter_id] for letter_id in group["letterIds"] if letter_id in by_id]
-        placed.update(view["id"] for view in letters)
+        letters = []
+        for identifier in group["letterIds"]:
+            queue = waiting.get(identifier)
+            if queue:
+                letters.append(queue.popleft())
+        placed.update(view["slug"] for view in letters)
         if not letters:
             continue
         sections.append(
             {
-                "id": group["id"],
+                # Group ids are file-local -- every volume has its own
+                # correspContext1 -- so the anchor carries the volume.
+                "id": "%s-%s" % (volume["volume"], group["id"]),
                 "heading": group["heading"] or "Uden titel",
                 "notes": group.get("notes") or [],
                 "letters": letters,
+                "ungrouped": False,
             }
         )
-    orphans = [view for view in views if view["id"] not in placed]
+    orphans = [view for view in views if view["slug"] not in placed]
     if orphans:
         sections.append(
             {
-                "id": UNGROUPED_ID,
+                "id": "%s-%s" % (volume["volume"], UNGROUPED_ID),
                 "heading": UNGROUPED_HEADING,
                 "notes": [],
                 "letters": orphans,
+                "ungrouped": True,
             }
         )
     return sections
 
 
-def _in_letter_order(volume):
-    """Letters by number. The numbers are unique across the whole edition."""
-    return sorted(volume["letters"], key=_letter_number)
-
-
-def _letter_number(letter):
-    identifier = letter["id"] or ""
-    return (0, int(identifier), "") if identifier.isdigit() else (1, 0, identifier)
-
-
 def _neighbours(views):
-    """Yield ``(previous, view, following)`` for prev/next navigation."""
+    """Yield ``(previous, view, following)`` for prev/next navigation.
+
+    The sequence runs across the whole corpus, so the last letter of one
+    volume leads straight into the first of the next -- which is how the
+    edition numbers them.
+    """
     for index, view in enumerate(views):
         yield (
             views[index - 1] if index > 0 else None,

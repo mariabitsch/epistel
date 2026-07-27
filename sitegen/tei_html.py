@@ -25,8 +25,36 @@ from .html import class_token, classes, element, text
 # Wrappers whose content is already the reading text: render straight through.
 TRANSPARENT = frozenset(["app", "lem", "choice", "abbr"])
 
-# Editorial apparatus and pointers to files this site does not ship.
-SKIPPED = frozenset(["witDetail", "graphic", "witStart", "witEnd"])
+# Elements that render to nothing, because they hold no text at all -- they
+# are editorial apparatus, or markers pointing at material this site does not
+# reproduce:
+#
+#   witDetail   a remark about the manuscript ("ms. beskadiget"); the parser
+#               already keeps it out of ``content`` and in ``note``
+#   witStart/   the start and end of a witness's coverage
+#   witEnd
+#   graphic     an illustration file, not shipped
+#   figDesc     a description of that illustration (empty in this corpus)
+#   ptr         a pointer to an illustration, or to a footnote printed
+#               elsewhere on the page
+#   milestone   a pointer into the entry numbering of another edition
+#               (@edRef="#BogA", Kierkegaard's *Breve og Aktstykker*), or an
+#               ellipsis marker inside the apparatus
+#
+# Dropping markup is only safe while it stays empty, so the claim is tested
+# against every letter in the corpus rather than assumed -- see
+# ``tests.test_sitegen.SkippedMarkupCarriesNoTextTest``.
+SKIPPED = frozenset(
+    [
+        "witDetail",
+        "witStart",
+        "witEnd",
+        "graphic",
+        "figDesc",
+        "ptr",
+        "milestone",
+    ]
+)
 
 # TEI element -> (HTML element, base class). Prose blocks: an empty one is
 # dropped, because the source uses them for blank space and flourishes.
@@ -66,6 +94,10 @@ INLINE = {
     # reference renders as plain text with its target kept for later.
     "ref": ("tei-ref", {"target": "data-target"}),
     "date": ("tei-date", {"when": "data-when"}),
+    # A number the edition sets as a formula -- always a date written as a
+    # fraction ("16/5 44"), of which the TEI keeps only the digits. Rendered
+    # as the digits it holds; reconstructing the fraction would be a guess.
+    "formula": ("tei-formula", {"notation": "data-notation"}),
     "supplied": ("tei-supplied", {}),
     "unclear": ("tei-unclear", {}),
     "corr": ("tei-corr", {}),
@@ -119,6 +151,8 @@ class BodyRenderer:
             return self._highlight(node)
         if type_ == "ref":
             return self._reference(node)
+        if type_ == "note":
+            return self._note(node)
         if type_ in BLOCKS:
             return self._block(node)
         if type_ in TABLE_ELEMENTS:
@@ -207,6 +241,28 @@ class BodyRenderer:
         if number:
             title = "%s: %s" % (title, number)
         return element("span", text("[%s]" % (number or "·")), class_=base, title=title)
+
+    def _note(self, node):
+        """A footnote the letter's author wrote, at the foot of the sheet.
+
+        Seven letters in the corpus carry one. It is the writer's own text,
+        not editorial apparatus, so it stays on the page -- set apart, the way
+        it is set apart on the paper. It holds paragraphs of its own, so it
+        cannot be an inline span; ``aside`` says what it is.
+
+        ``@anchored="false"`` (one letter, b234) records that the edition
+        found no reference marker for the note in the text. Carried through as
+        a data attribute rather than shown, so the fact is not lost.
+        """
+        inner = self._children(node)
+        if not inner.strip():
+            return ""
+        return element(
+            "aside",
+            inner,
+            class_=self._classes(node, "tei-note"),
+            data_anchored=node.get("anchored"),
+        )
 
     def _figure(self, node):
         """Illustrations are not shipped; a caption, if any, still is."""
