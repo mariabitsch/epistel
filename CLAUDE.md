@@ -80,10 +80,21 @@ public and CC0-licensed.
   must split output per letter rather than ship volume blobs.
 - **Display layer (slice 3, done):** `build.py` → `sitegen/` (escaping,
   dates, TEI-tree renderer, pages, site assembly; templates are plain
-  Python string functions). 49 display tests alongside the 21 parser
-  tests — `python3 -m unittest` runs all. The renderer never drops text
+  Python string functions). Display tests alongside the parser tests —
+  `python3 -m unittest` runs all. The renderer never drops text
   silently: unmodelled elements keep their text and are warned about at
   build time (currently `milestone`, `ptr`, `formula` — deliberate).
+- **Design (slice 4, done): "Eckersberg"** — Maria's pick from three
+  mockup directions (see `design/varianter/`, uncommitted). Museum
+  formidling: plaster ground, Prussian header band, sea-green metadata
+  card, gilt as frame-lines only (never text), pb markers as two-tone
+  gallery chips, a visual system for editorial marks. All contrast
+  pairs are measured and documented in `sitegen/static/site.css` — do
+  not tweak palette values casually. Fonts: Playfair Display (display)
+  + Spectral (body) self-hosted as woff2 in `sitegen/static/fonts/`
+  with OFL licences (66 KB total, latin subset — ɔ/Ψ/ℳ fall back to
+  system serif, accepted). Dark mode deliberately not implemented yet
+  (sketch preserved as CSS comment; slice 8 owns it).
 - Source-fidelity gaps found in slice 3 (all upstream, all left as-is per
   the preserve-uncertainty principle): `correspDesc` under-reports
   co-signers (letters 3, 29–32 have "og SK"-style headings but single
