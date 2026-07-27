@@ -1,0 +1,5 @@
+# Netlify build contract. The site is fully static: build.py (slice 3)
+# parses vendored TEI into JSON and generates dist/. No runtime services.
+[build]
+  command = "python3 build.py"
+  publish = "dist"
