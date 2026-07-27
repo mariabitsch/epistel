@@ -20,20 +20,22 @@ public and CC0-licensed.
 - Upstream repo: `github.com/kb-dk/SKS_tei` — license **CC0-1.0** (verified
   2026-07-27). TEI P5, "allPlus" ODD pinned to TEI Guidelines 3.2.0 (2017);
   generated schema files (`tei_allPlus.rnc` etc.) sit at the repo root.
-- Data root: `data/v1.9/`. The letters appear to live in the `b*` volume
-  directories — `b1, b43, b70, b79, b120, b127, b161, b171, b208, b234,
-  b241, b259, b276, b308` (ranges of letter numbers) — and dedications in
-  `ded`. **Verify this mapping against the TEI headers before relying on
-  it**; it is inferred from directory names.
+- Data root: `data/v1.9/`. The letters live in the `b*` volume directories —
+  `b1, b43, b70, b79, b120, b127, b161, b171, b208, b234, b241, b259, b276,
+  b308` — and dedications in `ded`. **Verified 2026-07-27:** the directory
+  names are the *starting global letter number* of each volume's range; the
+  letter number (`<div type="letter" n="…">`) is globally unique and is our
+  natural URL id. b1 contains letters 1–42.
 - Each volume directory contains: `txt.xml` (the text incl. letter
   metadata), `kom.xml` (commentary), `txr.xml` (text-critical apparatus),
   `int_*.xml` (introductions), `ill_*.jpg` (illustrations). `b1/txt.xml` is
   ~480 KB; the whole letter corpus is a few MB of XML — everything fits
   comfortably in memory.
 - Letter metadata uses standard TEI **`correspDesc`/`correspAction`/
-  `correspContext`** (b1/txt.xml contains 168/168/134 of them, verified by
-  direct count). Sample from a prior inspection — re-verify against the
-  actual file:
+  `correspContext`** — b1/txt.xml contains 42/84/42 of them (verified by
+  direct count 2026-07-27; the handoff's earlier claim of 168 was wrong).
+  Each letter div links its metadata: `<div type="letter" n="1" xml:id="n1"
+  corresp="#correspDesc1">`. Sample:
 
   ```xml
   <correspDesc xml:id="correspDesc1">
@@ -48,6 +50,14 @@ public and CC0-licensed.
   Kierkegaard); person names come in "Efternavn, Fornavn" form. Expect
   inconsistencies and partial data (undated letters, unnamed recipients) —
   surface them honestly in the UI; never silently "fix" the source.
+- Person identification (verified 2026-07-27, b1): `<persName>` in letter
+  bodies carries a `key` attribute with a normalized name ("Fenger,
+  Johannes Ferdinand") — the foundation for the person index. The `<name>`
+  elements inside `correspDesc` have **no** key/ref, only raw strings
+  ("SK", "Kierkegaard, P.C.") — mapping those onto persName keys needs a
+  small curated alias table. There is no `<listPerson>` in the header.
+- Letter-internal structure (b1 counts): opener 39, closer 39, salute 38,
+  signed 37, dateline 22, head 56, p 235, pb 171, hi 98, lb 13, note 1.
 - **Do not clone the upstream repo** (~190 MB, mostly images across all
   volumes). Fetch only the files you need via
   `https://raw.githubusercontent.com/kb-dk/SKS_tei/master/data/v1.9/...`.
@@ -118,13 +128,31 @@ CMS, user accounts, editing, annotations, analytics, server components,
 runtime API calls, and facsimile viewing beyond the `ill_*.jpg` files
 already in the volumes (include those only if trivially easy).
 
-## Open decisions (ask Maria only if blocking)
+## Decisions (settled with Maria, 2026-07-27)
 
-- Hosting: undecided; the repo is private for now. Build output must not
-  assume a particular host.
-- Code license: MIT suggested (vendored TEI stays CC0 with provenance
-  note); add the LICENSE file once confirmed.
+- **Hosting:** Netlify (`netlify.toml`: `python3 build.py` → `dist/`), but
+  build output stays host-agnostic (relative paths, no host-specific magic).
+- **License:** MIT for code (LICENSE committed); vendored TEI stays CC0
+  with provenance note in `data/vendor/PROVENANCE.md`, pinned to upstream
+  commit `27a6b110c24e97b381e010595b50f3ca3d4ca8c9`.
+- **Repo:** goal is a public GitHub repo. No personal information in
+  commits beyond Maria's name — repo-local git email is
+  `mariacodes@salonen.dk` (her public GitHub address).
+- **Stack:** Python 3 stdlib only for parser + site generator
+  (ElementTree, unittest); hand-written HTML/CSS + vanilla JS front-end;
+  prebuilt JSON search index; self-hosted OFL serif (Didot/Walbaum
+  direction — evoke the era, no fraktur body text).
+- **Workflow (demo-light):** atomic commits directly to main (Maria's
+  standing go for this project), no issue/PR machinery. Tests are required
+  where the thesis lives — the parser — and against the real vendored TEI.
+- **Presentation:** timeline as its own narrative page (publications +
+  residences from a hand-curated, source-cited `data/context/` dataset —
+  editorial layer, clearly separate from TEI truth); person index; front
+  page intro by **Victoria Eremita**, a fictional presenter in SK's own
+  pseudonym tradition (own personality, light loving irony), honestly
+  disclosed on the Om page along with AI assistance.
 
 ---
 
-*Handoff written by Claude Fable 5, July 2026.*
+*Handoff written by Claude Fable 5, July 2026. Kept up to date as the
+project evolves — correct it when reality disagrees with it.*
