@@ -165,6 +165,14 @@ already in the volumes (include those only if trivially easy).
 - **Workflow (demo-light):** atomic commits directly to main (Maria's
   standing go for this project), no issue/PR machinery. Tests are required
   where the thesis lives — the parser — and against the real vendored TEI.
+- **Design principle — preserve uncertainty (Maria, 2026-07-27):**
+  presenting historical sources is largely about *keeping* their
+  uncertainty. The UI shows what the edition actually knows and how it
+  knows it: precision-honest dates ("december 1848", "1837", "1846–47"),
+  editorial provenance visible ("dateret efter poststempel",
+  "redaktionelt dateret"), source defects surfaced rather than patched
+  (letter 39). Uncertainty is historical information, never a rendering
+  problem to hide. All display slices inherit this.
 - **Presentation:** timeline as its own narrative page (publications +
   residences from a hand-curated, source-cited `data/context/` dataset —
   editorial layer, clearly separate from TEI truth); person index; front
