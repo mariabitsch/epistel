@@ -10,12 +10,13 @@ the parser's internals.
 """
 
 import os
+import re
 import tempfile
 import unittest
 
 from pipeline.parse_tei import parse_volume
 from sitegen import dates
-from sitegen.site import build_site
+from sitegen.site import STATIC_DIRECTORY, build_site
 from sitegen.tei_html import BodyRenderer
 
 VENDORED_B1 = os.path.join(
@@ -315,10 +316,59 @@ class SiteBuildTest(unittest.TestCase):
             self.assertNotIn('href="/', page)
             self.assertNotIn('src="/', page)
 
+    def test_the_index_gives_every_correspondence_a_heading_block(self):
+        # The group's heading, its note and its count are one unit -- the
+        # design hangs them as a single band above the letters.
+        index = self.read("index.html")
+        self.assertEqual(
+            index.count('<div class="group-head">'),
+            index.count('<section class="correspondence"'),
+        )
+
     def test_the_stylesheet_ships_with_the_site(self):
         self.assertTrue(
             os.path.exists(os.path.join(self.directory.name, "assets", "site.css"))
         )
+
+    def test_the_fonts_ship_with_the_site(self):
+        """Self-hosted typography, copied byte for byte.
+
+        The site must look the same on a machine that has never heard of
+        Google Fonts, so the woff2 files travel with it.
+        """
+        source = os.path.join(STATIC_DIRECTORY, "fonts")
+        shipped = os.path.join(self.directory.name, "assets", "fonts")
+        names = sorted(name for name in os.listdir(source) if name.endswith(".woff2"))
+        self.assertTrue(names, "no webfonts are vendored")
+        for name in names:
+            with open(os.path.join(source, name), "rb") as file:
+                original = file.read()
+            self.assertEqual(original[:4], b"wOF2", "%s is not a woff2 file" % name)
+            with open(os.path.join(shipped, name), "rb") as file:
+                self.assertEqual(file.read(), original, "%s changed in transit" % name)
+
+    def test_every_vendored_font_carries_its_licence(self):
+        shipped = os.listdir(os.path.join(self.directory.name, "assets", "fonts"))
+        self.assertTrue([name for name in shipped if name.startswith("OFL-")])
+
+    def test_the_stylesheet_fetches_nothing_at_runtime(self):
+        assets = os.path.join(self.directory.name, "assets")
+        with open(os.path.join(assets, "site.css"), encoding="utf-8") as file:
+            css = file.read()
+        self.assertNotIn("@import", css)
+        references = [
+            reference.strip("'\" ") for reference in re.findall(r"url\(([^)]+)\)", css)
+        ]
+        self.assertTrue(references, "the stylesheet loads no fonts")
+        for reference in references:
+            self.assertFalse(
+                reference.startswith(("http", "//", "/")),
+                "%s is not a self-contained reference" % reference,
+            )
+            self.assertTrue(
+                os.path.exists(os.path.join(assets, reference)),
+                "%s is missing from the built site" % reference,
+            )
 
     def test_the_build_is_deterministic(self):
         with tempfile.TemporaryDirectory() as other:

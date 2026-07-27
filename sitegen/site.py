@@ -5,7 +5,7 @@ static files::
 
     index.html              every letter, grouped by correspondence
     brev/<letter>/index.html    one letter
-    assets/site.css
+    assets/site.css         plus assets/fonts/ -- everything static/ holds
 
 The output directory is recreated from scratch on every build, and the same
 input always produces byte-identical output.
@@ -174,8 +174,18 @@ def _write(out_dir, parts, content):
 
 
 def _copy_static(out_dir):
-    """Copy the stylesheet in. Self-contained output: nothing is fetched."""
-    target = os.path.join(out_dir, "assets")
-    os.makedirs(target, exist_ok=True)
-    for name in sorted(os.listdir(STATIC_DIRECTORY)):
-        shutil.copyfile(os.path.join(STATIC_DIRECTORY, name), os.path.join(target, name))
+    """Copy ``static/`` in: the stylesheet, the fonts, and the fonts' licences.
+
+    Self-contained output -- the built site fetches nothing at runtime, so the
+    typography has to travel with it, and the OFL requires its notice to
+    travel with the typography. Developer notes (``README.md``) and dotfiles
+    stay in the repository: they are not part of the site. Copied by content
+    only, no timestamps, so two builds of the same input agree.
+    """
+    shutil.copytree(
+        STATIC_DIRECTORY,
+        os.path.join(out_dir, "assets"),
+        copy_function=shutil.copyfile,
+        ignore=shutil.ignore_patterns(".*", "README.md"),
+        dirs_exist_ok=True,
+    )

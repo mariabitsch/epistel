@@ -1,142 +1,759 @@
-/* Placeholder stylesheet.
- *
- * Slice 3 is about getting the real text onto real pages; the design pass
- * comes later. This file therefore does the minimum: a readable measure, a
- * visible structure, and enough styling of the TEI classes that page markers
- * and manuscript emphasis do not read as noise. No fonts are loaded -- the
- * site must stay self-contained -- so everything uses the reader's own.
- */
+/* =========================================================================
+   epistel — visual direction "Eckersberg"
+   Golden Age light as the painters saw it: dusty Prussian blue, sea-green,
+   warm plaster, a gilt frame-line. A modern museum presenting old letters.
 
-:root {
-  --ink: #1a1a1a;
-  --muted: #5a5a5a;
-  --rule: #d8d4cc;
-  --paper: #fbfaf7;
-  --measure: 34rem;
+   This is design/varianter/eckersberg/ as shipped. Every colour below was
+   chosen against a measured contrast ratio, recorded in the comment beside
+   it: change a value and the pair it belongs to has to be re-measured.
+
+   FONTS
+   -----
+   Two OFL families, self-hosted as woff2 in assets/fonts -- no CDN, no
+   external request at runtime (build brief, rule 2). Sources, versions and
+   licences: static/fonts/README.md.
+     · display  -> Playfair Display   (Didone; stands in for Didot / Bodoni 72)
+     · body     -> Spectral           (warm transitional, generous x-height;
+                                       stands in for Palatino / Hoefler Text)
+     · labels   -> the reader's own sans. The museum-label micro-type is
+                   small and sparse; a third webfont would cost more than it
+                   would add.
+   The system stacks stay in the font-family lists as real fallbacks behind
+   the webfonts: the site must remain readable with zero webfonts loaded.
+
+   DARK MODE  (sketched, not implemented -- a later slice owns it)
+   ---------------------------------------------------------------
+   The direction inverts rather than dims. Ground becomes a low-chroma
+   Prussian night (--ground #141a1e, --paper #1b2226, --ink #e9e5d9); the two
+   deep blocks stop being "dark on light" and become *raised* surfaces
+   (--prussian #35566a, --seagreen #44604f) so the header band and the museum
+   label still read as objects placed on a wall. Gilt lifts to #d8b869 for
+   the frame lines (it must not sit at #b08d3e on a dark ground — it goes
+   muddy). The pb chips keep the two-series split by hue but swap solid tints
+   for 14% alpha washes with the text at #a8c6d6 / #dcbe83. Everything else
+   is a token swap; no layout changes.
+   ========================================================================= */
+
+/* ---------------------------------------------------------------- fonts
+   Subsetted to the "latin" range, which covers Danish (æ ø å Æ Ø Å) and the
+   corpus' punctuation. Three characters in b1 -- ɔ (U+0254), Ψ (U+03A8) and
+   ℳ (U+2133), eight occurrences in one letter -- fall outside it and are
+   drawn by the reader's fallback serif; a whole extra subset for eight
+   glyphs is not a trade the reader benefits from.
+
+   Only the four faces the stylesheet actually asks for are vendored:
+   Playfair 400 for the display line, Spectral 400 / 400 italic / 600 for
+   reading text, editorial asides and the two emphasised runs.
+
+   font-display: swap -- the text is the point, and it must never wait for
+   the type to arrive.                                                     */
+
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/playfair-display-latin-400-normal.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-html { font-size: 100%; }
+@font-face {
+  font-family: "Spectral";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/spectral-latin-400-normal.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Spectral";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/spectral-latin-400-italic.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Spectral";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/spectral-latin-600-normal.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* --- surfaces ------------------------------------------------------- */
+  --ground:      #f6f3ec;   /* warm plaster wall the whole site hangs on   */
+  --paper:       #fdfcf9;   /* the letter's own quiet ground               */
+  --plaster:     #ece6d9;   /* tinted field, warm                          */
+  --sea-tint:    #e7ece7;   /* tinted field, cool                          */
+  --hover:       #f7f4ec;
+
+  /* --- deep blocks (the colour blocking) ------------------------------ */
+  --prussian:    #2e4a5a;   /* site-header band; link colour on light      */
+  --seagreen:    #3b4f45;   /* the museum-label card                       */
+
+  /* --- ink ------------------------------------------------------------ */
+  --ink:         #20211d;   /* 14.61:1 on ground, 15.79:1 on paper         */
+  --ink-soft:    #454840;   /*  8.41:1 on ground                           */
+  --muted:       #575a51;   /*  6.35:1 on ground, 5.65:1 on plaster        */
+
+  /* --- gilt: two values, because gold does not pass AA as type --------- */
+  --gilt:        #b08d3e;   /*  2.82:1 — RULES AND FRAMES ONLY, never text */
+  --gilt-text:   #7a5b18;   /*  5.68:1 on ground — the same accent, as type*/
+  --gilt-light:  #c9a856;   /*  4.11:1 on prussian, 3.86:1 on seagreen     */
+
+  /* --- type on deep grounds ------------------------------------------- */
+  --on-deep:     #f2efe4;   /*  8.29:1 on prussian, 7.63:1 on seagreen     */
+  --on-blue-mut: #b7c8d0;   /*  5.43:1 on prussian                         */
+  --on-deep-mut: #b7c6ba;   /*  4.94:1 on seagreen                         */
+  --on-deep-acc: #e6dfcb;   /*  6.60:1 on seagreen                         */
+
+  /* --- hairlines (decorative; carry no information on their own) ------- */
+  --rule:        #ded7c6;
+  --rule-warm:   #d8cdb4;
+  --rule-cool:   #d3ddd4;
+  --rule-faint:  #eae5d9;
+
+  /* --- type ----------------------------------------------------------- */
+  --display: "Playfair Display", "Didot", "Bodoni 72", "Hoefler Text", Georgia, serif;
+  --body:    "Spectral", "Palatino", "Palatino Linotype", "Book Antiqua", "Hoefler Text", Georgia, serif;
+  --label:   -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* --- measure -------------------------------------------------------- */
+  --shell:   46rem;                          /* outer column, incl. gutter */
+  --gutter:  clamp(1.15rem, 4vw, 2.5rem);
+}
+
+/* ---------------------------------------------------------------- base */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 100%; -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  padding: 0 1.25rem 4rem;
-  background: var(--paper);
+  background: var(--ground);
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.6;
+  font-family: var(--body);
+  font-size: 1.0625rem;      /* 17px — Spectral, like Palatino, wants it   */
+  line-height: 1.72;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-main, .site-header, .site-footer { max-width: var(--measure); margin: 0 auto; }
+/* One shared column: header band, main and footer band all align on it.  */
+.site-header > p,
+.site-footer > p,
+main {
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
 
-a { color: inherit; }
+main { padding-bottom: 4.5rem; }
+
+a { color: var(--prussian); }
+
+/* Focus: a Prussian ring on light ground (8.45:1), a bone ring on the deep
+   blocks (8.07 / 7.63:1). Both far past the 3:1 floor for UI indicators.   */
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--prussian);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+.site-header a:focus-visible,
+.letter > header .letter-meta a:focus-visible {
+  outline-color: var(--on-deep);
+}
+a:focus { outline: 2px solid var(--prussian); outline-offset: 3px; }
+a:focus:not(:focus-visible) { outline: none; }
 
 .skip-link {
   position: absolute;
   left: -100vw;
+  top: 0;
 }
 .skip-link:focus {
   position: static;
-  display: inline-block;
-  padding: 0.5rem;
+  display: block;
+  padding: 0.7rem var(--gutter);
+  background: var(--gilt-text);
+  color: #fff;                          /* 6.05:1 */
+  font-family: var(--label);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  outline: none;
 }
 
-.site-header { padding: 1.5rem 0 0.5rem; }
-.site-title { margin: 0; font-weight: bold; letter-spacing: 0.08em; }
-.site-title a { text-decoration: none; }
-.site-tagline, .muted, .group-count, .group-note, .date-provenance {
+/* -------------------------------------------------------- header band */
+
+.site-header {
+  background: var(--prussian);
+  color: var(--on-deep);
+  border-bottom: 2px solid var(--gilt-light);   /* the gallery frame edge */
+  padding: 1.5rem 0 1.35rem;
+}
+
+.site-title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  line-height: 1.1;
+}
+.site-title a {
+  color: var(--on-deep);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.site-title a:hover { border-bottom-color: var(--gilt-light); }
+
+.site-tagline {
+  margin: 0.5rem 0 0;
+  font-family: var(--label);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--on-blue-mut);
+}
+
+/* -------------------------------------------------------- footer band */
+
+.site-footer {
+  margin-top: 4.5rem;
+  background: var(--plaster);
+  border-top: 1px solid var(--rule-warm);
+  padding: 2rem 0 2.5rem;
+}
+.site-footer p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.68;
+  color: var(--muted);                  /* 5.65:1 on plaster */
+}
+.site-footer a { color: var(--gilt-text); }   /* 5.06:1 on plaster */
+
+/* ------------------------------------------------------------ display */
+
+h1 {
+  position: relative;
+  margin: 2.9rem 0 0;
+  padding-top: 1.5rem;
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 7vw, 3.7rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+h1::before {                       /* the gilt tick: one accent, top left */
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 3.25rem;
+  height: 3px;
+  background: var(--gilt);
+}
+
+.lead {
+  max-width: 34rem;
+  margin: 1.35rem 0 0;
+  font-size: 1.12rem;
+  line-height: 1.66;
+  color: var(--ink-soft);            /* 8.41:1 */
+}
+.lead strong { font-weight: 600; color: var(--ink); }
+
+/* ================================================================ INDEX
+   Eight correspondence groups, each hung as its own section of gallery
+   wall: a tinted heading band above a clean run of entry rows.          */
+
+.correspondence {
+  margin-top: 3rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--gilt);
+}
+
+.group-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 0 1rem;
+  padding: 1.15rem 1.5rem 1.1rem;
+  background: var(--plaster);
+  border-bottom: 1px solid var(--rule-warm);
+}
+/* Two tints, alternating, so eight sections read as rhythm and not repeat. */
+.correspondence:nth-of-type(even) .group-head {
+  background: var(--sea-tint);
+  border-bottom-color: var(--rule-cool);
+}
+
+.group-head h2 {
+  grid-column: 1;
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+}
+.group-head .group-note {
+  grid-column: 1;
+  margin: 0.3rem 0 0;
+  font-size: 0.93rem;
+  font-style: italic;
+  color: var(--muted);               /* 5.65 / 5.88:1 on the two tints */
+}
+.group-head .group-count {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  margin: 0.2rem 0 0;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid rgba(176, 141, 62, 0.55);
+  background: rgba(253, 252, 249, 0.55);
+  font-family: var(--label);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.letter-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.letter-entry {
+  display: grid;
+  grid-template-columns: 6.75rem 1fr;
+  align-items: baseline;
+  gap: 0.4rem 1.5rem;
+  padding: 0.95rem 1.5rem 1.05rem;
+  border-top: 1px solid var(--rule-faint);
+}
+.letter-entry:first-child { border-top: 0; }
+.letter-entry:hover { background: var(--hover); }
+
+.letter-entry h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.letter-entry h3 a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 74, 90, 0.28);
+}
+.letter-entry h3 a:hover { border-bottom-color: var(--gilt); }
+
+/* The label rhythm: tiny caps over the value, three fields in fixed columns.
+   Fixed (not auto) columns on purpose — the fields must line up down the whole
+   wall, not shuffle sideways whenever a sender's name is longer.            */
+.letter-entry .letter-meta {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 8.75rem 9.5rem 1fr;
+  align-items: start;
+  gap: 0.5rem 1rem;
+}
+.letter-entry .letter-meta > div { min-width: 0; }
+.letter-entry .letter-meta dt {
+  font-family: var(--label);
+  font-size: 0.61rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.letter-entry .letter-meta dd {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.4;
+}
+
+/* Preserve uncertainty: the edition's own hedging, set as an editorial
+   aside in gilt italic — quiet, but never absent. 5.68:1 on the ground,
+   5.33:1 on the hover tint.                                             */
+.date-provenance {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.76rem;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--gilt-text);
+}
+
+/* =============================================================== LETTER */
+
+.crumb {
+  margin: 1.9rem 0 0;
+  font-family: var(--label);
+  font-size: 0.74rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.crumb a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 74, 90, 0.3);
+  padding-bottom: 0.15rem;
+}
+.crumb a:hover { border-bottom-color: var(--gilt); }
+
+/* --- the museum label -------------------------------------------------
+   Deep sea-green card, bone type, a hairline gilt frame set just inside
+   the edge. This is the one place on the letter page where colour is
+   allowed to be loud; the transcription below stays on quiet paper.     */
+.letter > header .letter-meta {
+  margin: 2rem 0 0;
+  padding: 1.6rem 1.8rem 1.7rem;
+  background: var(--seagreen);
+  color: var(--on-deep);
+  box-shadow: inset 0 0 0 1px rgba(201, 168, 86, 0.5);
+}
+.letter > header .letter-meta > div {
+  display: grid;
+  grid-template-columns: 8.25rem 1fr;
+  gap: 0.25rem 1.2rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid rgba(242, 239, 228, 0.16);
+}
+.letter > header .letter-meta > div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.letter > header .letter-meta dt {
+  font-family: var(--label);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--on-deep-mut);          /* 4.94:1 */
+  line-height: 1.9;
+}
+.letter > header .letter-meta dd {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+.letter > header .letter-meta a {
+  color: var(--on-deep-acc);          /* 6.60:1 */
+  text-decoration: none;
+  border-bottom: 1px solid rgba(230, 223, 203, 0.45);
+}
+.letter > header .letter-meta a:hover { border-bottom-color: var(--gilt-light); }
+.letter > header .letter-meta .date-provenance { color: #cbd6c8; }  /* 5.85:1 */
+
+/* --- the transcription ------------------------------------------------
+   Colour frames the letter; it never floods it. Paper, a hairline, one
+   gilt edge along the top, and a measure of roughly 64 characters.      */
+.transcription {
+  margin: 2.6rem 0 0;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--gilt);
+  box-shadow: 0 14px 30px -26px rgba(46, 74, 90, 0.55);
+  line-height: 1.78;
+}
+/* Closing mark: a small gilt lozenge, drawn with borders so screen
+   readers have nothing to announce. */
+.transcription::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin: 2.4rem auto 0.2rem;
+  border: 1px solid var(--gilt);
+  transform: rotate(45deg);
+}
+
+.tei-p { margin: 0 0 0.25rem; }
+.r-ind { text-indent: 1.4em; }
+.r-cen { text-align: center; }
+.r-bag, .r-baglang, .r-bagxlang, .r-bagind { text-align: right; }
+.tei-l { display: block; }
+.tei-div--mainText { margin: 0; }
+
+/* Opener / salutation: the one line that gets the display face and the
+   Prussian of the header band (9.12:1 on paper). */
+.tei-opener { margin: 0 0 1.9rem; }
+.tei-salute .tei-l {
+  font-family: var(--display);
+  font-size: 1.32rem;
+  line-height: 1.4;
+  color: var(--prussian);
+}
+
+/* Closer: signature and dateline exhibited as two small objects, set to
+   the right the way they sit on the sheet. */
+.tei-closer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.85rem;
+  margin: 2.4rem 0 0;
+}
+.tei-signed {
+  padding: 0.85rem 1.2rem;
+  border-left: 2px solid var(--gilt);
+  background: rgba(236, 230, 217, 0.5);
+  line-height: 1.55;
+}
+.tei-signed .tei-l:last-child {
+  font-family: var(--display);
+  font-size: 1.14rem;
+  margin-top: 0.2rem;
+}
+.tei-dateline {
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--rule);
+  background: #faf7ef;
+  font-family: var(--display);
+  font-size: 0.98rem;
+}
+
+/* Envelope address: frame within frame — the gallery-frame gesture, used
+   once, on the object that most deserves it. */
+.tei-trailer--addrOnEnvelope {
+  margin: 2.9rem 0 0;
+  padding: 1.5rem 1.7rem;
+  background: var(--plaster);
+  border: 1px solid var(--rule-warm);
+  box-shadow:
+    inset 0 0 0 1px var(--paper),
+    inset 0 0 0 2px rgba(176, 141, 62, 0.45);
+  line-height: 1.7;
+}
+.tei-trailer--addrOnEnvelope .tei-l { margin-bottom: 0.15rem; }
+.tei-table { border-collapse: collapse; margin: 0.7rem 0 0; }
+.tei-cell { padding: 0.1rem 1.4rem 0.1rem 0; vertical-align: top; }
+
+.tei-postscript, .tei-lg { margin: 1.4rem 0; }
+.tei-lg { padding-left: 1.5rem; }
+.tei-figure-caption {
+  display: block;
   color: var(--muted);
   font-size: 0.85rem;
 }
-.site-tagline { margin: 0 0 1.5rem; }
 
-.site-footer {
-  margin-top: 4rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--rule);
-  color: var(--muted);
-  font-size: 0.8rem;
+/* --- page and leaf boundaries ----------------------------------------
+   Two pagination series, two tones: blue-grey for the manuscript leaves,
+   ochre for the SKS print pages. Gallery-number chips — small enough to
+   read past, bordered enough that they are never "hidden". Their title
+   attributes carry the edition's own wording. */
+.tei-pb {
+  display: inline-block;
+  margin: 0 0.2em;
+  padding: 0.02rem 0.34rem;
+  border: 1px solid;
+  border-radius: 2px;
+  font-family: var(--label);
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  vertical-align: 0.34em;
+  white-space: nowrap;
+  text-indent: 0;
+  cursor: help;
+}
+.tei-pb--manuscript {
+  color: #2b4a59;                 /* 7.56:1 on its own tint */
+  background: #dde8ed;
+  border-color: #8aa8b6;
+}
+.tei-pb--print {
+  color: #634d10;                 /* 6.67:1 on its own tint */
+  background: #f2e9d1;
+  border-color: #bda76b;
 }
 
-h1 { font-size: 1.6rem; line-height: 1.25; }
-h2 { font-size: 1.15rem; margin-top: 2.5rem; }
-h3 { font-size: 1rem; margin-bottom: 0.25rem; }
-.lead { color: var(--muted); }
+/* --- editorial and manuscript marks ----------------------------------
+   Preserve uncertainty: everything the edition flags stays flagged.
+   supplied -> square brackets (the scholarly convention), gilt
+   unclear  -> under-dots
+   corr     -> a Prussian dashed rule (editor's correction, not doubt)
+   add      -> a faint ochre wash: written above the line in the source */
+.tei-supplied { color: var(--gilt-text); }     /* 6.13:1 on paper */
+.tei-supplied::before { content: "["; }
+.tei-supplied::after  { content: "]"; }
 
-/* Index --------------------------------------------------------------- */
+.tei-unclear { border-bottom: 1px dotted rgba(122, 91, 24, 0.8); }
+.tei-corr    { border-bottom: 1px dashed rgba(46, 74, 90, 0.55); }
 
-.correspondence { border-top: 1px solid var(--rule); }
-.group-note, .group-count { margin: 0.15rem 0; }
-.letter-list { list-style: none; padding: 0; }
-.letter-entry { margin: 1.25rem 0; }
-
-.letter-meta { margin: 0; font-size: 0.9rem; }
-.letter-meta > div { display: flex; gap: 0.5rem; }
-.letter-meta dt { color: var(--muted); min-width: 6.5rem; }
-.letter-meta dd { margin: 0; }
-
-/* Letter -------------------------------------------------------------- */
-
-.crumb { font-size: 0.85rem; }
-.letter .letter-meta {
-  padding: 0.75rem 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
+.tei-add {
+  padding: 0 0.12em;
+  background: rgba(176, 141, 62, 0.14);   /* ink still 13.92:1 */
+  border-bottom: 1px solid rgba(176, 141, 62, 0.5);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
-.transcription { margin: 2rem 0; }
+/* Named entities: a hairline the eye can ignore while reading and find
+   when looking. Deliberately not hover-reactive — they are not links. */
+.tei-persName  { border-bottom: 1px solid rgba(46, 74, 90, 0.42); }
+.tei-placeName { border-bottom: 1px solid rgba(59, 79, 69, 0.42); }
+.tei-persName .tei-persName,
+.tei-persName .tei-supplied { border-bottom: 0; }
+
+/* The manuscript's own hand. #lat marks Latin script inside a gothic
+   hand — given the display face, which is the closest a webpage gets to
+   a change of script without pretending to be a facsimile. */
+.r-lat { font-family: var(--display); letter-spacing: 0.01em; }
+.r-und { text-decoration: underline; text-underline-offset: 0.15em; }
+.r-dun { text-decoration: underline double; text-underline-offset: 0.15em; }
+.r-size1 { font-size: 1.25em; }
+sup, .r-sup { font-size: 0.66em; line-height: 0; }
+
+/* The SKS rendition vocabulary also carries horizontal placement hints
+   (#lang, #xlang, #x2lang … #kort). We honour them structurally — via the
+   closer and envelope framing above — rather than reproducing millimetre
+   indents that would only pretend to be the sheet. */
+
+/* --- letter navigation ------------------------------------------------ */
 
 .letter-nav {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--rule);
-  font-size: 0.9rem;
+  margin: 2.9rem 0 0;
 }
+.letter-nav a {
+  padding: 0.7rem 1.05rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-family: var(--label);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.letter-nav a:hover { border-color: var(--gilt); background: #fff; }
 .nav-next { margin-left: auto; text-align: right; }
-.sibling-list { padding-left: 1.1rem; }
 
-/* TEI ----------------------------------------------------------------- */
+/* --- same correspondence ---------------------------------------------- */
 
-.tei-opener, .tei-closer, .tei-postscript, .tei-trailer, .tei-lg {
-  margin: 1.25rem 0;
+.same-correspondence {
+  margin-top: 3.4rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--gilt);
 }
-.tei-l { display: block; }
-.tei-lg { padding-left: 1.5rem; }
-.tei-signed, .tei-dateline { color: inherit; }
-.tei-table { border-collapse: collapse; margin: 0.5rem 0; }
-.tei-cell { padding: 0 0.75rem 0 0; vertical-align: top; }
+.same-correspondence h2 {
+  margin: 0;
+  padding: 1.1rem 1.5rem 0;
+  background: var(--sea-tint);
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.same-correspondence .group-note {
+  margin: 0;
+  padding: 0.3rem 1.5rem 1.1rem;
+  background: var(--sea-tint);
+  border-bottom: 1px solid var(--rule-cool);
+  font-size: 0.93rem;
+  font-style: italic;
+  color: var(--muted);            /* 5.88:1 on the sea tint */
+}
 
-/* Page and leaf boundaries: present, but out of the way of the reading. */
-.tei-pb {
+.sibling-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 0.85rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
+  gap: 0.1rem 0.5rem;
+}
+.sibling-list li {
+  padding: 0.32rem 0.65rem;
+  font-size: 0.94rem;
+  line-height: 1.45;
+  border-left: 2px solid transparent;
+}
+.sibling-list a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 74, 90, 0.28);
+}
+.sibling-list a:hover { border-bottom-color: var(--gilt); }
+.sibling-list .muted {
   color: var(--muted);
-  font-size: 0.7em;
-  vertical-align: 0.35em;
-  white-space: nowrap;
-  cursor: help;
+  font-size: 0.86em;
 }
-.tei-pb--print { opacity: 0.7; }
+.sibling-list li.current {
+  background: var(--plaster);
+  border-left-color: var(--gilt);
+  font-weight: 600;
+}
+.current-marker {
+  display: block;
+  font-family: var(--label);
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gilt-text);        /* 5.06:1 on the plaster highlight */
+  white-space: nowrap;
+}
 
-.tei-figure-caption { display: block; color: var(--muted); font-size: 0.85rem; }
-.tei-supplied { color: #333; }
+.muted { color: var(--muted); }
 
-/* The manuscript's own emphasis, as close as HTML gets. */
-.r-und { text-decoration: underline; }
-.r-dun { text-decoration: underline double; }
-.r-size1 { font-size: 1.3em; }
+/* ------------------------------------------------------------ narrow */
 
-/* Layout hints from the edition's rendition vocabulary. */
-.r-ind { text-indent: 1.5em; }
-.r-cen { text-align: center; }
-.r-bag, .r-baglang, .r-bagxlang, .r-bagind { text-align: right; }
-.tei-p { margin: 0 0 0.35rem; }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ink: #e8e6e1;
-    --muted: #a5a09a;
-    --rule: #3a3733;
-    --paper: #16150f;
+@media (max-width: 34rem) {
+  body { font-size: 1rem; }
+  h1 { margin-top: 2.2rem; }
+  .group-head { grid-template-columns: 1fr; }
+  .group-head .group-count {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    margin-top: 0.6rem;
   }
-  .tei-supplied { color: #ddd; }
+  .letter-entry {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    padding-inline: 1.1rem;
+  }
+  .letter-entry .letter-meta {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+  }
+  .letter-entry .letter-meta > div:last-child { grid-column: 1 / -1; }
+  .group-head { padding-inline: 1.1rem; }
+  .letter > header .letter-meta > div { grid-template-columns: 1fr; gap: 0.05rem; }
+  .letter > header .letter-meta dt { line-height: 1.6; }
+  .tei-closer { align-items: stretch; }
+  .letter-nav { flex-direction: column; }
+  .nav-next { margin-left: 0; text-align: left; }
+  .sibling-list { padding-inline: 0.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
 }

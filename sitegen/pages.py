@@ -71,6 +71,12 @@ def letter_page(view, previous, following, section):
 
 
 def _section(section):
+    """One correspondence: who it is with, and every letter in it.
+
+    Heading, note and count are wrapped as one block, because they are one
+    thing -- the label on the group -- and the design sets them as a band
+    above the letters rather than as three loose paragraphs.
+    """
     heading = element("h2", text(section["heading"]))
     notes = "".join(
         element("p", text(note), class_="group-note")
@@ -81,7 +87,8 @@ def _section(section):
     entries = "".join(_entry(view) for view in section["letters"])
     return element(
         "section",
-        heading + notes + count + element("ol", entries, class_="letter-list"),
+        element("div", heading + notes + count, class_="group-head")
+        + element("ol", entries, class_="letter-list"),
         class_="correspondence",
         id=section["id"],
     )
