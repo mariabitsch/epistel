@@ -58,6 +58,26 @@ public and CC0-licensed.
   small curated alias table. There is no `<listPerson>` in the header.
 - Letter-internal structure (b1 counts): opener 39, closer 39, salute 38,
   signed 37, dateline 22, head 56, p 235, pb 171, hi 98, lb 13, note 1.
+- **Parser (slice 2, done):** `pipeline/parse_tei.py`. Its module docstring
+  IS the contract documentation — read it before consuming parser output.
+  `parse_volume(path) -> dict` (groups/letters/warnings); `plain_text()` is
+  the seam for the future search index. Tests: `python3 -m unittest` from
+  the repo root, against the real vendored b1.
+- More verified b1 quirks (2026-07-27): partial dates are **zero-padded**
+  (`18370000` = 1837, `18481200` = Dec 1848 — never slice naively); 16/42
+  letters lack day precision, 11 dates carry `notAfter` ranges, 23 are
+  editorial/postmark-derived (`@source`). Letter headings live in `@n` of
+  *empty* `<head type="letterHeader">` elements; letter 39's is broken in
+  the source ("· til familien") — displays should fall back to correspDesc.
+  The text-critical apparatus is inline in txt.xml (`app`/`lem`/`rdg`,
+  `choice`/`abbr`/`expan`, `witDetail`) — the parser keeps variants out of
+  the reading flow. Two pagination series: `pb` for manuscript leaves and
+  for SKS print pages (`@edRef`), a few with `@facs` → `ill_*.jpg`. 759
+  `<ref type="commentary">` targets point into `kom.xml` (not vendored
+  yet). Senders are not all SK (35/42; also Else, M.P., H.P., M.A.
+  Kierkegaard). No place data in `correspAction` — places only occur in
+  datelines inside letter text. b1 as JSON ≈ 494 KB, so the site build
+  must split output per letter rather than ship volume blobs.
 - **Do not clone the upstream repo** (~190 MB, mostly images across all
   volumes). Fetch only the files you need via
   `https://raw.githubusercontent.com/kb-dk/SKS_tei/master/data/v1.9/...`.
