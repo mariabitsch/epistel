@@ -5,3 +5,6 @@ build/
 __pycache__/
 *.pyc
 .venv/
+
+# Derived swarm grounding, regenerable from data/vendor
+data/context/grounding/
