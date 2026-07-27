@@ -84,6 +84,18 @@ public and CC0-licensed.
   `python3 -m unittest` runs all. The renderer never drops text
   silently: unmodelled elements keep their text and are warned about at
   build time (currently `milestone`, `ptr`, `formula` — deliberate).
+- **Full corpus (slice 5 part 1, done):** 336 letters, 14 volumes, 85
+  correspondence groups (`pipeline/corpus.py`). Numbering: whole numbers
+  1–318 gapless and collision-free plus 15 sub-numbers (159.1–159.9,
+  280.1, 304.1–.5); b171 has three `@n="-"` cross-reference stubs →
+  slug URLs (`/brev/b171-n171a/`) and an honest "no letter text here"
+  notice. `correspContext` ids repeat across volumes — anchors are
+  volume-prefixed. **ded is excluded** (no correspDesc/letter model,
+  book-based grouping, numbering collides with letters 1–119 — see
+  corpus.py docstring). One permanent parser warning: b43 letter 50 has
+  malformed `notAfter="1847000"` (7 digits), kept raw, iso=None. Known
+  gap: that unreadable upper bound is not yet surfaced to the reader
+  (dates.py follow-up).
 - **Commentary parser (done):** `pipeline/parse_kom.py` — docstring is
   the contract. Key facts: 4376 notes corpus-wide, uniformly
   `<label>` (lemma) + `<p>` (prose); `@n="*"` on a persName marks the
