@@ -1,0 +1,665 @@
+{
+  "_meta": {
+    "dataset": "publications",
+    "title": "Søren Kierkegaards udgivelser i hans levetid (1834–1855)",
+    "description": "Kronologisk liste over de skrifter Søren Kierkegaard fik udgivet, mens han levede — fra debuten som avisskribent i 1834 og Af en endnu Levendes Papirer (1838) til Øieblikket nr. 9 (1855). Datasættet er lavet til tidslinjesiden, hvor brevene kan ses op mod forfatterskabet.",
+    "editorialLayer": true,
+    "notFromTEI": "Dette er et redaktionelt lag, håndkurateret og kildebelagt. Det stammer IKKE fra den vendorerede TEI i data/vendor/, som er uændret kildetekst. Alt her er tilføjet ovenpå og kan bestrides, rettes og skiftes ud uafhængigt af TEI-laget.",
+    "compiled": "2026-07-27",
+    "compiledWith": "Håndkurateret med AI-assistance (Claude Opus 5). Hver post er verificeret mod online kilder på kompileringsdatoen; hvor kilder er uenige, står uenigheden i postens note.",
+    "datingPrinciple": "Datoen er udgivelsesdatoen, sådan som Søren Kierkegaards Skrifter angiver den i sin tekstredegørelse — enten »udkom« eller den dag, skriftet blev annonceret som udkommet i dagspressen. Datoen for færdigtrykning er en anden og som regel tidligere dato; den er ikke brugt her. Præcisionen (»day«, »month«, »year«) siger, hvor meget kilden faktisk fastslår — den er aldrig pyntet op.",
+    "scopeNote": "Kun skrifter udgivet i Kierkegaards levetid. Posthume udgivelser (bl.a. Øieblikket nr. 10, Synspunktet for min Forfatter-Virksomhed, Dømmer selv!, journalerne) er udeladt. Avisartikler er taget med, hvor de hører til forfatterskabet, og er markeret som sådan i noten.",
+    "generalSources": [
+      {
+        "work": "Søren Kierkegaards Skrifter (SKS), tekstredegørelser, udg. af Søren Kierkegaard Forskningscenteret; digital udgave på Det Kgl. Biblioteks tekstportal",
+        "url": "https://tekster.kb.dk/sks"
+      },
+      {
+        "work": "Søren Kierkegaards Skrifter, elektronisk udgave — værkoversigt og sigler",
+        "url": "https://sks.etxt.dk/forside/skr.htm?sort=dat"
+      },
+      {
+        "work": "Søren Kierkegaard Forskningscenteret, »Tidstavle over Søren Kierkegaards liv og værker«, Københavns Universitet",
+        "url": "https://teol.ku.dk/skc/om-soeren-kierkegaard/tidslinje/"
+      },
+      {
+        "work": "Dansk Biografisk Leksikon, »Søren Kierkegaard«, lex.dk",
+        "url": "https://biografiskleksikon.lex.dk/S%C3%B8ren_Kierkegaard"
+      }
+    ]
+  },
+  "publications": [
+    {
+      "title": "Artikler i Kjøbenhavns flyvende Post",
+      "pseudonym": null,
+      "date": {
+        "raw": "17. december 1834 – 10. april 1836",
+        "iso": "1834-12-17",
+        "precision": "day"
+      },
+      "note": "Samlet post for debuten som avisskribent: »Ogsaa et Forsvar for Qvindens høie Anlæg« (Interimsblad nr. 34, 17. dec. 1834, signeret »A«), »Om Fædrelandets Polemik« (nr. 82 og 83, 12. og 15. marts 1836, signeret »B«) og »Til Hr. Orla Lehmann« (nr. 87, 10. april 1836, signeret »S. Kierkegaard«). Datoen er den første artikels.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til »Ogsaa et Forsvar for Qvindens høie Anlæg«",
+          "url": "https://tekster.kb.dk/text/sks-fqa-txr-root"
+        },
+        {
+          "work": "SKS, tekstredegørelse til »Om Fædrelandets Polemik«",
+          "url": "https://tekster.kb.dk/text/sks-fp-txr-root"
+        },
+        {
+          "work": "SKS, tekstredegørelse til »Til Hr. Orla Lehmann«",
+          "url": "https://tekster.kb.dk/text/sks-ol-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Af en endnu Levendes Papirer",
+      "pseudonym": null,
+      "date": {
+        "raw": "7. september 1838",
+        "iso": "1838-09-07",
+        "precision": "day"
+      },
+      "note": "Titelbladet lyder »Udgivet mod hans Villie af S. Kjerkegaard« — signeret, men iscenesat som udgivelse af en andens papirer. Udkom en måned efter faderens død.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Af en endnu Levendes Papirer",
+          "url": "https://tekster.kb.dk/text/sks-lp-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Om Begrebet Ironi med stadigt Hensyn til Socrates",
+      "pseudonym": null,
+      "date": {
+        "raw": "29. september 1841",
+        "iso": "1841-09-29",
+        "precision": "day"
+      },
+      "note": "Magisterafhandlingen. Færdig fra trykkeriet 16. sept.; udkom og blev forsvaret offentligt samme dag, 29. sept. Nogle fremstillinger daterer udgivelsen til 16. sept. — her følges SKS' tekstredegørelse.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Om Begrebet Ironi",
+          "url": "https://tekster.kb.dk/text/sks-bi-txr-root"
+        },
+        {
+          "work": "Søren Kierkegaard Forskningscenteret, »Tidstavle over Søren Kierkegaards liv og værker«",
+          "url": "https://teol.ku.dk/skc/om-soeren-kierkegaard/tidslinje/"
+        }
+      ]
+    },
+    {
+      "title": "Enten – Eller. Et Livs-Fragment",
+      "pseudonym": "Victor Eremita",
+      "date": {
+        "raw": "20. februar 1843",
+        "iso": "1843-02-20",
+        "precision": "day"
+      },
+      "note": "Færdig fra trykkeriet 15. febr., udkom i to bind 20. febr. og kostede 4 rigsdaler og 72 skilling.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Enten – Eller",
+          "url": "https://tekster.kb.dk/text/sks-ee1-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "To opbyggelige Taler",
+      "pseudonym": null,
+      "date": {
+        "raw": "16. maj 1843",
+        "iso": "1843-05-16",
+        "precision": "day"
+      },
+      "note": "Første hæfte opbyggelige taler; udkom knap tre måneder efter Enten – Eller.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til To opbyggelige Taler (1843)",
+          "url": "https://tekster.kb.dk/text/sks-2t43-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Frygt og Bæven. Dialektisk Lyrik",
+      "pseudonym": "Johannes de silentio",
+      "date": {
+        "raw": "16. oktober 1843",
+        "iso": "1843-10-16",
+        "precision": "day"
+      },
+      "note": "Udkom samme dag som Gjentagelsen og Tre opbyggelige Taler.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Frygt og Bæven",
+          "url": "https://tekster.kb.dk/text/sks-fb-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Gjentagelsen. Et Forsøg i den experimenterende Psychologie",
+      "pseudonym": "Constantin Constantius",
+      "date": {
+        "raw": "16. oktober 1843",
+        "iso": "1843-10-16",
+        "precision": "day"
+      },
+      "note": "Udkom samme dag som Frygt og Bæven og Tre opbyggelige Taler.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Gjentagelsen",
+          "url": "https://tekster.kb.dk/text/sks-g-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Tre opbyggelige Taler",
+      "pseudonym": null,
+      "date": {
+        "raw": "16. oktober 1843",
+        "iso": "1843-10-16",
+        "precision": "day"
+      },
+      "note": "Tekstredegørelsen siger udtrykkeligt: »Hæftet udkom 16. okt., samtidig med Gjentagelsen og Frygt og Bæven«.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Tre opbyggelige Taler (1843)",
+          "url": "https://tekster.kb.dk/text/sks-3t43-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Fire opbyggelige Taler",
+      "pseudonym": null,
+      "date": {
+        "raw": "6. december 1843",
+        "iso": "1843-12-06",
+        "precision": "day"
+      },
+      "note": "Kostede 4 mark eller 64 skilling og kunne fås hos boghandler P.G. Philipsen.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Fire opbyggelige Taler (1843)",
+          "url": "https://tekster.kb.dk/text/sks-4t43-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "To opbyggelige Taler",
+      "pseudonym": null,
+      "date": {
+        "raw": "5. marts 1844",
+        "iso": "1844-03-05",
+        "precision": "day"
+      },
+      "note": "Andet hæfte med denne titel; jf. To opbyggelige Taler 1843.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til To opbyggelige Taler (1844)",
+          "url": "https://tekster.kb.dk/text/sks-2t44-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Tre opbyggelige Taler",
+      "pseudonym": null,
+      "date": {
+        "raw": "8. juni 1844",
+        "iso": "1844-06-08",
+        "precision": "day"
+      },
+      "note": "»fem dage før udgivelsen af Philosophiske Smuler og ni dage før udgivelsen af Begrebet Angest og Forord«.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Tre opbyggelige Taler (1844)",
+          "url": "https://tekster.kb.dk/text/sks-3t44-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Philosophiske Smuler eller En Smule Philosophi",
+      "pseudonym": "Johannes Climacus",
+      "date": {
+        "raw": "13. juni 1844",
+        "iso": "1844-06-13",
+        "precision": "day"
+      },
+      "note": "Titelbladet: »af Johannes Climacus. Udgivet af S. Kierkegaard« — pseudonymet er forfatter, Kierkegaard står som udgiver.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Philosophiske Smuler",
+          "url": "https://tekster.kb.dk/text/sks-ps-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Begrebet Angest",
+      "pseudonym": "Vigilius Haufniensis",
+      "date": {
+        "raw": "17. juni 1844",
+        "iso": "1844-06-17",
+        "precision": "day"
+      },
+      "note": "Udkom samme dag som Forord og kostede 1 rigsdaler.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Begrebet Angest",
+          "url": "https://tekster.kb.dk/text/sks-ba-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Forord. Morskabslæsning for enkelte Stænder efter Tid og Leilighed",
+      "pseudonym": "Nicolaus Notabene",
+      "date": {
+        "raw": "17. juni 1844",
+        "iso": "1844-06-17",
+        "precision": "day"
+      },
+      "note": "Udkom samme dag som Begrebet Angest, hos universitetsboghandler C.A. Reitzel.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Forord",
+          "url": "https://tekster.kb.dk/text/sks-f-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Fire opbyggelige Taler",
+      "pseudonym": null,
+      "date": {
+        "raw": "31. august 1844",
+        "iso": "1844-08-31",
+        "precision": "day"
+      },
+      "note": "Andet hæfte med denne titel; jf. Fire opbyggelige Taler 1843.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Fire opbyggelige Taler (1844)",
+          "url": "https://tekster.kb.dk/text/sks-4t44-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Tre Taler ved tænkte Leiligheder",
+      "pseudonym": null,
+      "date": {
+        "raw": "29. april 1845",
+        "iso": "1845-04-29",
+        "precision": "day"
+      },
+      "note": "Udkom dagen før Stadier paa Livets Vei.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Tre Taler ved tænkte Leiligheder",
+          "url": "https://tekster.kb.dk/text/sks-ttl-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Stadier paa Livets Vei",
+      "pseudonym": "Hilarius Bogbinder",
+      "date": {
+        "raw": "30. april 1845",
+        "iso": "1845-04-30",
+        "precision": "day"
+      },
+      "note": "»Studier af Forskjellige. Sammenbragte, befordrede til Trykken og udgivne af Hilarius Bogbinder«. Kostede 3 rigsdaler.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Stadier paa Livets Vei",
+          "url": "https://tekster.kb.dk/text/sks-slv-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Afsluttende uvidenskabelig Efterskrift til de philosophiske Smuler",
+      "pseudonym": "Johannes Climacus",
+      "date": {
+        "raw": "27. februar 1846",
+        "iso": "1846-02-27",
+        "precision": "day"
+      },
+      "note": "»Udgiven af S. Kierkegaard«. Færdig fra trykkeriet 20. febr. Enkelte fremstillinger angiver 28. febr. — her følges SKS' tekstredegørelse. Udkom midt under Corsar-fejden.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Afsluttende uvidenskabelig Efterskrift",
+          "url": "https://tekster.kb.dk/text/sks-ae-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "En literair Anmeldelse. To Tidsaldre",
+      "pseudonym": null,
+      "date": {
+        "raw": "30. marts 1846",
+        "iso": "1846-03-30",
+        "precision": "day"
+      },
+      "note": "Anmeldelse af novellen To Tidsaldre, udgivet af J.L. Heiberg. Kostede 3 mark (48 skilling).",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til En literair Anmeldelse",
+          "url": "https://tekster.kb.dk/text/sks-la-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Opbyggelige Taler i forskjellig Aand",
+      "pseudonym": null,
+      "date": {
+        "raw": "13. marts 1847",
+        "iso": "1847-03-13",
+        "precision": "day"
+      },
+      "note": "Kostede 2 rigsdaler og 48 skilling; første bog efter et års pause.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Opbyggelige Taler i forskjellig Aand",
+          "url": "https://tekster.kb.dk/text/sks-ota-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Kjerlighedens Gjerninger",
+      "pseudonym": null,
+      "date": {
+        "raw": "29. september 1847",
+        "iso": "1847-09-29",
+        "precision": "day"
+      },
+      "note": "Annonceret som udkommet i Adresseavisen nr. 229. Regine Olsen blev gift med Johan Frederik Schlegel godt en måned senere.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Kjerlighedens Gjerninger",
+          "url": "https://tekster.kb.dk/text/sks-kg-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Christelige Taler",
+      "pseudonym": null,
+      "date": {
+        "raw": "25. april 1848",
+        "iso": "1848-04-25",
+        "precision": "day"
+      },
+      "note": "Annonceret som udkommet i Adresseavisen 25. april; flere fremstillinger angiver 26. april — her følges SKS' tekstredegørelse. Udkom to dage før han forlod barndomshjemmet på Nytorv.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Christelige Taler",
+          "url": "https://tekster.kb.dk/text/sks-ct-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Krisen og en Krise i en Skuespillerindes Liv",
+      "pseudonym": "Inter et Inter",
+      "date": {
+        "raw": "24.–27. juli 1848",
+        "iso": "1848-07-24",
+        "precision": "day"
+      },
+      "note": "Føljeton i fire dele i Fædrelandet nr. 188–191, om Johanne Luise Heiberg. Datoen er første dels. Ikke en bog, men et pseudonymt værk i forfatterskabet.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Krisen og en Krise i en Skuespillerindes Liv",
+          "url": "https://tekster.kb.dk/text/sks-kks-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Lilien paa Marken og Fuglen under Himlen. Tre gudelige Taler",
+      "pseudonym": null,
+      "date": {
+        "raw": "14. maj 1849",
+        "iso": "1849-05-14",
+        "precision": "day"
+      },
+      "note": "Annonceret som udkommet i Adresseavisen nr. 111.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Lilien paa Marken og Fuglen under Himlen",
+          "url": "https://tekster.kb.dk/text/sks-lf-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Tvende ethisk-religieuse Smaa-Afhandlinger",
+      "pseudonym": "H.H.",
+      "date": {
+        "raw": "19. maj 1849",
+        "iso": "1849-05-19",
+        "precision": "day"
+      },
+      "note": "Færdigtrykt 18. maj, annonceret som udkommet i Adresseavisen nr. 116 dagen efter — fem dage efter Lilien paa Marken.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Tvende ethisk-religieuse Smaa-Afhandlinger",
+          "url": "https://tekster.kb.dk/text/sks-tsa-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Sygdommen til Døden",
+      "pseudonym": "Anti-Climacus",
+      "date": {
+        "raw": "30. juli 1849",
+        "iso": "1849-07-30",
+        "precision": "day"
+      },
+      "note": "Titelbladet: »Af S. Kierkegaard. Anti-Climacus«. I manuskriptet stod først »S. Kierkegaard« alene — pseudonymet blev valgt sent, under trykningen.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Sygdommen til Døden",
+          "url": "https://tekster.kb.dk/text/sks-sd-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "»Ypperstepræsten« – »Tolderen« – »Synderinden«, tre Taler ved Altergangen om Fredagen",
+      "pseudonym": null,
+      "date": {
+        "raw": "14. november 1849",
+        "iso": "1849-11-14",
+        "precision": "day"
+      },
+      "note": "Annonceret som udkommet i Adresseavisen nr. 268; nogle fremstillinger angiver 13. nov. — her følges SKS' tekstredegørelse.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til »Ypperstepræsten« – »Tolderen« – »Synderinden«",
+          "url": "https://tekster.kb.dk/text/sks-yts-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Indøvelse i Christendom",
+      "pseudonym": "Anti-Climacus",
+      "date": {
+        "raw": "25. september 1850",
+        "iso": "1850-09-25",
+        "precision": "day"
+      },
+      "note": "Annonceret som udkommet i Adresseavisen nr. 225; Dansk Biografisk Leksikon angiver 27. sept. — her følges SKS' tekstredegørelse.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Indøvelse i Christendom",
+          "url": "https://tekster.kb.dk/text/sks-ic-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "En opbyggelig Tale",
+      "pseudonym": null,
+      "date": {
+        "raw": "20. december 1850",
+        "iso": "1850-12-20",
+        "precision": "day"
+      },
+      "note": "Annonceret som udkommet i Adresseavisen nr. 299.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til En opbyggelig Tale",
+          "url": "https://tekster.kb.dk/text/sks-eot-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Foranlediget ved en Yttring af Dr. Rudelbach mig betræffende",
+      "pseudonym": null,
+      "date": {
+        "raw": "31. januar 1851",
+        "iso": "1851-01-31",
+        "precision": "day"
+      },
+      "note": "Avisartikel i Fædrelandet, 12. årgang, nr. 26 — et af de få offentlige indlæg mellem 1846 og kirkekampen.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til »Foranlediget ved en Yttring af Dr. Rudelbach mig betræffende«",
+          "url": "https://tekster.kb.dk/text/sks-ydr-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Om min Forfatter-Virksomhed",
+      "pseudonym": null,
+      "date": {
+        "raw": "6. august 1851",
+        "iso": "1851-08-06",
+        "precision": "day"
+      },
+      "note": "Annonceret som udkommet sammen med To Taler ved Altergangen om Fredagen i Berlingske Tidende nr. 180. Ofte dateret 7. aug. — her følges SKS' tekstredegørelse.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Om min Forfatter-Virksomhed",
+          "url": "https://tekster.kb.dk/text/sks-fv-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "To Taler ved Altergangen om Fredagen",
+      "pseudonym": null,
+      "date": {
+        "raw": "6. august 1851",
+        "iso": "1851-08-06",
+        "precision": "day"
+      },
+      "note": "Udkom samme dag som Om min Forfatter-Virksomhed og blev annonceret sammen med den.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til To Taler ved Altergangen om Fredagen",
+          "url": "https://tekster.kb.dk/text/sks-taf-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Til Selvprøvelse, Samtiden anbefalet",
+      "pseudonym": null,
+      "date": {
+        "raw": "12. september 1851",
+        "iso": "1851-09-12",
+        "precision": "day"
+      },
+      "note": "Titelbladet er signeret »Af S.K.«. Den sidste bog før de tre tavse år frem til kirkekampen.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Til Selvprøvelse",
+          "url": "https://tekster.kb.dk/text/sks-ts-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Bladartikler i Fædrelandet (kirkekampen)",
+      "pseudonym": null,
+      "date": {
+        "raw": "18. december 1854 – 26. maj 1855",
+        "iso": "1854-12-18",
+        "precision": "day"
+      },
+      "note": "Samlet post for 21 artikler. Den første, »Var Biskop Mynster et 'Sandhedsvidne'…«, stod i Fædrelandet nr. 295 den 18. dec. 1854 og indledte kirkekampen; hovedteksten var dog skrevet allerede i februar 1854. Antallet 21 og slutdatoen 26. maj 1855 stammer fra sekundærlitteraturen, ikke fra en tekstredegørelse.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til »Var Biskop Mynster et 'Sandhedsvidne', et af 'de rette Sandhedsvidner' – er dette Sandhed?«",
+          "url": "https://tekster.kb.dk/text/sks-bms-txr-root"
+        },
+        {
+          "work": "D. Anthony Storm, »Articles from the Fatherland«, Commentary on Kierkegaard",
+          "url": "https://sorenkierkegaard.org/articles-from-fatherland.html"
+        }
+      ]
+    },
+    {
+      "title": "Dette skal siges; saa være det da sagt",
+      "pseudonym": null,
+      "date": {
+        "raw": "23. maj 1855",
+        "iso": "1855-05-23",
+        "precision": "day"
+      },
+      "note": "Annonceret som udkommet i Berlingske Tidende nr. 117, to dage før Øieblikket nr. 1.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Dette skal siges; saa være det da sagt",
+          "url": "https://tekster.kb.dk/text/sks-dss-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Øieblikket Nr. 1–9",
+      "pseudonym": null,
+      "date": {
+        "raw": "25. maj – 25. september 1855",
+        "iso": "1855-05-25",
+        "precision": "day"
+      },
+      "note": "Samlet post for de ni numre, der udkom i hans levetid. Nr. 1 blev annonceret som udkommet 25. maj (ofte dateret 24. maj), nr. 9 den 25. sept. 1855. Nr. 10 lå færdig som renskrift ved hans død og blev først trykt i 1881 — derfor ikke medtaget her.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Øieblikket Nr. 1",
+          "url": "https://tekster.kb.dk/text/sks-oi1-txr-root"
+        },
+        {
+          "work": "SKS, tekstredegørelse til Øieblikket Nr. 9",
+          "url": "https://tekster.kb.dk/text/sks-oi9-txr-root"
+        },
+        {
+          "work": "SKS, tekstredegørelse til Øieblikket Nr. 10",
+          "url": "https://tekster.kb.dk/text/sks-oi10-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Hvad Christus dømmer om officiel Christendom",
+      "pseudonym": null,
+      "date": {
+        "raw": "16. juni 1855",
+        "iso": "1855-06-16",
+        "precision": "day"
+      },
+      "note": "Færdigtrykt 15. juni; annonceret som udkommet i Adresseavisen og Fædrelandet 16. juni — udsendt mellem Øieblikket-numrene.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Hvad Christus dømmer om officiel Christendom",
+          "url": "https://tekster.kb.dk/text/sks-hcd-txr-root"
+        }
+      ]
+    },
+    {
+      "title": "Guds Uforanderlighed. En Tale",
+      "pseudonym": null,
+      "date": {
+        "raw": "1. september 1855",
+        "iso": "1855-09-01",
+        "precision": "day"
+      },
+      "note": "Holdt som prædiken i Citadelskirken (i dag Kastelskirken) søndag den 18. maj 1851 og først trykt fire år senere. Den sidste bog udgivet i hans levetid.",
+      "sources": [
+        {
+          "work": "SKS, tekstredegørelse til Guds Uforanderlighed",
+          "url": "https://tekster.kb.dk/text/sks-gu-txr-root"
+        }
+      ]
+    }
+  ]
+}
