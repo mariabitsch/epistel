@@ -1307,6 +1307,34 @@ class SummaryTest(unittest.TestCase):
         self.assertIn("snustobaksdåse i afskedsgave", anchor)
         self.assertNotIn("letter-meta", entry)
 
+    def test_the_middot_separator_never_opens_a_wrapped_line(self):
+        """Småting (backlog): '·' must stay glued to the word before it.
+
+        A no-break space precedes the dot and an ordinary space follows
+        it, so a narrow-width wrap breaks *after* the dot -- before the
+        date or "fra" -- and the separator itself never opens a line.
+        """
+        entry = self.index.split('data-slug="1"', 1)[1].split("</li>", 1)[0]
+        self.assertIn(
+            'Brev 1</span><span class="muted"> · 8. marts 1829', entry
+        )
+        self.assertIn(
+            '1829</span><span class="person-letter-pair">'
+            " · fra SK til P.C. Kierkegaard",
+            entry,
+        )
+
+        siblings = self.read("brev", "2", "index.html").split("Samme brevveksling", 1)[1]
+        self.assertIn(
+            'Brev 1</span><span class="muted"> · 8. marts 1829', siblings
+        )
+
+        person = self.read("person", "kierkegaard-peter-christian", "index.html")
+        received = person.split("Breve modtaget", 1)[1].split("</section>", 1)[0]
+        self.assertIn(
+            'Brev 1</span><span class="muted"> · 8. marts 1829', received
+        )
+
     def test_a_summary_follows_the_letter_into_its_siblings_lists(self):
         # Brev 2 is in the same correspondence as brev 1: its page's
         # "Samme brevveksling" list carries brev 1's summary.

@@ -394,6 +394,13 @@ def _section(section):
     )
 
 
+# The date/pair separator in a row's meta line. A no-break space glues it
+# to the word before it and an ordinary space follows, so a narrow-width
+# wrap breaks *after* the dot -- before the date or "fra" -- and never
+# leaves "·" to open a line on its own (Maria's call, Småting backlog).
+ROW_SEPARATOR = " · "
+
+
 def _entry(view):
     """One row in the index: the same relaxed row every list on the site uses.
 
@@ -416,10 +423,12 @@ def _entry(view):
             element(
                 "span",
                 element("span", text(view["title"]), class_="sibling-title")
-                + element("span", " · " + text(view["date_text"]), class_="muted")
+                + element(
+                    "span", ROW_SEPARATOR + text(view["date_text"]), class_="muted"
+                )
                 + element(
                     "span",
-                    " · fra %s til %s"
+                    ROW_SEPARATOR + "fra %s til %s"
                     % (text(view["sender"]), text(view["recipient"])),
                     class_="person-letter-pair",
                 ),
@@ -615,7 +624,9 @@ def _same_correspondence(view, section):
         return ""
     items = ""
     for other in section["letters"]:
-        date = element("span", " · " + text(other["date_text"]), class_="muted")
+        date = element(
+            "span", ROW_SEPARATOR + text(other["date_text"]), class_="muted"
+        )
         if other["slug"] == view["slug"]:
             # The reader's own position: marked on the date's line, never a
             # link to itself -- and its resumé stays (Maria, 2026-07-28):
@@ -881,10 +892,14 @@ def _person_letters(views, heading, note):
                 element(
                     "span",
                     element("span", text(view["title"]), class_="sibling-title")
-                    + element("span", " · " + text(view["date_text"]), class_="muted")
                     + element(
                         "span",
-                        " · fra %s til %s"
+                        ROW_SEPARATOR + text(view["date_text"]),
+                        class_="muted",
+                    )
+                    + element(
+                        "span",
+                        ROW_SEPARATOR + "fra %s til %s"
                         % (text(view["sender"]), text(view["recipient"])),
                         class_="person-letter-pair",
                     ),
