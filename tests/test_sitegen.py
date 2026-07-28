@@ -1720,5 +1720,92 @@ def _escape(value):
     return value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
+class DanishEmDashesTest(unittest.TestCase):
+    """Verify that Danish editorial text uses en dashes (–), not em dashes (—)."""
+
+    def test_no_em_dashes_in_summaries(self):
+        """summaries.json text fields must use en dashes, not em dashes."""
+        with open(
+            os.path.join(CONTEXT, "summaries.json"), encoding="utf-8"
+        ) as file:
+            data = json.load(file)
+        for letter_id, summary in data.items():
+            if summary and isinstance(summary, str):
+                self.assertNotIn("—", summary, f"Em dash found in summaries[{letter_id}]")
+
+    def test_no_em_dashes_in_bios(self):
+        """bios.json rendered text must use en dashes, not em dashes."""
+        with open(os.path.join(CONTEXT, "bios.json"), encoding="utf-8") as file:
+            data = json.load(file)
+        for person, bio_entry in data.items():
+            if bio_entry and isinstance(bio_entry, dict):
+                # Only check the 'bio' field; 'note' is dev-facing
+                bio_text = bio_entry.get("bio")
+                if bio_text and isinstance(bio_text, str):
+                    self.assertNotIn(
+                        "—", bio_text, f"Em dash found in bios[{person}][bio]"
+                    )
+
+    def test_no_em_dashes_in_publications(self):
+        """publications.json rendered fields must use en dashes, not em dashes."""
+        with open(
+            os.path.join(CONTEXT, "publications.json"), encoding="utf-8"
+        ) as file:
+            data = json.load(file)
+        for person, pubs in data.items():
+            if pubs and isinstance(pubs, list):
+                for idx, pub in enumerate(pubs):
+                    if pub and isinstance(pub, dict):
+                        # Only check rendered fields; 'note' is dev-facing
+                        for field in ["title", "date"]:
+                            value = pub.get(field)
+                            if value and isinstance(value, str):
+                                self.assertNotIn(
+                                    "—",
+                                    value,
+                                    f"Em dash found in publications[{person}][{idx}][{field}]",
+                                )
+
+    def test_no_em_dashes_in_residences(self):
+        """residences.json rendered fields must use en dashes, not em dashes."""
+        with open(
+            os.path.join(CONTEXT, "residences.json"), encoding="utf-8"
+        ) as file:
+            data = json.load(file)
+        for person, residences in data.items():
+            if residences and isinstance(residences, list):
+                for idx, residence in enumerate(residences):
+                    if residence and isinstance(residence, dict):
+                        # Only check rendered fields; 'note' is dev-facing
+                        for field in ["location", "date"]:
+                            value = residence.get(field)
+                            if value and isinstance(value, str):
+                                self.assertNotIn(
+                                    "—",
+                                    value,
+                                    f"Em dash found in residences[{person}][{idx}][{field}]",
+                                )
+
+    def test_no_em_dashes_in_links_labels(self):
+        """data/links.json label strings must use en dashes, not em dashes."""
+        links_path = os.path.join(REPO_ROOT, "data", "links.json")
+        with open(links_path, encoding="utf-8") as file:
+            data = json.load(file)
+        for idx, link in enumerate(data.get("links", [])):
+            label = link.get("label")
+            if label and isinstance(label, str):
+                self.assertNotIn(
+                    "—", label, f"Em dash found in links[{idx}].label"
+                )
+
+    def test_no_em_dashes_in_notabene(self):
+        """docs/notabene.md must use en dashes, not em dashes."""
+        notabene_path = os.path.join(REPO_ROOT, "docs", "notabene.md")
+        with open(notabene_path, encoding="utf-8") as file:
+            content = file.read()
+        self.assertNotIn("—", content, "Em dash found in docs/notabene.md")
+
+
+
 if __name__ == "__main__":
     unittest.main()

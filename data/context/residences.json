@@ -2,12 +2,12 @@
   "_meta": {
     "dataset": "residences",
     "title": "Søren Kierkegaards bopæle i København (1813–1855)",
-    "description": "Kronologisk liste over de adresser, Søren Kierkegaard boede på — fra fødehjemmet på Nytorv til det sidste logi i Klædeboderne. Datasættet er lavet til tidslinjesiden, hvor brevene kan ses op mod, hvor han befandt sig.",
+    "description": "Kronologisk liste over de adresser, Søren Kierkegaard boede på – fra fødehjemmet på Nytorv til det sidste logi i Klædeboderne. Datasættet er lavet til tidslinjesiden, hvor brevene kan ses op mod, hvor han befandt sig.",
     "editorialLayer": true,
     "notFromTEI": "Dette er et redaktionelt lag, håndkurateret og kildebelagt. Det stammer IKKE fra den vendorerede TEI i data/vendor/, som er uændret kildetekst. Alt her er tilføjet ovenpå og kan bestrides, rettes og skiftes ud uafhængigt af TEI-laget.",
     "compiled": "2026-07-27",
     "compiledWith": "Håndkurateret med AI-assistance (Claude Opus 5). Hver post er verificeret mod online kilder på kompileringsdatoen; hvor kilder er uenige, står uenigheden i postens note.",
-    "datingPrinciple": "Kilderne er langt mindre præcise om bopæle end om udgivelser, og flytninger fulgte som regel de københavnske flyttedage i april og oktober. Præcisionen (»day«, »month«, »year«) siger, hvor meget kilden faktisk fastslår. Poster, hvor perioden er omstridt eller kun tilnærmet, har \"approx\": true — der er ikke gættet en dato frem for at få tidslinjen til at se pæn ud.",
+    "datingPrinciple": "Kilderne er langt mindre præcise om bopæle end om udgivelser, og flytninger fulgte som regel de københavnske flyttedage i april og oktober. Præcisionen (»day«, »month«, »year«) siger, hvor meget kilden faktisk fastslår. Poster, hvor perioden er omstridt eller kun tilnærmet, har \"approx\": true – der er ikke gættet en dato frem for at få tidslinjen til at se pæn ud.",
     "addressNote": "Feltet address gengiver adressen, som den kendes fra Kierkegaards tid; i København blev ejendomme dengang typisk angivet ved matrikelnummer inden for et kvarter, og de nuværende husnumre stammer først fra tiden efter. modernNote angiver den nutidige adresse, hvor den er en anden, og om bygningen stadig står.",
     "generalSources": [
       {
@@ -15,7 +15,7 @@
         "url": "https://biografiskleksikon.lex.dk/S%C3%B8ren_Kierkegaard"
       },
       {
-        "work": "Indenforvoldene.dk — topografisk opslagsværk over ejendomme i det indre København, med bopælsregister",
+        "work": "Indenforvoldene.dk – topografisk opslagsværk over ejendomme i det indre København, med bopælsregister",
         "url": "https://www.indenforvoldene.dk/bopaelsregister-k"
       },
       {
@@ -94,7 +94,7 @@
         "precision": "year"
       },
       "approx": true,
-      "note": "Her boede han, da faderen døde i august 1838, og da Af en endnu Levendes Papirer udkom. Kilderne er uenige om starten: indenforvoldene.dk skriver 1837, mens Udfordringen daterer flytningen fra Løvstræde til april 1838 — og angiver husnummeret som 22, hvilket ingen andre kilder bekræfter. Han er sikkert bevidnet på Kultorvet i februar 1839.",
+      "note": "Her boede han, da faderen døde i august 1838, og da Af en endnu Levendes Papirer udkom. Kilderne er uenige om starten: indenforvoldene.dk skriver 1837, mens Udfordringen daterer flytningen fra Løvstræde til april 1838 – og angiver husnummeret som 22, hvilket ingen andre kilder bekræfter. Han er sikkert bevidnet på Kultorvet i februar 1839.",
       "sources": [
         {
           "work": "Indenforvoldene.dk, bopælsregister K: »1837 – 1840 Kultorvet 11, 1.sal«",
@@ -222,7 +222,7 @@
         "precision": "month"
       },
       "approx": true,
-      "note": "Hans eneste bopæl uden for voldene, med udsigt over Sortedamssøen. Dansk Biografisk Leksikon daterer indflytningen til oktober 1851 i stedet for april — begge dele er flyttedage, og uenigheden er ikke afgjort.",
+      "note": "Hans eneste bopæl uden for voldene, med udsigt over Sortedamssøen. Dansk Biografisk Leksikon daterer indflytningen til oktober 1851 i stedet for april – begge dele er flyttedage, og uenigheden er ikke afgjort.",
       "sources": [
         {
           "work": "Helle Sahl Madsen, »Kierkegaards eneste bolig uden for voldene«, Kristeligt Dagblad, 3. maj 2013",
@@ -247,7 +247,7 @@
         "iso": "1855-10-02",
         "precision": "day"
       },
-      "note": "Den sidste og beskedneste bolig — han var logerende her. Herfra førte han kirkekampen. Han blev indlagt på Frederiks Hospital 2. okt. 1855 og døde der 11. nov. uden at komme hjem. Auktionen over hans bogsamling blev holdt i lejligheden 8.-10. april 1856.",
+      "note": "Den sidste og beskedneste bolig – han var logerende her. Herfra førte han kirkekampen. Han blev indlagt på Frederiks Hospital 2. okt. 1855 og døde der 11. nov. uden at komme hjem. Auktionen over hans bogsamling blev holdt i lejligheden 8.-10. april 1856.",
       "sources": [
         {
           "work": "Helle Sahl Madsen, »Kierkegaards eneste bolig uden for voldene«, Kristeligt Dagblad, 3. maj 2013",

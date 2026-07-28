@@ -178,7 +178,7 @@ def _presentation(timeline=False):
     body = element(
         "p",
         "Det begynder med en skoledreng, der i 1829 undskylder, at han aldrig "
-        "skriver, og bruger resten af brevet på nyt fra Borgerdydsskolen — "
+        "skriver, og bruger resten af brevet på nyt fra Borgerdydsskolen – "
         "blandt andet en snustobaksdåse, klassen gav i afskedsgave. Senere "
         "skylder en bror ham 80 rigsdaler, og gældsbeviset har han selv "
         "tilintetgjort. Og et sted gør han familiegravstedet i stand på skrift, "
@@ -192,7 +192,7 @@ def _presentation(timeline=False):
     )
     body += element(
         "p",
-        "Selv har jeg ikke fundet et eneste af dem — de lå frit fremme. Jeg "
+        "Selv har jeg ikke fundet et eneste af dem – de lå frit fremme. Jeg "
         "skriver kun forord: de små under hvert brev i listen, og dette her. "
         "Hvem jeg ellers er, står "
         + element("a", "på Om", href="%som/" % INDEX_TO_ROOT)
@@ -572,7 +572,7 @@ def _metadata(view, section, person_links=None):
             "Bind",
             element(
                 "a",
-                "%s — %s" % (text(volume["shortTitle"]), text(volume["title"])),
+                "%s – %s" % (text(volume["shortTitle"]), text(volume["title"])),
                 href="%s#%s" % (LETTER_TO_ROOT, volume["anchor"]),
             ),
         )
@@ -617,7 +617,7 @@ def _same_correspondence(view, section):
     this list stays inside one volume while prev/next runs through them all.
 
     The current letter is included in its place so the reader can see
-    where they stand in the exchange — as marked text, never as a link
+    where they stand in the exchange – as marked text, never as a link
     to itself.
     """
     if not section or len(section["letters"]) < 2:
@@ -720,7 +720,7 @@ def person_index_page(groups, register, timeline=False, links=None):
 
 def _person_index_intro(count, with_bio):
     lead = (
-        "Alle, som brevene nævner ved navn — "
+        "Alle, som brevene nævner ved navn – "
         + element("strong", _person_count(count))
         + ", som udgaven selv har mærket op i brevteksterne. Registret skelner "
         "ikke mellem levende og litterære: står navnet i et brev, står "
@@ -1062,7 +1062,7 @@ def _timeline_legend():
     note = element(
         "p",
         "Skalaen er lineær: hvert år er lige højt. Et år strækkes kun, hvor "
-        "årets udgivelser fylder mere end året — aldrig omvendt, og aldrig på "
+        "årets udgivelser fylder mere end året – aldrig omvendt, og aldrig på "
         "de stille års bekostning. Breve uden nogen datering står nederst på "
         "siden.",
         class_="tl-legend-note",
@@ -1436,7 +1436,7 @@ def _about_display():
     body += element(
         "p",
         "Det er en pointe og ikke en spareøvelse. Værdien i en tekstsamling "
-        "ligger i dens rådata — de standardformaterede filer, som enhver kan "
+        "ligger i dens rådata – de standardformaterede filer, som enhver kan "
         "hente, læse og bygge videre på. Derfor: visningen læser fra offentligt "
         "TEI; visningslaget er bevidst tyndt og udskifteligt. Vil nogen om ti år "
         "bygge noget helt andet oven på de samme filer, koster det ikke andet "
@@ -1457,7 +1457,7 @@ def _about_source(provenance, links=None):
         + _linked(links, "upstream-repository", "kb-dk/SKS_tei", href=repository)
         + ". Filerne er stillet til rådighed under "
         + _linked(links, "cc0-deed", "CC0 1.0")
-        + " — et afkald på ophavsret, der lader hvem som helst bruge dem til "
+        + " – et afkald på ophavsret, der lader hvem som helst bruge dem til "
         "hvad som helst, også dette.",
     )
     kept = (
@@ -1531,8 +1531,8 @@ def _about_people():
     body = element("h2", "Personerne")
     body += element(
         "p",
-        "Personregistret er udgavens eget — hver person, udgaven selv har "
-        "mærket op med navn i en brevtekst — og de korte biografier er skrevet "
+        "Personregistret er udgavens eget – hver person, udgaven selv har "
+        "mærket op med navn i en brevtekst – og de korte biografier er skrevet "
         "ud af udgavens egen kommentar (<code>kom.xml</code>) med samme "
         "AI-hjælp og samme modlæsning, med en henvisning under hver biografi "
         "til den note, den bygger på. Har kommentaren ingen note om personen, "
@@ -1678,8 +1678,8 @@ def _document(
             "<i>Søren Kierkegaards Skrifter</i>, der er offentligt tilgængelig "
             "under "
             + _linked(links, "cc0-deed", "CC0 1.0")
-            + ". Denne visning er en uafhængig demonstration — ikke en udgivelse "
-            "fra udgiverne bag SKS — og er bygget med hjælp fra Claude (AI).",
+            + ". Denne visning er en uafhængig demonstration – ikke en udgivelse "
+            "fra udgiverne bag SKS – og er bygget med hjælp fra Claude (AI).",
         ),
         class_="site-footer",
     )

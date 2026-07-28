@@ -2,12 +2,12 @@
   "_meta": {
     "dataset": "publications",
     "title": "Søren Kierkegaards udgivelser i hans levetid (1834–1855)",
-    "description": "Kronologisk liste over de skrifter Søren Kierkegaard fik udgivet, mens han levede — fra debuten som avisskribent i 1834 og Af en endnu Levendes Papirer (1838) til Øieblikket nr. 9 (1855). Datasættet er lavet til tidslinjesiden, hvor brevene kan ses op mod forfatterskabet.",
+    "description": "Kronologisk liste over de skrifter Søren Kierkegaard fik udgivet, mens han levede – fra debuten som avisskribent i 1834 og Af en endnu Levendes Papirer (1838) til Øieblikket nr. 9 (1855). Datasættet er lavet til tidslinjesiden, hvor brevene kan ses op mod forfatterskabet.",
     "editorialLayer": true,
     "notFromTEI": "Dette er et redaktionelt lag, håndkurateret og kildebelagt. Det stammer IKKE fra den vendorerede TEI i data/vendor/, som er uændret kildetekst. Alt her er tilføjet ovenpå og kan bestrides, rettes og skiftes ud uafhængigt af TEI-laget.",
     "compiled": "2026-07-27",
     "compiledWith": "Håndkurateret med AI-assistance (Claude Opus 5). Hver post er verificeret mod online kilder på kompileringsdatoen; hvor kilder er uenige, står uenigheden i postens note.",
-    "datingPrinciple": "Datoen er udgivelsesdatoen, sådan som Søren Kierkegaards Skrifter angiver den i sin tekstredegørelse — enten »udkom« eller den dag, skriftet blev annonceret som udkommet i dagspressen. Datoen for færdigtrykning er en anden og som regel tidligere dato; den er ikke brugt her. Præcisionen (»day«, »month«, »year«) siger, hvor meget kilden faktisk fastslår — den er aldrig pyntet op.",
+    "datingPrinciple": "Datoen er udgivelsesdatoen, sådan som Søren Kierkegaards Skrifter angiver den i sin tekstredegørelse – enten »udkom« eller den dag, skriftet blev annonceret som udkommet i dagspressen. Datoen for færdigtrykning er en anden og som regel tidligere dato; den er ikke brugt her. Præcisionen (»day«, »month«, »year«) siger, hvor meget kilden faktisk fastslår – den er aldrig pyntet op.",
     "scopeNote": "Kun skrifter udgivet i Kierkegaards levetid. Posthume udgivelser (bl.a. Øieblikket nr. 10, Synspunktet for min Forfatter-Virksomhed, Dømmer selv!, journalerne) er udeladt. Avisartikler er taget med, hvor de hører til forfatterskabet, og er markeret som sådan i noten.",
     "generalSources": [
       {
@@ -15,7 +15,7 @@
         "url": "https://tekster.kb.dk/sks"
       },
       {
-        "work": "Søren Kierkegaards Skrifter, elektronisk udgave — værkoversigt og sigler",
+        "work": "Søren Kierkegaards Skrifter, elektronisk udgave – værkoversigt og sigler",
         "url": "https://sks.etxt.dk/forside/skr.htm?sort=dat"
       },
       {
@@ -61,7 +61,7 @@
         "iso": "1838-09-07",
         "precision": "day"
       },
-      "note": "Titelbladet lyder »Udgivet mod hans Villie af S. Kjerkegaard« — signeret, men iscenesat som udgivelse af en andens papirer. Udkom en måned efter faderens død.",
+      "note": "Titelbladet lyder »Udgivet mod hans Villie af S. Kjerkegaard« – signeret, men iscenesat som udgivelse af en andens papirer. Udkom en måned efter faderens død.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til Af en endnu Levendes Papirer",
@@ -77,7 +77,7 @@
         "iso": "1841-09-29",
         "precision": "day"
       },
-      "note": "Magisterafhandlingen. Færdig fra trykkeriet 16. sept.; udkom og blev forsvaret offentligt samme dag, 29. sept. Nogle fremstillinger daterer udgivelsen til 16. sept. — her følges SKS' tekstredegørelse.",
+      "note": "Magisterafhandlingen. Færdig fra trykkeriet 16. sept.; udkom og blev forsvaret offentligt samme dag, 29. sept. Nogle fremstillinger daterer udgivelsen til 16. sept. – her følges SKS' tekstredegørelse.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til Om Begrebet Ironi",
@@ -225,7 +225,7 @@
         "iso": "1844-06-13",
         "precision": "day"
       },
-      "note": "Titelbladet: »af Johannes Climacus. Udgivet af S. Kierkegaard« — pseudonymet er forfatter, Kierkegaard står som udgiver.",
+      "note": "Titelbladet: »af Johannes Climacus. Udgivet af S. Kierkegaard« – pseudonymet er forfatter, Kierkegaard står som udgiver.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til Philosophiske Smuler",
@@ -321,7 +321,7 @@
         "iso": "1846-02-27",
         "precision": "day"
       },
-      "note": "»Udgiven af S. Kierkegaard«. Færdig fra trykkeriet 20. febr. Enkelte fremstillinger angiver 28. febr. — her følges SKS' tekstredegørelse. Udkom midt under Corsar-fejden.",
+      "note": "»Udgiven af S. Kierkegaard«. Færdig fra trykkeriet 20. febr. Enkelte fremstillinger angiver 28. febr. – her følges SKS' tekstredegørelse. Udkom midt under Corsar-fejden.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til Afsluttende uvidenskabelig Efterskrift",
@@ -385,7 +385,7 @@
         "iso": "1848-04-25",
         "precision": "day"
       },
-      "note": "Annonceret som udkommet i Adresseavisen 25. april; flere fremstillinger angiver 26. april — her følges SKS' tekstredegørelse. Udkom to dage før han forlod barndomshjemmet på Nytorv.",
+      "note": "Annonceret som udkommet i Adresseavisen 25. april; flere fremstillinger angiver 26. april – her følges SKS' tekstredegørelse. Udkom to dage før han forlod barndomshjemmet på Nytorv.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til Christelige Taler",
@@ -433,7 +433,7 @@
         "iso": "1849-05-19",
         "precision": "day"
       },
-      "note": "Færdigtrykt 18. maj, annonceret som udkommet i Adresseavisen nr. 116 dagen efter — fem dage efter Lilien paa Marken.",
+      "note": "Færdigtrykt 18. maj, annonceret som udkommet i Adresseavisen nr. 116 dagen efter – fem dage efter Lilien paa Marken.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til Tvende ethisk-religieuse Smaa-Afhandlinger",
@@ -449,7 +449,7 @@
         "iso": "1849-07-30",
         "precision": "day"
       },
-      "note": "Titelbladet: »Af S. Kierkegaard. Anti-Climacus«. I manuskriptet stod først »S. Kierkegaard« alene — pseudonymet blev valgt sent, under trykningen.",
+      "note": "Titelbladet: »Af S. Kierkegaard. Anti-Climacus«. I manuskriptet stod først »S. Kierkegaard« alene – pseudonymet blev valgt sent, under trykningen.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til Sygdommen til Døden",
@@ -465,7 +465,7 @@
         "iso": "1849-11-14",
         "precision": "day"
       },
-      "note": "Annonceret som udkommet i Adresseavisen nr. 268; nogle fremstillinger angiver 13. nov. — her følges SKS' tekstredegørelse.",
+      "note": "Annonceret som udkommet i Adresseavisen nr. 268; nogle fremstillinger angiver 13. nov. – her følges SKS' tekstredegørelse.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til »Ypperstepræsten« – »Tolderen« – »Synderinden«",
@@ -481,7 +481,7 @@
         "iso": "1850-09-25",
         "precision": "day"
       },
-      "note": "Annonceret som udkommet i Adresseavisen nr. 225; Dansk Biografisk Leksikon angiver 27. sept. — her følges SKS' tekstredegørelse.",
+      "note": "Annonceret som udkommet i Adresseavisen nr. 225; Dansk Biografisk Leksikon angiver 27. sept. – her følges SKS' tekstredegørelse.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til Indøvelse i Christendom",
@@ -513,7 +513,7 @@
         "iso": "1851-01-31",
         "precision": "day"
       },
-      "note": "Avisartikel i Fædrelandet, 12. årgang, nr. 26 — et af de få offentlige indlæg mellem 1846 og kirkekampen.",
+      "note": "Avisartikel i Fædrelandet, 12. årgang, nr. 26 – et af de få offentlige indlæg mellem 1846 og kirkekampen.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til »Foranlediget ved en Yttring af Dr. Rudelbach mig betræffende«",
@@ -529,7 +529,7 @@
         "iso": "1851-08-06",
         "precision": "day"
       },
-      "note": "Annonceret som udkommet sammen med To Taler ved Altergangen om Fredagen i Berlingske Tidende nr. 180. Ofte dateret 7. aug. — her følges SKS' tekstredegørelse.",
+      "note": "Annonceret som udkommet sammen med To Taler ved Altergangen om Fredagen i Berlingske Tidende nr. 180. Ofte dateret 7. aug. – her følges SKS' tekstredegørelse.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til Om min Forfatter-Virksomhed",
@@ -613,7 +613,7 @@
         "iso": "1855-05-25",
         "precision": "day"
       },
-      "note": "Samlet post for de ni numre, der udkom i hans levetid. Nr. 1 blev annonceret som udkommet 25. maj (ofte dateret 24. maj), nr. 9 den 25. sept. 1855. Nr. 10 lå færdig som renskrift ved hans død og blev først trykt i 1881 — derfor ikke medtaget her.",
+      "note": "Samlet post for de ni numre, der udkom i hans levetid. Nr. 1 blev annonceret som udkommet 25. maj (ofte dateret 24. maj), nr. 9 den 25. sept. 1855. Nr. 10 lå færdig som renskrift ved hans død og blev først trykt i 1881 – derfor ikke medtaget her.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til Øieblikket Nr. 1",
@@ -637,7 +637,7 @@
         "iso": "1855-06-16",
         "precision": "day"
       },
-      "note": "Færdigtrykt 15. juni; annonceret som udkommet i Adresseavisen og Fædrelandet 16. juni — udsendt mellem Øieblikket-numrene.",
+      "note": "Færdigtrykt 15. juni; annonceret som udkommet i Adresseavisen og Fædrelandet 16. juni – udsendt mellem Øieblikket-numrene.",
       "sources": [
         {
           "work": "SKS, tekstredegørelse til Hvad Christus dømmer om officiel Christendom",

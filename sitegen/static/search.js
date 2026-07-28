@@ -208,11 +208,11 @@
     var typed = query.value.trim();
     countOut.textContent = shown === 1 ? "1 brev" : shown + " breve";
     if (indexState === "failed" && typed) {
-      termsOut.textContent = " — søgeindekset kunne ikke hentes; filtrene virker stadig";
+      termsOut.textContent = " – søgeindekset kunne ikke hentes; filtrene virker stadig";
     } else if (wanted.length) {
       termsOut.textContent = " med \u00bb" + typed + "\u00ab";
     } else if (typed) {
-      termsOut.textContent = " \u2014 et s\u00f8geord skal v\u00e6re p\u00e5 mindst to tegn";
+      termsOut.textContent = " \u2013 et s\u00f8geord skal v\u00e6re p\u00e5 mindst to tegn";
     } else {
       termsOut.textContent = "";
     }
