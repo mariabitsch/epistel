@@ -1,0 +1,2010 @@
+{
+ "_meta": {
+  "description": "Resuméer af brevene, skrevet af Victoria Eremita (fiktiv formidler, se docs/victoria.md og Om-siden).",
+  "editorialLayer": true,
+  "notFromTEI": true,
+  "generator": "Claude Opus 5 (skrivning), Claude Sonnet (adversarial efterkontrol), reparationsrunde med nul resterende flag",
+  "grounding": "hvert resumé er belagt i brevets egen tekst (plain_text af parserens body)",
+  "generated": "2026-07-27/28"
+ },
+ "summaries": [
+  {
+   "volume": "b1",
+   "xmlId": "n1",
+   "id": "1",
+   "summary": "Søren bruger den første halve side på at undskylde, at han aldrig skriver, og resten på nyhederne fra Borgerdydskolen: en snustobaksdåse i afskedsgave, tre nye lærere, og en professor med dårligt ben, der møder op til time »med een Tøffel og een Støvle«."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n2",
+   "id": "2",
+   "summary": "Søren har ikke læst et eneste af Ciceros breve, som Peter ellers tror. Til gengæld frygter han en mand ved navn Asp, der vil skærpe studentereksamen — og at skulle »tage fat paa det engelske Sprog« i sit sidste skoleår."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n3",
+   "id": "3",
+   "summary": "Faderen sender Peter et kreditiv på 60 Fr. d'or til Göttingen og en nøje anvisning på det høflige følgebrev, der skal med. Han kan ikke få Søren til at skrive — og nederst lover Søren at gøre det snart, »for tillige at gjendrive Fader«."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n4",
+   "id": "4",
+   "summary": "Kierkegaard har hørt nok Schelling i Berlin — læren om potenser »røber den høieste Impotens« — og rejser hjem. Til gengæld har han opdaget, at det har sin betydning at rejse; det skylder han Schelling."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n5",
+   "id": "5",
+   "summary": "Forretningerne har aldeles forstyrret Kierkegaards tankerækker, så han har fået Chr. Lund til at overtage bestyrelsen af stedet og sælge det. Lettelsen er så stor, at han kunne have kastet sig på knæ »som Robinson da han saae Fredag«."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n6",
+   "id": "6",
+   "summary": "Kierkegaard beder Peter brænde hans forrige brev — det gør han selv ved alle breve, han modtager. Ellers har han det godt efter omstændighederne: benene vakler af og til, men løbe kan han »ret ligerviis som Strudsen«."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n7",
+   "id": "7",
+   "summary": "Kierkegaard har hørt, at Peter er kommet i uenighed med biskop Mynster, og skriver for at vise sin deltagelse; rygtet tør han af »criteria interna« antage for sandt. Så følger tre punkter fra en mand, der ellers sjældent giver råd uopfordret."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n8",
+   "id": "8",
+   "summary": "Regnskabet er gjort op: kassen viser 335 rigsdaler, og Peter bliver 82 rigsdaler og 3 mark skyldig. Det haster ikke — på mandag rejser Kierkegaard til Tyskland og skriver igen, når han er hjemme."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n9",
+   "id": "9",
+   "summary": "Kierkegaard er kommet hjem fra Berlin uden at høre fra Peter, og så går profeten til bjerget. Han spørger til Jettes helbred og tilbyder at komme ud, men bliver helst i byen og udholder varmen: »Mit Værelse er mit Rhodus«."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n10",
+   "id": "10",
+   "summary": "Kierkegaard minder Peter om de 80 rigsdaler, han har til gode: »jeg havde tilintetgjort Dit Beviis«, for det var nok, at broderen selv vidste det. Han skynder ikke på sagen — men kan godt bruge pengene."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n11",
+   "id": "11",
+   "summary": "Søren takker for indbydelsen og forklarer, hvorfor han nok ikke kommer: han nåede til Roskilde med billet videre til Sorø, blev træt, kørte hjem og gik i seng. Nevøen Poul vil han dog gerne se; onkelrollen kalder han »en kjær Ansættelse«."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n12",
+   "id": "12",
+   "summary": "På Athenæum ligger et lånebevis underskrevet Kierkegaard på en bog, der aldrig kom tilbage: Greverne af Mansfeldt. Underskriften er ikke hans, og han sender bibliotekarens forespørgsel videre til Peter — helst så han alt sådant vrøvleri blive »paa Bloksbjerget«."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n13",
+   "id": "13",
+   "summary": "Rygtet siger, at biskoppen vil stille Peter over for valget: enten døbe eller forsage embedet. Kierkegaard tror ikke, det kommer så vidt, men minder om »en Masse Sluddermadser«, der vil kunne leve længe af sagen, hvis broderen vover det yderste."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n14",
+   "id": "14",
+   "summary": "»Dit Brev modtaget – brændt.« Kierkegaard fastholder, at sagen langtfra er afgjort, og beder Peter lade være med at udvikle resignationens højeste for Jette for tidligt — hun skal ikke være udmattet, hvis faren udebliver."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n15",
+   "id": "15",
+   "summary": "Kierkegaard gør rede for sin kildekritik: rygtet hørte han først på anden hånd, dagen efter af manden selv, tredje dag af en pålidelig kilde — fjerde dag skrev han. Og Povel skal lære »Velvillie og Ærbødighed« for den onkel, han så godt som aldrig har set."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n16",
+   "id": "16",
+   "summary": "Om den store afsluttende bog er Kierkegaard ligeglad: læs den eller lad være, »Du vil fortryde begge Dele«. Indbydelsen til præstegården svarer han ved at sende ønsket og lysten af sted straks; sig selv in corpore lover han ikke."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n17",
+   "id": "17",
+   "summary": "Kierkegaard er fyldt 34, og det havde han ikke ventet: både han og faderen mente, at ingen i familien blev ældre end 34 år, og at faderen skulle overleve dem alle. Men nej: »jeg gaaer i mit 35te Aar«."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n18",
+   "id": "18",
+   "summary": "Nu er huset solgt, til madam Bützov, enke efter en mægler. Peter beholder sin første prioritet på 7000 rigsdaler, Kierkegaard tager selv en anden på 5000 — og er så »fortumlet i Hovedet« af forretningerne, at han beder om svar med omgående post."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n19",
+   "id": "19",
+   "summary": "Søren har med glæde læst en ytring af broderen i konventet og ville glæde sig endnu mere over at høre, at han havde meldt sig ud: alt, hvad der vil virke »ved Hjælp af Tallet«, er af det onde. Til sidst beder han Peter tilintetgøre brevet, når han har læst det."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n20",
+   "id": "20",
+   "summary": "Brevet skal åbnes efter hans død: fru Regine Schlegel arver ubetinget »al den Smule«, han kan efterlade sig, og vil hun ikke modtage det, kan hun give det til de fattige. En forlovelse var ham lige så forpligtende som et ægteskab."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n21",
+   "id": "21",
+   "summary": "Kierkegaard takker for artiklen i Kirketidenden og siger i samme åndedrag, at den har »berørt mig smerteligt«. Sammenstillingen med Martensen mangler efter hans mening det væsentlige: at han selv har bragt ofre, hvor Martensen har haft profit."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n22",
+   "id": "22",
+   "summary": "Et par linjer i en konvolut med påskriften »At aabne efter min Død«. Indeni siger Kierkegaard rent ud, hvem den unævnte er, som hele forfattervirksomheden er tilegnet: hans forlovede engang, fru Regine Schlegel."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n23",
+   "id": "23",
+   "summary": "Faderen sender »disse par Linier fra min egen Haand« til Gilleleje for at berolige sønnen: at Peter svarer på brevene, har ingen anden grund end den, Søren allerede kender — det bliver sværere og sværere for ham at skrive. Og så kolikken."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n24",
+   "id": "24",
+   "summary": "Bøgerne er ikke glemt, blot udlånt: fru Rørdams fire døtre har dem, og de to flittigste læsere er rejst på landet med dem »under Laas og Lukke«. Søren beder om tilgivelse — om ikke for andet, så for det pikante i situationen."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n25",
+   "id": "25",
+   "summary": "Besøget i går var forgæves, og trøsten hentes i hans egen bog: en gentagelse ville jo netop være at gå forgæves igen, og da der ingen gentagelse er, taler »al menneskelig Sandsynlighed« for, at Kierkegaard er hjemme næste gang."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n26",
+   "id": "26",
+   "summary": "Et par ord, der skal gælde som et besøg — for et lille brev er i Kierkegaards sprog »det Samme som et Besøg« i andres. Kom, send karlen i forvejen for at høre, om han er hjemme, helst mellem fem og seks."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n27",
+   "id": "27",
+   "summary": "En nytårshilsen fra en, der aldrig går rundt og gratulerer. Fætterens scene er unægtelig den mindste, »Ensomhedens og Inderlighedens«, men opgaven lige så stor — og rådet er: glem for alt ikke pligten til at elske dig selv."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n28",
+   "id": "28",
+   "summary": "Tak for bogen — men ikke med floskelen »hvor det har glædet mig«: Peter Kierkegaard vil hellere sige, at gaven netop blev givet, fordi den ville glæde. Vognen har han ikke til rådighed i de første dage, så takken må være skriftlig."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n29",
+   "id": "29",
+   "summary": "Fra Sedding i Jylland takker Else Pedersdatter sine to brodersønner for efterretningen om deres fars død — hendes brors — og for tilbuddet om at træde i hans sted. Hun beder dem komme til Jylland, og havde vejen ikke været så lang, ville hun gerne have bedt om »et Lidet stykke af hans efterladenskab, til et paamindelse efter Ham«."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n30",
+   "id": "30",
+   "summary": "Else Pedersdatter skriver fra Sedding om en hård vinter: hun selv svag, manden ofte sengeliggende. Datteren fik en pige den 21. oktober, Else Marie — havde det været en dreng, var han blevet opkaldt efter deres salige fader."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n31",
+   "id": "31",
+   "summary": "Selv »vor fjerne Provindses Aviser« har berettet om brodersønnernes fremskridt, og nu vil Else Pedersdatter vide, om magisteren også er blevet gift. Hun spørger samtidig, om de fire små oste, hun sendte med rekrutterne i juni, nåede frem."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n32",
+   "id": "32",
+   "summary": "Eksekutorerne i boet efter faderen får hver 200 rigsdaler for deres arbejde. Onkel M.A. Kierkegaard renoncerer på sine og beder om, at de deles i tre lige dele mellem enken Madame Rojen, Anders Kierkegaards enke og Madame Agerskov."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n33",
+   "id": "33",
+   "summary": "Kierkegaard glemte det under besøget forleden: en kopist i banken, Engelhardt, søger plads som revisor under Kjøbenhavns Assurance-Compagnie, og onklen bedes stemme på ham. Det skriftlige ord var lovet, og løftet er nu indfriet."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n34",
+   "id": "34",
+   "summary": "Bedemanden har været forbi og efterladt besked om, at vognen kommer til den aftalte tid. Kierkegaard skriver til sin onkel for at melde afbud: han har ikke fulgt nogen til jorden i mange år, ikke engang i den nære familie, og en undtagelse nu ville »fornærme Andre«."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n35",
+   "id": "35",
+   "summary": "Fra Scribe låner Kierkegaard en replik — enten har man en onkel, eller også har man ingen onkel — og vender den mod sig selv: hvad vil det sige at have en svigerinde, man aldrig ser? Brevet »gjør ingen Fordringer«, allermindst svar."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n36",
+   "id": "36",
+   "summary": "Bogen, hun får, er Kierkegaards eget eksemplar, læst og nydeligt indbundet. Og så et råd: tab for alt ikke »Lysten til at gaae« — han kender ingen tanke så tung, at man ikke kan gå fra den."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n37",
+   "id": "37",
+   "summary": "Jette ligger igen, og svaret skal nå frem før nytår. Kierkegaard skriver om den bekymring, der følger sygelejet — at man tror sig glemt af dem, »som formodentligen aldrig tænke paa En« — og om, at det at tro er at vente det glade."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n38",
+   "id": "38",
+   "summary": "Kunne han ikke begynde med begyndelsen, begyndte han slet ikke — »Søndag kom og Søndag gik«. Nu er brevet der: om tålmodigheden ved lang sygdom, og med en bøn om at fortælle Poul lidt om ham, så drengen ved, at han har en onkel."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n39",
+   "id": "39",
+   "summary": "Kierkegaard sætter familiegravstedet i stand på skrift: gitteret lukkes, den store flade sten fjernes, fint lavt græs, fire ganske små mørkerøde roser i hjørnerne — og på tavlen skal der blive plads til »Søren Aabye født d. 5 Mai 1813 død« og et vers af Brorson. Brevet har mistet sin overskrift i kilden, og dateringen rækker ikke længere end til 1846-47."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n40",
+   "id": "40",
+   "summary": "Julie Thomsen har bebrejdet sin fætter, at han aldrig kommer på besøg, og får til svar et meget langt brev om hvorfor: »jeg er egentligen forelsket i Omgangen med min Pen.« Pennen narrer ham fra besøget og bagefter gerne brevet fra ham igen — men denne gang, lover han, skal det ikke lykkes den."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n41",
+   "id": "41",
+   "summary": "Kierkegaard gik for stærkt med Julies lille søn, så drengen græd, og sender nu en æske legetøj »fra den fremmede Mand«. Hele verden kan man blæse et stykke, lyder rådet undervejs; en lille uret mod et lille barn kan man ikke."
+  },
+  {
+   "volume": "b1",
+   "xmlId": "n42",
+   "id": "42",
+   "summary": "Julie har haft knuder i brystet, og faren er, håber han, overstået. Så ordinerer Kierkegaard det, lægerne glemmer: en enkelt dråbe spøg, og til slut »bort med Knuderne«."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n43",
+   "id": "43",
+   "summary": "Lind er den eneste af de bekendte, der har skrevet, og det gør et blandet indtryk på Søren: opmærksomheden i byen var måske mere »en Frygt for mig« end interesse. Hils dem gerne, men bed endelig ingen om at skrive."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n44",
+   "id": "44",
+   "summary": "Pengene kommer endelig tilbage. Agerskovs finfølelse som kreditor kunne næsten friste én til »at vedblive at være Debitor«, skriver Kierkegaard, og beder om kvittering i form af en hieroglyf på en stump papir."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n45",
+   "id": "45",
+   "summary": "Hjemme i byen turde ingen i fjorten dage sige ham et ord; han rejste, og »Konversationens Sluser« åbnede sig. I Berlin er Schelling begyndt under så megen larm og piben, at Kierkegaard vil vove livet på at høre ham igen."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n46",
+   "id": "46",
+   "summary": "Nytårshilsen fra Berlin: hans breve ligner uvisse indtægter, er altid frankerede og kræver aldrig svar, og forandringen ved rejsen er den, at han »uforandret bliver den samme«. Schelling kom for sent, og det gik ud over Berlins manglende offentlige ure."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n47",
+   "id": "47",
+   "summary": "Et par linjer skrevet i hast, for ellers glemmer han det. Han skammer sig næsten over ikke at kunne skaffe en smukkere »Seddel« — men det er jo Bankens sag; en stakkels forfatter skriver sine ubetydeligheder på godt papir."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n48",
+   "id": "48",
+   "summary": "Ja, han er »uberegnelig«, og nu er han endda blevet det for sig selv: i går aftes havde han faktisk beregnet at komme, men blev ikke lukket ind ad gadedøren, skønt han både ringede og ventede. Næste gang med forenede kræfter."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n49",
+   "id": "49",
+   "summary": "Næsten hver aften klokken halv ti banker tanken på: husk nu fru Spang — og næsten hver aften klokken halv ti står han på Frederiksberg Bakke. Brevet skal gøre fyldest for udeblivelsen; en »virkelig Enke« har lov at kræve mere."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n50",
+   "id": "50",
+   "summary": "Christiane Spang har grundet en hel uge og studeret aviserne, så hun ved, at han ikke er meldt død — er han da syg, eller forsager han? Hun vil hellere tro det første og forlanger vished: »Enten – Eller!«"
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n51",
+   "id": "51",
+   "summary": "Hvorfor en donkraft til at løfte en fjeder? Kierkegaard afværger fru Spangs enten–eller med tanken om, hvad der ville ske, hvis han virkelig kom styrtende ind ad døren, og lover, at han altid er »en Kommende« i forhold til hendes hus."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n52",
+   "id": "52",
+   "summary": "Christiane Spang spørger ligefrem, om magisteren har Øehlenschlægers erindringer og vil låne hende dem — men kun med god vilje og uden hastværk. At hun, at de, savner ham, vil hun ikke fortælle ham, »thi det veed De godt«."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n53",
+   "id": "53",
+   "summary": "Et forseglet brev til Victor Eremita var afleveret på Kierkegaards bopæl; han sendte det til Giødwad, der »tilstillede strax Adressatus Brevet«. Kopien af svaret, Giødwad her sender P.L. Møller, er kort: pseudonymet har aldrig noget færdigt og binder sig aldrig ved noget løfte."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n54",
+   "id": "54",
+   "summary": "Som soldater på farlige poster råber til hinanden i nattens mørke, vil Kierkegaard have dette brev opfattet som et »Tilraab« til en forfatter, der arbejder under utaknemlige vilkår og alligevel holder ud. Han havde selv ønsket at anmelde »Kjød og Aand«."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n55",
+   "id": "55",
+   "summary": "Kofoed-Hansen prædiker skiftevis på tysk og dansk i Haderslev, og den tyske prædiken falder ham lettest — »Kan De løse den Gaade?« Et ord, Kierkegaard sagde sidste gang de talte sammen, klinger stadig i ham: hvor farligt det er at være taler."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n56",
+   "id": "56",
+   "summary": "Kierkegaards brev indeholdt intet, der kunne tyde på et datum, bemærker Kofoed-Hansen. Kendte han blot Moltke nøje nok, ville han bede ham bortføre Kierkegaard med magt og sætte ham på den slesvigske bispestol — »godvillig gjorde De det sagtens ikke«."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n57",
+   "id": "57",
+   "summary": "Menneskenes tal i verden er forøget ved ham, meddeler Kofoed-Hansen: hans kone har for en månedstid siden født en datter. Han ville gerne holde bibellæsning i menigheden, men holdes tilbage af en frygt, der er »en sand Proteus«."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n58",
+   "id": "58",
+   "summary": "Molbech har bedt om en bog til en tysk ven af det danske sprog, og Kierkegaard iler: det medfølgende eksemplar af Enten – Eller er velkonditioneret, men ikke helt nyt, for oplaget er udsolgt. Ønskes en anden bog, skal han »lystre Vinket«."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n59",
+   "id": "59",
+   "summary": "Molbech hører til de prokrastinerende naturer — nogle breve venter halvandet år på svar — og erklærer derfor, at dette ikke er noget svar. Men han, der »aldrig læser danske Bøger«, har alligevel læst i Enten – Eller to gange på to dage."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n60",
+   "id": "60",
+   "summary": "Molbech har overrasket ham med en gave, faderligt, som en far, der længe har lagt noget hen til barnet. Over for så megen lærdom føler Kierkegaard sig »saa eenfoldig og fattig«, at han endnu ikke ved at bruge den."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n61",
+   "id": "61",
+   "summary": "Zeuthen takker for den sidste bog, som han læser langsomt og endnu ikke har læst ud, og beder om én til: der findes også en armodens bekymring for den dag »igaar«, for det man har spist og ikke betalt."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n62",
+   "id": "62",
+   "summary": "Kierkegaard har ikke blot haft tid til at læse brevet, men givet sig god tid. Bemærkningen om dagen i går har nu skaffet ham »en Bekymring for den Dag imorgen« — og sidste gangs afbud skyldtes korrekturlæsning."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n63",
+   "id": "63",
+   "summary": "Et lille manuskript i gave, skrevet i en behagelig ferietid og »som beregnet kun paa een Læser«: blev opsatsen trykt og læst af alle andre end skuespilleren selv, havde den ikke fundet sin læser. Beundreren ønsker at være ukendt."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n64",
+   "id": "64",
+   "summary": "Eksemplaret har ventet, fordi en vis magister boede i hus sammen med modtageren og ikke ville lade det afsende så længe. Først ærgrelse, så »bien«, og til sidst indses det: magisteren traf det rette — underskrevet Victor Eremita."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n65",
+   "id": "65",
+   "summary": "Kierkegaard har mindst syv gange husket at takke for flasken madeira og lige så mange gange glemt det; nu afbryder han regnestykket »ved at udbryde i Tak«. En fodnote finder det snurrigt, at syv gange glemsel er høfligt."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n66",
+   "id": "66",
+   "summary": "Tak for den lille bog — og et ord om julen, der for modtageren bliver en sorgens tid: »Denne glade Juletid«. Kierkegaard råder ham til at tie, når det er allerheftigst, og henfører sin omhyggelige læser videre til dennes afdøde hustru."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n67",
+   "id": "67",
+   "summary": "Oluf Bang inviterer til middag i morgen klokken halv fem — fruen, datteren, en fætterske og hendes fætter. Indledningen er en af de utallige beundrerinder, teksten er invitationen, og som læge kan han forsikre, at den er »aldeles uskadelig«."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n68",
+   "id": "68",
+   "summary": "Oluf Bang takker på vers. Lægen tør ikke gå ind i filosofiens allerhelligste, men vil tage »den sorte Guldsnits Bog« frem, når koleraen giver ham ro — og den stilles i fruens bogskab, ikke hos doktorbøgerne."
+  },
+  {
+   "volume": "b43",
+   "xmlId": "n69",
+   "id": "69",
+   "summary": "To skåle af ravnsort marmor med gylden kant står på skrivebordet, og hver ret er præget »Kirkegaard«. Oluf Bang takker på vers for vildtet og frugten i spiritus og skammer sig over den tynde suppe med rosiner, han selv havde sendt."
+  },
+  {
+   "volume": "b70",
+   "xmlId": "n70",
+   "id": "70",
+   "summary": "Seks ekstra aftryk af Fl. Post nr. 82 og 83 følger med, og forsinkelsen er ikke hans skyld — det har hr. Langhoff nok allerede fortalt. Afhandlingen har fornøjet ham »endnu mere ved den nye Gjennemlæsning«."
+  },
+  {
+   "volume": "b70",
+   "xmlId": "n71",
+   "id": "71",
+   "summary": "Ét punkt foruroliger: Kierkegaard frygter, det kan se ud, som om han har søgt at slippe forbi det værn, professorens første brev indeholdt. Han beder ham huske ytringerne med det »adskilligt modificerende Amen« og bebuder et besøg."
+  },
+  {
+   "volume": "b70",
+   "xmlId": "n72",
+   "id": "72",
+   "summary": "En pakke med to eksemplarer: det ene skal videre til Hverdags-Historiens forfatter, som udgiveren er vejen til, det andet er til professoren selv. At sende ham bøger er kært at gøre og kan derfor »ikke blive mig en Vane«."
+  },
+  {
+   "volume": "b70",
+   "xmlId": "n73",
+   "id": "73",
+   "summary": "Eksemplaret er afleveret til Hverdagshistoriens forfatter, og Heiberg roser en kritik, der begynder med at være modtagende. Han fremhæver publikummet og dets hund — og opdagelsen af, at nutiden har fundet mediationen mellem at tie og at tale i »Snak«."
+  },
+  {
+   "volume": "b70",
+   "xmlId": "n74",
+   "id": "74",
+   "summary": "Billetten kom torsdag aften, fredag gik turen til broderen ved Sorø, og nu svares der straks. Ordsproget siger, at kun »den døve Vise« kan modstå smiger; Kierkegaard er ingen af delene, men når den myndige roser, er det jo ikke smiger."
+  },
+  {
+   "volume": "b70",
+   "xmlId": "n75",
+   "id": "75",
+   "summary": "Anmeldelsen af »To Tidsaldre« har givet så meget at tænke over, at takken først kommer nu — og bliver til et forsvar for personerne: Claudine er tænkt som en nyere Heloise, og Ferdinand Bergland forlader sin elskede af kærlighed, ikke »af Frygt for Næringssorger«."
+  },
+  {
+   "volume": "b70",
+   "xmlId": "n76",
+   "id": "76",
+   "summary": "Endnu et lille skrift, og en frygt for, at modtageren nødig synker dybere i en gæld, han gentagne gange har lovet at gengælde. Kierkegaard vender regnskabet om — han er selv skyldneren, »samtlige disse ubetydelige Gavers ubetydelige Forf.«"
+  },
+  {
+   "volume": "b70",
+   "xmlId": "n77",
+   "id": "77",
+   "summary": "Professoren har engang sagt, at han bliver overøst med bøger, og det erkendes: denne gang går det ene af to samtidige eksemplarer til fruen. Vedholdenheden er som Sokrates' tretal, der hellere fandt sig i alt end at blive et firtal."
+  },
+  {
+   "volume": "b70",
+   "xmlId": "n78",
+   "id": "78",
+   "summary": "Bogen behøver hun ikke at læse; den ville kun kede. Men i den nævnes en lille artikel af Inter et Inter om en skuespillerindes krise, og bliver den ikke læst af hende, er den efter forfatterens mening ikke kommet til sin bestemmelse."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n79",
+   "id": "79",
+   "summary": "Søren spørger, om det nu er vejr til at lande og forlade arken, og kalder sig en afsat fyrste på fem og tyve år, »uden Forhaabninger«. Underskriften skal læses både først og sidst, som en parentes af to måner."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n80",
+   "id": "80",
+   "summary": "Fra Berlin: rejsen er stadig en tåbelighed, Marheinecke er hørt, Schelling ikke begyndt. Resten er instrukser om hende, hvis navn ikke nævnes — mød hende ubemærket mandag og torsdag mellem fire og fem — men »den dybeste Taushed maa hvile derover«."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n81",
+   "id": "81",
+   "summary": "En bebrejdelse i vennens brev besvares med et foredrag, holdt på værelset i tynde støvler i stedet for korkstøvlerne, fordi de tynde bedre gav »den høitragiske Gang«. Til sidst beder han om alt, hvad der kan fortælles om den unge pige, han ikke nævner."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n82",
+   "id": "82",
+   "summary": "Han har ventet næsten en måned på svar og skælder ud, og fortæller så, hvordan alt er lagt an på, at hun skal kunne hade ham. Efter underskriften kommer en sangerinde fra Wien, som spiller Elvira og ligner »en vis ung Pige«."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n83",
+   "id": "83",
+   "summary": "Nytåret begynder med en anke over vennens håndskrift, hvor bogstaverne løber sammen for øjet. Derefter betror Kierkegaard ham det, han ikke har udtalt til et eneste menneske, og hvad han arbejder på: »den videre Udførelse af Enten Eller«."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n84",
+   "id": "84",
+   "summary": "Spørgsmålet, om hendes billede er dukket op igen, får mange siders svar: nej, han er ikke en, der »sidder og synger i Mørke«. Gigten i hovedet og de søvnløse nætter klarer han uden læge — en læge ville de danske i Berlin vide af, og så kunne det skrives hjem."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n85",
+   "id": "85",
+   "summary": "Kulde, søvnløshed, skuffelsen over Schelling og ingen adspredelse: det kalder han »den skarpe Examination«, og den lærer et menneske sig selv at kende. Vennen skal fortælle rundt omkring, at han kommer hjem, så snart Schelling er færdig."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n86",
+   "id": "86",
+   "summary": "»Schelling vrøvler grændseløs«, og dermed er Berlin forbi; han iler hjem, ikke for at bindes af et nyt bånd, men for at gøre Enten – Eller færdig. Bagefter venter en køretur med cigaren tændt og Professoren stolt på bukken."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n87",
+   "id": "87",
+   "summary": "Dagen efter ankomsten til Berlin er han udmattet af rejsen og allerede i arbejde igen, med de gamle spadsereture op og ned unter den Linden. »at glemme er ikke min Sag«, skriver han: hans lidenskab er at erindre hvert utilbørligt ord, han har talt."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n88",
+   "id": "88",
+   "summary": "Det vedlagte brev var skrevet lige efter ankomsten; nu er han på benene igen og har fået, hvad han kom efter — »en Idee – et Vink«. Værten er blevet gift, så han bor i ét værelse, hvor også sengen står, og gider ikke tale tysk."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n89",
+   "id": "89",
+   "summary": "Et arbejde er blevet færdigt, et nyt er i gang, og biblioteket derhjemme er uundværligt. Han skriver til hen ved klokken tre, lister sig så ved stokken hen i restaurationen — så svag, at han tror, han ville falde om og dø, hvis nogen råbte hans navn højt."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n90",
+   "id": "90",
+   "summary": "Vennen er syg, og Blichers noveller har han ikke; i stedet sender han det bedste, han har — »min Isaak«. Underskriften er Farinelli."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n91",
+   "id": "91",
+   "summary": "En seddel på to linjer: kom herhen i eftermiddag »saadan ved det Lag Kl. 6«."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n92",
+   "id": "92",
+   "summary": "Søndagsseddel, lige så kort: kom herhen i aften ved syvtiden, »hvis Du kan«."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n93",
+   "id": "93",
+   "summary": "Mandag klokken halv fire er han hjemme og »ganske til Din Tjeneste« — og skal vennen ikke på Tuborg i morgen, kan de også nå det inden da."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n94",
+   "id": "94",
+   "summary": "Bebrejdelsen for ikke at have besøgt en syg ven får det svar, at han har besøgt ham åndeligt; legemligt besøger han ingen. Nedenunder står en tilføjelse: han kan ikke få sig selv til at tro, at der kommer et forår efter denne vinter, og har derfor købt sig en liljekonval."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n95",
+   "id": "95",
+   "summary": "Et afbud: forvirringen omkring Thorvaldsens begravelse har sat studierne tilbage. Dertil er der vågnet en mistanke om, at det måske er vennens fødselsdag — er det det, må gratulationen undskylde udeblivelsen, og er det ikke, gør overraskelsen samme nytte."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n96",
+   "id": "96",
+   "summary": "Han kom som Geert Westphaler ind i tre historier og glemte det, han ville tale om: bliver fængselspræstens plads ledig, kunne vennen søge den. Nu står det på skrift, så det bliver husket næste gang de ses."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n97",
+   "id": "97",
+   "summary": "Kapellaniet i Fredensborg skal være blevet ledigt: »hic Rhodus, hic salta«. Lykkes det, regner han med at se vennen i præsteboligen på søndag — og selv bytte den ud med kroen."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n98",
+   "id": "98",
+   "summary": "Et par linjer, der spørger, om vennen er syg: han ses aldrig, heller ikke i går hos Mynster."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n99",
+   "id": "99",
+   "summary": "Løftet om at sende bud var glemt, og han huskede det først ude på landevejen, da solen faldt gennemborende på hans isse. I dag kan det heller ikke lade sig gøre: der skal læses korrektur i eftermiddag."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n100",
+   "id": "100",
+   "summary": "En middagsindbydelse på to linjer, klokken syv — og under underskriften et enkelt »Svar!«."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n101",
+   "id": "101",
+   "summary": "En recept: et vinglas af almindelig størrelse, skænket helt fuldt, og så »un, deux, trois abmarschirt«. Vinen har Kierkegaard selv udsøgt hos Capozzi; Emil skal drikke den for sin sundhed på hans, så gør den gavn for to."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n102",
+   "id": "102",
+   "summary": "En følgeseddel til en forsendelse: her er det lovede, det nye fra »denne frugtbare Aarstids Frembringelser«. Hvad det er, siger brevet ikke."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n103",
+   "id": "103",
+   "summary": "En billet på halvanden linje. Emil skal komme om til ham i eftermiddag, og »kom ret snart«."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n104",
+   "id": "104",
+   "summary": "Emil er overanstrengt, og Kierkegaard beder ham forholde sig rolig: han samler alt på én gang om sig selv og synker under vægten, men »Tilværelsen vil forstaaes stykkeviis«. Der er fuldt op at bestille, og alligevel et øjeblik til de par linjer."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n105",
+   "id": "105",
+   "summary": "Et nytårsbrev, der undrer sig over, hvorfor nytåret er lagt til midvinter — mon for at trøste os i kulden. Med følger »et lille Høitidsoffer til Deres Høiærværdighed« fra udflyttergården i annekset og et spørgsmål om, hvornår man dog får Emil at se."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n106",
+   "id": "106",
+   "summary": "En invitation med kort varsel: vil Emil spise til aften med ham i aften? Maden er allerede bestilt, han henter ham kl. 6 eller 6½ på værelset, og »Svar udbedes«."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n107",
+   "id": "107",
+   "summary": "I sagen om Edvard Smidt kan han intet gøre; en anden er allerede anbefalet. Emil så forstemt ud, da han gik i dag, og får tilbudt råd og bistand — og den besked, at han ikke skal lade sig forstyrre af »mine Monologer«."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n108",
+   "id": "108",
+   "summary": "Emil rejser måske tidligt i morgen, så Kierkegaard vælger det visse og træffer ham med en billet i stedet. Den skal ikke standse ham, men give rejsen fart med gode ønsker: »Fornøi Dig, forfrisk Dig, – hils Carl.«"
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n109",
+   "id": "109",
+   "summary": "En billet på to linjer: Emil bedes komme hen til ham i eftermiddag. Mere står der ikke."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n110",
+   "id": "110",
+   "summary": "Emil ville vist have læst noget op, men gik for tidligt; i eftermiddag kommer Levin kl. 3¼ og bliver, så længe Kierkegaard kan holde ud. Han er ophængt og tilmed syg — rejs nu, og »blæs hele Verden et Stykke«, ham selv med."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n111",
+   "id": "111",
+   "summary": "Noget, han glemte at sige om morgenen: der er ikke længe til sommerferien, og Emil trænger til adspredelse og legemlig anstrengelse. Og så det, ét menneske vanskeligt kan sige et andet — Seneca mener, at en 30-årig bør kunne være sin egen læge."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n112",
+   "id": "112",
+   "summary": "Hele brevet lyder: »Dette lader sig ikke gjøre.« Hvad det drejer sig om, står der ikke."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n113",
+   "id": "113",
+   "summary": "Nogen har i dag sagt, at Emil ikke befinder sig vel, og det stemmer ikke med det, hans billet lod ane. Derfor spørges der ligeud: »Du er da ikke syg?«"
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n114",
+   "id": "114",
+   "summary": "Nytårshilsen til Horsens: pustet er vel overstået, og Emil kan lykønskes med at være taget med en trumf: »langt, langt hellere springe i det«, end krybe i det. Om sig selv skriver Kierkegaard kun, at alt er ved det gamle."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n115",
+   "id": "115",
+   "summary": "Emil Boesen skriver hjem fra Horsens: søndag i præstekjole fra 9 til 3½, et underligt publikum i hospitalskirken, hestemarked uden for vinduerne. Han beder Kierkegaard om tre ting — besøg hos hans far, besøg hos Louise Holtermann, og et brev."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n116",
+   "id": "116",
+   "summary": "Først en påmindelse om håndskriften: det er slet ikke bogstaver, men små prikker på uhyre fint papir. Så svar på de tre ønsker — de to første »lader sig ikke gjøre« — og et råd om prædikentemaer: lad tankerne flagre på spadsereturen."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n117",
+   "id": "117",
+   "summary": "Emil Boesen indbyder til sit eget bryllup, onsdag den 1. maj kl. 6 (eller 7) i Frue Kirke. Han kommer ikke selv med indbydelsen, for han er blevet »dygtig forkjølet« og må se at blive den kvit igen — svar udbedes."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n118",
+   "id": "118",
+   "summary": "Emil Boesen takker — sent — for Indøvelse i Christendom: det brev, han ville skrive, måtte tage lang tid, og en times tid kunne ikke være nok, men inden jul skal takken være sagt. Han fortæller også, at hans søster Louise er død."
+  },
+  {
+   "volume": "b79",
+   "xmlId": "n119",
+   "id": "119",
+   "summary": "Boesen takker for de tre sidste bøger; den om forfattervirksomheden forundrede ham først — det var, »som om Du sagde Farvel«. Hjemme ligger den lille Johannes i vuggen, og Louise, som storken bed slemt i brystet, er rask igen og pynter huset med blomster."
+  },
+  {
+   "volume": "b120",
+   "xmlId": "n120",
+   "id": "120",
+   "summary": "En hilsen på tre ord til sekretær Fabricius på Regensen: »Behag at modtage.« Hvad der skal modtages, står anført nedenunder som en katalogpost: Af en endnu Levendes Papirer, mod hans Villie udgivet, X og 79 sider, 48 ß."
+  },
+  {
+   "volume": "b120",
+   "xmlId": "n121",
+   "id": "121",
+   "summary": "På latin fortæller Kierkegaard fakultetet om sine studier og indrømmer lige ud, at han engang sagde teologien helt farvel — »omnino theologiæ valedixi« — og kun tog den op igen, fordi faderens død bandt ham til et løfte."
+  },
+  {
+   "volume": "b120",
+   "xmlId": "n122",
+   "id": "122",
+   "summary": "Kierkegaard beder kongen om lov til at indlevere sin magisterafhandling »om Begrebet Ironi med stadigt Hensyn til Socrates« på modersmålet i stedet for latin, og vedlægger en attest fra sin gamle rektor på, hvor godt han kan latin."
+  },
+  {
+   "volume": "b120",
+   "xmlId": "n123",
+   "id": "123",
+   "summary": "To linjer og en underskrift: Kierkegaard indestår for de bøger, student Henrich Sigvard Lund måtte låne, og tilføjer, at han selv er »Eier af Stedet No 2 paa Nytorv«."
+  },
+  {
+   "volume": "b120",
+   "xmlId": "n124",
+   "id": "124",
+   "summary": "Kierkegaard takker for sin snedkersvend, der er rask igen og atter »en Arbeider med Liv og Sjel«; han har fået lov at blive boende, fordi en flytning ville bedrøve ham. Kommer der et tilbagefald, husker brevet lægen på løftet om en hospitalsplads."
+  },
+  {
+   "volume": "b120",
+   "xmlId": "n125",
+   "id": "125",
+   "summary": "Et brev skrevet som kuriositet, fordi en kuriositet kun virker én gang: Kierkegaard beder generalprokurøren lægge mærke til en enkes ansøgning om det Kofoedske legat og denne ene gang være »Generalprocureur for et enkelt Msk«. Enken hedder Abelone Hedberg, født Røyen."
+  },
+  {
+   "volume": "b120",
+   "xmlId": "n126",
+   "id": "126",
+   "summary": "Kierkegaard sender dronningen andet oplag af »Kjerlighedens Gjerninger«, fordi han i sin tid kun havde ét eksemplar med ud til Sorgenfrie: »Dronningen og jeg kan godt hjælpe os med eet Exemplar«, sagde Christian VIII dengang."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n127",
+   "id": "127",
+   "summary": "En typografisk kærlighedserklæring: stregen under »Vor egen lille Regine« er en besked til sætteren om at spatiere ordene, og Kierkegaard vil trække dem så langt ud, at sætteren formodentlig aldrig kommer til at sætte mere i sit liv."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n128",
+   "id": "128",
+   "summary": "Om øjet, der læser, hvad øjenlåget skriver — men kun på nær afstand; tanken derimod er »en Piil fra den spændte Bue«. Med følger en hieroglyf, som nogen vil kalde en rosenkrans, der føres led for led gennem hånden, mens navnet nævnes."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n129",
+   "id": "129",
+   "summary": "Til en tegning af Knippelsbro: manden med kikkerten er ham selv, og det yderste glas er spejlglas, så kikkerten i de rette hænder bliver »en guddommelig Telegraph« og i alle andres et unyttigt møbel."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n130",
+   "id": "130",
+   "summary": "Regine har fortalt om flasken liljekonval, hun fik af sin far til konfirmationen. Han hørte det godt, men lod planen ligge skjult, til flasken kunne komme netop som hun skal ud ad døren: »stands et Øieblik blot et Øieblik«."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n131",
+   "id": "131",
+   "summary": "For tre uger siden ventede hun et brev og fik ingen; i dag venter hun besøg og ikke brev — så gør han begge dele. Hver gang hun gentager, at hun elsker ham mest, når han er bedrøvet, hører han »ikke længere Lænkernes Raslen«."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n132",
+   "id": "132",
+   "summary": "Nogle få linjer om vinteren, der kom: han knuger blomsterne fast for at redde dem, og de dør, men en dråbe bliver tilbage. Nedenunder en besked til »Ringens Aand« om at bringe brevet hurtigt den lange vej."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n133",
+   "id": "133",
+   "summary": "Kierkegaard har læst Platon om kærligheden, men vil holde sin egen lovtale: kærligheden er »hurtigere end sig selv«. Efterskriften beder hende glemme alt det mellemliggende og blot læse overskriften og underskriften — de kan både dysse og vække."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n134",
+   "id": "134",
+   "summary": "Det er vinter, og derfor netop tid til at tænke på sommer: en køretur gennem skoven, og bagefter en løvhytte, som erindringen helliger, for naturen selv er »uden Fortid«. Tegningen af hytten følger med — man bruger unge, friske skud, ikke tørre pinde."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n135",
+   "id": "135",
+   "summary": "Brevet har med vilje ingen dato — følelsen hører ikke til nogen bestemt time, og det kan derfor læses når som helst, »endog om Natten«. Før var sorgen og vemodet hans rejsefæller til Fredensborg; nu er selskabet mindre: erindringen derud, længslen hjem."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n136",
+   "id": "136",
+   "summary": "Det er lørdag, og han kommer ikke. I stedet et lille billede af en gammel kone, der læser højt — og en tilståelse: han har beholdt hendes strikketøj, det ligger ved siden af ham i sofaen, mens han selv læser højt."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n137",
+   "id": "137",
+   "summary": "En kort seddel midt på dagen: når det stundom ser ud, som om han unddrager sig, er det ikke, fordi han elsker mindre, men fordi han i visse øjeblikke må være alene. Horisonten udvider sig uendeligt og har »en eneste Begrændsning«."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n138",
+   "id": "138",
+   "summary": "Kierkegaard sammenligner sig med en havmand, fordi hans egentlige liv ligger dybt nede i »Sjælens Hemmelighedsfuldhed«. Dernede er mange små, hyggelige værelser, hvor man sidder trygt, mens havet stormer udenom; ét af dem følger med som tegning."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n139",
+   "id": "139",
+   "summary": "Et billede, hun ejer, er havnet hos ham og længes hjem igen: kvinden på det holder en blomst — rækker hun den, eller har hun fået den? »Det veed ingen Trediemand« — og med brevet følger et halstørklæde, som kun hun skal vide, hun ejer."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n140",
+   "id": "140",
+   "summary": "Otte tyske verselinjer om, at det, der passer sammen, må finde sammen — og så en kort bemærkning: det er tirsdag, men julen kommer før nytår, og på samme måde kommer det poetiske før det virkelige."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n141",
+   "id": "141",
+   "summary": "Til bevis for, at æsken ikke bruges til tobak, men som »et slags Tempel-Archiv«, følger et manuskript med en krans og et øje. Erindringen om den ene onsdag gjorde hende ked af det, så han fortæller om en anden."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n142",
+   "id": "142",
+   "summary": "Et nytårsønske om »Mange Smiil og faae Taarer« — og et lommetørklæde, han har lagt under hendes hovedpude. Som Veronicas linklæde bar Kristi billede, skal hun selv kunne kalde hans frem i dette."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n143",
+   "id": "143",
+   "summary": "Han forsvarer sin uregelmæssige brevskrivning: friheden er kærlighedens element, og han er ingen »fungerende Kammerjunker«, der fører kærlighedens protokol. Nedenunder står en aftale: går han forbi hendes vindue og ser på sit ur, har han set hende."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n144",
+   "id": "144",
+   "summary": "Hun har opgivet de højere musikalske studier og får til gengæld en understøttelse til »Musikens Udbredelse i Dagligstuen«. David fordrev Sauls onde lune uden at være stor kunstner — hendes spil skal klare hans mørke sind."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n145",
+   "id": "145",
+   "summary": "Han læser en vise, hvor kong Wolmer holder op med at friste pigen, og flytter pointen: kongen og »en vis anden Person« er i grunden den samme. Belønningen udebliver, men han var og var dog ikke i stormvejret; han er i den sagte luftning."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n146",
+   "id": "146",
+   "summary": "Et billede følger med; han ønsker ikke, det skal hænge upåagtet på et ubeboet værelse. Under hilsenen står et lille tysk vers: »Ich dein Du mein«."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n147",
+   "id": "147",
+   "summary": "Fødselsdagsbrev: manuskriptet, der tvang ham til at gå så præcist, følger med — sammen med et malerapparat og et par stager. Ønsket er, at ingen må »tage Din Glæde fra Dig«, heller ikke han selv."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n148",
+   "id": "148",
+   "summary": "Han er netop blevet færdig med en anmeldelse til hofprædikant Münter — kragetæer under et sjusket omslag — mens hånden tegner hvert bogstav til hende med omhu. Hun må ikke tro, han skriver, blot fordi pennen er i hånden."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n149",
+   "id": "149",
+   "summary": "Hele sedlen er en aftale: »Wir haben uns bedacht« — hun skal komme forbi Store Købmagergade nr. 7, når hun går fra musik, så møder han op der."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n150",
+   "id": "150",
+   "summary": "Efter en formiddag, hvor han har talt alvorligt med hende, sender han et eksemplar af Det Nye Testamente — ikke for at stille sig over hende: han tugter, skriver han, sig selv på samme måde."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n151",
+   "id": "151",
+   "summary": "Øjeblikket vil ikke begunstige dem, og så vil de erindre i stedet. »Erindringen er mit Element«, og allerede mens han skriver, husker han dagen som noget længst forbigangent — uden smertens brod."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n152",
+   "id": "152",
+   "summary": "En lang række tak for brevtasken, hun har broderet med perler: »Tak fordi Du kom alene«. Tilbage følger rosen, der visnede under hans hænder, forseglet med hans læber mod papiret — seglet er hendes, men han bevarer det."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n153",
+   "id": "153",
+   "summary": "Et spørgsmål og ikke mere: tager hun til Ordrup i dag? Han vil kun vide, om han kan træffe hende hjemme."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n154",
+   "id": "154",
+   "summary": "For et år siden sendte han hende en flaske af den samme essens; nu kommer en ny, svøbt i lag på lag af omslag, som ikke skal rives af i hast — de er selve glæden."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n155",
+   "id": "155",
+   "summary": "En seddel med et afbud, der ikke er helt et afbud: hun skal ikke vente ham i eftermiddag, for han er forhindret og kommer først til aften."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n156",
+   "id": "156",
+   "summary": "Hele brevet er et afbud: hun skal ikke vente ham i aften, da han ser sig forhindret i at komme. Hvad der forhindrer ham, står der ikke."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n157",
+   "id": "157",
+   "summary": "Han ville gerne have lagt noget vellugtende i æsken, men har ikke andet ved hånden end brevet selv — og håber, hun vil være tilfreds med det."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n158",
+   "id": "158",
+   "summary": "Han er gået forbi teatret og har taget to billetter, den ene til hende. Hvem den anden er til, får hun at vide kl. 6 præcis, når han kommer ned med hendes — svar bedes med buddet."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n159",
+   "id": "159",
+   "summary": "Han skriver til ægtemanden først: her er et brev til Deres kone, afgør selv, om hun skal have det. Indeni byder han Regine forligelse »anden Gang« — skriftligt, fordi hans personlighed engang har virket alt for stærkt."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n159.1",
+   "id": "159.1",
+   "summary": "Udkastet, hvor brevet endnu er ved at blive til: taksigelsen skrives om igen og igen — »Du min Læremester« — og til sidst noterer han, hvilke punktummer der skal med, og hvad der falder ud."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n159.2",
+   "id": "159.2",
+   "summary": "Til Regines mand beder Kierkegaard om samtykke til at give hende forklaringen på forholdet, og betinger sig, at intet brev går frem uden at Schlegel har læst det. Arbejdsdelingen er klar: han vil selv »sørge for hendes Udødelighed«."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n159.3",
+   "id": "159.3",
+   "summary": "Kladden til et følgebrev: om modtageren vil åbne det indlagte brev, er helt op til ham selv — »jeg tilskynder Dem ikke« — og han skal betænke sagen alene, før han taler med den pige, Kierkegaard engang var forlovet med."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n159.4",
+   "id": "159.4",
+   "summary": "Til Regine selv gør han regnskabet op: hans skyld er, at han »rev Dig med ud paa Strømmen«, og målt mod den er hendes ingen. Hendes fars død har fået ham til at bryde tavsheden."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n159.5",
+   "id": "159.5",
+   "summary": "At han var grusom, er sandt; at hun har lidt ubeskriveligt, forstår han; at han selv har lidt mest, ved han. Ægteskabet har fæstnet sig, og så tør han endelig: »Nu vover jeg det.«"
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n159.6",
+   "id": "159.6",
+   "summary": "Faderens død har »omstemt og bestemmet« ham: han byder hende forligelse anden gang, og skriftligt, for ikke at overvælde hende. Efterskriften siger tørt, at han egentlig havde ventet, at hun gjorde det første skridt."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n159.7",
+   "id": "159.7",
+   "summary": "Næsten det samme brev en gang til, nu med en tilføjelse: han har holdt, hvad hun bad om ved afskeden, »at jeg stundom vilde mindes Dig«. Resten står ord for ord — grusomheden, tavsheden, tilbuddet om forligelse."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n159.8",
+   "id": "159.8",
+   "summary": "Afskriften af det, der faktisk blev sendt den 19. november 1849 — og af svaret: »en moraliserende Indignations-Skrivelse« fra manden, og brevet til hende uåbnet retur."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n159.9",
+   "id": "159.9",
+   "summary": "Hvilken dato han hævede forlovelsen, husker han ikke; holdepunkterne har han måttet læse sig til i Fædrelandet. Den hvide Dame gik i teatret den aften, Mynster prædikede den 17., det første brev fra Berlin er af 31. oktober."
+  },
+  {
+   "volume": "b127",
+   "xmlId": "n160",
+   "id": "160",
+   "summary": "En kort viljeserklæring på et stykke papir: efter hans død skal skrifterne tilegnes hende og hans afdøde far. »Hun skal tilhøre Historien.«"
+  },
+  {
+   "volume": "b161",
+   "xmlId": "n161",
+   "id": "161",
+   "summary": "Med bogen følger en seddel, der insisterer på rangordenen: det er bogen, der følger med brevet, ikke omvendt. Kierkegaard beder professoren om ikke at læse sig træt og om ikke at svare — »det kunde være nok«."
+  },
+  {
+   "volume": "b161",
+   "xmlId": "n162",
+   "id": "162",
+   "summary": "Fra Berlin: han hører Marheineke, Werder og Schelling, og til Schelling er trængslen så stor, at det de første timer næsten var »forbunden med Livsfare«. Steffens har skuffet ham fra katedret; ham foretrækker han at læse."
+  },
+  {
+   "volume": "b161",
+   "xmlId": "n163",
+   "id": "163",
+   "summary": "Kierkegaard glæder sig over endelig at kunne skrive »Deres Magnificence« til sin gamle lærer — men ærindet er et andet: en ældre mand ved navn Blicher søger den ledige pedelpost, og han, der ellers aldrig anbefaler nogen, gør en undtagelse."
+  },
+  {
+   "volume": "b161",
+   "xmlId": "n164",
+   "id": "164",
+   "summary": "Svaret er nej: han har en gammel kone i huset og ingen brug for den anbefalede. Men brevet kom på hans fødselsdag, som han helst holder skjult, og det er det eneste, han nogensinde har fået fra sin gamle rektor."
+  },
+  {
+   "volume": "b161",
+   "xmlId": "n165",
+   "id": "165",
+   "summary": "Clausen samler danske bøger til den skandinaviske bogsamling i Rom og spørger, om Kierkegaard vil bidrage med sine skrifter — også Enten–Eller »og dets Sødskende«, i betragtning af det forhold, han antages at stå i til deres far."
+  },
+  {
+   "volume": "b161",
+   "xmlId": "n166",
+   "id": "166",
+   "summary": "Et vanskeligt spørgsmål, svarer Kierkegaard: føler man tilskyndelsen så stærkt, at spørgsmålet ikke længere er et spørgsmål, kan man jo ikke svare. Skrifterne følger med; Enten–Eller er udsolgt, men et eksemplar er i sin tid sendt til Rom."
+  },
+  {
+   "volume": "b161",
+   "xmlId": "n167",
+   "id": "167",
+   "summary": "Clausen sender sit nye historisk-dogmatiske arbejde med en undskyldning på forhånd: han tør næppe vente »nogen synderlig Interesse« hos modtageren, men vil gerne vise sin taknemmelighed for de bøger, han har fået."
+  },
+  {
+   "volume": "b161",
+   "xmlId": "n168",
+   "id": "168",
+   "summary": "Den samme hånd »saarer og læger«, skriver Kierkegaard: hvor sårende, at universitetets fremmeste teolog ikke venter interesse hos ham, der dog er teologisk kandidat med bedste karakter. Takken kommer sent, fordi han først ville læse bogen."
+  },
+  {
+   "volume": "b161",
+   "xmlId": "n169",
+   "id": "169",
+   "summary": "F.C. Petersen har ikke truffet ham hjemme og takker så skriftligt for gaven. Han er en langsom læser, og den slags bøger bør kun læses »in guten Stunden«."
+  },
+  {
+   "volume": "b161",
+   "xmlId": "n170",
+   "id": "170",
+   "summary": "Endnu en tak fra Regensen, denne gang for det nyeste skrift — og med en lille bebrejdelse: nu er »den gode gamle Skik« at møde ham også gået af brug."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n171",
+   "id": "171",
+   "summary": "Søren beroliger Carl: han skal bare skrive, stavningen er god nok. Selv fortæller han fra Berlin om hundene, der spændes for mælkevognene, og egernene i Thiergarten — og bemærker, at Carl nu er kommet i »Trøie og Buxer«."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n172",
+   "id": "172",
+   "summary": "Carls brev var kort, og Søren driller: sømmer det sig for et fornuftvæsen, »der gaar i Trøie og Buxer«? Selv fortæller han om sin nye støvlepudser, der ligner den gamle på en prik, men er langt mere omhyggelig."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n173",
+   "id": "173",
+   "summary": "Carl har vist tænkt, at onklen glemmer netop hans fødselsdag. Svaret er en skriverpult, han længe har holdt øje med hos kunsthandleren — og en bemærkning om, at Victor Eremita kunne have brugt motivet, hvis fortalen til Enten–Eller ikke var ældre."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n174",
+   "id": "174",
+   "summary": "En kort forespørgsel: bogbinder Møller har sendt nogle bøger, og onklen vil vide, om Carl har sat dem på hans regning, så de ikke kommer til at »betale dem to Gange«."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n175",
+   "id": "175",
+   "summary": "Onklen sender en bog til fødselsdagen og afviser på forhånd mistanken om, at han skulle have glemt både dagen og Carl: »deri tager Du dog Feil«."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n176",
+   "id": "176",
+   "summary": "I stedet for en gave fra Königstraße — pakker overlever sjældent posten — får Jette et brev på papir med tre berlinske bygninger i rammen. Så kan hun rejse i Berlin hjemme i dagligstuen og se den uhyre stenkumme foran museet."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n177",
+   "id": "177",
+   "summary": "Eftersom en fødselsdag indtræffer én gang om året, må Jette også have haft en i år. Lykønskningen kommer så enten et års tid for sent eller nogle dage for tidligt — »blæse være med Datoer og Aarstal«."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n178",
+   "id": "178",
+   "summary": "Til gengæld for Jettes frugtstykke sender onklen et blomsterstykke, han har siddet oppe en hel nat for at gøre færdigt. Hun må love ikke at hænge det op eller nævne hans navn: »for det er saa flaut«."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n179",
+   "id": "179",
+   "summary": "Onklen har igen glemt fødselsdagen og trøster sig med, at Jette må gøre gengæld. Med brevet følger en »Trøster«, som ikke er til at lægge under hovedet, men til trøst i alle livets tilfælde — helst som ren luksus."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n180",
+   "id": "180",
+   "summary": "Gaven kommer dagen efter konfirmationen, med vilje: højtideligheden vil onklen nødig blande sammen med foræringer. Han gik selv op og ned i de tomme værelser, mens de andre var i kirke, og når frem til, at »Lykønskningen er den bedste Gave«."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n181",
+   "id": "181",
+   "summary": "Naturen er i uorden — med Jeronimus fristes han til at sige, at verden ikke står til påske — og så kan en fødselsdag vel også glemmes. Til gengæld for Jettes cigarfoderal følger et par kaffekopper: tobak og kaffe hører sammen."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n182",
+   "id": "182",
+   "summary": "Et efterbrev i hælene på det forrige: pakken blev glemt og må nu have sit eget brev med. Og ja — han havde virkelig glemt fødselsdagen, indtil man mindede ham om den hos onkel Christians."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n183",
+   "id": "183",
+   "summary": "Klaverudtoget kommer for sent, og skylden er bogbinderens — ligesom dengang Jettes egen gave til onklen kom bagefter: »Ja de Bogbindere de Bogbindere!« Hun kan glæde sig ved musikken eller gemme noderne til en bedre tid."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n184",
+   "id": "184",
+   "summary": "Han har glemt dagen igen og vender i moderne stil sagen om: det er de andre, der tager fejl af datoen. Så alvoren — forskellen på den deltagelse, der varer fødselsdagens tolv timer, og den, der er fordelt over årets 365 dage."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n185",
+   "id": "185",
+   "summary": "To linjer med en forsendelse: den udgave af Figaro, han havde tiltænkt Jette, var ikke at få, og derfor følger »Apothekeren og Doctoren« med."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n186",
+   "id": "186",
+   "summary": "En seddel, der trækker et tilbud tilbage: han kan alligevel ikke låne Jette sit eksemplar af »aus meinem Leben« — den bog kan hun sagtens få fat i andetsteds."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n187",
+   "id": "187",
+   "summary": "Brevet til Sophie kunne ikke nå hende på landet og ligger nu i et brev til Jette, der skal åbne og læse det. Hvilket af brevene der er konvolut om det andet, er ikke til at afgøre — som med klokkestrengens to snore."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n188",
+   "id": "188",
+   "summary": "Han er flyttet til Jägerstraße og håber, gadenavnet ikke varsler ilde. I julen samledes Berlins danske — talrige som græshopperne i Ægypten — om æbleskiver og juletræ, og entreen til Fausts Wintergarten viste, at »der var ikke stort at see«."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n189",
+   "id": "189",
+   "summary": "Svaret begynder på anden side, fordi en kunstner har ladet »das unvordenkliche Seyn« gå i forvejen — og Michael skal vise stedet til onkel Peter og hilse, at det er Schellings yndlingsudtryk. Ellers er det blevet smukt vintervejr."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n190",
+   "id": "190",
+   "summary": "Michael har troet, at hans onkel kører i kane; det overlader han til berlinerne, for kanekørsel har han altid fundet for koldt. Til gengæld har han set elleve personer i én vogn med én hest på vej til Charlottenburg."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n191",
+   "id": "191",
+   "summary": "Et par linjer med en kasse: indholdet må gerne gå op i »Røg og Damp«, men lykønskningen skal beholdes og bevares."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n192",
+   "id": "192",
+   "summary": "Michael Lund lykønsker sin onkel med fødselsdagen fra forposten på vej mod Kolding — første gang han tilbringer dagen uden for København. Kvartererne skifter mellem det meget fine, en usel bondestue og halmhytter på marken, og han har nu »lugtet Krudtet«."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n193",
+   "id": "193",
+   "summary": "Ét ark, to breve: Sophie drilles for at have skrevet lige før et bal, og Carl får historien om stokken hos kunstdrejeren — da onklen endelig trådte ind, slog han en rude i stykker og betalte den i stedet for at købe stokken."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n194",
+   "id": "194",
+   "summary": "Jette får et kort svar og grunden til det: Schelling læser nu to timer daglig. Wilhelm bliver udnævnt til »Dux« og bemyndiget til at hilse Christian, Peder og Ferdinand — gerne ved at stille dem i geled."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n195",
+   "id": "195",
+   "summary": "Onklen har anbefalet Wilhelm til lektor Barfoed og fik en besked med, som han udtrykkeligt sagde nej til at bringe: forelæsningerne begynder på mandag. Som broderen i evangeliet, der sagde »nei«, faldt det ham bagefter ind, at han kunne gøre det alligevel."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n196",
+   "id": "196",
+   "summary": "En seddel til studenten H. Lund på store Købmagergade, og hele beskeden lyder: »En Mark er en Mark og en Mand er en Mand.« Hvad den drejer sig om, står der ikke."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n197",
+   "id": "197",
+   "summary": "På en aftentur i måneskin kommer Henrik Lund i tanke om onklens fødselsdag og sætter sig straks til at skrive, så brevet kan nå frem på selve dagen. Hvad lykønskningen skal gælde, »for hvad«, får onklen selv lov at bestemme."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n198",
+   "id": "198",
+   "summary": "Svaret kommer omgående, for »Udsættelse er en farlig Ting« — en tese onklen belyser med sin egen forhærdede obstruktion, der har sat tingene i baglås. Han skriver det udtrykkeligt ikke for at konsultere Henrik som læge, men for at oplyse sin tese."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n199",
+   "id": "199",
+   "summary": "Henrik Lund takker for, at onklen mødte op ved hans afrejse fra København for at sige farvel — en opmærksomhed, der vinder i værdi ved ikke at vises »Alle og Enhver eller hver Dag«. Hele brevet er den tak."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n200",
+   "id": "200",
+   "summary": "Henrik Lund tager onklens »spøgefulde Critik« pænt og går videre til vanskeligheden: hvad skal han skrive om, når der på grænsevagten intet sker? Dagene ligner hinanden, og han er henvist til sit eget selskab og til de bøger, han kan skaffe."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n201",
+   "id": "201",
+   "summary": "Onklen har bedt om at høre om fugleverdenen på Fyn, og Henrik Lund leverer: kragerne holder torvet rent efter torvedag, allikerne skriger om Sankt Knuds tårn, og en aften i måneskin gav uglerne »en sjelden Concert«."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n202",
+   "id": "202",
+   "summary": "Onklen bad om en oversigt over trækfuglenes ankomsttider, og Henrik Lund har gået i skovene selv og spurgt landmænd og zoologer: storken sidst i marts, svalen sidst i april, nattergalen 10.-12. maj. Skovskaden findes virkelig — udstoppet i et vindue på Østergade."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n203",
+   "id": "203",
+   "summary": "Endnu et år må lykønskningen sendes skriftligt i stedet for bringes mundtligt — men vejen er ligegyldig, mener Henrik Lund med hin byzantinske kristen, når den blot til sidst ender i Sophia-Kirken. Andre emner holder han bevidst ude af brevet."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n204",
+   "id": "204",
+   "summary": "Flere gange har Henrik Lund revet brevet itu igen, fordi det forekom ham »saa dumt, saa tomt, saa flaut«. Dette får lov at leve: om fuglene er her intet at skrive, de er alle fløjet på nær en gulspurv, der ligner et vissent blad."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n205",
+   "id": "205",
+   "summary": "Bøgerne når også over til Hørup, og »som Du taler, taler ingen anden«. Men Henrik Lund afviser onklens ord om, at han keder sig: fuldt fornøjet med den ørkesløse stilling som underlæge er han ikke, men så vidt er det heller ikke kommet."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n206",
+   "id": "206",
+   "summary": "En seddel til Frederiks Hospital: kan Henrik træffe onklen i aften »til sædvanlig Tid og Sted«, og ellers komme ud til ham i morgen formiddag mellem elleve og tolv. Hvor det sædvanlige sted var, siger sedlen ikke."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n207",
+   "id": "207",
+   "summary": "Børnene har lagt et tæppe for hans fod, og takken bliver også et forbehold: dér hvor vejen er rosenstrøet, går han aldrig, så tæppet bliver nok lagt væk og gemt — men farveblandingen er »lykkeligt valgt«. Brevet standser midt i et ord."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n208",
+   "id": "208",
+   "summary": "»Allehaande Rygter« har fået Kierkegaard til at skrive en opfordring, som han beder grosserer Nathanson trykke — helst allerede i aften og med omhyggelig korrektur. Går det ikke så hurtigt, skal Anders have den tilbage til et andet blad."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n209",
+   "id": "209",
+   "summary": "Manuskriptet er afleveret, og Kierkegaard beder Giødwad om nogle formiddagstimer — kun fire opbyggelige taler, men han føler »en Modbydelighed« ved at læse dem højt for en anden. Til sidst et mellemværende, som han sidst glemte og nu husker godt."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n210",
+   "id": "210",
+   "summary": "En tilegnelse til cand. juris Jens Finsteen Giødwad, »hvis opoffrende Troskab« det pseudonyme forfatterskab skylder så meget. Takken gælder en afgjort politiker, der hjælper en mand, som kun kan siges ikke at have den modsatte politiske mening, fordi han slet ingen har."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n211",
+   "id": "211",
+   "summary": "Kierkegaard opsiger den faste ugedag hos Giødwad: to så offentlige og så uenige personer kan vanskeligt have et privat forhold, og sin dom om »Fædrelandet« kan han ikke holde tilbage. Hengivenheden beholder han — »enten De tillader det eller ikke tillader det«."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n212",
+   "id": "212",
+   "summary": "Kom i formiddag kl. 11½. Kierkegaard går ud fra, at Levin har tid: at ligge »i Kævl med hele Selskabet« regnes ikke for nogen virksomhed."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n213",
+   "id": "213",
+   "summary": "Kierkegaard siger nej til at skrive i skrivebog: han er for gammel til det for sin egen skyld, og »Kladderie kunde let blive Kludderie«. Med brevet følger et svar, han skrev for længe siden og glemte at sende."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n214",
+   "id": "214",
+   "summary": "Enhver anden bog i biblioteket må Levin låne, men ikke de opbyggelige taler: en sproglig forelskelse ser for meget. Jacob Böhme så Treenighedens glans i en tintallerken — godt nok for ham, »flaut nok for Talerkenen«."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n215",
+   "id": "215",
+   "summary": "Der må iles. Kierkegaard sender tak for ulejligheden og indlagt i takken et vederlag for arbejdet og tiden — med et NB, der »paa det Bestemteste« frabeder sig enhver forevigelse af skrifttegnene."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n216",
+   "id": "216",
+   "summary": "Levin har ikke kunnet læse skrift i mørke, og det gør ham til »den forlorne Literatus«: skrøbeligheden er tilgivet, det manglende lys mindre. Kom så i eftermiddag kl. 3½."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n217",
+   "id": "217",
+   "summary": "Bliver Levin i byen, eller tager han på landet? Kierkegaard kunne få brug for at tale med ham i næste uge, men Levin må »paa ingen Maade« lave om på sine planer for sommeren."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n218",
+   "id": "218",
+   "summary": "Et afbud og en ny tid: i morgen kommer Levin forgæves, hvis han kommer, og det er »saa vist ikke min Skyld« — men lørdag kl. 10½, om Kierkegaard tør bede."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n219",
+   "id": "219",
+   "summary": "Hele sedlen er en aftale flyttet en dag: ingen korrektur modtaget mandag, altså tirsdag kl. 3¼."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n220",
+   "id": "220",
+   "summary": "Man venter i trykkeriet, Kierkegaard står i trykkeriet og venter, og han venter videre, når han går derfra. Overilelser frygter han ikke af Levins stilistiske nøjagtighed, men »hver Dag er mig kostbar«."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n221",
+   "id": "221",
+   "summary": "Restoplaget af de opbyggelige taler er afhændet til boghandler Philipsen, og bogtrykkeren bedes udlevere de eksemplarer, der ligger hos ham, når de forlanges."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n222",
+   "id": "222",
+   "summary": "Bianco Luno gør oplagene op: af »Begrebet Angst« er der trykt 250 eksemplarer, af »Afsluttende uvidenskabelig Efterskrivt« 500 — hvoraf magisteren selv har modtaget seks. Frieksemplarerne til Det Kongelige og til Universitetsbiblioteket lå uden for oplaget."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n223",
+   "id": "223",
+   "summary": "Med manuskriptet følger de sædvanlige ønsker: oplag 525, heraf 20 på tyndt velin, og korrektur helst kl. 12 middag. Resten er Kierkegaard forvisset om på forhånd — »den Punktlighed og Orden«, der udmærker Bianco-Lunos officin."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n224",
+   "id": "224",
+   "summary": "Kierkegaard gør restoplagene op titel for titel, otte bøger og 970 rigsdaler i forlangende. Bogladeprisen på det ene punkt viser sig at være en anden, men nu »gider jeg ikke regne om igjen«."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n225",
+   "id": "225",
+   "summary": "Kierkegaard antager uden videre Reitzels bud på andet oplag af Enten – Eller: honoraret kan være lille nok, »men Landet er jo ogsaa lille«. Oplaget skal til gengæld være 750, og han beder om et skriftligt bevis."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n226",
+   "id": "226",
+   "summary": "P.G. Philipsen regner sine udgifter igennem — tryk og papir til 1000 eksemplarer, rabat til kollegerne, bogbinder og avertissementer — og byder 500 rigsdaler for andet oplag af Enten – Eller; »det er ikke meget«, tilstår han selv."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n227",
+   "id": "227",
+   "summary": "Kierkegaard holder på de 700 rigsdaler, som Philipsen selv først slog på: halvandet års henstand med honoraret, bogens beskaffenhed og et oplag på 1000 taget i betragtning er det »en saare billig Fordring«."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n228",
+   "id": "228",
+   "summary": "Philipsen forklarer sin vankelmodighed: over for forfatteren glemmer han alle beregninger og »siger ja til Alt«, men hjemme i sin stue regner han efter og må holde sig til sit første tilbud."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n229",
+   "id": "229",
+   "summary": "Svaret er kort: vil Philipsen ikke, som Kierkegaard vil, får han ikke forlaget af Enten – Eller. Sagen er afgjort, og ganske »uden Vrede«; vankelmodigheden er allerede glemt."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n230",
+   "id": "230",
+   "summary": "Første bind af Philostratus-oversættelsen indeholder netop det, Kierkegaard allerede ejer i et andet værk. Men Keysers Bücher-Lexicon lover et bind to, og kan boghandler Langhoff skaffe det, tager han gerne begge."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n231",
+   "id": "231",
+   "summary": "Et eksemplar er kommet med posten, bestemt for dr. Rudelbach. Kierkegaard beder boghandler Iversen, der er Rudelbachs forlægger, om at sende det videre."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n232",
+   "id": "232",
+   "summary": "Kierkegaard siger ja til 500 eksemplarer af Øieblikket nr. 2, og der skal, som han havde lovet, trykkes »2det Oplag«, svarende til de første 1000. Hvad det andet er, han nok skal huske, siger brevet ikke."
+  },
+  {
+   "volume": "b208",
+   "xmlId": "n233",
+   "id": "233",
+   "summary": "Faktor Schou skal læse korrektur på det nye oplag af Øieblikket nr. 2, aftrykt uforandret på nær titelbladet. Om sin voksende gæld til ham mener Kierkegaard, at det var bedst, »at den blev lidt større inden jeg afgjorde den«."
+  },
+  {
+   "volume": "b234",
+   "xmlId": "n234",
+   "id": "234",
+   "summary": "Kierkegaard vil ikke trøste den sørgende præst med almindelige talemåder; den slags »travle Deeltagelse« falder kun den bekymrede til besvær. I stedet taler han om det, han kender: timerne i pastor Ibsens hus og den gæstfrihed, hans kone tog imod alle med."
+  },
+  {
+   "volume": "b234",
+   "xmlId": "n235",
+   "id": "235",
+   "summary": "Spøgefuldt om vejret, den kolde køretur til Lyngby og kaffen, han ikke fik drukket og nu fortryder. Til sidst en bøn: forklar kongen, at det er legemlig svaghed, der holder ham væk — »jeg mangler Legemets Talerken«."
+  },
+  {
+   "volume": "b234",
+   "xmlId": "n236",
+   "id": "236",
+   "summary": "Kierkegaard takker for en gave og bruger det meste af brevet på at undskylde, at han takker: giveren er ikke forpligtet til også at tage imod modtagerens tak, og brevet spilder jo »et Øiebliks Tid«."
+  },
+  {
+   "volume": "b234",
+   "xmlId": "n237",
+   "id": "237",
+   "summary": "Igen en gave, igen en tak. Kierkegaard undskylder »den Ungdommelighed, næsten den Barnlighed«, hvormed han takker atter og atter, og beder om, at det straks glemmes, hvis han skulle være blevet for vidtløftig."
+  },
+  {
+   "volume": "b234",
+   "xmlId": "n238",
+   "id": "238",
+   "summary": "Rudelbach takker fra Slagelse for »Indøvelserne«, som med rette slår hele stats-, vane- og navnekristendommen ned, og sender til gengæld sin egen bog med ønsket om, at vennen finder samme ånd i kamp dér."
+  },
+  {
+   "volume": "b234",
+   "xmlId": "n239",
+   "id": "239",
+   "summary": "Kierkegaard beholder den lille billet, men vil ikke modtage bogen: at tage imod den ville udtrykke, at alt er som før mellem ham og pastorens afdøde far — »men saaledes er det ikke«. Nu vil han have sin frihed til at ytre sig."
+  },
+  {
+   "volume": "b234",
+   "xmlId": "n240",
+   "id": "240",
+   "summary": "Et afbud, der tager invitationen ord for ord: te drikker han aldrig, broderen har han talt to timer med i dag, og for »andre fornuftige Mænd« nærer han al mulig højagtelse. Han kommer ikke."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n241",
+   "id": "241",
+   "summary": "Hele brevet er én sætning: når Hastrup modtager det, er Kierkegaard »på Vejen til Stettin«."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n242",
+   "id": "242",
+   "summary": "En kaffekop er gået i stykker, og magen var ikke at finde. Med kaffekopper er just dét en trøst, mener Kierkegaard, og han sender et par nye på samme vilkår: at der, når de tabes, »ikke er stort tabt«."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n243",
+   "id": "243",
+   "summary": "En ukendt beder Kierkegaard læse et vedlagt manuskript og give det et anbefalende forord — så vil en boghandler udgive det uden honorar. Navnet må ingen efterforske; svaret skal afleveres forseglet på Nørrevold 219, »Døren lige for Trappen«, mellem kl. 12 og 1."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n244",
+   "id": "244",
+   "summary": "En anbefaling af tjeneren, der har været i huset siden maj 1844: ædru, sædelig, ubetinget tilforladelig, »vant til at tie« og med en opvakthed, man kan betro at handle lidt på egen hånd. Kierkegaard beholdt ham gerne selv."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n245",
+   "id": "245",
+   "summary": "Magnús Eiríksson beder igen om penge, efter at have fået nej året før. Han har endnu ikke læst »Kjærlighedens Gjerninger«, men er sikker på, at det er mere fortjenstligt at gøre dem end at skrive om dem — og beder om svar inden søndag."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n246",
+   "id": "246",
+   "summary": "Han er blevet bedt om at fatte sig kort: ingen grunde pro og contra, et ja eller et nej. Svaret er kort, som der blev bedt om: »jeg kan ikke opfylde Deres Ønske«."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n247",
+   "id": "247",
+   "summary": "Fru Werliin kan roligt stole på hans tavshed, men komme kan han ikke. Hvad bønnen går ud på, må hun skrive med et par ord — så kan han svare, om den ligger inden for »min Smule Formaaens Omfang«."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n248",
+   "id": "248",
+   "summary": "Skolelærer Schmidt skriver fra Nøddebo, hvor branden store bededag lagde skolen i aske. Han mistede næsten alt, hvad han ejede, søger nu ophold hos fremmede med kone og fem små børn og beder Kierkegaard om en hjælpsom hånd."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n249",
+   "id": "249",
+   "summary": "H.C. Andersen takker for det tilsendte »Enten – Eller« og er overrasket: han troede slet ikke, at han »kom venlig i Deres Tanke«, og nu ser han det dog."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n250",
+   "id": "250",
+   "summary": "Paludan-Müller vil bevise sin tak ved at studere »Enten – Eller« grundigt — hvad, indrømmer han, ikke altid lykkes ham med filosofiske skrifter. Knuden, han vil løse for sig selv: skal læseren søge et tertium, eller er Eller den fulde løsning på Enten?"
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n251",
+   "id": "251",
+   "summary": "Hauch kender ingen anden vej til forfatteren end forlæggeren. Han har fundet mange vink i skrifterne til sin egen udvikling — og blev han sat i et »eensomt Fængsel« med lov til at tage én bog med, kunne han falde på denne."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n252",
+   "id": "252",
+   "summary": "En forfatter afgør som regel let, om gaveeksemplaret skal gå til manden eller til hustruen. Kierkegaard kan ikke vælge og sender ét »til de Tvende« — og lader brevet træde i stedet for det besøg, han aldrig får aflagt."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n253",
+   "id": "253",
+   "summary": "En ukendt fortæller sin drøm: Kierkegaard gav ham en konvolut med sølvpenge, mindst 50 rigsdaler, og han vågnede midt i sin tak. Forklare den kan han ikke, men måske rummer den »et Vink« — for den ene eller den anden."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n254",
+   "id": "254",
+   "summary": "Andet oplag af Kjerlighedens Gjerninger følger med, men ikke til Collin selv: eksemplaret er til datterdatteren — »hun er Deres Øiesteen« — og skal gives hende af bedstefaderen. Kierkegaard blev misundelig, dengang oldingen talte om hende."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n255",
+   "id": "255",
+   "summary": "En af pseudonymerne har fastslået, at der ingen gentagelse gives — så hvordan skulle Kierkegaard sende samme bog igen, fordi andet oplag er udkommet? Spøg til side: eksemplaret er til den afdøde Ørsteds kone og bedes overrakt »paa en smuk Maade«."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n256",
+   "id": "256",
+   "summary": "Anbefalingen nævner ikke ansøgeren ved navn og lyder ganske almindelig, men »Ansøgerens Værdighed er ualmindelig«: Kierkegaard kender ikke ét menneske til, som han på samme måde ville føle sig forpligtet til at anbefale."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n257",
+   "id": "257",
+   "summary": "Sedlen kom uden navn og med afsenderens søn. Kierkegaard kunne have spurgt drengen, men finder sig ikke berettiget til det, og beder manden komme selv: det er »en ærlig Sag«, at en mand ikke har råd til at købe en bog."
+  },
+  {
+   "volume": "b241",
+   "xmlId": "n258",
+   "id": "258",
+   "summary": "Hele brevet er ét ord: »Undskyld.« Hvad han undskylder, siger sedlen ikke — kun at han underskriver sig »Din«."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n259",
+   "id": "259",
+   "summary": "Kolderup-Rosenvinge takker skriftligt for Kjerlighedens Gjerninger. Kunne han af bogen lære den selvfornægtelse, hvori et menneske kan »holde Gud fast«, ville giveren have gjort en kærlighedsgerning også mod ham."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n260",
+   "id": "260",
+   "summary": "To gange har Kierkegaard søgt ham forgæves til en spadseretur. Kolderup-Rosenvinge foreslår mandag klokken 2 som fast tid, så »Fornøjelsen at spadsere i Deres Selskab« ikke går tabt — og tilføjer, at det ikke skal forpligte Kierkegaard."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n261",
+   "id": "261",
+   "summary": "Et ekstraordinært direktionsmøde forhindrer dagens spadseretur, og sidste mandag stod Kierkegaard også forgæves. Onsdag og fredag er Kolderup-Rosenvinge hjemme, men først klokken 2¼ — »Hvilken Tid!«"
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n262",
+   "id": "262",
+   "summary": "Syede man munden til på Holbergs Geert Westphaler, lærte han sig at snakke med næseborene. Sådan med længslen efter en spadseretur: når den ikke kan lade sig gøre, lærer Kierkegaard sig at spadsere med conferensråden »paa Prent«."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n263",
+   "id": "263",
+   "summary": "Vejret er slet, humøret derefter, børnene vil have selskab, og det er onsdag og ikke mandag — »Imidlertid lad gaae! vi spadsere.« Kommentaren om Gert Westphalers to næsebor kom otte dage for sent til den aften, hvor Kolderup-Rosenvinge selv forelæste ham."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n264",
+   "id": "264",
+   "summary": "To hunde kommer op at slås på gaden, så madammerne, så deres mænd, og »nu er det en europæisk Krig« — anledningen er, hvem der begyndte. Politik kan Kierkegaard ellers ikke følge med i; det at gå forstår han derimod fra grunden."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n265",
+   "id": "265",
+   "summary": "Kierkegaard hører i hemmelighed til Bevægelsespartiet, mener Kolderup-Rosenvinge: lovtalen over det at spadsere er blevet et system, hvis toppunkt er at gå fra det hele. Han udnævnes til »magister peditum« — modparten holder på hvilen, dampskibet og vognen."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n266",
+   "id": "266",
+   "summary": "På jernbanen bruger man noget, der hedder »en Bremse«, til at standse med; lige så afsindigt er det at ville standse en revolution med en revolution. Det faste punkt ligger ikke foran, men bagved — Sokrates blev også kørt over."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n267",
+   "id": "267",
+   "summary": "Det regner, natten var dårlig, og Kierkegaard bedes tilgive at blive overstænket af »mit ærgerlige Lune« undervejs. Håbet var sat til Cavaignac som bremse, men nu går han hen og gifter sig; med brevet følger et digt, Kolderup-Rosenvinge selv har oversat."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n268",
+   "id": "268",
+   "summary": "Folkeforsamlingerne holdes nu i et hippodrom, så Kierkegaard foreslår en ny sprogbrug: 50 mennesker er én hestekraft, og gårsdagens møde var altså et »paa 20 Hestes Kraft«. Digtet røber, at conferensråden venter en tyran, hvor han selv venter en martyr."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n269",
+   "id": "269",
+   "summary": "Kierkegaard forsøger ikke at forklare, hvorfor han så længe ikke har været ude at spadsere; som Don Ranudo, der bortforklarer hullerne i støvlerne med ligtorne, ville han kun vikle sig ind i modsigelser. Det får stå som »noget uforklarligt Noget«."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n270",
+   "id": "270",
+   "summary": "Med artiklen følger et brev, Kierkegaard har fundet i sine papirer: færdigskrevet, konvoluteret, adresseret til Ordrupshøi. Åbne det tør han ikke, for så fandt han det nok »saa ligegyldigt og kjedeligt«, at han lod være med at sende det — nu går det med ulæst."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n271",
+   "id": "271",
+   "summary": "Først hesteslagterens annonce, hvor vignetten viser en radmager fuldblodshest over tilbuddet om »særdeles meget fedt Kjød«. Til sidst, langsomt, det egentlige: conferensrådens tab af den lille datterdatter, og hvorfor en bedstefar sørger anderledes og længere end den unge mor."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n272",
+   "id": "272",
+   "summary": "En spadseretur ud til konferensråden er umulig — »Grændsen, Grændsen« — så Kierkegaard griber pennen i stedet. Til gengæld har han en undercour at foreslå: man vågner en morgen og siger, at man aldrig har befundet sig bedre; passer det ikke, så meget desto bedre."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n273",
+   "id": "273",
+   "summary": "Kolderup-Rosenvinge svarer som brøndgæst, og brøndgæstens vigtigste privilegium er, at alle andre skal rette sig efter ham; selv har han lov at »vrøvle i det Uendelige«. Sygdommen til Døden må han ikke læse under kuren, men mottoet har behaget ham: af hvem er det?"
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n274",
+   "id": "274",
+   "summary": "Rejsen til Sverige gør fiktionen sand: nu bor konferensråden flere mil borte, og det umulige er ikke længere vanskeligt. I Billes bog går en sømand i land med et lille udvalgt selskab for at spadsere og synker straks i slyngplanter »til midt op paa Livet«."
+  },
+  {
+   "volume": "b259",
+   "xmlId": "n275",
+   "id": "275",
+   "summary": "En ond skæbne har forpurret mandagsturene: først datteren og vejret, nu eksamensbordet fra tolv til fire. Kolderup-Rosenvinge melder afbud med en mere højtidelig undskyldning end den sædvanlige gennem portneren, og savner »min gode Magisters kalmerende Humor«."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n276",
+   "id": "276",
+   "summary": "Rasmus Nielsen når at takke to gange i samme sætning for at være kaldt på og lover at komme snart — »i Stilhed«, for hos Kierkegaard må man være meget stille for rigtig at høre, hvad han siger."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n277",
+   "id": "277",
+   "summary": "Nielsen vender og drejer den fejge soldat, der stilles for en krigsret og skydes som »en æreløs Forræder«: for ikke at blive skudt løb han lige hen og lod sig skyde. Sådan noget lærer man vel i eksercerskolen?"
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n278",
+   "id": "278",
+   "summary": "Fra Taarbæk mellem skoven og stranden melder Nielsen, at frisk luft uden en smule hebraisk smager fladt. Så tager han hebraisk befordring til ørkenen: »salig den Mand«, som finder den brændende tornebusk."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n279",
+   "id": "279",
+   "summary": "Adressen på hjørnet giver Nielsen stof: intet menneske kan gå lige ind gennem et hjørne, så anvisningen er også en afvisning — søger man Kierkegaard i Rosengaarden, sidder han skjult i »Tornebuskens Dunkelheder«. Et efterskrift undskylder den uge, han sprang over."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n280",
+   "id": "280",
+   "summary": "Kierkegaard beroliger: den fuldkomne kærlighed uddriver frygt, og de hyppige skriverier falder ham ikke til besvær. Men indgangen er fra Tornebuskegaden, ikke fra Rosengaarden, og uforandret vil man finde ham — »magrere kan jeg ikke blive«."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n280.1",
+   "id": "280.1",
+   "summary": "Et udkast, hvor svaret prøves af: han frygtede ikke misforståelsen, han tror tværtimod på »Misforstaaelsens kraftige Bistand« til forståelsen. Den, der ejer sit eget selv, frygter ikke — han kender kun frygt og bæven."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n281",
+   "id": "281",
+   "summary": "Kierkegaard skriver sin vilje ned: efter hans død skal Nielsen besørge hele det litterære efterladenskab, konferere med Gjødvad og lade Levin læse korrektur. Peter skal ikke have noget med det at gøre."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n282",
+   "id": "282",
+   "summary": "Rasmus Nielsen beder om tilgivelse: Kierkegaard har ret, han selv uret, og om torsdagen stod det ham endnu ikke klart, hvad han skulle gøre. Hvad sagen er, siger sedlen ikke."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n283",
+   "id": "283",
+   "summary": "Det, der ligger Nielsen på sinde, vil han for ingen pris have afhandlet på en spadseretur. Derfor mødes de næppe igen, før Kierkegaard atter kalder på ham: »jeg har Tid at vente«."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n284",
+   "id": "284",
+   "summary": "Kierkegaard svarer omgående på brevet, der »ikke uden Betydning« bærer et lam til vignet: selv stod han på pletten torsdag middag, som aftalt. At Nielsen med forsæt blev væk, finder han kunstlet — en aftale er jo dog en aftale."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n285",
+   "id": "285",
+   "summary": "»Systemet« er kommet, det ankom i forgårs med omnibussen. Mere står der ikke."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n286",
+   "id": "286",
+   "summary": "Idéforbindelsen fra omnibus til omnibus går gennem »de omnibus dubitandum« — sådan skal det forstås, når Johannes de silentio kalder Systemet en omnibus. Med brevet følger en ny bog og en forklaring på, hvorfor pseudonymet hedder Anti-Climacus."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n287",
+   "id": "287",
+   "summary": "Nielsen takker stigende — tak for billetten, mange tak for bogen, »tusind Tak for Bogens Indhold« — og mener, at den kristelig psykologiske udvikling kan opbygge en troende seminarist og bringe en docerende professor til fortvivlelse."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n288",
+   "id": "288",
+   "summary": "Kierkegaard vender takken om: han er jo kun udgiveren, så klimakset burde dannes omvendt — og at forveksle climax og anti-climax er det modernes kendetegn: man »gaaer videre« end troen, til Systemet, og stiger nedad. Renskriften forkom med posten; tilbage er hans egen afskrift."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n289",
+   "id": "289",
+   "summary": "Nielsen har gjort en ny opdagelse: Climacus og Anti-Climacus mødes ikke i forargelsen, men i fortvivlelsen — »ogsaa Du er jo en Fortvivlet«. Han skynder sig at melde det, så Kierkegaard kan se, hvor flittigt han studerer skrifterne."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n290",
+   "id": "290",
+   "summary": "Om »den nye Opdagelse« må Kierkegaard fatte sig kort; sagen bliver for vidtløftig til et brev og må vente til mundtlig meddelelse. Til gengæld spørger han to gange i samme brev, om Nielsen har modtaget den udførligere billet af 4. august."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n291",
+   "id": "291",
+   "summary": "Billetten af 4. august er aldrig nået frem; Nielsen har haft bud både i kroen og hos den anden bager. De to opdagelser skal nok komme i samklang med en tredje, og imens kalder han sig »Ridderen af de tre Opdagelser«."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n292",
+   "id": "292",
+   "summary": "Kierkegaard beder ham høre på posthuset efter den forsvundne billet og sende den tilbage uåbnet: der er »en vis Methode i mine Breve«. Resten er drilleri med den tredje opdagelse, der formodentlig skal være mediationen."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n293",
+   "id": "293",
+   "summary": "Ved søndagens middag var Nielsen i unåde hos Hs Excellence — på så smuk en måde, at han havde en vis glæde af det. At han holdt stand, da »Mediationen« ville besøge ham efter kaffen, skylder han Anti-Climacus."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n294",
+   "id": "294",
+   "summary": "Kierkegaard har ikke hastet med at svare; han troede, ferien sluttede sidst i august. Siden den tabte billet har han opgivet håbet om korrespondancen, som han undskylder er »lige saa kjedeligt som at spille med den blinde Mand«."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n295",
+   "id": "295",
+   "summary": "Nielsen ligger stadig i Lyngby: han blev syg i sidste uge, og lægen har pålagt ham fjorten dage mere. Efter en times arbejde bryder han af og ser på naturen og på »Bagerens Høns«."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n296",
+   "id": "296",
+   "summary": "Nær havde Kierkegaard sagt, at »en Philosoph kan døe men han kan ikke blive syg«. Han fraråder Nielsen at ærgre sig — så ærgrer verden sig i stedet — og giver hønsene ret som stille time."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n297",
+   "id": "297",
+   "summary": "Nielsen takker systematisk, af tre grunde, så en fjerde og en femte. Han vil hellere gøre resistentia passiva som et lille pindsvin end lade sig omgøre til en stor elefant, og kalder undervejs det hele »perspectivisk-speculative Systemvaas«."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n298",
+   "id": "298",
+   "summary": "Kierkegaard sender noget, han har henkastet: Nielsen bør tage en lille position mod Systemet, for selv kan han ikke tage parti. Et dogmatisk system er kristeligt »en Luxus-Artikel« og bør bygge på at begribe, at man ikke kan begribe troen."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n299",
+   "id": "299",
+   "summary": "Hele billetten er to ord og en underskrift: »Arriveret hertil«. Mere behøvede den ikke at være."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n300",
+   "id": "300",
+   "summary": "Afbud til dagens spadseretur: en »høistæret Forkjølelse« har dikteret Nielsen nogle dages husarrest."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n301",
+   "id": "301",
+   "summary": "Et afbud uden begrundelse: Rasmus Nielsen beklager blot, at han i dag ikke kan have den fornøjelse at spadsere."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n302",
+   "id": "302",
+   "summary": "Endnu et afbud, med en enkelt indskudt bemærkning: Nielsen er — »ubehageligt nok!« — forhindret i at spadsere i dag."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n303",
+   "id": "303",
+   "summary": "Torsdagsturene holder op: »Paa Grund af Omstændighederne« må Nielsen for det første renoncere på at spadsere med Kierkegaard og beder om ikke at blive ventet i dag. Hvilke omstændigheder det er, siger han ikke."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n304",
+   "id": "304",
+   "summary": "Kierkegaard frygter, der er kommet en misforståelse imellem dem, og vil tage den i tide. Fremover skal ingen fast dag gælde for deres møder — men i morgen foreslår han sædvanlig tid og sted, »for at see, hvor vi ere«."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n304.1",
+   "id": "304.1",
+   "summary": "Første udkast vender sagen om: Kierkegaard var selv blevet forkølet ved flytningen og havde ventet at måtte melde afbud. Han forstår ikke, at Nielsen springer fra, hver gang han giver »et lille Stød«."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n304.2",
+   "id": "304.2",
+   "summary": "Andet udkast leger med ordet: man siger jo, at man skal gøre »ingen Omstændigheder«, og Kierkegaard må næsten antage, at Nielsen selv gør dem. Resten er sokratisk beskedenhed over alt det, han ikke forstår."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n304.3",
+   "id": "304.3",
+   "summary": "Tredje udkast er skåret ned til sammentræffet alene: han var selv nær ved at måtte melde afbud i går, og så kom Nielsens billet."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n304.4",
+   "id": "304.4",
+   "summary": "Fjerde udkast slutter mildt: det skete anderledes, og så er det vel det bedste — selv om løsningen måske bliver »en ganske anden, end enten De eller jeg venter«."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n304.5",
+   "id": "304.5",
+   "summary": "Femte udkast er det skarpeste: den pludselige afbrydelse gør »en Begyndelse til Slutning«, og Kierkegaard forklarer omstændeligt, hvordan Nielsen kunne have båret sig pænere ad. Tre gange har han gjort vanskelighed — og hver gang gjorde professoren et mægtigt sidespring."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n305",
+   "id": "305",
+   "summary": "En upasselighed, og så ingen spadseretur i dag. Billetten er én sætning lang."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n306",
+   "id": "306",
+   "summary": "Rasmus Nielsen tager på landet i disse dage og må derfor indtil videre undvære »Fornøielsen af at spadsere med Dem«. Længere er brevet ikke."
+  },
+  {
+   "volume": "b276",
+   "xmlId": "n307",
+   "id": "307",
+   "summary": "Kierkegaard afbryder forbindelsen — »aldeles uden nogensomhelst Vrede«. Han har hver gang sagt rent ud, at han ikke kunne billige skrifterne, og har holdt ud at vente på det næste; nu kan de ikke mere spadsere sammen efter bestemt aftale."
+  },
+  {
+   "volume": "b308",
+   "xmlId": "n308",
+   "id": "308",
+   "summary": "Fredrika Bremer skriver på svensk til Victor Eremita: hun vil møde ham, inden hun rejser ud af landet, og tale om »Lifvets Stadier«. Hun kan ikke komme til ham — han forstår nok hvorfor — så hun beder ham komme til hende."
+  },
+  {
+   "volume": "b308",
+   "xmlId": "n309",
+   "id": "309",
+   "summary": "Endnu en seddel: hun beder om »Ett ord till svar«, om hun må vente ham torsdag eller en anden dag. Svaret kan gives til hendes bud eller sendes hjem til hende."
+  },
+  {
+   "volume": "b308",
+   "xmlId": "n310",
+   "id": "310",
+   "summary": "Kierkegaard siger nej til indbydelsen; at blive misforstået ville smerte ham. Hun kaldte sit eget spørgsmål dumdristigt — nej, siger han, det yderste i dumdristighed er hans: at sige nej og alligevel bede Sveriges »over hele Europa navnkundige Forfatterinde« tage imod hans tak."
+  },
+  {
+   "volume": "b308",
+   "xmlId": "n311",
+   "id": "311",
+   "summary": "Hun kalder sig et skriftebarn og har ingen at betro sig til; spurgte hun om noget, ville man le og sige »saadant passer sig ei for Damer«. Med brevet følger hendes egne indvendinger mod Mynsters gensvar om Aanden i Naturen."
+  },
+  {
+   "volume": "b308",
+   "xmlId": "n312",
+   "id": "312",
+   "summary": "Kierkegaard svarer, at man ikke kan kalde sig skriftebarn og vedlægge et lille videnskabeligt forsøg; han er ingen skriftefader. Papirerne gik retur — brænde dem ville han ikke — med kun disse ord uden på konvolutten: »Herpaa kan jeg ikke indlade mig.«"
+  },
+  {
+   "volume": "b308",
+   "xmlId": "n313",
+   "id": "313",
+   "summary": "Hun takker for de Christelige Taler fra 1848 og for prædikenen i Citadellet i søndags. Så kommer ærindet: at han holder op med at lade sig anmelde som »en Candidat« — hans troeste tilhørere kan ikke finde ham."
+  },
+  {
+   "volume": "b308",
+   "xmlId": "n314",
+   "id": "314",
+   "summary": "Et bæger, der er for fuldt, løber over — og det gør hendes hjerte nu: hun bryder hans strenge forbud for at sige ham, at han er »aldeles mageløs«. Første og sidste gang, lover hun; brevet må han gerne brænde."
+  },
+  {
+   "volume": "b308",
+   "xmlId": "n315",
+   "id": "315",
+   "summary": "Petronella Ross beder om at låne Christelige Taler eller et andet af hans arbejder. Hun mistede hørelsen efter biskop Møllers død og skriver ligeud: »Deres Taler kan jeg ikke høre« — bogen kan afleveres hos hendes bror på Østerbro."
+  },
+  {
+   "volume": "b308",
+   "xmlId": "n316",
+   "id": "316",
+   "summary": "Hun kender ham hverken af person eller som skribent — hendes hoved var »for svagt til at følge« ham. Alligevel beder hun ham læse tre af sine stykker og sige sin mening; svaret kan lægges på fodpostkontoret under mærket S. S. M. No 54."
+  },
+  {
+   "volume": "b308",
+   "xmlId": "n317",
+   "id": "317",
+   "summary": "Hun takker for Til Selvprøvelse og Indøvelse i Christendommen, der har lært hende at forstå sig selv bedre. Hun lever blandt gode grundtvigske mennesker, men kan ikke føre den kristelige snak — og det er ingen »attenaarig Piges enthusiastiske Tak«, men en 34-årigs."
+  },
+  {
+   "volume": "b308",
+   "xmlId": "n318",
+   "id": "318",
+   "summary": "Få linjer fra en, der kalder sig ubetydelig, men mener at have fået den gave at kunne modtage hans skrifter — langt fra hin Enkelte, men blandt de evigt taknemlige for »vert Ord som udgaar fra Deres Hond«."
+  }
+ ]
+}

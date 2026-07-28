@@ -1,0 +1,2041 @@
+{
+ "_meta": {
+  "description": "Korte personbiografier udledt af SKS-kommentarens noter (CC0), med kildehenvisning pr. person (bind:note-id).",
+  "editorialLayer": true,
+  "derivedFromCommentary": true,
+  "generator": "Claude Haiku (udkast), Claude Opus 5 (reparation), adversarial efterkontrol med nul resterende flag, Claude Opus 5 (subtraktiv trimning af 30 lange biografier)",
+  "generated": "2026-07-27/28",
+  "withoutBio": [
+   {
+    "key": "Anti-Climacus",
+    "reason": "Pseudonym skabt af Søren Kierkegaard som litterær skikkelse, ikke en historisk person"
+   },
+   {
+    "key": "Frederik III",
+    "reason": "Insufficient biographical data in notes"
+   },
+   {
+    "key": "Frederik VI",
+    "reason": "Insufficient biographical data in notes"
+   },
+   {
+    "key": "Gyllembourg, Thomasine",
+    "reason": "Insufficient biographical data in notes"
+   },
+   {
+    "key": "Hage, Gjertrud Lovise Christiane Fransisca",
+    "reason": "Insufficient biographical data in notes"
+   },
+   {
+    "key": "Hald, Peter Tetens",
+    "reason": "Insufficient biographical data in notes"
+   },
+   {
+    "key": "Herkules",
+    "reason": "Insufficient biographical data in notes"
+   },
+   {
+    "key": "Hilarius Bogbinder",
+    "reason": "Insufficient biographical data in notes"
+   },
+   {
+    "key": "Lund, Peter Severin",
+    "reason": "Noterne indeholder utilstrækkelige biografiske oplysninger"
+   },
+   {
+    "key": "Mohr, Carl Frederik",
+    "reason": "Fødsels- og dødsår ikke identificeret; kun kendt som kopist i skifteretten"
+   },
+   {
+    "key": "Victor Eremita",
+    "reason": "Not a biographical subject"
+   },
+   {
+    "key": "Weyse, C.E.F.",
+    "reason": "Subject notes contain only peripheral mention"
+   },
+   {
+    "key": "Zarathustra",
+    "reason": "Not a biographical subject"
+   }
+  ]
+ },
+ "bios": [
+  {
+   "key": "Abélard, Pierre",
+   "bio": "Pierre Abélard (1079-1142) var en fransk filosof og teolog, kendt for sin ulykkelige kærlighed til den unge Héloïse. Efter at de ægtede sig i hemmelighed blev Abélard kastreret af hendes værge Fulbert, og han søgte derefter tilflugt i et kloster, hvor han grundlagde et nonnekloster, hvis abbedisse blev Héloïse.",
+   "sources": [
+    "b70:b-5082"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Adler, Adolph Peter",
+   "bio": "Adolph Peter Adler (1812-69) var dansk teolog og præst. Han erhvervede sin kandidat i teologi i 1836 og i 1840 magistergraden i filosofi på afhandlingen Den isolerede Subjectivitet i dens vigtigste Skikkelser. Fra februar 1841 var han sognepræst i Hasle og Rutsker på Bornholm og udgav blandt andet Populaire Foredrag over Hegels objective Logik.",
+   "sources": [
+    "b1:b-242",
+    "b120:b-2497"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Agerskov, Christen",
+   "bio": "Christen Agerskov (1783-1853) var dansk silke- og klædehandler, gift med Cicilie Agerskov, født Aabye. Han overtog i 1797 Michael Pedersen Kierkegaards forretning sammen med Michael Andersen Kierkegaard, som de drev videre som M.A. Kierkegaard & Agerskov; senere gik han ind i firmaet Kierkegaard, Aabye & Co., der gik konkurs i 1828.",
+   "sources": [
+    "b1:b-571",
+    "b171:b-1077"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Agerskov, Christian Thomas Carl",
+   "bio": "Christian Thomas Carl Agerskov (1802-75) var dansk mode- og manufakturhandler, søn af Christen Agerskov og Cicilie Agerskov, født Aabye.",
+   "sources": [
+    "b171:b-1078"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Alexander den Store",
+   "bio": "Alexander den Store (356-323 f.Kr.) var hærfører og konge af Makedonien fra 335-323 f.Kr. Han er kendt fra legenden om den gordiske knude, som han ifølge sagnet løste ved at hugge den over med sit sværd.",
+   "sources": [
+    "b259:b-1472"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Algreen-Ussing, Tage",
+   "bio": "Tage Algreen-Ussing (1797-1872) var dansk jurist og liberal politiker. Efter at have taget eksamen i jura i 1822 blev han ansat i Det danske Kancelli og forfremmet gennem forskellige juridiske og politiske poster, fra 1840 ekstraordinær professor i jura ved Københavns Universitet, fra 1841 ekstraordinær assessor ved Højesteret og fra marts 1848 generalprokurør. Han var medlem af stænderforsamlingen, borgemester i København fra april 1844, medlem af Den grundlovgivende Rigsforsamling og medlem af talrige offentlige kommissioner.",
+   "sources": [
+    "b120:b-2536",
+    "b43:b-2013"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Andersen, Hans Christian",
+   "bio": "Hans Christian Andersen (1805-75) var dansk digter og forfatter.",
+   "sources": [
+    "b241:b-3245",
+    "ded:ded-153"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Asp, Niels Peter",
+   "bio": "Niels Peter Asp (1797-1880) var dansk jurist og præst. Han tog juridisk embedseksamen i 1819, studerede filologi i de følgende år men opgav det, og studerede derpå teologi fra 1827 og blev kandidat i teologi i 1828. Fra 1830 var han personlig kapellan i Stokkemark, fra 1833 i Nakskov og Branderslev på Lolland.",
+   "sources": [
+    "b1:b-51"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Baggesen, Jens Immanuel",
+   "bio": "Jens Immanuel Baggesen (1764-1826) var dansk digter. Fra 1790 var han professor, fra 1798 tillige meddirektør for Det kongelige Teater, og 1811-14 professor i dansk sprog og litteratur ved universitetet i Kiel.",
+   "sources": [
+    "b234:b-2741"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Bang, Claus",
+   "bio": "Claus Bang (1792-1868) var dansk jurist. Han dimitteredes fra Borgerdydsskolen til Københavns Universitet i 1812, tog juridisk embedseksamen i 1817, blev senere herredsfoged i Tudse-Merløse herred og udnævnt til etatsråd.",
+   "sources": [
+    "b1:b-14"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Bang, Oluf Lundt",
+   "bio": "Oluf Lundt Bang (1788-1877) var dansk læge. Han erhvervede sin kandidat i medicin i 1809 og doktorgraden i 1813, blev fra 1821 ordinær professor i medicin ved Københavns Universitet og fra 1825-41 overlæge ved Det kongelige Frederiks Hospital. Han var universitetets rektor 1824-25 og 1839-40, blev udnævnt til konferensråd i 1848, og var en af sin tids mest søgte læger.",
+   "sources": [
+    "b43:b-2337",
+    "ded:ded-315"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Barca, Pedro Calderón de la",
+   "bio": "Pedro Calderón de la Barca (1600-81) var spansk dramatiker.",
+   "sources": [
+    "b259:b-1720"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Barfoed, Christen Thomas",
+   "bio": "Christen Thomasen Barfoed (1815-89) var dansk kemiker. Efter at have taget farmaceutisk eksamen i 1835 og eksamen i anvendt naturvidenskab i 1839 holdt han fra 1843 offentlige og private forelæsninger inden for kemi og fysik. Fra 1845 var han docent, fra juni 1850 konstitueret lektor i kemi og fysik ved Veterinærskolen, og fra 1858-87 lektor i kemi og farmaci ved Veterinær- og Landbohøjskolen.",
+   "sources": [
+    "b171:b-1244"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Bartholin, Johan Christian",
+   "bio": "Johan Christian Bartholin (1816-84) var dansk skolemand. Han gik på Borgerdydsskolen fra 1827-1834, studerede derpå teologi og filologi ved Københavns Universitet og blev i 1840 inspektør og lærer ved pensionatsanstalten knyttet til skolen. Fra 1844 forestod han sammen med Jacob Michael Henrik Ferdinand Stilling ledelsen af Borgerdydsskolen i København, men forlod skolen i juni 1846.",
+   "sources": [
+    "b79:b-2209"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Bentzien, Wilhelm Bartholomæus",
+   "bio": "Wilhelm Bartholomæus Bentzien (1800-57) var dansk præst og skolemand. Han var lærer ved Borgerdydsskolen i København fra 1819-24 og inspektør ved Efterslægtselskabets Realskole fra 1824-29. Fra februar 1829 var han residerende kapellan ved Fredensborg Slotskapel, fra 1832 sognepræst i Kerteminde og Drigstrup på Fyn.",
+   "sources": [
+    "b1:b-23"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Bergenhammer, Peter",
+   "bio": "Peter Bergenhammer (1806-75) var dansk præst. Han dimitteredes fra Borgerdydsskolen til Københavns Universitet i 1825, blev kandidat i teologi i 1833, ordineret kateket i Maribo fra 1837, og sognepræst i Maribo og Hillested på Lolland fra 1843.",
+   "sources": [
+    "b1:b-29"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Bergstedt, Carl Frederik",
+   "bio": "Carl Fredrik Bergstedt (1817-1903) var svensk filolog og publicist. Han doktoreredes i filosofi i 1842, var fra 1843 docent i græsk litteratur og sanskrit ved universitetet i Uppsala, udgav 1851 Tidskrift för litteratur, og var 1852-55 redaktør af Aftonbladet.",
+   "sources": [
+    "b43:b-2184"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Bindesbøll, Severin Claudius Wilken",
+   "bio": "Severin Claudius Wilken Bindesbøll (1798-1871) var dansk biskop. Han var lærer i dansk og religion ved Borgerdydsskolen fra 1825-32 og atter 1834-38, gjorde foråret 1832 til april 1834 en studierejse til Tyskland, Italien og Frankrig, og var sognepræst i Nakskov og Branderslev på Lolland fra 1838. Fra 1851 var han biskop over Aalborg stift i Nordjylland, fra 1856 over Lolland-Falster stift.",
+   "sources": [
+    "b1:b-56"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Blicher, Steen Steensen",
+   "bio": "Steen Steensen Blicher (1782-1848) var dansk præst og forfatter.",
+   "sources": [
+    "b79:b-2198"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Boesen, Carl Ulrik",
+   "bio": "Carl Ulrik Boesen (1801-68), dansk præst og ældre bror til Emil Boesen; blev candidatus theologiae i 1823 og var fra 1827 sognepræst i Mariæ-Malene eller Mariæ-Magdalene (nuværende Marie Magdalene) på Djursland vest for Randers, fra 1835 i Knebel og Roelse på Mols, fra juli 1849 i Hjortshøj, Elv og Egå nord for Aarhus og fra 1861 i Høje Tåstrup vest for København. Søren Kierkegaard besøgte ham og hans kone Achthonia Frederikke Boesen, f. Frechland, under sin rejse til Jylland i sommeren 1840.",
+   "sources": [
+    "b79:b-3122"
+   ],
+   "sameAs": [],
+   "note": "Dropped the SKS reference tail ('se Not6:1 ... 194,14') that had been truncated into the fragment 'og 194,14.'; expanded da./cand.theol./V/N."
+  },
+  {
+   "key": "Boesen, Emil Ferdinand",
+   "bio": "SKs nære ven Emil Ferdinand Boesen (1812-81), candidatus theologiae 1834, var derefter lærer ved v. Westens Skole og holdt hver anden søn- og helligdag gudstjeneste for fysisk handicappede piger ml. 13 og 20 år på J.P. Langgaards orthopædiske Institut på Store Tuborg N for København.",
+   "sources": [
+    "b171:b-825",
+    "b79:b-1792",
+    "ded:ded-1"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Boesen, Johannes Frederik",
+   "bio": "Johannes Frederik Boesen (1803-82), fra 1831 købmand og fabriksejer i Drammen i Norge, senere og indtil 1849 inspektør over vanddragene i det sydlige Norge, derpå bogholder og kasserer ved Understøttelsesanstalten for trængende Efterslægt af Medlemmer i den ophævede civile og adskillige Stænders Enkekasse og klasselotterikolletør i København. Jf. Stamtavle over Slægten Boesen , s. 29.",
+   "sources": [
+    "b79:b-2398"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Boisen, Anna",
+   "bio": "Anna (kaldt Nanna) Boisen, f. Nannestad (1775-1853), gift med pastor, senere biskop P.O. Boisen den 11. okt. 1799.",
+   "sources": [
+    "b308:b-5359"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Boisen, Elise Marie",
+   "bio": "Elise Marie Kierkegaard, f. Boisen (1806-37), datter af P.O. Boisen (1762-1831), fra 1805 til sin død biskop over Lolland-Falster stift, og Nanna Boisen. Hun blev den 21. oktober 1836 gift med Søren Kierkegaards ældre bror P.C. Kierkegaard og døde den 18. juli 1837.",
+   "sources": [
+    "b308:b-5356",
+    "b1:b-488"
+   ],
+   "sameAs": [
+    "Kierkegaard, Elise Marie"
+   ],
+   "note": "Previous bio was the full P.C. Kierkegaard note (wrong person, 11 sentences). Rebuilt for Elise Marie from the two notes that actually describe her."
+  },
+  {
+   "key": "Boisen, Frederik Engelhardt",
+   "bio": "Frederik Engelhardt Boisen (1808-82), dansk præst og politiker; blev candidatus theologiae i april 1830, var fra juni 1834 ordineret kateket, fra september 1837 sognepræst i Skørpinge på Sjælland og fra oktober 1850 sognepræst i Vilstrup i Haderslev provsti i Slesvig. Han blev valgt til Den grundlovgivende Rigsforsamling i 1848 og til Folketinget i 1849, men nedlagde sit mandat i september 1851, og han sluttede sig til grundtvigianerne. I 1852-53 var han redaktør af Budstikken, et folkeskrift trykt og udgivet i Haderslev, og han skrev selv de fleste af artiklerne.",
+   "sources": [
+    "b43:b-2198",
+    "b43:b-2249"
+   ],
+   "sameAs": [],
+   "note": "Merged six short note sentences into three; expanded da./cand.theol./udg. Dropped the journal's subtitle and its printer's name (P. Chr. Koch) so no sentence-internal period survives; Haderslev as place of printing is confirmed by b43:b-2249."
+  },
+  {
+   "key": "Boisen, P.O.",
+   "bio": "P.O. Boisen (1762-1831), dansk præst og fra 1805 til sin død biskop over Lolland-Falster stift. Den 11. oktober 1799 blev han gift med Anna (kaldt Nanna) Nannestad (1775-1853), og deres datter Elise Marie Boisen (1806-37) blev i 1836 gift med Søren Kierkegaards ældre bror P.C. Kierkegaard.",
+   "sources": [
+    "b308:b-5356",
+    "b308:b-5359"
+   ],
+   "sameAs": [],
+   "note": "Previous bio described the daughter. Rebuilt for P.O. Boisen; his priest/bishop career and marriage date come from the two notes."
+  },
+  {
+   "key": "Bojesen, Ernst Frederik Christian",
+   "bio": "Ernst Frederik Christian Bojesen (1803-64), dansk teolog, klassisk filolog og skolemand. Fra o. 1821 til 1840 underviste han i latin og græsk ved Borgerdydsskolen i København, hvor han også fungerede som inspektør og var Michael Nielsens nærmeste medarbejder. Fra 1840 var han lektor i græsk sprog og litteratur ved Sorø Akademi og fra 1843 dets rektor.",
+   "sources": [
+    "b1:b-12",
+    "b161:b-2555",
+    "ded:ded-5"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Borchsenius, Johanna Dorothea",
+   "bio": "Johanna Dorothea Møller, f. Borchsenius (1767-1830), var anden kone til Rasmus Møller (1763-1842), der blev doctor theologiae i 1815 og fra 1831 til sin død var biskop over Lolland-Falsters stift. Hun døde den 12. februar 1830.",
+   "sources": [
+    "b308:b-5357"
+   ],
+   "sameAs": [
+    "Møller, Johanna Dorothea"
+   ],
+   "note": "The note is chiefly about Rasmus Møller and Petronella v. Ross; only two facts concern the keyed person, so the bio is deliberately short. Kept rather than nulled because her dates, maiden name, marriage and death date are all present."
+  },
+  {
+   "key": "Brammer, Gerhard Peter",
+   "bio": "Gerhard Peter Brammer (1801-84), dansk biskop; 1822 candidatus theologiae, 1829 licentiat theologiae, 1836 doktor theologiae, fra 1830-42 forstander for seminariet i Snedsted og sognepræst i Snedsted og Nørhå i Thisted amt, Aalborg stift, fra 1843 biskop over Lolland-Falsters stift og fra 1845 biskop over Aarhus stift. Han var en nær ven af biskop J.P. Mynster og som denne både statskirkeligt og politisk konservativ og desuden modstander af pietisme og grundtvigianisme. – Horsens hørte til Aarhus stift, og Brammer var således Emil Boesens biskop.",
+   "sources": [
+    "b79:b-2386"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Bruun, Thomas Christopher",
+   "bio": "Thomas Christopher Bruun (1750-1834), dansk forfatter og sproglærer; fra 1800 lektor i fransk og engelsk ved det pædagogiske seminarium, fra 1802 tillige professor i engelsk ved Københavns Universitet, fra 1808 sproglærer ved Ingeniørkorpsets Læreinstitut og indtil 1828 desuden kaptajn i Kongens Livkorps. Han angreb Jens Baggesen voldsomt i polemiske skrifter som Ikke om Jøderne, men deres Gienløser, Justitsraaden (1813) og Beretning om Justitsraadens Tilfælde, Sygdom og Hedenfart (1814) og fortsatte angrebene i Gienganger-Justitsraadens sidste Beskeed (1814).",
+   "sources": [
+    "b234:b-2743"
+   ],
+   "sameAs": [],
+   "note": "The biographical substance sat in the note's trailing glossary lemma ('– T.C. Bruun: ...'); the Baggesen quotation that filled the old bio was dropped."
+  },
+  {
+   "key": "Brøchner, Hans",
+   "bio": "Hans Brøchner (1820-75), dansk filosof. I 1841 blev han nægtet adgang til teologisk embedseksamen på grund af uoverensstemmelse mellem hans religiøse anskuelse og den kirkelige troslære, hvorefter han studerede filosofi og i 1845 erhvervede den filosofiske magistergrad. Han var fra 1849 privatdocent og fra 1870 professor i filosofi ved Københavns Universitet, og han nedskrev senere Erindringer om Søren Kierkegaard.",
+   "sources": [
+    "b1:b-607"
+   ],
+   "sameAs": [],
+   "note": "Old bio opened with the note's citation apparatus and a long German advertisement quote; biography extracted from the '– Brøckners:' lemma at the end of the same note. Trimmed subtractively; the cousin-marriage genealogy was dropped in favour of the Erindringer, which states the SK relation directly."
+  },
+  {
+   "key": "Brøndum, Anthon",
+   "bio": "Anthon Brøndum (1809-93), dansk brændevinsbrænder og destillatør; tog farmaceutisk eksamen i 1829 og fremstillede den danske eau de cologne, som T. Algreen-Ussing i 1835 omtalte som uægte, hvorved udtrykket »brøndumsk« opposition opstod. Han var søn af brændevinsbrænder Christen Antonsen Brøndum (1777-1846).",
+   "sources": [
+    "b43:b-3131"
+   ],
+   "sameAs": [],
+   "note": "Old bio was the entire 15-sentence press-polemic note. The two Brøndums are distinguished in the note's closing editorial remark; Anthon is the son and the distiller of the eau de cologne, not the Dannebrogsmand."
+  },
+  {
+   "key": "Brøndum, Christen Antonsen",
+   "bio": "Christen Antonsen Brøndum (1777-1846), dansk brændevinsbrænder og far til brændevinsbrænder og destillatør Anthon Brøndum (1809-93). Han blev Dannebrogsmand i 1826, og under avisdebatten i juni 1835 om T. Algreen-Ussings udtryk »brøndumsk« opposition gjorde redaktionen opmærksom på, at det var ham og ikke sønnen, der bar Dannebrogskorset.",
+   "sources": [
+    "b43:b-3131"
+   ],
+   "sameAs": [],
+   "note": "Same note as Anthon Brøndum; the father is identified only by trade, the 1826 Dannebrog honour and the paternity. Deliberately short."
+  },
+  {
+   "key": "Byron, George Gordon",
+   "bio": "Lord Byron el. George Gordon Byron (1788-1824), engelsk digter; hans dæmoniske og tungsindige poesi vandt stor udbredelse. SK ejede hans værker i tysk overs., Lord Byron's sämmtliche Werke, ved flere oversættere, bind 1-10, Stuttgart 1839, ktl. 1868-1870.",
+   "sources": [
+    "b308:b-5258"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Böhme, Jakob",
+   "bio": "Jacob Böhme (1575-1624), tysk skomager, filosof og kristen mystiker. Han fortalte, at synet af et blankskuret tinfad i stuen førte ham ind i »den hemmelige naturs midtpunkt« og i det guddommelige væsens lys, en episode G.W.F. Hegel gengiver i sine forelæsninger over filosofiens historie.",
+   "sources": [
+    "b208:b-2822"
+   ],
+   "sameAs": [],
+   "note": "Old bio was the note's bibliographic apparatus (Arnold, Hegel) with the person hidden in the closing lemma."
+  },
+  {
+   "key": "Caroline Amalie",
+   "bio": "Caroline Amalie (1796-1881), dansk dronning; blev i 1815 viet til Christian VIII, som hun ofte opholdt sig sammen med på Sorgenfri Slot ved Kongens Lyngby nord for København. Efter kongens død den 20. januar 1848 blev hun enkedronning og boede på Sorgenfri Slot indtil sin død.",
+   "sources": [
+    "b120:b-3162",
+    "b120:b-2539",
+    "b259:b-1292"
+   ],
+   "sameAs": [],
+   "note": "Old bio was the NB9:42 journal quotation plus glossary lemmas. Widowhood date and the location of Sorgenfri come from the supplementary notes."
+  },
+  {
+   "key": "Cavaignac, Louis-Eugène",
+   "bio": "Allerede i 1830 udnævnte Louis-Eugène Cavaignac (1802-57) den fransk republik, men han måtte snart trække sig fra politik og koncentrere sig om en militær karriere. Fra 20. marts 1848 fungerede han som krigsminister (indtil 5. april og atter fra 17. maj til 28. juni), men fra 28. maj og indtil præsidentvalget 20. dec. var han Frankrigs leder. Han giftede sig først med Louise Odier den 24. dec. 1851 i Paris.",
+   "sources": [
+    "b259:b-1463"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Chateaubriand, François-René Vicomte de",
+   "bio": "François René V. de Chateaubriand (1768-1848), fransk digter, politiker og diplomat. Kolderup-Rosenvinge har i sin Skriv- og Reise-Calender for året 1849 noteret, at han fra maj 1849 var begyndt at læse Mémoires d'outre-tombe, der i 1849-50 udkom i 12 bøger.",
+   "sources": [
+    "b259:b-1718"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Christensen, Balthasar",
+   "bio": "Balthazar Matthias Christensen (1802-82), dansk jurist og politiker, leder af Bondevennerne, som bl.a. på møderne i Hippodrom krævede betydelige reformer .",
+   "sources": [
+    "b259:b-1507"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Christensen, Peter Vilhelm",
+   "bio": "Peter Wilhelm Christensen (1819-63), dansk teolog, 1838 dimitteret til universitetet i Kbh. af P.C. Kierkegaard, SKs ældre broder, bestod 6. juli 1842 den teologiske embedseksamen, men kom først i gejstligt embede 1850. Han var i en periode 1842-43 SKs sekretær, jf. tekstredegørelsen til Enten – Eller, SKS K2-3, 52-54.",
+   "sources": [
+    "b259:b-1456"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Christian VIII",
+   "bio": "Christian VIII (1786-1848), konge fra dec. 1839 til sin død den 20 jan. 1848.",
+   "sources": [
+    "b120:b-2490"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Clausen, Emil",
+   "bio": "Emil Clausen, sognepræst i Boslunde og yngre bror til H.N. Clausen. Som tilhænger af Grundtvig var han vel anskrevet hos Kristian den Ottende og dronning Karoline Amalie. Han var en af de gejstlige, der ikke kunne bekvemme sig til at tvangsdøbe børn af baptistiske forældre, som plakaten af 27. dec. 1842 pålagde dem.",
+   "sources": [
+    "b1:b-337"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the reproduced H.N. Clausen memoir quotation; no life years are given in the note. The memoirist, left as the dangling initials 'H.N.' at the end of the old text, is H.N. Clausen (confirmed in the source note b1:b-337), so the brother relation is kept."
+  },
+  {
+   "key": "Clausen, Henrik Nicolai",
+   "bio": "Henrik Nicolai Clausen (1793-1877), dansk teolog og politiker; 1817 dr.phil., 1826 dr.theologiae; foretog 1818-20 en studierejse til bl.a. Tyskland og Italien, fra 1821 lektor, fra 1822 ekstraordinær og fra 1830 ordinær professor i teologi ved Københavns Universitet, s.å. tillige assessor i konsistorium, 1837-38 (atter 1851-53) universitetets rektor, 1840-46 deputeret ved stænderforsamlingen i Roskilde, den 12. okt. 1848 kongevalgt medlem af Den grundlovgivende Rigsforsamling, i øvrigt medlem af en lang række offentlige råd og kommissioner, herunder fra 1843 formand for »Det Skandinaviske Selskab« og i 1847 medstifter af »Det Nordiske Literatur-Samfund«.",
+   "sources": [
+    "b161:b-3169",
+    "ded:ded-9"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Cold, Ole Johansen",
+   "bio": "Ole Johansen Cold (1781-1859), dansk kroejer; født i Kongsberg i Norge, kom som ung til Danmark og virkede nogle år som skrædder i København, indgik i 1811 ægteskab med enken efter kroholder C.F. Egebeck på Store Kro i Fredensborg i Nordsjælland og erhvervede kroen. Cold udvidede kroens bygninger og gjorde den til et yndet opholdssted for Københavns bedre borgerskab.",
+   "sources": [
+    "b241:b-5109"
+   ],
+   "sameAs": [],
+   "note": "Dropped the bibliographic reference and the SKS journal citations; two sentences remain."
+  },
+  {
+   "key": "Collin, Jonas",
+   "bio": "Jonas Collin (1776-1861), dansk finansdeputeret; 1795 candidatus juris. Fra 1816 var han medlem af finansdeputationen og fra 1841 til 1848 første deputeret for finanserne (svarende til finansminister), fra 1809 til 1855 præsident for landhusholdningsselskabet og 1821-29 og 1843-49 meddirektør for Det kongelige Teater. I det collinske hjem i Bredgade i København kom en betydelig del af tidens kunstnere, forfattere og embedsmænd.",
+   "sources": [
+    "b241:b-5231",
+    "ded:ded-101"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Cromwell, Oliver",
+   "bio": "Oliver Cromwell (1599-1658), engelsk puritaner, feltherre og statsmand; under den engelske borgerkrig (1642-49) var han leder af den militant religiøse og politiske bevægelse Independents. Han foranledigede, at kong Charles I blev henrettet i 1649, hvorefter England blev omdannet til en republik, som i 1653 blev afskaffet og erstattet af et protektorat med Cromwell som lordprotektor. Under protektoratet (1653-58), der reelt var et militærdiktatur, udviklede hans angst for fjender sig til regulær paranoia; han holdt et væld af spioner og sikkerhedsvagter og vendte aldrig tilbage ad den samme vej.",
+   "sources": [
+    "b43:b-2238"
+   ],
+   "sameAs": [],
+   "note": "Dropped the Becker quotation and the truncated bibliographic tail ('omarbeidet af J.G.')."
+  },
+  {
+   "key": "Descartes, René",
+   "bio": "I hans systematiske hovedværk Principia philosophiae (lat., Filosofiens principper) fra 1644 indgår sætningen i overskriften til 1. del, § 1: »Veritatem inquirenti, semel in vita de omnibus, quantum fieri potest, esse dubitandum« (»Den, som søger sandheden, bør én gang i sit liv tvivle om så vidt muligt alting«), Renati Des-Cartes opera philosophica [lat., René Descartes' filosofiske værker] bind 1-4, 6.",
+   "sources": [
+    "b276:b-5512"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Donner, Conrad Hinrich",
+   "bio": "Conrad Hinrich Donner (1774-1854), bankier, skibsreder og storkøbmand i Altona, en vigtig havneby i Holsten nordvest for Hamborg. Efter at have været købmand for det danske Asiatisk Kompagni grundlagde han i 1798 sit eget firma, drev senere også bankvirksomhed og blev efterhånden meget velhavende; han var kendt for sin velgørenhed og for sin støtte til kunstnere og håndværkere. Han blev i 1824 udnævnt til dansk etatsråd og i 1840 til dansk konferensråd.",
+   "sources": [
+    "b1:b-90"
+   ],
+   "sameAs": [],
+   "note": "Folded the two glossary lemmas ('– Etatsraad', '– Altona') into prose; expanded da./ty./NV."
+  },
+  {
+   "key": "Edvard, Collin",
+   "bio": "Reitzel. – Collin: Edvard Collin (1808-86), dansk jurist, statsembedsmand og litterær samler; dimitteredes 1825 fra Borgerdydsskolen i København til Københavns Universitet, 1831 cand.jur., fra s.å. ansat i finansministeriet, fra 1833 tillige sekretær for »Fonden ad usus publicos« , fra 1842 kommitteret og fra 1848 departemensdirektør i finansministeriet. Blev den 29. dec. 1842 udnævnt til 'virkelig' justitsråd og den 16. april 1852 til 'virkelig' etatsråd, se T.H.",
+   "sources": [
+    "b161:b-2644"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Eichendorff, Joseph Freiherr von",
+   "bio": "SK citerer første strofe af lieden »Vor der Stadt« af den tysk romantiske digter Joseph von Eichendorff (1788-1857) i Gedichte, Berlin 1837, ktl. 1634, s. 24. Digtet havde tidligere været trykt i Eichendorffs novelle Dichter und ihre Gesellen, Berlin 1834, ktl. 1633, s. 20.",
+   "sources": [
+    "b127:b-1841"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Eiríksson, Magnús",
+   "bio": "Magnús Eiríksson (1806-1881), islandsk teolog og forfatter; født i Island, dimitteredes 1829 fra Bessastaðir latinskole, 1829-31 på kontor hos stiftamtmand L.A. Krieger , tog artium (svarende til nutidens studentereksamen) i 1831 og teologisk embedseksamen i april 1837 ved Københavns Universitet med økonomisk støtte fra Krieger; herefter fungerede han i en årrække som en meget efterspurgt manuduktør, ikke mindst i gammel- og nytestamentlig eksegese. I sin første bog Om Baptister og Barnedaab forsvarede Magnús Eiríksson baptisterne og virkede således imod biskop J.P.",
+   "sources": [
+    "b241:b-5135"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Engelstoft, Christian Thorning",
+   "bio": "Christian Thorning Engelstoft (1805-89), dansk teolog og biskop; 1827 cand.theologiae, 1832 lic.theologiae, 1836 dr.theologiae; fra 1833 lektor, fra 1834 ekstraordinær og fra 1845 ordinær professor i teologi ved Københavns Universitet, hvor SK havde ham som lærer; fra 1852 biskop over Fyns stift. Udgav fra 1837 sammen med kollegaen C.E. Scharling Theologisk Tidsskrift, fra 1850 Nyt Theologisk Tidsskrift.",
+   "sources": [
+    "ded:ded-12"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Fabricius, Frederik",
+   "bio": "Frederik Fabricius (1789-1873), dansk bibliotekar og forfatter; dimitteredes 1808 fra Metropolitanskolen til Københavns Universitet, hvor han en tid studerede teologi, men opgav studierne til fordel for eget litterært arbejde, fra 1823 voluntør, fra 1829 kopist i udlånet og fra 1835 sekretær ved Det Kgl. Bibliotek, hvor han udarbejdede en række bogfortegnelser for årene 1841-58; fra 1831 tillige viceprovst ved Regensen (se følgende kommentar).",
+   "sources": [
+    "b120:b-2485"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Farinelli",
+   "bio": "Farinelli var kunstnernavn for Carlo Broschi (1705-82), den mest berømte af alle italienske kastratsangere. Han fik en europæisk stjernekarriere og tilbragte 25 år i Spanien, hvor han fordrev kong Filip V's melankoli ved hver aften at synge de samme fire sange for monarken, der ikke kunne undvære ham. Under efterfølgeren Ferdinand VI steg Farinellis indflydelse yderligere, så sangeren fik mere magt end ministrene.",
+   "sources": [
+    "b79:b-2200"
+   ],
+   "sameAs": [
+    "Broschi, Carlo"
+   ],
+   "note": "Dropped the theatre-history tail about J.L. Heiberg's translation, which had been cut mid-name ('overs. af J.L.')."
+  },
+  {
+   "key": "Fenger, Carl Emil",
+   "bio": "Carl Emil Fenger (1814-84), dansk læge og politiker, en af brødrene Fenger. Han dimitteredes 1829 fra Borgerdydskolen på Christianshavn til Københavns Universitet og tog i 1835 embedseksamen fra Det kirurgiske Akademi.",
+   "sources": [
+    "b1:b-6"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the shared 'Fengers Brødre' note; only the facts about him are kept. Deliberately short — the note carries just his dates, profession and two exams."
+  },
+  {
+   "key": "Fenger, Johannes Ferdinand",
+   "bio": "Johannes Ferdinand Fenger (1805-61), dansk præst og bror til Peter Andreas, Carl Emil og Rasmus Theodor Fenger; candidatus theologiae 1825, licentiatus theologiae 1828. Han drog i sommeren 1828 sammen med P.C. Kierkegaard på studierejse til Berlin og fortsatte til Italien, Schweiz, Frankrig, Grækenland og Tyrkiet, før han efter 3½ år vendte tilbage til København. Fra september 1833 var han sognepræst i Lynge og Broby ved Sorø på Sjælland.",
+   "sources": [
+    "b1:b-6"
+   ],
+   "sameAs": [],
+   "note": "Head-truncation repaired by the orchestrator directly against b1:b-6 (life years, degrees, and the shared Berlin journey with P.C. Kierkegaard all appear verbatim in that note)."
+  },
+  {
+   "key": "Fenger, Peter Andreas",
+   "bio": "Peter Andreas Fenger (1799-1878), dansk præst, en af brødrene Fenger. Han dimitteredes 1816 fra Borgerdydskolen på Christianshavn og blev candidatus theologiae i okt. 1820. Han var i små ti år lærer ved Borgerdydskolen på Christianshavn og tre år ved Døtreskolen og blev fra 1827 sognepræst i Slotsbjergby og Sludstrup ved Slagelse på Sjælland.",
+   "sources": [
+    "b1:b-6"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the shared 'Fengers Brødre' note; only the facts about him are kept. The source's misspelling 'Bogerdydskolen' is normalised to 'Borgerdydskolen', the form used elsewhere in the same note."
+  },
+  {
+   "key": "Fenger, Rasmus",
+   "bio": "Meinert (1775-1856), enke efter sognepræst ved Vor Frelsers Kirke på Christianshavn Rasmus Fenger (1761-1825), mor til Johannes Ferdinand Fenger.",
+   "sources": [
+    "b1:b-66"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Fenger, Rasmus Theodor",
+   "bio": "Rasmus Theodor Fenger (1816-89), dansk præst, en af brødrene Fenger. Han dimitteredes 1833 fra Borgerdydskolen på Christianshavn til Københavns Universitet og blev candidatus theologiae i april 1839. Han var derefter lærer ved Asylskolen og fra 1840 tillige ved Borgerdydskolen på Christianshavn og blev fra 1853 præst for Åle og Tørring ved Horsens i Jylland.",
+   "sources": [
+    "b1:b-6"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the shared 'Fengers Brødre' note; only the facts about him are kept."
+  },
+  {
+   "key": "Friedenreich, Diderik Wilhelm",
+   "bio": "Friedenreich, Diderik Wilhelm (1798-1851) var teolog og skolemand. Han blev kandidat 1823.",
+   "sources": [
+    "b1:b-22"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Frydendahl, Peter Jørgen",
+   "bio": "Frydendahl, Peter Jørgen (1766-1836) var skuespiller, en af det kongelig teaters mest betydelige karakterskuespillere, optrådte i ca. 500 roller, sidste gang 1835.",
+   "sources": [
+    "b259:b-1494"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Giødwad, Jens Finsteen",
+   "bio": "Jens Finsteen Giødwad (1811-91), dansk jurist og journalist, candidatus juris i oktober 1832. Han var 1837-39 medredaktør af Kjøbenhavnsposten, fra december 1839 medudgiver og medredaktør af Fædrelandet og fra juli 1844 til juni 1845 bladets ansvarshavende redaktør. Giødwad bistod Søren Kierkegaard med korrekturlæsning af Enten – Eller og var ofte mellemmand i forretningerne med Bianco Lunos Bogtrykkeri og forlagsboghandler C.A. Reitzel; Kierkegaard kaldte ham i januar 1849 »min personlige Ven«.",
+   "sources": [
+    "b208:b-2846",
+    "b43:b-2139",
+    "b276:b-5721",
+    "ded:ded-79"
+   ],
+   "sameAs": [],
+   "note": "Fixed the verifier's factual error: the 1825/Borgerdydsskolen dimission belonged to Edvard Collin, described in the same note (b161:b-2644); Giødwad was dimitted 1828 from Aalborg Katedralskole. Trimmed subtractively; the dimission and the exact editorship dates were cut."
+  },
+  {
+   "key": "Goethe, Johann Wolfgang von",
+   "bio": "Goethe, Johann Wolfgang von (1749-1832) var digter, dramatiker, essayist, jurist, statsmand og naturvidenskabsmand.",
+   "sources": [
+    "b308:b-5270"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Grobecker, Philipp",
+   "bio": "Grobecker, Philipp (1815-1883) var komisk skuespiller.",
+   "sources": [
+    "b79:b-2185"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Grundtvig, Nikolai Frederik Severin",
+   "bio": "Grundtvig, Nikolai Frederik Severin (1783-1872) var teolog, præst, (salme)digter, historiker, mytolog m.m.",
+   "sources": [
+    "b1:b-107"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Gruppe, Otto Friedrich",
+   "bio": "Gruppe, Otto Friedrich (1804-1876) var filosof og digter.",
+   "sources": [
+    "b43:b-2054"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Hammerich, Martin",
+   "bio": "Hammerich, Martin (1811-1881) var teolog, skolemand, litteraturhistoriker og politiker.",
+   "sources": [
+    "b120:b-2496"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Hansen, Jens Olaus",
+   "bio": "Hansen, Jens Olaus (1795-1854) var jurist og departementschef.",
+   "sources": [
+    "ded:ded-84"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Hauch, Carsten",
+   "bio": "Hauch, Carsten (1790-1872) var digter og zoolog.",
+   "sources": [
+    "b241:b-5191"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Hegel, Georg Wilhelm Friedrich",
+   "bio": "Hegel, Georg Wilhelm Friedrich (1770-1831) var filosof og teolog, fra 1818 til sin død professor i berlin. sk ejede en række af hegels værker, jf. ktl.",
+   "sources": [
+    "b161:b-2585",
+    "b43:b-2071",
+    "b79:b-1951"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Heiberg, Johan Ludvig",
+   "bio": "Heiberg, Johan Ludvig (1791-1860) var forfatter, redaktør og kritiker.",
+   "sources": [
+    "b308:b-5378",
+    "b70:b-5006",
+    "ded:ded-3"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Henrichsen, Rudolph Johannes Frederik",
+   "bio": "Henrichsen, Rudolph Johannes Frederik (1800-1871) var klassisk filolog og skolemand. Fra 1825 var han adjunkt ved Metropolitanskolen.",
+   "sources": [
+    "b1:b-9"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Hiorthøy, Christian Julius Frederik",
+   "bio": "Christian Julius Frederik Hiorthøy (1770-1843), arkivar i Det kongelig danske Kancelli.",
+   "sources": [
+    "b43:b-2045"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Hoffmann, Ernst Theodor Amadeus",
+   "bio": "Ernst Theodor Amadeus Hoffmann (1776-1822), tysk forfatter, udgiver, jurist og musiker.",
+   "sources": [
+    "b79:b-1826"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Holst, Hans Peter",
+   "bio": "Hans Peter Holst (1811-93), dansk forfatter og digter; fik i 1849 titel af professor og blev tillige lærer i dansk ved Sorø Akademi og i 1850 ved det v. Westenske Institut.",
+   "sources": [
+    "ded:ded-16"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Holtermann, Sophie Lovise Caroline",
+   "bio": "Sophie Lovise Caroline Holtermann (1815-79), f. i Norge, datter af kaptajn i 1. trondhjemske infanteri brigade Marius Frederik Holtermann og Vilhelmine Augusta Holtermann, f. Rohleder.",
+   "sources": [
+    "b79:b-2313"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Hornsyld, Jens",
+   "bio": "Jens Hornsyld (1757-1840), dansk præst; fra 1792 hospitalspræst og fra 1794 anden residerende kapellan i Randers, fra 1808 sognepræst i Assens og Kjærum, hvorfra han lod sig pensionere i 1820.",
+   "sources": [
+    "b1:b-133"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Hölty, Ludwig Heinrich Christoph",
+   "bio": "Ludwig Heinrich Christoph Hölty (1748-76), tysk digter. Blandt hans digte er den otte strofer lange »Elegie bey dem Grabe meines Vaters« (1775), som blev citeret i brevvekslingen.",
+   "sources": [
+    "b308:b-5272"
+   ],
+   "sameAs": [],
+   "note": "Person data taken from the note's closing lemma ('– Hölty: ...'); the long textual-variant apparatus dropped."
+  },
+  {
+   "key": "Ibsen, Peter Diderik",
+   "bio": "Peter Diderik Ibsen (1793-1855), dansk præst; 1816 candidatus theologiae, derefter ejer af herregården Mørup på Midtsjælland (hans første kone Dorothea Elisabeth Ibsen var enke efter proprietær Ammitzbøll til Mørup); fra juni 1825 sognepræst i Lunde N for Odense på Fyn, fra nov. 1831 ved Skt. Nikolaj Kirke i Svendborg på Sydfyn med anneks på Thurø og fra sept. 1833 til sin død i Kongens Lyngby N for København.",
+   "sources": [
+    "b127:b-1890",
+    "b234:b-2686"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Inter et Inter",
+   "bio": "Inter et Inter er ikke en historisk person, men det pseudonym, Søren Kierkegaard udgav føljetonartiklen »Krisen og en Krise i en Skuespillerindes Liv« under i Fædrelandet nr. 188-191, den 24.-27. juli 1848.",
+   "sources": [
+    "ded:ded-363",
+    "b70:b-4203"
+   ],
+   "sameAs": [],
+   "note": "Pseudonym policy applied: one grounded sentence explaining the name instead of null, since the notes state plainly what it is. Old bio was Johanne Luise Heiberg's biography (the article's subject, not the author)."
+  },
+  {
+   "key": "Johannes de silentio",
+   "bio": "Johannes de silentio er ikke en historisk person, men det pseudonym, Søren Kierkegaard udgav Frygt og Bæven under den 16. oktober 1843.",
+   "sources": [
+    "b161:b-2606",
+    "b308:b-5322",
+    "b208:b-2903"
+   ],
+   "sameAs": [],
+   "note": "Pseudonym policy applied: one grounded sentence rather than null. Publication date from b208:b-2903."
+  },
+  {
+   "key": "Jørgensen, Karen",
+   "bio": "I Gothersgade matrikelnr.15 (gadenr. 30; se kort 2, D1-2) boede Karen Kierkegaard (o. 1770-1844), der havde været gift med klædehandler Anders Andersen Kierkegaard (1767-1816), en fætter til SKs far.",
+   "sources": [
+    "b127:b-1825"
+   ],
+   "sameAs": [
+    "Kierkegaard, Karen",
+    "Andersen, Karen"
+   ],
+   "note": null
+  },
+  {
+   "key": "Kieldsen, Anne Sophie",
+   "bio": "Anne Sophie Kierkegaard, f. Kieldsen (1779-1815), blev i 1800 gift med silke- og klædehandler Michael Andersen Kierkegaard (1776-1867), en fætter til Søren Kierkegaards far. Sammen fik de fire børn: Anna Kirstine Elisabeth (kaldt Lise) Kierkegaard (1801-67), Andrea Thomine (kaldt Mine) Kierkegaard, Julie Augusta Kierkegaard og Hans Peter Kierkegaard. Hun var søster til Johanne Kirstine Brøchner, f. Kieldsen (1786-1826), mor til filosoffen Hans Brøchner.",
+   "sources": [
+    "b1:b-121",
+    "b1:b-607"
+   ],
+   "sameAs": [
+    "Kierkegaard, Anne Sophie"
+   ],
+   "note": "Rebuilt from scratch: old bio was her husband M.A. Kierkegaard. The sisterhood with Hans Brøchner's mother comes from the supplementary note."
+  },
+  {
+   "key": "Kierkegaard, Anders Andersen",
+   "bio": "I Gothersgade matrikelnr.15 (gadenr. 30; se kort 2, D1-2) boede Karen Kierkegaard (o. 1770-1844), der havde været gift med klædehandler Anders Andersen Kierkegaard (1767-1816), en fætter til SKs far.",
+   "sources": [
+    "b127:b-1825"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Kierkegaard, Anna Kirstine Elisabeth",
+   "bio": "Anna Kirstine Elisabeth (kaldt Lise) Kierkegaard (1801-67) var ældste barn af silke- og klædehandler Michael Andersen Kierkegaard (1776-1867), en fætter til Søren Kierkegaards far, og Anne Sophie Kierkegaard, f. Kieldsen (1779-1815). Hun blev gift Faber i 1825.",
+   "sources": [
+    "b1:b-121"
+   ],
+   "sameAs": [
+    "Kierkegaard, Lise"
+   ],
+   "note": "Rebuilt from scratch: old bio was her father. The note supports only birth/death, parentage and the 1825 marriage."
+  },
+  {
+   "key": "Kierkegaard, Else Pedersdatter",
+   "bio": "Else Pedersdatter Kierkegaard (1768-1844), døbt den 11. september 1768 i Sædding Kirke, var Michael Pedersen Kierkegaards yngste søster og dermed Søren Kierkegaards faster. Den 15. oktober 1802 blev hun gift med Thomas Nielsen, også kaldt Kierkegaard (cirka 1771-1846), der samme år overtog hendes fødegård i Sædding. Efter sine to søskendes død i 1831 og 1834 modtog hun alene familiens andel af det legat, »Niels Sedings Minde«, som broderen havde stiftet, og hun brevvekslede med sine brodersønner P.C. og Søren Kierkegaard.",
+   "sources": [
+    "b1:b-471",
+    "b1:b-452",
+    "b1:b-542",
+    "b1:b-448"
+   ],
+   "sameAs": [],
+   "note": "Completed the truncated quotation; the missing clause ('M.P. Kierkegaards yngste søster') is now the core of sentence one."
+  },
+  {
+   "key": "Kierkegaard, Hans Peter",
+   "bio": "Hans Peter Kierkegaard (1815-62), ugift, søn af Michael Andersen Kierkegaard, der var fætter til SKs far, Michael Pedersen Kierkegaard; H.P. Kierkegaard var således SKs halvfætter.",
+   "sources": [
+    "ded:ded-107"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Kierkegaard, Henriette",
+   "bio": "Sophie Henriette (kaldt Jette) Kierkegaard, f. Glahn (1809-81), datter af Poul Egede Glahn og hustru Bodil Maria Elisabeth Glahn. Hun blev den 12. juni 1841 gift med Søren Kierkegaards ældre bror P.C. Kierkegaard og flyttede den 5. maj 1843 ind i præstegården i Pedersborg, hvor han havde boet alene siden slutningen af november 1842.",
+   "sources": [
+    "b1:b-207",
+    "b1:b-223"
+   ],
+   "sameAs": [
+    "Kierkegaard, Jette",
+    "Glahn, Sophie Henriette"
+   ],
+   "note": "Added the missing parentage the verifier flagged, plus the 1843 move from the supplementary note."
+  },
+  {
+   "key": "Kierkegaard, Maren Kirstine",
+   "bio": "Maren Kirstine Kierkegaard (1797-1822) var Michael Pedersen Kierkegaards ældste datter og dermed Søren Kierkegaards ældste søster. Hun døde ugift den 15. marts 1822.",
+   "sources": [
+    "b1:b-32",
+    "b1:b-463"
+   ],
+   "sameAs": [],
+   "note": "Rebuilt from scratch: old bio was her younger sister Nicoline Christine. Exact death date from b1:b-463. The note spells her 'Maren Kristine'; the key spelling is kept."
+  },
+  {
+   "key": "Kierkegaard, Michael Andersen",
+   "bio": "Michael Andersen Kierkegaard (1776-1867), dansk silke- og klædehandler både en gros og en detail, søn af M.P. Kierkegaards farbror Anders Christensen Kierkegaard.",
+   "sources": [
+    "b1:b-121"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Kierkegaard, Michael Pedersen",
+   "bio": "Michael Pedersen Kierkegaard (1756-1838), døbt Michel den 12. dec. 1756 i Sædding Kirke, jf. »Ministerial-Bog over særdeles Kirkelige-Forretninger i Sæding fra Aar 1703«, bl. 134; løste i 1780 borgerskab som hosekræmmer i København, opnåede otte år senere tilladelse til at importere kolonialvarer og videresælge dem en gros, trak sig i en alder af 40 år tilbage med en betragtelig formue, som han i tiden efter forøgede, formentlig som rentier og investor.",
+   "sources": [
+    "b1:b-3",
+    "b120:b-2488",
+    "b234:b-2777"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Kierkegaard, Nicoline Christine",
+   "bio": "SKs søster Nicoline Christine Lund, f. Kierkegaard (1799-1832), gift den 24. sept. 1824 med Johan Christian Lund.",
+   "sources": [
+    "b1:b-32"
+   ],
+   "sameAs": [
+    "Lund, Nicoline Christine"
+   ],
+   "note": null
+  },
+  {
+   "key": "Kierkegaard, Niels Andreas",
+   "bio": "SKs ældre bror Niels Andreas Kierkegaard (1809-1833), dansk handelsmand; emigrerede i efteråret 1832 til Boston i Nordamerika, hvor han døde den 21. sept. 1833.",
+   "sources": [
+    "b1:b-42"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Kierkegaard, Peter Christian",
+   "bio": "Peter Christian Kierkegaard (1805-88), dansk biskop og politiker, SKs ældre bror; candidatus theologiae 1826, disputerede 1829 for den filosofiske doktorgrad i Göttingen og 1836 for den teologiske licentiatgrad i København. Udnævnt 1842 til sognepræst i Pedersborg og Kindertofte ved Sorø; 1849-52 medlem af Landstinget, fra 1856 biskop over Aalborg stift. Modtageren af mange af de tidligste breve i samlingen.",
+   "sources": [
+    "b1:b-1",
+    "b171:b-824",
+    "b234:b-2782",
+    "b276:b-4431",
+    "b308:b-5355",
+    "b70:b-5043",
+    "b79:b-1843"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; final sentence states the collection-internal fact that he receives many early letters (b1 groups)."
+  },
+  {
+   "key": "Kierkegaard, Petrea Severine",
+   "bio": "SKs søster Petrea Severine Lund, f. Kierkegaard (1801-34), gift den 11. okt. 1828 med Henrik Ferdinand Lund.",
+   "sources": [
+    "b1:b-38"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Kierkegaard, Søren Aabye",
+   "bio": "Søren Aabye Kierkegaard (1813-55).",
+   "sources": [
+    "b1:b-446"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Klettwig, Heinrich Ferdinand",
+   "bio": "Heinrich Ferdinand Klettwig (o. 1770-1842), klædehandler, grosserer og bankier i Göttingen og fra 1831-34 oldermand. Fra 1834 blev svigersønnen Adolph Valentin Reibstein medindehaver, og firmaet ændrede navn til H.F. Klettwig & Sohn og i midten af 1842 til H.F. Klettwig & Reibstein.",
+   "sources": [
+    "b1:b-87"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Klimax, Johannes",
+   "bio": "Afsluttende uvidenskabelig Efterskrift, af pseudonymen Johannes Climacus (se nedenfor), udg. af S. Kierkegaard, var udkommet den 27. feb. 1846 i et trykoplag på 500 eksemplarer, se tekstredegørelsen i SKS K7, 7 og 93. Bogen var i kommission hos C.A.",
+   "sources": [
+    "b208:b-2914"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Kofoed-Hansen, Hans Peter",
+   "bio": "Brevets modtager er H.P. Kofoed-Hansen. – Hans Peter Kofoed-Hansen (1813-93), dansk provst og forfatter; 1837 candidatus theologiae, fra samme år adjunkt ved Odense Katedralskole, udenlandsrejser i 1839, i 1842-43 og i 1847-48, fra 1849 residerende kapellan ved Vor Frelsers Kirke på Christianshavn, fra 1850 hovedpræst ved Marie Kirke, også kaldt Vor Frue Kirke i Haderslev i den nordlige del af hertugdømmet Slesvig (nuv. Sønderjylland), fra 1854 tillige konstitueret provst for Haderslev provsti, fra 1855 sognepræst for Gl.",
+   "sources": [
+    "b43:b-2142"
+   ],
+   "sameAs": [
+    "Jean-Pierre, pseudonym"
+   ],
+   "note": null
+  },
+  {
+   "key": "Kolderup-Rosenvinge, Janus Lauritz Andreas",
+   "bio": "Janus Lauritz Andreas Kolderup-Rosenvinge (1792-1850), dansk jurist og retshistoriker; blev 1817 dr.jur., fra 1818 ekstraordinær og fra 1830 ordinær professor i lovkyndighed ved Københavns Universitet. Tillige ekstraordinær assessor i højesteret fra 1822 samt meddirektør for og lærer i kirkeret ved Pastoralseminariet fra 1828, 1834-48 medlem af direktionen for universitetet og de lærde skoler. Kolderup-Rosenvinges hustru, Barbara Abigal, f. Lange (1791), døde den 17. dec. 1846, hvorefter han i professorboligen St.",
+   "sources": [
+    "b259:b-1253",
+    "ded:ded-19"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Kolderup-Rosenvinge, Sophie",
+   "bio": "Janus Lauritz Andreas Kolderup-Rosenvinge (1792-1850), dansk jurist og retshistoriker; blev 1817 dr.jur., fra 1818 ekstraordinær og fra 1830 ordinær professor i lovkyndighed ved Københavns Universitet. Tillige ekstraordinær assessor i højesteret fra 1822 samt meddirektør for og lærer i kirkeret ved Pastoralseminariet fra 1828, 1834-48 medlem af direktionen for universitetet og de lærde skoler. Kolderup-Rosenvinges hustru, Barbara Abigal, f. Lange (1791), døde den 17. dec. 1846, hvorefter han i professorboligen St.",
+   "sources": [
+    "b259:b-1253",
+    "ded:ded-337"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Kolderup-Rosenvinge, Valdemar",
+   "bio": "Valdemar Kolderup-Rosenvinge (1828-89) havde siden 1848 været elev på Den kongelig militære Højskole. Han blev i 1850 udnævnt til sekondløjtnant a la suite i artilleriet, men først 1851-53 afsluttede han sin uddannelse, der var blevet afbrudt pga. krigen.",
+   "sources": [
+    "b259:b-1762"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Krøyer, Ludvig Theodor",
+   "bio": "Ludvig Theodor Krøyer (1810-64), dansk journalist; dimitteredes 1827 fra Borgerdydsskolen i København til Københavns Universitet, hvor han en tid studerede teologi; lærer i fransk ved Borgerdydsskolen; beskæftigede sig i øvrigt med journalistisk virksomhed.",
+   "sources": [
+    "b1:b-27"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lamartine, Alphonse de",
+   "bio": "Alphonse de Lamartine (1790-1869), fr. forfatter og politiker, fik i 1820'erne sit gennembrud som digter, blev 1829 optaget i Académie française, i 1830'erne medlem af den fr. nationalforsamling. Han spillede en central rolle i februarrevolutionen 1848, hvor Louis Philippes regime blev væltet. I den nye republik fungerede han først som udenrigsminister, senere som den egentlig leder, men da han led et stort nederlag ved prædidentvalget i dec. 1848, trak han sig tilbage fra politik.",
+   "sources": [
+    "b259:b-1421"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lange, Frederik Olaus",
+   "bio": "Frederik Olaus Lange (1798-1862), dansk teolog, klassisk filolog og skolemand. Han blev candidatus theologiae i 1825 og doktor philosophiae i 1836 og underviste i græsk ved Borgerdydsskolen i København fra 1816 til o. 1828 og atter fra 1829 til 1833. Fra 1833 var han overlærer ved og fra 1841 rektor for den lærde skole i Vordingborg, og SK havde hans Det græske Sprogs Grammatik i sit bibliotek.",
+   "sources": [
+    "b1:b-63"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Lehmann, Orla",
+   "bio": "Peter Martin Orla Lehmann (1810-70), dansk jurist og politiker, leder af den nationalliberale opposition. Han var fra 1835 medredaktør af Kjøbenhavnsposten og fra dec. 1839 af Fædrelandet. I jan. 1842 blev han ved højesteret dømt til tre måneders fængsel for ved et landbomøde i Nykøbing F. at have søgt at godtgøre, at enevælden ikke havde været til gavn for bondestanden; senere blev han højesteretsadvokat, minister og amtmand over Vejle amt.",
+   "sources": [
+    "b171:b-880"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Levin, Israel",
+   "bio": "Israel Salomon Levin (1810-83), dansk filolog, udgiver og litterat. Han levede af sit arbejde som litterat og redaktør ved forskellige blade, foretog løbende ordbogsindsamlinger og sprogstudier og udgav i 1844 en dansk grammatik. Fra o. 1844 til 1851 fungerede han som sekretær for SK og var efter eget udsagn dybt involveret i tilblivelsen af Stadier paa Livets Vei (1845).",
+   "sources": [
+    "b208:b-2826",
+    "b276:b-5722",
+    "b79:b-2292"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Lind, Peter Engel",
+   "bio": "Peter Engel Lind (1814-1903), dansk biskop. Han gik i samme klasse som SK på Borgerdydsskolen i København og stiftede med sine tidligere klassekammerater, bl.a. SK, et 'disputereselskab' for studerende, som synes at have bestået 1831-33. Han blev candidatus theologiae i efteråret 1837 og fra 1875 biskop over Aalborg stift som efterfølger efter SKs ældre bror P.C. Kierkegaard.",
+   "sources": [
+    "b43:b-2018"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Lobeck, Marina Magdalene",
+   "bio": "formentlig Marina Magdalene Lund, f. Lobeck (fødsels- og dødsår ikke identificeret), gift med Henrik Hansen Lund; mor til J.C. Lund og H.F. Lund. – Md: madam el. madamme; titel, som tilkom hustruer (uden for almuestanden) til ægtemænd, der ikke havde rang if. rangforordningen af 14. okt. 1746 (med ændringer ved bekendtgørelse af 12. aug. 1808).",
+   "sources": [
+    "b1:b-41"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Ludvig Filip",
+   "bio": "Louis Philippe (1773-1850), fransk konge, som måtte give afkald på magten under februarrevolutionen i 1848. I Den franske Revolutions Historie i 1848 beskriver Alphonse de Lamartine ham som en hersker, der manglede storhed og i stedet brugte og misbrugte snildhed — blandt andet da han lod sine ministre kaste vanære over sin niece, hertuginden af Berry, der gjorde ham tronen stridig.",
+   "sources": [
+    "b259:b-1698",
+    "b259:b-1421"
+   ],
+   "sameAs": [],
+   "note": "Old bio was the raw Lamartine quotation, cut mid-passage. February 1848 as the occasion of his fall comes from the Lamartine note."
+  },
+  {
+   "key": "Lund, Anna",
+   "bio": "sigter til døtrene af grosserer Ole Troelsen Lund og hustru Karen Lund, f. Mouritsdatter Monberg: Anna Cathrine Lund (1800-59); Anna Lund (1807-79); og Mette Juliane Lund (1814-89).",
+   "sources": [
+    "b1:b-77"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lund, Anna Cathrine",
+   "bio": "sigter til døtrene af grosserer Ole Troelsen Lund og hustru Karen Lund, f. Mouritsdatter Monberg: Anna Cathrine Lund (1800-59); Anna Lund (1807-79); og Mette Juliane Lund (1814-89).",
+   "sources": [
+    "b1:b-77"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lund, Carl Ferdinand",
+   "bio": "Carl Ferdinand Lund (1830-1912), Søren Kierkegaards nevø og søn af silke- og klædehandler Johan Christian Lund og Kierkegaards søster Nicoline Christine Lund, f. Kierkegaard. Han dimitteredes fra Borgerdydsskolen i København i 1847 og blev senere proprietær og ejer af avlsgården Aldersro i landsbyen Værslev, små ti kilometer sydøst for Kalundborg i den vestlige del af Sjælland.",
+   "sources": [
+    "b171:b-748",
+    "b79:b-1874",
+    "b127:b-1943"
+   ],
+   "sameAs": [],
+   "note": "Removed the stray reference fragment 's. 308)' that caused the parenthesis mismatch; parents' full names from b127:b-1943."
+  },
+  {
+   "key": "Lund, Henrik",
+   "bio": "Henrik Sigvard Lund (1825-89), dansk læge og Søren Kierkegaards nevø, søn af klædehandler Johan Christian Lund og Kierkegaards søster Nicoline Christine Lund, f. Kierkegaard. Han blev candidatus medicinae et chirurgiae i 1849 og nedsatte sig som praktiserende læge i København. Ved Kierkegaards begravelse på Assistens Kirkegård trådte han frem ved graven og anklagede den officielle kirke for imod den afdødes vilje at have begravet ham, og han foretog vinteren 1855-56 den første registrering af de efterladte papirer.",
+   "sources": [
+    "b171:b-1225",
+    "b161:b-2568",
+    "b1:b-34"
+   ],
+   "sameAs": [],
+   "note": "Completed the truncation at 'fra nov.'; the graveside protest and the papers registration come from the same note's second half. Trimmed subtractively; the career itinerary (hæren, Frederiks Hospital, St. Jan) was cut in favour of the two SK-related facts."
+  },
+  {
+   "key": "Lund, Henrik Ferdinand",
+   "bio": "Henrik Ferdinand Lund, dansk embedsmand; SKs svoger, gift med hans søster Petrea Severine Lund, f. Kierkegaard (1801-34); assistent og fra 1841 kontorchef i Nationalbanken.",
+   "sources": [
+    "b171:b-942"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lund, Johan Christian",
+   "bio": "Johan Christian Lund (1799-1875), dansk silke- og klædehandler; SKs svoger, gift med hans søster Nicoline Christine Lund, f. Kierkegaard (1799-1832), bror til Ferdinand Lund; ved sin fars, silke- og klædehandler Henrik Hansen Lunds, død i 1820 overtog han dennes forretning; fra 1836 medlem af Københavns kommunale forsamling, »Stadens 32 Mænd« (fra 1840 borgerrepræsentationen); fra 1837 valgt medlem af direktionen for fattigvæsnet i København.",
+   "sources": [
+    "b171:b-768"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lund, Mette Juliane",
+   "bio": "sigter til døtrene af grosserer Ole Troelsen Lund og hustru Karen Lund, f. Mouritsdatter Monberg: Anna Cathrine Lund (1800-59); Anna Lund (1807-79); og Mette Juliane Lund.",
+   "sources": [
+    "b1:b-77"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lund, Michael Frederik Christian",
+   "bio": "Michael Frederik Christian Lund (1826-1907), Søren Kierkegaards nevø og søn af silke- og klædehandler Johan Christian Lund og Kierkegaards søster Nicoline Christine Lund, f. Kierkegaard. Han dimitteredes fra Borgerdydsskolen i København i oktober 1844, blev underlæge i hæren 1849, candidatus medicinae et chirurgiae 1851 og skibslæge 1852. Fra oktober 1852 til 1854 var han kandidat ved Det kongelige Frederiks Hospital og fra 1856 praktiserende læge på Østerbro i København.",
+   "sources": [
+    "b171:b-819",
+    "b127:b-1943"
+   ],
+   "sameAs": [],
+   "note": "Completed the truncation at 'okt.' (October 1852-54 at Frederiks Hospital, then Østerbro from 1856)."
+  },
+  {
+   "key": "Lund, Peter Christian",
+   "bio": "SKs nevø og Wilhelm Lunds yngre bror Peter Christian Lund (1833-1904).",
+   "sources": [
+    "b171:b-1238"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lund, Peter Wilhelm",
+   "bio": "Peter Wilhelm Lund, naturforsker, palæontolog, bror til SKs svogre Johan Christian Lund og Henrik Ferdinand Lund. Opholdt sig 1825-29 i Brasilien, hvor han foretog meteorologiske, biologiske og zoologiske feltstudier. Var sommeren 1829 i København; efter en længere rejse til naturvidenskabelige centre i Europa vendte han tilbage og tilbragte sommeren 1831 i København.",
+   "sources": [
+    "b1:b-3007"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lund, Sophie Wilhelmine",
+   "bio": "SKs niece og Carl Lunds ældre søster Sophie Wilhelmine Lund, datter af Nicoline og Christian Lund. Kierkegaard og P. Parup Fæstebonden i Sædding Christen Jespersen Kierkegaard's Efterslægt, Kbh.",
+   "sources": [
+    "b171:b-921"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lund, Troels Troelsen",
+   "bio": "Troels Lund, teatermaler; fra 1835 medlem af Kunstakademiet, fra 1842 ansat ved Det kongelig Teater som arkitekturmaler, fra marts 1849 valgt medlem af Københavns borgerrepræsentation. Troels Lund var bror til Ferdinand Lunds kusine og anden kone Anna Cathrine Lund. Troels Lund blev den 23.",
+   "sources": [
+    "b171:b-949"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lund, Wilhelm Nicolai",
+   "bio": "SKs nevø Wilhelm Nicolai Lund (1831-1902), søn af Petrea og Ferdinand Lund.",
+   "sources": [
+    "b171:b-1228"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Lunde, Peter Frederik",
+   "bio": "sigter til Peter Frederik Lunde, dansk politiker og indehaver af et jernstøberi. Han blev især kendt under de politiske omvæltninger i 1848, hvor han var leder for den demokratiske, dvs. mest radikale, fløj blandt de liberale.",
+   "sources": [
+    "b259:b-1487"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Luno, Bianco",
+   "bio": "Christian Peter Bianco Luno (1795-1852), dansk bogtrykker; opnåede i 1831 privilegium til at oprette et nyt bogtrykkeri i København. Trykkeriet, der siden 1838 havde haft til huse i Østergade, var i teknisk og typografisk henseende forud for de andre københavnske bogtrykkere; i 1847 blev Bianco Luno udnævnt til kongelig hofbogtrykker. På nær Tvende ethisk-religieuse Smaa-Afhandlinger, der blev fremstillet hos bogtrykker Louis Klein, blev alle SKs bøger produceret hos Bianco Luno.",
+   "sources": [
+    "b208:b-2796"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Madvig, Johan Nicolai",
+   "bio": "Johan Nicolai Madvig, dansk klassisk filolog, politiker og minister; tog 1825 den filologiske embedseksamen, 1826 licentiat i philosophiae, 1828 doktor i philosophiae; fra 1826 docent, fra 1828 lektor, fra 1829 ekstraordinær professor i klassisk filologi (især lat. sprog og litteratur) ved Københavns Universitet, 1832-48 tillige bibliotekar ved Universitetsbiblioteket, 1848-74 undervisningsinspektør for de lærde skoler undtagen i perioden nov. 1851, hvor han var kultusminister (kirke- og undervisningsminister), 1855 rektor for Københavns universitet.",
+   "sources": [
+    "ded:ded-60"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Marheineke, Philipp Konrad",
+   "bio": "Marheinekes forelæsninger over »Die Christliche Dogmatik, mit Rücksicht auf Daubs System«, jf. »Verzeichniss der Vorlesungen, welche an der Friedrich-Wilhelms-Universität zu Berlin im Winterhalbenjahre 1841-42 vom 11. October an gehalten« (Universitetesarkivet).",
+   "sources": [
+    "b161:b-2572"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Martensen, G.J.",
+   "bio": "Martensen, dansk lærer og embedsmand; underviste i matematik ved Borgerdydsskolen i København, blev senere kontorchef i finansministeriet.",
+   "sources": [
+    "b1:b-58"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Martensen, Hans Lassen",
+   "bio": "sigter til bestræbelserne på at få professor H. Martensen udnævnt til generalsuperintendent, dvs. biskop over hele hertugdømmet Slesvig, både den dansk- og den tysktalende del, hvor Martensen først sagde nej, derpå ja og til sidst nej.",
+   "sources": [
+    "b43:b-2227"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Mathiesen, Lars",
+   "bio": "Anekdoten findes også overleveret i Jacob Davidsen Gamle Minder fra Frederiksberg og Vesterbro. Af Petersen, Fuldmægtig, Kbh. 1866, hvor det hedder: »– Da Rahbek var bleven udnævnt til Ridder af Dannebroge faldt han i sin Glæde derover ind til Lars, for at lade sig gratulere og beundre af ham.",
+   "sources": [
+    "b259:b-1516"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Meinert, Martha Helene Fenger",
+   "bio": "Martha Helene Fenger, f. Meinert (1775-1856), enke efter sognepræst ved Vor Frelsers Kirke på Christianshavn Rasmus Fenger (1761-1825), mor til Johannes Ferdinand Fenger.",
+   "sources": [
+    "b1:b-66"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Michelet, Carl Ludwig",
+   "bio": "Carl Ludwig Michelet (1801–93) var en tysk hegeliansk filosof, som skrev sin disputats hos G.W.F. Hegel i 1824 og var ekstraordinær professor i filosofi ved universitetet i Berlin fra 1829 til 1874.",
+   "sources": [
+    "b43:b-2072"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Molbech, Christian",
+   "bio": "Christian Molbech (1783–1857) var dansk historiker, filolog, kritiker og forfatter; fra 1805 første amanuensis, fra 1814 anden og fra 1823 første sekretær ved Det kongelig Bibliotek, tillige professor i litteraturhistorie ved Københavns Universitet fra 1829 og medlem af Det kongelig danske Videnskabernes Selskab.",
+   "sources": [
+    "b43:b-2474",
+    "ded:ded-91"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Mynster, Frederik Joachim",
+   "bio": "Frederik Joachim Mynster (1816–57) var dansk præst og søn af biskop J.P. Mynster; efter sin teologiske kandidateksamen i 1838 underviste han på flere skoler og var fra 1845 kapellan ved Holmens Kirke i København.",
+   "sources": [
+    "b234:b-2772"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Mynster, Jakob Peter",
+   "bio": "Jakob Peter Mynster (1775–1854) var dansk biskop, forfatter og politiker, fra 1834 biskop over Sjællands stift; som stifts biskop var han landets kirkes primas og kongens personlige rådgiver og var initiativtager til flere vigtige kirkeligt arbejder, blandt andet den autoriserede oversættelse af Det Nye Testamente af 1819.",
+   "sources": [
+    "b1:b-198",
+    "b234:b-2753"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Møller, Lars Christian Daudin",
+   "bio": "Lars Christian Daudin Møller (1819–73), kendt som L.C. Møller, var bogbinder; han og hans far Niels Christian Møller drev sammen bogbinderi på Gråbrødretorv i København.",
+   "sources": [
+    "b171:b-812"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Møller, Niels Christian",
+   "bio": "Niels Christian Møller (1792–1858), kendt som N.C. Møller, var bogbinder i København med bogbinderi på Gråbrødretorv; han fortsatte sit håndværk sammen med sin søn Lars Christian Daudin Møller.",
+   "sources": [
+    "b171:b-812"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Møller, Peder Ludvig",
+   "bio": "Peder Ludvig Møller (1814–65) var dansk æstetiker, forfatter og kritiker; han udgav den æstetiske årbog Gæa (1845–47) og bidrog med artikler til forskellige blade, herunder det satiriske ugeskrift Corsaren.",
+   "sources": [
+    "b43:b-2483"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Møller, Poul Martin",
+   "bio": "Poul Martin Møller (1794–1838) var dansk forfatter og filosof; fra 1831 var han professor i filosofi ved Københavns Universitet, hvor han var en af Søren Kierkegaards lærere.",
+   "sources": [
+    "b127:b-1809",
+    "b161:b-3165",
+    "b308:b-5358"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Møller, Rasmus",
+   "bio": "Rasmus Møller (1763–1842) opnåede doktorgraden i teologi i 1815 og var fra 1831 til sin død biskop over Lolland-Falsters stift.",
+   "sources": [
+    "b308:b-5357"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Münter, Balthasar",
+   "bio": "Balthasar Münter (1794–1867) var dansk præst, fra 1828 hofprædikant og fra 1837 lærer og medleder ved Det kongelig Pastoralseminarium; han opnåede doktorgraden i teologi i 1836 og var Søren Kierkegaards lærer.",
+   "sources": [
+    "b127:b-1937",
+    "ded:ded-25"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Napoleon Bonaparte",
+   "bio": "Napoleon Bonaparte (1769–1821) var fransk hærfører, der kom til magten i Frankrig 1799; han regerede som kejser Napoleon I 1804–14 og igen i 1815, indtil han blev styrtet efter nederlaget ved Waterloo.",
+   "sources": [
+    "b259:b-1470"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Nathanson, Mendel Levin",
+   "bio": "Mendel Levin Nathanson (1780–1868) var tysk-dansk jødisk købmand og nationaløkonomisk forfatter; han etablerede sig som manufakturhandler og var senere redaktør af Berlingske Tidende fra 1838 til 1858 og igen 1865–66.",
+   "sources": [
+    "b208:b-2784"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Nielsen, Anna",
+   "bio": "Anna Helene Dorothea Nielsen (1803–56), født Brenøe, var dansk skuespillerinde ved Det kongelig Teater fra 1821; hun blev kendt for sine roller i dramaer af Adam Oehlenschläger og Shakespeare.",
+   "sources": [
+    "b241:b-3238"
+   ],
+   "sameAs": [
+    "Brenøe, Anna",
+    "Wexschall, Anna"
+   ],
+   "note": null
+  },
+  {
+   "key": "Nielsen, Michael",
+   "bio": "Michael Nielsen (1776-1846), dansk skolemand; begyndte i 1801 at studere teologi ved Københavns Universitet, men blev grebet af sit virke som lærer ved v. Westens og Brendstrups Institut og senere Schouboes Skole. Fra 1811 var han medbestyrer og fra 1813 til 1844 enebestyrer af Borgerdydsskolen i København, som han med sin stærke personlighed drev frem til at være Københavns mest ansete privatskole, og han fik i 1822 titel af professor. Han underviste især i latin, men også i græsk i de øverste klasser, og var Søren Kierkegaards latinlærer.",
+   "sources": [
+    "b1:b-13",
+    "b120:b-2508",
+    "b161:b-2614",
+    "ded:ded-43"
+   ],
+   "sameAs": [],
+   "note": "Corrected the flagged overstatement: 'Københavns mest ansete privatskole', not the country's."
+  },
+  {
+   "key": "Nielsen, Nicolai Peter",
+   "bio": "Nicolai Peter Nielsen (1795–1860) var dansk skuespiller, instruktør, komponist og oversætter ved Det kongelig Teater; han blev fra 1829 tillagt titel af instruktør og blev især kendt for sine roller som nordisk helt i Adam Oehlenschlägers dramaer.",
+   "sources": [
+    "b241:b-5141",
+    "ded:ded-351"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Nielsen, Rasmus",
+   "bio": "Rasmus Nielsen (1809–84) var dansk teolog og filosof; fra 1841 var han ekstraordinær professor og fra 1850 ordinær professor i moralfilosofi ved Københavns Universitet, hvor han blev påvirket af Søren Kierkegaard.",
+   "sources": [
+    "b276:b-4400",
+    "ded:ded-190"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Nutzhorn, Ditlev Andersen von",
+   "bio": "Ditlev Andersen von Nutzhorn (1800–1865) var dansk læge; fra 1827 var han praktiserende læge i København og blev blandt andet Søren Kierkegaards læge.",
+   "sources": [
+    "ded:ded-220"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Oehlenschläger, Adam",
+   "bio": "Adam Oehlenschläger (1779–1850) var dansk digter og forfatter; fra 1810 var han professor i æstetik ved Københavns Universitet og blev en af dansk litteraturs mest markante skikkelser.",
+   "sources": [
+    "b43:b-2111"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Oldenburg, Theodor Wilhelm",
+   "bio": "Theodor Wilhelm Oldenburg (1805–42) var dansk præst og salmedigter; han blev kandidat i teologi i 1826 og var fra 1830 sognepræst i Sorterup og Ottestrup på Sjælland.",
+   "sources": [
+    "b1:b-3000"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Olsen, Jonas Christian",
+   "bio": "Broer til Regine Olsen (1816-1902); efter forlovelsens ophør skal han have sendt Søren Kierkegaard et hadefuldt brev.",
+   "sources": [
+    "b127:b-1807"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Olsen, Regine",
+   "bio": "Københavnsk pige (1822-1904), datter af kontorchef Terkild Olsen og Regina Frederikke. Hun var forlovet med Søren Kierkegaard fra september 1840 til oktober 1841, hvorefter hun blev gift med Johan Frederik Schlegel den 3. november 1847.",
+   "sources": [
+    "b1:b-1772",
+    "b127:b-1792",
+    "b79:b-1850"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Paludan-Müller, Frederik",
+   "bio": "Dansk digter og forfatter (1809-1876).",
+   "sources": [
+    "b241:b-5179"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Paulus",
+   "bio": "Vigtigste skikkelse i kristendomshistoriens barndom; formentlig henrettet omkring år 65 i Rom. I hans tid ansåede man almindeligt alle 13 breve, der overleveres under hans navn, for ægte; i dag regnes normalt kun syv til ni for ægte.",
+   "sources": [
+    "b79:b-2056"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Petersen, Frederik Christian",
+   "bio": "Dansk filolog (1786-1859); kandidatus theologiae 1811, doktor philosophiae 1814. Fra 1815 adjunkt i filosofi, fra 1818 ekstraordinær professor, fra 1842 ordinær professor i klassisk filologi ved Københavns Universitet. Redaktionssekretær ved Maanedsskrift for Litteratur 1829-1838 og redaktør af Tidsskrift for Litteratur og Kritik 1839-1842.",
+   "sources": [
+    "b161:b-2673",
+    "ded:ded-28",
+    "ded:ded-118",
+    "ded:ded-193",
+    "ded:ded-224",
+    "ded:ded-259",
+    "ded:ded-342"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Philipsen, Philip Gerson",
+   "bio": "Dansk forlagsboghandler (1812-1877); uddannet boghandler 1831, etablerede sig som sortimentsboghandler 1834. Udgav sin første bog som forlag 1835 og blev kendt som dygtig forlagsboghandler. Fungerede blandt andet som kommissionær for Søren Kierkegaards opbyggelige taler.",
+   "sources": [
+    "b208:b-2878"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Phister, Joachim Ludvig",
+   "bio": "Dansk skuespiller (1807-1896). Fra 1817 knyttet til Det kongelige Teater som balletelev, senere som skuespillerelev; debuterede 1825 og blev en af datidens største skuespillere med særlige evner for komiske roller.",
+   "sources": [
+    "b43:b-2297",
+    "ded:ded-360"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Printzlau, Frederik Ferdinand Jacob Carl",
+   "bio": "Dansk skuespiller (1814-1859). Gæsteoptrådte blandt andet i titelrollen som skuespiller Kean på Det kongelige Teater den 21. oktober 1841.",
+   "sources": [
+    "b79:b-1908"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Rahbek, Knud Lyne",
+   "bio": "Dansk forfatter, oversætter, tidsskriftudgiver, teaterkritiker og professor (1760-1830).",
+   "sources": [
+    "b259:b-1516"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Reitzel, Carl Andreas",
+   "bio": "Carl Andreas Reitzel (1789-1853), dansk forlagsboghandler; grundlagde i 1819 sin egen boglade, fra 1827 beliggende i Store Købmagergade, og blev i 1829 udnævnt til universitetsboghandler. Han begyndte allerede i 1820 tillige at drive forlagsvirksomhed og blev efterhånden forlægger for tidens førende forfattere og videnskabsmænd, mens bogladen fungerede som et uofficielt samlingspunkt for tidens skønånder. Reitzel var kommissionær for tretten af Søren Kierkegaards skrifter og efter aftalen i august 1847 hans foretrukne forlægger indtil sin død.",
+   "sources": [
+    "b208:b-2925",
+    "b120:b-2487",
+    "b43:b-2051"
+   ],
+   "sameAs": [],
+   "note": "Also corrected the corrupted address in the old bio ('Store Københavns' → Store Købmagergade)."
+  },
+  {
+   "key": "Reitzel, Christian Frederik Theodor Martin",
+   "bio": "Christian Frederik Theodor Martin Reitzel (1828-1906), dansk forlagsboghandler og søn af forlagsboghandler C.A. Reitzel. Han var fra 1845 lærling og fra 1851 medhjælper i C.A. Reitzels Forlagsboghandel og bestyrede efter faderens død i 1853 firmaet C.A. Reitzels Bo og Arvinger. Fra 1858 var han sammen med sin yngre bror Carl Valdemar Reitzel ejer af firmaet C.A. Reitzel.",
+   "sources": [
+    "b208:b-2952"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively to three sentences; schooling, the Boghandlerforeningen offices and the Dannebrog honour were cut."
+  },
+  {
+   "key": "Rosenkilde, Christen Niemann",
+   "bio": "Dansk skuespiller (1786-1861); fra 1815 ansat ved Det kongelige Teater. Han begejstrede publikum med sin tolkning af komiske roller i Ludvig Holbergs komedier og i J.L. Heibergs vaudeviller, især som retsbetjent Hummer i vaudevilien De Uadskillelige.",
+   "sources": [
+    "ded:ded-361"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Ross, Petronella von",
+   "bio": "Dansk forfatter (1805-1875); datter af proprietær Poul Alexander v. Ross og Marie v. Ross.",
+   "sources": [
+    "b308:b-5369"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Ross, Sophus Frederik Walmoden von",
+   "bio": "Dansk officer (1821-1892); begyndte militær karriere som kadet 1838, avancerede gennem forskellige grader i infanteriet, fik rang af kaptajn 1850 og endte som oberst. Gift 7. maj 1851 med Christine Augusta Johanne Secher (1825-1852).",
+   "sources": [
+    "b308:b-5367"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Rothe, Peter Conrad",
+   "bio": "Dansk præst og teolog (1811-1902); licentiat theologiae, kapellan ved Frue Kirke i København. Gift med Wilhelmine S. Rothe (1823-1888), datter af professor Janus Lauritz Andreas Kolderup-Rosenvinge.",
+   "sources": [
+    "b259:b-1253"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Rothe, Waldemar Henrik",
+   "bio": "Waldemar Henrik Rothe (1777-1857), dansk præst; blev candidatus theologiae i 1800 og var 1801-07 på studierejse til Tyskland, Schweiz, Frankrig og Italien. Fra 1809 var han sognepræst i Helsinge og Valby på Sjælland, fra december 1818 præst ved Vartov Hospitalskirke, fra januar 1822 residerende kapellan og fra oktober 1830 sognepræst ved Trinitatis Kirke i København. I 1836 blev han doctor theologiae på afhandlingen De Trinitate et Reconciliatione, der samme år udkom på dansk som Læren om Treenighed og Forsoning.",
+   "sources": [
+    "b1:b-131"
+   ],
+   "sameAs": [],
+   "note": "Restored the omitted 1822 chaplaincy; dropped J.L. Heiberg's review, which fills most of the note."
+  },
+  {
+   "key": "Rudelbach, Andreas Gottlob",
+   "bio": "Andreas Gottlob Rudelbach (1792-1862), dansk teolog, præst og forfatter, blev candidatus theologiae i 1820 og doctor theologiae i 1841 ved universitetet i Erlangen. Han udgav 1825-28 sammen med N.F.S. Grundtvig Theologisk Maanedsskrift, var fra 1829 superintendent og hovedpræst i Glauchau i Sachsen og blev fra 1848 sognepræst ved Skt. Mikkels Kirke i Slagelse. Rudelbach var i sine yngre år en stærk tilhænger af Grundtvig, men brød senere åbent med ham; han kom i Søren Kierkegaards barndomshjem.",
+   "sources": [
+    "b1:b-96",
+    "b234:b-2771",
+    "b208:b-2939",
+    "ded:ded-121"
+   ],
+   "sameAs": [],
+   "note": "Condensed four overlapping notes into three sentences; kept the Grundtvig break, which only b1:b-96 carries. Trimmed subtractively."
+  },
+  {
+   "key": "Rørdam, Bolette Christine",
+   "bio": "Dansk pige (1815-1887); datter af provst Thomas Schatt Rørdam og Cathrine Georgia Rørdam. I løbet af foråret 1842 forlod hun København for at blive husbestyrerinde for sin bror Peter Rørdam.",
+   "sources": [
+    "b1:b-652"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Rørdam, Peter",
+   "bio": "Peter Rørdam (1806-83), dansk teolog og candidatus theologiae, yngste søn af provst Thomas Schatt Rørdam og Cathrine Georgia Rørdam, f. Teilmann. Den 10. juli 1841 blev han udnævnt til præst i Mern mellem Præstø og Vordingborg på Sjælland, og i foråret 1842 blev hans søster Bolette Christine Rørdam hans husbestyrerinde. Peter Rørdam var studiekammerat med Søren Kierkegaard, som besøgte familien Rørdam, men de to brød med hinanden, måske i 1840.",
+   "sources": [
+    "b1:b-652"
+   ],
+   "sameAs": [],
+   "note": "The note is headed 'Fru Rørdams fire Døttre'; the material on Peter Rørdam is extracted from it. The break with SK is given as uncertain in the source and is hedged accordingly. Trimmed subtractively; the 1840 census address and the ordination detail were cut."
+  },
+  {
+   "key": "Sager, Hans Carl",
+   "bio": "Dansk jurist og politiker (1808-1885); uddannet fra Borgerdydsskolen 1826, juridisk embedseksamen 1831. Bagermester på Vesterbro i København 1836-1846. Fra 1840 medlem af direktionen for fattigvæsnet i København; medlem af borgerrepræsentationen 1840-1841 og stænderdeputeret for København 1840.",
+   "sources": [
+    "b1:b-28"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Scharling, Carl Emil",
+   "bio": "Carl Emil Scharling (1803-77), dansk teolog og udgiver; candidatus theologiae i 1825, magister artium i 1828 og doctor theologiae i 1836. Han var lærer ved Borgerdydsskolen i København indtil september 1829 og derefter på studierejse til Frankrig, Schweiz og Tyskland. Fra 1830 til 1834 var han lektor ved Sorø Akademi, fra 1834 professor i teologi ved Københavns Universitet og 1842-43 universitetets rektor.",
+   "sources": [
+    "b1:b-105"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively to three sentences; the dissertation titles and the subject breakdown of the professorship were cut. Abbreviations cand.theol./mag.art./dr.theol. are expanded."
+  },
+  {
+   "key": "Schelling, Friedrich Wilhelm Joseph",
+   "bio": "Friedrich Wilhelm Joseph Schelling (1775-1854), tysk filosof, som studerede filosofi og teologi sammen med G.W.F. Hegel i Tübingen. Han var fra 1798 professor i Jena, fra 1803 i Würzburg og fra 1827 i München, hvor han blev præsident for Videnskabernes Akademi. I 1840 blev han kaldet til professor i filosofi ved universitetet i Berlin, hvor han den 15. nov. 1841 indledte sin tiltrædelsesforelæsning »Philosophie der Offenbarung«.",
+   "sources": [
+    "b1:b-130",
+    "b161:b-2574",
+    "b171:b-856",
+    "b43:b-2052",
+    "b79:b-1849"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Schiller, Friedrich",
+   "bio": "Friedrich Schiller (1759-1805), tysk digter og filosof.",
+   "sources": [
+    "b308:b-5271"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Schmidt, Alexander Theodor",
+   "bio": "Alexander Theodor Schmidt (1814-74), dansk lærer; dimitteret i 1834 som privatist fra Det kongelige blaagaard-jonstrupske Seminarium. Fra 1839 var han hjælpelærer i Valdby ved Helsinge, cirka 15 kilometer nord-nordvest for Hillerød, og fra december 1841 lærer og kirkesanger i Nødebo, hvorfra han blev afskediget i 1857. Ved folketællingen i februar 1850 havde han fem børn: Emma Theresia, William, Augusta, Ida og Frederik Schmidt.",
+   "sources": [
+    "b241:b-5166",
+    "b241:b-3249"
+   ],
+   "sameAs": [],
+   "note": "Removed the unresolved '()' after Nødebo and the orphaned 'Petersen Den jonstrupske Stat...' citation; the children come from the supplementary note."
+  },
+  {
+   "key": "Scribe, Augustin Eugène",
+   "bio": "Augustin Eugène Scribe (1791-1861), fransk dramatiker; beherskede det parisiske teaterliv gennem 40 år med sine henved 350 vaudeviller, komedier og operatekster, hvoraf mange var skrevet i samarbejde med andre. Mellem 1824 og 1874 var Scribe den mest spillede dramatiker på Det kongelig Teater, hvor han ved J.L. Heibergs mellemkomst fik opført o. 100 stykker.",
+   "sources": [
+    "b1:b-682"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Seding, Niels Andersen",
+   "bio": "Niels Andersen Seding (1720-96), dansk hosekræmmer i København og morbror til Michael Pedersen Kierkegaard, som han tog i lære, da denne i 1768 kom til København. Til minde om ham kaldte M.P. Kierkegaard det legat, han oprettede ved testamente af 20. september 1802 med fundats af 15. oktober 1821, for »Niels Sedings Minde«.",
+   "sources": [
+    "b1:b-542"
+   ],
+   "sameAs": [],
+   "note": "Rebuilt for the keyed person: the note is about the legacy fund, but it does state Seding's dates, trade, kinship and apprenticeship of M.P. Kierkegaard, which is enough for a short bio. The fund is now mentioned only as what carries his name."
+  },
+  {
+   "key": "Shakespeare, William",
+   "bio": "William Shakespeare (1564-1616), engelsk dramatiker og lyriker.",
+   "sources": [
+    "b43:b-2237"
+   ],
+   "sameAs": [],
+   "note": "The note (about P.A. Wolff's Preziosa) says nothing further about Shakespeare than nationality, trade and dates — it only records that a possible Shakespeare source for a quoted phrase could not be identified. One sentence is all the grounding allows; not nulled because the identification itself is sound."
+  },
+  {
+   "key": "Sibbern, Frederik Christian",
+   "bio": "Frederik Christian Sibbern (1785-1872), dansk filosof og forf.; 1810 candidatus juris, 1811 doktor philosophiae på en retsfilosofisk afhandling, 1811-13 på studierejse i Tyskland, bl.a. i Breslau hos H. Steffens, for at studere filosofi, fra 1813 ekstraordinær og fra 1829 ordinær professor i filosofi og assessor i konsistoriet ved Københavns Universitet, var i 1830'erne en af SKs lærere.",
+   "sources": [
+    "b161:b-2600",
+    "b171:b-861",
+    "b259:b-1401",
+    "b308:b-5361",
+    "b43:b-2036",
+    "b79:b-1851",
+    "ded:ded-72"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Sokrates",
+   "bio": "Sokrates (o. 470-399 f.Kr.), græsk filosof, som gennem sin majeutiske metode søgte at forløse andre, der i forvejen var svangre med viden. Han blev anklaget for at antage andre guder end dem, staten anerkendte, og for at fordærve Athens ungdom, og en folkedomstol i Athen kendte ham skyldig, hvorefter han blev henrettet med et bæger gift. Han har intet skriftligt efterladt sig; hans lære er hovedsagelig skildret af Aristofanes, Xenofon og Platon.",
+   "sources": [
+    "b43:b-2068"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Sommer, Andreas Gartner",
+   "bio": "Andreas Gartner Sommer (1804-71), ekstraordinær professor ved Det medicinske Fakultet ved Københavns Universitet. Efter opfordring fra Sundhedskollegiet holdt han i juli 1849 offentlige forelæsninger om den asiatiske kolera, som udkom samme år under titlen Populære Forelæsninger over den asiatiske Cholera; de var så velbesøgte, at intet af universitetets auditorier kunne rumme tilhørerne, så man måtte ty til Solennitetssalen. Sommers påstand om, at kolera er en smitsom sygdom, var ny; det havde man ikke tidligere antaget.",
+   "sources": [
+    "b259:b-1716"
+   ],
+   "sameAs": [],
+   "note": "Replaced the unterminated Berlingske Tidende quotation with a paraphrase of its content."
+  },
+  {
+   "key": "Spandet, N.M.",
+   "bio": "Niels Møller Spandet (1788-1858), dommer og politiker; fra 1820 til sin død assessor ved Landsoverretten; fra 1849 medlem af Folketinget, hvor han var knyttet til Bondevennerne el. Venstre. Allerede o. 1810 blev han nært knyttet til Grundtvig.",
+   "sources": [
+    "b79:b-2385"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Spang, Christiane Philippine",
+   "bio": "Christiane Philippine Spang, f. Dormeyer (1797-1865), datter af ritmester Reinhardt Dormeyer og Christine Elisabeth Dormeyer, f. Mønster. Hun blev i 1825 gift med pastor P.J. Spang, der døde den 14. januar 1846, og som enke boede hun fra 1847 i Lille Helliggeist Stræde i København sammen med sine seks ugifte børn. Fordi hendes mand havde været præst i rangen, kunne hun titulere sig 'fru' og ikke blot 'madam'.",
+   "sources": [
+    "b43:b-2082",
+    "ded:ded-152",
+    "b43:b-3132",
+    "b43:b-2112"
+   ],
+   "sameAs": [
+    "Dormeyer, Christiane Philippine"
+   ],
+   "note": "Restored the subject's own name at the head; removed the '()' and the raw '– Fru:' glossary prefix by turning the rank note into prose. Address and children from supplementary notes."
+  },
+  {
+   "key": "Spang, Peter Johannes",
+   "bio": "Peter Johansen (Johannes) Spang (1796-1846), dansk præst; dimitteredes 1814 fra Borgerdydsskolen i København og blev candidatus theologiae i okt. 1820. Han underviste derpå i latin og religion i Borgerdydsskolen, var fra 1825 sognepræst på landet i Jylland og på Sjælland og fra maj 1840 residerende kapellan og fra april 1845 til sin død sognepræst ved Helligåndskirken i København. SK omtaler flere gange Spang i sine journaler, hvoraf det fremgår, at han havde hørt ham prædike.",
+   "sources": [
+    "b43:b-2026"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Steen, Christian",
+   "bio": "Christian Steen (1786-1861), dansk forlagsboghandler; drev fra 1810 egen boghandel, først i Børsen og tillige på hjørnet af Pilestræde og Sværtegade, indtil han købte eget hus i Kronprinsensgade. Fra 1810 havde han desuden en mindre forlagsvirksomhed, der efterhånden udviklede sig til et betydeligt forlag, og han drev tillige en stor papirhandel en gros. Fra 1846 gjorde han sin søn Hans Christian Frederik Steen (1819-71) til medejer af firmaet, der herefter fik navnet Chr. Steen & Søns Forlag.",
+   "sources": [
+    "b308:b-5364"
+   ],
+   "sameAs": [],
+   "note": "Completed the truncated company name. Note for naive sentence counters: the firm name 'Chr. Steen & Søns Forlag' contains an internal period that is part of the proper name and must not be expanded; the bio is three sentences."
+  },
+  {
+   "key": "Steffens, Henrich",
+   "bio": "Henrich Steffens (1773-1845), norsk-dansk-tysk filosof, naturforsker og forfatter. Han var professor i Halle 1804-06 og 1808-11, derefter professor i Breslau og fra 1832 i Berlin. Blandt hans skrifter er Caricaturen des Heiligsten (1819-21) og Anthropologie (1822); Søren Kierkegaard opgav at følge hans antropologiske forelæsninger i Berlin i vinteren 1841-42.",
+   "sources": [
+    "b43:b-2010",
+    "b161:b-2575",
+    "b161:b-2577",
+    "b161:b-2582",
+    "b43:b-2050"
+   ],
+   "sameAs": [],
+   "note": "Removed the leading glossary label 'Steffens:'; expanded no.-da.-ty./prof. and added the two works plus SK's abandoned lecture attendance from supplementary notes."
+  },
+  {
+   "key": "Stilling, J.M.H.F.",
+   "bio": "Jacob Michael Henrik Ferdinand Stilling (1815-58), dansk skolemand og præst; candidatus theologiae i 1840. Fra 1841 underviste han i religion ved Borgerdydskolen på Christianshavn og i historie ved Borgerdydsskolen i København, og fra 1. oktober 1844 var han medbestyrer af Borgerdydsskolen i København sammen med Johan Christian Bartholin. Han forlod Borgerdydsskolen i juni 1846 og var fra 1851 til sin død sognepræst i Ølgod og Strelluf (nuværende Strellev) i Ribe stift.",
+   "sources": [
+    "b79:b-2210",
+    "b79:b-2209"
+   ],
+   "sameAs": [],
+   "note": "Completed the truncation at 'J.C.' (Bartholin, whose full name comes from the supplementary note) and removed the unresolved '()'. Trimmed subtractively; schooling and the arresthus chaplaincy were cut."
+  },
+  {
+   "key": "Stilling, Peter Michael",
+   "bio": "Peter Michael Stilling (1812-69), dansk filosof; begyndte at studere teologi, men opgav studiet kort før eksamen til fordel for – især den hegelske – filosofi. Han disputerede for magistergraden med afhandlingen Den moderne Atheisme eller den saakaldte Neohegelianismes Conseqvenser af den hegelske Philosophie, Kbh. 1844, og virkede efter en studierejse 1846-50 som privatdocent. Allerede fra begyndelsen af 1840'erne havde han gjort sig til talsmand for en konservativ hegelianisme, som han i slutningen af årtiet tog stærkt afstand fra.",
+   "sources": [
+    "b43:b-3148",
+    "b79:b-2322",
+    "ded:ded-307"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Strube, Frederik Christian",
+   "bio": "Frederik Christian Strube (1811-67), islandsk snedkersvend, som sammen med sin kone Elisabeth Strube, f. Sørum, og to døtre logerede hos Søren Kierkegaard 1848-52. Fra den 1. til den 9. december 1848 var han indlagt på Det kongelige Frederiks Hospital i København, hvor journalen anfører »Monomania«, det vil sige partiel sindssyge, med den angivne årsag: »Rimeligvis grublen over tidens opgaver i forbindelse med ærgrelser over formentlig chikane«.",
+   "sources": [
+    "b120:b-2522"
+   ],
+   "sameAs": [],
+   "note": "Completed the truncation at 'Det kgl.'; expanded isl./kgl."
+  },
+  {
+   "key": "Tersteegen, Gerhard",
+   "bio": "Der sigtes til den tysk salmedigter og lægprædikant Gerhard Tersteegen (1697-1769) i dennes afhandling »Von dem Glauben und der Rechtfertigung« i Auswahl aus Gerhard Tersteegen's Schriften, nebst dem Leben desselben, udg. af G. Rapp, Essen 1841, ktl. 729, s. 474. SK har citeret passagen i journaloptegnelsen NB11:184 (juni 1849), i SKS 22, 111.",
+   "sources": [
+    "b259:b-1747"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Thiers, Louis Adolphe",
+   "bio": "(Marie Joseph Louis) Adolphe Thiers (1797-1877), fransk historiker og politiker, var i 1848 leder af de liberales højrefløj, dvs. i opposition til socialisterne, og støttende Cavaignacs diktatur.",
+   "sources": [
+    "b259:b-1529"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Tholuck, Friedrich August Gotttreu",
+   "bio": "Friedrich August Gotttreu Tholuck (1799-1877), tysk teolog og præst; fra 1823 professor i Berlin og fra 1826 i Halle. Hans nytestamentlige kommentarer, som lagde mindre vægt på det filologiske end på det religiøse indhold, øvede stor indflydelse på de yngre teologers bibelstudium, og han var en stærk modstander af rationalismen. Ifølge Kierkegaards dagbog havde han kontakt med Tholuck i Berlin i 1829.",
+   "sources": [
+    "b1:b-100"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively; the long diary quotation from 1829 was cut, keeping only the fact of the Berlin contact that the note itself asserts. The source leaves it open which Kierkegaard the diary belongs to, and the bio preserves that ambiguity."
+  },
+  {
+   "key": "Thorvaldsen, Bertel",
+   "bio": "Thorvaldsen blev bisat lørdag den 30. marts 1844 af biskop J.P. Mynster i Vor Frue Kirke i København; forud var gået en sørgehøjtidelighed i Akademiets antiksal, hvor låget var blevet lagt på kisten, inden den i et sørgetog blev ført til Vor Frue Kirke. I marts 1844 boede SK i Nørregade matrikelnr. 230 , altså ikke så langt fra Vor Frue Kirke. – Bertel Thorvaldsen (1770-1844), dansk billedhugger; en hovedskikkelse i den europæiske nyklassicisme, stilretning inden for kunst og arkitektur fra 1750 til 1850.",
+   "sources": [
+    "b79:b-3124"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Trier, Seligmann Meyer",
+   "bio": "Seligmann Meyer Trier (1800-63), dansk læge; dimitteredes 1818 fra Borgerdydsskolen i København til Københavns Universitet, 1823 kandidatus medicinae, 1825 licentiat medicinae, 1827 doktor medicinae; fra 1825 medicinsk kandidat og fra 1826 til 1829 reservelæge ved Det kongelig Frederiks Hospital, derefter privat praktiserende læge, efterfulgte i 1842 O.L. Bang som medicinsk overlæge ved Frederiks Hospital; fik i 1847 titel af professor.",
+   "sources": [
+    "b120:b-2527"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Tryde, Eggert Christopher",
+   "bio": "Eggert Christopher Tryde (1781-1860), dansk teolog og præst; candidatus theologiae i 1804 og fra 1807 sognepræst og senere provst i forskellige landsogne. Fra 1838 til 1857 var han sognepræst ved Vor Frue Kirke i København og stiftsprovst for Sjællands stift og fra 1854 tillige kongelig konfessionarius. Tryde havde været Søren Kierkegaards skriftefader indtil engang i første halvdel af 1843, og han kastede jord på Kierkegaards kiste på Assistens Kirkegård.",
+   "sources": [
+    "ded:ded-124",
+    "b234:b-2780",
+    "b171:b-1225"
+   ],
+   "sameAs": [],
+   "note": "Completed the truncation at '– E.C.'; the confessor role is in both subject notes, the burial in b171:b-1225. Trimmed subtractively."
+  },
+  {
+   "key": "Ursin, Georg Frederik Krüger",
+   "bio": "Georg Frederik Krüger Ursin (1797-1849), dansk matematiker og astronom; 1819 observator ved Københavns Universitets observatorium og 1820 doktor philosophiae. Han begyndte samtidig at undervise i matematik ved Borgerdydsskolen i København og skrev i den forbindelse Regnebog eller Anviisning hensigtsmæssigen at udføre Huus- og Handelsregning. Fra 1827 var han professor i matematik ved Kunstakademiet og fra 1844 tillige dets inspektør.",
+   "sources": [
+    "b1:b-20"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Visby, Carl Holger",
+   "bio": "Carl Holger Visby (1801-71), dansk præst; 1823 kandidatus theologiae, 1826-42 præst ved kapellet i Københavns civile arresthus (Domhuskapellet) og for fangerne i Blåtårn, 1829-42 tillige ved Tugt-, Rasp- og Forbedringshuset på Christianshavn samt ved Kastellets fangetårne, hvilket han fra 1830 forenede med at være residerende kapellan ved Vor Frelsers Kirke på Christianshavn, indtil han den 2. april 1844 blev forfremmet til sognepræst ved samme kirke. – Befordring: forfremmelse, avancement.",
+   "sources": [
+    "b79:b-2212"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Waage, Georg Holger",
+   "bio": "Georg Holger Waage (1793-1842), dansk præst og skolemand; 1815 kandidatus theologiae, 1836 doktor theologiae; fra 1815 adjunkt ved Herlufsholm Skole, fra 1822 sognepræst på Sjælland, fra 1828 første residerende kapellan ved Vor Frue Kirke i København, fra 1834 tillige meddirektør for og lærer i homiletik og kateketik ved Pastoralseminariet, hvor SK havde ham som lærer; fik i okt. 1836 titel af professor, fra jan. 1837 direktør for Sorø Akademi. Waage var SKs skriftefader i den tid, han var præst ved Vor Frue Kirke.",
+   "sources": [
+    "ded:ded-32"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Warncke, Ludvig Holberg",
+   "bio": "Ludvig Holberg Warncke (1787-1848), norsk-dansk skolemand; 1812 til sin død overlærer ved og inspektør for den mosaiske friskole for drenge, 1822-44 tillige lærer i historie og geografi ved Borgerdydsskolen i København; titulær professor.",
+   "sources": [
+    "b1:b-10"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Werder, Karl",
+   "bio": "sigter til K. Werders forelæsninger over »Logik und Metaphysik mit besonderer Rücksicht auf die bedeutendsten älteren und neueren Systeme« (se SKs korte notater fra forelæsningerne i Not9:2-9, i SKS 19, 278-282), jf. »Verzeichniss der Vorlesungen im Winterhalbenjahre 1841-42« . – Werder: Karl Friedrich Werder (1806-93), tysk filosof og digter; studerede hos G.W.F. Hegel i Berlin, fra 1834 privatdocent og fra 1838 ekstraordinær professor i filosofi ved universitetet i Berlin.",
+   "sources": [
+    "b161:b-2573",
+    "b43:b-2053"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Westergaard, Anders Christensen",
+   "bio": "Der er tale om SKs tjenestekarl Anders Christensen Westergaard (1818-67), værnepligtig infanterist, indtil han i 1844 overgik til krigsreserven og kom i tjeneste hos SK, hvor han forblev til efteråret 1852, se P. Tudvad Kierkegaards København, Kbh. 2004, s. 40f.",
+   "sources": [
+    "b241:b-5111",
+    "b276:b-5589"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Winther, Christian",
+   "bio": "Christian Winther (1796-1876), dansk digter, oversætter og udgiver.",
+   "sources": [
+    "ded:ded-159"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Zeuthen, Frederik Ludvig Bang",
+   "bio": "Frederik Ludvig Bang Zeuthen (1805-74), dansk præst og forfatter; 1826 kandidatus theologiae, 1833 magister artium, fra april 1833 til aug. 1834 på en europæisk studierejse, hvor han blev grebet af F.W.J. Schellings filosofi; fra maj 1835 sognepræst i Grimstrup og Årre i Ribe stift, fra aug. 1842 i Tømmerup ved Kalundborg i Nordvestsjælland, fra feb. 1849 i Sorø på Midtsjælland og fra dec. 1860 ved Skt. Michaelis Kirke i Fredericia i Østjylland; i 1840 indledte han et angreb på N.F.S.",
+   "sources": [
+    "b43:b-2280"
+   ],
+   "sameAs": [],
+   "note": null
+  },
+  {
+   "key": "Ørsted, Anders Sandøe",
+   "bio": "Anders Sandøe Ørsted (1778-1860), dansk jurist, politiker og premierminister; 1815 doktor juridica. Fra 1801 var han assessor i hof- og stadsretten, fra 1810 dommer i højesteret og fra 1813 deputeret i det danske kancelli, fra 1825 tillige generalprokurør. Fra 1842 var han medlem af gehejmestatsrådet, men mistede ved systemskiftet i 1848 alle sine embeder og var 1848-49 medlem af Den grundlovgivende Rigsforsamling.",
+   "sources": [
+    "b241:b-5205",
+    "b259:b-4011",
+    "ded:ded-35"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from the verified long text; no facts added."
+  },
+  {
+   "key": "Ørsted, Hans Christian",
+   "bio": "Hans Christian Ørsted (1777-1851), dansk fysiker, fra 1814 gift med Inger Birgitte Ørsted, f. Ballum; 1799 doktor philosophiae, fra 1806 ekstraordinær og fra 1817 ordinær professor i fysik ved Københavns Universitet, hvis rektor han var i tre perioder. Han opdagede i 1820 elektromagnetismen og var fra 1829 direktør for og lærer i fysik ved den nyoprettede Polytekniske Læreanstalt. Han samlede en del af sine filosofiske afhandlinger, taler og dialoger i Aanden i Naturen bind 1-2, Kbh. 1850.",
+   "sources": [
+    "b241:b-5202",
+    "b259:b-1320",
+    "ded:ded-39"
+   ],
+   "sameAs": [],
+   "note": "Trimmed subtractively from a note whose head is about his wife; the honours, memberships and the Classenske teaching post were cut."
+  },
+  {
+   "key": "Ørsted, Inger Birgitte",
+   "bio": "Inger Birgitte Ørsted (1789-1875), f. Ballum, blev i 1814 gift med den danske fysiker Hans Christian Ørsted.",
+   "sources": [
+    "b241:b-5202"
+   ],
+   "sameAs": [
+    "Ballum, Inger Birgitte"
+   ],
+   "note": "Deliberately very short: the note is about her husband, and the only facts it gives about her are her dates, maiden name and the 1814 marriage."
+  }
+ ]
+}
