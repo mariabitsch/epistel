@@ -90,7 +90,7 @@ def main(argv):
 
     for volume in volumes:
         print(
-            "build: %-5s %-46s %3d breve"
+            "build: %-5s %-46s %3d letters"
             % (volume["volume"], volume["title"], len(volume["letters"]))
         )
     print(
@@ -98,8 +98,8 @@ def main(argv):
         % (result["letters"], result["sections"], result["volumes"])
     )
     print(
-        "build: %d personer, heraf %d med biografi; %d resuméer; "
-        "søgeindeks med %d ord"
+        "build: %d people, %d of them with a biography; %d summaries; "
+        "a search index of %d words"
         % (
             result["people"],
             result["biographies"],
@@ -114,8 +114,8 @@ def main(argv):
         counts = result["timeline"]
         pages += 1
         print(
-            "build: timeline: %d breve placeret, %d udaterede, %d udgivelser, "
-            "%d bopæle"
+            "build: timeline: %d letters placed, %d undated, %d "
+            "publications, %d residences"
             % (
                 counts["placed"],
                 counts["undated"],
