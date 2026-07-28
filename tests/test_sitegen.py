@@ -803,6 +803,20 @@ class CorpusSiteBuildTest(unittest.TestCase):
         page = self.read("brev", "1", "index.html")
         self.assertIn("latinsk hånd", page)
 
+    def test_the_legend_and_the_tooltip_say_the_hand_the_same_way(self):
+        """One mark, one word (Maria, korrektur 2026-07-28).
+
+        The legend said "latinsk hånd" and the hover said "latinsk skrift"
+        for the same switch of hand. They are both good Danish and that was
+        the whole problem: a reader who reads the legend and then hovers
+        must not be told two things. "Hånd" wins -- it is the paleographic
+        pair to "gotisk".
+        """
+        page = self.read("brev", "1", "index.html")
+        self.assertIn("skrevet med latinsk hånd, hvor brevet ellers er gotisk", page)
+        self.assertIn('title="Latinsk hånd, hvor brevet ellers er gotisk"', page)
+        self.assertNotIn("latinsk skrift", page)
+
     def test_a_letter_with_no_marks_carries_no_legend(self):
         page = self.read("brev", "10", "index.html")
         self.assertNotIn("Tegnforklaring", page)
@@ -1169,6 +1183,34 @@ class TimelinePageTest(unittest.TestCase):
 
     def test_the_page_is_built(self):
         self.assertIn("Tidslinje", self.page)
+
+    def test_both_legends_punctuate_by_the_same_rule(self):
+        """A full stop on either Tegnforklaring means a sentence has ended.
+
+        Maria's rule (korrektur 2026-07-28): a fragment gets no full stop,
+        a whole sentence gets one -- and the timeline's legend and the
+        letter page's legend follow it alike, since they share a name and
+        a reader reads both. Checked mechanically: an explanation that
+        holds a sentence boundary ends in a stop, and one that does not,
+        does not.
+        """
+        timeline = re.findall(
+            r"<dd>(.*?)</dd>",
+            self.page.split('class="tl-legend"', 1)[1].split("</dl>", 1)[0],
+        )
+        letter = re.findall(
+            r"<li><span[^>]*>(.*?)</span></li>",
+            self.read("brev", "159.1", "index.html")
+            .split('class="mark-legend-list"', 1)[1]
+            .split("</ul>", 1)[0],
+        )
+        self.assertEqual(6, len(timeline))
+        self.assertTrue(letter)
+        for explanation in timeline + letter:
+            has_sentence = ". " in explanation
+            self.assertEqual(
+                has_sentence, explanation.endswith("."), explanation
+            )
 
     def test_every_publication_is_on_the_page(self):
         for publication in self.context["publications"]:
@@ -1548,8 +1590,8 @@ class PresenterTest(unittest.TestCase):
         stay -- they are the honest names for the things -- but each arrives
         inside a sentence of plain Danish that says what it means.
         """
-        self.assertIn("TEI er det fælles format", self.about)
-        self.assertIn("mærket op i selve filen", self.about)
+        self.assertIn("TEI er en international standard", self.about)
+        self.assertIn("tekstudgaver til videnskabelig brug", self.about)
         self.assertIn("én bestemt udgivelse af teksterne", self.about)
         self.assertIn("<i>commit</i>", self.about)
 

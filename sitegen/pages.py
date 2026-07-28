@@ -193,9 +193,9 @@ def _presentation(timeline=False):
     body += element(
         "p",
         "Selv har jeg ikke fundet et eneste af dem – de lå frit fremme. Jeg "
-        "skriver kun forord: de små under hvert brev i listen, og dette her. "
-        "Hvem jeg ellers er, står "
-        + element("a", "på Om", href="%som/" % INDEX_TO_ROOT)
+        "skriver kun forord: de små under hvert brev i brevoversigten, og "
+        "dette her. Hvem jeg ellers er, står "
+        + element("a", "på Om-siden", href="%som/" % INDEX_TO_ROOT)
         + ".",
     )
     body += element("p", text(PRESENTER), class_="presentation-sign")
@@ -248,7 +248,7 @@ def _finder(facets):
         hidden=True,
     ) + element(
         "p",
-        "Ingen breve matcher. Prøv et andet ord, eller ryd filtrene.",
+        "Ingen breve svarer til søgningen.",
         class_="finder-empty",
         id="finder-empty",
         hidden=True,
@@ -867,7 +867,7 @@ def _biography(person):
     if person["no_bio_reason"]:
         line = (
             "Udgavens kommentar nævner personen, men uden biografiske "
-            "oplysninger at bygge en note på."
+            "oplysninger."
         )
     else:
         line = "Kommentaren giver ingen biografisk note."
@@ -1030,8 +1030,13 @@ def _timeline_legend():
     Every distinction on the page is drawn twice -- as a shape and as words --
     so none of them depends on telling two colours apart.
     """
+    # One punctuation rule, here and in the letter page's Tegnforklaring
+    # (Maria, korrektur 2026-07-28): a fragment gets no full stop, a whole
+    # sentence gets one. Where a line is two fragments they are joined with a
+    # dash rather than a stop, so a full stop on this page always means a
+    # sentence has ended.
     rows = [
-        ("Streg", "brev, som udgaven daterer til dagen."),
+        ("Streg", "brev, som udgaven daterer til dagen"),
         (
             "Åben kasse",
             "brev, som udgaven kun daterer til måneden. Kassen dækker hele "
@@ -1040,17 +1045,18 @@ def _timeline_legend():
         (
             "ca.",
             "brev, som udgaven kun daterer til året eller til en periode over "
-            "flere år. Breve, som kun har årstal, står ud for året.",
+            "flere år. Breve, som kun har et årstal, står for sig selv ud for "
+            "året.",
         ),
         (
             "Udfyldt rude",
-            "skrift udgivet under Kierkegaards eget navn. Sat yderst til "
-            "venstre, ud for årstallet.",
+            "skrift udgivet under Kierkegaards eget navn – sat yderst til "
+            "venstre, ud for årstallet",
         ),
         (
             "Åben rude",
-            "skrift udgivet under pseudonym. Sat lidt ind, med pseudonymets "
-            "navn under titlen.",
+            "skrift udgivet under pseudonym – sat lidt ind, med pseudonymets "
+            "navn under titlen",
         ),
         (
             "Bånd",
@@ -1423,12 +1429,12 @@ def about_page(provenance=None, timeline=False, links=None):
 
 def _about_display():
     """The architecture note the brief asks for, written to be read."""
-    body = element("h2", "Hvad det her er")
+    body = element("h2", "Projektet")
     body += element(
         "p",
         "Et forsøg på at bygge en ordentlig læseoplevelse oven på en "
-        "tekstsamling, man ikke selv ejer. Alt på siden er hentet ud af de "
-        "TEI-filer, udgaven er kodet i, af en byggeproces, der kører én gang og "
+        "tekstsamling, man ikke selv ejer. En automatiseret proces henter alt "
+        "på siden ud af de TEI-filer, udgaven er kodet i. Den kører én gang og "
         "efterlader en mappe med almindelige HTML-sider. Der er ingen server, "
         "ingen database, og siden henter ingenting, mens du læser den.",
     )
@@ -1436,16 +1442,15 @@ def _about_display():
         "p",
         "Det er en pointe og ikke en spareøvelse. Værdien i en tekstsamling "
         "ligger i dens rådata – de standardformaterede filer, som enhver kan "
-        "hente, læse og bygge videre på. TEI er det fælles format, "
-        "videnskabelige tekstudgaver kodes i: afsender, dato, rettelser og alt "
-        "det andet er mærket op i selve filen, så et program kan finde rundt i "
-        "teksten. Derfor: visningen læser fra offentligt tilgængelige "
+        "hente, læse og bygge videre på. TEI er en international standard for "
+        "kodning og annotering af tekstudgaver til videnskabelig brug. "
+        "Derfor: visningen læser fra offentligt tilgængelige "
         "TEI-filer; visningslaget er bevidst tyndt og udskifteligt. Vil nogen "
         "om ti år bygge noget helt andet oven på de samme filer, koster det "
         "ikke andet end arbejdet, og brevene tager ingen skade af det. Denne "
         "visning må gerne smides væk. Filerne må ikke.",
     )
-    return element("section", body, id="visningen")
+    return element("section", body, id="projektet")
 
 
 def _about_source(provenance, links=None):

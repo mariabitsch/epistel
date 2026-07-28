@@ -121,7 +121,7 @@ MARK_TITLES = {
 
 # The edition's own words for #lat: "Latin hand, in SKS rendered
 # sans-serif". The letters are otherwise in the Gothic hand.
-LATIN_HAND_TITLE = "Med latinsk skrift, hvor brevet ellers er gotisk"
+LATIN_HAND_TITLE = "Latinsk hånd, hvor brevet ellers er gotisk"
 
 
 class BodyRenderer:
