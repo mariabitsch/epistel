@@ -154,8 +154,10 @@ the method above is the important part.
   `/om/` along with AI assistance. Summaries appear under **every letter
   list** — index, "Samme brevveksling", person pages (Maria's decision
   2026-07-28, revising the earlier index-only rule: the Notabene layer is
-  the site's core appeal). A letter's own summary still never appears on
-  its own page — there the letter has the word.
+  the site's core appeal). Every row carries its resumé, the current
+  letter's included; list entries are one clickable block each. The one
+  place she never sits is *above* a transcription — there the letter has
+  the word.
 - **Self-containment:** every external link comes from `data/links.json`
   (entries with id/href/label/rel/scope; today: the CC0 deed in every
   footer, upstream repo + tekster.kb.dk on `/om/`). Pages look entries up

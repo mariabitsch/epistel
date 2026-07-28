@@ -1053,24 +1053,34 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
   margin: 0;
   padding: 0.75rem 0.85rem 1rem;
   display: grid;
-  /* 19rem, not less: since the resumés moved in (2026-07-28) each entry
-     is a short paragraph, and two columns narrower than this squeeze
-     her voice into a ribbon. auto-fill drops to one column on its own
-     where two no longer fit.                                            */
-  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
-  gap: 0.1rem 0.5rem;
+  /* One column, full stop (Maria, 2026-07-28): with the resumés in every
+     entry each letter is its own block on its own line, like the index. */
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
 }
 .sibling-list li {
-  padding: 0.32rem 0.65rem;
+  padding: 0;
   font-size: 0.94rem;
   line-height: 1.45;
   border-left: 2px solid transparent;
 }
-.sibling-list a {
+/* One block, one address (Maria, 2026-07-28): the whole entry -- title,
+   date, resumé -- is the link, so the row is styled as a quiet card and
+   only the title wears the link hairline. Ink stays the text's own; the
+   hover tint is the letter list's. */
+.sibling-link {
+  display: block;
+  padding: 0.42rem 0.65rem 0.5rem;
+  color: var(--ink);
   text-decoration: none;
+}
+.sibling-link:hover { background: var(--hover); }
+.sibling-title {
+  color: var(--prussian);
   border-bottom: 1px solid rgba(46, 74, 90, 0.28);
 }
-.sibling-list a:hover { border-bottom-color: var(--gilt); }
+.sibling-link:hover .sibling-title { border-bottom-color: var(--gilt); }
+.sibling-head { display: block; }
 .sibling-list .muted {
   color: var(--muted);
   font-size: 0.86em;
@@ -1078,10 +1088,14 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
 .sibling-list li.current {
   background: var(--plaster);
   border-left-color: var(--gilt);
+  padding: 0.42rem 0.65rem 0.5rem;
   font-weight: 600;
 }
+/* The current row is not a link and its title wears no hairline; the
+   plaster ground and the gilt edge already say "you are here". */
+.sibling-list li.current .sibling-title { border-bottom: 0; }
+.sibling-list li.current .letter-summary { font-weight: 400; }
 .current-marker {
-  display: block;
   font-family: var(--label);
   font-size: 0.63rem;
   font-weight: 600;

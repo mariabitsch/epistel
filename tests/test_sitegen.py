@@ -1254,9 +1254,9 @@ class SummaryTest(unittest.TestCase):
     summaries are the site's formidling layer -- a bare "Brev 34" invites
     nobody, her two lines do. So every list a reader chooses from carries
     them: the index, "Samme brevveksling" on the letter pages, and the
-    three lists on a person's page. The one place a letter's own summary
-    never appears is its own page, because reading is where a presenter
-    gets in the way -- there the letter has the word.
+    three lists on a person's page -- every row, the current letter's
+    included. She still never sits above a transcription: reading is
+    where a presenter gets in the way, and there the letter has the word.
     """
 
     SUMMARIES = 333
@@ -1299,17 +1299,32 @@ class SummaryTest(unittest.TestCase):
         siblings = page.split("Samme brevveksling", 1)[1]
         self.assertIn("snustobaksdåse i afskedsgave", siblings)
 
+    def test_a_sibling_entry_is_one_clickable_block(self):
+        """Maria's call (2026-07-28): the whole block is the link.
+
+        Title, date and resumé travel inside one <a>, so the reader can
+        aim at the sentence that tempted them, not just the number.
+        """
+        siblings = self.read("brev", "2", "index.html").split("Samme brevveksling", 1)[1]
+        anchor = siblings.split('href="../1/"', 1)[1].split("</a>", 1)[0]
+        self.assertIn("snustobaksdåse i afskedsgave", anchor)
+
     def test_a_summary_reaches_the_letter_lists_of_a_person_page(self):
         # P.C. Kierkegaard received brev 1; his page's list says what it is.
         page = self.read("person", "kierkegaard-peter-christian", "index.html")
         received = page.split("Breve modtaget", 1)[1].split("</section>", 1)[0]
         self.assertIn("snustobaksdåse i afskedsgave", received)
+        anchor = received.split('href="../../brev/1/"', 1)[1].split("</a>", 1)[0]
+        self.assertIn("snustobaksdåse i afskedsgave", anchor)
 
-    def test_a_letters_own_summary_never_reaches_its_own_page(self):
-        # In its own sibling list the current letter is a marker row, not a
-        # pitch: the reader is already here, and the letter has the word.
-        page = self.read("brev", "1", "index.html")
-        self.assertNotIn("snustobaksdåse i afskedsgave", page)
+    def test_the_current_letter_carries_its_own_summary_in_its_list(self):
+        # Maria's revision (2026-07-28): the current letter's row keeps its
+        # marker, loses no resumé, and still links nowhere.
+        siblings = self.read("brev", "1", "index.html").split("Samme brevveksling", 1)[1]
+        current = siblings.split('aria-current="page"', 1)[1].split("</li>", 1)[0]
+        self.assertIn("← dette brev", current)
+        self.assertIn("snustobaksdåse i afskedsgave", current)
+        self.assertNotIn("<a ", current)
 
     def test_a_letter_with_no_summary_is_given_none(self):
         # The three cross-reference stubs in b171 print no text, so there is

@@ -474,10 +474,11 @@ def _summary(view):
     Under every letter list -- the index, a letter's "Samme brevveksling",
     a person's three lists (Maria's decision, 2026-07-28; it was the index
     alone at first): wherever a reader is choosing what to read, a
-    presenter is welcome, and she is marked as one. The one place a
-    letter's own summary never sits is its own page -- there the letter
-    speaks for itself. The three letters the edition prints as bare
-    cross-references have no summary, and get none.
+    presenter is welcome, and she is marked as one. Every row of a list
+    carries its resumé -- the current letter's included (Maria's second
+    revision, same day) -- but she never sits *above* a transcription:
+    there the letter speaks for itself. The three letters the edition
+    prints as bare cross-references have no summary, and get none.
     """
     if not view["summary"]:
         return ""
@@ -606,20 +607,40 @@ def _same_correspondence(view, section):
     for other in section["letters"]:
         date = element("span", " · " + text(other["date_text"]), class_="muted")
         if other["slug"] == view["slug"]:
-            items += element(
-                "li",
-                text(other["title"])
+            # The reader's own position: marked on the date's line, never a
+            # link to itself -- and its resumé stays (Maria, 2026-07-28):
+            # the row should read like every other row in the exchange.
+            head = element(
+                "span",
+                element("span", text(other["title"]), class_="sibling-title")
                 + date
                 + element("span", " ← dette brev", class_="current-marker"),
+                class_="sibling-head",
+            )
+            items += element(
+                "li",
+                head + _summary(other),
                 class_="current",
                 aria_current="page",
             )
         else:
+            # One block, one address: title, date and resumé all travel
+            # inside the <a>, so the whole entry is clickable (Maria,
+            # 2026-07-28) -- the reader can aim at the sentence that
+            # tempted them, not just the number.
+            head = element(
+                "span",
+                element("span", text(other["title"]), class_="sibling-title") + date,
+                class_="sibling-head",
+            )
             items += element(
                 "li",
-                element("a", text(other["title"]), href=_letter_href(other))
-                + date
-                + _summary(other),
+                element(
+                    "a",
+                    head + _summary(other),
+                    href=_letter_href(other),
+                    class_="sibling-link",
+                ),
             )
     return element(
         "section",
@@ -836,21 +857,29 @@ def _person_letters(views, heading, note):
     """One of a person's three lists of letters, in the edition's own order."""
     if not views:
         return ""
+    # The same one-block-one-address rule as "Samme brevveksling": the
+    # whole entry, resumé included, is the link (Maria, 2026-07-28).
     items = "".join(
         element(
             "li",
-            element("a", text(view["title"]), href="%sbrev/%s/" % (PERSON_TO_ROOT, view["slug"]))
-            + element(
-                "span",
-                " · " + text(view["date_text"]),
-                class_="muted",
-            )
-            + element(
-                "span",
-                " · fra %s til %s" % (text(view["sender"]), text(view["recipient"])),
-                class_="person-letter-pair",
-            )
-            + _summary(view),
+            element(
+                "a",
+                element(
+                    "span",
+                    element("span", text(view["title"]), class_="sibling-title")
+                    + element("span", " · " + text(view["date_text"]), class_="muted")
+                    + element(
+                        "span",
+                        " · fra %s til %s"
+                        % (text(view["sender"]), text(view["recipient"])),
+                        class_="person-letter-pair",
+                    ),
+                    class_="sibling-head",
+                )
+                + _summary(view),
+                href="%sbrev/%s/" % (PERSON_TO_ROOT, view["slug"]),
+                class_="sibling-link",
+            ),
         )
         for view in views
     )
