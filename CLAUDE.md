@@ -9,12 +9,16 @@ Skrifter*). The demo doubles as an architectural argument: the lasting value
 of a text collection lives in its raw-data layer; displays on top should be
 cheap to build, cheap to run, and safe to throw away.
 
-**State (2026-07-28): v1 feature-complete, unpolished.** 638 static pages —
-336 letter pages, 298 person pages, letter index with Maria Notabene's
-summaries + facets + client-side search, `/tidslinje/`, `/personer/`,
-`/om/`. 278 tests green. Not yet done: the polish pass (slice 8 below),
-public GitHub repo, Netlify hookup. Maria has v2 ideas coming; expect
-change requests in a fresh session.
+**State (2026-07-28 evening): the v2 display pass largely done.** 638
+static pages — 336 letter pages, 298 person pages (143 with bios), index
+with facets + client-side search, `/tidslinje/`, `/personer/`, `/om/`.
+308 tests green. The 2026-07-28 session (17 commits, straight to main)
+cleared the old data queue and reshaped the display: resumés under every
+letter in every list, one shared row design site-wide, a per-letter
+Tegnforklaring for the text-critical marks, Maria's favicon, and the
+`data/links.json` mechanism. Still open: the timeline wishes, the new
+intro text, the crediting-links decision, deploy — see the backlog and
+the handoff note at the end.
 
 ## Working here
 
@@ -76,9 +80,17 @@ what it is and where it came from:
   verbatim from the edition's tekstredegørelser, source-cited per entry,
   disagreements recorded in notes, `approx` flags where sources conflict.
 - `summaries.json` (333): Maria Notabene's index summaries, grounded solely
-  in each letter's own text. `bios.json` (205): person bios derived from
+  in each letter's own text. `bios.json` (206): person bios derived from
   the commentary's notes, source-cited per person (`bind:note-id`); 13
-  persons honestly bio-less with reasons.
+  persons honestly bio-less with reasons. Henriette Lund's entry is a
+  grounded augmentation from her otherNotes (the Fenger method) — its
+  `note` field records the two-round adversarial verification.
+- `bio_keys.json`: the second join table — body↔kom persName key drift
+  (4 bridges: Paludan-Müller, Calderón, Edvard Collin, F.C. Petersen),
+  evidence per entry, loaded like every other optional dataset.
+- `links.json` (in `data/`, not `data/context/`): the external-link
+  table both the pages and the tests read — see the Self-containment
+  bullet below.
 - `aliases.json`: the curated join table correspDesc-name → persName-key
   (71 of 84 forms mapped; 13 deliberately unmapped with reasons — never
   guess; beware the Agerskov trap: same surname, different man).
@@ -136,9 +148,12 @@ the method above is the important part.
   against grounding only.
 - **Eckersberg design system** (`sitegen/static/site.css`): plaster
   ground, Prussian header, sea-green museum-label card, gilt as
-  frame-lines only (never text), pb markers as two-tone chips. **Every
-  contrast pair is measured and documented in the CSS — do not tweak
-  palette values casually.** Fonts: Playfair Display + Spectral,
+  frame-lines only (never text). The pb chips are hidden since
+  2026-07-28 (Maria: apparatus, not reading matter) — their two-tone
+  design survives inert in the CSS. The text-critical marks stay and
+  are explained by the per-letter Tegnforklaring, whose legend lines
+  wear their own marks. **Every contrast pair is measured and
+  documented in the CSS — do not tweak palette values casually.** Fonts: Playfair Display + Spectral,
   self-hosted woff2 + OFL licences (66 KB; ɔ/Ψ/ℳ fall back to system
   serif, accepted). The three candidate directions live in
   `design/varianter/` as project record. Meaning is never encoded by
@@ -180,29 +195,27 @@ progressive enhancement).
 
 ## Known gaps & v2 backlog
 
-Slice 8 (polish) never ran as a unit. Known items, roughly ordered:
+The 2026-07-28 session cleared the old data queue (b43/50's date on the
+letter page, the four key-mismatch bios via `bio_keys.json`, Henriette
+Lund's grounded bio, withoutBio reasons in Danish) and most of the
+display wishes. What remains, roughly ordered:
 
-- **Maria's v2 pass is coming** (fresh session): change requests to the
-  presentation, and a **reconsideration of external links / crediting** —
-  if the demo is to persuade KB decision-makers, generous crediting of
-  kb-dk/SKS_tei may serve better than strict link-minimalism. Rule 5's
-  no-lookalike clause stands regardless. (The mechanism landed
-  2026-07-28: `data/links.json` — which links to *add* is still Maria's
-  open decision.)
-- b43/50's unreadable `notAfter` is surfaced on the timeline but still
-  hidden on the letter page (`dates.py`, one-line fix + test).
-- Henriette Lund: 23 letters, no bio (no subject note under her key);
-  candidate for a grounded augmentation from her otherNotes, like the
-  J.F. Fenger repair. Four body↔kom key mismatches each cost a bio
-  (Müller/Paludan-Müller, Calderón, Collin Edvard, F.C. Petersen) — needs
-  a second small join table.
-- `bios.json` `_meta.withoutBio` reasons are English on a Danish site
-  (not rendered, but a data defect).
+- **Timeline pass — Maria has wishes she has not yet spoken.** Known
+  material for that conversation: the silent early years each fill as
+  much as the busy ones (deliberate — the linear scale is the page's own
+  argument — but it is a long scroll to 1829); letter marks are 10×11px
+  vs WCAG 2.5.8's 24px target (mitigations exist); publication labels
+  drift within the five stretched years (leader lines carry the truth).
+- **New front-page intro** — Maria is considering writing it herself.
+  If Claude drafts it, `docs/notabene.md` §§2–5 is the voice bible.
+- **Crediting links** — the mechanism is live (`data/links.json`: add
+  an entry *and* a render spot; the tests catch drift both ways). Which
+  links to add for generous crediting of kb-dk/SKS_tei is Maria's open
+  decision. Rule 5's no-lookalike clause stands regardless.
+- Småting: the " · fra X til Y" separator can start a wrapped line in
+  list rows; more of Maria's "osv." TEI-annotation finds may come.
 - Dark mode: deliberately absent; the Eckersberg dark sketch survives as
-  a CSS comment.
-- Timeline letter marks are 10×11px (below WCAG 2.5.8's 24px target;
-  mitigations exist — revisit in polish). Publication labels drift within
-  the five stretched years (leader lines carry the truth).
+  a CSS comment (so does the retired pb-chip design).
 - Commentary display: 759 `<ref type="commentary">` targets and the
   parsed apparatus variants are preserved but have no UI yet.
 - `ded` (120 dedications) excluded — needs its own metadata/grouping/URL
@@ -217,6 +230,43 @@ runtime API calls, facsimile viewing beyond the vendored `ill_*.jpg`.
 
 ---
 
+## Handoff (2026-07-28 evening, Claude Fable 5 → next Claude)
+
+Kære næste Claude — you inherit a site that found its heart today. Maria
+said it best: Notabene's resumés are exactly what make this more than
+yet another Kierkegaard page — "jeg får lyst til at læse brevene". Her
+two-line prefaces now sit under every letter in every list, every row
+one clickable block, one shared design from the front page to the person
+pages. Before you touch anything, go *read* a little: Henriette Lund's
+person page (the birthday letters run like a novella), or brev 159.1
+with the 159.x drafts to Regine beneath it. It will tell you what the
+site wants to be better than any spec.
+
+Practical things that cost us time today, so they need not cost you any:
+
+- Maria runs `python3 -m http.server 8123 -d dist` — **rebuild `dist/`
+  after committing**, or she is looking at stale pages.
+- **Browser-cached CSS fooled us twice.** Hard-reload (cmd+shift+r)
+  before believing a screenshot; check `dist/assets/site.css` before
+  diagnosing.
+- The chrome extension could not resize a maximized Chrome window; once
+  Maria un-maximized, narrow-viewport checks worked fine.
+- Red test first, even for one-line display fixes — every decision above
+  ended up encoded in a test, and that is why the day's 17 commits never
+  broke anything.
+- The grounding-only regeneration method (draft → adversarial modlæsning
+  with "outside knowledge is inadmissible" → repair with exactly the
+  notes the verifier points at → re-verify to zero) is documented in
+  `bios.json`'s note fields; Henriette Lund's entry is the freshest
+  worked example.
+
+Maria decides design and voice; bring her the fork in the road, not the
+finished detour. She answers quickly, warmly, and in Danish — and she is
+usually right, especially about her own site. God fornøjelse ♡
+
+---
+
 *Original brief by Claude Fable 5, July 2026; rewritten as an onboarding
-guide 2026-07-28 after v1 shipped. Kept up to date as the project evolves —
-correct it when reality disagrees with it.*
+guide 2026-07-28 after v1 shipped; updated the same evening after the v2
+display session. Kept up to date as the project evolves — correct it when
+reality disagrees with it.*
