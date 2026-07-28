@@ -644,8 +644,12 @@ def _same_correspondence(view, section):
             )
     return element(
         "section",
-        element("h2", "Samme brevveksling")
-        + element("p", text(section["heading"]), class_="group-note")
+        element(
+            "div",
+            element("h2", "Samme brevveksling")
+            + element("p", text(section["heading"]), class_="group-note"),
+            class_="list-head",
+        )
         + element("ul", items, class_="sibling-list"),
         class_="same-correspondence",
     )
@@ -883,11 +887,17 @@ def _person_letters(views, heading, note):
         )
         for view in views
     )
+    # The same card as "Samme brevveksling" (Maria, 2026-07-28): one head
+    # band over one list, so the two section types are one design.
     return element(
         "section",
-        element("h2", text(heading))
-        + element("p", text(note), class_="group-note")
-        + element("p", _letter_count(len(views)), class_="group-count")
+        element(
+            "div",
+            element("h2", text(heading))
+            + element("p", text(note), class_="group-note")
+            + element("p", _letter_count(len(views)), class_="group-count"),
+            class_="list-head",
+        )
         + element("ul", items, class_="sibling-list"),
         class_="person-letters",
     )

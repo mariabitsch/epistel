@@ -290,6 +290,18 @@ class PersonRegisterTest(unittest.TestCase):
         page = self.read("person", "victor-eremita", "index.html")
         self.assertIn("nævner personen, men uden biografiske oplysninger", page)
 
+    def test_the_person_lists_wear_the_same_card_as_a_correspondence(self):
+        """Maria's call (2026-07-28): one design for every letter list.
+
+        'Breve modtaget', 'Nævnt i brevene' and the rest get exactly the
+        letter page's 'Samme brevveksling' layout: the same head band
+        over the same list, byte for byte the same structure.
+        """
+        person = self.read("person", "kierkegaard-peter-christian", "index.html")
+        letter = self.read("brev", "1", "index.html")
+        self.assertIn('<div class="list-head"><h2>Breve modtaget</h2>', person)
+        self.assertIn('<div class="list-head"><h2>Samme brevveksling</h2>', letter)
+
     def test_kierkegaards_own_page_keeps_its_one_line_and_lists_his_letters(self):
         page = self.read("person", "kierkegaard-soeren-aabye", "index.html")
         self.assertIn("Søren Aabye Kierkegaard (1813-55).", page)

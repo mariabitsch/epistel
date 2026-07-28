@@ -1023,29 +1023,41 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
 
 /* --- same correspondence ---------------------------------------------- */
 
-.same-correspondence {
+/* One card for every letter list (Maria, 2026-07-28): "Samme
+   brevveksling" on the letter pages and the person page's three lists
+   share the museum-label band and the paper list below it.            */
+.same-correspondence,
+.person-letters {
   margin-top: 3.4rem;
   background: var(--paper);
   border: 1px solid var(--rule);
   border-top: 2px solid var(--gilt);
 }
-.same-correspondence h2 {
-  margin: 0;
-  padding: 1.1rem 1.5rem 0;
+.list-head {
+  padding: 1.1rem 1.5rem;
   background: var(--sea-tint);
+  border-bottom: 1px solid var(--rule-cool);
+}
+.list-head h2 {
+  margin: 0;
   font-family: var(--display);
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 1.2;
 }
-.same-correspondence .group-note {
-  margin: 0;
-  padding: 0.3rem 1.5rem 1.1rem;
-  background: var(--sea-tint);
-  border-bottom: 1px solid var(--rule-cool);
+.list-head .group-note {
+  margin: 0.3rem 0 0;
   font-size: 0.93rem;
   font-style: italic;
   color: var(--muted);            /* 5.88:1 on the sea tint */
+}
+.list-head .group-count {
+  margin: 0.4rem 0 0;
+  font-family: var(--label);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .sibling-list {
@@ -1075,11 +1087,6 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
   text-decoration: none;
 }
 .sibling-link:hover { background: var(--hover); }
-/* The person page's lists sit straight on the ground, where the shared
-   hover tint (#f7f4ec on #f6f3ec) is invisible; there the row lifts to
-   the letters' own paper instead. The inks on paper are the measured
-   pairs documented at the resumé rule.                                 */
-.person-letters .sibling-link:hover { background: var(--paper); }
 .sibling-title {
   color: var(--prussian);
   border-bottom: 1px solid rgba(46, 74, 90, 0.28);
@@ -1261,27 +1268,7 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
   color: var(--gilt-text);            /* 6.13:1 on paper */
 }
 
-.person-letters { margin-top: 2.6rem; }
-.person-letters h2 {
-  margin: 0;
-  font-family: var(--display);
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-.person-letters .group-note {
-  margin: 0.3rem 0 0;
-  font-size: 0.93rem;
-  font-style: italic;
-  color: var(--muted);
-}
-.person-letters .group-count {
-  margin: 0.2rem 0 0;
-  font-family: var(--label);
-  font-size: 0.66rem;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
+/* The section card itself is styled with .same-correspondence above.  */
 .person-letter-pair {
   display: block;
   font-size: 0.86rem;
