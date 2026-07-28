@@ -1243,6 +1243,23 @@ class TimelinePageTest(unittest.TestCase):
         for word in ("dag", "måned", "år", "pseudonym"):
             self.assertIn(word, legend.lower())
 
+    def test_the_lane_and_the_legend_agree_and_the_drawn_mark_is_explained(self):
+        """One name for the lane, and the printed mark still looked up.
+
+        The rail's head said "Kun år" and the legend said "ca." for the
+        same lane (Maria's call, korrektur 2026-07-28: "Kun år" is the
+        shared name). But the chips beside the years are drawn with "ca."
+        on them, so that text has to stay findable in the legend -- a
+        reader looks up what is printed, not what we call it internally.
+        """
+        legend = self.page.split('class="tl-legend"', 1)[1].split("</dl>", 1)[0]
+        self.assertIn("<dt>Kun år</dt>", legend)
+        self.assertNotIn("<dt>ca.</dt>", legend)
+        self.assertIn("»ca.«", legend)
+        # The lane head is the other half of the pair, and still drawn.
+        self.assertIn('class="tl-head-vague">Kun år', self.page)
+        self.assertIn('class="tl-vague-mark" aria-hidden="true">ca.', self.page)
+
     def test_pseudonymity_is_never_carried_by_colour_alone(self):
         # Every pseudonymous work names its pseudonym in text, and every
         # signed one says so: shape and words, never hue.

@@ -143,7 +143,7 @@ def _intro(books, count, summaries):
         + element(
             "strong", "%s i %s" % (_letter_count(count), _volume_count(len(books)))
         )
-        + ", ordnet efter bind og brevveksling."
+        + ", ordnet efter både bind og brevveksling."
     )
     if summaries:
         lead += (
@@ -171,10 +171,14 @@ def _presentation(timeline=False):
     curated datasets writes no timeline page, and she must not point at a door
     that is not there.
     """
-    doings = "Bladr, søg på et ord, filtrér efter afsender, modtager eller år"
+    doings = "Bladr, søg på et ord eller filtrér efter afsender, modtager eller år."
     if timeline:
-        doings += ", følg årene på tidslinjen"
-    doings += ", eller slå de mennesker op, som brevene nævner."
+        doings += (
+            " Følg årene på tidslinjen, eller slå de mennesker op, som brevene "
+            "nævner."
+        )
+    else:
+        doings += " Slå de mennesker op, som brevene nævner."
     body = element(
         "p",
         "Det begynder med en skoledreng, der i 1829 undskylder, at han aldrig "
@@ -187,7 +191,7 @@ def _presentation(timeline=False):
     )
     body += element(
         "p",
-        "Herunder ligger de alle sammen. %s Brevene står også hos udgiveren "
+        "Herunder ligger brevene alle sammen. %s Brevene står også hos udgiveren "
         "selv; Om-siden siger hvor." % doings,
     )
     body += element(
@@ -1043,10 +1047,15 @@ def _timeline_legend():
             "måneden, fordi det er alt, kilden siger.",
         ),
         (
-            "ca.",
-            "brev, som udgaven kun daterer til året eller til en periode over "
-            "flere år. Breve, som kun har et årstal, står for sig selv ud for "
-            "året.",
+            # The lane is called "Kun år" at the head of the rail, so the
+            # legend calls it that too (Maria, korrektur 2026-07-28). The
+            # chips on the page are drawn with "ca." on them, so the mark
+            # itself opens the explanation -- a reader must be able to look
+            # up what is actually printed beside the year.
+            "Kun år",
+            "»ca.« – brev, som udgaven kun daterer til året eller til en "
+            "periode over flere år. Breve, som kun har et årstal, står for "
+            "sig selv ud for året.",
         ),
         (
             "Udfyldt rude",
@@ -1068,7 +1077,7 @@ def _timeline_legend():
         "p",
         "Skalaen er lineær: hvert år er lige højt. Et år strækkes kun, hvor "
         "årets udgivelser fylder mere end året – aldrig omvendt, og aldrig på "
-        "de stille års bekostning. Breve uden nogen datering står nederst på "
+        "de stille års bekostning. Breve uden datering står nederst på "
         "siden.",
         class_="tl-legend-note",
     )
@@ -1237,7 +1246,7 @@ def _vague(marks, year):
             items,
             class_="tl-vague-list",
             aria_label="Breve, som udgaven kun daterer til %d eller til en "
-            "periode fra %d" % (year, year),
+            "periode, der begynder i %d" % (year, year),
         ),
         class_="tl-vague",
     )
@@ -1469,7 +1478,7 @@ def _about_source(provenance, links=None):
     )
     kept = (
         "Kopien ligger uændret i projektet og bliver aldrig rettet; alt, hvad "
-        "visningen gør ved teksten, sker i byggeprocessen."
+        "visningen gør ved teksten, sker i den automatiserede proces."
     )
     if provenance and provenance.get("commit"):
         # Maria's wording (korrektur 2026-07-28): a reader who does not know
