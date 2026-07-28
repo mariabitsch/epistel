@@ -108,6 +108,47 @@ public and CC0-licensed.
   stretched years (leader lines carry the truth); `format_date` still
   hides b43/50's unreadable notAfter on the letter page (surfaced on
   the timeline only — one-line fix pending).
+- **Persons, summaries, search (slice 7, done):** 637 pages — 336 letters,
+  298 person pages, `/personer/`, `/tidslinje/` and the index.
+  - `sitegen/persons.py`: the register. Built from `persName/@key` in the
+    letter bodies (298 distinct keys; one `key=""` in b127/148 is skipped),
+    **not** from the curated files — a person with no biography still gets a
+    page. Slugs are derived (`æøå` → `ae/oe/aa`, then NFKD), collision-checked
+    and numbered deterministically; the corpus currently produces zero
+    collisions. Register sorted with æ/ø/å after z.
+  - `data/context/aliases.json`: **curated join table**, the only bridge
+    between `correspDesc`'s name strings and persName keys (the TEI joins
+    them nowhere). 84 distinct correspondent forms → 71 mapped (18 exact,
+    46 surname+initials expansion, 7 hand-curated incl. 3 that name two
+    people), 13 deliberately unmapped with reasons. Unmapped letters appear
+    on nobody's sent/received list; that is the intended outcome. Key trap
+    found: "Agerskov, Chr." is *not* the body's "Agerskov, Niels" (kom.xml
+    says Christian Wilhelm Hass Agerskov). The commentary's key space is not
+    quite the body's — 4 known disagreements, e.g. body
+    `Müller, Frederik Paludan` vs kom `Paludan-Müller, Frederik`.
+  - Bios join on the persName key: 138 of 298 people have one; 152 have no
+    commentary note at all and 8 are in `bios.json`'s `withoutBio`. The page
+    tells the two silences apart. `withoutBio` reasons are mostly English and
+    are therefore **not rendered** — a known dataset defect.
+  - Summaries (`data/context/summaries.json`, 333 of 336) join on
+    `volume/xml:id` and appear **only in the index**, never on a letter page
+    (Maria's decision). Marked as Victoria's voice by a gilt frame-line plus
+    body italic — the design's editorial register, at 333 repetitions.
+  - persName links are styled to disappear while reading: `a.tei-persName`
+    takes `color: inherit` and no underline at rest, keeping only the entity
+    hairline the design already had; hover/focus adds the underline. Brev 1
+    carries 30 of them and still reads as prose.
+  - `sitegen/search.py` + `static/search.js`: three build-time facets
+    (sender, recipient, year — imprecise dates filed under their earliest
+    possible year, with the rule written next to the control) and an inverted
+    free-text index over `plain_text()` + summaries. 13 070 words, 380 KB,
+    shipped as `assets/search-index.js` (a script, not JSON: `fetch` is
+    refused on `file://`) and **lazy-loaded on first search**. Folding
+    (`æ→ae`, `ø→oe`, `å→aa`, NFKD) is duplicated in Python and JS and a test
+    guards the pair. Progressive enhancement: the controls are in the markup
+    with `hidden`; the script removes it. `[hidden] { display: none
+    !important; }` is load-bearing — `.letter-entry` is a grid and an author
+    `display` beats the UA's `[hidden]` rule.
 - **Commentary parser (done):** `pipeline/parse_kom.py` — docstring is
   the contract. Key facts: 4376 notes corpus-wide, uniformly
   `<label>` (lemma) + `<p>` (prose); `@n="*"` on a persName marks the
