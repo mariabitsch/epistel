@@ -39,7 +39,7 @@ datasets, and otherwise::
      "residences": [...],
      "summaries": {"b1/n1": "Søren bruger den første halve side ..."},
      "bios": {"Boesen, Emil Ferdinand": {"bio": ..., "sources": [...]}},
-     "bios_without": {"Victor Eremita": "Not a biographical subject"},
+     "bios_without": {"Victor Eremita": "Ikke et biografisk emne i ..."},
      "aliases": {"SK": ["Kierkegaard, Søren Aabye"]},
      "aliases_unmapped": {"ukendt": "Udgaven kender ikke afsenderen ..."},
      "meta": {"publications": {...}, ...}}
