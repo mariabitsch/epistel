@@ -1154,12 +1154,15 @@ class TimelinePageTest(unittest.TestCase):
 
 
 class SummaryTest(unittest.TestCase):
-    """Maria Notabene's summaries: in the index, and nowhere else.
+    """Maria Notabene's summaries: under every letter *list*, never over a text.
 
-    Maria's decision, and the reason is worth writing down: choosing what to
-    read is where a presenter helps, and reading is where she gets in the way.
-    So the summary sits under the letter in the list and is absent from the
-    letter's own page.
+    Maria's decision, revised 2026-07-28 (it was "index only" first): the
+    summaries are the site's formidling layer -- a bare "Brev 34" invites
+    nobody, her two lines do. So every list a reader chooses from carries
+    them: the index, "Samme brevveksling" on the letter pages, and the
+    three lists on a person's page. The one place a letter's own summary
+    never appears is its own page, because reading is where a presenter
+    gets in the way -- there the letter has the word.
     """
 
     SUMMARIES = 333
@@ -1195,10 +1198,24 @@ class SummaryTest(unittest.TestCase):
         entry = self.index.split('data-slug="1"', 1)[1].split("</li>", 1)[0]
         self.assertIn("snustobaksdåse i afskedsgave", entry)
 
-    def test_a_summary_never_reaches_the_letters_own_page(self):
+    def test_a_summary_follows_the_letter_into_its_siblings_lists(self):
+        # Brev 2 is in the same correspondence as brev 1: its page's
+        # "Samme brevveksling" list carries brev 1's summary.
+        page = self.read("brev", "2", "index.html")
+        siblings = page.split("Samme brevveksling", 1)[1]
+        self.assertIn("snustobaksdåse i afskedsgave", siblings)
+
+    def test_a_summary_reaches_the_letter_lists_of_a_person_page(self):
+        # P.C. Kierkegaard received brev 1; his page's list says what it is.
+        page = self.read("person", "kierkegaard-peter-christian", "index.html")
+        received = page.split("Breve modtaget", 1)[1].split("</section>", 1)[0]
+        self.assertIn("snustobaksdåse i afskedsgave", received)
+
+    def test_a_letters_own_summary_never_reaches_its_own_page(self):
+        # In its own sibling list the current letter is a marker row, not a
+        # pitch: the reader is already here, and the letter has the word.
         page = self.read("brev", "1", "index.html")
         self.assertNotIn("snustobaksdåse i afskedsgave", page)
-        self.assertNotIn("letter-summary", page)
 
     def test_a_letter_with_no_summary_is_given_none(self):
         # The three cross-reference stubs in b171 print no text, so there is

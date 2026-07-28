@@ -151,8 +151,11 @@ the method above is the important part.
   prefaces, the letters are the book. Renamed from Victoria Eremita
   2026-07-28 (Maria's call). Openly carries the builder's first name —
   transparent pseudonymity in SK's own tradition. Honestly disclosed on
-  `/om/` along with AI assistance. Summaries appear in the index only,
-  never on letter pages (Maria's decision).
+  `/om/` along with AI assistance. Summaries appear under **every letter
+  list** — index, "Samme brevveksling", person pages (Maria's decision
+  2026-07-28, revising the earlier index-only rule: the Notabene layer is
+  the site's core appeal). A letter's own summary still never appears on
+  its own page — there the letter has the word.
 - **Self-containment:** every external link comes from `data/links.json`
   (entries with id/href/label/rel/scope; today: the CC0 deed in every
   footer, upstream repo + tekster.kb.dk on `/om/`). Pages look entries up

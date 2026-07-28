@@ -637,11 +637,12 @@ h1::before {                       /* the gilt tick: one accent, top left */
    person speaks in a room full of documents. No tint, no box, no label:
    at 333 repetitions anything heavier would take over the page.
 
-   Set in the second column, under the three fields, because it belongs to
-   the letter and not to the row. Ink is --ink-soft: 9.08:1 on the paper
-   ground, 8.48:1 on the hover tint.                                     */
-.letter-entry .letter-summary {
-  grid-column: 2;
+   One rule for every list that carries her — the index, a letter's
+   "Samme brevveksling", a person's three lists (Maria's decision,
+   2026-07-28) — so she is recognisably the same person everywhere.
+   Ink is --ink-soft: 9.08:1 on the paper ground, 8.48:1 on the hover
+   tint, 8.41:1 on the site ground.                                      */
+.letter-summary {
   margin: 0.7rem 0 0;
   padding-left: 0.9rem;
   border-left: 2px solid var(--gilt);
@@ -649,6 +650,16 @@ h1::before {                       /* the gilt tick: one accent, top left */
   font-style: italic;
   line-height: 1.62;
   color: var(--ink-soft);
+}
+/* In the index entry's grid it belongs to the letter, not the row: the
+   second column, under the three fields.                                */
+.letter-entry .letter-summary { grid-column: 2; }
+/* In the compact link lists she sits a touch smaller and keeps a small
+   foot of air before the next letter's line.                            */
+.sibling-list .letter-summary,
+.person-letters .letter-summary {
+  margin: 0.35rem 0 0.65rem;
+  font-size: 0.95rem;
 }
 
 /* Preserve uncertainty: the edition's own hedging, set as an editorial

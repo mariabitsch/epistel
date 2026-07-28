@@ -429,9 +429,12 @@ def _facts(view):
 def _summary(view):
     """The presenter's two sentences about the letter, in her own register.
 
-    Not on the letter page: there the letter speaks for itself. Here, where a
-    reader is choosing what to read, a presenter is welcome -- and she is
-    marked as one. The three letters the edition prints as bare
+    Under every letter list -- the index, a letter's "Samme brevveksling",
+    a person's three lists (Maria's decision, 2026-07-28; it was the index
+    alone at first): wherever a reader is choosing what to read, a
+    presenter is welcome, and she is marked as one. The one place a
+    letter's own summary never sits is its own page -- there the letter
+    speaks for itself. The three letters the edition prints as bare
     cross-references have no summary, and get none.
     """
     if not view["summary"]:
@@ -572,7 +575,9 @@ def _same_correspondence(view, section):
         else:
             items += element(
                 "li",
-                element("a", text(other["title"]), href=_letter_href(other)) + date,
+                element("a", text(other["title"]), href=_letter_href(other))
+                + date
+                + _summary(other),
             )
     return element(
         "section",
@@ -802,7 +807,8 @@ def _person_letters(views, heading, note):
                 "span",
                 " · fra %s til %s" % (text(view["sender"]), text(view["recipient"])),
                 class_="person-letter-pair",
-            ),
+            )
+            + _summary(view),
         )
         for view in views
     )
