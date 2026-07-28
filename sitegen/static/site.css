@@ -1075,6 +1075,11 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
   text-decoration: none;
 }
 .sibling-link:hover { background: var(--hover); }
+/* The person page's lists sit straight on the ground, where the shared
+   hover tint (#f7f4ec on #f6f3ec) is invisible; there the row lifts to
+   the letters' own paper instead. The inks on paper are the measured
+   pairs documented at the resumé rule.                                 */
+.person-letters .sibling-link:hover { background: var(--paper); }
 .sibling-title {
   color: var(--prussian);
   border-bottom: 1px solid rgba(46, 74, 90, 0.28);
