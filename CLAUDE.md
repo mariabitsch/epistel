@@ -12,13 +12,17 @@ cheap to build, cheap to run, and safe to throw away.
 **State (2026-07-28 evening): the v2 display pass largely done.** 638
 static pages — 336 letter pages, 298 person pages (143 with bios), index
 with facets + client-side search, `/tidslinje/`, `/personer/`, `/om/`.
-308 tests green. The 2026-07-28 session (17 commits, straight to main)
+324 tests green. The 2026-07-28 session (17 commits, straight to main)
 cleared the old data queue and reshaped the display: resumés under every
 letter in every list, one shared row design site-wide, a per-letter
 Tegnforklaring for the text-critical marks, Maria's favicon, and the
-`data/links.json` mechanism. Still open: the timeline wishes, the new
-intro text, the crediting-links decision, deploy — see the backlog and
-the handoff note at the end.
+`data/links.json` mechanism. The same night (10 commits) a full Danish
+korrektur of the UI strings landed — 38 findings, every one ruled by
+Maria: em dashes made Danish, »SK« unfolded to Søren Kierkegaard, the
+edition named »SKS« where it speaks outside /om/. Still open: the
+timeline decision (analysis ready in the backlog), the new intro text,
+the crediting-links decision, deploy — see the backlog and the handoff
+notes at the end.
 
 ## Working here
 
@@ -200,20 +204,40 @@ letter page, the four key-mismatch bios via `bio_keys.json`, Henriette
 Lund's grounded bio, withoutBio reasons in Danish) and most of the
 display wishes. What remains, roughly ordered:
 
-- **Timeline pass — Maria has wishes she has not yet spoken.** Known
-  material for that conversation: the silent early years each fill as
-  much as the busy ones (deliberate — the linear scale is the page's own
-  argument — but it is a long scroll to 1829); letter marks are 10×11px
-  vs WCAG 2.5.8's 24px target (mitigations exist); publication labels
-  drift within the five stretched years (leader lines carry the truth).
+- **Timeline pass — wishes spoken 2026-07-28 night; Maria's A/B/C
+  decision pending.** She wants (1) finger-sized letter marks and
+  (2) the page at the site's shared 46rem width, fitting a landscape
+  phone. Measured against the real corpus: laying the mark columns out
+  with 24px touch slack (WCAG 2.5.8) needs only **21 columns** (today
+  18 at 11px), i.e. a 31.5rem letters lane — which fits the 46rem shell
+  *iff the works lane moves under the year at all widths* (as it
+  already does below 48rem). Claude recommends exactly that (**A**: one
+  layout everywhere; hit areas grow invisibly around the drawn marks,
+  the slot layout guarantees targets never overlap). A also dissolves
+  the old label-drift item: works-under-year reserves no time, so years
+  never stretch. Costs Maria must accept first: the 1843/44 stretch
+  disappears (the scale becomes perfectly uniform), address labels move
+  to the foot register on desktop too, and portrait phones need a
+  fallback (shrinking marks, or horizontal scroll inside the strip
+  alone). Options B (two layouts, two slot sets per mark) and C
+  (coarse-pointer enlargement only) were presented, not chosen.
+  Remember the coupling: `CELL_HIT_PX`/`YEAR_HEIGHT_PX` (timeline.py)
+  must agree with `--tl-hit`/`--tl-year` (site.css). The long scroll to
+  1829 is a separate, still-unopened conversation.
 - **New front-page intro** — Maria is considering writing it herself.
   If Claude drafts it, `docs/notabene.md` §§2–5 is the voice bible.
 - **Crediting links** — the mechanism is live (`data/links.json`: add
   an entry *and* a render spot; the tests catch drift both ways). Which
   links to add for generous crediting of kb-dk/SKS_tei is Maria's open
   decision. Rule 5's no-lookalike clause stands regardless.
-- Småting: the " · fra X til Y" separator can start a wrapped line in
-  list rows; more of Maria's "osv." TEI-annotation finds may come.
+- Småting: more of Maria's "osv." TEI-annotation finds may come. Two
+  small decisions left open by the night's korrektur: the presentation
+  signature's decorative em dash (`content: "— "` in site.css — design,
+  not sentence: keep, or make Danish?), and four »udgaven« claims that
+  fell outside the SKS ruling's scope list (»Udgaven trykker ingen
+  brevtekst her«, »Udgaven daterer ikke disse 10 breve«, »lagt oven på
+  udgaven«, and the front page's »hører ikke til udgaven«) — extend
+  »SKS« there too, or leave them.
 - Dark mode: deliberately absent; the Eckersberg dark sketch survives as
   a CSS comment (so does the retired pb-chip design).
 - Commentary display: 759 `<ref type="commentary">` targets and the
@@ -263,6 +287,24 @@ Practical things that cost us time today, so they need not cost you any:
 Maria decides design and voice; bring her the fork in the road, not the
 finished detour. She answers quickly, warmly, and in Danish — and she is
 usually right, especially about her own site. God fornøjelse ♡
+
+### Night addendum (2026-07-28 late: the korrektur session)
+
+Ten commits (9573a0a..7b0a8a8), all agent-made under Maria's live
+verdicts, 324 tests green, `dist/` current. The method that worked: one
+persistent Opus agent proofread every UI string and reported 38 findings
+(sikker/forslag/smag); Maria ruled in batches; the same agent applied
+each batch, updating tests so every decision is now regression-guarded.
+Highlights for the next reader: the Om page's claim about where the
+resumés sit is verified against a *built* letter page, not against its
+own sentence; »SK« unfolds via `display_name` (persons.py) while the
+edition's raw form still travels in `data-name` and the facet values —
+whole-string match only, the Agerskov trap is test-pinned with the real
+Chr. Agerskov; both Tegnforklaringer share one machine-checked
+punctuation rule (fragment = no stop, sentence = stop, two fragments
+joined by an en dash). Tomorrow, in Maria's order: the timeline A/B/C
+decision (measured analysis in the backlog), Notabene's new front-page
+intro (hers to write or co-bake), crediting links, deploy.
 
 ---
 
