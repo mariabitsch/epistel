@@ -1042,7 +1042,10 @@ def _timeline_legend():
     rows = [
         ("Streg", "brev, som SKS daterer til dagen"),
         (
-            "Åben kasse",
+            # Not "Åben kasse": there is no filled box to tell it apart from,
+            # so the adjective carried nothing (Maria, korrektur item 29). The
+            # ruder keep theirs -- there åben/udfyldt *is* the distinction.
+            "Kasse",
             "brev, som SKS kun daterer til måneden. Kassen dækker hele "
             "måneden, fordi det er alt, kilden siger.",
         ),
@@ -1511,8 +1514,9 @@ def _about_code():
     body += element(
         "p",
         "Generatoren er skrevet i Python uden andet end standardbiblioteket, og "
-        "siderne er håndskrevet HTML og CSS med én lille JavaScript-fil til "
-        "søgning og filtre. Koden er udgivet under MIT-licensen. Kopien af "
+        "siderne er HTML og CSS skrevet til lejligheden – uden frameworks. Én "
+        "lille JavaScript-fil klarer søgning og filtre. Koden er udgivet "
+        "under MIT-licensen. Kopien af "
         "TEI-filerne beholder sin egen CC0-status: MIT gælder kun det, der er "
         "skrevet her.",
     )
