@@ -680,6 +680,18 @@ class CorpusSiteBuildTest(unittest.TestCase):
         self.assertIn("Udgaven trykker ingen brevtekst her", page)
         self.assertNotIn('class="transcription"', page)
 
+    def test_the_unreadable_upper_bound_of_b43_50_reaches_its_page(self):
+        """b43/50: ``notAfter="1847000"``, seven digits, unreadable.
+
+        The timeline already quotes the defect; the letter page silently
+        dropped it, showing plain "1846" as if the edition had claimed no
+        upper bound at all. The page must say what the source wrote.
+        """
+        page = self.read("brev", "50", "index.html")
+        self.assertIn("1846", page)
+        self.assertIn("»1847000«", page)
+        self.assertIn("kan ikke læses", page)
+
     def test_every_other_letter_does_have_a_transcription(self):
         without = [
             entry

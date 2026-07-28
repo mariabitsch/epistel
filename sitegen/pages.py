@@ -1468,6 +1468,16 @@ def _date(view):
         rendered += element(
             "span", " " + text(view["date_source"]), class_="date-provenance"
         )
+    span = view.get("span")
+    if span and span["open_end_raw"]:
+        # The edition wrote an upper bound the parser could not read (b43/50:
+        # notAfter="1847000"). The timeline already quotes it; the page must
+        # not pretend the edition claimed nothing.
+        rendered += element(
+            "span",
+            " [kildens øvre grænse »%s« kan ikke læses]" % text(span["open_end_raw"]),
+            class_="date-provenance",
+        )
     return rendered
 
 
