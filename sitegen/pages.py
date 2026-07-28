@@ -544,7 +544,7 @@ def _metadata(view, section, person_links=None):
             "Til",
             _name(view["recipient"], view["recipient_raw"], person_links.get("recipient")),
         ),
-        ("Dateret", _date(view)),
+        ("Datering", _date(view)),
     ]
     if view["place"]:
         rows.append(("Sted", text(view["place"])))
@@ -723,12 +723,12 @@ def _person_index_intro(count, with_bio):
         "Alle, som brevene nævner ved navn – "
         + element("strong", _person_count(count))
         + ", som udgaven selv har mærket op i brevteksterne. Registret skelner "
-        "ikke mellem levende og litterære: står navnet i et brev, står "
+        "ikke mellem virkelige og litterære: står navnet i et brev, står "
         "personen her."
     )
     if with_bio:
         lead += (
-            " %d af dem har en kort biografi, hentet ud af udgavens egen "
+            " %d af dem har en kort biografi, skrevet ud af udgavens egen "
             "kommentar." % with_bio
         )
     return element("p", lead, class_="lead")
@@ -797,17 +797,17 @@ def person_page(person, timeline=False, links=None):
     article += _biography(person)
     article += _person_letters(
         person["sent"],
-        "Breve sendt",
-        "Breve, som udgaven angiver %s som afsender af." % person["name"],
+        "Breve fra %s" % person["name"],
+        "Breve, hvor udgaven angiver %s som afsender." % person["name"],
     )
     article += _person_letters(
         person["received"],
-        "Breve modtaget",
-        "Breve, som udgaven angiver %s som modtager af." % person["name"],
+        "Breve til %s" % person["name"],
+        "Breve, hvor udgaven angiver %s som modtager." % person["name"],
     )
     article += _person_letters(
         person["mentioned"],
-        "Nævnt i brevene",
+        "Breve, hvor %s er nævnt" % person["name"],
         "Breve, hvor navnet står i selve brevteksten.",
     )
     return _document(
@@ -1001,8 +1001,8 @@ def _timeline_intro(model):
     lead = element(
         "p",
         "Søren Kierkegaards liv fra %d til %d på én skala: brevene fra den "
-        "TEI-kodede udgave, sat op mod de skrifter han fik udgivet, og de "
-        "adresser han boede på. Hvert år fylder det samme, så de tavse år "
+        "TEI-kodede udgave, sat op mod de skrifter, han fik udgivet, og de "
+        "adresser, han boede på. Hvert år fylder det samme, så de tavse år "
         "fylder lige så meget som de travle."
         % (model["first_year"], model["last_year"]),
         class_="lead",
@@ -1040,18 +1040,17 @@ def _timeline_legend():
         (
             "ca.",
             "brev, som udgaven kun daterer til året eller til en periode over "
-            "flere år. Det har ingen plads på dagskalaen og står derfor "
-            "samlet for sig ud for året.",
+            "flere år. Breve, som kun har årstal, står ud for året.",
         ),
         (
             "Udfyldt rude",
-            "skrift udgivet under Kierkegaards eget navn. Rykket helt ud til "
-            "skinnen.",
+            "skrift udgivet under Kierkegaards eget navn. Sat yderst til "
+            "venstre, ud for årstallet.",
         ),
         (
             "Åben rude",
-            "skrift udgivet under pseudonym. Rykket ind, med pseudonymets navn "
-            "under titlen.",
+            "skrift udgivet under pseudonym. Sat lidt ind, med pseudonymets "
+            "navn under titlen.",
         ),
         (
             "Bånd",
@@ -1271,7 +1270,7 @@ def _work(entry):
     inner += element("b", text(entry["title"]), class_="tl-work-title")
     inner += element(
         "span",
-        "Pseudonym: %s" % text(pseudonym) if pseudonym else "Signeret",
+        "Pseudonym: %s" % text(pseudonym) if pseudonym else "Eget navn",
         class_="tl-work-name",
     )
     if entry["period"]:
@@ -1437,11 +1436,14 @@ def _about_display():
         "p",
         "Det er en pointe og ikke en spareøvelse. Værdien i en tekstsamling "
         "ligger i dens rådata – de standardformaterede filer, som enhver kan "
-        "hente, læse og bygge videre på. Derfor: visningen læser fra offentligt "
-        "TEI; visningslaget er bevidst tyndt og udskifteligt. Vil nogen om ti år "
-        "bygge noget helt andet oven på de samme filer, koster det ikke andet "
-        "end arbejdet, og brevene tager ingen skade af det. Denne visning må "
-        "gerne smides væk. Filerne må ikke.",
+        "hente, læse og bygge videre på. TEI er det fælles format, "
+        "videnskabelige tekstudgaver kodes i: afsender, dato, rettelser og alt "
+        "det andet er mærket op i selve filen, så et program kan finde rundt i "
+        "teksten. Derfor: visningen læser fra offentligt tilgængelige "
+        "TEI-filer; visningslaget er bevidst tyndt og udskifteligt. Vil nogen "
+        "om ti år bygge noget helt andet oven på de samme filer, koster det "
+        "ikke andet end arbejdet, og brevene tager ingen skade af det. Denne "
+        "visning må gerne smides væk. Filerne må ikke.",
     )
     return element("section", body, id="visningen")
 
@@ -1465,7 +1467,13 @@ def _about_source(provenance, links=None):
         "visningen gør ved teksten, sker i byggeprocessen."
     )
     if provenance and provenance.get("commit"):
-        kept += " Den er hentet fra ét bestemt commit:"
+        # Maria's wording (korrektur 2026-07-28): a reader who does not know
+        # what a commit is still has to be able to read the sentence, so the
+        # plain words come first and the term is introduced after them.
+        kept += (
+            " Kopien er hentet fra én bestemt udgivelse af teksterne – et "
+            "<i>commit</i>:"
+        )
     body += element("p", kept)
     if provenance and provenance.get("commit"):
         # Forty characters of hash on their own line: it is a fact to be
@@ -1490,8 +1498,8 @@ def _about_code():
         "p",
         "Generatoren er skrevet i Python uden andet end standardbiblioteket, og "
         "siderne er håndskrevet HTML og CSS med én lille JavaScript-fil til "
-        "søgning og filtre. Koden er udgivet under MIT-licensen. De medbragte "
-        "TEI-filer beholder deres egen CC0-status: MIT gælder kun det, der er "
+        "søgning og filtre. Koden er udgivet under MIT-licensen. Kopien af "
+        "TEI-filerne beholder sin egen CC0-status: MIT gælder kun det, der er "
         "skrevet her.",
     )
     return element("section", body, id="koden")
@@ -1504,8 +1512,8 @@ def _about_presenter():
         "p",
         "%s findes ikke. Hun er opdigtet til lejligheden, i Kierkegaards egen "
         "pseudonymtradition: et andet navn på titelbladet, som hele København "
-        "alligevel kunne regne ud. Navnet er lånt fra Nicolaus Notabene i "
-        "<i>Forord</i> (1844), der kun måtte skrive forord, fordi hans kone "
+        "alligevel kunne regne ud. Navnet er lånt fra Nicolaus Notabene, som i "
+        "<i>Forord</i> (1844) kun måtte skrive forord, fordi hans kone "
         "anså det for ægteskabelig utroskab at skrive bøger. Nu har konen taget "
         "pennen, og hun skriver stadig kun forord. Fornavnet er lånt med et "
         "blink fra hende, der har bygget siden." % text(PRESENTER),
@@ -1518,8 +1526,8 @@ def _about_presenter():
     )
     body += element(
         "p",
-        "Resuméerne er skrevet med Claude (AI) efter en fastlagt "
-        "stemmebeskrivelse og derefter læst igennem en modlæsningsrunde, hvor en "
+        "Resuméerne er skrevet med hjælp fra Claude (AI) efter en fastlagt "
+        "stemmebeskrivelse og derefter sendt gennem en modlæsningsrunde, hvor en "
         "anden model havde til opgave at finde påstande, der ikke stod i brevet; "
         "det, der blev fundet, er rettet. Fiktionen angår kun værtinden, aldrig "
         "materialet: ingen kilde, ingen datering og ingen anekdote er fundet på.",

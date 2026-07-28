@@ -1205,7 +1205,7 @@ class TimelinePageTest(unittest.TestCase):
         # Every pseudonymous work names its pseudonym in text, and every
         # signed one says so: shape and words, never hue.
         self.assertEqual(12, self.page.count('class="tl-work-name">Pseudonym'))
-        self.assertEqual(26, self.page.count('class="tl-work-name">Signeret'))
+        self.assertEqual(26, self.page.count('class="tl-work-name">Eget navn'))
 
     def test_no_raw_data_artifacts_reach_the_page(self):
         self.assertNotIn("None", self.page)
@@ -1330,7 +1330,9 @@ class SummaryTest(unittest.TestCase):
         )
 
         person = self.read("person", "kierkegaard-peter-christian", "index.html")
-        received = person.split("Breve modtaget", 1)[1].split("</section>", 1)[0]
+        received = person.split(
+            "Breve til Peter Christian Kierkegaard", 1
+        )[1].split("</section>", 1)[0]
         self.assertIn(
             'Brev 1</span><span class="muted"> · 8. marts 1829', received
         )
@@ -1355,7 +1357,9 @@ class SummaryTest(unittest.TestCase):
     def test_a_summary_reaches_the_letter_lists_of_a_person_page(self):
         # P.C. Kierkegaard received brev 1; his page's list says what it is.
         page = self.read("person", "kierkegaard-peter-christian", "index.html")
-        received = page.split("Breve modtaget", 1)[1].split("</section>", 1)[0]
+        received = page.split(
+            "Breve til Peter Christian Kierkegaard", 1
+        )[1].split("</section>", 1)[0]
         self.assertIn("snustobaksdåse i afskedsgave", received)
         anchor = received.split('href="../../brev/1/"', 1)[1].split("</a>", 1)[0]
         self.assertIn("snustobaksdåse i afskedsgave", anchor)
@@ -1503,7 +1507,9 @@ class PresenterTest(unittest.TestCase):
         self.assertIn("demonstrationsvisning", self.about)
 
     def test_the_om_page_states_the_architecture_note(self):
-        self.assertIn("visningen læser fra offentligt TEI", self.about)
+        self.assertIn(
+            "visningen læser fra offentligt tilgængelige TEI-filer", self.about
+        )
         self.assertIn("tyndt og udskifteligt", self.about)
 
     def test_the_om_page_names_the_source_and_its_licence(self):
@@ -1533,6 +1539,19 @@ class PresenterTest(unittest.TestCase):
         self.assertIn("opdigtet", disclosure)
         self.assertIn("pseudonym", disclosure)
         self.assertIn("Claude", disclosure)
+
+    def test_the_om_page_introduces_its_two_pieces_of_jargon(self):
+        """TEI and commit are explained, not assumed (Maria, korrektur 2026-07-28).
+
+        The page is read by people deciding whether to believe it, not by
+        people who already know what a TEI file or a commit is. Both words
+        stay -- they are the honest names for the things -- but each arrives
+        inside a sentence of plain Danish that says what it means.
+        """
+        self.assertIn("TEI er det fælles format", self.about)
+        self.assertIn("mærket op i selve filen", self.about)
+        self.assertIn("én bestemt udgivelse af teksterne", self.about)
+        self.assertIn("<i>commit</i>", self.about)
 
     def test_the_om_page_says_where_the_resumes_sit_and_is_right_about_it(self):
         """The claim about the resumés has to survive a look at a letter page.

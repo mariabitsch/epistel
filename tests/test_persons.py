@@ -237,8 +237,12 @@ class PersonRegisterTest(unittest.TestCase):
         self.assertIn("SKs nære ven Emil Ferdinand Boesen (1812-81)", page)
         self.assertIn("Efter kommentaren i SKS:", page)
         self.assertIn("b79:b-1792", page)
-        sent = page.split("Breve sendt", 1)[1].split("</section>", 1)[0]
-        received = page.split("Breve modtaget", 1)[1].split("</section>", 1)[0]
+        sent = page.split("Breve fra Emil Ferdinand Boesen", 1)[1].split(
+            "</section>", 1
+        )[0]
+        received = page.split("Breve til Emil Ferdinand Boesen", 1)[1].split(
+            "</section>", 1
+        )[0]
         self.assertIn("4 breve", sent)
         self.assertIn("37 breve", received)
         self.assertIn('href="../../brev/115/"', sent)
@@ -253,7 +257,7 @@ class PersonRegisterTest(unittest.TestCase):
         page = self.read("person", "thomsen-julie-augusta", "index.html")
         self.assertIn("Kommentaren giver ingen biografisk note", page)
         self.assertNotIn("Efter kommentaren i SKS", page)
-        self.assertIn("Breve modtaget", page)
+        self.assertIn("Breve til Julie Augusta Thomsen", page)
         self.assertIn('href="../../brev/40/"', page)
 
     def test_the_grounded_augmentation_gives_henriette_lund_her_bio(self):
@@ -293,20 +297,23 @@ class PersonRegisterTest(unittest.TestCase):
     def test_the_person_lists_wear_the_same_card_as_a_correspondence(self):
         """Maria's call (2026-07-28): one design for every letter list.
 
-        'Breve modtaget', 'Nævnt i brevene' and the rest get exactly the
+        'Breve til X', 'Breve, hvor X er nævnt' and the rest get exactly the
         letter page's 'Samme brevveksling' layout: the same head band
         over the same list, byte for byte the same structure.
         """
         person = self.read("person", "kierkegaard-peter-christian", "index.html")
         letter = self.read("brev", "1", "index.html")
-        self.assertIn('<div class="list-head"><h2>Breve modtaget</h2>', person)
+        self.assertIn(
+            '<div class="list-head"><h2>Breve til Peter Christian Kierkegaard</h2>',
+            person,
+        )
         self.assertIn('<div class="list-head"><h2>Samme brevveksling</h2>', letter)
 
     def test_kierkegaards_own_page_keeps_its_one_line_and_lists_his_letters(self):
         page = self.read("person", "kierkegaard-soeren-aabye", "index.html")
         self.assertIn("Søren Aabye Kierkegaard (1813-55).", page)
         self.assertIn("235 breve", page)          # sent
-        self.assertIn("Breve modtaget", page)
+        self.assertIn("Breve til Søren Aabye Kierkegaard", page)
 
     def test_the_alias_table_is_what_puts_a_letter_on_a_persons_page(self):
         """"SK" is not a persName key; the curated table makes it one."""
