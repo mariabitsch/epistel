@@ -1,0 +1,194 @@
+[
+  {
+    "key": "Frederik III",
+    "bio": null,
+    "sources": [
+      "b120:b-2519"
+    ],
+    "sameAs": [],
+    "note": "Insufficient biographical data in notes"
+  },
+  {
+    "key": "Frederik VI",
+    "bio": null,
+    "sources": [
+      "b276:b-5629"
+    ],
+    "sameAs": [],
+    "note": "Insufficient biographical data in notes"
+  },
+  {
+    "key": "Friedenreich, Diderik Wilhelm",
+    "bio": "Friedenreich, Diderik Wilhelm (1798-1851) var teolog og skolemand. Han blev kandidat 1823.",
+    "sources": [
+      "b1:b-22"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Frydendahl, Peter Jørgen",
+    "bio": "Frydendahl, Peter Jørgen (1766-1836) var skuespiller, en af det kongelig teaters mest betydelige karakterskuespillere, optrådte i ca. 500 roller, sidste gang 1835.",
+    "sources": [
+      "b259:b-1494"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Giødwad, Jens Finsteen",
+    "bio": "Giødwad, Jens Finsteen (1811-1891) var jurist og journalist. Han dimitteredes 1825 fra Borgerdydsskolen i København til Københavns Universitet.",
+    "sources": [
+      "b161:b-2644",
+      "b208:b-2846",
+      "b276:b-5721",
+      "b43:b-2139",
+      "ded:ded-79"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Goethe, Johann Wolfgang von",
+    "bio": "Goethe, Johann Wolfgang von (1749-1832) var digter, dramatiker, essayist, jurist, statsmand og naturvidenskabsmand.",
+    "sources": [
+      "b308:b-5270"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Grobecker, Philipp",
+    "bio": "Grobecker, Philipp (1815-1883) var komisk skuespiller.",
+    "sources": [
+      "b79:b-2185"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Grundtvig, Nikolai Frederik Severin",
+    "bio": "Grundtvig, Nikolai Frederik Severin (1783-1872) var teolog, præst, (salme)digter, historiker, mytolog m.m.",
+    "sources": [
+      "b1:b-107"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Gruppe, Otto Friedrich",
+    "bio": "Gruppe, Otto Friedrich (1804-1876) var filosof og digter.",
+    "sources": [
+      "b43:b-2054"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Gyllembourg, Thomasine",
+    "bio": null,
+    "sources": [
+      "b70:b-5014"
+    ],
+    "sameAs": [
+      "Buntzen, Thomasine"
+    ],
+    "note": "Insufficient biographical data in notes"
+  },
+  {
+    "key": "Hage, Gjertrud Lovise Christiane Fransisca",
+    "bio": null,
+    "sources": [
+      "b308:b-3272"
+    ],
+    "sameAs": [
+      "Hage, Louise"
+    ],
+    "note": "Insufficient biographical data in notes"
+  },
+  {
+    "key": "Hald, Peter Tetens",
+    "bio": null,
+    "sources": [
+      "b1:b-67"
+    ],
+    "sameAs": [],
+    "note": "Insufficient biographical data in notes"
+  },
+  {
+    "key": "Hammerich, Martin",
+    "bio": "Hammerich, Martin (1811-1881) var teolog, skolemand, litteraturhistoriker og politiker.",
+    "sources": [
+      "b120:b-2496"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Hansen, Jens Olaus",
+    "bio": "Hansen, Jens Olaus (1795-1854) var jurist og departementschef.",
+    "sources": [
+      "ded:ded-84"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Hauch, Carsten",
+    "bio": "Hauch, Carsten (1790-1872) var digter og zoolog.",
+    "sources": [
+      "b241:b-5191"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Hegel, Georg Wilhelm Friedrich",
+    "bio": "Hegel, Georg Wilhelm Friedrich (1770-1831) var filosof og teolog, fra 1818 til sin død professor i berlin. sk ejede en række af hegels værker, jf. ktl.",
+    "sources": [
+      "b161:b-2585",
+      "b43:b-2071",
+      "b79:b-1951"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Heiberg, Johan Ludvig",
+    "bio": "Heiberg, Johan Ludvig (1791-1860) var forfatter, redaktør og kritiker.",
+    "sources": [
+      "b308:b-5378",
+      "b70:b-5006",
+      "ded:ded-3"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Henrichsen, Rudolph Johannes Frederik",
+    "bio": "Henrichsen, Rudolph Johannes Frederik (1800-1871) var klassisk filolog og skolemand. Fra 1825 var han adjunkt ved Metropolitanskolen.",
+    "sources": [
+      "b1:b-9"
+    ],
+    "sameAs": [],
+    "note": null
+  },
+  {
+    "key": "Herkules",
+    "bio": null,
+    "sources": [
+      "b79:b-1800"
+    ],
+    "sameAs": [],
+    "note": "Insufficient biographical data in notes"
+  },
+  {
+    "key": "Hilarius Bogbinder",
+    "bio": null,
+    "sources": [
+      "b308:b-5242"
+    ],
+    "sameAs": [],
+    "note": "Insufficient biographical data in notes"
+  }
+]

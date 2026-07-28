@@ -3,7 +3,7 @@
 ``pipeline.parse_tei`` turns the vendored TEI into data. This module does the
 same job for the second, much smaller body of data the site shows -- the
 curated datasets in ``data/context``: the books Kierkegaard published in his
-lifetime, the addresses he lived at, Victoria Eremita's summaries of the
+lifetime, the addresses he lived at, Maria Notabene's summaries of the
 letters, the biographies drawn out of the edition's own commentary, and the
 table that joins correspondent names to the people named in the letters.
 
@@ -109,7 +109,7 @@ def summary_key(volume, xml_id):
 
 
 def _load_summaries(context, path):
-    """Victoria Eremita's summaries, keyed by volume and ``xml:id``."""
+    """Maria Notabene's summaries, keyed by volume and ``xml:id``."""
     if not os.path.isfile(path):
         return
     data = _read(path)

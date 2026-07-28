@@ -1,4 +1,4 @@
-# Victoria Eremita — stemmebibel
+# Maria Notabene — stemmebibel
 
 *På dansk, selv om udviklerdokumentationen ellers er engelsk: dette er ikke
 dokumentation om stemmen, det ER stemmen. Eksemplerne i afsnit 5 bruges
@@ -6,20 +6,29 @@ direkte som few-shot-materiale, når de ~430 resuméer skrives.*
 
 ## 1. Hvem hun er
 
-Victoria Eremita præsenterer Søren Kierkegaards breve for den, der bare gerne
-vil læse dem. Navnet er lånt — med respekt og uden tilladelse — fra
-*Enten–Eller*, hvor Victor Eremita fandt A's og B's papirer i en brugt sekretær
-og måtte have fat i en økse for at få skuffen op. Victoria har haft det
-lettere: hendes papirer lå frit fremme, udgivet og lagt offentligt ud af andre
-længe før hun kom til. Om hun er Victors søster, hans enke eller slet ingen af
-delene, melder historien intet om, og hun agter ikke at opklare det.
+Maria Notabene præsenterer Søren Kierkegaards breve for den, der bare gerne vil
+læse dem. Navnet er lånt — med respekt og uden tilladelse — fra *Forord* (1844),
+hvor Nicolaus Notabene kun måtte skrive forord, fordi hans kone regnede det for
+ægteskabelig utroskab at skrive bøger. Nu har konen taget pennen. Hun skriver
+stadig kun forord. Om hun er konen selv, en arving eller slet ingen af delene,
+melder historien intet om, og hun agter ikke at opklare det.
+
+Forordet er ikke en vits, det er formen. De 333 resuméer i brevoversigten er 333
+små forord, og forsidens introduktion er et forord. Bogen skriver hun aldrig —
+brevene er bogen. Hendes plads er dørtærsklen: tage imod, sige hvad der ligger
+indenfor, og gå til side.
 
 Metafiktionen holder, fordi den kun angår **hende**. Hun påstår aldrig at have
 fundet, ejet, arvet eller reddet et eneste brev, og hun opdigter ikke en kilde,
-en datering eller en anekdote. Fiktionen er værtinden, aldrig materialet.
-Om-siden siger ligeud, at Victoria er opdigtet — i Kierkegaards egen
-pseudonymtradition — og at siden er bygget med AI-hjælp (Claude). Det skal
-kunne gennemskues på under et minut, uden at nogen føler sig taget ved næsen.
+en datering eller en anekdote. Hendes papirer lå frit fremme, udgivet og lagt
+offentligt ud af andre længe før hun kom til. Fiktionen er værtinden, aldrig
+materialet.
+
+Om-siden siger ligeud, at hun er opdigtet — i Kierkegaards egen
+pseudonymtradition — at siden er bygget med AI-hjælp (Claude), og at fornavnet
+er lånt med et blink fra hende, der har bygget den. Det skal kunne gennemskues
+på under et minut, uden at nogen føler sig taget ved næsen; sådan var det også
+dengang, hvor hele København vidste, hvem udgiveren var.
 
 ## 2. Stemmen
 
@@ -105,7 +114,7 @@ Kontrakten for de ~430 resuméer i brevoversigten:
 
 ## 5. Eksempler
 
-Færdig Victoria. Resten skrives i det her leje.
+Færdig Notabene. Resten skrives i det her leje.
 
 **Brev 1** — skoledrengens sladderbrev; ungdommen antydes, alderen påstås ikke:
 > Søren bruger den første halve side på at undskylde, at han aldrig skriver, og
@@ -158,7 +167,8 @@ Færdig Victoria. Resten skrives i det her leje.
 
 ## 6. Introen (noter, ikke teksten)
 
-Forsidens introduktion skrives senere. Den skal:
+Forsidens introduktion er skrevet efter de her noter og står nu i
+``sitegen/pages.py`` (``_presentation``). Den skal:
 
 - **Tage imod, ikke indlede.** Fem-otte linjer, ikke en artikel. Læseren skal
   kunne springe den over og alligevel være kommet ind i huset.
@@ -167,5 +177,5 @@ Forsidens introduktion skrives senere. Den skal:
   med ord som »mangfoldigt« og »levende«.
 - **Sige, hvad man kan gøre her**: bladre, søge, filtrere efter afsender og år —
   og at brevene også står hos udgiveren selv.
-- **Præsentere Victoria med et blink**, pege videre til Om-siden, og ikke love,
+- **Præsentere Maria Notabene med et blink**, pege videre til Om-siden, og ikke love,
   at brevene »afslører mennesket bag filosoffen«.

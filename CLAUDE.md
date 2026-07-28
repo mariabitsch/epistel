@@ -132,8 +132,8 @@ public and CC0-licensed.
     are therefore **not rendered** — a known dataset defect.
   - Summaries (`data/context/summaries.json`, 333 of 336) join on
     `volume/xml:id` and appear **only in the index**, never on a letter page
-    (Maria's decision). Marked as Victoria's voice by a gilt frame-line plus
-    body italic — the design's editorial register, at 333 repetitions.
+    (Maria's decision). Marked as the presenter's voice by a gilt frame-line
+    plus body italic — the design's editorial register, at 333 repetitions.
   - persName links are styled to disappear while reading: `a.tei-persName`
     takes `color: inherit` and no underline at rest, keeping only the entity
     hairline the design already had; hover/focus adds the underline. Brev 1
@@ -149,6 +149,30 @@ public and CC0-licensed.
     with `hidden`; the script removes it. `[hidden] { display: none
     !important; }` is load-bearing — `.letter-entry` is a grid and an author
     `display` beats the UA's `[hidden]` rule.
+- **Presenter, intro and Om page (slice 8, done):** 638 pages — the Om page
+  (`/om/`) joins the site and is in the nav everywhere, unconditionally: it
+  is what makes the demonstration honest, so no dataset may switch it off.
+  - `sitegen/pages.py`: `_presentation()` is the front page's welcome in
+    Maria Notabene's voice, placed *after* the factual lead on purpose — the
+    demonstration says what it is before an invented person says anything.
+    Every concrete thing in it is in a letter (b1/1 snuff box, b1/10 eighty
+    rigsdaler, b1/39 grave plot, quoted in the edition's spelling). It
+    mentions the timeline only when the build wrote one.
+  - `about_page()` states: what the site is, the architecture note as prose,
+    the source + CC0 + pinned commit, MIT for the code, `tekster.kb.dk/sks`,
+    the Maria Notabene disclosure (fiction, AI, adversarial verification) and
+    where the person bios come from.
+  - `pipeline/provenance.py`: reads `data/vendor/PROVENANCE.md` so the commit
+    on the Om page cannot drift from the record beside the files. No record →
+    the page names the repository and claims no pin. `build_site` gained a
+    `provenance=` keyword; it reaches exactly one page.
+  - **External links:** the site points off-site in exactly three places —
+    the CC0 deed in every footer, and the upstream repo + `tekster.kb.dk` on
+    the Om page. `tests/test_sitegen.assert_self_contained` enforces that,
+    with the Om page as the single named exception.
+  - CSS: `.presentation` (paper ground, gilt top rule, display-face
+    signature — not italic; 333 two-line resumés can be, a hundred words
+    cannot) and `.prose` for the Om page. Contrast pairs documented in place.
 - **Commentary parser (done):** `pipeline/parse_kom.py` — docstring is
   the contract. Key facts: 4376 notes corpus-wide, uniformly
   `<label>` (lemma) + `<p>` (prose); `@n="*"` on a persName marks the
@@ -281,9 +305,19 @@ already in the volumes (include those only if trivially easy).
 - **Presentation:** timeline as its own narrative page (publications +
   residences from a hand-curated, source-cited `data/context/` dataset —
   editorial layer, clearly separate from TEI truth); person index; front
-  page intro by **Victoria Eremita**, a fictional presenter in SK's own
-  pseudonym tradition (own personality, light loving irony), honestly
-  disclosed on the Om page along with AI assistance.
+  page intro and the 333 index summaries by **Maria Notabene**, a fictional
+  presenter in SK's own pseudonym tradition (own personality, light loving
+  irony), honestly disclosed on the Om page along with AI assistance. Her
+  voice bible is `docs/notabene.md` — Danish on purpose, §5 is the few-shot
+  material the summaries were written from; §§2–5 are approved canon.
+  **Renamed from Victoria Eremita 2026-07-28, Maria's call:** the new name
+  plays on Nicolaus Notabene of *Forord* (1844), who was only allowed to
+  write prefaces because his wife held book-writing to be marital
+  infidelity — now the wife takes the pen and still writes only prefaces
+  (the 333 summaries and the front-page intro *are* the prefaces; the
+  letters are the book). It also openly carries the site builder's own first
+  name, which is the Kierkegaardian joke: transparent pseudonymity, where
+  all of Copenhagen knew who the publisher was.
 
 ---
 

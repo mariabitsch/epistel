@@ -28,16 +28,29 @@ LETTER_TO_ROOT = "../../"
 PERSON_TO_ROOT = "../../"
 PERSON_INDEX_TO_ROOT = "../"
 TIMELINE_TO_ROOT = "../"
+ABOUT_TO_ROOT = "../"
 
 # The site's destinations. The timeline is only one of them when the curated
 # datasets were built with it -- see ``sitegen.site.build_site``.
 INDEX_NAV = "breve"
 PERSONS_NAV = "personer"
 TIMELINE_NAV = "tidslinje"
+ABOUT_NAV = "om"
 
-# Who wrote the summaries, said once on the page that shows them. She is a
-# presenter, not a source: the Om page says so plainly.
-PRESENTER = "Victoria Eremita"
+# Who wrote the summaries and the front page's welcome, said once on each page
+# that carries her. She is a presenter, not a source: the Om page says so
+# plainly, and names her as fiction.
+PRESENTER = "Maria Notabene"
+
+# The three addresses the built site is allowed to point at, and the only
+# ones. The deed travels with the text on every page because it is the
+# licence the text is published under; the other two are provenance, and
+# provenance without a link is just a claim -- so they live on the Om page.
+CC0_DEED = "https://creativecommons.org/publicdomain/zero/1.0/deed.da"
+PUBLISHERS_EDITION = "https://tekster.kb.dk/sks"
+# Used only when a build has no ``data/vendor/PROVENANCE.md`` to read the
+# repository out of; the recorded value wins whenever there is one.
+UPSTREAM_REPOSITORY = "https://github.com/kb-dk/SKS_tei"
 
 
 def index_page(books, facets, timeline=False):
@@ -52,6 +65,7 @@ def index_page(books, facets, timeline=False):
     count = sum(len(book["letters"]) for book in books)
     summaries = sum(1 for book in books for view in book["letters"] if view["summary"])
     body = element("h1", "Breve") + _intro(books, count, summaries)
+    body += _presentation(timeline=timeline)
     body += _finder(facets)
     body += _volume_navigation(books)
     body += "".join(_book(book) for book in books)
@@ -121,6 +135,57 @@ def _intro(books, count, summaries):
             "til udgaven." % text(PRESENTER)
         )
     return element("p", lead, class_="lead")
+
+
+def _presentation(timeline=False):
+    """The front page's welcome, in the presenter's own voice.
+
+    The site's one editorial moment. It comes *after* the factual lead on
+    purpose: the demonstration says what it is before an invented person says
+    anything at all, so a reader who skips the italics has still been told the
+    truth, and one who reads them meets a hostess rather than an authority.
+
+    Every concrete thing in it is in a letter -- the snuff box the class gave
+    at a farewell in letter 1, the eighty rigsdaler and the destroyed receipt
+    in letter 10, the grave plot with room for one more name in letter 39,
+    quoted in the edition's own spelling. Nothing here is invented but her,
+    and the Om page one link away says so.
+
+    ``timeline`` only decides whether she may offer it: a build without the
+    curated datasets writes no timeline page, and she must not point at a door
+    that is not there.
+    """
+    doings = "Bladr, søg på et ord, filtrér efter afsender, modtager eller år"
+    if timeline:
+        doings += ", følg årene på tidslinjen"
+    doings += ", eller slå de mennesker op, som brevene nævner."
+    body = element(
+        "p",
+        "Det begynder med en skoledreng, der i 1829 undskylder, at han aldrig "
+        "skriver, og bruger resten af brevet på nyt fra Borgerdydsskolen — "
+        "blandt andet en snustobaksdåse, klassen gav i afskedsgave. Senere "
+        "skylder en bror ham 80 rigsdaler, og gældsbeviset har han selv "
+        "tilintetgjort. Og et sted gør han familiegravstedet i stand på skrift, "
+        "med plads på tavlen til ét navn mere: »Søren Aabye født d. 5 Mai 1813 "
+        "død«.",
+    )
+    body += element(
+        "p",
+        "Herunder ligger de alle sammen. %s Brevene står også hos udgiveren "
+        "selv; Om-siden siger hvor." % doings,
+    )
+    body += element(
+        "p",
+        "Selv har jeg ikke fundet et eneste af dem — de lå frit fremme. Jeg "
+        "skriver kun forord: de små under hvert brev i listen, og dette her. "
+        "Hvem jeg ellers er, står "
+        + element("a", "på Om", href="%som/" % INDEX_TO_ROOT)
+        + ".",
+    )
+    body += element("p", text(PRESENTER), class_="presentation-sign")
+    return element(
+        "section", body, class_="presentation", aria_label="Velkomst", lang="da"
+    )
 
 
 def _finder(facets):
@@ -347,7 +412,7 @@ def _facts(view):
 
 
 def _summary(view):
-    """Victoria's two sentences about the letter, in her own register.
+    """The presenter's two sentences about the letter, in her own register.
 
     Not on the letter page: there the letter speaks for itself. Here, where a
     reader is choosing what to read, a presenter is welcome -- and she is
@@ -1180,6 +1245,171 @@ def _dataset_note(meta):
     )
 
 
+# ---------------------------------------------------------------------------
+# Om
+# ---------------------------------------------------------------------------
+
+
+def about_page(provenance=None, timeline=False):
+    """What the site is, where the text comes from, and who the hostess is.
+
+    Rule 5 of the build brief lives here: the demonstration has to be
+    recognisable as a demonstration inside a minute, without anyone feeling
+    taken in. So this page states the source and its licence, the code's
+    licence, the upstream commit the vendored files were taken at, and --
+    plainly -- that Maria Notabene is invented and that the site was built
+    with AI assistance.
+
+    ``provenance`` is ``pipeline.provenance.load_provenance``'s dict or None.
+    Without it the page names the upstream repository but claims no pinned
+    commit: a pin the build cannot verify against the record beside the files
+    would be worse than no pin at all.
+    """
+    body = element("h1", "Om")
+    body += element(
+        "p",
+        "<i>epistel</i> er en uafhængig demonstrationsvisning af Søren "
+        "Kierkegaards breve, bygget på offentligt tilgængelige TEI-filer. Den "
+        "er ikke en udgivelse fra udgiverne bag <i>Søren Kierkegaards "
+        "Skrifter</i>, og den har ingen anden autoritet end den, kilderne selv "
+        "har.",
+        class_="lead",
+    )
+    body += _about_display()
+    body += _about_source(provenance)
+    body += _about_code()
+    body += _about_presenter()
+    body += _about_people()
+    return _document(
+        title="Om",
+        main=element("div", body, class_="prose"),
+        root=ABOUT_TO_ROOT,
+        description="Hvad epistel er, hvor teksten kommer fra, hvilke licenser "
+        "der gælder, og hvem Maria Notabene er.",
+        timeline=timeline,
+        here=ABOUT_NAV,
+    )
+
+
+def _about_display():
+    """The architecture note the brief asks for, written to be read."""
+    body = element("h2", "Hvad det her er")
+    body += element(
+        "p",
+        "Et forsøg på at bygge en ordentlig læseoplevelse oven på en "
+        "tekstsamling, man ikke selv ejer. Alt på siden er hentet ud af de "
+        "TEI-filer, udgaven er kodet i, af en byggeproces, der kører én gang og "
+        "efterlader en mappe med almindelige HTML-sider. Der er ingen server, "
+        "ingen database, og siden henter ingenting, mens du læser den.",
+    )
+    body += element(
+        "p",
+        "Det er en pointe og ikke en spareøvelse. Værdien i en tekstsamling "
+        "ligger i dens rådata — de standardformaterede filer, som enhver kan "
+        "hente, læse og bygge videre på. Derfor: visningen læser fra offentligt "
+        "TEI; visningslaget er bevidst tyndt og udskifteligt. Vil nogen om ti år "
+        "bygge noget helt andet oven på de samme filer, koster det ikke andet "
+        "end arbejdet, og brevene tager ingen skade af det. Denne visning må "
+        "gerne smides væk. Filerne må ikke.",
+    )
+    return element("section", body, id="visningen")
+
+
+def _about_source(provenance):
+    """The vendored TEI: whose it is, what licence it carries, which commit."""
+    repository = (provenance or {}).get("repository") or UPSTREAM_REPOSITORY
+    body = element("h2", "Teksten")
+    body += element(
+        "p",
+        "Brevteksterne kommer fra den TEI-kodede udgave af <i>Søren "
+        "Kierkegaards Skrifter</i>, som ligger offentligt i repositoriet "
+        + element("a", "kb-dk/SKS_tei", href=repository, rel="external")
+        + ". Filerne er stillet til rådighed under "
+        + element("a", "CC0 1.0", href=CC0_DEED, rel="license")
+        + " — et afkald på ophavsret, der lader hvem som helst bruge dem til "
+        "hvad som helst, også dette.",
+    )
+    kept = (
+        "Kopien ligger uændret i projektet og bliver aldrig rettet; alt, hvad "
+        "visningen gør ved teksten, sker i byggeprocessen."
+    )
+    if provenance and provenance.get("commit"):
+        kept += " Den er hentet fra ét bestemt commit:"
+    body += element("p", kept)
+    if provenance and provenance.get("commit"):
+        # Forty characters of hash on their own line: it is a fact to be
+        # checked rather than read, and inside a sentence it drags the
+        # punctuation around with it.
+        body += element(
+            "p", element("code", text(provenance["commit"])), class_="commit"
+        )
+    body += element(
+        "p",
+        "Udgaven kan også læses hos udgiverne selv på "
+        + element("a", "tekster.kb.dk/sks", href=PUBLISHERS_EDITION, rel="external")
+        + ", hvor kommentarer, indledninger og tekstkritisk apparat er gengivet "
+        "i deres helhed. Det gør denne visning ikke.",
+    )
+    return element("section", body, id="teksten")
+
+
+def _about_code():
+    body = element("h2", "Koden")
+    body += element(
+        "p",
+        "Generatoren er skrevet i Python uden andet end standardbiblioteket, og "
+        "siderne er håndskrevet HTML og CSS med én lille JavaScript-fil til "
+        "søgning og filtre. Koden er udgivet under MIT-licensen. De medbragte "
+        "TEI-filer beholder deres egen CC0-status: MIT gælder kun det, der er "
+        "skrevet her.",
+    )
+    return element("section", body, id="koden")
+
+
+def _about_presenter():
+    """The disclosure. Plain Danish, no hedging, and no small print."""
+    body = element("h2", text(PRESENTER))
+    body += element(
+        "p",
+        "%s findes ikke. Hun er opdigtet til lejligheden, i Kierkegaards egen "
+        "pseudonymtradition: et andet navn på titelbladet, som hele København "
+        "alligevel kunne regne ud. Navnet er lånt fra Nicolaus Notabene i "
+        "<i>Forord</i> (1844), der kun måtte skrive forord, fordi hans kone "
+        "anså det for ægteskabelig utroskab at skrive bøger. Nu har konen taget "
+        "pennen, og hun skriver stadig kun forord. Fornavnet er lånt med et "
+        "blink fra hende, der har bygget siden." % text(PRESENTER),
+    )
+    body += element(
+        "p",
+        "Hun står for velkomsten på forsiden og for de korte resuméer i "
+        "brevoversigten. De hører ikke til udgaven, og de står med vilje ikke "
+        "på brevenes egne sider: når man læser et brev, skal brevet have ordet.",
+    )
+    body += element(
+        "p",
+        "Resuméerne er skrevet med Claude (AI) efter en fastlagt "
+        "stemmebeskrivelse og derefter læst igennem en modlæsningsrunde, hvor en "
+        "anden model havde til opgave at finde påstande, der ikke stod i brevet; "
+        "det, der blev fundet, er rettet. Fiktionen angår kun værtinden, aldrig "
+        "materialet: ingen kilde, ingen datering og ingen anekdote er fundet på.",
+    )
+    return element("section", body, id="notabene")
+
+
+def _about_people():
+    body = element("h2", "Personerne")
+    body += element(
+        "p",
+        "Personregistret er udgavens eget — hver person, udgaven selv har "
+        "mærket op med navn i en brevtekst — og de korte biografier er skrevet "
+        "ud af udgavens egen kommentar (<code>kom.xml</code>) med samme "
+        "AI-hjælp og samme modlæsning, med en henvisning under hver biografi "
+        "til den note, den bygger på. Har kommentaren ingen note om personen, "
+        "siger siden det i stedet for at gætte.",
+    )
+    return element("section", body, id="personerne")
+
+
 def _style(**values):
     """Positions as custom properties: the stylesheet does the arithmetic."""
     parts = []
@@ -1281,12 +1511,7 @@ def _document(
             "Teksten stammer fra den TEI-kodede udgave af "
             "<i>Søren Kierkegaards Skrifter</i>, der er offentligt tilgængelig "
             "under "
-            + element(
-                "a",
-                "CC0 1.0",
-                href="https://creativecommons.org/publicdomain/zero/1.0/deed.da",
-                rel="license",
-            )
+            + element("a", "CC0 1.0", href=CC0_DEED, rel="license")
             + ". Denne visning er en uafhængig demonstration — ikke en udgivelse "
             "fra udgiverne bag SKS — og er bygget med hjælp fra Claude (AI).",
         ),
@@ -1312,10 +1537,11 @@ def _document(
 def _navigation(root, timeline, here):
     """The links in the header band -- only to pages this build actually wrote.
 
-    Breve and Personer both come out of the TEI and are always there. The
-    timeline is built from the curated datasets in ``data/context``; a build
-    without them is a smaller site, and a smaller site must not offer a link
-    to a page it never wrote.
+    Breve, Personer and Om are on every build: the first two come out of the
+    TEI, and the third is what makes the demonstration honest, so it may never
+    be optional. The timeline is built from the curated datasets in
+    ``data/context``; a build without them is a smaller site, and a smaller
+    site must not offer a link to a page it never wrote.
     """
     destinations = [
         (INDEX_NAV, "Breve", root or "./"),
@@ -1323,6 +1549,7 @@ def _navigation(root, timeline, here):
     ]
     if timeline:
         destinations.append((TIMELINE_NAV, "Tidslinje", "%stidslinje/" % root))
+    destinations.append((ABOUT_NAV, "Om", "%som/" % root))
     links = "".join(
         element(
             "a",

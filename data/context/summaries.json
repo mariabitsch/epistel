@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "description": "Resuméer af brevene, skrevet af Victoria Eremita (fiktiv formidler, se docs/victoria.md og Om-siden).",
+  "description": "Resuméer af brevene, skrevet af Maria Notabene (fiktiv formidler, se docs/notabene.md og Om-siden; omdøbt fra Victoria Eremita 2026-07-28).",
   "editorialLayer": true,
   "notFromTEI": true,
   "generator": "Claude Opus 5 (skrivning), Claude Sonnet (adversarial efterkontrol), reparationsrunde med nul resterende flag",

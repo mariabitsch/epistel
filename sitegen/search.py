@@ -9,7 +9,7 @@ the whole corpus is in memory, and shipped as finished data:
   the hard parts of the interaction and there is nothing to re-render.
 * ``search_index(views)`` -- an inverted index from folded word to the letters
   that contain it, built from the reading text of each letter (the parser's
-  ``plain_text``) and from Victoria's summary where there is one.
+  ``plain_text``) and from Maria Notabene's summary where there is one.
 
 The index is inverted rather than a bundle of letter texts because it is a
 third of the size: the corpus is 668 000 characters of prose, but only about
@@ -190,7 +190,7 @@ def search_index(views):
         slugs.append(view["slug"])
         text = view["plain_text"]
         if view.get("summary"):
-            # Victoria's summaries are searchable too: they are often where a
+            # The summaries are searchable too: they are often where a
             # letter's subject is said in modern Danish, and the letters
             # themselves never say "forlovelse" the way a reader types it.
             text = "%s\n%s" % (text, view["summary"])

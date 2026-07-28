@@ -18,6 +18,7 @@ import unittest
 from pipeline.context import load_context
 from pipeline.corpus import parse_corpus
 from pipeline.parse_tei import parse_volume, plain_text
+from pipeline.provenance import load_provenance
 from sitegen import dates
 from sitegen.site import STATIC_DIRECTORY, build_site, display_name, letter_slug
 from sitegen.tei_html import BodyRenderer
@@ -27,6 +28,29 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VENDOR = os.path.join(REPO_ROOT, "data", "vendor")
 VENDORED_B1 = os.path.join(VENDOR, "b1", "txt.xml")
 CONTEXT = os.path.join(REPO_ROOT, "data", "context")
+
+# Self-containment, page by page. Every page the build writes is a closed
+# system: the only address pointing off the site is the CC0 deed in the
+# footer, which is the licence the text is published under and belongs
+# wherever the text goes. The Om page is the single exception, because
+# provenance without links is not provenance -- so its extra addresses are
+# named here, and nowhere else, rather than waved through by substring.
+FOOTER_LINKS = ("https://creativecommons.org/publicdomain/zero/1.0/deed.da",)
+ABOUT_LINKS = FOOTER_LINKS + (
+    "https://github.com/kb-dk/SKS_tei",
+    "https://tekster.kb.dk/sks",
+)
+
+
+def assert_self_contained(case, page, allowed=FOOTER_LINKS):
+    """No page fetches anything, and no page links off-site un-declared."""
+    stripped = page
+    for link in allowed:
+        stripped = stripped.replace(link, "")
+    case.assertNotIn("http://", stripped)
+    case.assertNotIn("https://", stripped)
+    case.assertNotIn('href="/', page)
+    case.assertNotIn('src="/', page)
 
 
 def date(raw, not_after=None, source=None):
@@ -416,10 +440,7 @@ class SiteBuildTest(unittest.TestCase):
 
     def test_pages_are_self_contained(self):
         for page in (self.read("index.html"), self.read("brev", "1", "index.html")):
-            self.assertNotIn("http://", page)
-            self.assertNotIn("https://", page.replace("https://creativecommons.org", ""))
-            self.assertNotIn('href="/', page)
-            self.assertNotIn('src="/', page)
+            assert_self_contained(self, page)
 
     def test_the_index_gives_every_correspondence_a_heading_block(self):
         # The group's heading, its note and its count are one unit -- the
@@ -722,11 +743,7 @@ class CorpusSiteBuildTest(unittest.TestCase):
         for entry in sorted(os.listdir(os.path.join(self.directory.name, "brev"))):
             pages.append(self.read("brev", entry, "index.html"))
         for page in pages:
-            stripped = page.replace("https://creativecommons.org", "")
-            self.assertNotIn("http://", stripped)
-            self.assertNotIn("https://", stripped)
-            self.assertNotIn('href="/', page)
-            self.assertNotIn('src="/', page)
+            assert_self_contained(self, page)
 
     def test_the_corpus_build_is_deterministic(self):
         with tempfile.TemporaryDirectory() as other:
@@ -1078,10 +1095,7 @@ class TimelinePageTest(unittest.TestCase):
         self.assertNotRegex(self.page, r">\s*1[89]\d{2}-\d{2}-\d{2}\s*<")
 
     def test_the_page_is_self_contained(self):
-        stripped = self.page.replace("https://creativecommons.org", "")
-        self.assertNotIn("http://", stripped)
-        self.assertNotIn("https://", stripped)
-        self.assertNotIn('href="/', self.page)
+        assert_self_contained(self, self.page)
         self.assertNotIn("<script", self.page)
 
     def test_the_site_navigation_reaches_the_timeline_from_every_page(self):
@@ -1115,7 +1129,7 @@ class TimelinePageTest(unittest.TestCase):
 
 
 class SummaryTest(unittest.TestCase):
-    """Victoria's summaries: in the index, and nowhere else.
+    """Maria Notabene's summaries: in the index, and nowhere else.
 
     Maria's decision, and the reason is worth writing down: choosing what to
     read is where a presenter helps, and reading is where she gets in the way.
@@ -1170,16 +1184,240 @@ class SummaryTest(unittest.TestCase):
 
     def test_the_index_says_whose_voice_the_summaries_are(self):
         lead = self.index.split('class="lead"', 1)[1].split("</p>", 1)[0]
-        self.assertIn("Victoria Eremita", lead)
+        self.assertIn("Maria Notabene", lead)
         self.assertIn("hører ikke til udgaven", lead)
 
     def test_a_build_without_the_summaries_promises_none(self):
+        """No summaries, no sentence about summaries.
+
+        She still welcomes the reader -- the welcome is prose in the
+        generator, not data -- but the lead must not credit her with 333
+        resumés that this build did not write.
+        """
         with tempfile.TemporaryDirectory() as other:
             result = build_site(self.volumes, other)
             self.assertEqual(0, result["summaries"])
             index = self.read_from(other, "index.html")
             self.assertNotIn("letter-summary", index)
-            self.assertNotIn("Victoria Eremita", index)
+            lead = index.split('class="lead"', 1)[1].split("</p>", 1)[0]
+            self.assertNotIn("Maria Notabene", lead)
+            self.assertNotIn("hører ikke til udgaven", lead)
+
+
+class PresenterTest(unittest.TestCase):
+    """The one invented thing on the site, and the page that owns up to it.
+
+    Maria Notabene writes the front page's welcome and the 333 summaries. The
+    site's honesty rests on two things being true at once: she is the only
+    fiction here -- no invented source, date or anecdote anywhere -- and the
+    page that says so is one click away from her, in plain Danish.
+
+    These tests hold the parts of that promise a build can actually check:
+    that she is on the front page, that the Om page exists and names the
+    source, the licences, the pin and the AI assistance, and that the reader
+    can get there from any page.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.context = load_context(CONTEXT)
+        cls.provenance = load_provenance(VENDOR)
+        cls.volumes = parse_corpus(VENDOR)
+        cls.directory = tempfile.TemporaryDirectory()
+        cls.result = build_site(
+            cls.volumes,
+            cls.directory.name,
+            context=cls.context,
+            provenance=cls.provenance,
+        )
+        cls.index = cls.read_from(cls.directory.name, "index.html")
+        cls.about = cls.read_from(cls.directory.name, "om", "index.html")
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.directory.cleanup()
+
+    @staticmethod
+    def read_from(*parts):
+        with open(os.path.join(*parts), encoding="utf-8") as file:
+            return file.read()
+
+    def read(self, *parts):
+        return self.read_from(self.directory.name, *parts)
+
+    def welcome(self):
+        """Just her block on the front page, so the assertions cannot drift."""
+        return self.index.split('class="presentation"', 1)[1].split("</section>", 1)[0]
+
+    # -- the front page ---------------------------------------------------
+
+    def test_the_front_page_carries_her_welcome(self):
+        self.assertIn('class="presentation"', self.index)
+        self.assertIn("Maria Notabene", self.index)
+
+    def test_the_welcome_shows_the_span_with_things_from_the_letters(self):
+        """Concrete, and every one of them checkable against a letter.
+
+        The snuff box is in letter 1, the eighty rigsdaler in letter 10, the
+        grave plot with room for one more name in letter 39 -- which is
+        quoted in the edition's own spelling, as everything quoted here is.
+        """
+        welcome = self.welcome()
+        self.assertIn("snustobaksdåse", welcome)
+        self.assertIn("80 rigsdaler", welcome)
+        self.assertIn("Søren Aabye født d. 5 Mai 1813 død", welcome)
+
+    def test_the_welcome_says_what_a_reader_can_do_here(self):
+        welcome = self.welcome()
+        for word in ("søg", "filtrér", "tidslinjen", "udgiveren"):
+            self.assertIn(word, welcome.lower(), "the welcome never mentions %s" % word)
+
+    def test_the_welcome_points_at_the_om_page(self):
+        self.assertIn('href="om/"', self.welcome())
+
+    def test_the_welcome_promises_no_man_behind_the_philosopher(self):
+        # The one thing a Kierkegaard letter site must not say.
+        self.assertNotIn("bag filosoffen", self.index)
+        self.assertNotIn("mennesket bag", self.index)
+
+    def test_the_welcome_is_the_front_pages_alone(self):
+        # An editorial voice earns its place where a reader is choosing what
+        # to read. On the letter's own page the letter has the word.
+        for parts in (("brev", "1", "index.html"), ("personer", "index.html")):
+            self.assertNotIn('class="presentation"', self.read(*parts))
+
+    def test_a_build_without_the_curated_layer_still_has_her_welcome(self):
+        """She is prose in the generator, not data: no dataset can remove her.
+
+        The summaries can be thrown away and the site still stands; the
+        welcome is part of the display layer itself.
+        """
+        with tempfile.TemporaryDirectory() as other:
+            build_site(self.volumes, other)
+            self.assertIn(
+                'class="presentation"', self.read_from(other, "index.html")
+            )
+
+    # -- the Om page ------------------------------------------------------
+
+    def test_the_om_page_is_built(self):
+        self.assertTrue(
+            os.path.exists(os.path.join(self.directory.name, "om", "index.html"))
+        )
+        self.assertIn("demonstrationsvisning", self.about)
+
+    def test_the_om_page_states_the_architecture_note(self):
+        self.assertIn("visningen læser fra offentligt TEI", self.about)
+        self.assertIn("tyndt og udskifteligt", self.about)
+
+    def test_the_om_page_names_the_source_and_its_licence(self):
+        self.assertIn("kb-dk/SKS_tei", self.about)
+        self.assertIn("CC0", self.about)
+        self.assertIn(FOOTER_LINKS[0], self.about)
+
+    def test_the_om_page_pins_the_commit_the_files_were_taken_at(self):
+        """The reader is told the same commit the provenance file records.
+
+        Not a constant in the generator: the page is built from
+        ``data/vendor/PROVENANCE.md``, so the two cannot drift apart.
+        """
+        recorded = self.read_from(VENDOR, "PROVENANCE.md")
+        self.assertIn(self.provenance["commit"], recorded)
+        self.assertIn(self.provenance["commit"], self.about)
+
+    def test_the_om_page_sends_the_reader_to_the_publishers_own_edition(self):
+        self.assertIn("tekster.kb.dk/sks", self.about)
+
+    def test_the_om_page_names_the_code_licence(self):
+        self.assertIn("MIT", self.about)
+
+    def test_the_om_page_discloses_the_presenter_as_fiction(self):
+        disclosure = self.about.split('id="notabene"', 1)[1]
+        self.assertIn("Maria Notabene", disclosure)
+        self.assertIn("opdigtet", disclosure)
+        self.assertIn("pseudonym", disclosure)
+        self.assertIn("Claude", disclosure)
+
+    def test_the_om_page_explains_where_the_biographies_come_from(self):
+        self.assertIn("kommentar", self.about)
+        self.assertIn("kom.xml", self.about)
+
+    def test_a_build_without_a_provenance_record_claims_no_pin(self):
+        """No record, no pin: the page says what it can vouch for and no more."""
+        with tempfile.TemporaryDirectory() as other:
+            build_site(self.volumes, other, context=self.context)
+            about = self.read_from(other, "om", "index.html")
+            self.assertIn("kb-dk/SKS_tei", about)
+            self.assertNotIn(self.provenance["commit"], about)
+
+    # -- the site around them ---------------------------------------------
+
+    def test_every_page_can_reach_the_om_page(self):
+        pairs = (
+            (("index.html",), 'href="om/"'),
+            (("brev", "1", "index.html"), 'href="../../om/"'),
+            (("personer", "index.html"), 'href="../om/"'),
+            (("person", "sokrates", "index.html"), 'href="../../om/"'),
+            (("tidslinje", "index.html"), 'href="../om/"'),
+            (("om", "index.html"), 'aria-current="page"'),
+        )
+        for parts, expected in pairs:
+            self.assertIn(expected, self.read(*parts), "/".join(parts))
+
+    def test_every_built_page_is_self_contained_and_om_is_the_one_exception(self):
+        for path in _built_pages(self.directory.name):
+            page = self.read_from(path)
+            allowed = (
+                ABOUT_LINKS
+                if os.path.basename(os.path.dirname(path)) == "om"
+                else FOOTER_LINKS
+            )
+            with self.subTest(page=os.path.relpath(path, self.directory.name)):
+                assert_self_contained(self, page, allowed)
+
+    def test_the_site_never_mentions_the_name_she_was_renamed_from(self):
+        """Renamed 2026-07-28. Victor Eremita, SK's own pseudonym, stays."""
+        for path in _built_files(self.directory.name, (".html", ".css", ".js")):
+            with open(path, encoding="utf-8") as file:
+                self.assertNotIn(
+                    "Victoria",
+                    file.read(),
+                    os.path.relpath(path, self.directory.name),
+                )
+
+    def test_the_om_page_build_is_deterministic(self):
+        with tempfile.TemporaryDirectory() as other:
+            build_site(
+                self.volumes, other, context=self.context, provenance=self.provenance
+            )
+            self.assertEqual(self.about, self.read_from(other, "om", "index.html"))
+
+
+class ProvenanceTest(unittest.TestCase):
+    """The vendored files' record of themselves, read rather than retyped."""
+
+    def test_the_record_names_the_repository_and_the_commit(self):
+        recorded = load_provenance(VENDOR)
+        self.assertEqual("https://github.com/kb-dk/SKS_tei", recorded["repository"])
+        self.assertRegex(recorded["commit"], r"^[0-9a-f]{40}$")
+
+    def test_a_directory_without_a_record_yields_nothing(self):
+        with tempfile.TemporaryDirectory() as empty:
+            self.assertIsNone(load_provenance(empty))
+
+
+def _built_pages(root):
+    """Every HTML page the build wrote, in a stable order."""
+    return [path for path in _built_files(root, (".html",))]
+
+
+def _built_files(root, suffixes):
+    found = []
+    for directory, _, names in os.walk(root):
+        for name in sorted(names):
+            if name.endswith(suffixes):
+                found.append(os.path.join(directory, name))
+    return sorted(found)
 
 
 def _escape(value):

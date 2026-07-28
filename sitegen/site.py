@@ -8,6 +8,7 @@ directory of static files::
     personer/index.html         the register of everyone the letters name
     person/<slug>/index.html    one person
     tidslinje/index.html        the years, with the curated context layer
+    om/index.html               what the site is, and who the presenter is
     assets/site.css             plus assets/fonts/ -- everything static/ holds
     assets/search-index.js      the prebuilt free-text index
 
@@ -15,6 +16,10 @@ It takes a *list* of volumes and never asks how many there are, so a build of
 one volume and a build of all fourteen go down the same path. The output
 directory is recreated from scratch on every build, and the same input always
 produces byte-identical output.
+
+``provenance`` is the record beside the vendored files (``pipeline.provenance``)
+and reaches exactly one place: the Om page, which tells the reader which
+upstream commit the TEI was taken at.
 
 ``context`` is the curated editorial layer (``pipeline.context``) and every
 part of it is optional. Without the publications and residences there is no
@@ -56,7 +61,7 @@ UNGROUPED_ID = "uden-brevveksling"
 NUMBER = re.compile(r"^\d+(\.\d+)*$")
 
 
-def build_site(volumes, out_dir, context=None):
+def build_site(volumes, out_dir, context=None, provenance=None):
     """Generate the whole site. Returns a small report for the build script.
 
     Built in two passes, because a letter page links to the people it names
@@ -122,6 +127,13 @@ def build_site(volumes, out_dir, context=None):
         )
     if timeline:
         _write(out_dir, ["tidslinje", "index.html"], pages.timeline_page(timeline))
+    # Always written, and never conditional on any dataset: the Om page is
+    # what tells a reader this is a demonstration and who the presenter is.
+    _write(
+        out_dir,
+        ["om", "index.html"],
+        pages.about_page(provenance=provenance, timeline=has_timeline),
+    )
     _copy_static(out_dir)
     _write(out_dir, ["assets", "search-index.js"], search.index_script(index))
 

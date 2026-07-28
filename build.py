@@ -18,6 +18,7 @@ import sys
 
 from pipeline.context import load_context
 from pipeline.corpus import parse_corpus
+from pipeline.provenance import load_provenance
 from sitegen.site import build_site
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -49,7 +50,16 @@ def main(argv):
             % _relative(CONTEXT)
         )
 
-    result = build_site(volumes, out_dir, context=context)
+    provenance = load_provenance(VENDOR)
+    if provenance is None:
+        print(
+            "warning: no provenance record in %s: the Om page will name no "
+            "pinned commit" % _relative(VENDOR)
+        )
+    else:
+        print("build: vendored TEI pinned to %s" % provenance["commit"])
+
+    result = build_site(volumes, out_dir, context=context, provenance=provenance)
     for warning in result["warnings"]:
         print(
             "warning: renderer: unmodelled TEI element <%s> (%d %s, first seen "
@@ -86,7 +96,9 @@ def main(argv):
             result["search_words"],
         )
     )
-    pages = result["letters"] + result["people"] + 2
+    # The letters, the people, plus the letter index, the person register and
+    # the Om page; the timeline is counted below when it was built.
+    pages = result["letters"] + result["people"] + 3
     if result["timeline"]:
         counts = result["timeline"]
         pages += 1

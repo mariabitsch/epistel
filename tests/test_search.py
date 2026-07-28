@@ -109,7 +109,7 @@ class SearchIndexTest(unittest.TestCase):
         self.assertIn("1", self.find("Tøffel"))
 
     def test_the_summaries_are_searchable_too(self):
-        """"afskedsgave" is Victoria's word for brev 1, not the letter's own.
+        """"afskedsgave" is Maria Notabene's word for brev 1, not the letter's own.
 
         The letter says a snuff box was given "til Afsked"; she calls it a
         farewell gift. A reader typing the modern word should still land on
