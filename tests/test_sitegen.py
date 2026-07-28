@@ -539,6 +539,63 @@ class LetterSlugTest(unittest.TestCase):
         )
 
 
+class FaviconTest(unittest.TestCase):
+    """Maria's icon set: shipped at the site root, linked relatively.
+
+    The files come from ``sitegen/favicon`` and land beside ``index.html``,
+    because that is where a browser guesses first; the pages still declare
+    them with relative links, so the site keeps working from any directory
+    of any static host. The manifest is held to the same rule: no absolute
+    paths, and it names the site.
+    """
+
+    FILES = (
+        "favicon.ico",
+        "favicon-16x16.png",
+        "favicon-32x32.png",
+        "apple-touch-icon.png",
+        "android-chrome-192x192.png",
+        "android-chrome-512x512.png",
+        "site.webmanifest",
+    )
+
+    @classmethod
+    def setUpClass(cls):
+        cls.volume = parse_volume(VENDORED_B1)
+        cls.directory = tempfile.TemporaryDirectory()
+        cls.result = build_site([cls.volume], cls.directory.name)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.directory.cleanup()
+
+    def read(self, *parts):
+        with open(os.path.join(self.directory.name, *parts), encoding="utf-8") as file:
+            return file.read()
+
+    def test_every_icon_file_lands_at_the_site_root(self):
+        for name in self.FILES:
+            self.assertTrue(
+                os.path.exists(os.path.join(self.directory.name, name)), name
+            )
+
+    def test_every_page_declares_the_icons_relatively(self):
+        index = self.read("index.html")
+        letter = self.read("brev", "1", "index.html")
+        self.assertIn('href="favicon-32x32.png"', index)
+        self.assertIn('href="apple-touch-icon.png"', index)
+        self.assertIn('href="site.webmanifest"', index)
+        self.assertIn('href="../../favicon-32x32.png"', letter)
+        self.assertIn('href="../../favicon.ico"', letter)
+
+    def test_the_manifest_names_the_site_and_points_nowhere_absolute(self):
+        manifest = json.loads(self.read("site.webmanifest"))
+        self.assertEqual("epistel", manifest["name"])
+        self.assertEqual("epistel", manifest["short_name"])
+        for icon in manifest["icons"]:
+            self.assertFalse(icon["src"].startswith("/"), icon["src"])
+
+
 class CorpusSiteBuildTest(unittest.TestCase):
     """The whole corpus, built once and read the way a visitor would read it."""
 

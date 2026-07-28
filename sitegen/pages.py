@@ -1532,6 +1532,30 @@ def _document(
         + element("meta", name="description", content=description)
         + element("title", "%s · %s" % (text(title), SITE_TITLE))
         + element("link", rel="stylesheet", href="%sassets/site.css" % root)
+        # Maria's icon set, declared relatively like every other address
+        # on the site; the files sit at the root (see site._copy_static).
+        + element(
+            "link",
+            rel="icon",
+            href="%sfavicon.ico" % root,
+            sizes="16x16 32x32 48x48",
+        )
+        + element(
+            "link",
+            rel="icon",
+            type="image/png",
+            sizes="32x32",
+            href="%sfavicon-32x32.png" % root,
+        )
+        + element(
+            "link",
+            rel="icon",
+            type="image/png",
+            sizes="16x16",
+            href="%sfavicon-16x16.png" % root,
+        )
+        + element("link", rel="apple-touch-icon", href="%sapple-touch-icon.png" % root)
+        + element("link", rel="manifest", href="%ssite.webmanifest" % root)
     )
     header = element(
         "header",

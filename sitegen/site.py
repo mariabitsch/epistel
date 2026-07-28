@@ -51,6 +51,7 @@ from .tei_html import BodyRenderer
 from .timeline import timeline_model
 
 STATIC_DIRECTORY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
+FAVICON_DIRECTORY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "favicon")
 
 # Letters a volume's correspondence groups do not account for still get
 # listed; the build reports how many, because it should never be more than 0.
@@ -367,6 +368,17 @@ def _copy_static(out_dir):
     shutil.copytree(
         STATIC_DIRECTORY,
         os.path.join(out_dir, "assets"),
+        copy_function=shutil.copyfile,
+        ignore=shutil.ignore_patterns(".*", "README.md"),
+        dirs_exist_ok=True,
+    )
+    # The icons land at the *root*, beside index.html: /favicon.ico is
+    # where a browser guesses before it has read a page. The pages still
+    # declare them relatively -- see ``pages._document`` -- so the site
+    # keeps working from any directory of any static host.
+    shutil.copytree(
+        FAVICON_DIRECTORY,
+        out_dir,
         copy_function=shutil.copyfile,
         ignore=shutil.ignore_patterns(".*", "README.md"),
         dirs_exist_ok=True,
