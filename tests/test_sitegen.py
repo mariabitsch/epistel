@@ -1599,18 +1599,53 @@ class PresenterTest(unittest.TestCase):
         self.assertIn("pseudonym", disclosure)
         self.assertIn("Claude", disclosure)
 
-    def test_the_om_page_introduces_its_two_pieces_of_jargon(self):
-        """TEI and commit are explained, not assumed (Maria, korrektur 2026-07-28).
+    def test_the_om_page_introduces_its_three_pieces_of_jargon(self):
+        """TEI, SKS and commit are explained, not assumed (korrektur, 2026-07-28).
 
         The page is read by people deciding whether to believe it, not by
-        people who already know what a TEI file or a commit is. Both words
-        stay -- they are the honest names for the things -- but each arrives
-        inside a sentence of plain Danish that says what it means.
+        people who already know what a TEI file or a commit is. The words
+        stay -- they are the honest names for the things -- but each one
+        arrives with the plain Danish that says what it means. SKS joined
+        them when the rest of the site started naming the edition by its
+        initials (item 31): the expansion has to live somewhere, and this
+        is the page a reader comes to for it.
         """
         self.assertIn("TEI er en international standard", self.about)
         self.assertIn("tekstudgaver til videnskabelig brug", self.about)
         self.assertIn("én bestemt udgivelse af teksterne", self.about)
         self.assertIn("<i>commit</i>", self.about)
+        self.assertIn("<i>Søren Kierkegaards Skrifter</i> (SKS)", self.about)
+
+    def test_the_edition_speaks_under_its_own_name_away_from_this_page(self):
+        """"Udgaven" is only unambiguous beside the page that names it.
+
+        Maria's call (korrektur item 31): everywhere the edition makes a
+        claim -- what it dates, what it marked up, whom it names as a
+        sender -- it makes it as SKS, so a reader who landed on a person
+        page from a search knows whose claim they are reading. The Om page
+        keeps "udgaven": there the edition has just been named in full.
+        """
+        claims = (
+            (("index.html",), "Breve, som SKS kun daterer til et år"),
+            (("personer", "index.html"), "som SKS selv har mærket op"),
+            (("personer", "index.html"), "skrevet ud af SKS' egen kommentar"),
+            (
+                ("person", "kierkegaard-peter-christian", "index.html"),
+                "Breve, hvor SKS angiver",
+            ),
+            (
+                ("person", "aabye-cicilie", "index.html"),
+                "SKS' kommentar giver ingen biografisk note",
+            ),
+            (
+                ("person", "victor-eremita", "index.html"),
+                "SKS' kommentar nævner personen",
+            ),
+            (("tidslinje", "index.html"), "brev, som SKS daterer til dagen"),
+        )
+        for parts, claim in claims:
+            self.assertIn(claim, self.read(*parts), "/".join(parts))
+        self.assertIn("udgaven", self.about)
 
     def test_the_om_page_says_where_the_resumes_sit_and_is_right_about_it(self):
         """The claim about the resumés has to survive a look at a letter page.

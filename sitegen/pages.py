@@ -323,9 +323,9 @@ def _year_note(years):
     if not any(entry.get("approximate") for entry in years):
         return None
     return (
-        "Breve, som udgaven kun daterer til et år eller til en periode, står "
+        "Breve, som SKS kun daterer til et år eller til en periode, står "
         "under det tidligste år, de kan tilhøre. Datoen ved hvert brev siger, "
-        "hvad udgaven faktisk ved."
+        "hvad SKS faktisk ved."
     )
 
 
@@ -726,13 +726,13 @@ def _person_index_intro(count, with_bio):
     lead = (
         "Alle, som brevene nævner ved navn – "
         + element("strong", _person_count(count))
-        + ", som udgaven selv har mærket op i brevteksterne. Registret skelner "
+        + ", som SKS selv har mærket op i brevteksterne. Registret skelner "
         "ikke mellem virkelige og litterære: står navnet i et brev, står "
         "personen her."
     )
     if with_bio:
         lead += (
-            " %d af dem har en kort biografi, skrevet ud af udgavens egen "
+            " %d af dem har en kort biografi, skrevet ud af SKS' egen "
             "kommentar." % with_bio
         )
     return element("p", lead, class_="lead")
@@ -802,12 +802,12 @@ def person_page(person, timeline=False, links=None):
     article += _person_letters(
         person["sent"],
         "Breve fra %s" % person["name"],
-        "Breve, hvor udgaven angiver %s som afsender." % person["name"],
+        "Breve, hvor SKS angiver %s som afsender." % person["name"],
     )
     article += _person_letters(
         person["received"],
         "Breve til %s" % person["name"],
-        "Breve, hvor udgaven angiver %s som modtager." % person["name"],
+        "Breve, hvor SKS angiver %s som modtager." % person["name"],
     )
     article += _person_letters(
         person["mentioned"],
@@ -870,11 +870,11 @@ def _biography(person):
         return element("section", block, class_="person-biography")
     if person["no_bio_reason"]:
         line = (
-            "Udgavens kommentar nævner personen, men uden biografiske "
+            "SKS' kommentar nævner personen, men uden biografiske "
             "oplysninger."
         )
     else:
-        line = "Kommentaren giver ingen biografisk note."
+        line = "SKS' kommentar giver ingen biografisk note om personen."
     return element(
         "section",
         element("p", line, class_="person-bio person-bio--none"),
@@ -1040,10 +1040,10 @@ def _timeline_legend():
     # dash rather than a stop, so a full stop on this page always means a
     # sentence has ended.
     rows = [
-        ("Streg", "brev, som udgaven daterer til dagen"),
+        ("Streg", "brev, som SKS daterer til dagen"),
         (
             "Åben kasse",
-            "brev, som udgaven kun daterer til måneden. Kassen dækker hele "
+            "brev, som SKS kun daterer til måneden. Kassen dækker hele "
             "måneden, fordi det er alt, kilden siger.",
         ),
         (
@@ -1053,7 +1053,7 @@ def _timeline_legend():
             # itself opens the explanation -- a reader must be able to look
             # up what is actually printed beside the year.
             "Kun år",
-            "»ca.« – brev, som udgaven kun daterer til året eller til en "
+            "»ca.« – brev, som SKS kun daterer til året eller til en "
             "periode over flere år. Breve, som kun har et årstal, står for "
             "sig selv ud for året.",
         ),
@@ -1245,7 +1245,7 @@ def _vague(marks, year):
             "ul",
             items,
             class_="tl-vague-list",
-            aria_label="Breve, som udgaven kun daterer til %d eller til en "
+            aria_label="Breve, som SKS kun daterer til %d eller til en "
             "periode, der begynder i %d" % (year, year),
         ),
         class_="tl-vague",
@@ -1415,7 +1415,7 @@ def about_page(provenance=None, timeline=False, links=None):
         "<i>epistel</i> er en uafhængig demonstrationsvisning af Søren "
         "Kierkegaards breve, bygget på offentligt tilgængelige TEI-filer. Den "
         "er ikke en udgivelse fra udgiverne bag <i>Søren Kierkegaards "
-        "Skrifter</i>, og den har ingen anden autoritet end den, kilderne selv "
+        "Skrifter</i> (SKS), og den har ingen anden autoritet end den, kilderne selv "
         "har.",
         class_="lead",
     )

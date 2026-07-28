@@ -256,7 +256,7 @@ class PersonRegisterTest(unittest.TestCase):
         see the augmentation test below.)
         """
         page = self.read("person", "thomsen-julie-augusta", "index.html")
-        self.assertIn("Kommentaren giver ingen biografisk note", page)
+        self.assertIn("SKS' kommentar giver ingen biografisk note", page)
         self.assertNotIn("Efter kommentaren i SKS", page)
         self.assertIn("Breve til Julie Augusta Thomsen", page)
         self.assertIn('href="../../brev/40/"', page)
@@ -273,7 +273,7 @@ class PersonRegisterTest(unittest.TestCase):
         self.assertIn("Efter kommentaren i SKS:", page)
         self.assertIn("Erindringer fra Hjemmet", page)
         self.assertIn("b171:b-927", page)
-        self.assertNotIn("Kommentaren giver ingen biografisk note", page)
+        self.assertNotIn("SKS' kommentar giver ingen biografisk note", page)
 
     def test_a_bio_filed_under_another_commentary_key_still_reaches_its_page(self):
         """The four people bio_keys.json bridges each show their biography."""
@@ -408,7 +408,7 @@ class PersonRegisterTest(unittest.TestCase):
             page = os.path.join(other, "person", "boesen-emil-ferdinand", "index.html")
             self.assertTrue(os.path.exists(page))
             with open(page, encoding="utf-8") as file:
-                self.assertIn("Kommentaren giver ingen biografisk note", file.read())
+                self.assertIn("SKS' kommentar giver ingen biografisk note", file.read())
 
     def test_the_register_only_counts_people_the_alias_table_could_place(self):
         register = build_register(
