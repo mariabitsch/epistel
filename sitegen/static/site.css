@@ -905,6 +905,30 @@ h1::before {                       /* the gilt tick: one accent, top left */
   border-color: #bda76b;
 }
 
+/* --- what the marks mean ---------------------------------------------
+   Only on letters that carry a mark, and each legend line wears its own
+   mark: the sample is the explanation, so meaning is never decoration
+   alone. Collapsed <details>, no script. Ink --muted: 6.35:1 on ground. */
+.mark-legend { margin: 1.3rem 0 0; }
+.mark-legend summary {
+  cursor: pointer;
+  font-family: var(--label);
+  font-size: 0.74rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.mark-legend-list {
+  list-style: none;
+  margin: 0.55rem 0 0;
+  padding: 0;
+}
+.mark-legend-list li {
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 /* --- editorial and manuscript marks ----------------------------------
    Preserve uncertainty: everything the edition flags stays flagged.
    supplied -> square brackets (the scholarly convention), gilt

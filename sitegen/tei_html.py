@@ -109,6 +109,20 @@ INLINE = {
     "del": ("tei-del", {}),
 }
 
+# What a text-critical mark means, said where the reader's pointer is.
+# The letter page's Tegnforklaring says the same in visible words (see
+# ``pages._mark_legend``); a hover should not know less than the page.
+MARK_TITLES = {
+    "supplied": "Udfyldt af udgiverne",
+    "unclear": "Usikker læsning i kilden",
+    "corr": "Rettet af udgiverne",
+    "add": "Tilføjet i kilden, typisk over linjen",
+}
+
+# The edition's own words for #lat: "Latin hand, in SKS rendered
+# sans-serif". The letters are otherwise in the Gothic hand.
+LATIN_HAND_TITLE = "Med latinsk skrift, hvor brevet ellers er gotisk"
+
 
 class BodyRenderer:
     """Renders letter bodies and remembers what it could not model.
@@ -205,6 +219,9 @@ class BodyRenderer:
         for source, target in data_attributes.items():
             if node.get(source):
                 pairs[target.replace("-", "_")] = node[source]
+        title = MARK_TITLES.get(node["type"])
+        if title:
+            pairs["title"] = title
         return element(
             "span", self._children(node), class_=self._classes(node, base), **pairs
         )
@@ -255,7 +272,11 @@ class BodyRenderer:
         if "ita" in renditions:
             return element("em", inner, class_=class_)
         # #und/#dun (under- and double underlining) and #lat (Latin script in
-        # a Gothic text) are carried as classes; the stylesheet decides.
+        # a Gothic text) are carried as classes; the stylesheet decides. The
+        # hand switch alone gets a tooltip: a face change explains itself to
+        # nobody.
+        if "lat" in renditions:
+            return element("span", inner, class_=class_, title=LATIN_HAND_TITLE)
         return element("span", inner, class_=class_)
 
     def _page_break(self, node):

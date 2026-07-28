@@ -786,6 +786,27 @@ class CorpusSiteBuildTest(unittest.TestCase):
         ]
         self.assertEqual(["b171-n171a", "b171-n176a", "b171-na"], without)
 
+    def test_a_letter_with_marks_explains_them_in_a_legend(self):
+        """Maria's call (2026-07-28): the text-critical marks stay, and the
+        reader is told what they mean -- a quiet per-letter Tegnforklaring
+        listing only the marks that actually occur, each line wearing its
+        own mark, so meaning is never carried by decoration alone.
+        """
+        page = self.read("brev", "159.1", "index.html")
+        self.assertIn("Tegnforklaring", page)
+        self.assertIn("tilføjet i kilden", page)
+        self.assertIn('title="Tilføjet i kilden', page)
+
+    def test_the_latin_hand_is_explained_where_it_occurs(self):
+        # Letter 1 switches to the Latin hand; the edition's own convention
+        # ('Latin hand, in SKS rendered sans-serif') deserves words.
+        page = self.read("brev", "1", "index.html")
+        self.assertIn("latinsk hånd", page)
+
+    def test_a_letter_with_no_marks_carries_no_legend(self):
+        page = self.read("brev", "10", "index.html")
+        self.assertNotIn("Tegnforklaring", page)
+
     def test_an_authors_footnote_reaches_the_page(self):
         page = self.read("brev", "65", "index.html")
         self.assertIn("tei-note", page)
@@ -860,8 +881,8 @@ def _transcription_text(page):
     the line wrapping of the XML file was never part of the text.
     """
     inner = page.split('<div class="transcription" lang="da">', 1)[1]
-    for closer in ('<nav class="letter-nav"', '<section class="same-correspondence"',
-                   "</article>"):
+    for closer in ('<details class="mark-legend"', '<nav class="letter-nav"',
+                   '<section class="same-correspondence"', "</article>"):
         if closer in inner:
             inner = inner.split(closer, 1)[0]
             break

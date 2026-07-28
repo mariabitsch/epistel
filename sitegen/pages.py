@@ -106,7 +106,8 @@ def letter_page(view, previous, following, section, person_links, timeline=False
     header += _metadata(view, section, person_links)
 
     article = element("header", header)
-    article += _transcription(view)
+    transcription = _transcription(view)
+    article += transcription + _mark_legend(transcription)
     article += _sequence_navigation(previous, following)
     article += _same_correspondence(view, section)
 
@@ -423,6 +424,47 @@ def _facts(view):
             ("Dateret", _date(view)),
         ],
         class_name="letter-meta",
+    )
+
+
+# The text-critical marks a transcription can carry that no reader can be
+# expected to decode unaided: (needle in the rendered transcription,
+# class the legend sample wears, what the mark means). The needle for the
+# Latin hand is a rendition token and matches any element carrying it.
+TRANSCRIPTION_MARKS = (
+    ('class="tei-supplied', "tei-supplied", "udfyldt af udgiverne, hvor kilden mangler"),
+    ('class="tei-unclear', "tei-unclear", "usikker læsning i kilden"),
+    ('class="tei-corr', "tei-corr", "rettet af udgiverne"),
+    ('class="tei-add', "tei-add", "tilføjet i kilden, typisk over linjen"),
+    (" r-lat", "tei-hi r-lat", "skrevet med latinsk hånd, hvor brevet ellers er gotisk"),
+)
+
+
+def _mark_legend(transcription):
+    """A quiet Tegnforklaring for the marks this letter actually carries.
+
+    Maria's call (2026-07-28): the text-critical marks stay -- they are the
+    edition's own honesty -- and the reader is told what they mean. Each
+    legend line *wears* its mark, so the sample is the explanation and
+    meaning is never carried by decoration alone. Collapsed by default;
+    ``<details>`` needs no script. A letter with no marks gets no legend.
+    """
+    present = [
+        (sample, label)
+        for needle, sample, label in TRANSCRIPTION_MARKS
+        if needle in transcription
+    ]
+    if not present:
+        return ""
+    items = "".join(
+        element("li", element("span", label, class_=sample))
+        for sample, label in present
+    )
+    return element(
+        "details",
+        element("summary", "Tegnforklaring")
+        + element("ul", items, class_="mark-legend-list"),
+        class_="mark-legend",
     )
 
 
