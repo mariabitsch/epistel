@@ -873,8 +873,13 @@ h1::before {                       /* the gilt tick: one accent, top left */
    ochre for the SKS print pages. Gallery-number chips — small enough to
    read past, bordered enough that they are never "hidden". Their title
    attributes carry the edition's own wording. */
+/* Hidden, not dropped (Maria, 2026-07-28): the two pagination series are
+   upstream apparatus, not reading matter here. The spans and their data
+   stay in the markup for a display that wants them back; the chips just
+   do not print. Their two-tone design survives below, inert, with its
+   measured contrast pairs, the way the dark sketch does.               */
 .tei-pb {
-  display: inline-block;
+  display: none;
   margin: 0 0.2em;
   padding: 0.02rem 0.34rem;
   border: 1px solid;
@@ -924,7 +929,10 @@ h1::before {                       /* the gilt tick: one accent, top left */
 /* Named entities: a hairline the eye can ignore while reading and find
    when looking.                                                        */
 .tei-persName  { border-bottom: 1px solid rgba(46, 74, 90, 0.42); }
-.tei-placeName { border-bottom: 1px solid rgba(59, 79, 69, 0.42); }
+/* Place names keep their span and data-key but no underline (Maria,
+   2026-07-28): the mark-up is a join point, not reading matter. The
+   sea-green rule it had: 1px solid rgba(59, 79, 69, 0.42).            */
+.tei-placeName { border-bottom: 0; }
 .tei-persName .tei-persName,
 .tei-persName .tei-supplied { border-bottom: 0; }
 

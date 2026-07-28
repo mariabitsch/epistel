@@ -490,6 +490,22 @@ class SiteBuildTest(unittest.TestCase):
         shipped = os.listdir(os.path.join(self.directory.name, "assets", "fonts"))
         self.assertTrue([name for name in shipped if name.startswith("OFL-")])
 
+    def test_the_pagination_chips_and_place_underlines_stay_quiet(self):
+        """Maria's call (2026-07-28): apparatus, not reading matter.
+
+        The two pagination series ('printhenvisninger') and the place-name
+        underline are upstream annotation a reader of the letters does not
+        need. Nothing is dropped from the data -- the spans and their
+        classes stay in the markup for a display that wants them back --
+        but the stylesheet keeps them quiet.
+        """
+        css = self.read("assets", "site.css")
+        self.assertRegex(css, r"\.tei-pb\s*\{\s*display:\s*none")
+        self.assertNotRegex(css, r"\.tei-placeName[^}]*border-bottom:\s*1px")
+        page = self.read("brev", "1", "index.html")
+        self.assertIn('class="tei-pb', page)
+        self.assertIn('class="tei-placeName', page)
+
     def test_the_stylesheet_fetches_nothing_at_runtime(self):
         assets = os.path.join(self.directory.name, "assets")
         with open(os.path.join(assets, "site.css"), encoding="utf-8") as file:
