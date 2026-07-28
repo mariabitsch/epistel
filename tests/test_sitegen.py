@@ -9,20 +9,24 @@ The date tests use literal date dicts in the shape documented in
 the parser's internals.
 """
 
+import datetime
 import os
 import re
 import tempfile
 import unittest
 
+from pipeline.context import load_context
 from pipeline.corpus import parse_corpus
 from pipeline.parse_tei import parse_volume, plain_text
 from sitegen import dates
-from sitegen.site import STATIC_DIRECTORY, build_site, letter_slug
+from sitegen.site import STATIC_DIRECTORY, build_site, display_name, letter_slug
 from sitegen.tei_html import BodyRenderer
+from sitegen.timeline import timeline_model
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VENDOR = os.path.join(REPO_ROOT, "data", "vendor")
 VENDORED_B1 = os.path.join(VENDOR, "b1", "txt.xml")
+CONTEXT = os.path.join(REPO_ROOT, "data", "context")
 
 
 def date(raw, not_after=None, source=None):
@@ -755,6 +759,363 @@ def _transcription_text(page):
 
 def _collapse(value):
     return re.sub(r"\s+", " ", value).strip()
+
+
+class DateSpanTest(unittest.TestCase):
+    """Every day a date could mean -- what the timeline places a letter on.
+
+    ``format_date`` says the same thing in words; ``span`` says it in days, so
+    a mark can be as wide as the edition's uncertainty and no wider.
+    """
+
+    def test_a_day_is_a_single_day(self):
+        self.assertEqual(
+            {
+                "start": datetime.date(1829, 3, 8),
+                "end": datetime.date(1829, 3, 8),
+                "precision": "day",
+                "open_end": False,
+                "open_end_raw": None,
+            },
+            dates.span(date("18290308")),
+        )
+
+    def test_a_month_covers_the_whole_month(self):
+        stretch = dates.span(date("18481200"))
+        self.assertEqual(datetime.date(1848, 12, 1), stretch["start"])
+        self.assertEqual(datetime.date(1848, 12, 31), stretch["end"])
+        self.assertEqual("month", stretch["precision"])
+
+    def test_a_year_covers_the_whole_year(self):
+        stretch = dates.span(date("18370000"))
+        self.assertEqual(datetime.date(1837, 1, 1), stretch["start"])
+        self.assertEqual(datetime.date(1837, 12, 31), stretch["end"])
+
+    def test_a_range_reaches_from_the_first_day_to_the_last(self):
+        stretch = dates.span(date("18460000", not_after="18470000"))
+        self.assertEqual(datetime.date(1846, 1, 1), stretch["start"])
+        self.assertEqual(datetime.date(1847, 12, 31), stretch["end"])
+
+    def test_an_unreadable_upper_bound_is_reported_not_guessed(self):
+        """b43 letter 50: ``notAfter="1847000"``, seven digits, unreadable.
+
+        The edition means *some* time after 1846 -- the display may not
+        invent which, so the mark stays inside 1846 and says its end is open.
+        """
+        broken = date("18460000")
+        broken["notAfter"] = {
+            "raw": "1847000",
+            "iso": None,
+            "precision": None,
+            "year": None,
+            "month": None,
+            "day": None,
+        }
+        stretch = dates.span(broken)
+        self.assertEqual(datetime.date(1846, 1, 1), stretch["start"])
+        self.assertEqual(datetime.date(1846, 12, 31), stretch["end"])
+        self.assertTrue(stretch["open_end"])
+        self.assertEqual("1847000", stretch["open_end_raw"])
+
+    def test_a_letter_the_edition_never_dated_has_no_span(self):
+        self.assertIsNone(dates.span(None))
+        self.assertIsNone(
+            dates.span(
+                {
+                    "raw": None,
+                    "iso": None,
+                    "precision": None,
+                    "year": None,
+                    "month": None,
+                    "day": None,
+                    "notBefore": None,
+                    "notAfter": None,
+                    "source": "undated",
+                    "text": None,
+                }
+            )
+        )
+
+
+def letter(slug, raw=None, not_after=None):
+    """A letter as the timeline model consumes it: view fields only."""
+    value = date(raw, not_after=not_after) if raw else None
+    return {
+        "slug": slug,
+        "number": slug,
+        "title": "Brev %s" % slug,
+        "sender": "SK",
+        "recipient": "Emil Boesen",
+        "date_text": dates.format_date(value),
+        "span": dates.span(value),
+    }
+
+
+def letter_for(parsed, volume):
+    """The same fields ``sitegen.site`` puts in a letter view, for one letter."""
+    sender = parsed.get("sender") or {}
+    recipient = parsed.get("recipient") or {}
+    value = sender.get("date")
+    return {
+        "slug": letter_slug(parsed, volume),
+        "number": parsed["id"],
+        "title": "Brev %s" % parsed["id"],
+        "sender": display_name(sender.get("name")) or "ukendt afsender",
+        "recipient": display_name(recipient.get("name")) or "ukendt modtager",
+        "date_text": dates.format_date(value),
+        "span": dates.span(value),
+    }
+
+
+class TimelineModelTest(unittest.TestCase):
+    """The timeline's view model, built from the real curated datasets."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.context = load_context(CONTEXT)
+        cls.volumes = parse_corpus(VENDOR)
+        cls.letters = [
+            letter_for(parsed, volume["volume"])
+            for volume in cls.volumes
+            for parsed in volume["letters"]
+        ]
+        cls.model = timeline_model(cls.letters, cls.context)
+
+    def years(self):
+        return {year["year"]: year for year in self.model["years"]}
+
+    def test_the_scale_runs_from_the_first_year_to_the_last_without_gaps(self):
+        model = self.model
+        self.assertEqual(1813, model["first_year"])
+        self.assertEqual(1855, model["last_year"])
+        self.assertEqual(
+            list(range(1813, 1856)), [year["year"] for year in model["years"]]
+        )
+
+    def test_every_letter_is_placed_once_or_named_as_undated(self):
+        placed = [
+            mark["slug"]
+            for year in self.model["years"]
+            for mark in year["letters"] + year["vague"]
+        ]
+        undated = [entry["slug"] for entry in self.model["undated"]]
+        self.assertEqual(len(placed), len(set(placed)), "a letter is on the rail twice")
+        self.assertEqual(326, len(placed))
+        self.assertEqual(10, len(undated))
+        self.assertEqual(336, len(placed) + len(undated))
+        self.assertEqual(set(), set(placed) & set(undated))
+
+    def test_a_mark_never_reaches_outside_its_year(self):
+        for year in self.model["years"]:
+            for mark in year["letters"]:
+                self.assertGreaterEqual(mark["top"], 0)
+                self.assertLessEqual(mark["top"] + mark["height"], 1.0001)
+
+    def test_marks_that_overlap_in_time_are_given_different_slots(self):
+        for year in self.model["years"]:
+            taken = {}
+            for mark in sorted(year["letters"], key=lambda m: m["top"]):
+                bottom = taken.get(mark["slot"])
+                if bottom is not None:
+                    self.assertLessEqual(
+                        bottom,
+                        mark["top"] + 0.0001,
+                        "two letters share a slot in %d" % year["year"],
+                    )
+                taken[mark["slot"]] = mark["top"] + mark["height"]
+
+    def test_a_letter_known_only_by_year_gets_no_place_on_the_day_scale(self):
+        model = timeline_model(
+            [letter("42", "18370000"), letter("43", "18370308")], self.context
+        )
+        year = {y["year"]: y for y in model["years"]}[1837]
+        self.assertEqual(["42"], [mark["slug"] for mark in year["vague"]])
+        self.assertEqual(["43"], [mark["slug"] for mark in year["letters"]])
+
+    def test_a_letter_spanning_years_is_listed_once_in_the_first_year(self):
+        model = timeline_model([letter("39", "18460000", not_after="18470000")], self.context)
+        years = {y["year"]: y for y in model["years"]}
+        self.assertEqual(["39"], [mark["slug"] for mark in years[1846]["vague"]])
+        self.assertEqual([], years[1847]["vague"])
+        self.assertIn("1846–47", years[1846]["vague"][0]["label"])
+
+    def test_every_publication_reaches_the_model_in_date_order(self):
+        titles = [
+            entry["title"]
+            for year in self.model["years"]
+            for block in year["works"]
+            for entry in block["entries"]
+        ]
+        self.assertEqual(38, len(titles))
+        self.assertEqual(
+            [publication["title"] for publication in self.context["publications"]],
+            titles,
+        )
+
+    def test_publications_of_one_day_are_one_block(self):
+        year = self.years()[1843]
+        blocks = {block["date_text"]: block for block in year["works"]}
+        self.assertIn("16. oktober 1843", blocks)
+        self.assertEqual(3, len(blocks["16. oktober 1843"]["entries"]))
+        signing = [entry["pseudonym"] for entry in blocks["16. oktober 1843"]["entries"]]
+        self.assertIn(None, signing, "the signed discourse of that day is missing")
+        self.assertIn("Johannes de silentio", signing)
+
+    def test_two_publications_a_day_apart_stay_two_blocks(self):
+        year = self.years()[1845]
+        self.assertEqual(
+            ["29. april 1845", "30. april 1845"],
+            [block["date_text"] for block in year["works"]],
+        )
+
+    def test_the_two_stays_at_nytorv_stay_two_bands(self):
+        bands = [
+            band
+            for year in self.model["years"]
+            for band in year["homes"]
+            if band["starts"]
+        ]
+        nytorv = [band for band in bands if band["address"].startswith("Nytorv 2")]
+        self.assertEqual(2, len(nytorv))
+        self.assertEqual(9, len(bands), "every residence begins exactly once")
+
+    def test_the_last_band_stops_where_the_dataset_stops(self):
+        year = self.years()[1855]
+        ending = [band for band in year["homes"] if band["ends"]]
+        self.assertEqual(1, len(ending))
+        # 2 October 1855, not 31 December and not his death in November.
+        self.assertAlmostEqual(274 / 365, ending[0]["top"] + ending[0]["height"], places=2)
+
+    def test_an_uncertain_period_is_flagged_rather_than_smoothed(self):
+        # Five of the nine periods carry "approx": true in the dataset --
+        # Løvstræde, Kultorvet, both Nørregade addresses and Østerbro.
+        flagged = {
+            band["address"]
+            for year in self.model["years"]
+            for band in year["homes"]
+            if band["approx"] and band["starts"]
+        }
+        self.assertEqual(5, len(flagged))
+        self.assertEqual(
+            5, sum(1 for home in self.model["homes"] if home["approx"])
+        )
+
+    def test_the_widest_year_sets_the_width_of_the_letter_lane(self):
+        widest = max(
+            (mark["slot"] for year in self.model["years"] for mark in year["letters"]),
+            default=0,
+        )
+        self.assertEqual(widest + 1, self.model["slots"])
+
+
+class TimelinePageTest(unittest.TestCase):
+    """The built timeline page, read the way a visitor would read it."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.context = load_context(CONTEXT)
+        cls.volumes = parse_corpus(VENDOR)
+        cls.directory = tempfile.TemporaryDirectory()
+        cls.result = build_site(cls.volumes, cls.directory.name, context=cls.context)
+        cls.page = cls.read_from(cls.directory.name, "tidslinje", "index.html")
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.directory.cleanup()
+
+    @staticmethod
+    def read_from(*parts):
+        with open(os.path.join(*parts), encoding="utf-8") as file:
+            return file.read()
+
+    def read(self, *parts):
+        return self.read_from(self.directory.name, *parts)
+
+    def test_the_page_is_built(self):
+        self.assertIn("Tidslinje", self.page)
+
+    def test_every_publication_is_on_the_page(self):
+        for publication in self.context["publications"]:
+            self.assertIn(_escape(publication["title"]), self.page)
+
+    def test_every_residence_is_on_the_page(self):
+        for residence in self.context["residences"]:
+            self.assertIn(_escape(residence["address"]), self.page)
+
+    def test_every_year_of_the_life_gets_its_own_row(self):
+        for year in range(1813, 1856):
+            self.assertIn(">%d<" % year, self.page)
+
+    def test_every_letter_links_to_its_page(self):
+        linked = set(re.findall(r'href="\.\./brev/([^/"]+)/"', self.page))
+        self.assertEqual(336, len(linked))
+        for slug in ("1", "42", "159.1", "318", "b171-na"):
+            self.assertIn(slug, linked)
+
+    def test_undated_letters_are_named_rather_than_placed(self):
+        section = self.page.split('id="udaterede"', 1)[1]
+        self.assertIn("uden datering", section.lower())
+        self.assertEqual(10, len(re.findall(r'href="\.\./brev/', section)))
+
+    def test_the_unreadable_upper_bound_is_shown_to_the_reader(self):
+        self.assertIn("1847000", self.page)
+
+    def test_the_legend_explains_the_marks_in_danish(self):
+        legend = self.page.split('class="tl-legend"', 1)[1].split("</dl>", 1)[0]
+        for word in ("dag", "måned", "år", "pseudonym"):
+            self.assertIn(word, legend.lower())
+
+    def test_pseudonymity_is_never_carried_by_colour_alone(self):
+        # Every pseudonymous work names its pseudonym in text, and every
+        # signed one says so: shape and words, never hue.
+        self.assertEqual(12, self.page.count('class="tl-work-name">Pseudonym'))
+        self.assertEqual(26, self.page.count('class="tl-work-name">Signeret'))
+
+    def test_no_raw_data_artifacts_reach_the_page(self):
+        self.assertNotIn("None", self.page)
+        self.assertNotIn("null", self.page)
+        self.assertNotRegex(self.page, r"\d{4}-\d{2}-00")
+        self.assertNotRegex(self.page, r">\s*1[89]\d{2}-\d{2}-\d{2}\s*<")
+
+    def test_the_page_is_self_contained(self):
+        stripped = self.page.replace("https://creativecommons.org", "")
+        self.assertNotIn("http://", stripped)
+        self.assertNotIn("https://", stripped)
+        self.assertNotIn('href="/', self.page)
+        self.assertNotIn("<script", self.page)
+
+    def test_the_site_navigation_reaches_the_timeline_from_every_page(self):
+        index = self.read("index.html")
+        letter = self.read("brev", "1", "index.html")
+        self.assertIn('href="tidslinje/"', index)
+        self.assertIn('href="../../tidslinje/"', letter)
+        self.assertIn('href="../"', self.page)
+        for page in (index, letter, self.page):
+            self.assertIn('class="site-nav"', page)
+            self.assertIn('aria-current="page"', page)
+
+    def test_the_build_is_deterministic(self):
+        with tempfile.TemporaryDirectory() as other:
+            build_site(self.volumes, other, context=self.context)
+            self.assertEqual(
+                self.page, self.read_from(other, "tidslinje", "index.html")
+            )
+
+    def test_a_build_without_the_curated_datasets_still_works(self):
+        """The editorial layer is optional: no context, no timeline, no links.
+
+        The TEI is the truth the site cannot do without; publications and
+        residences are added on top and may be thrown away.
+        """
+        with tempfile.TemporaryDirectory() as other:
+            build_site(self.volumes, other)
+            self.assertFalse(os.path.exists(os.path.join(other, "tidslinje")))
+            index = self.read_from(other, "index.html")
+            self.assertNotIn("tidslinje", index)
+
+
+def _escape(value):
+    return value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 if __name__ == "__main__":

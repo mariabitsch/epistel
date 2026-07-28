@@ -1,16 +1,21 @@
 """What a build is: view models, file layout, writing the files.
 
-``build_site(volumes, out_dir)`` turns the parsed corpus into a directory of
-static files::
+``build_site(volumes, out_dir, context=None)`` turns the parsed corpus into a
+directory of static files::
 
     index.html                  every letter, by volume and correspondence
     brev/<slug>/index.html      one letter
+    tidslinje/index.html        the years, with the curated context layer
     assets/site.css             plus assets/fonts/ -- everything static/ holds
 
 It takes a *list* of volumes and never asks how many there are, so a build of
 one volume and a build of all fourteen go down the same path. The output
 directory is recreated from scratch on every build, and the same input always
 produces byte-identical output.
+
+``context`` is the curated editorial layer (``pipeline.context``) and is
+optional: without it the site is the letters alone, with no timeline page and
+no link to one. The letters are the part that cannot be thrown away.
 
 This module also holds the small display decisions that are neither dates nor
 markup -- what a letter is called, what its URL is, how a person's name reads
@@ -24,6 +29,7 @@ import shutil
 
 from . import dates, pages
 from .tei_html import BodyRenderer
+from .timeline import timeline_model
 
 STATIC_DIRECTORY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
 
@@ -36,7 +42,7 @@ UNGROUPED_ID = "uden-brevveksling"
 NUMBER = re.compile(r"^\d+(\.\d+)*$")
 
 
-def build_site(volumes, out_dir):
+def build_site(volumes, out_dir, context=None):
     """Generate the whole site. Returns a small report for the build script."""
     renderer = BodyRenderer()
     books = [_book(volume, renderer) for volume in volumes]
@@ -46,15 +52,24 @@ def build_site(volumes, out_dir):
     section_of = {
         view["slug"]: section for section in sections for view in section["letters"]
     }
+    timeline = timeline_model(views, context) if context else None
 
     _reset(out_dir)
-    _write(out_dir, ["index.html"], pages.index_page(books))
+    _write(out_dir, ["index.html"], pages.index_page(books, timeline=bool(timeline)))
     for previous, view, following in _neighbours(views):
         _write(
             out_dir,
             ["brev", view["slug"], "index.html"],
-            pages.letter_page(view, previous, following, section_of.get(view["slug"])),
+            pages.letter_page(
+                view,
+                previous,
+                following,
+                section_of.get(view["slug"]),
+                timeline=bool(timeline),
+            ),
         )
+    if timeline:
+        _write(out_dir, ["tidslinje", "index.html"], pages.timeline_page(timeline))
     _copy_static(out_dir)
 
     return {
@@ -65,6 +80,7 @@ def build_site(volumes, out_dir):
             len(section["letters"]) for section in sections if section["ungrouped"]
         ),
         "warnings": renderer.warnings(),
+        "timeline": timeline["counts"] if timeline else None,
     }
 
 
@@ -128,6 +144,10 @@ def _letter_view(letter, book, renderer):
         "date_text": dates.format_date(date),
         "date_machine": dates.machine_value(date),
         "date_source": dates.provenance(date),
+        # The same date as a stretch of days -- what the timeline places a
+        # letter on. Everything the display knows about dates comes through
+        # ``sitegen.dates``; no page reads a parser date dict itself.
+        "span": dates.span(date),
         "place": (sender.get("place") or {}).get("name"),
         "note": sender.get("note"),
         "group_id": (letter.get("context") or {}).get("groupId"),

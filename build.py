@@ -16,11 +16,13 @@ page, but the build says which ones they were. Warnings do not fail the build.
 import os
 import sys
 
+from pipeline.context import load_context
 from pipeline.corpus import parse_corpus
 from sitegen.site import build_site
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 VENDOR = os.path.join(ROOT, "data", "vendor")
+CONTEXT = os.path.join(ROOT, "data", "context")
 
 
 def main(argv):
@@ -40,7 +42,14 @@ def main(argv):
                 )
             )
 
-    result = build_site(volumes, out_dir)
+    context = load_context(CONTEXT)
+    if context is None:
+        print(
+            "warning: no curated datasets in %s: building without the timeline"
+            % _relative(CONTEXT)
+        )
+
+    result = build_site(volumes, out_dir, context=context)
     for warning in result["warnings"]:
         print(
             "warning: renderer: unmodelled TEI element <%s> (%d %s, first seen "
@@ -67,7 +76,21 @@ def main(argv):
         "build: %d letters in %d correspondence groups across %d volumes"
         % (result["letters"], result["sections"], result["volumes"])
     )
-    print("build: wrote %d pages to %s" % (result["letters"] + 1, _relative(out_dir)))
+    pages = result["letters"] + 1
+    if result["timeline"]:
+        counts = result["timeline"]
+        pages += 1
+        print(
+            "build: timeline: %d breve placeret, %d udaterede, %d udgivelser, "
+            "%d bopæle"
+            % (
+                counts["placed"],
+                counts["undated"],
+                counts["publications"],
+                counts["residences"],
+            )
+        )
+    print("build: wrote %d pages to %s" % (pages, _relative(out_dir)))
     return 0
 
 

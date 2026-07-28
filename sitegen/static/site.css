@@ -155,6 +155,7 @@ body {
 
 /* One shared column: header band, main and footer band all align on it.  */
 .site-header > p,
+.site-header > nav,
 .site-footer > p,
 main {
   max-width: var(--shell);
@@ -231,6 +232,32 @@ a:focus:not(:focus-visible) { outline: none; }
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--on-blue-mut);
+}
+
+/* Two destinations, set as gallery-room labels under the wordmark. The
+   current one is marked with a gilt rule as well as with aria-current, so it
+   does not rely on the reader telling two shades of bone apart.
+   on-deep 8.13:1 on prussian, on-blue-mut 5.43:1, gilt-light rule 4.11:1.  */
+.site-nav {
+  display: flex;
+  gap: 1.6rem;
+  margin: 0.9rem 0 0;
+}
+.site-nav a {
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+  color: var(--on-blue-mut);
+  font-family: var(--label);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--on-deep); border-bottom-color: var(--gilt-light); }
+.site-nav a[aria-current="page"] {
+  color: var(--on-deep);
+  border-bottom-color: var(--gilt-light);
 }
 
 /* -------------------------------------------------------- footer band */
@@ -845,6 +872,619 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
 }
 
 .muted { color: var(--muted); }
+
+/* ============================================================== TIMELINE
+   One life on one linear scale. The page is a stack of years, all the same
+   height, and each year is a row of four lanes hung beside the scale: where
+   he lived, the letters, the letters that cannot be placed within their year,
+   and what he published.
+
+   THE ONE RULE OF THE SCALE
+   -------------------------
+   Every year is --tl-year tall and every mark sits at its own fraction of its
+   year, so the four silent years take up as much room as the four that hold
+   half the authorship. A year only ever *stretches*, and only when its
+   publications need more room than the year gives them: the works lane
+   reserves its time as min-height, and text that outgrows it pushes the rest
+   of the year down. Nothing is ever compressed to make space for something
+   else. The marks are positioned in percentages, so a stretched year is
+   simply the same year drawn larger -- letters, bands and books stay in step.
+
+   COLOUR CARRIES NOTHING ON ITS OWN
+   ---------------------------------
+   Every distinction is drawn twice, as a shape and as words:
+     · letter dated to the day    -> a filled line       (prussian, 9.12:1 on
+                                                          the paper lane)
+     · dated to a month           -> an open box as tall as the month
+                                     (1px prussian border, 9.12:1; its 9% fill
+                                     is decoration, 1.16:1, and says nothing
+                                     the border does not)
+     · dated to a year or wider   -> not on the day scale at all: a dashed
+                                     "ca." chip carrying the letter's number
+                                     (gilt-text border 6.13:1, number
+                                     ink-soft 9.08:1 on paper)
+     · signed work                -> filled lozenge, flush against the rail
+     · pseudonymous work          -> open lozenge, indented, dashed rule, and
+                                     the pseudonym named underneath
+     · residence                  -> a band edged in sea-green (7.93:1 on the
+                                     ground); dashed edges and a hatch where
+                                     the dataset marks the period uncertain.
+                                     The sea-tint fill is 1.08:1 -- decoration
+                                     again, never the message.
+   No new hues: every value below is a token from the Eckersberg palette above
+   or an alpha of one.                                                      */
+
+body.page-timeline { --shell: 60rem; }
+
+.tl {
+  /* The scale, and the size of one letter. Both are also numbers in
+     sitegen/timeline.py, which lays out the columns of overlapping marks --
+     change one and change the other. */
+  --tl-year: 11rem;
+  --tl-cell: 0.75rem;
+  --tl-hit: 0.7rem;
+
+  --tl-axis: 3.1rem;
+  --tl-homes: 8rem;
+  --tl-letters: calc(var(--slots) * var(--tl-cell));
+  --tl-vague: 5.5rem;
+  --tl-gap: 0.85rem;
+
+  margin-top: 2.8rem;
+}
+
+.tl-head,
+.tl-year {
+  display: grid;
+  grid-template-columns:
+    var(--tl-axis) var(--tl-homes) var(--tl-letters) var(--tl-vague)
+    minmax(0, 1fr);
+  column-gap: var(--tl-gap);
+}
+
+/* The lane names ride along at the top of the window: on a page this tall,
+   a reader who scrolls into 1849 should not have to scroll back to find out
+   what the columns are. */
+.tl-head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 0.55rem 0 0.5rem;
+  background: var(--ground);
+  border-bottom: 2px solid var(--gilt);
+  font-family: var(--label);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);                  /* 6.35:1 on the ground */
+}
+
+.tl-year {
+  position: relative;
+  min-height: var(--tl-year);
+  border-top: 1px solid var(--rule-faint);
+  scroll-margin-top: 3rem;
+}
+.tl-year--decade { border-top: 1px solid var(--gilt); }
+
+/* --- the axis --------------------------------------------------------- */
+
+/* Not sticky: a stuck year label would collide with the next year's the
+   moment the rows are only a screenful apart, which they usually are. */
+.tl-axis {
+  align-self: start;
+  margin: 0;
+  padding-top: 0.45rem;
+  font-family: var(--display);
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.tl-year--decade > .tl-axis {
+  font-size: 1.35rem;
+  color: var(--ink-soft);               /* 8.41:1 */
+}
+
+/* --- where he lived ---------------------------------------------------- */
+
+.tl-homes { position: relative; }
+
+.tl-home {
+  position: absolute;
+  top: calc(var(--top) * 100%);
+  height: calc(var(--height) * 100%);
+  left: calc(var(--slot) * 0.95rem);
+  right: 0;
+}
+/* The band itself: a sea-green edged strip. Bands run for years, so only the
+   true beginning and the true end of a stay get a cap -- the pieces in
+   between are open, and read as one continuous band down the page. */
+.tl-home-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.55rem;
+  background: var(--sea-tint);
+  border-left: 1px solid var(--seagreen);
+  border-right: 1px solid var(--seagreen);
+}
+.tl-home--starts > .tl-home-band { border-top: 1px solid var(--seagreen); }
+.tl-home--ends > .tl-home-band { border-bottom: 1px solid var(--seagreen); }
+/* Uncertain period: dashed edges and a hatched fill. Both are the same
+   sea-green; the dashes are what carry it, the hatch only supports them. */
+.tl-home--approx > .tl-home-band {
+  border-style: dashed;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--sea-tint) 0 4px,
+    rgba(59, 79, 69, 0.12) 4px 8px
+  );
+}
+
+/* Labels line up in one column whatever slot their band sits in, so a year
+   where two bands overlap does not read as a second, indented list. */
+.tl-home-label {
+  position: absolute;
+  top: -0.15rem;
+  left: calc((var(--homes) - var(--slot)) * 0.95rem + 0.3rem);
+  right: 0;
+  margin: 0;
+  line-height: 1.35;
+}
+.tl-home-address {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);               /* 8.41:1 */
+}
+.tl-home-period {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);                  /* 6.35:1 */
+}
+/* The dataset's own doubt, said in words next to the dashes that show it. */
+.tl-approx {
+  display: block;
+  font-family: var(--label);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gilt-text);              /* 5.68:1 on the ground */
+}
+
+/* --- the letters ------------------------------------------------------
+   The one lane that is a panel: paper, with a gilt frame-line down its left
+   edge. That line is the spine of the page -- the only place a straight edge
+   runs from 1813 to 1855 without a break.                                 */
+
+.tl-letters {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* Its children are all absolutely positioned, so the lane has no height of
+     its own -- and it is the lane the percentages are measured against. This
+     is what gives every year its floor. */
+  min-height: var(--tl-year);
+  background: var(--paper);
+  border-left: 2px solid var(--gilt);
+}
+
+.tl-letter {
+  position: absolute;
+  top: calc(var(--top) * 100%);
+  left: calc(var(--slot) * var(--tl-cell));
+  width: calc(var(--tl-cell) - 2px);
+}
+.tl-letter > a {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+/* Known to the day: a line, and a target tall enough to hit. */
+.tl-letter--day {
+  height: var(--tl-hit);
+  margin-top: calc(var(--tl-hit) / -2);
+}
+.tl-letter--day > a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 3px;
+  margin-top: -1.5px;
+  background: var(--prussian);          /* 9.12:1 on the paper lane */
+}
+/* Known to the month: a box the height of that month, open, because the
+   edition does not say which day inside it. */
+.tl-letter--span {
+  height: calc(var(--height) * 100%);
+  min-height: var(--tl-hit);
+}
+.tl-letter--span > a {
+  border: 1px solid var(--prussian);
+  background: rgba(46, 74, 90, 0.09);
+}
+.tl-letter > a:hover,
+.tl-letter > a:focus-visible {
+  background: rgba(122, 91, 24, 0.18);
+  z-index: 1;
+}
+.tl-letter--day > a:hover::before,
+.tl-letter--day > a:focus-visible::before {
+  background: var(--gilt-text);
+  height: 5px;
+  margin-top: -2.5px;
+}
+
+/* --- letters with no place in their year ------------------------------
+   Set apart on purpose. A letter the edition dates to "1846" or "1846-47"
+   has no position on a day scale, and giving it one would be the single
+   easiest lie this page could tell. It gets its number instead.          */
+
+.tl-vague {
+  align-self: center;
+  min-width: 0;
+}
+.tl-vague-mark {
+  margin: 0 0 0.2rem;
+  font-family: var(--label);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.tl-vague-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tl-vague-item > a {
+  display: block;
+  min-width: 1.55rem;
+  padding: 0.05rem 0.25rem;
+  border: 1px dashed var(--gilt-text);  /* 6.13:1 on paper */
+  background: var(--paper);
+  font-family: var(--label);
+  font-size: 0.66rem;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  color: var(--ink-soft);               /* 9.08:1 on paper */
+}
+.tl-vague-item > a:hover {
+  border-style: solid;
+  background: var(--plaster);
+}
+
+/* --- what he published ------------------------------------------------
+   Each block reserves the stretch of time that runs until the next one, as a
+   minimum height. Where the titles need more room than the year can give --
+   1843 and 1844, six books each -- the blocks push each other down and the
+   year grows with them. That is the only give in the scale, and it gives by
+   stretching.                                                             */
+
+.tl-works {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tl-work {
+  position: relative;
+  min-height: calc(var(--span) * var(--tl-year));
+  padding-left: 1.05rem;
+}
+.tl-work:first-child { margin-top: calc(var(--lead) * var(--tl-year)); }
+/* A leader from the lane's edge to the date: this line is the publication's
+   real position on the scale, whatever the text below it had to do. */
+.tl-work::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.75rem;
+  height: 1px;
+  background: var(--rule-warm);
+}
+.tl-work-date {
+  margin: 0;
+  font-family: var(--label);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);                  /* 6.35:1 */
+}
+.tl-work-list {
+  margin: 0.25rem 0 0.9rem;
+  padding: 0;
+  list-style: none;
+}
+
+/* Signed at the rail, pseudonymous set in from it: the alternation of the
+   authorship, drawn as two positions and two markers rather than two hues. */
+.tl-work-item {
+  position: relative;
+  margin-bottom: 0.5rem;
+  padding-left: 0.7rem;
+  border-left: 2px solid var(--prussian);   /* 8.45:1 on the ground */
+}
+.tl-work-item:last-child { margin-bottom: 0; }
+.tl-work-item--pseudonym {
+  margin-left: 1.5rem;
+  border-left-style: dashed;
+}
+.tl-work-mark {
+  position: absolute;
+  left: -0.32rem;
+  top: 0.42rem;
+  width: 0.48rem;
+  height: 0.48rem;
+  background: var(--prussian);
+  transform: rotate(45deg);
+}
+.tl-work-item--pseudonym > .tl-work-mark {
+  background: var(--paper);
+  box-shadow: inset 0 0 0 1.5px var(--prussian);
+}
+
+.tl-work-title {
+  display: block;
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--ink);                    /* 14.61:1 */
+}
+.tl-work-name {
+  display: block;
+  margin-top: 0.1rem;
+  font-family: var(--label);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-soft);               /* 8.41:1 */
+}
+/* The dataset's own wording, where a single date cannot hold it: a serial in
+   four parts, nine numbers of a journal, a year of newspaper articles. */
+.tl-work-period {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--gilt-text);              /* 5.68:1 */
+}
+
+/* --- what the rail cannot hold ---------------------------------------- */
+
+.tl-figures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.8rem;
+  margin: 1.3rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.tl-figures b {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.tl-legend-box {
+  margin: 2.4rem 0 0;
+  padding: 1.3rem 1.5rem 1.4rem;
+  background: var(--plaster);
+  border-top: 2px solid var(--gilt);
+  border-bottom: 1px solid var(--rule-warm);
+}
+.tl-legend-heading {
+  margin: 0 0 0.9rem;
+  font-family: var(--label);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gilt-text);              /* 5.06:1 on plaster */
+}
+.tl-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 0.5rem 2rem;
+  margin: 0;
+}
+.tl-legend > div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0 0.9rem;
+  align-items: baseline;
+}
+.tl-legend dt {
+  font-family: var(--label);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-soft);               /* 8.98:1 on plaster */
+}
+.tl-legend dd {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--muted);                  /* 5.65:1 on plaster */
+}
+.tl-legend-note {
+  margin: 1.1rem 0 0;
+  font-size: 0.86rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.tl-section { margin-top: 3.6rem; }
+.tl-section h2 {
+  margin: 0;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--gilt);
+  font-family: var(--display);
+  font-size: clamp(1.55rem, 4vw, 1.95rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+.tl-section-note {
+  margin: 1rem 0 0;
+  max-width: 34rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.tl-undated-list {
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 0.3rem 1.5rem;
+  font-size: 0.94rem;
+}
+.tl-undated-list a { text-decoration: none; border-bottom: 1px solid rgba(46, 74, 90, 0.28); }
+.tl-undated-list a:hover { border-bottom-color: var(--gilt); }
+
+.tl-home-register {
+  margin: 1.3rem 0 0;
+}
+.tl-home-register > div {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  gap: 0.2rem 1.5rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--rule-faint);
+}
+.tl-home-register dt {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+.tl-home-register dd { margin: 0; }
+.tl-home-register .tl-home-period {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+.tl-home-register .tl-approx { margin-top: 0.15rem; }
+.tl-home-modern,
+.tl-home-note {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.tl-home-note { font-style: italic; }
+
+.tl-dataset { margin-top: 1.8rem; }
+.tl-dataset h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--label);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gilt-text);              /* 5.68:1 on the ground */
+}
+.tl-dataset p {
+  margin: 0;
+  max-width: 40rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+/* Source works are named, not linked: the built site fetches nothing and
+   points nowhere at runtime except at the licence. */
+.tl-source-list {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------- timeline, narrower
+   Two steps down. First the lanes give up their slack; then the publications
+   drop below the strip and take the full width, because a book title set in
+   a hundred pixels is not a reading experience. The scale survives both: the
+   strip keeps its year height, and the works keep their order.            */
+
+@media (max-width: 62rem) {
+  .tl {
+    --tl-homes: 6.2rem;
+    --tl-cell: 0.62rem;
+    --tl-vague: 4.6rem;
+    --tl-gap: 0.6rem;
+  }
+  .tl-home-address { font-size: 0.72rem; }
+  .tl-home-period { font-size: 0.66rem; }
+}
+
+@media (max-width: 48rem) {
+  .tl {
+    --tl-axis: 2.4rem;
+    --tl-homes: 1.1rem;
+    --tl-cell: 0.55rem;
+  }
+  .tl-head,
+  .tl-year {
+    grid-template-columns:
+      var(--tl-axis) var(--tl-homes) var(--tl-letters) minmax(0, 1fr);
+    grid-template-areas:
+      "axis homes letters vague"
+      "works works works works";
+  }
+  .tl-axis { grid-area: axis; }
+  .tl-homes { grid-area: homes; }
+  .tl-letters { grid-area: letters; }
+  .tl-vague { grid-area: vague; align-self: start; padding-top: 0.2rem; }
+  .tl-works { grid-area: works; }
+  /* The head row loses the two labels whose lanes no longer have room for
+     one: the works are below the strip now, and the band lane is a hairline
+     whose addresses have moved to the register at the foot of the page. */
+  .tl-head-works { display: none; }
+  /* Hidden, not removed: the head row is auto-placed, so a missing label in
+     the middle would slide every label after it into the wrong lane. */
+  .tl-head-homes { visibility: hidden; }
+  /* The address labels move to the register at the foot of the page; the
+     bands stay, because they are the part that is on the scale. */
+  .tl-home-label { display: none; }
+  .tl-home { left: calc(var(--slot) * 0.5rem); }
+  .tl-home-band { width: 0.4rem; }
+  /* No reserved time: the works are no longer beside the year, they are
+     under it, and reserving time would only add empty page. */
+  .tl-work,
+  .tl-work:first-child {
+    min-height: 0;
+    margin-top: 0;
+  }
+  .tl-work:first-child { padding-top: 0.5rem; }
+  .tl-work-list { margin-bottom: 0.7rem; }
+  .tl-work-item--pseudonym { margin-left: 1rem; }
+  .tl-legend > div { grid-template-columns: 5.5rem 1fr; }
+  .tl-home-register > div { grid-template-columns: 1fr; }
+}
 
 /* ------------------------------------------------------------ narrow */
 

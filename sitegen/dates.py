@@ -13,7 +13,14 @@ where it becomes something a reader sees:
 
 Zero-padded parts of a date are never shown, and a date is never rounded up
 into a precision the edition did not claim.
+
+``span()`` says the same thing in days rather than words: the first and last
+day a letter could have been written, which is what a timeline needs to draw a
+mark no narrower than the edition's certainty.
 """
+
+import calendar
+import datetime
 
 MONTHS = [
     None,
@@ -85,6 +92,67 @@ def machine_value(date):
     if _is_readable(end) and _parts(end) != _parts(date):
         return None
     return date["iso"]
+
+
+def span(date):
+    """The stretch of days a date could mean, or None when there is no date.
+
+    Returns ``{"start", "end", "precision", "open_end"}`` -- two
+    ``datetime.date`` objects, the precision of the *lower* bound, and whether
+    the edition wrote an upper bound the parser could not read.
+
+    A month becomes its whole month and a year its whole year, because that is
+    all the edition claims; ``notAfter`` extends the far end. One letter in b43
+    carries ``notAfter="1847000"`` -- seven digits, unreadable. Guessing 1847
+    would put a date in the edition's mouth, so the span stays inside the year
+    that *is* readable and ``open_end`` tells the display to say the rest.
+    """
+    if not date:
+        return None
+
+    lower = date if date.get("precision") else date.get("notBefore")
+    upper = date.get("notAfter")
+    start = _first_day(lower)
+    if start is None:
+        # Only the upper bound is readable: it is the one thing we know.
+        lower, upper = upper, None
+        start = _first_day(lower)
+        if start is None:
+            return None
+
+    end = _last_day(upper) or _last_day(lower)
+    if end < start:
+        # An upper bound before the lower one is a defect in the source, not
+        # a span; keep the lower bound and let it stand alone.
+        end = _last_day(lower)
+    unreadable = upper.get("raw") if upper and not upper.get("precision") else None
+    return {
+        "start": start,
+        "end": end,
+        "precision": lower["precision"],
+        "open_end": bool(unreadable),
+        # What the edition wrote where the upper bound should be. Kept so the
+        # page can quote it rather than quietly drop a fact it cannot use.
+        "open_end_raw": unreadable,
+    }
+
+
+def _first_day(value):
+    if not _is_readable(value):
+        return None
+    return datetime.date(value["year"], value.get("month") or 1, value.get("day") or 1)
+
+
+def _last_day(value):
+    if not _is_readable(value):
+        return None
+    precision = value["precision"]
+    if precision == "day":
+        return datetime.date(value["year"], value["month"], value["day"])
+    if precision == "month":
+        last = calendar.monthrange(value["year"], value["month"])[1]
+        return datetime.date(value["year"], value["month"], last)
+    return datetime.date(value["year"], 12, 31)
 
 
 def year_of(date):

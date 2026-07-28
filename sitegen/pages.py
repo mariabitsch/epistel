@@ -1,15 +1,16 @@
 """Whole HTML documents, as plain Python string functions.
 
-No template engine: the site has two page types, and a function that returns a
-string is easier to read -- and to throw away -- than a dependency. Every value
-that comes from the data passes through ``sitegen.html`` on its way in.
+No template engine: the site has three page types, and a function that returns
+a string is easier to read -- and to throw away -- than a dependency. Every
+value that comes from the data passes through ``sitegen.html`` on its way in.
 
-The pages take view models (built in ``sitegen.site``), not parser output, so
-this module contains no knowledge of TEI. All links are relative, because the
-built site has to work from any directory of any static host.
+The pages take view models (built in ``sitegen.site`` and ``sitegen.timeline``),
+not parser output, so this module contains no knowledge of TEI. All links are
+relative, because the built site has to work from any directory of any static
+host.
 """
 
-from .html import element, text
+from .html import classes, element, text
 
 SITE_TITLE = "epistel"
 SITE_TAGLINE = "demonstrationsvisning"
@@ -17,9 +18,15 @@ SITE_TAGLINE = "demonstrationsvisning"
 # Where each page type sits, and what it takes to get back to the root.
 INDEX_TO_ROOT = ""
 LETTER_TO_ROOT = "../../"
+TIMELINE_TO_ROOT = "../"
+
+# The site's two destinations. The timeline is only one of them when the
+# curated datasets were built with it -- see ``sitegen.site.build_site``.
+INDEX_NAV = "breve"
+TIMELINE_NAV = "tidslinje"
 
 
-def index_page(books):
+def index_page(books, timeline=False):
     """The front page: every letter, by volume and then by correspondence.
 
     One page for the whole corpus. The edition's own two levels of order are
@@ -37,10 +44,12 @@ def index_page(books):
         root=INDEX_TO_ROOT,
         description="Søren Kierkegaards %s i %s, vist fra offentlige TEI-filer."
         % (_letter_count(count), _volume_count(len(books))),
+        timeline=timeline,
+        here=INDEX_NAV,
     )
 
 
-def letter_page(view, previous, following, section):
+def letter_page(view, previous, following, section, timeline=False):
     """One letter: what it is, what it says, and what it belongs with."""
     header = element(
         "p",
@@ -61,6 +70,8 @@ def letter_page(view, previous, following, section):
         root=LETTER_TO_ROOT,
         description="%s: fra %s til %s, %s."
         % (view["title"], view["sender"], view["recipient"], view["date_text"]),
+        timeline=timeline,
+        here=INDEX_NAV,
     )
 
 
@@ -322,6 +333,438 @@ def _in_brackets(view):
 
 
 # ---------------------------------------------------------------------------
+# Timeline
+# ---------------------------------------------------------------------------
+
+
+def timeline_page(model):
+    """The letters against the books and the addresses, on one linear scale.
+
+    The page is a stack of years, each of them the same height, each holding
+    four lanes: where he lived, the letters he sent, the letters the edition
+    can only date to a year, and what he published. ``sitegen.timeline`` has
+    already decided every position; this function only writes them down.
+
+    Nothing here moves after the page is served -- the marks are elements with
+    two custom properties, and the stylesheet does the arithmetic. There is no
+    script on the page, so there is nothing to fail.
+    """
+    counts = model["counts"]
+    body = element("h1", "Tidslinje")
+    body += _timeline_intro(model)
+    body += _timeline_legend()
+    body += _timeline_rail(model)
+    body += _undated(model["undated"])
+    body += _home_register(model["homes"])
+    body += _dataset_note(model["meta"])
+    return _document(
+        title="Tidslinje",
+        main=body,
+        root=TIMELINE_TO_ROOT,
+        description="Søren Kierkegaards %s, %d skrifter og %d bopæle fra %d til "
+        "%d på én lineær tidsskala."
+        % (
+            _letter_count(counts["letters"]),
+            counts["publications"],
+            counts["residences"],
+            model["first_year"],
+            model["last_year"],
+        ),
+        body_class="page-timeline",
+        timeline=True,
+        here=TIMELINE_NAV,
+    )
+
+
+def _timeline_intro(model):
+    counts = model["counts"]
+    lead = element(
+        "p",
+        "Søren Kierkegaards liv fra %d til %d på én skala: brevene fra den "
+        "TEI-kodede udgave, sat op mod de skrifter han fik udgivet, og de "
+        "adresser han boede på. Hvert år fylder det samme, så de tavse år "
+        "fylder lige så meget som de travle."
+        % (model["first_year"], model["last_year"]),
+        class_="lead",
+    )
+    figures = [
+        ("%d" % counts["placed"], "breve placeret i et år"),
+        ("%d" % counts["undated"], "breve uden datering"),
+        ("%d" % counts["publications"], "skrifter udgivet i hans levetid"),
+        ("%d" % counts["residences"], "bopæle"),
+    ]
+    lead += element(
+        "ul",
+        "".join(
+            element("li", element("b", text(number)) + " " + text(label))
+            for number, label in figures
+        ),
+        class_="tl-figures",
+    )
+    return lead
+
+
+def _timeline_legend():
+    """What the marks mean, said once, in Danish.
+
+    Every distinction on the page is drawn twice -- as a shape and as words --
+    so none of them depends on telling two colours apart.
+    """
+    rows = [
+        ("Streg", "brev, som udgaven daterer til dagen."),
+        (
+            "Åben kasse",
+            "brev, som udgaven kun daterer til måneden. Kassen dækker hele "
+            "måneden, fordi det er alt, kilden siger.",
+        ),
+        (
+            "ca.",
+            "brev, som udgaven kun daterer til året eller til en periode over "
+            "flere år. Det har ingen plads på dagskalaen og står derfor "
+            "samlet for sig ud for året.",
+        ),
+        (
+            "Udfyldt rude",
+            "skrift udgivet under Kierkegaards eget navn. Rykket helt ud til "
+            "skinnen.",
+        ),
+        (
+            "Åben rude",
+            "skrift udgivet under pseudonym. Rykket ind, med pseudonymets navn "
+            "under titlen.",
+        ),
+        (
+            "Bånd",
+            "bopæl. Stiplet kant betyder, at kilderne er uenige om perioden, "
+            "eller at de kun kender året.",
+        ),
+    ]
+    note = element(
+        "p",
+        "Skalaen er lineær: hvert år er lige højt. Et år strækkes kun, hvor "
+        "årets udgivelser fylder mere end året — aldrig omvendt, og aldrig på "
+        "de stille års bekostning. Breve uden nogen datering står nederst på "
+        "siden.",
+        class_="tl-legend-note",
+    )
+    return element(
+        "section",
+        element("h2", "Tegnforklaring", class_="tl-legend-heading")
+        + element(
+            "dl",
+            "".join(
+                element("div", element("dt", text(mark)) + element("dd", text(meaning)))
+                for mark, meaning in rows
+            ),
+            class_="tl-legend",
+        )
+        + note,
+        class_="tl-legend-box",
+        aria_label="Tegnforklaring",
+    )
+
+
+def _timeline_rail(model):
+    head = element(
+        "div",
+        "".join(
+            element("span", text(label), class_="tl-head-%s" % lane)
+            for lane, label in (
+                ("axis", "År"),
+                ("homes", "Bopæl"),
+                ("letters", "Breve"),
+                ("vague", "Kun år"),
+                ("works", "Udgivelser"),
+            )
+        ),
+        class_="tl-head",
+        aria_hidden="true",
+    )
+    years = "".join(_timeline_year(year) for year in model["years"])
+    return element(
+        "div",
+        head + years,
+        class_="tl",
+        style=_style(slots=model["slots"], homes=model["home_slots"]),
+    )
+
+
+def _timeline_year(year):
+    inner = element("h2", text("%d" % year["year"]), class_="tl-axis")
+    inner += _homes(year["homes"])
+    inner += _letters(year["letters"], year["year"])
+    inner += _vague(year["vague"], year["year"])
+    inner += _works(year["works"])
+    return element(
+        "section",
+        inner,
+        # Every tenth year gets a stronger rule: a scale a reader can count by
+        # without reading every label.
+        class_=classes("tl-year", "tl-year--decade" if not year["year"] % 10 else None),
+        id="aar-%d" % year["year"],
+    )
+
+
+def _homes(segments):
+    """One year's slice of the bands. Only a band's first year is labelled."""
+    bands = ""
+    for segment in segments:
+        band = element(
+            "span",
+            "",
+            class_="tl-home-band",
+            aria_hidden="true",
+        )
+        label = ""
+        if segment["labelled"]:
+            label = element(
+                "p",
+                element("b", text(segment["address"]), class_="tl-home-address")
+                + element(
+                    "span",
+                    text(segment["period"])
+                    + (" (fortsat)" if segment["continued"] else ""),
+                    class_="tl-home-period",
+                )
+                + (
+                    element("span", "usikker datering", class_="tl-approx")
+                    if segment["approx"] and segment["starts"]
+                    else ""
+                ),
+                class_="tl-home-label",
+            )
+        bands += element(
+            "div",
+            band + label,
+            class_=classes(
+                "tl-home",
+                "tl-home--starts" if segment["starts"] else None,
+                "tl-home--ends" if segment["ends"] else None,
+                "tl-home--approx" if segment["approx"] else None,
+            ),
+            style=_style(
+                top=segment["top"], height=segment["height"], slot=segment["slot"]
+            ),
+        )
+    return element("div", bands, class_="tl-homes")
+
+
+def _letters(marks, year):
+    """The comb: one mark per letter the edition dates within its year.
+
+    A mark is a line when the day is known and an open box the height of the
+    month when it is not, so its size is the edition's certainty. Marks that
+    would sit on top of each other are dealt columns to the right, which is why
+    a year like 1849 is wide and a quiet year is a single line of ticks.
+    """
+    if not marks:
+        return element("div", "", class_="tl-letters")
+    items = ""
+    for mark in marks:
+        items += element(
+            "li",
+            element(
+                "a",
+                "",
+                href="../brev/%s/" % mark["slug"],
+                title=mark["label"],
+                aria_label=mark["label"],
+            ),
+            class_="tl-letter tl-letter--%s" % mark["kind"],
+            style=_style(top=mark["top"], height=mark["height"], slot=mark["slot"]),
+        )
+    return element(
+        "ul",
+        items,
+        class_="tl-letters",
+        aria_label="Breve dateret i %d" % year,
+    )
+
+
+def _vague(marks, year):
+    """Letters the edition places in a year but not in a day.
+
+    They are set apart, marked "ca." and given their letter numbers, because
+    the one thing the page must not do is put them somewhere on the day scale
+    where they would look as if they were known to the day.
+    """
+    if not marks:
+        return element("div", "", class_="tl-vague")
+    items = "".join(
+        element(
+            "li",
+            element(
+                "a",
+                text(mark["number"]),
+                href="../brev/%s/" % mark["slug"],
+                title=mark["label"],
+                aria_label=mark["label"],
+            ),
+            class_="tl-vague-item",
+        )
+        for mark in marks
+    )
+    return element(
+        "div",
+        element("p", "ca.", class_="tl-vague-mark", aria_hidden="true")
+        + element(
+            "ul",
+            items,
+            class_="tl-vague-list",
+            aria_label="Breve, som udgaven kun daterer til %d eller til en "
+            "periode fra %d" % (year, year),
+        ),
+        class_="tl-vague",
+    )
+
+
+def _works(blocks):
+    """The publications: one block per day something came out.
+
+    Three books came out on 16 October 1843 and two on 17 June 1844, so a block
+    can hold more than one title. Pseudonymous works are set in from the rail
+    with an open marker and their pseudonym named; signed ones stand at the
+    rail with a filled one. Two encodings, no colour.
+    """
+    if not blocks:
+        return element("div", "", class_="tl-works")
+    items = ""
+    for block in blocks:
+        entries = "".join(_work(entry) for entry in block["entries"])
+        items += element(
+            "li",
+            element(
+                "p",
+                element("time", text(block["date_text"]), datetime=block["date"].isoformat()),
+                class_="tl-work-date",
+            )
+            + element("ul", entries, class_="tl-work-list"),
+            class_="tl-work",
+            style=_style(lead=block["lead"], span=block["span"]),
+        )
+    return element("ol", items, class_="tl-works")
+
+
+def _work(entry):
+    pseudonym = entry["pseudonym"]
+    inner = element("span", "", class_="tl-work-mark", aria_hidden="true")
+    inner += element("b", text(entry["title"]), class_="tl-work-title")
+    inner += element(
+        "span",
+        "Pseudonym: %s" % text(pseudonym) if pseudonym else "Signeret",
+        class_="tl-work-name",
+    )
+    if entry["period"]:
+        # The dataset's own wording, where it says more than one date can:
+        # a serial in four parts, a run of nine numbers, a year of articles.
+        inner += element("span", text(entry["period"]), class_="tl-work-period")
+    return element(
+        "li",
+        inner,
+        class_="tl-work-item tl-work-item--%s"
+        % ("pseudonym" if pseudonym else "signed"),
+    )
+
+
+def _undated(letters):
+    """The ten letters no year can hold. Named, since they cannot be placed."""
+    items = "".join(
+        element(
+            "li",
+            element("a", text(view["title"]), href="../brev/%s/" % view["slug"])
+            + element("span", " · " + text(view["correspondents"]), class_="muted"),
+        )
+        for view in letters
+    )
+    return element(
+        "section",
+        element("h2", "Breve uden datering")
+        + element(
+            "p",
+            "Udgaven daterer ikke disse %d breve. De kan ikke placeres på "
+            "skalaen, og de er ikke gættet ind i et år." % len(letters),
+            class_="tl-section-note",
+        )
+        + element("ul", items, class_="tl-undated-list"),
+        class_="tl-section",
+        id="udaterede",
+    )
+
+
+def _home_register(homes):
+    """The bands in words: the address, the period, and what is uncertain."""
+    rows = ""
+    for home in homes:
+        detail = element("span", text(home["period"]), class_="tl-home-period")
+        if home["approx"]:
+            detail += element("span", "usikker datering", class_="tl-approx")
+        if home["modern"]:
+            detail += element("span", text(home["modern"]), class_="tl-home-modern")
+        if home["approx"] and home["note"]:
+            # Why it is uncertain is the interesting part, and it is the one
+            # thing the lane beside the rail has no room for.
+            detail += element("span", text(home["note"]), class_="tl-home-note")
+        rows += element(
+            "div", element("dt", text(home["address"])) + element("dd", detail)
+        )
+    return element(
+        "section",
+        element("h2", "Bopæle")
+        + element("dl", rows, class_="tl-home-register"),
+        class_="tl-section",
+        id="bopaele",
+    )
+
+
+def _dataset_note(meta):
+    """Where the two curated datasets come from, and what they are not."""
+    parts = ""
+    for name, heading in (
+        ("publications", "Udgivelser"),
+        ("residences", "Bopæle"),
+    ):
+        block = meta.get(name) or {}
+        inner = element("h3", text(heading))
+        if block.get("datingPrinciple"):
+            inner += element("p", text(block["datingPrinciple"]))
+        sources = block.get("generalSources") or []
+        if sources:
+            inner += element(
+                "ul",
+                "".join(
+                    element("li", text(source.get("work") or ""))
+                    for source in sources
+                ),
+                class_="tl-source-list",
+            )
+        parts += element("div", inner, class_="tl-dataset")
+    return element(
+        "section",
+        element("h2", "Om datasættene")
+        + element(
+            "p",
+            "Udgivelser og bopæle er et redaktionelt lag: håndkurateret, "
+            "kildebelagt og lagt oven på udgaven. De stammer ikke fra de "
+            "TEI-filer, brevene er læst fra, og de kan bestrides og skiftes ud "
+            "uden at røre ved brevteksten.",
+            class_="tl-section-note",
+        )
+        + parts,
+        class_="tl-section",
+        id="datasaet",
+    )
+
+
+def _style(**values):
+    """Positions as custom properties: the stylesheet does the arithmetic."""
+    parts = []
+    for name, value in values.items():
+        rendered = "%d" % value if isinstance(value, int) else "%.4f" % value
+        parts.append("--%s:%s" % (name, rendered))
+    return ";".join(parts)
+
+
+# ---------------------------------------------------------------------------
 # Shared bits
 # ---------------------------------------------------------------------------
 
@@ -360,7 +803,7 @@ def _volume_count(count):
     return "%d bind" % count
 
 
-def _document(title, main, root, description):
+def _document(title, main, root, description, body_class=None, timeline=False, here=None):
     """The shell every page shares."""
     head = (
         element("meta", charset="utf-8")
@@ -372,7 +815,8 @@ def _document(title, main, root, description):
     header = element(
         "header",
         element("p", element("a", SITE_TITLE, href=root or "./"), class_="site-title")
-        + element("p", SITE_TAGLINE, class_="site-tagline"),
+        + element("p", SITE_TAGLINE, class_="site-tagline")
+        + _navigation(root, timeline, here),
         class_="site-header",
     )
     footer = element(
@@ -397,6 +841,35 @@ def _document(title, main, root, description):
     body = skip + header + element("main", main, id="indhold") + footer
     return (
         "<!doctype html>\n"
-        + element("html", element("head", head) + element("body", body), lang="da")
+        + element(
+            "html",
+            element("head", head) + element("body", body, class_=body_class),
+            lang="da",
+        )
         + "\n"
     )
+
+
+def _navigation(root, timeline, here):
+    """Two links in the header band, and only while there are two places to go.
+
+    The timeline is built from the curated datasets in ``data/context``; a
+    build without them is a smaller site, and a smaller site must not offer a
+    link to a page it never wrote.
+    """
+    if not timeline:
+        return ""
+    destinations = [
+        (INDEX_NAV, "Breve", root or "./"),
+        (TIMELINE_NAV, "Tidslinje", "%stidslinje/" % root),
+    ]
+    links = "".join(
+        element(
+            "a",
+            label,
+            href=href,
+            aria_current="page" if name == here else None,
+        )
+        for name, label, href in destinations
+    )
+    return element("nav", links, class_="site-nav", aria_label="Sider")
