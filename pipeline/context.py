@@ -4,8 +4,10 @@
 same job for the second, much smaller body of data the site shows -- the
 curated datasets in ``data/context``: the books Kierkegaard published in his
 lifetime, the addresses he lived at, Maria Notabene's summaries of the
-letters, the biographies drawn out of the edition's own commentary, and the
-table that joins correspondent names to the people named in the letters.
+letters, the biographies drawn out of the edition's own commentary, and two
+join tables -- correspondent names to the people named in the letters
+(``aliases.json``), and the commentary's persName keys to the bodies' where
+the two key spaces drift apart (``bio_keys.json``).
 
 They are a *different kind of truth* and the code keeps them apart on purpose:
 
@@ -59,10 +61,11 @@ DATASETS = {
     "residences": "residences.json",
 }
 
-# The three datasets that hang off individual letters and people. Each one is
+# The datasets that hang off individual letters and people. Each one is
 # optional on its own; the display simply has less to say without it.
 SUMMARIES_FILE = "summaries.json"
 BIOS_FILE = "bios.json"
+BIO_KEYS_FILE = "bio_keys.json"
 ALIASES_FILE = "aliases.json"
 
 
@@ -92,6 +95,7 @@ def load_context(context_dir):
 
     _load_summaries(context, os.path.join(context_dir, SUMMARIES_FILE))
     _load_bios(context, os.path.join(context_dir, BIOS_FILE))
+    _load_bio_keys(context, os.path.join(context_dir, BIO_KEYS_FILE))
     _load_aliases(context, os.path.join(context_dir, ALIASES_FILE))
 
     if len(context) == 1:
@@ -154,6 +158,37 @@ def _load_bios(context, path):
         for entry in meta.get("withoutBio") or []
     }
     context["meta"]["bios"] = meta
+
+
+def _load_bio_keys(context, path):
+    """The curated bridge between the bodies' and the commentary's key spaces.
+
+    ``bios.json`` is filed under kom.xml's persName keys; the person register
+    is keyed by the letter bodies'. Where the two disagree (an inverted name,
+    a rearranged surname, a missing comma), this table files the same bio
+    under the body's key too, so the join in ``sitegen.persons`` stays a
+    plain lookup. Loaded after the bios and meaningless without them: with
+    ``bios.json`` gone, the bridge is quietly a no-op, which keeps each
+    dataset disposable on its own. A bridge pointing at a bio that does not
+    exist is a defect in the table, not a silence to preserve.
+    """
+    if not os.path.isfile(path):
+        return
+    data = _read(path)
+    entries = data.get("bridges")
+    if not isinstance(entries, list) or not entries:
+        raise ValueError("%s holds no bridges" % path)
+    context["meta"]["bio_keys"] = data.get("_meta") or {}
+    bios = context.get("bios")
+    if not bios:
+        return
+    for entry in entries:
+        if entry["bioKey"] not in bios:
+            raise ValueError(
+                "%s bridges %r to %r, which holds no bio"
+                % (path, entry["bodyKey"], entry["bioKey"])
+            )
+        bios[entry["bodyKey"]] = bios[entry["bioKey"]]
 
 
 def _load_aliases(context, path):

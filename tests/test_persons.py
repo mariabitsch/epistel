@@ -143,6 +143,53 @@ class AliasTableTest(unittest.TestCase):
         self.assertTrue(meta["notFromTEI"])
 
 
+class BioKeyTableTest(unittest.TestCase):
+    """The curated bridge between the bodies' and the commentary's key spaces.
+
+    bios.json is filed under kom.xml's persName keys; the person register is
+    built from the letter bodies' keys. Four people fall in the gap (an
+    inverted name, a rearranged surname, a missing comma), and
+    ``bio_keys.json`` is our claim -- evidenced entry by entry -- that the
+    two forms name the same person.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        with open(os.path.join(CONTEXT, "bio_keys.json"), encoding="utf-8") as file:
+            cls.data = json.load(file)
+        cls.context = load_context(CONTEXT)
+        cls.volumes = parse_corpus(VENDOR)
+
+    def test_every_bridge_carries_its_evidence(self):
+        for entry in self.data["bridges"]:
+            self.assertTrue(entry["evidence"], entry["bodyKey"])
+
+    def test_every_body_key_is_a_person_the_letters_actually_name(self):
+        keys = set()
+        for volume in self.volumes:
+            for letter in volume["letters"]:
+                keys.update(person_keys(letter["body"]))
+        for entry in self.data["bridges"]:
+            self.assertIn(entry["bodyKey"], keys)
+
+    def test_every_bio_key_holds_a_bio_and_no_bridge_shadows_one(self):
+        bios = self.context["bios"]
+        for entry in self.data["bridges"]:
+            self.assertIn(entry["bioKey"], bios, entry["bodyKey"])
+
+    def test_the_loader_files_the_bio_under_the_bodys_key_too(self):
+        bios = self.context["bios"]
+        for entry in self.data["bridges"]:
+            self.assertEqual(
+                bios[entry["bioKey"]], bios[entry["bodyKey"]], entry["bodyKey"]
+            )
+
+    def test_the_file_says_it_is_ours_and_not_the_editions(self):
+        meta = self.data["_meta"]
+        self.assertTrue(meta["editorialLayer"])
+        self.assertTrue(meta["notFromTEI"])
+
+
 class PersonRegisterTest(unittest.TestCase):
     """The register built from the real corpus and the real datasets."""
 
@@ -204,6 +251,19 @@ class PersonRegisterTest(unittest.TestCase):
         self.assertNotIn("Efter kommentaren i SKS", page)
         self.assertIn("Breve modtaget", page)
         self.assertIn('href="../../brev/176/"', page)
+
+    def test_a_bio_filed_under_another_commentary_key_still_reaches_its_page(self):
+        """The four people bio_keys.json bridges each show their biography."""
+        cases = [
+            ("mueller-frederik-paludan", "digter"),
+            ("calderon-pedro-de-la-barca", "spansk dramatiker"),
+            ("collin-edvard", "Edvard Collin (1808-86)"),
+            ("frederik-christian-petersen", "filolog"),
+        ]
+        for slug_, marker in cases:
+            page = self.read("person", slug_, "index.html")
+            self.assertIn("Efter kommentaren i SKS", page, slug_)
+            self.assertIn(marker, page, slug_)
 
     def test_a_person_the_commentary_names_without_a_note_says_which_it_is(self):
         # The thirteen in bios.json's withoutBio: mentioned, but not as a
