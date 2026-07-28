@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "description": "De eksterne adresser, det byggede site må pege på — og de eneste. Både sidegeneratoren og testsuiten læser denne fil: ændres eller fjernes et link her, følger siderne med, og en side, der peger på en adresse, som ikke står her, fejler i tests. At tilføje et link kræver også et sted at vise det (pages.py slår op pr. id); dækningstesten siger til, hvis et konfigureret link ingen steder vises.",
+    "notFromTEI": true,
+    "scopes": "\"footer\" vises i foden på alle sider; \"om\" vises kun på Om-siden (oven i fodens links).",
+    "note": "upstream-repository skal stemme overens med repository-linjen i data/vendor/PROVENANCE.md — en test håndhæver det. Selve siden foretrækker altid den adresse, PROVENANCE.md faktisk optegner."
+  },
+  "links": [
+    {
+      "id": "cc0-deed",
+      "href": "https://creativecommons.org/publicdomain/zero/1.0/deed.da",
+      "label": "CC0 1.0",
+      "rel": "license",
+      "scope": "footer"
+    },
+    {
+      "id": "upstream-repository",
+      "href": "https://github.com/kb-dk/SKS_tei",
+      "label": "kb-dk/SKS_tei",
+      "rel": "external",
+      "scope": "om"
+    },
+    {
+      "id": "publishers-edition",
+      "href": "https://tekster.kb.dk/sks",
+      "label": "tekster.kb.dk/sks",
+      "rel": "external",
+      "scope": "om"
+    }
+  ]
+}

@@ -153,9 +153,15 @@ the method above is the important part.
   transparent pseudonymity in SK's own tradition. Honestly disclosed on
   `/om/` along with AI assistance. Summaries appear in the index only,
   never on letter pages (Maria's decision).
-- **Self-containment:** external links exist in exactly three places —
-  the CC0 deed in every footer, upstream repo + tekster.kb.dk on `/om/`.
-  Test-enforced per page, Om as the single named exception.
+- **Self-containment:** every external link comes from `data/links.json`
+  (entries with id/href/label/rel/scope; today: the CC0 deed in every
+  footer, upstream repo + tekster.kb.dk on `/om/`). Pages look entries up
+  by id and degrade to plain text without them; the tests derive their
+  self-containment allowlists from the same file, so changing or removing
+  a link is one data edit caught on both sides, and adding one is a table
+  entry plus a render spot (a coverage test insists on both). Loader:
+  `pipeline/links.py`; the repo link is test-guarded against
+  PROVENANCE.md drift.
 
 ## Decisions log
 
@@ -175,7 +181,9 @@ Slice 8 (polish) never ran as a unit. Known items, roughly ordered:
   presentation, and a **reconsideration of external links / crediting** —
   if the demo is to persuade KB decision-makers, generous crediting of
   kb-dk/SKS_tei may serve better than strict link-minimalism. Rule 5's
-  no-lookalike clause stands regardless.
+  no-lookalike clause stands regardless. (The mechanism landed
+  2026-07-28: `data/links.json` — which links to *add* is still Maria's
+  open decision.)
 - b43/50's unreadable `notAfter` is surfaced on the timeline but still
   hidden on the letter page (`dates.py`, one-line fix + test).
 - Henriette Lund: 23 letters, no bio (no subject note under her key);

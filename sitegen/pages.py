@@ -42,18 +42,31 @@ ABOUT_NAV = "om"
 # plainly, and names her as fiction.
 PRESENTER = "Maria Notabene"
 
-# The three addresses the built site is allowed to point at, and the only
-# ones. The deed travels with the text on every page because it is the
-# licence the text is published under; the other two are provenance, and
-# provenance without a link is just a claim -- so they live on the Om page.
-CC0_DEED = "https://creativecommons.org/publicdomain/zero/1.0/deed.da"
-PUBLISHERS_EDITION = "https://tekster.kb.dk/sks"
-# Used only when a build has no ``data/vendor/PROVENANCE.md`` to read the
-# repository out of; the recorded value wins whenever there is one.
-UPSTREAM_REPOSITORY = "https://github.com/kb-dk/SKS_tei"
+# The addresses the built site points at all come from ``data/links.json``
+# (see ``pipeline.links``), threaded into every page as ``links``. A page
+# asks for an entry by id where its sentence needs the anchor; without the
+# entry the sentence keeps its words and loses the link. No address is
+# hardcoded here, so removing one from the table removes it from the site.
 
 
-def index_page(books, facets, timeline=False):
+def _linked(links, link_id, fallback_label, href=None):
+    """The anchor a sentence asks for, or its words with no address.
+
+    ``href`` overrides the table's address when a truer one exists -- the
+    Om page prefers the repository PROVENANCE.md actually records over the
+    table's copy of it (a guard test keeps the two in agreement).
+    """
+    entry = next(
+        (e for e in (links or {}).get("links", ()) if e["id"] == link_id), None
+    )
+    if not entry:
+        return text(fallback_label)
+    return element(
+        "a", text(entry["label"]), href=href or entry["href"], rel=entry["rel"]
+    )
+
+
+def index_page(books, facets, timeline=False, links=None):
     """The front page: every letter, by volume and then by correspondence.
 
     One page for the whole corpus. The edition's own two levels of order are
@@ -78,10 +91,11 @@ def index_page(books, facets, timeline=False):
         timeline=timeline,
         here=INDEX_NAV,
         scripts=["assets/search.js"],
+        links=links,
     )
 
 
-def letter_page(view, previous, following, section, person_links, timeline=False):
+def letter_page(view, previous, following, section, person_links, timeline=False, links=None):
     """One letter: what it is, what it says, and what it belongs with."""
     header = element(
         "p",
@@ -104,6 +118,7 @@ def letter_page(view, previous, following, section, person_links, timeline=False
         % (view["title"], view["sender"], view["recipient"], view["date_text"]),
         timeline=timeline,
         here=INDEX_NAV,
+        links=links,
     )
 
 
@@ -583,7 +598,7 @@ def _in_brackets(view):
 # ---------------------------------------------------------------------------
 
 
-def person_index_page(groups, register, timeline=False):
+def person_index_page(groups, register, timeline=False, links=None):
     """Everyone the letters name, hung letter band by letter band.
 
     The register is the edition's own: every name it marked up in a letter's
@@ -606,6 +621,7 @@ def person_index_page(groups, register, timeline=False):
         % _person_count(len(register)),
         timeline=timeline,
         here=PERSONS_NAV,
+        links=links,
     )
 
 
@@ -674,7 +690,7 @@ def _person_entry(person):
     )
 
 
-def person_page(person, timeline=False):
+def person_page(person, timeline=False, links=None):
     """One person: who the commentary says they were, and their letters."""
     header = element(
         "p",
@@ -709,6 +725,7 @@ def person_page(person, timeline=False):
         % (person["name"], _person_summary(person)),
         timeline=timeline,
         here=PERSONS_NAV,
+        links=links,
     )
 
 
@@ -827,7 +844,7 @@ def _person_count(count):
 # ---------------------------------------------------------------------------
 
 
-def timeline_page(model):
+def timeline_page(model, links=None):
     """The letters against the books and the addresses, on one linear scale.
 
     The page is a stack of years, each of them the same height, each holding
@@ -863,6 +880,7 @@ def timeline_page(model):
         body_class="page-timeline",
         timeline=True,
         here=TIMELINE_NAV,
+        links=links,
     )
 
 
@@ -1250,7 +1268,7 @@ def _dataset_note(meta):
 # ---------------------------------------------------------------------------
 
 
-def about_page(provenance=None, timeline=False):
+def about_page(provenance=None, timeline=False, links=None):
     """What the site is, where the text comes from, and who the hostess is.
 
     Rule 5 of the build brief lives here: the demonstration has to be
@@ -1276,7 +1294,7 @@ def about_page(provenance=None, timeline=False):
         class_="lead",
     )
     body += _about_display()
-    body += _about_source(provenance)
+    body += _about_source(provenance, links=links)
     body += _about_code()
     body += _about_presenter()
     body += _about_people()
@@ -1288,6 +1306,7 @@ def about_page(provenance=None, timeline=False):
         "der gælder, og hvem Maria Notabene er.",
         timeline=timeline,
         here=ABOUT_NAV,
+        links=links,
     )
 
 
@@ -1315,17 +1334,17 @@ def _about_display():
     return element("section", body, id="visningen")
 
 
-def _about_source(provenance):
+def _about_source(provenance, links=None):
     """The vendored TEI: whose it is, what licence it carries, which commit."""
-    repository = (provenance or {}).get("repository") or UPSTREAM_REPOSITORY
+    repository = (provenance or {}).get("repository")
     body = element("h2", "Teksten")
     body += element(
         "p",
         "Brevteksterne kommer fra den TEI-kodede udgave af <i>Søren "
         "Kierkegaards Skrifter</i>, som ligger offentligt i repositoriet "
-        + element("a", "kb-dk/SKS_tei", href=repository, rel="external")
+        + _linked(links, "upstream-repository", "kb-dk/SKS_tei", href=repository)
         + ". Filerne er stillet til rådighed under "
-        + element("a", "CC0 1.0", href=CC0_DEED, rel="license")
+        + _linked(links, "cc0-deed", "CC0 1.0")
         + " — et afkald på ophavsret, der lader hvem som helst bruge dem til "
         "hvad som helst, også dette.",
     )
@@ -1346,7 +1365,7 @@ def _about_source(provenance):
     body += element(
         "p",
         "Udgaven kan også læses hos udgiverne selv på "
-        + element("a", "tekster.kb.dk/sks", href=PUBLISHERS_EDITION, rel="external")
+        + _linked(links, "publishers-edition", "tekster.kb.dk/sks")
         + ", hvor kommentarer, indledninger og tekstkritisk apparat er gengivet "
         "i deres helhed. Det gør denne visning ikke.",
     )
@@ -1498,6 +1517,7 @@ def _document(
     timeline=False,
     here=None,
     scripts=(),
+    links=None,
 ):
     """The shell every page shares."""
     head = (
@@ -1521,7 +1541,7 @@ def _document(
             "Teksten stammer fra den TEI-kodede udgave af "
             "<i>Søren Kierkegaards Skrifter</i>, der er offentligt tilgængelig "
             "under "
-            + element("a", "CC0 1.0", href=CC0_DEED, rel="license")
+            + _linked(links, "cc0-deed", "CC0 1.0")
             + ". Denne visning er en uafhængig demonstration — ikke en udgivelse "
             "fra udgiverne bag SKS — og er bygget med hjælp fra Claude (AI).",
         ),

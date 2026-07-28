@@ -61,7 +61,7 @@ UNGROUPED_ID = "uden-brevveksling"
 NUMBER = re.compile(r"^\d+(\.\d+)*$")
 
 
-def build_site(volumes, out_dir, context=None, provenance=None):
+def build_site(volumes, out_dir, context=None, provenance=None, links=None):
     """Generate the whole site. Returns a small report for the build script.
 
     Built in two passes, because a letter page links to the people it names
@@ -99,7 +99,7 @@ def build_site(volumes, out_dir, context=None, provenance=None):
     _write(
         out_dir,
         ["index.html"],
-        pages.index_page(books, search.facets(views), timeline=has_timeline),
+        pages.index_page(books, search.facets(views), timeline=has_timeline, links=links),
     )
     for previous, view, following in _neighbours(views):
         _write(
@@ -112,27 +112,28 @@ def build_site(volumes, out_dir, context=None, provenance=None):
                 section_of.get(view["slug"]),
                 _person_links(by_key, view),
                 timeline=has_timeline,
+                links=links,
             ),
         )
     _write(
         out_dir,
         ["personer", "index.html"],
-        pages.person_index_page(register_groups(register), register, timeline=has_timeline),
+        pages.person_index_page(register_groups(register), register, timeline=has_timeline, links=links),
     )
     for person in register:
         _write(
             out_dir,
             ["person", person["slug"], "index.html"],
-            pages.person_page(person, timeline=has_timeline),
+            pages.person_page(person, timeline=has_timeline, links=links),
         )
     if timeline:
-        _write(out_dir, ["tidslinje", "index.html"], pages.timeline_page(timeline))
+        _write(out_dir, ["tidslinje", "index.html"], pages.timeline_page(timeline, links=links))
     # Always written, and never conditional on any dataset: the Om page is
     # what tells a reader this is a demonstration and who the presenter is.
     _write(
         out_dir,
         ["om", "index.html"],
-        pages.about_page(provenance=provenance, timeline=has_timeline),
+        pages.about_page(provenance=provenance, timeline=has_timeline, links=links),
     )
     _copy_static(out_dir)
     _write(out_dir, ["assets", "search-index.js"], search.index_script(index))

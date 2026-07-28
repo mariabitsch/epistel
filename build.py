@@ -18,12 +18,14 @@ import sys
 
 from pipeline.context import load_context
 from pipeline.corpus import parse_corpus
+from pipeline.links import load_links
 from pipeline.provenance import load_provenance
 from sitegen.site import build_site
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 VENDOR = os.path.join(ROOT, "data", "vendor")
 CONTEXT = os.path.join(ROOT, "data", "context")
+LINKS = os.path.join(ROOT, "data", "links.json")
 
 
 def main(argv):
@@ -59,7 +61,16 @@ def main(argv):
     else:
         print("build: vendored TEI pinned to %s" % provenance["commit"])
 
-    result = build_site(volumes, out_dir, context=context, provenance=provenance)
+    links = load_links(LINKS)
+    if links is None:
+        print(
+            "warning: no link table at %s: building with no external links"
+            % _relative(LINKS)
+        )
+
+    result = build_site(
+        volumes, out_dir, context=context, provenance=provenance, links=links
+    )
     for warning in result["warnings"]:
         print(
             "warning: renderer: unmodelled TEI element <%s> (%d %s, first seen "

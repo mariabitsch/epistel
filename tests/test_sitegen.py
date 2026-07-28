@@ -10,6 +10,7 @@ the parser's internals.
 """
 
 import datetime
+import json
 import os
 import re
 import tempfile
@@ -17,6 +18,7 @@ import unittest
 
 from pipeline.context import load_context
 from pipeline.corpus import parse_corpus
+from pipeline.links import load_links
 from pipeline.parse_tei import parse_volume, plain_text
 from pipeline.provenance import load_provenance
 from sitegen import dates
@@ -28,17 +30,28 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VENDOR = os.path.join(REPO_ROOT, "data", "vendor")
 VENDORED_B1 = os.path.join(VENDOR, "b1", "txt.xml")
 CONTEXT = os.path.join(REPO_ROOT, "data", "context")
+LINKS_PATH = os.path.join(REPO_ROOT, "data", "links.json")
+
+
+def _links_data():
+    with open(LINKS_PATH, encoding="utf-8") as file:
+        return json.load(file)
+
 
 # Self-containment, page by page. Every page the build writes is a closed
-# system: the only address pointing off the site is the CC0 deed in the
-# footer, which is the licence the text is published under and belongs
-# wherever the text goes. The Om page is the single exception, because
-# provenance without links is not provenance -- so its extra addresses are
-# named here, and nowhere else, rather than waved through by substring.
-FOOTER_LINKS = ("https://creativecommons.org/publicdomain/zero/1.0/deed.da",)
-ABOUT_LINKS = FOOTER_LINKS + (
-    "https://github.com/kb-dk/SKS_tei",
-    "https://tekster.kb.dk/sks",
+# system: the only addresses pointing off the site are the ones declared in
+# ``data/links.json`` -- the CC0 deed in the footer, which is the licence the
+# text is published under and belongs wherever the text goes, and the Om
+# page's provenance addresses, because provenance without links is not
+# provenance. The allowlists are *derived* from that file rather than retyped
+# here: removing a link from the table makes any page still pointing at it
+# fail, which is the point of having the table.
+_DECLARED_LINKS = _links_data()["links"]
+FOOTER_LINKS = tuple(
+    entry["href"] for entry in _DECLARED_LINKS if entry["scope"] == "footer"
+)
+ABOUT_LINKS = FOOTER_LINKS + tuple(
+    entry["href"] for entry in _DECLARED_LINKS if entry["scope"] == "om"
 )
 
 
@@ -1234,6 +1247,7 @@ class PresenterTest(unittest.TestCase):
     def setUpClass(cls):
         cls.context = load_context(CONTEXT)
         cls.provenance = load_provenance(VENDOR)
+        cls.links = load_links(LINKS_PATH)
         cls.volumes = parse_corpus(VENDOR)
         cls.directory = tempfile.TemporaryDirectory()
         cls.result = build_site(
@@ -1241,6 +1255,7 @@ class PresenterTest(unittest.TestCase):
             cls.directory.name,
             context=cls.context,
             provenance=cls.provenance,
+            links=cls.links,
         )
         cls.index = cls.read_from(cls.directory.name, "index.html")
         cls.about = cls.read_from(cls.directory.name, "om", "index.html")
@@ -1387,6 +1402,46 @@ class PresenterTest(unittest.TestCase):
             with self.subTest(page=os.path.relpath(path, self.directory.name)):
                 assert_self_contained(self, page, allowed)
 
+    def test_every_declared_link_appears_where_its_scope_says(self):
+        """The table and the pages cannot drift apart, in either direction.
+
+        A page pointing at an undeclared address fails self-containment; a
+        declared link no page renders fails here. Adding a link is therefore
+        always two things -- a table entry and a place on a page -- and
+        removing one is one thing, caught everywhere.
+        """
+        for entry in _links_data()["links"]:
+            expected = 'href="%s"' % entry["href"]
+            with self.subTest(link=entry["id"]):
+                if entry["scope"] == "footer":
+                    for parts in (
+                        ("index.html",),
+                        ("brev", "1", "index.html"),
+                        ("om", "index.html"),
+                    ):
+                        self.assertIn(expected, self.read(*parts), "/".join(parts))
+                else:
+                    self.assertIn(expected, self.about)
+
+    def test_a_build_without_the_links_table_points_nowhere_but_says_the_same(self):
+        """No table, no anchors -- and no words lost.
+
+        The licence, the repository and the publisher's edition are still
+        named in prose; only the addresses are gone. That keeps the table
+        disposable the way every dataset here is: removing it removes
+        exactly the links, never the honesty.
+        """
+        with tempfile.TemporaryDirectory() as other:
+            build_site(
+                self.volumes, other, context=self.context, provenance=self.provenance
+            )
+            about = self.read_from(other, "om", "index.html")
+            for page in (self.read_from(other, "index.html"), about):
+                self.assertNotIn("https://", page)
+                self.assertNotIn("http://", page)
+            for still_said in ("CC0", "kb-dk/SKS_tei", "tekster.kb.dk/sks"):
+                self.assertIn(still_said, about)
+
     def test_the_site_never_mentions_the_name_she_was_renamed_from(self):
         """Renamed 2026-07-28. Victor Eremita, SK's own pseudonym, stays."""
         for path in _built_files(self.directory.name, (".html", ".css", ".js")):
@@ -1400,9 +1455,69 @@ class PresenterTest(unittest.TestCase):
     def test_the_om_page_build_is_deterministic(self):
         with tempfile.TemporaryDirectory() as other:
             build_site(
-                self.volumes, other, context=self.context, provenance=self.provenance
+                self.volumes,
+                other,
+                context=self.context,
+                provenance=self.provenance,
+                links=self.links,
             )
             self.assertEqual(self.about, self.read_from(other, "om", "index.html"))
+
+
+class LinksTableTest(unittest.TestCase):
+    """data/links.json: the one list of addresses the site may point at.
+
+    The table exists so that changing the site's external links is a data
+    edit both the pages and this suite pick up. These tests hold the table
+    itself to account: complete entries, no duplicates, only scopes the
+    display knows, and a repository address that cannot quietly disagree
+    with the provenance record beside the vendored files.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.data = _links_data()
+        cls.links = cls.data["links"]
+
+    def test_every_link_is_fully_described(self):
+        for entry in self.links:
+            for field in ("id", "href", "label", "rel", "scope"):
+                self.assertTrue(entry.get(field), (entry.get("id"), field))
+
+    def test_ids_and_addresses_are_unique(self):
+        ids = [entry["id"] for entry in self.links]
+        hrefs = [entry["href"] for entry in self.links]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual(len(hrefs), len(set(hrefs)))
+
+    def test_scopes_are_the_two_the_display_knows(self):
+        for entry in self.links:
+            self.assertIn(entry["scope"], ("footer", "om"), entry["id"])
+
+    def test_the_repository_link_agrees_with_the_provenance_record(self):
+        recorded = load_provenance(VENDOR)
+        by_id = {entry["id"]: entry for entry in self.links}
+        self.assertEqual(recorded["repository"], by_id["upstream-repository"]["href"])
+
+    def test_the_file_says_it_is_ours(self):
+        self.assertTrue(self.data["_meta"]["notFromTEI"])
+
+    def test_the_loader_hands_the_table_over_unchanged(self):
+        loaded = load_links(LINKS_PATH)
+        self.assertEqual(self.links, loaded["links"])
+        self.assertEqual(self.data["_meta"], loaded["meta"])
+
+    def test_a_missing_file_yields_nothing(self):
+        with tempfile.TemporaryDirectory() as empty:
+            self.assertIsNone(load_links(os.path.join(empty, "links.json")))
+
+    def test_a_table_with_no_links_is_a_defect_not_a_silence(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = os.path.join(directory, "links.json")
+            with open(path, "w", encoding="utf-8") as file:
+                json.dump({"_meta": {}}, file)
+            with self.assertRaises(ValueError):
+                load_links(path)
 
 
 class ProvenanceTest(unittest.TestCase):
