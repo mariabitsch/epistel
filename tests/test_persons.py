@@ -245,12 +245,30 @@ class PersonRegisterTest(unittest.TestCase):
         self.assertIn('href="../../brev/79/"', received)
 
     def test_a_person_the_commentary_never_wrote_about_still_gets_their_letters(self):
-        """Henriette Lund has no biography and fourteen letters. Both are said."""
-        page = self.read("person", "lund-henriette", "index.html")
+        """Julie Thomsen has no biography and her letters. Both are said.
+
+        (Henriette Lund held this role until her grounded bio landed --
+        see the augmentation test below.)
+        """
+        page = self.read("person", "thomsen-julie-augusta", "index.html")
         self.assertIn("Kommentaren giver ingen biografisk note", page)
         self.assertNotIn("Efter kommentaren i SKS", page)
         self.assertIn("Breve modtaget", page)
-        self.assertIn('href="../../brev/176/"', page)
+        self.assertIn('href="../../brev/40/"', page)
+
+    def test_the_grounded_augmentation_gives_henriette_lund_her_bio(self):
+        """Twenty-three letters deserved better than 'ingen biografisk note'.
+
+        The commentary holds no subject note under her key, so her bio is
+        assembled from the notes that gloss her in SK's letters to her --
+        the Fenger method; see the entry's note field in bios.json for the
+        verification trail.
+        """
+        page = self.read("person", "lund-henriette", "index.html")
+        self.assertIn("Efter kommentaren i SKS:", page)
+        self.assertIn("Erindringer fra Hjemmet", page)
+        self.assertIn("b171:b-927", page)
+        self.assertNotIn("Kommentaren giver ingen biografisk note", page)
 
     def test_a_bio_filed_under_another_commentary_key_still_reaches_its_page(self):
         """The four people bio_keys.json bridges each show their biography."""

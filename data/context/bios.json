@@ -1147,6 +1147,23 @@
    "note": "Removed the stray reference fragment 's. 308)' that caused the parenthesis mismatch; parents' full names from b127:b-1943."
   },
   {
+   "key": "Lund, Henriette",
+   "bio": "SKs niece Anna Henriette (kaldt Jette) Lund (1829-1909), datter af Petrea og Ferdinand Lund; døbt den 20. januar 1830 i Vor Frue Kirke i København og konfirmeret sammesteds den 19. april 1846. Hendes fødselsdag den 12. november vender tilbage i flere af SKs breve til hende. Hun udgav senere Erindringer fra Hjemmet (København 1909), som kommentaren flere steder citerer.",
+   "sources": [
+    "b171:b-927",
+    "b171:b-986",
+    "b171:b-1005",
+    "b171:b-935",
+    "b171:b-992",
+    "b171:b-1024",
+    "b171:b-769",
+    "b171:b-969",
+    "b259:b-1746"
+   ],
+   "sameAs": [],
+   "note": "Grounded augmentation, like the Fenger repairs: the commentary holds no subject note under her key, so this bio is assembled from the notes that gloss her in SK's letters to her. Adversarially verified against those notes in two rounds (2 flags on the aggregate claims, repaired by widening the citation set to exactly the notes the verifier pointed at, re-verified to zero)."
+  },
+  {
    "key": "Lund, Henrik",
    "bio": "Henrik Sigvard Lund (1825-89), dansk læge og Søren Kierkegaards nevø, søn af klædehandler Johan Christian Lund og Kierkegaards søster Nicoline Christine Lund, f. Kierkegaard. Han blev candidatus medicinae et chirurgiae i 1849 og nedsatte sig som praktiserende læge i København. Ved Kierkegaards begravelse på Assistens Kirkegård trådte han frem ved graven og anklagede den officielle kirke for imod den afdødes vilje at have begravet ham, og han foretog vinteren 1855-56 den første registrering af de efterladte papirer.",
    "sources": [
