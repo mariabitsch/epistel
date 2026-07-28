@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Kierkegaards breve fra B1, vist fra offentlige TEI-filer."><title>Breve · epistel</title><!-- epistel design mockup: direction "Eckersberg". Standalone copy of a generated page; all CSS inlined, no external resources. Letter text is unchanged. --><style>
+/* =========================================================================
+   epistel — visual direction "Eckersberg"
+   Golden Age light as the painters saw it: dusty Prussian blue, sea-green,
+   warm plaster, a gilt frame-line. A modern museum presenting old letters.
+   Mockup: light mode only, system fonts only, no external resources.
+
+   FONT PLAN
+   ---------
+   The mockup uses macOS system stacks. In the real implementation we would
+   self-host two OFL families as woff2 in /assets/fonts (no CDN, per rule 2):
+     · display  -> Playfair Display   (Didone; stands in for Didot / Bodoni 72)
+     · body     -> Spectral           (warm transitional, generous x-height;
+                                       stands in for Palatino / Hoefler Text)
+     · labels   -> Public Sans        (optional; the museum-label micro-type.
+                                       System sans carries it here.)
+   EB Garamond and Source Serif 4 are the fallback candidates if Spectral's
+   colour turns out too cool next to the plaster ground. The system stacks
+   below stay in the font-family lists as real fallbacks: the site must
+   remain readable with zero webfonts loaded.
+
+   DARK MODE  (sketched, not implemented in this mockup)
+   ----------------------------------------------------
+   The direction inverts rather than dims. Ground becomes a low-chroma
+   Prussian night (--ground #141a1e, --paper #1b2226, --ink #e9e5d9); the two
+   deep blocks stop being "dark on light" and become *raised* surfaces
+   (--prussian #35566a, --seagreen #44604f) so the header band and the museum
+   label still read as objects placed on a wall. Gilt lifts to #d8b869 for
+   the frame lines (it must not sit at #b08d3e on a dark ground — it goes
+   muddy). The pb chips keep the two-series split by hue but swap solid tints
+   for 14% alpha washes with the text at #a8c6d6 / #dcbe83. Everything else
+   is a token swap; no layout changes.
+   ========================================================================= */
+
+:root {
+  /* --- surfaces ------------------------------------------------------- */
+  --ground:      #f6f3ec;   /* warm plaster wall the whole site hangs on   */
+  --paper:       #fdfcf9;   /* the letter's own quiet ground               */
+  --plaster:     #ece6d9;   /* tinted field, warm                          */
+  --sea-tint:    #e7ece7;   /* tinted field, cool                          */
+  --hover:       #f7f4ec;
+
+  /* --- deep blocks (the colour blocking) ------------------------------ */
+  --prussian:    #2e4a5a;   /* site-header band; link colour on light      */
+  --seagreen:    #3b4f45;   /* the museum-label card                       */
+
+  /* --- ink ------------------------------------------------------------ */
+  --ink:         #20211d;   /* 14.61:1 on ground, 15.79:1 on paper         */
+  --ink-soft:    #454840;   /*  8.41:1 on ground                           */
+  --muted:       #575a51;   /*  6.35:1 on ground, 5.65:1 on plaster        */
+
+  /* --- gilt: two values, because gold does not pass AA as type --------- */
+  --gilt:        #b08d3e;   /*  2.82:1 — RULES AND FRAMES ONLY, never text */
+  --gilt-text:   #7a5b18;   /*  5.68:1 on ground — the same accent, as type*/
+  --gilt-light:  #c9a856;   /*  4.11:1 on prussian, 3.86:1 on seagreen     */
+
+  /* --- type on deep grounds ------------------------------------------- */
+  --on-deep:     #f2efe4;   /*  8.29:1 on prussian, 7.63:1 on seagreen     */
+  --on-blue-mut: #b7c8d0;   /*  5.43:1 on prussian                         */
+  --on-deep-mut: #b7c6ba;   /*  4.94:1 on seagreen                         */
+  --on-deep-acc: #e6dfcb;   /*  6.60:1 on seagreen                         */
+
+  /* --- hairlines (decorative; carry no information on their own) ------- */
+  --rule:        #ded7c6;
+  --rule-warm:   #d8cdb4;
+  --rule-cool:   #d3ddd4;
+  --rule-faint:  #eae5d9;
+
+  /* --- type ----------------------------------------------------------- */
+  --display: "Didot", "Bodoni 72", "Hoefler Text", "Playfair Display", Georgia, serif;
+  --body:    "Palatino", "Palatino Linotype", "Book Antiqua", "Hoefler Text", Georgia, serif;
+  --label:   -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* --- measure -------------------------------------------------------- */
+  --shell:   46rem;                          /* outer column, incl. gutter */
+  --gutter:  clamp(1.15rem, 4vw, 2.5rem);
+}
+
+/* ---------------------------------------------------------------- base */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 100%; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;      /* 17px — Palatino needs the extra point      */
+  line-height: 1.72;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* One shared column: header band, main and footer band all align on it.  */
+.site-header > p,
+.site-footer > p,
+main {
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+main { padding-bottom: 4.5rem; }
+
+a { color: var(--prussian); }
+
+/* Focus: a Prussian ring on light ground (8.45:1), a bone ring on the deep
+   blocks (8.07 / 7.63:1). Both far past the 3:1 floor for UI indicators.   */
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--prussian);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+.site-header a:focus-visible,
+.letter > header .letter-meta a:focus-visible {
+  outline-color: var(--on-deep);
+}
+a:focus { outline: 2px solid var(--prussian); outline-offset: 3px; }
+a:focus:not(:focus-visible) { outline: none; }
+
+.skip-link {
+  position: absolute;
+  left: -100vw;
+  top: 0;
+}
+.skip-link:focus {
+  position: static;
+  display: block;
+  padding: 0.7rem var(--gutter);
+  background: var(--gilt-text);
+  color: #fff;                          /* 6.05:1 */
+  font-family: var(--label);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  outline: none;
+}
+
+/* -------------------------------------------------------- header band */
+
+.site-header {
+  background: var(--prussian);
+  color: var(--on-deep);
+  border-bottom: 2px solid var(--gilt-light);   /* the gallery frame edge */
+  padding: 1.5rem 0 1.35rem;
+}
+
+.site-title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  line-height: 1.1;
+}
+.site-title a {
+  color: var(--on-deep);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.site-title a:hover { border-bottom-color: var(--gilt-light); }
+
+.site-tagline {
+  margin: 0.5rem 0 0;
+  font-family: var(--label);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--on-blue-mut);
+}
+
+/* -------------------------------------------------------- footer band */
+
+.site-footer {
+  margin-top: 4.5rem;
+  background: var(--plaster);
+  border-top: 1px solid var(--rule-warm);
+  padding: 2rem 0 2.5rem;
+}
+.site-footer p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.68;
+  color: var(--muted);                  /* 5.65:1 on plaster */
+}
+.site-footer a { color: var(--gilt-text); }   /* 5.06:1 on plaster */
+
+/* ------------------------------------------------------------ display */
+
+h1 {
+  position: relative;
+  margin: 2.9rem 0 0;
+  padding-top: 1.5rem;
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 7vw, 3.7rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+h1::before {                       /* the gilt tick: one accent, top left */
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 3.25rem;
+  height: 3px;
+  background: var(--gilt);
+}
+
+.lead {
+  max-width: 34rem;
+  margin: 1.35rem 0 0;
+  font-size: 1.12rem;
+  line-height: 1.66;
+  color: var(--ink-soft);            /* 8.41:1 */
+}
+.lead strong { font-weight: 600; color: var(--ink); }
+
+/* ================================================================ INDEX
+   Eight correspondence groups, each hung as its own section of gallery
+   wall: a tinted heading band above a clean run of entry rows.          */
+
+.correspondence {
+  margin-top: 3rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--gilt);
+}
+
+.group-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 0 1rem;
+  padding: 1.15rem 1.5rem 1.1rem;
+  background: var(--plaster);
+  border-bottom: 1px solid var(--rule-warm);
+}
+/* Two tints, alternating, so eight sections read as rhythm and not repeat. */
+.correspondence:nth-of-type(even) .group-head {
+  background: var(--sea-tint);
+  border-bottom-color: var(--rule-cool);
+}
+
+.group-head h2 {
+  grid-column: 1;
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.55rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+}
+.group-head .group-note {
+  grid-column: 1;
+  margin: 0.3rem 0 0;
+  font-size: 0.93rem;
+  font-style: italic;
+  color: var(--muted);               /* 5.65 / 5.88:1 on the two tints */
+}
+.group-head .group-count {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  margin: 0.2rem 0 0;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid rgba(176, 141, 62, 0.55);
+  background: rgba(253, 252, 249, 0.55);
+  font-family: var(--label);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.letter-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.letter-entry {
+  display: grid;
+  grid-template-columns: 6.75rem 1fr;
+  align-items: baseline;
+  gap: 0.4rem 1.5rem;
+  padding: 0.95rem 1.5rem 1.05rem;
+  border-top: 1px solid var(--rule-faint);
+}
+.letter-entry:first-child { border-top: 0; }
+.letter-entry:hover { background: var(--hover); }
+
+.letter-entry h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.letter-entry h3 a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 74, 90, 0.28);
+}
+.letter-entry h3 a:hover { border-bottom-color: var(--gilt); }
+
+/* The label rhythm: tiny caps over the value, three fields in fixed columns.
+   Fixed (not auto) columns on purpose — the fields must line up down the whole
+   wall, not shuffle sideways whenever a sender's name is longer.            */
+.letter-entry .letter-meta {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 8.75rem 9.5rem 1fr;
+  align-items: start;
+  gap: 0.5rem 1rem;
+}
+.letter-entry .letter-meta > div { min-width: 0; }
+.letter-entry .letter-meta dt {
+  font-family: var(--label);
+  font-size: 0.61rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.letter-entry .letter-meta dd {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.4;
+}
+
+/* Preserve uncertainty: the edition's own hedging, set as an editorial
+   aside in gilt italic — quiet, but never absent. 5.68:1 on the ground,
+   5.33:1 on the hover tint.                                             */
+.date-provenance {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.76rem;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--gilt-text);
+}
+
+/* =============================================================== LETTER */
+
+.crumb {
+  margin: 1.9rem 0 0;
+  font-family: var(--label);
+  font-size: 0.74rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.crumb a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 74, 90, 0.3);
+  padding-bottom: 0.15rem;
+}
+.crumb a:hover { border-bottom-color: var(--gilt); }
+
+/* --- the museum label -------------------------------------------------
+   Deep sea-green card, bone type, a hairline gilt frame set just inside
+   the edge. This is the one place on the letter page where colour is
+   allowed to be loud; the transcription below stays on quiet paper.     */
+.letter > header .letter-meta {
+  margin: 2rem 0 0;
+  padding: 1.6rem 1.8rem 1.7rem;
+  background: var(--seagreen);
+  color: var(--on-deep);
+  box-shadow: inset 0 0 0 1px rgba(201, 168, 86, 0.5);
+}
+.letter > header .letter-meta > div {
+  display: grid;
+  grid-template-columns: 8.25rem 1fr;
+  gap: 0.25rem 1.2rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid rgba(242, 239, 228, 0.16);
+}
+.letter > header .letter-meta > div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.letter > header .letter-meta dt {
+  font-family: var(--label);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--on-deep-mut);          /* 4.94:1 */
+  line-height: 1.9;
+}
+.letter > header .letter-meta dd {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+.letter > header .letter-meta a {
+  color: var(--on-deep-acc);          /* 6.60:1 */
+  text-decoration: none;
+  border-bottom: 1px solid rgba(230, 223, 203, 0.45);
+}
+.letter > header .letter-meta a:hover { border-bottom-color: var(--gilt-light); }
+.letter > header .letter-meta .date-provenance { color: #cbd6c8; }  /* 5.85:1 */
+
+/* --- the transcription ------------------------------------------------
+   Colour frames the letter; it never floods it. Paper, a hairline, one
+   gilt edge along the top, and a measure of roughly 64 characters.      */
+.transcription {
+  margin: 2.6rem 0 0;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--gilt);
+  box-shadow: 0 14px 30px -26px rgba(46, 74, 90, 0.55);
+  line-height: 1.78;
+}
+/* Closing mark: a small gilt lozenge, drawn with borders so screen
+   readers have nothing to announce. */
+.transcription::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin: 2.4rem auto 0.2rem;
+  border: 1px solid var(--gilt);
+  transform: rotate(45deg);
+}
+
+.tei-p { margin: 0 0 0.25rem; }
+.r-ind { text-indent: 1.4em; }
+.r-cen { text-align: center; }
+.r-bag, .r-baglang, .r-bagxlang, .r-bagind { text-align: right; }
+.tei-l { display: block; }
+.tei-div--mainText { margin: 0; }
+
+/* Opener / salutation: the one line that gets the display face and the
+   Prussian of the header band (9.12:1 on paper). */
+.tei-opener { margin: 0 0 1.9rem; }
+.tei-salute .tei-l {
+  font-family: var(--display);
+  font-size: 1.32rem;
+  line-height: 1.4;
+  color: var(--prussian);
+}
+
+/* Closer: signature and dateline exhibited as two small objects, set to
+   the right the way they sit on the sheet. */
+.tei-closer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.85rem;
+  margin: 2.4rem 0 0;
+}
+.tei-signed {
+  padding: 0.85rem 1.2rem;
+  border-left: 2px solid var(--gilt);
+  background: rgba(236, 230, 217, 0.5);
+  line-height: 1.55;
+}
+.tei-signed .tei-l:last-child {
+  font-family: var(--display);
+  font-size: 1.14rem;
+  margin-top: 0.2rem;
+}
+.tei-dateline {
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--rule);
+  background: #faf7ef;
+  font-family: var(--display);
+  font-size: 0.98rem;
+}
+
+/* Envelope address: frame within frame — the gallery-frame gesture, used
+   once, on the object that most deserves it. */
+.tei-trailer--addrOnEnvelope {
+  margin: 2.9rem 0 0;
+  padding: 1.5rem 1.7rem;
+  background: var(--plaster);
+  border: 1px solid var(--rule-warm);
+  box-shadow:
+    inset 0 0 0 1px var(--paper),
+    inset 0 0 0 2px rgba(176, 141, 62, 0.45);
+  line-height: 1.7;
+}
+.tei-trailer--addrOnEnvelope .tei-l { margin-bottom: 0.15rem; }
+.tei-table { border-collapse: collapse; margin: 0.7rem 0 0; }
+.tei-cell { padding: 0.1rem 1.4rem 0.1rem 0; vertical-align: top; }
+
+.tei-postscript, .tei-lg { margin: 1.4rem 0; }
+.tei-lg { padding-left: 1.5rem; }
+.tei-figure-caption {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* --- page and leaf boundaries ----------------------------------------
+   Two pagination series, two tones: blue-grey for the manuscript leaves,
+   ochre for the SKS print pages. Gallery-number chips — small enough to
+   read past, bordered enough that they are never "hidden". Their title
+   attributes carry the edition's own wording. */
+.tei-pb {
+  display: inline-block;
+  margin: 0 0.2em;
+  padding: 0.02rem 0.34rem;
+  border: 1px solid;
+  border-radius: 2px;
+  font-family: var(--label);
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  vertical-align: 0.34em;
+  white-space: nowrap;
+  text-indent: 0;
+  cursor: help;
+}
+.tei-pb--manuscript {
+  color: #2b4a59;                 /* 7.56:1 on its own tint */
+  background: #dde8ed;
+  border-color: #8aa8b6;
+}
+.tei-pb--print {
+  color: #634d10;                 /* 6.67:1 on its own tint */
+  background: #f2e9d1;
+  border-color: #bda76b;
+}
+
+/* --- editorial and manuscript marks ----------------------------------
+   Preserve uncertainty: everything the edition flags stays flagged.
+   supplied -> square brackets (the scholarly convention), gilt
+   unclear  -> under-dots
+   corr     -> a Prussian dashed rule (editor's correction, not doubt)
+   add      -> a faint ochre wash: written above the line in the source */
+.tei-supplied { color: var(--gilt-text); }     /* 6.13:1 on paper */
+.tei-supplied::before { content: "["; }
+.tei-supplied::after  { content: "]"; }
+
+.tei-unclear { border-bottom: 1px dotted rgba(122, 91, 24, 0.8); }
+.tei-corr    { border-bottom: 1px dashed rgba(46, 74, 90, 0.55); }
+
+.tei-add {
+  padding: 0 0.12em;
+  background: rgba(176, 141, 62, 0.14);   /* ink still 13.92:1 */
+  border-bottom: 1px solid rgba(176, 141, 62, 0.5);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Named entities: a hairline the eye can ignore while reading and find
+   when looking. Deliberately not hover-reactive — they are not links. */
+.tei-persName  { border-bottom: 1px solid rgba(46, 74, 90, 0.42); }
+.tei-placeName { border-bottom: 1px solid rgba(59, 79, 69, 0.42); }
+.tei-persName .tei-persName,
+.tei-persName .tei-supplied { border-bottom: 0; }
+
+/* The manuscript's own hand. #lat marks Latin script inside a gothic
+   hand — given the display face, which is the closest a webpage gets to
+   a change of script without pretending to be a facsimile. */
+.r-lat { font-family: var(--display); letter-spacing: 0.01em; }
+.r-und { text-decoration: underline; text-underline-offset: 0.15em; }
+.r-dun { text-decoration: underline double; text-underline-offset: 0.15em; }
+.r-size1 { font-size: 1.25em; }
+sup, .r-sup { font-size: 0.66em; line-height: 0; }
+
+/* The SKS rendition vocabulary also carries horizontal placement hints
+   (#lang, #xlang, #x2lang … #kort). We honour them structurally — via the
+   closer and envelope framing above — rather than reproducing millimetre
+   indents that would only pretend to be the sheet. */
+
+/* --- letter navigation ------------------------------------------------ */
+
+.letter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 2.9rem 0 0;
+}
+.letter-nav a {
+  padding: 0.7rem 1.05rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  font-family: var(--label);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.letter-nav a:hover { border-color: var(--gilt); background: #fff; }
+.nav-next { margin-left: auto; text-align: right; }
+
+/* --- same correspondence ---------------------------------------------- */
+
+.same-correspondence {
+  margin-top: 3.4rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--gilt);
+}
+.same-correspondence h2 {
+  margin: 0;
+  padding: 1.1rem 1.5rem 0;
+  background: var(--sea-tint);
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.same-correspondence .group-note {
+  margin: 0;
+  padding: 0.3rem 1.5rem 1.1rem;
+  background: var(--sea-tint);
+  border-bottom: 1px solid var(--rule-cool);
+  font-size: 0.93rem;
+  font-style: italic;
+  color: var(--muted);            /* 5.88:1 on the sea tint */
+}
+
+.sibling-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 0.85rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
+  gap: 0.1rem 0.5rem;
+}
+.sibling-list li {
+  padding: 0.32rem 0.65rem;
+  font-size: 0.94rem;
+  line-height: 1.45;
+  border-left: 2px solid transparent;
+}
+.sibling-list a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 74, 90, 0.28);
+}
+.sibling-list a:hover { border-bottom-color: var(--gilt); }
+.sibling-list .muted {
+  color: var(--muted);
+  font-size: 0.86em;
+}
+.sibling-list li.current {
+  background: var(--plaster);
+  border-left-color: var(--gilt);
+  font-weight: 600;
+}
+.current-marker {
+  display: block;
+  font-family: var(--label);
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gilt-text);        /* 5.06:1 on the plaster highlight */
+  white-space: nowrap;
+}
+
+.muted { color: var(--muted); }
+
+/* ------------------------------------------------------------ narrow */
+
+@media (max-width: 34rem) {
+  body { font-size: 1rem; }
+  h1 { margin-top: 2.2rem; }
+  .group-head { grid-template-columns: 1fr; }
+  .group-head .group-count {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    margin-top: 0.6rem;
+  }
+  .letter-entry {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+    padding-inline: 1.1rem;
+  }
+  .letter-entry .letter-meta {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+  }
+  .letter-entry .letter-meta > div:last-child { grid-column: 1 / -1; }
+  .group-head { padding-inline: 1.1rem; }
+  .letter > header .letter-meta > div { grid-template-columns: 1fr; gap: 0.05rem; }
+  .letter > header .letter-meta dt { line-height: 1.6; }
+  .tei-closer { align-items: stretch; }
+  .letter-nav { flex-direction: column; }
+  .nav-next { margin-left: 0; text-align: left; }
+  .sibling-list { padding-inline: 0.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style></head><body><a href="#indhold" class="skip-link">Spring til indhold</a><header class="site-header"><p class="site-title"><a href="index.html">epistel</a></p><p class="site-tagline">demonstrationsvisning</p></header><main id="indhold"><h1>Breve</h1><p class="lead">Søren Kierkegaards breve, læst direkte fra den TEI-kodede udgave <i>Søren Kierkegaards Skrifter</i>. Denne demonstration viser bindet <strong>B1 — Familien Kierkegaard</strong>: 42 breve, ordnet efter brevveksling.</p><section class="correspondence" id="correspContext1"><div class="group-head"><h2>P.C. Kierkegaard</h2><p class="group-note">Peter Christian Kierkegaard</p><p class="group-count">22 breve</p></div><ol class="letter-list"><li class="letter-entry"><h3><a href="brev.html">Brev 1</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1829-03-08">8. marts 1829</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 2</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1829-03-25">25. marts 1829</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 3</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="Kierkegaard, M.P.">M.P. Kierkegaard</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1829-07-15">15. juli 1829</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 4</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1842-02-27">27. februar 1842</time><span class="date-provenance"> [dateret efter poststempel]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 5</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><span>18.–19. januar 1843</span><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 6</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><span>5.–6. februar 1843</span><span class="date-provenance"> [dateret efter poststempel]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 7</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1843-02-18">18. februar 1843</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 8</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1843-05-06">6. maj 1843</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 9</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1843-06-29">29. juni 1843</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 10</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><span>2.–3. juli 1843</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 11</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><span>16.–17. maj 1844</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 12</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1845-01-17">17. januar 1845</time><span class="date-provenance"> [dateret efter poststempel]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 13</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><span>10.–11. februar 1845</span><span class="date-provenance"> [dateret efter poststempel]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 14</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1845-02-18">18. februar 1845</time><span class="date-provenance"> [årstal redaktionelt bestemt]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 15</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1845-03-10">10. marts 1845</time><span class="date-provenance"> [årstal redaktionelt bestemt]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 16</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1846-03-19">19. marts 1846</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 17</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1847-05-19">19. maj 1847</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 18</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1847-12-22">22. december 1847</time><span class="date-provenance"> [årstal redaktionelt bestemt]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 19</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1848-12">december 1848</time><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 20</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1849-11">november 1849</time><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 21</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1849-12">december 1849</time><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 22</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1851-08">august 1851</time></dd></div></dl></li></ol></section><section class="correspondence" id="correspContext2"><div class="group-head"><h2>M.P. Kierkegaard</h2><p class="group-note">Michael Pedersen Kierkegaard</p><p class="group-count">1 brev</p></div><ol class="letter-list"><li class="letter-entry"><h3><a href="#">Brev 23</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="Kierkegaard, M.P.">M.P. Kierkegaard</span></dd></div><div><dt>Til</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1835-07-04">4. juli 1835</time></dd></div></dl></li></ol></section><section class="correspondence" id="correspContext3"><div class="group-head"><h2>H.P. Kierkegaard</h2><p class="group-note">Hans Peter Kierkegaard</p><p class="group-count">5 breve</p></div><ol class="letter-list"><li class="letter-entry"><h3><a href="#">Brev 24</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, H.P.">H.P. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><span>1837–39</span><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 25</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, H.P.">H.P. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><span>1843–44</span><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 26</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, H.P.">H.P. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><span>1844–48</span><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 27</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, H.P.">H.P. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1848-01">januar 1848</time><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 28</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="Kierkegaard, H.P.">H.P. Kierkegaard</span></dd></div><div><dt>Til</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1849-05-14">14. maj 1849</time></dd></div></dl></li></ol></section><section class="correspondence" id="correspContext4"><div class="group-head"><h2>Else P. Kierkegaard</h2><p class="group-note">Else Pedersdatter Kierkegaard</p><p class="group-count">3 breve</p></div><ol class="letter-list"><li class="letter-entry"><h3><a href="#">Brev 29</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="Kierkegaard, Else P.">Else P. Kierkegaard</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1838-09-04">4. september 1838</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 30</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="Kierkegaard, Else P.">Else P. Kierkegaard</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1840-03-24">24. marts 1840</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 31</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="Kierkegaard, Else P.">Else P. Kierkegaard</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1842-01-24">24. januar 1842</time></dd></div></dl></li></ol></section><section class="correspondence" id="correspContext5"><div class="group-head"><h2>M.A. Kierkegaard</h2><p class="group-note">Michael Andersen Kierkegaard</p><p class="group-count">3 breve</p></div><ol class="letter-list"><li class="letter-entry"><h3><a href="#">Brev 32</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="Kierkegaard, M.A.">M.A. Kierkegaard</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1839-03-16">16. marts 1839</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 33</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, M.A.">M.A. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><span>16. april 1846 – 16. april 1854</span><span class="date-provenance"> [årstal redaktionelt bestemt]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 34</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, M.A.">M.A. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1855-05-04">4. maj 1855</time><span class="date-provenance"> [årstal redaktionelt bestemt]</span></dd></div></dl></li></ol></section><section class="correspondence" id="correspContext6"><div class="group-head"><h2>Henriette Kierkegaard</h2><p class="group-count">4 breve</p></div><ol class="letter-list"><li class="letter-entry"><h3><a href="#">Brev 35</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, Henriette">Henriette Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1844-08">august 1844</time><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 36</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, Henriette">Henriette Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1847-10">oktober 1847</time><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 37</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, Henriette">Henriette Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1847-12">december 1847</time><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 38</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, Henriette">Henriette Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1848-06">juni 1848</time><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li></ol></section><section class="correspondence" id="correspContext7"><div class="group-head"><h2>Vedrørende gravstedet</h2><p class="group-count">1 brev</p></div><ol class="letter-list"><li class="letter-entry"><h3><a href="#">Brev 39</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, familien">familien Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><span>1846–47</span></dd></div></dl></li></ol></section><section class="correspondence" id="correspContext8"><div class="group-head"><h2>Julie Thomsen</h2><p class="group-count">3 breve</p></div><ol class="letter-list"><li class="letter-entry"><h3><a href="#">Brev 40</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Thomsen, Julie">Julie Thomsen</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1847-02">februar 1847</time></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 41</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Thomsen, Julie">Julie Thomsen</span></dd></div><div><dt>Dateret</dt><dd><span>1847–48</span><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li><li class="letter-entry"><h3><a href="#">Brev 42</a></h3><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Thomsen, Julie">Julie Thomsen</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1849-01">januar 1849</time><span class="date-provenance"> [redaktionelt dateret]</span></dd></div></dl></li></ol></section></main><footer class="site-footer"><p>Teksten stammer fra den TEI-kodede udgave af <i>Søren Kierkegaards Skrifter</i>, der er offentligt tilgængelig under <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.da" rel="license">CC0 1.0</a>. Denne visning er en uafhængig demonstration — ikke en udgivelse fra udgiverne bag SKS — og er bygget med hjælp fra Claude (AI).</p></footer></body></html>

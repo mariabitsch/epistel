@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Brev 1: fra SK til P.C. Kierkegaard, 8. marts 1829."><title>Brev 1 · epistel</title><style>
+/* =====================================================================
+   epistel — visual direction "Brevpapiret"
+   The letter as a physical object: a sheet on a writing desk.
+   Quiet, warm, private. The typography is the design.
+
+   Mockup only. Self-contained: no external fonts, images or scripts.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   FONTS
+
+   The mockup runs on macOS system faces so it can be opened with no
+   network. The real implementation self-hosts OFL webfonts (rule 2 of the
+   brief: fully self-contained assets, no CDN):
+
+     display / Didone   Playfair Display  (SIL OFL 1.1)
+                        — the wide, high-contrast Didone for the site title
+                          and the "Brev N" headings. Sharper alternative if
+                          Playfair reads too modern: GFS Didot, which is a
+                          closer relative of the types the Golden Age
+                          Copenhagen presses actually used.
+     body / reading     EB Garamond       (SIL OFL 1.1)
+                        — genuine small caps (smcp + c2sc) and oldstyle
+                          figures, both of which this direction leans on
+                          hard; warm, and comfortable at 19px.
+                          If EB Garamond's small x-height proves too quiet
+                          in testing, Spectral or Source Serif 4 are the
+                          drop-in replacements — both OFL, both with real
+                          small caps.
+     "latin hand"       Source Sans 3     (SIL OFL 1.1)
+                        — only for <hi rendition="#lat">; see below.
+
+   Subset to Latin-1 + the Danish diacritics (æ ø å Æ Ø Å) and the few
+   editorial glyphs; woff2; three files total (regular, italic, and the
+   display face). ~90 kB, self-hosted, versioned with the build.
+   --------------------------------------------------------------------- */
+
+:root {
+  /* -----------------------------------------------------------------
+     PALETTE — warm paper, brown-black ink.
+     Contrast ratios computed (WCAG 2.1 relative luminance), not eyeballed.
+     Body text is 19px, so every ratio below must clear 4.5:1 for AA.
+     ----------------------------------------------------------------- */
+  --paper:      #f7f2e8;  /* the sheet                                   */
+  --desk:       #e8dfd0;  /* the writing desk under it — 1.18:1 vs paper,
+                             just enough to read as an edge, never as a
+                             card. No shadow, no texture: colour only.    */
+  --ink:        #241c14;  /* brown-black    15.04:1 on paper · 12.70 desk */
+  --ink-muted:  #6d5f4c;  /* labels, notes   5.55:1 on paper ·  4.69 desk */
+  --ink-faint:  #756853;  /* print pagination 4.87:1 on paper            */
+  --ink-uncertain: #7a6549; /* unclear readings 4.97:1 on paper          */
+  --accent:     #6e3728;  /* oxblood, links   8.40:1 on paper ·  7.28 desk*/
+  --editorial:  #8a7457;  /* editorial hairlines — decoration under ink
+                             text, so no text-contrast requirement; 3.99:1
+                             against paper is well past the 3:1 floor for
+                             non-text marks.                              */
+  --rule:       #d9cdb7;  /* hairlines                                    */
+  --rule-firm:  #b9a888;  /* the source's own "thin solid" cell borders   */
+
+  --display: "Didot", "Bodoni 72", "Bodoni 72 Oldstyle", "Bodoni MT",
+             "Hoefler Text", Georgia, serif;
+  --body: "Hoefler Text", Baskerville, "Palatino Linotype", Palatino,
+          Georgia, "Times New Roman", serif;
+  --latin-hand: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --measure: 35.5rem;    /* ≈ 66 characters at 19px in Hoefler Text      */
+  --sheet: 43.5rem;      /* measure + the sheet's own margins             */
+}
+
+/* ---------------------------------------------------------------------
+   DARK MODE (sketch — the mockup ships light only)
+
+   Not an inversion. The metaphor changes from "paper on a desk" to "a
+   lamp on the paper": --paper becomes a warm near-black (#181410) and
+   --desk goes *darker* still (#0f0c09), so the sheet is the lit thing on
+   a dark desk rather than a hole in the page. --ink becomes a warm
+   off-white (#ece4d6, ~13:1). The muted greys are re-derived upward
+   rather than inverted, because a warm brown that reads "faded ink" on
+   cream reads "dirty" on black — pull them toward the paper hue instead
+   (#a2957f, ~7:1). --accent shifts from oxblood to a dusty terracotta
+   (#c9836a) to survive on a dark ground. Every hairline loses ~60% of its
+   apparent weight in dark mode, so --rule needs to be relatively lighter
+   than its light-mode counterpart, not darker. Ratios get recomputed, not
+   assumed.
+   --------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------
+   BASE
+   --------------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--desk);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.1875rem;          /* 19px */
+  line-height: 1.72;
+  font-variant-numeric: oldstyle-num;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* The transcription is a diplomatic text. Automatic hyphenation would put
+   hyphens on the page that the manuscript does not contain, and a reader
+   has no way to tell those apart from the edition's own. Ragged right,
+   always. */
+body { hyphens: none; }
+
+a { color: inherit; }
+
+a:focus-visible,
+[tabindex]:focus-visible,
+.skip-link:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -100vw;
+}
+.skip-link:focus {
+  position: static;
+  display: inline-block;
+  margin: 0.75rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--paper);
+  color: var(--accent);
+  font-family: var(--body);
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------------
+   THE SHEET
+
+   <main> is the paper. The header and the footer stay on the desk, so the
+   sheet has an edge on all four sides without a border or a shadow.
+   --------------------------------------------------------------------- */
+
+.site-header,
+.site-footer {
+  max-width: var(--sheet);
+  margin: 0 auto;
+  padding-inline: 4rem;
+}
+
+main {
+  max-width: var(--sheet);
+  margin: 0 auto 4rem;
+  padding: 3.75rem 4rem 4.5rem;
+  background: var(--paper);
+}
+
+main > * { max-width: var(--measure); }
+
+/* ---------------------------------------------------------------------
+   SITE HEADER — one hairline. That is the whole ornament budget up here.
+   --------------------------------------------------------------------- */
+
+.site-header {
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+
+.site-title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.36em;
+  text-indent: 0.36em;        /* balances the trailing letter-space */
+  text-align: center;
+  color: var(--ink);
+}
+.site-title a { text-decoration: none; }
+.site-title a:hover { color: var(--accent); }
+
+.site-tagline {
+  margin: 0.5rem 0 1.15rem;
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  font-variant-caps: all-small-caps;
+  font-variant-numeric: normal;
+  letter-spacing: 0.26em;
+  text-indent: 0.26em;
+  line-height: 1;
+}
+
+.site-header::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: var(--rule-firm);
+}
+
+/* ---------------------------------------------------------------------
+   FLEURON — the single ornament inside the page. Decorative, so it is
+   marked aria-hidden in the markup and never announced.
+   --------------------------------------------------------------------- */
+
+.fleuron {
+  margin: 2.4rem 0 2.6rem;
+  text-align: center;
+  color: var(--editorial);
+  font-size: 1.75rem;
+  line-height: 1;
+  letter-spacing: 0.6em;
+  text-indent: 0.6em;
+  user-select: none;
+}
+/* On the index the fleuron is followed by the first group's own hairline;
+   two separators in a row need less air between them than one does. */
+.fleuron + .correspondence { margin-top: 1.6rem; }
+
+/* ---------------------------------------------------------------------
+   HEADINGS
+   --------------------------------------------------------------------- */
+
+h1 {
+  margin: 0 0 1.9rem;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 1.35rem + 2.6vw, 2.85rem);
+  line-height: 1.06;
+  letter-spacing: 0.005em;
+  font-variant-numeric: lining-nums;
+}
+
+/* Section titles — "P.C. Kierkegaard", "Samme brevveksling". Small caps
+   rather than size: a register heading should not shout over the entries
+   it introduces. */
+h2 {
+  margin: 0;
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: 0.9rem;
+  font-variant-caps: all-small-caps;
+  font-variant-numeric: normal;
+  letter-spacing: 0.2em;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+h3 {
+  margin: 0;
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.lead {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.66;
+}
+.lead strong { font-weight: 400; font-style: italic; }
+
+/* ---------------------------------------------------------------------
+   INDEX — a calm register
+   --------------------------------------------------------------------- */
+
+.correspondence {
+  margin-top: 3.25rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--rule-firm);
+}
+
+.group-note,
+.group-count {
+  margin: 0.35rem 0 0;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+.group-count {
+  margin-top: 0.1rem;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.12em;
+}
+
+.letter-list {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+}
+
+.letter-entry {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  column-gap: 1.75rem;
+  align-items: baseline;
+  padding: 0.62rem 0;
+}
+.letter-entry + .letter-entry { border-top: 1px solid var(--rule); }
+
+.letter-entry h3 a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--editorial);
+  padding-bottom: 0.08em;
+}
+.letter-entry h3 a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* The index repeats "Fra / Til / Dateret" 42 times over. Keeping the
+   labels (they are real information, and the screen reader needs them)
+   but setting them in small caps at the muted tone puts them a full step
+   behind the names, so the eye reads a column of people and dates. */
+.letter-entry .letter-meta {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 0.1rem;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.letter-entry .letter-meta > div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+}
+.letter-entry .letter-meta dd { margin: 0; }
+
+/* Sender and recipient on one line at a fixed measure, the date always on
+   the next. Left to wrap on its own, the row breaks in a different place
+   for every entry and the register loses its rhythm; two lines every time
+   is calmer than one-or-two depending on how long a name happens to be. */
+.letter-entry .letter-meta > div:first-child { flex: 0 0 11rem; }
+.letter-entry .letter-meta > div:nth-child(3) { flex: 1 0 100%; }
+
+.letter-meta dt {
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  font-variant-caps: all-small-caps;
+  font-variant-numeric: normal;
+  letter-spacing: 0.16em;
+  line-height: inherit;
+}
+
+/* Preserve uncertainty: how the edition arrived at a date is part of the
+   date. Muted and in brackets, but never dropped. */
+.date-provenance,
+.muted,
+.current-marker {
+  color: var(--ink-muted);
+  font-size: 0.88em;
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------------------
+   LETTER — heading, metadata, transcription
+   --------------------------------------------------------------------- */
+
+.crumb {
+  margin: 0 0 1.9rem;
+  font-size: 0.78rem;
+  font-variant-caps: all-small-caps;
+  font-variant-numeric: normal;
+  letter-spacing: 0.16em;
+}
+.crumb a { color: var(--ink-muted); text-decoration: none; }
+.crumb a:hover { color: var(--accent); }
+
+/* Quiet two-column arrangement: right-ranged small-cap labels against a
+   clean gutter, values left-ranged. display:contents lets every row share
+   one grid, so the gutter is a straight line down the page. */
+.letter .letter-meta {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  column-gap: 1.6rem;
+  row-gap: 0.4rem;
+  margin: 0;
+  padding: 1.15rem 0 1.25rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.letter .letter-meta > div { display: contents; }
+.letter .letter-meta dt { text-align: right; padding-top: 0.28em; }
+.letter .letter-meta dd { margin: 0; font-size: 1rem; }
+.letter .letter-meta a { color: var(--ink); text-decoration-color: var(--editorial); text-underline-offset: 0.18em; }
+.letter .letter-meta a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+.transcription {
+  margin: 0;
+  font-size: 1.02em;
+}
+
+/* ---------------------------------------------------------------------
+   TEI — the edition's own rendition vocabulary
+
+   The TEI header of txt.xml defines its renditions as CSS: #ind is
+   "text-indent: 1em", #x6lang is "margin-left: 8em", #bag is
+   "text-align: right", and so on. Those values are the letter's physical
+   layout on the leaf, recorded by the editors. This direction takes them
+   literally rather than re-inventing them — the deep indents of a
+   closing, the address drifting right on the envelope, are the letter's
+   body language.
+
+   The one liberty: the long indents are clamped with min() so an 11em
+   indent does not push "Kbh: d: 8de Martz. 1829" off a phone screen.
+   --------------------------------------------------------------------- */
+
+.tei-p { margin: 0; }
+.tei-p:not(.r-ind) + .tei-p:not(.r-ind),
+.tei-div + .tei-p:not(.r-ind) { margin-top: 0.85em; }
+
+.tei-l { display: block; }
+
+.tei-opener { margin: 0 0 1.45em; }
+.tei-salute { font-size: 1.05em; }
+
+.tei-closer { margin: 2.4em 0 0; }
+.tei-signed { margin-bottom: 0.7em; }
+.tei-dateline { color: inherit; }
+
+.tei-postscript {
+  margin: 2.2em 0 0;
+  padding-top: 1.1em;
+  border-top: 1px solid var(--rule);
+}
+
+.tei-lg { margin: 1.3em 0; }
+.tei-head { margin: 1.6em 0 0.5em; font-size: 1rem; font-style: italic; }
+
+/* The address written on the outside of the folded sheet. Set apart with
+   space and a hairline, a shade smaller and a shade wider — the hand
+   changes when it writes for the postman. */
+.tei-trailer--addrOnEnvelope {
+  margin-top: 3.2em;
+  padding-top: 1.7em;
+  border-top: 1px solid var(--rule);
+  font-size: 0.94em;
+  letter-spacing: 0.015em;
+  line-height: 1.85;
+}
+
+.tei-table { border-collapse: collapse; margin: 0.9em 0 0; }
+.tei-cell { padding: 0.1em 1.4em 0.1em 0; vertical-align: top; }
+.tei-row:last-child .tei-cell { padding-bottom: 0; }
+
+/* Rendition tokens, transcribed from the source's own definitions ------ */
+
+.r-ind      { text-indent: 1em; }
+.r-ud       { margin-left: 1em; text-indent: -1em; }
+.r-xlangind { margin-left: min(3em, 16%); text-indent: 1em; }
+
+.r-kort     { margin-left: min(1em,  6%); }
+.r-lang     { margin-left: min(2em, 11%); }
+.r-xlang    { margin-left: min(3em, 16%); }
+.r-x2lang   { margin-left: min(4em, 21%); }
+.r-x3lang   { margin-left: min(5em, 26%); }
+.r-x4lang   { margin-left: min(6em, 32%); }
+.r-x5lang   { margin-left: min(7em, 37%); }
+.r-x6lang   { margin-left: min(8em, 42%); }
+.r-x7lang   { margin-left: min(9em, 47%); }
+.r-x8lang   { margin-left: min(10em, 53%); }
+.r-x9lang   { margin-left: min(11em, 58%); }
+
+.r-cen      { text-align: center; }
+.r-bag      { text-align: right; }
+.r-bagind   { text-align: right; }
+.r-baglang  { text-align: right; margin-right: min(2em, 11%); }
+.r-bagxlang { text-align: right; margin-right: min(3em, 16%); }
+
+/* margin-left does nothing to a table cell; the source means an inset. */
+.tei-cell.r-kort  { padding-left: 1em; }
+.tei-cell.r-lang  { padding-left: 2em; }
+.tei-cell.r-xlang { padding-left: 3em; }
+
+table.r-udspark    { width: 100%; }
+.tei-cell.r-bundkant    { border-bottom: 1px solid var(--rule-firm); }
+.tei-cell.r-venstrekant { border-left: 1px solid var(--rule-firm); padding-left: 0.9em; }
+
+/* The manuscript's own emphasis. */
+.r-und  { text-decoration: underline; text-decoration-thickness: from-font; text-underline-offset: 0.16em; }
+.r-dun  { text-decoration: underline double; text-underline-offset: 0.16em; }
+.r-size1 { font-size: 1.2em; }
+sup.r-sup { font-size: 0.66em; line-height: 0; }
+
+/* #lat — "Latin hand, in SKS rendered sans-serif". Kierkegaard wrote a
+   gothic hand and switched to a Latin one for foreign words; the edition
+   records the switch, so the display keeps it. This is the edition's
+   convention, not any website's. */
+.r-lat {
+  font-family: var(--latin-hand);
+  font-size: 0.9em;
+  letter-spacing: 0.005em;
+}
+
+/* Names carry no mark in the reading flow — deliberate. There are 34
+   persName and placeName spans in this one letter; decorating them would
+   turn a private letter into a marked-up specimen. They earn a visual
+   mark on the day the person index makes them links, and not before.
+   The data-key attribute is already on them, waiting. */
+
+/* ---------------------------------------------------------------------
+   EDITORIAL MARKS — preserve uncertainty
+
+   <add>, <supplied>, <unclear>, <corr>: places where the text is not
+   simply "what the paper says". They stay visible. A fine dotted rule
+   under the word, in the editorial brown, is enough to be noticed on a
+   second pass and quiet enough not to break the reading voice — and the
+   uncertain readings additionally sit a shade lighter in the ink.
+
+   The real implementation pairs each of these with a title attribute
+   (the way the pb markers already carry one) and a short legend on the
+   letter page, so the four kinds can be told apart rather than merely
+   noticed. That belongs in the generator, not in a stylesheet.
+   --------------------------------------------------------------------- */
+
+.tei-add,
+.tei-supplied,
+.tei-unclear,
+.tei-corr,
+.tei-sic {
+  text-decoration: underline dotted 1px;
+  text-decoration-color: var(--editorial);
+  text-underline-offset: 0.22em;
+}
+.tei-supplied { text-decoration-style: dashed; }
+.tei-unclear  { color: var(--ink-uncertain); }
+.tei-del      { text-decoration: line-through; text-decoration-color: var(--editorial); }
+
+.tei-figure-caption {
+  display: block;
+  margin: 0.8em 0;
+  color: var(--ink-muted);
+  font-size: 0.88em;
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------------------
+   PAGE AND LEAF BOUNDARIES
+
+   Two series run through the text at once: the leaves of the manuscript
+   ([1r], [1v], [2r]) and the pages of the printed SKS volume ([9], [10]).
+   They must stay — they are how a reader cites this text — but they must
+   not interrupt the voice. So: small, raised, muted, and set apart by
+   *face* rather than by colour, since two muted browns a hair apart are
+   no distinction at all. The manuscript keeps the reading serif; the
+   print pagination is set in the Didone, whose figures read visibly
+   differently at this size.
+
+   Both carry the generator's title. A mouse gets the native tooltip; a
+   keyboard gets the same string on :focus-visible, which is why the
+   markers are tabbable in this mockup.
+   --------------------------------------------------------------------- */
+
+.tei-pb {
+  position: relative;
+  font-size: 0.62em;
+  vertical-align: 0.42em;
+  margin-inline: 0.18em;   /* breathing room, including mid-word, where a
+                              leaf turn genuinely splits "Hel-sing\ør" */
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  cursor: help;
+  font-variant-numeric: lining-nums;
+}
+.tei-pb--manuscript { color: var(--ink-muted); }
+.tei-pb--print      { color: var(--ink-faint); font-family: var(--display); }
+
+.tei-pb:hover,
+.tei-pb:focus-visible { color: var(--accent); }
+
+.tei-pb:focus-visible::after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  top: 1.9em;
+  z-index: 2;
+  width: max-content;
+  max-width: 18rem;
+  padding: 0.45em 0.7em;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--body);
+  font-size: 1.5em;
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 1.35;
+  white-space: normal;
+  vertical-align: baseline;
+}
+
+/* ---------------------------------------------------------------------
+   NAVIGATION
+   --------------------------------------------------------------------- */
+
+.letter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule-firm);
+  font-size: 0.8rem;
+  font-variant-caps: all-small-caps;
+  font-variant-numeric: normal;
+  letter-spacing: 0.16em;
+}
+.letter-nav a { color: var(--ink-muted); text-decoration: none; }
+.letter-nav a:hover { color: var(--accent); }
+.nav-next { margin-left: auto; text-align: right; }
+
+.same-correspondence { margin-top: 3.25rem; padding-top: 1.35rem; border-top: 1px solid var(--rule); }
+.same-correspondence .group-note { margin-bottom: 1rem; }
+
+.sibling-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+@media (min-width: 34rem) {
+  .sibling-list { columns: 2; column-gap: 2.5rem; }
+}
+.sibling-list li { break-inside: avoid; padding: 0.16rem 0; }
+.sibling-list a { color: var(--ink); text-decoration-color: var(--editorial); text-underline-offset: 0.18em; }
+.sibling-list a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.sibling-list .current { color: var(--ink); }
+
+/* ---------------------------------------------------------------------
+   FOOTER — on the desk, below the sheet.
+   --------------------------------------------------------------------- */
+
+.site-footer {
+  padding-bottom: 4rem;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+.site-footer p { margin: 0; max-width: var(--measure); }
+.site-footer a { color: var(--accent); text-underline-offset: 0.16em; }
+
+/* ---------------------------------------------------------------------
+   NARROW SCREENS — the sheet goes edge to edge and the desk becomes a
+   band above and below it. Same column, less margin.
+   --------------------------------------------------------------------- */
+
+@media (max-width: 43.5rem) {
+  .site-header, .site-footer { padding-inline: 1.6rem; }
+  main { margin-bottom: 2rem; padding: 2.5rem 1.6rem 3rem; }
+  .site-header { padding-top: 2rem; }
+  .letter .letter-meta { grid-template-columns: 6.8rem 1fr; column-gap: 0.9rem; }
+  .letter-entry { grid-template-columns: 1fr; row-gap: 0.15rem; }
+}
+
+@media (max-width: 26rem) {
+  body { font-size: 1.0625rem; }
+  .site-header, .site-footer { padding-inline: 1.15rem; }
+  main { padding: 2rem 1.15rem 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style></head><body><a href="#indhold" class="skip-link">Spring til indhold</a><header class="site-header"><p class="site-title"><a href="index.html">epistel</a></p><p class="site-tagline">demonstrationsvisning</p></header><main id="indhold"><article class="letter"><header><p class="crumb"><a href="index.html">← Alle breve</a></p><h1>Brev 1</h1><dl class="letter-meta"><div><dt>Fra</dt><dd><span data-name="SK">SK</span></dd></div><div><dt>Til</dt><dd><span data-name="Kierkegaard, P.C.">P.C. Kierkegaard</span></dd></div><div><dt>Dateret</dt><dd><time datetime="1829-03-08">8. marts 1829</time></dd></div><div><dt>Brevveksling</dt><dd><a href="index.html#correspContext1">P.C. Kierkegaard</a></dd></div></dl></header><p class="fleuron" aria-hidden="true">❦</p><div class="transcription" lang="da"><div class="tei-opener"><div class="tei-salute"><span class="tei-l r-xlang"><span tabindex="0" class="tei-pb tei-pb--manuscript" title="Nyt blad i manuskriptet, bladnummer tilføjet af udgiverne: 1r">[1r]</span><span tabindex="0" class="tei-pb tei-pb--print" title="Sideskift i SKS-udgaven: 9">[9]</span>Kjære Broder!</span></div></div><div class="tei-div tei-div--mainText"><p class="tei-p r-ind">Dersom <span class="tei-add r-til">Du</span> skulde slutte Dig til af hvad jeg skrev, hvorledes jeg levede, kunde Du gjerne falde paa at jeg var død og borte, dog denne Tanke tillade Faders Breve ei <span class="tei-add r-til">at</span> opstaae hos Dig. Havde jeg blot skrevet saa hyppigt, som Du har paamindet mig derom, var der dog kommet Noget derud af; men Du har endnu ei sporet nogen Frugt af dine Opmuntringer, og den med dine Opmuntringer forbundne Belønning. De fleste af Faders Breve <span class="tei-add r-til">fra Dig</span> have gjerne endt med en Paamindelse om at skrive til Dig. Du maa i Sandhed besidde en stor Taalmodighed, da Du ei er bleven kjed af at paaminde mig. Da du mærkede, at de Opmuntringer til at skrive, der stode i de Fader tilsendte Breve, ei hjalp, besluttede Du, at lade mig erindre om min Pligt gjenem en anden nemlig <span class="tei-placeName">Oldenburg</span>, som ogsaa bragte mig den Efterretning, at Du hver Postdag ventede et Brev fra mig. Tillige erindrede han mig om, at <span class="tei-persName" data-key="Fenger, Johannes Ferdinand">Fenger</span>s Brødre skreve til <span class="tei-persName" data-key="Fenger, Johannes Ferdinand">Fenger</span>. Jeg besluttede da ogsaa, at skrive Dig til om ei for andet saa dog, for at lade dig vide, at jeg var til. Dersom jeg her vilde fremsætte nogle Undskyldninger fordi jeg ei saa længe har skrevet Dig til, vilde jeg spilde Dig Din Tid. Thi ordentlige Undskyldninger kunne de aldrig blive. Jeg kunde sige Dig at jeg har været lidt syg; men hvad vilde det bevise, hvad vilde det udvirke ei andet en<span class="tei-supplied">d</span> Fritagelse for at skrive de Dage jeg havde været syg, som ei overskride 5 <span class="tei-hi r-lat">a</span> 6 i Antal. At jeg <span class="tei-add r-til">ei</span> har havt Tid, kan heller ei udrette mere, da Du kan slutte fra Dig selv, fra den Tid Du gik i Skole, at der altid maa være nogen Tid, hvor jeg <span class="tei-add r-til">ei</span> har noget nødvendigt at bestille. Jeg vil altsaa slet ingen Undskyldninger fremføre; men bede Dig ligefrem om Forladelse, fordi jeg har undladt at opfylde min Pligt. </p><p class="tei-p r-ind">At <span class="tei-persName" data-key="Henrichsen, Rudolph Johannes Frederik">Henrichsen</span> har forladt <span class="tei-placeName">Borgerdydsskolen</span>, og er kommen til Hel<span tabindex="0" class="tei-pb tei-pb--print" title="Sideskift i SKS-udgaven: 10">[10]</span>sing\ør,<span class="tei-placeName">Helsingør</span>, er Du vel allerede for lang Tid siden bleven underrettet om. Ved hans Afreise forærede Classen ham en Snuustobakdose, <span tabindex="0" class="tei-pb tei-pb--manuscript" title="Nyt blad i manuskriptet, bladnummer tilføjet af udgiverne: 1v">[1v]</span> da vi havde erfaret, at <span class="tei-supplied">han</span> ønskede en saadan. For denne Foræring, som just ikke var af de største, lod han os sin Tak bevidne den følgende Dag igjenem Hr: <span class="tei-persName" data-key="Warncke, Ludvig Holberg">Warncke</span>. Det var den første af Borgerdydsskolens Lærere, der er falden fra i Din Fraværelse. <span class="tei-persName" data-key="Müller, Ludvig Christian">Ludvig Møller</span> har faaet hans Timer i Hebraisk, hans Timer i Latin derimod har <span class="tei-persName" data-key="Bojesen, Ernst Frederik Christian">Bojesen</span> faaet. </p><p class="tei-p r-ind">Professoren har i nogen Tid været plaget af et daarligt Been, som skadede ham meget, da han ei selv kunde have Opsigt med Skolens Gang; men maatte overlade samme til Hr <span class="tei-persName" data-key="Bang, Claus">Bang</span>. Vi maatte i al den Tid, han ei kunde gaae, indfinde os hos ham, hvor vi bleve hørte i alle vore Lectier, og desuden forsynede med en saadan Mængde latinske Stile, at han tilsidst ei selv kunde finde Rede i dem. Omsider kom han da igjen paa Benene og læste en tidlang med os, da han igjen blev syg i samme Been. Der var nemlig kommet Ild i hans Kakkelovn, og idet han ilede til, for at standse Ilden, kom han til igjen at støde sit Been, som da blev meget værre. Dog fandt han for godt, at læse i 1 B, hvis Dør støder op til hans Værelse, og han altsaa i et Skridt ell to kunde komme ind til os. Han kom da ind af Døren hver Dag med een Tøffel og een Støvle. Dog den Efterretning, at han ved at slukke Ilden i sin Kakkelovn er kommen til Skade, veed jeg blot igjenem hans <span class="tei-persName" data-key="Karl Perr">Karl Peer</span>, som ell er meget paalidelig.</p><p class="tei-p r-ind"><span class="tei-add r-til">Om</span>Professor <span class="tei-persName" data-key="Thune, Erasmus Georg Fog">Thune</span> har man i den senere Tid flere Gange fortalt, at han var død, dog er det endnu ei gaaet i Opfyldelse. Dog beviser disse Rygter, at han maa være meget syg. Hver Gang et saadant Rygte udbredte sig, vakte det almindelig Bedrøvelse iblandt de unge Mennesker, som ønskede at dimitteres næste Gang, af Frygt for at <span class="tei-persName" data-key="Ursin, Georg Frederik">Ursin</span> skulde komme i hans Sted, hvilket der er al Rimelighed for, og han har Ord for en Chicaneur. De ønske idetmindste heller at have en, der for at faae bestemt Svar paa sit bestemte Spørgsmaal gjendtager det, end en, der ei gjendtager sit Spørgsmaal og fremsætter det ubestemt. <span tabindex="0" class="tei-pb tei-pb--manuscript" title="Nyt blad i manuskriptet">[·]</span></p><p class="tei-p r-ind"><span tabindex="0" class="tei-pb tei-pb--manuscript" title="Nyt blad i manuskriptet, bladnummer tilføjet af udgiverne: 2r">[2r]</span>Jeg sagde i det Foregaaende, at <span class="tei-persName" data-key="Henrichsen, Rudolph Johannes Frederik">Henrichsen</span> var den første Lærer, der forlod Skolen, og deraf kan Du indsee, at der maae være flere, som der ogsaa er. Den anden er nemlig <span class="tei-persName" data-key="Friedenreich, Diderik Wilhelm">Friedenreich</span>, som er bleven ansat som Inspecteur ved Efterslægtens-Skole i <span class="tei-persName" data-key="Bentzien, Wilhelm Bartholomæus">Bentzen</span>s Sted, som igjen er bleven Præst; men i et Kald, som ei bringer ham saa meget i Lommen, som hans Embede ved Efterslægten, som giver 800 Daler af sig om Aaret, <span tabindex="0" class="tei-pb tei-pb--print" title="Sideskift i SKS-udgaven: 11">[11]</span>saavidt jeg veed. I hans Sted ere tre andre Lærere komne til Skolen, nemlig <span class="tei-persName" data-key="Krøyer, Ludvig Theodor">Krøyer</span>, en lille Person der ei er større end jeg (jeg er ei større end jeg var da Du reiste). Desuden <span class="tei-persName" data-key="Sager, Hans Carl">Zager</span> og <span class="tei-persName" data-key="Bergenhammer, Peter">Bergenhammer</span>. Det er vistnok et stort Tab for Skolen, da <span class="tei-persName" data-key="Friedenreich, Diderik Wilhelm">Friedenreich</span> har de meest udstrakte Kun<span class="tei-unclear">d</span>skaber i Historie og Geographie af alle Lærerne ved Skolen; thi <span class="tei-persName" data-key="Warncke, Ludvig Holberg">War</span><span class="tei-unclear">ncke</span> praler vel af, at Skolen ei kunde bestaae uden ham; men d<span class="tei-unclear">et</span> er nok blot Pralerie, og jeg idet mindste troer, at det snarere er san<span class="tei-unclear">dt</span>, at <span class="tei-persName" data-key="Warncke, Ludvig Holberg">Warncke</span> ei kan <span class="tei-corr">bestaae</span> uden Skolen. Fader har et Brev til Dig under Arbeide, men Du kjender jo nok Fader og veed nok, hvor lang Tid han behøver for at skrive et Brev, da han kun een ell to Timer om Formiddagen kan skrive. Jeg haaber Du befinder Dig vel. <span class="tei-persName" data-key="Kierkegaard, Nicoline Christine">Nicoline</span>s Arm kommer sig; men Fingeren som <span class="tei-supplied">hun</span> har knuset, smerter hende meget og vil formodentlig blive langsom. Skriv hende et Brev til, at hun kan have lidt Trøst i sin Modgang. <span class="tei-persName" data-key="Lund, Henrik">Henrich</span> er rask; men <span class="tei-persName" data-key="Lund, Michael Frederik Christian">Michael</span> skranter. Fader, Moder, <span class="tei-persName" data-key="Kierkegaard, Nicoline Christine">Nicoline</span>, <span class="tei-persName" data-key="Kierkegaard, Petrea Severine">Petrea</span>, <span class="tei-persName" data-key="Lund, Johan Christian">C<span class="tei-supplied">h</span>ristian</span>, <span class="tei-persName" data-key="Lund, Henrik Ferdinand">Ferdinand</span>, Md<span class="tei-persName" data-key="Lund, Marina Magdalene">Lund</span>, <span class="tei-persName" data-key="Kierkegaard, Niels Andreas">Niels</span> alle hilse Dig; men selv være Du kjærligst hilset </p></div><div class="tei-closer"><div class="tei-signed"><span class="tei-l r-x3lang">af</span><span class="tei-l r-x2lang">Din hengivne Broder,</span><span class="tei-l r-x6lang"><span class="tei-persName" data-key="Kierkegaard, Søren Aabye">Søren</span>.</span></div><div class="tei-dateline r-x9lang"><span class="tei-placeName" data-key="København">Kbh:</span><span class="tei-date" data-when="18290308">d: 8<sup class="tei-hi r-sup">de</sup> Martz. 1829</span>. </div></div><div class="tei-trailer tei-trailer--addrOnEnvelope"><span class="tei-l r-xlang"><span tabindex="0" class="tei-pb tei-pb--manuscript" title="Nyt blad i manuskriptet, bladnummer tilføjet af udgiverne: 2v">[2v]</span>Herrn</span><span class="tei-l">Cand:Theol:<span class="tei-persName" data-key="Kierkegaard, Peter Christian">P.C. Kierkegaard</span>.</span><span class="tei-l r-kort"> <span class="tei-placeName" data-key="Unter den Linden">unter Linden</span> 20 drey Treppen </span><table class="tei-table" role="presentation"><tr class="tei-row"><td class="tei-cell"></td><td class="tei-cell r-cen">in</td></tr><tr class="tei-row"><td class="tei-cell r-lang">frco<span class="tei-placeName" data-key="Hamborg">Hamburg</span> </td><td class="tei-cell r-cen"> <span class="tei-placeName">Berlin</span> </td></tr></table></div></div><nav class="letter-nav" aria-label="Breve i rækkefølge"><a href="#" rel="next" class="nav-next">Næste brev (2) →</a></nav><section class="same-correspondence"><h2>Samme brevveksling</h2><p class="group-note">P.C. Kierkegaard</p><ul class="sibling-list"><li class="current" aria-current="page">Brev 1<span class="muted"> · 8. marts 1829</span><span class="current-marker"> ← dette brev</span></li><li><a href="#">Brev 2</a><span class="muted"> · 25. marts 1829</span></li><li><a href="#">Brev 3</a><span class="muted"> · 15. juli 1829</span></li><li><a href="#">Brev 4</a><span class="muted"> · 27. februar 1842</span></li><li><a href="#">Brev 5</a><span class="muted"> · 18.–19. januar 1843</span></li><li><a href="#">Brev 6</a><span class="muted"> · 5.–6. februar 1843</span></li><li><a href="#">Brev 7</a><span class="muted"> · 18. februar 1843</span></li><li><a href="#">Brev 8</a><span class="muted"> · 6. maj 1843</span></li><li><a href="#">Brev 9</a><span class="muted"> · 29. juni 1843</span></li><li><a href="#">Brev 10</a><span class="muted"> · 2.–3. juli 1843</span></li><li><a href="#">Brev 11</a><span class="muted"> · 16.–17. maj 1844</span></li><li><a href="#">Brev 12</a><span class="muted"> · 17. januar 1845</span></li><li><a href="#">Brev 13</a><span class="muted"> · 10.–11. februar 1845</span></li><li><a href="#">Brev 14</a><span class="muted"> · 18. februar 1845</span></li><li><a href="#">Brev 15</a><span class="muted"> · 10. marts 1845</span></li><li><a href="#">Brev 16</a><span class="muted"> · 19. marts 1846</span></li><li><a href="#">Brev 17</a><span class="muted"> · 19. maj 1847</span></li><li><a href="#">Brev 18</a><span class="muted"> · 22. december 1847</span></li><li><a href="#">Brev 19</a><span class="muted"> · december 1848</span></li><li><a href="#">Brev 20</a><span class="muted"> · november 1849</span></li><li><a href="#">Brev 21</a><span class="muted"> · december 1849</span></li><li><a href="#">Brev 22</a><span class="muted"> · august 1851</span></li></ul></section></article></main><footer class="site-footer"><p>Teksten stammer fra den TEI-kodede udgave af <i>Søren Kierkegaards Skrifter</i>, der er offentligt tilgængelig under <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.da" rel="license">CC0 1.0</a>. Denne visning er en uafhængig demonstration — ikke en udgivelse fra udgiverne bag SKS — og er bygget med hjælp fra Claude (AI).</p></footer></body></html>
