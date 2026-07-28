@@ -1513,8 +1513,8 @@ def _about_presenter():
     body += element(
         "p",
         "Hun står for velkomsten på forsiden og for de korte resuméer i "
-        "brevoversigten. De hører ikke til udgaven, og de står med vilje ikke "
-        "på brevenes egne sider: når man læser et brev, skal brevet have ordet.",
+        "brevoversigten. De hører ikke til udgaven, og de står aldrig oven "
+        "over selve brevteksten: når man læser brevet, skal brevet have ordet.",
     )
     body += element(
         "p",

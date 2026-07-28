@@ -1534,6 +1534,31 @@ class PresenterTest(unittest.TestCase):
         self.assertIn("pseudonym", disclosure)
         self.assertIn("Claude", disclosure)
 
+    def test_the_om_page_says_where_the_resumes_sit_and_is_right_about_it(self):
+        """The claim about the resumés has to survive a look at a letter page.
+
+        It read "de står med vilje ikke på brevenes egne sider" until this
+        test was written, and that had stopped being true: since every row
+        of "Samme brevveksling" got its resumé -- the current letter's
+        included -- a letter page carries the letter's own two lines. What
+        is still true, and what the page now says, is that she never sits
+        *above* a transcription. So the claim is checked against a built
+        letter: every resumé on it comes after the letter's own text.
+        """
+        disclosure = self.about.split('id="notabene"', 1)[1]
+        self.assertIn("aldrig oven over selve brevteksten", disclosure)
+        self.assertNotIn("brevenes egne sider", disclosure)
+
+        letter = self.read("brev", "1", "index.html")
+        transcription = letter.index('class="transcription"')
+        positions = [
+            found.start()
+            for found in re.finditer(r'class="letter-summary"', letter)
+        ]
+        self.assertTrue(positions)          # brev 1 does carry its own
+        for position in positions:
+            self.assertGreater(position, transcription)
+
     def test_the_om_page_explains_where_the_biographies_come_from(self):
         self.assertIn("kommentar", self.about)
         self.assertIn("kom.xml", self.about)
