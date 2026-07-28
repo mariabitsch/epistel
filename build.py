@@ -76,7 +76,17 @@ def main(argv):
         "build: %d letters in %d correspondence groups across %d volumes"
         % (result["letters"], result["sections"], result["volumes"])
     )
-    pages = result["letters"] + 1
+    print(
+        "build: %d personer, heraf %d med biografi; %d resuméer; "
+        "søgeindeks med %d ord"
+        % (
+            result["people"],
+            result["biographies"],
+            result["summaries"],
+            result["search_words"],
+        )
+    )
+    pages = result["letters"] + result["people"] + 2
     if result["timeline"]:
         counts = result["timeline"]
         pages += 1

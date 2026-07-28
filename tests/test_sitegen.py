@@ -1114,6 +1114,74 @@ class TimelinePageTest(unittest.TestCase):
             self.assertNotIn("tidslinje", index)
 
 
+class SummaryTest(unittest.TestCase):
+    """Victoria's summaries: in the index, and nowhere else.
+
+    Maria's decision, and the reason is worth writing down: choosing what to
+    read is where a presenter helps, and reading is where she gets in the way.
+    So the summary sits under the letter in the list and is absent from the
+    letter's own page.
+    """
+
+    SUMMARIES = 333
+    STUBS = ("b171-n171a", "b171-n176a", "b171-na")
+
+    @classmethod
+    def setUpClass(cls):
+        cls.context = load_context(CONTEXT)
+        cls.volumes = parse_corpus(VENDOR)
+        cls.directory = tempfile.TemporaryDirectory()
+        cls.result = build_site(cls.volumes, cls.directory.name, context=cls.context)
+        cls.index = cls.read_from(cls.directory.name, "index.html")
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.directory.cleanup()
+
+    @staticmethod
+    def read_from(*parts):
+        with open(os.path.join(*parts), encoding="utf-8") as file:
+            return file.read()
+
+    def read(self, *parts):
+        return self.read_from(self.directory.name, *parts)
+
+    def test_every_summary_reaches_the_index(self):
+        self.assertEqual(self.SUMMARIES, self.result["summaries"])
+        self.assertEqual(
+            self.SUMMARIES, self.index.count('class="letter-summary"')
+        )
+
+    def test_a_summary_sits_under_the_letter_it_belongs_to(self):
+        entry = self.index.split('data-slug="1"', 1)[1].split("</li>", 1)[0]
+        self.assertIn("snustobaksdåse i afskedsgave", entry)
+
+    def test_a_summary_never_reaches_the_letters_own_page(self):
+        page = self.read("brev", "1", "index.html")
+        self.assertNotIn("snustobaksdåse i afskedsgave", page)
+        self.assertNotIn("letter-summary", page)
+
+    def test_a_letter_with_no_summary_is_given_none(self):
+        # The three cross-reference stubs in b171 print no text, so there is
+        # nothing to summarise and nothing is invented.
+        for slug in self.STUBS:
+            entry = self.index.split('data-slug="%s"' % slug, 1)[1].split("</li>", 1)[0]
+            self.assertNotIn("letter-summary", entry)
+
+    def test_the_index_says_whose_voice_the_summaries_are(self):
+        lead = self.index.split('class="lead"', 1)[1].split("</p>", 1)[0]
+        self.assertIn("Victoria Eremita", lead)
+        self.assertIn("hører ikke til udgaven", lead)
+
+    def test_a_build_without_the_summaries_promises_none(self):
+        with tempfile.TemporaryDirectory() as other:
+            result = build_site(self.volumes, other)
+            self.assertEqual(0, result["summaries"])
+            index = self.read_from(other, "index.html")
+            self.assertNotIn("letter-summary", index)
+            self.assertNotIn("Victoria Eremita", index)
+
+
 def _escape(value):
     return value.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 

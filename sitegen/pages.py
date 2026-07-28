@@ -1,13 +1,20 @@
 """Whole HTML documents, as plain Python string functions.
 
-No template engine: the site has three page types, and a function that returns
+No template engine: the site has five page types, and a function that returns
 a string is easier to read -- and to throw away -- than a dependency. Every
 value that comes from the data passes through ``sitegen.html`` on its way in.
 
-The pages take view models (built in ``sitegen.site`` and ``sitegen.timeline``),
-not parser output, so this module contains no knowledge of TEI. All links are
-relative, because the built site has to work from any directory of any static
-host.
+The pages take view models (built in ``sitegen.site``, ``sitegen.persons``,
+``sitegen.search`` and ``sitegen.timeline``), not parser output, so this
+module contains no knowledge of TEI. All links are relative, because the built
+site has to work from any directory of any static host.
+
+The one page with a script on it is the letter index, and it is written so
+that the script is an addition and not a requirement: the filter and search
+controls are in the markup with ``hidden`` on them, and ``static/search.js``
+takes it off. A reader with no JavaScript gets the full list of every letter,
+which is the page's actual content, and is never shown a control that would
+do nothing.
 """
 
 from .html import classes, element, text
@@ -18,25 +25,35 @@ SITE_TAGLINE = "demonstrationsvisning"
 # Where each page type sits, and what it takes to get back to the root.
 INDEX_TO_ROOT = ""
 LETTER_TO_ROOT = "../../"
+PERSON_TO_ROOT = "../../"
+PERSON_INDEX_TO_ROOT = "../"
 TIMELINE_TO_ROOT = "../"
 
-# The site's two destinations. The timeline is only one of them when the
-# curated datasets were built with it -- see ``sitegen.site.build_site``.
+# The site's destinations. The timeline is only one of them when the curated
+# datasets were built with it -- see ``sitegen.site.build_site``.
 INDEX_NAV = "breve"
+PERSONS_NAV = "personer"
 TIMELINE_NAV = "tidslinje"
 
+# Who wrote the summaries, said once on the page that shows them. She is a
+# presenter, not a source: the Om page says so plainly.
+PRESENTER = "Victoria Eremita"
 
-def index_page(books, timeline=False):
+
+def index_page(books, facets, timeline=False):
     """The front page: every letter, by volume and then by correspondence.
 
     One page for the whole corpus. The edition's own two levels of order are
     the two levels of the page -- the volume it was printed in, and the
     correspondence it belongs to -- so a reader who knows the edition can find
-    a letter the way they would in print. Filtering and search are a later
-    slice; this page is the plain list they will filter.
+    a letter the way they would in print. The filter and search controls sit
+    above that list and narrow it in place; they never rebuild it.
     """
     count = sum(len(book["letters"]) for book in books)
-    body = element("h1", "Breve") + _intro(books, count) + _volume_navigation(books)
+    summaries = sum(1 for book in books for view in book["letters"] if view["summary"])
+    body = element("h1", "Breve") + _intro(books, count, summaries)
+    body += _finder(facets)
+    body += _volume_navigation(books)
     body += "".join(_book(book) for book in books)
     return _document(
         title="Breve",
@@ -46,10 +63,11 @@ def index_page(books, timeline=False):
         % (_letter_count(count), _volume_count(len(books))),
         timeline=timeline,
         here=INDEX_NAV,
+        scripts=["assets/search.js"],
     )
 
 
-def letter_page(view, previous, following, section, timeline=False):
+def letter_page(view, previous, following, section, person_links, timeline=False):
     """One letter: what it is, what it says, and what it belongs with."""
     header = element(
         "p",
@@ -57,7 +75,7 @@ def letter_page(view, previous, following, section, timeline=False):
         class_="crumb",
     )
     header += element("h1", text(view["title"]))
-    header += _metadata(view, section)
+    header += _metadata(view, section, person_links)
 
     article = element("header", header)
     article += _transcription(view)
@@ -80,22 +98,149 @@ def letter_page(view, previous, following, section, timeline=False):
 # ---------------------------------------------------------------------------
 
 
-def _intro(books, count):
+def _intro(books, count, summaries):
     """What the reader is looking at -- as many volumes as were built.
 
     Written from the list, not from a sentence about one volume, so a build of
     b1 alone and a build of the whole corpus both describe themselves
-    truthfully.
+    truthfully. The same goes for the summaries: they are named only when
+    there are some, because a build without the curated layer must not
+    promise them.
     """
-    return element(
-        "p",
+    lead = (
         "Søren Kierkegaards breve, læst direkte fra den TEI-kodede udgave "
         "<i>Søren Kierkegaards Skrifter</i>. Denne demonstration viser "
         + element(
             "strong", "%s i %s" % (_letter_count(count), _volume_count(len(books)))
         )
-        + ", ordnet efter bind og brevveksling.",
-        class_="lead",
+        + ", ordnet efter bind og brevveksling."
+    )
+    if summaries:
+        lead += (
+            " De korte resuméer under brevene er skrevet af %s og hører ikke "
+            "til udgaven." % text(PRESENTER)
+        )
+    return element("p", lead, class_="lead")
+
+
+def _finder(facets):
+    """The filter and search controls: markup first, behaviour later.
+
+    Everything here is ordinary HTML -- three selects, a search field and a
+    reset button -- rendered with ``hidden`` on the form. ``search.js`` takes
+    the attribute off, which is the whole of the progressive enhancement: a
+    reader without JavaScript never sees a control, and the list below is
+    complete without one. The options are built at build time from the corpus,
+    so the script has no lists of its own and nothing to fetch before the
+    filters work.
+    """
+    fields = _search_field()
+    fields += _facet_field("afsender", "Afsender", facets["senders"])
+    fields += _facet_field("modtager", "Modtager", facets["recipients"])
+    fields += _facet_field("aar", "År", facets["years"], note=_year_note(facets["years"]))
+    form = element("div", fields, class_="finder-fields")
+    form += element(
+        "div",
+        element(
+            "p",
+            element("span", "", class_="finder-count")
+            + element("span", "", class_="finder-terms"),
+            class_="finder-status",
+            role="status",
+            aria_live="polite",
+        )
+        + element(
+            "button",
+            "Ryd",
+            type="reset",
+            class_="finder-reset",
+        ),
+        class_="finder-foot",
+    )
+    return element(
+        "form",
+        form,
+        class_="finder",
+        id="finder",
+        role="search",
+        aria_label="Filtrér og søg i brevene",
+        hidden=True,
+    ) + element(
+        "p",
+        "Ingen breve matcher. Prøv et andet ord, eller ryd filtrene.",
+        class_="finder-empty",
+        id="finder-empty",
+        hidden=True,
+    )
+
+
+def _search_field():
+    return element(
+        "div",
+        element("label", "Søg i brevtekst og resumé", for_="finder-query")
+        + element(
+            "input",
+            type="search",
+            id="finder-query",
+            name="q",
+            autocomplete="off",
+            spellcheck="false",
+            placeholder="fx snustobaksdåse",
+        ),
+        class_="finder-field finder-field--query",
+    )
+
+
+def _facet_field(name, label, values, note=None):
+    """One ``<select>``, with every value the corpus actually holds.
+
+    The counts are in the option text because a reader choosing a filter is
+    owed the size of what they are choosing, and because a facet that would
+    return nothing is never offered in the first place.
+    """
+    options = element("option", "Alle", value="")
+    for entry in values:
+        options += element(
+            "option",
+            "%s (%d)" % (text(entry["label"]), entry["count"]),
+            value=entry["value"],
+        )
+    note_id = "finder-%s-note" % name if note else None
+    field = element(
+        "div",
+        element("label", text(label), for_="finder-%s" % name)
+        + element(
+            "select",
+            options,
+            id="finder-%s" % name,
+            name=name,
+            aria_describedby=note_id,
+        ),
+        class_="finder-field",
+    )
+    if not note:
+        return field
+    # The note sits outside the field so it can run the full width of the
+    # panel rather than down a column, and is tied back to the control it
+    # explains by ``aria-describedby``.
+    return field + element("p", text(note), class_="finder-note", id=note_id)
+
+
+def _year_note(years):
+    """Preserve uncertainty: say how the imprecise dates were filed.
+
+    A year filter has to put every letter in exactly one year, and the edition
+    does not always give one -- "1846-47", "1837", a postmark it will not
+    vouch for. They go under the earliest year they could belong to, which is
+    a decision, so the decision is written down next to the control rather
+    than left for the reader to discover by being surprised.
+    """
+    if not any(entry.get("approximate") for entry in years):
+        return None
+    return (
+        "Breve, som udgaven kun daterer til et år eller til en periode, står "
+        "under det tidligste år, de kan tilhøre. Datoen ved hvert brev siger, "
+        "hvad udgaven faktisk ved."
     )
 
 
@@ -169,14 +314,28 @@ def _section(section):
 
 
 def _entry(view):
-    """One line in the index: a linked heading and the bare facts."""
+    """One line in the index: a linked heading, the bare facts, the resumé.
+
+    The filter values travel on the element as ``data-`` attributes so that
+    narrowing the list is a matter of hiding rows that are already on the
+    page. Nothing is ever built from a string of data at runtime.
+    """
     heading = element(
         "h4", element("a", text(view["title"]), href="brev/%s/" % view["slug"])
     )
-    return element("li", heading + _summary(view), class_="letter-entry")
+    filters = view["filters"]
+    return element(
+        "li",
+        heading + _facts(view) + _summary(view),
+        class_="letter-entry",
+        data_slug=view["slug"],
+        data_sender=filters["sender"],
+        data_recipient=filters["recipient"],
+        data_year=filters["year"],
+    )
 
 
-def _summary(view):
+def _facts(view):
     return _definition_list(
         [
             ("Fra", _name(view["sender"], view["sender_raw"])),
@@ -185,6 +344,19 @@ def _summary(view):
         ],
         class_name="letter-meta",
     )
+
+
+def _summary(view):
+    """Victoria's two sentences about the letter, in her own register.
+
+    Not on the letter page: there the letter speaks for itself. Here, where a
+    reader is choosing what to read, a presenter is welcome -- and she is
+    marked as one. The three letters the edition prints as bare
+    cross-references have no summary, and get none.
+    """
+    if not view["summary"]:
+        return ""
+    return element("p", text(view["summary"]), class_="letter-summary", lang="da")
 
 
 # ---------------------------------------------------------------------------
@@ -208,16 +380,25 @@ def _transcription(view):
     )
 
 
-def _metadata(view, section):
+def _metadata(view, section, person_links=None):
     """The panel above the transcription -- correspDesc, never the heading.
 
     The edition's own letter headings are a display string that is sometimes
     damaged in the source (letter 39 is missing everything but its recipient),
     so this panel is built from the structured fields instead.
+
+    Sender and recipient become links when the curated alias table joined them
+    to a person the letters name; when it could not, the name stands as text.
+    A letter written to "familien" or from "ukendt" is not a person, and the
+    panel says exactly as much as the edition does.
     """
+    person_links = person_links or {}
     rows = [
-        ("Fra", _name(view["sender"], view["sender_raw"])),
-        ("Til", _name(view["recipient"], view["recipient_raw"])),
+        ("Fra", _name(view["sender"], view["sender_raw"], person_links.get("sender"))),
+        (
+            "Til",
+            _name(view["recipient"], view["recipient_raw"], person_links.get("recipient")),
+        ),
         ("Dateret", _date(view)),
     ]
     if view["place"]:
@@ -330,6 +511,250 @@ def _letter_href(view):
 def _in_brackets(view):
     """" (42)" for a numbered letter, nothing for one the edition left blank."""
     return " (%s)" % text(view["number"]) if view["numbered"] else ""
+
+
+# ---------------------------------------------------------------------------
+# People
+# ---------------------------------------------------------------------------
+
+
+def person_index_page(groups, register, timeline=False):
+    """Everyone the letters name, hung letter band by letter band.
+
+    The register is the edition's own: every name it marked up in a letter's
+    text, exactly as it keyed it. That includes the people Kierkegaard wrote
+    to, the people he wrote about, and the figures he argued with on paper --
+    Sokrates, Don Giovanni's Elvira, Robinson Crusoe. Sorting them into "real"
+    and "not" would be our judgement laid over the edition's, so the register
+    keeps them all and says so.
+    """
+    with_bio = sum(1 for person in register if person["bio"])
+    body = element("h1", "Personer")
+    body += _person_index_intro(len(register), with_bio)
+    body += _letter_navigation(groups)
+    body += "".join(_person_group(group) for group in groups)
+    return _document(
+        title="Personer",
+        main=body,
+        root=PERSON_INDEX_TO_ROOT,
+        description="%s, som Søren Kierkegaards breve nævner ved navn."
+        % _person_count(len(register)),
+        timeline=timeline,
+        here=PERSONS_NAV,
+    )
+
+
+def _person_index_intro(count, with_bio):
+    lead = (
+        "Alle, som brevene nævner ved navn — "
+        + element("strong", _person_count(count))
+        + ", som udgaven selv har mærket op i brevteksterne. Registret skelner "
+        "ikke mellem levende og litterære: står navnet i et brev, står "
+        "personen her."
+    )
+    if with_bio:
+        lead += (
+            " %d af dem har en kort biografi, hentet ud af udgavens egen "
+            "kommentar." % with_bio
+        )
+    return element("p", lead, class_="lead")
+
+
+def _letter_navigation(groups):
+    """The alphabet as a jump list -- one anchor per band that has people."""
+    items = "".join(
+        element(
+            "li",
+            element("a", text(group["letter"]), href="#%s" % group["anchor"]),
+        )
+        for group in groups
+    )
+    return element(
+        "nav",
+        element("ol", items, class_="alphabet-list"),
+        class_="alphabet-nav",
+        aria_label="Bogstaver",
+    )
+
+
+def _person_group(group):
+    entries = "".join(_person_entry(person) for person in group["people"])
+    return element(
+        "section",
+        element("div", element("h2", text(group["letter"])), class_="alphabet-head")
+        + element("ul", entries, class_="person-list"),
+        class_="person-band",
+        id=group["anchor"],
+    )
+
+
+def _person_entry(person):
+    """One name in the register, with what the site can say about them."""
+    marks = []
+    letters = _person_letter_count(person)
+    if letters:
+        marks.append(_letter_count(letters))
+    marks.append("biografi" if person["bio"] else "ingen biografi")
+    return element(
+        "li",
+        element(
+            "a", text(person["name"]), href="../person/%s/" % person["slug"]
+        )
+        + element(
+            "span",
+            " · ".join(text(mark) for mark in marks),
+            class_=classes("person-marks", None if person["bio"] else "person-marks--bare"),
+        ),
+        class_="person-entry",
+    )
+
+
+def person_page(person, timeline=False):
+    """One person: who the commentary says they were, and their letters."""
+    header = element(
+        "p",
+        element("a", "← Alle personer", href="%spersoner/" % PERSON_TO_ROOT),
+        class_="crumb",
+    )
+    header += element("h1", text(person["name"]))
+    header += _person_identity(person)
+
+    article = element("header", header)
+    article += _biography(person)
+    article += _person_letters(
+        person["sent"],
+        "Breve sendt",
+        "Breve, som udgaven angiver %s som afsender af." % person["name"],
+    )
+    article += _person_letters(
+        person["received"],
+        "Breve modtaget",
+        "Breve, som udgaven angiver %s som modtager af." % person["name"],
+    )
+    article += _person_letters(
+        person["mentioned"],
+        "Nævnt i brevene",
+        "Breve, hvor navnet står i selve brevteksten.",
+    )
+    return _document(
+        title=person["name"],
+        main=element("article", article, class_="person"),
+        root=PERSON_TO_ROOT,
+        description="%s i Søren Kierkegaards breve: %s."
+        % (person["name"], _person_summary(person)),
+        timeline=timeline,
+        here=PERSONS_NAV,
+    )
+
+
+def _person_identity(person):
+    """The edition's own index form, and the other names it files them under."""
+    rows = [("Opslagsform", element("span", text(person["key"]), class_="person-key"))]
+    if person["same_as"]:
+        # Married and maiden names, nicknames: the commentary records them as
+        # the same person, and a reader looking for "Jette" should see why
+        # this page is the answer.
+        rows.append(
+            (
+                "Også kaldt",
+                element(
+                    "span",
+                    " · ".join(text(name) for name in person["same_as"]),
+                    class_="person-aka",
+                ),
+            )
+        )
+    return _definition_list(rows, class_name="person-meta")
+
+
+def _biography(person):
+    """The commentary's note about a person, or an honest line saying there is none.
+
+    The bio is not the edition speaking: it is drawn out of the edition's
+    commentary and rewritten, so the source note is named beneath it. Where
+    the commentary has nothing, the page says that too. A person with no
+    biography is not an incomplete page; it is a fact about what the edition
+    annotates -- and there are two kinds of it. Some people the commentary
+    never treats as a subject at all; thirteen it does mention, without
+    saying anything biographical, and the dataset records each of them by
+    name. The page tells the two apart rather than flattening them.
+    """
+    if person["bio"]:
+        block = element("p", text(person["bio"]), class_="person-bio")
+        if person["sources"]:
+            block += element(
+                "p",
+                "Efter kommentaren i SKS: %s"
+                % " · ".join(text(source) for source in person["sources"]),
+                class_="person-source",
+            )
+        return element("section", block, class_="person-biography")
+    if person["no_bio_reason"]:
+        line = (
+            "Udgavens kommentar nævner personen, men uden biografiske "
+            "oplysninger at bygge en note på."
+        )
+    else:
+        line = "Kommentaren giver ingen biografisk note."
+    return element(
+        "section",
+        element("p", line, class_="person-bio person-bio--none"),
+        class_="person-biography",
+    )
+
+
+def _person_letters(views, heading, note):
+    """One of a person's three lists of letters, in the edition's own order."""
+    if not views:
+        return ""
+    items = "".join(
+        element(
+            "li",
+            element("a", text(view["title"]), href="%sbrev/%s/" % (PERSON_TO_ROOT, view["slug"]))
+            + element(
+                "span",
+                " · " + text(view["date_text"]),
+                class_="muted",
+            )
+            + element(
+                "span",
+                " · fra %s til %s" % (text(view["sender"]), text(view["recipient"])),
+                class_="person-letter-pair",
+            ),
+        )
+        for view in views
+    )
+    return element(
+        "section",
+        element("h2", text(heading))
+        + element("p", text(note), class_="group-note")
+        + element("p", _letter_count(len(views)), class_="group-count")
+        + element("ul", items, class_="sibling-list"),
+        class_="person-letters",
+    )
+
+
+def _person_letter_count(person):
+    slugs = {
+        view["slug"]
+        for group in ("sent", "received", "mentioned")
+        for view in person[group]
+    }
+    return len(slugs)
+
+
+def _person_summary(person):
+    parts = []
+    for group, label in (("sent", "sendt"), ("received", "modtaget")):
+        if person[group]:
+            parts.append("%s %s" % (_letter_count(len(person[group])), label))
+    if person["mentioned"]:
+        parts.append("nævnt i %s" % _letter_count(len(person["mentioned"])))
+    return ", ".join(parts) or "ingen breve"
+
+
+def _person_count(count):
+    return "1 person" if count == 1 else "%d personer" % count
 
 
 # ---------------------------------------------------------------------------
@@ -776,9 +1201,30 @@ def _definition_list(rows, class_name):
     return element("dl", body, class_=class_name)
 
 
-def _name(display, raw):
-    """A person's name, with the edition's own index form kept alongside."""
-    return element("span", text(display), data_name=raw)
+def _name(display, raw, links=None):
+    """A person's name, with the edition's own index form kept alongside.
+
+    One person behind the name: the name becomes the link. Two -- the edition
+    addresses three letters to a couple or a pair of children -- the name
+    stays as it is written and both people are named after it, because
+    "Sophie Lund og Carl Lund" is one string that cannot be cut in half.
+    Nobody: plain text, as before.
+    """
+    rendered = element("span", text(display), data_name=raw)
+    if not links:
+        return rendered
+    if len(links) == 1:
+        return element(
+            "a", text(display), href=links[0]["href"], data_name=raw, class_="person-link"
+        )
+    return rendered + element(
+        "span",
+        " · ".join(
+            element("a", text(link["label"]), href=link["href"], class_="person-link")
+            for link in links
+        ),
+        class_="person-both",
+    )
 
 
 def _date(view):
@@ -803,7 +1249,16 @@ def _volume_count(count):
     return "%d bind" % count
 
 
-def _document(title, main, root, description, body_class=None, timeline=False, here=None):
+def _document(
+    title,
+    main,
+    root,
+    description,
+    body_class=None,
+    timeline=False,
+    here=None,
+    scripts=(),
+):
     """The shell every page shares."""
     head = (
         element("meta", charset="utf-8")
@@ -839,6 +1294,10 @@ def _document(title, main, root, description, body_class=None, timeline=False, h
     )
     skip = element("a", "Spring til indhold", href="#indhold", class_="skip-link")
     body = skip + header + element("main", main, id="indhold") + footer
+    body += "".join(
+        element("script", "", src="%s%s" % (root, source), defer=True)
+        for source in scripts
+    )
     return (
         "<!doctype html>\n"
         + element(
@@ -851,18 +1310,19 @@ def _document(title, main, root, description, body_class=None, timeline=False, h
 
 
 def _navigation(root, timeline, here):
-    """Two links in the header band, and only while there are two places to go.
+    """The links in the header band -- only to pages this build actually wrote.
 
-    The timeline is built from the curated datasets in ``data/context``; a
-    build without them is a smaller site, and a smaller site must not offer a
-    link to a page it never wrote.
+    Breve and Personer both come out of the TEI and are always there. The
+    timeline is built from the curated datasets in ``data/context``; a build
+    without them is a smaller site, and a smaller site must not offer a link
+    to a page it never wrote.
     """
-    if not timeline:
-        return ""
     destinations = [
         (INDEX_NAV, "Breve", root or "./"),
-        (TIMELINE_NAV, "Tidslinje", "%stidslinje/" % root),
+        (PERSONS_NAV, "Personer", "%spersoner/" % root),
     ]
+    if timeline:
+        destinations.append((TIMELINE_NAV, "Tidslinje", "%stidslinje/" % root))
     links = "".join(
         element(
             "a",

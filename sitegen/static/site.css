@@ -140,6 +140,12 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* `hidden` has to win. Several rules below set `display` on elements the
+   filter hides (a letter entry is a grid, a section is a block), and an
+   author rule beats the browser's own [hidden] rule no matter what it says.
+   Without this line the filter would hide nothing at all.               */
+[hidden] { display: none !important; }
+
 html { font-size: 100%; -webkit-text-size-adjust: 100%; }
 
 body {
@@ -316,6 +322,126 @@ h1::before {                       /* the gilt tick: one accent, top left */
 
    The band design is unchanged from the one-volume build; only its heading
    level moved (h2 -> h3) to make room for the volume above it.          */
+
+/* --- the finder: filter and search ------------------------------------
+   A plaster band under the intro, cut from the same cloth as the volume
+   jump list below it — same tint, same gilt top rule, same micro-caps
+   labels — so it reads as part of the wall and not as an app bolted on.
+
+   It is in the markup with `hidden` on it and only appears when the
+   script runs (see static/search.js). A reader without JavaScript gets
+   the complete list, which is the page, and no control that lies.
+
+   Contrast: labels --muted on --plaster 5.65:1; field text --ink on
+   --paper 15.79:1; the status line --ink-soft on --plaster 7.49:1;
+   the empty-state --gilt-text on --ground 5.68:1.                      */
+
+.finder {
+  margin: 2.6rem 0 0;
+  padding: 1.3rem 1.5rem 1.15rem;
+  background: var(--plaster);
+  border-top: 2px solid var(--gilt);
+  border-bottom: 1px solid var(--rule-warm);
+}
+
+.finder-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.9rem 1.4rem;
+}
+.finder-field--query { grid-column: 1 / -1; }
+
+.finder-field label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--label);
+  font-size: 0.61rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.finder-field input,
+.finder-field select {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  background: var(--paper);
+  border: 1px solid var(--rule-warm);
+  border-radius: 0;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+.finder-field input { font-size: 1.02rem; }
+.finder-field input::placeholder {
+  color: var(--muted);                /* 6.85:1 on paper */
+  font-style: italic;
+  opacity: 1;
+}
+.finder-field input:focus-visible,
+.finder-field select:focus-visible {
+  outline: 2px solid var(--prussian);
+  outline-offset: 2px;
+}
+
+/* Preserve uncertainty, at the control this time: a year filter has to put
+   every letter in exactly one year, and the edition does not always give
+   one. The rule it was filed by is written here rather than left for the
+   reader to trip over. Gilt italic, the site's editorial register.       */
+.finder-note {
+  grid-column: 1 / -1;
+  margin: 0.4rem 0 0;
+  font-size: 0.79rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--gilt-text);            /* 5.06:1 on plaster */
+}
+
+.finder-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem 1.2rem;
+  margin-top: 1rem;
+}
+.finder-status {
+  margin: 0;
+  font-family: var(--label);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.finder-count { font-weight: 600; }
+.finder-terms { color: var(--muted); }
+
+.finder-reset {
+  padding: 0.4rem 0.9rem;
+  background: transparent;
+  border: 1px solid var(--gilt);
+  color: var(--gilt-text);            /* 5.06:1 on plaster */
+  font-family: var(--label);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.finder-reset:hover { background: rgba(176, 141, 62, 0.12); }
+.finder-reset:focus-visible {
+  outline: 2px solid var(--prussian);
+  outline-offset: 2px;
+}
+
+.finder-empty {
+  margin: 2.6rem 0 0;
+  padding: 1.1rem 1.5rem;
+  border: 1px dashed var(--gilt);
+  font-style: italic;
+  color: var(--gilt-text);
+}
 
 /* --- the volume: a room, announced ----------------------------------- */
 
@@ -501,6 +627,28 @@ h1::before {                       /* the gilt tick: one accent, top left */
   margin: 0;
   font-size: 0.97rem;
   line-height: 1.4;
+}
+
+/* --- Victoria's resumé ------------------------------------------------
+   The only voice on the site that is neither the edition's nor the letter
+   writer's, so it is marked as one and marked the same way every time: a
+   gilt frame-line down its left side — the accent this design uses for
+   everything editorial — and the body face in italic, which is how a
+   person speaks in a room full of documents. No tint, no box, no label:
+   at 333 repetitions anything heavier would take over the page.
+
+   Set in the second column, under the three fields, because it belongs to
+   the letter and not to the row. Ink is --ink-soft: 9.08:1 on the paper
+   ground, 8.48:1 on the hover tint.                                     */
+.letter-entry .letter-summary {
+  grid-column: 2;
+  margin: 0.7rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--gilt);
+  font-size: 0.99rem;
+  font-style: italic;
+  line-height: 1.62;
+  color: var(--ink-soft);
 }
 
 /* Preserve uncertainty: the edition's own hedging, set as an editorial
@@ -763,11 +911,36 @@ h1::before {                       /* the gilt tick: one accent, top left */
 }
 
 /* Named entities: a hairline the eye can ignore while reading and find
-   when looking. Deliberately not hover-reactive — they are not links. */
+   when looking.                                                        */
 .tei-persName  { border-bottom: 1px solid rgba(46, 74, 90, 0.42); }
 .tei-placeName { border-bottom: 1px solid rgba(59, 79, 69, 0.42); }
 .tei-persName .tei-persName,
 .tei-persName .tei-supplied { border-bottom: 0; }
+
+/* A named person is now a link to their page, and it must not look like
+   one while you are reading. Brev 40 names thirty-four people; thirty-four
+   blue, underlined runs would turn a page of prose into a speckled field,
+   which every one of the design mockups warned against.
+
+   So at rest the anchor is exactly the span it replaced: the letter's own
+   ink, no underline, and the same faint entity hairline it already had.
+   It says it is a link only when you point at it or reach it by keyboard
+   — then the hairline goes solid Prussian and the name takes a real
+   underline. Nothing about the reading text moves, because both marks
+   were already occupying that pixel row.                                */
+a.tei-persName {
+  color: inherit;
+  text-decoration: none;
+  border-bottom-color: rgba(46, 74, 90, 0.42);
+  transition: border-bottom-color 90ms linear;
+}
+a.tei-persName:hover,
+a.tei-persName:focus-visible {
+  border-bottom-color: var(--prussian);   /* 9.12:1 as type on paper */
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
 
 /* The manuscript's own hand. #lat marks Latin script inside a gothic
    hand — given the display face, which is the closest a webpage gets to
@@ -872,6 +1045,184 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
 }
 
 .muted { color: var(--muted); }
+
+/* =============================================================== PERSONS
+   The register and the single-person page. A gallery hangs its people the
+   way it hangs its rooms: a band per letter of the alphabet, named on the
+   wall, with the names ruled up beneath it.
+
+   The design borrows the index's furniture on purpose — plaster heading
+   band, gilt rule, paper field, micro-caps labels — because a person page
+   and a letter page are the same museum, and inventing a second visual
+   language for the same site would only cost the reader.
+
+   Contrast, all measured: name links --prussian on --paper 9.12:1; the
+   marks beside them --muted on --paper 6.85:1; the biography --ink on
+   --paper 15.79:1; the source line --gilt-text on --paper 6.13:1; the
+   "no biography" line --muted on --paper 6.85:1.                       */
+
+.alphabet-nav {
+  margin: 2.6rem 0 0;
+  padding: 1rem 1.5rem;
+  background: var(--plaster);
+  border-top: 2px solid var(--gilt);
+  border-bottom: 1px solid var(--rule-warm);
+}
+.alphabet-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.4rem;
+  margin: 0;
+  padding: 0;
+}
+.alphabet-list a {
+  display: block;
+  min-width: 2rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid transparent;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  text-align: center;
+  text-decoration: none;
+}
+.alphabet-list a:hover {
+  border-color: var(--gilt);
+  background: rgba(253, 252, 249, 0.6);
+}
+
+.person-band {
+  margin-top: 2.6rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--gilt);
+}
+.alphabet-head {
+  padding: 0.75rem 1.5rem 0.7rem;
+  background: var(--plaster);
+  border-bottom: 1px solid var(--rule-warm);
+}
+.alphabet-head h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.person-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+  columns: 2;
+  column-gap: 2rem;
+}
+.person-entry {
+  break-inside: avoid;
+  padding: 0.42rem 1.5rem;
+  line-height: 1.4;
+}
+.person-entry a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 74, 90, 0.28);
+}
+.person-entry a:hover { border-bottom-color: var(--gilt); }
+.person-marks {
+  display: block;
+  font-family: var(--label);
+  font-size: 0.65rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+/* Whether the commentary had anything is information, so it is said in
+   words on every entry — never carried by presence or absence alone. */
+.person-marks--bare { font-style: italic; text-transform: none; letter-spacing: 0.02em; }
+
+/* --- one person ------------------------------------------------------- */
+
+.person > header { margin-bottom: 2.4rem; }
+
+.person-meta {
+  margin: 1.6rem 0 0;
+  padding: 0.85rem 1.15rem;
+  background: var(--plaster);
+  border-left: 3px solid var(--gilt);
+}
+.person-meta > div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  align-items: baseline;
+  gap: 0.2rem 1rem;
+}
+.person-meta > div + div { margin-top: 0.35rem; }
+.person-meta dt {
+  font-family: var(--label);
+  font-size: 0.61rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);                /* 5.65:1 on plaster */
+}
+.person-meta dd { margin: 0; font-size: 0.97rem; }
+.person-key { font-family: var(--label); font-size: 0.9rem; }
+.person-aka { font-style: italic; color: var(--ink-soft); }  /* 7.49:1 */
+
+.person-biography {
+  margin-top: 2.2rem;
+  padding: 1.4rem 1.5rem 1.3rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--gilt);
+}
+.person-bio {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.68;
+}
+.person-bio--none {
+  font-style: italic;
+  color: var(--muted);                /* 6.85:1 on paper */
+}
+/* The citation is the edition's own note id. It is not decoration: it is
+   how a reader checks us against the source we drew the note out of.  */
+.person-source {
+  margin: 0.75rem 0 0;
+  font-family: var(--label);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--gilt-text);            /* 6.13:1 on paper */
+}
+
+.person-letters { margin-top: 2.6rem; }
+.person-letters h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.person-letters .group-note {
+  margin: 0.3rem 0 0;
+  font-size: 0.93rem;
+  font-style: italic;
+  color: var(--muted);
+}
+.person-letters .group-count {
+  margin: 0.2rem 0 0;
+  font-family: var(--label);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.person-letter-pair {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+.person-both { display: block; }
+.person-both a { white-space: nowrap; }
 
 /* ============================================================== TIMELINE
    One life on one linear scale. The page is a stack of years, all the same
@@ -1511,7 +1862,15 @@ body.page-timeline { --shell: 60rem; }
     gap: 0.5rem 1rem;
   }
   .letter-entry .letter-meta > div:last-child { grid-column: 1 / -1; }
+  .letter-entry .letter-summary { grid-column: 1; }
   .group-head { padding-inline: 1.1rem; }
+  .finder { padding-inline: 1.1rem; }
+  .finder-foot { margin-top: 0.85rem; }
+  .person-list { columns: 1; padding-inline: 0; }
+  .person-entry { padding-inline: 1.1rem; }
+  .alphabet-head { padding-inline: 1.1rem; }
+  .person-biography { padding-inline: 1.1rem; }
+  .person-meta > div { grid-template-columns: 1fr; gap: 0.05rem; }
   .letter > header .letter-meta > div { grid-template-columns: 1fr; gap: 0.05rem; }
   .letter > header .letter-meta dt { line-height: 1.6; }
   .tei-closer { align-items: stretch; }

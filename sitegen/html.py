@@ -14,7 +14,7 @@ import re
 _CLASS_TOKEN = re.compile(r"[^A-Za-z0-9_-]+")
 
 # Elements written without a closing tag.
-VOID_ELEMENTS = frozenset(["br", "hr", "img", "link", "meta"])
+VOID_ELEMENTS = frozenset(["br", "hr", "img", "input", "link", "meta"])
 
 
 def text(value):

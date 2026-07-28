@@ -5,21 +5,28 @@ directory of static files::
 
     index.html                  every letter, by volume and correspondence
     brev/<slug>/index.html      one letter
+    personer/index.html         the register of everyone the letters name
+    person/<slug>/index.html    one person
     tidslinje/index.html        the years, with the curated context layer
     assets/site.css             plus assets/fonts/ -- everything static/ holds
+    assets/search-index.js      the prebuilt free-text index
 
 It takes a *list* of volumes and never asks how many there are, so a build of
 one volume and a build of all fourteen go down the same path. The output
 directory is recreated from scratch on every build, and the same input always
 produces byte-identical output.
 
-``context`` is the curated editorial layer (``pipeline.context``) and is
-optional: without it the site is the letters alone, with no timeline page and
-no link to one. The letters are the part that cannot be thrown away.
+``context`` is the curated editorial layer (``pipeline.context``) and every
+part of it is optional. Without the publications and residences there is no
+timeline page and no link to one; without the summaries the index lists
+letters without them; without the biographies the person pages say the
+commentary had nothing. The letters, the people the edition names in them and
+the search over their text come from the TEI alone -- that is the part that
+cannot be thrown away.
 
 This module also holds the small display decisions that are neither dates nor
-markup -- what a letter is called, what its URL is, how a person's name reads
-in a sentence -- because that is what a view model is for.
+markup -- what a letter is called, what its URL is -- because that is what a
+view model is for.
 """
 
 import collections
@@ -27,7 +34,14 @@ import os
 import re
 import shutil
 
-from . import dates, pages
+from pipeline.context import summary_key
+from pipeline.parse_tei import plain_text
+
+from . import dates, pages, search
+from .persons import build_register, person_keys, register_groups
+# Re-exported: naming a person is a display decision, and it lives in
+# ``sitegen.persons`` with the rest of them.
+from .persons import display_name  # noqa: F401
 from .tei_html import BodyRenderer
 from .timeline import timeline_model
 
@@ -43,19 +57,45 @@ NUMBER = re.compile(r"^\d+(\.\d+)*$")
 
 
 def build_site(volumes, out_dir, context=None):
-    """Generate the whole site. Returns a small report for the build script."""
-    renderer = BodyRenderer()
-    books = [_book(volume, renderer) for volume in volumes]
-    # The edition's own order: volume after volume, letters as printed.
-    views = [view for book in books for view in book["letters"]]
+    """Generate the whole site. Returns a small report for the build script.
+
+    Built in two passes, because a letter page links to the people it names
+    and a person page links back to the letters. The first pass reads the
+    parser's output into view models and works out who is in the corpus; only
+    then are the letter bodies rendered, with the addresses of the person
+    pages in hand.
+    """
+    context = context or {}
+    views = []
+    books = []
+    for volume in volumes:
+        book = _book(volume, context)
+        books.append(book)
+        # The edition's own order: volume after volume, letters as printed.
+        views.extend(book["letters"])
     sections = [section for book in books for section in book["sections"]]
     section_of = {
         view["slug"]: section for section in sections for view in section["letters"]
     }
-    timeline = timeline_model(views, context) if context else None
+
+    register = build_register(views, context)
+    by_key = {person["key"]: person for person in register}
+    renderer = BodyRenderer(
+        person_href=lambda key: _person_href(by_key, key, pages.LETTER_TO_ROOT)
+    )
+    for view in views:
+        view["body"] = renderer.render(view.pop("body_nodes"), view["render_id"])
+
+    timeline = timeline_model(views, context) if context.get("publications") else None
+    index = search.search_index(views)
+    has_timeline = bool(timeline)
 
     _reset(out_dir)
-    _write(out_dir, ["index.html"], pages.index_page(books, timeline=bool(timeline)))
+    _write(
+        out_dir,
+        ["index.html"],
+        pages.index_page(books, search.facets(views), timeline=has_timeline),
+    )
     for previous, view, following in _neighbours(views):
         _write(
             out_dir,
@@ -65,12 +105,25 @@ def build_site(volumes, out_dir, context=None):
                 previous,
                 following,
                 section_of.get(view["slug"]),
-                timeline=bool(timeline),
+                _person_links(by_key, view),
+                timeline=has_timeline,
             ),
+        )
+    _write(
+        out_dir,
+        ["personer", "index.html"],
+        pages.person_index_page(register_groups(register), register, timeline=has_timeline),
+    )
+    for person in register:
+        _write(
+            out_dir,
+            ["person", person["slug"], "index.html"],
+            pages.person_page(person, timeline=has_timeline),
         )
     if timeline:
         _write(out_dir, ["tidslinje", "index.html"], pages.timeline_page(timeline))
     _copy_static(out_dir)
+    _write(out_dir, ["assets", "search-index.js"], search.index_script(index))
 
     return {
         "volumes": len(books),
@@ -81,6 +134,40 @@ def build_site(volumes, out_dir, context=None):
         ),
         "warnings": renderer.warnings(),
         "timeline": timeline["counts"] if timeline else None,
+        "people": len(register),
+        "summaries": sum(1 for view in views if view["summary"]),
+        "biographies": sum(1 for person in register if person["bio"]),
+        "search_words": len(index["words"]),
+    }
+
+
+def _person_href(register, key, root):
+    """Where a person's page is, seen from a page ``root`` steps down."""
+    person = register.get(key)
+    if not person:
+        return None
+    return "%sperson/%s/" % (root, person["slug"])
+
+
+def _person_links(register, view):
+    """The people behind one letter's sender and recipient, ready to link.
+
+    A correspondent name the alias table could not place with confidence
+    yields an empty list, and the metadata panel prints the name as text --
+    which is what the edition gives us and all we can honestly show. Three
+    names in the corpus are two people at once ("Schlegel, J.F. og Regine");
+    they yield two, and the panel names both.
+    """
+    return {
+        field: [
+            {
+                "label": register[key]["name"],
+                "href": "%sperson/%s/" % (pages.LETTER_TO_ROOT, register[key]["slug"]),
+            }
+            for key in view["%s_keys" % field]
+            if key in register
+        ]
+        for field in ("sender", "recipient")
     }
 
 
@@ -105,7 +192,7 @@ def letter_slug(letter, volume):
     return "%s-%s" % (volume, letter.get("xmlId") or "brev")
 
 
-def _book(volume, renderer):
+def _book(volume, context):
     """One volume, as the index and the letter pages need it."""
     identity = {
         "id": volume["volume"],
@@ -113,15 +200,21 @@ def _book(volume, renderer):
         "shortTitle": volume["shortTitle"] or volume["volume"].upper(),
         "title": volume["title"] or "Uden titel",
     }
-    letters = [_letter_view(letter, identity, renderer) for letter in volume["letters"]]
+    letters = [_letter_view(letter, identity, context) for letter in volume["letters"]]
     book = dict(identity)
     book["letters"] = letters
     book["sections"] = _sections(volume, letters)
     return book
 
 
-def _letter_view(letter, book, renderer):
-    """One letter, as a page needs it: no parser shapes past this point."""
+def _letter_view(letter, book, context):
+    """One letter, as a page needs it: no parser shapes past this point.
+
+    The one exception is ``body_nodes``, which is the parser's tree waiting to
+    be rendered: the renderer needs the register of people first, and the
+    register is built from these same view models. ``build_site`` renders it
+    and drops the key in its second pass, so nothing downstream ever sees it.
+    """
     sender = letter.get("sender") or {}
     recipient = letter.get("recipient") or {}
     # The edition dates the act of sending; a received date would be a
@@ -129,7 +222,8 @@ def _letter_view(letter, book, renderer):
     date = sender.get("date")
     number = letter["id"]
     numbered = bool(NUMBER.match(number or ""))
-    return {
+    aliases = context.get("aliases") or {}
+    view = {
         "slug": letter_slug(letter, book["id"]),
         "number": number,
         "numbered": numbered,
@@ -151,25 +245,21 @@ def _letter_view(letter, book, renderer):
         "place": (sender.get("place") or {}).get("name"),
         "note": sender.get("note"),
         "group_id": (letter.get("context") or {}).get("groupId"),
-        "body": renderer.render(letter["body"], "%s/%s" % (book["id"], number)),
+        # Who the letter names in its text, and who the curated alias table
+        # says wrote and received it. An unmapped correspondent yields an
+        # empty list, which is the honest answer and not a missing one.
+        "person_keys": person_keys(letter["body"]),
+        "sender_keys": aliases.get(sender.get("name"), []),
+        "recipient_keys": aliases.get(recipient.get("name"), []),
+        "summary": (context.get("summaries") or {}).get(
+            summary_key(book["id"], letter.get("xmlId"))
+        ),
+        "plain_text": plain_text(letter["body"]),
+        "body_nodes": letter["body"],
+        "render_id": "%s/%s" % (book["id"], number),
     }
-
-
-def display_name(name):
-    """Read a name the way a sentence does.
-
-    The edition indexes people surname first ("Kierkegaard, P.C."), which is
-    right for a register and wrong in "Fra Kierkegaard, P.C.". Turning it
-    around is a display decision only: the source string travels with it (see
-    ``pages._name``), and names without a comma -- "SK" -- are left alone.
-    """
-    if not name or name.count(",") != 1:
-        return name
-    family, _, given = name.partition(",")
-    family, given = family.strip(), given.strip()
-    if not family or not given:
-        return name
-    return "%s %s" % (given, family)
+    view["filters"] = search.letter_filters(view)
+    return view
 
 
 def _sections(volume, views):

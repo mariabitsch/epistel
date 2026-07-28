@@ -16,8 +16,11 @@ The rules it follows:
   entirely. A later slice can surface both -- the data is still there.
 * TEI attributes that carry meaning survive as class names and ``data-``
   attributes (``rendition="#ind"`` -> ``r-ind``, ``persName/@key`` ->
-  ``data-key``), so the design slice and the person index have something to
-  work with without touching this file.
+  ``data-key``), so a design has something to work with without touching this
+  file.
+* The only address this renderer knows is the one it is handed: a named
+  person becomes a link when ``person_href`` returns one for their key, and a
+  span when it does not. No other element links anywhere.
 """
 
 from .html import class_token, classes, element, text
@@ -112,11 +115,18 @@ class BodyRenderer:
 
     One renderer can render many letters; the warnings accumulate across all
     of them so a build can report once, per element type.
+
+    ``person_href`` is optional and is the only thing the renderer knows about
+    the rest of the site: given a ``persName/@key``, it returns the address of
+    that person's page, or ``None``. Without it -- a build with no person
+    pages -- named people render exactly as they did before, as spans. The
+    renderer never builds a URL itself.
     """
 
-    def __init__(self):
+    def __init__(self, person_href=None):
         self._unhandled = {}
         self._letter_id = None
+        self._person_href = person_href
 
     def render(self, nodes, letter_id=None):
         """Render a list of nodes. ``letter_id`` only improves warnings."""
@@ -153,6 +163,8 @@ class BodyRenderer:
             return self._reference(node)
         if type_ == "note":
             return self._note(node)
+        if type_ == "persName":
+            return self._person(node)
         if type_ in BLOCKS:
             return self._block(node)
         if type_ in TABLE_ELEMENTS:
@@ -195,6 +207,30 @@ class BodyRenderer:
                 pairs[target.replace("-", "_")] = node[source]
         return element(
             "span", self._children(node), class_=self._classes(node, base), **pairs
+        )
+
+    def _person(self, node):
+        """A named person: a link to their page when the site has one.
+
+        The link is deliberately not announced. A letter can name thirty-four
+        people, and thirty-four coloured, underlined runs would turn a page of
+        prose into a speckled field -- so the anchor takes the same ink and
+        the same hairline the name already had, and only says it is a link
+        when the reader points at it or reaches it with the keyboard. The
+        stylesheet carries that; here the tag simply changes.
+
+        One ``persName`` in the corpus carries an empty key, and the edition
+        never nests one inside another, so there is no anchor to nest.
+        """
+        href = self._person_href(node["key"]) if self._person_href and node.get("key") else None
+        if not href:
+            return self._inline(node)
+        return element(
+            "a",
+            self._children(node),
+            class_=self._classes(node, INLINE["persName"][0]),
+            href=href,
+            data_key=node["key"],
         )
 
     def _reference(self, node):
