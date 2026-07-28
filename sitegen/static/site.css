@@ -1021,7 +1021,11 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
   margin: 0;
   padding: 0.75rem 0.85rem 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
+  /* 19rem, not less: since the resumés moved in (2026-07-28) each entry
+     is a short paragraph, and two columns narrower than this squeeze
+     her voice into a ribbon. auto-fill drops to one column on its own
+     where two no longer fit.                                            */
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
   gap: 0.1rem 0.5rem;
 }
 .sibling-list li {
