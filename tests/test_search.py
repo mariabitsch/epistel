@@ -184,6 +184,23 @@ class FacetTest(unittest.TestCase):
             self.assertTrue(not sender or sender in senders, sender)
             self.assertTrue(not recipient or recipient in recipients, recipient)
 
+    def test_a_facet_shows_the_name_and_filters_on_the_editions_form(self):
+        """The label is for reading, the value is for joining.
+
+        "SK" is spelled out in the dropdown a reader looks at (Maria's
+        call, korrektur 2026-07-28), while the option's value stays the
+        edition's own correspDesc string -- which is what the rows carry
+        in ``data-sender`` and what the script compares. Unfolding the
+        label costs the filter nothing;
+        ``test_every_letter_can_be_reached_by_its_sender_and_its_recipient``
+        is the other half of this promise.
+        """
+        senders = dict(self.options("afsender"))
+        self.assertIn("SK", senders)
+        self.assertTrue(senders["SK"].startswith("Søren Kierkegaard ("), senders["SK"])
+        self.assertNotIn("SK (", " ".join(senders.values()))
+        self.assertIn('data-sender="SK"', self.index)
+
     def test_a_facet_never_offers_a_choice_that_returns_nothing(self):
         for name in ("afsender", "modtager", "aar"):
             for value, label in self.options(name):

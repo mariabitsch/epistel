@@ -151,15 +151,35 @@ def person_keys(nodes):
     return found
 
 
+# The edition's own headings abbreviate one correspondent and only one, and
+# it happens to be the one the site is about: 235 of 336 letters are "fra SK".
+# A reader meets those two letters before they meet his name, so the display
+# spells it out (Maria, korrektur 2026-07-28).
+#
+# Matched on the whole string, never as a substring. The corpus also holds
+# "Agerskov, Chr." -- three letters of somebody else's surname, upper-cased,
+# spell "SK" -- and aliases.json records what guessing at names costs. The
+# source form is not lost: it stays in ``data-name`` and is what the facets
+# filter on.
+CORRESPONDENT_ABBREVIATIONS = {"SK": "Søren Kierkegaard"}
+
+
 def display_name(name):
     """Read a name the way a sentence does.
 
     The edition indexes people surname first ("Kierkegaard, P.C."), which is
     right for a register and wrong in "Fra Kierkegaard, P.C.". Turning it
     around is a display decision only: the source string travels with it (see
-    ``pages._name``), and names without a comma -- "SK" -- are left alone.
+    ``pages._name``). An abbreviated form the edition never spells out is
+    looked up whole in ``CORRESPONDENT_ABBREVIATIONS``; anything else without
+    a comma is left exactly as the edition wrote it.
     """
-    if not name or name.count(",") != 1:
+    if not name:
+        return name
+    expanded = CORRESPONDENT_ABBREVIATIONS.get(name.strip())
+    if expanded:
+        return expanded
+    if name.count(",") != 1:
         return name
     family, _, given = name.partition(",")
     family, given = family.strip(), given.strip()

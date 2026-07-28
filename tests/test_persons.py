@@ -17,6 +17,7 @@ from pipeline.corpus import parse_corpus
 from sitegen.persons import (
     assign_slugs,
     build_register,
+    display_name,
     initial,
     person_keys,
     slug,
@@ -314,6 +315,33 @@ class PersonRegisterTest(unittest.TestCase):
         self.assertIn("Søren Aabye Kierkegaard (1813-55).", page)
         self.assertIn("235 breve", page)          # sent
         self.assertIn("Breve til Søren Aabye Kierkegaard", page)
+
+    def test_the_edition_s_abbreviation_is_spelled_out_for_the_reader(self):
+        """"SK" becomes "Søren Kierkegaard" wherever a name is shown.
+
+        Maria's call (korrektur 2026-07-28): the edition's own heading
+        abbreviates the one correspondent the site is about, so a reader
+        met "fra SK til ..." in 235 of 336 rows before they ever met his
+        name. The source form is not thrown away -- it stays in
+        ``data-name`` and it is still what the facets filter on.
+        """
+        self.assertEqual("Søren Kierkegaard", display_name("SK"))
+        letter = self.read("brev", "1", "index.html")
+        self.assertIn(">Søren Kierkegaard</a>", letter)
+        self.assertIn('data-name="SK"', letter)          # the source's own word
+        self.assertIn("fra Søren Kierkegaard til P.C. Kierkegaard", self.read("index.html"))
+
+    def test_an_abbreviation_is_matched_whole_and_never_inside_a_name(self):
+        """The Agerskov lesson, applied to the display side.
+
+        "Agerskov, Chr." is a real correspondent whose surname contains the
+        same two letters, upper-cased. Expanding on a substring would turn
+        him into Kierkegaard; the table is looked up on the whole string.
+        """
+        self.assertEqual("Chr. Agerskov", display_name("Agerskov, Chr."))
+        self.assertEqual("SKS", display_name("SKS"))
+        self.assertEqual("Peter Skram", display_name("Skram, Peter"))
+        self.assertIn("Chr. Agerskov", self.read("index.html"))
 
     def test_the_alias_table_is_what_puts_a_letter_on_a_persons_page(self):
         """"SK" is not a persName key; the curated table makes it one."""

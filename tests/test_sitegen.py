@@ -1361,7 +1361,7 @@ class SummaryTest(unittest.TestCase):
         """
         entry = self.index.split('data-slug="1"', 1)[1].split("</li>", 1)[0]
         self.assertIn('class="sibling-link"', entry)
-        self.assertIn("fra SK til P.C. Kierkegaard", entry)
+        self.assertIn("fra Søren Kierkegaard til P.C. Kierkegaard", entry)
         anchor = entry.split("</a>", 1)[0]
         self.assertIn("snustobaksdåse i afskedsgave", anchor)
         self.assertNotIn("letter-meta", entry)
@@ -1379,7 +1379,7 @@ class SummaryTest(unittest.TestCase):
         )
         self.assertIn(
             '1829</span><span class="person-letter-pair">'
-            " · fra SK til P.C. Kierkegaard",
+            " · fra Søren Kierkegaard til P.C. Kierkegaard",
             entry,
         )
 
