@@ -395,35 +395,45 @@ def _section(section):
 
 
 def _entry(view):
-    """One line in the index: a linked heading, the bare facts, the resumé.
+    """One row in the index: the same relaxed row every list on the site uses.
 
-    The filter values travel on the element as ``data-`` attributes so that
+    Maria's call (2026-07-28): the index's technical FRA/TIL/DATERET grid
+    gave way to the person pages' row -- title · date, the pair line, the
+    resumé, all inside one <a>. The date is the honest short form; the
+    bracketed provenance notes and the person links live on the letter
+    page, where the reader lands next.
+
+    The filter values travel on the <li> as ``data-`` attributes so that
     narrowing the list is a matter of hiding rows that are already on the
-    page. Nothing is ever built from a string of data at runtime.
+    page. Nothing is ever built from a string of data at runtime, and the
+    layout inside the link never touches them.
     """
-    heading = element(
-        "h4", element("a", text(view["title"]), href="brev/%s/" % view["slug"])
-    )
     filters = view["filters"]
     return element(
         "li",
-        heading + _facts(view) + _summary(view),
+        element(
+            "a",
+            element(
+                "span",
+                element("span", text(view["title"]), class_="sibling-title")
+                + element("span", " · " + text(view["date_text"]), class_="muted")
+                + element(
+                    "span",
+                    " · fra %s til %s"
+                    % (text(view["sender"]), text(view["recipient"])),
+                    class_="person-letter-pair",
+                ),
+                class_="sibling-head",
+            )
+            + _summary(view),
+            href="brev/%s/" % view["slug"],
+            class_="sibling-link",
+        ),
         class_="letter-entry",
         data_slug=view["slug"],
         data_sender=filters["sender"],
         data_recipient=filters["recipient"],
         data_year=filters["year"],
-    )
-
-
-def _facts(view):
-    return _definition_list(
-        [
-            ("Fra", _name(view["sender"], view["sender_raw"])),
-            ("Til", _name(view["recipient"], view["recipient_raw"])),
-            ("Dateret", _date(view)),
-        ],
-        class_name="letter-meta",
     )
 
 

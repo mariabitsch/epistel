@@ -1292,6 +1292,21 @@ class SummaryTest(unittest.TestCase):
         entry = self.index.split('data-slug="1"', 1)[1].split("</li>", 1)[0]
         self.assertIn("snustobaksdåse i afskedsgave", entry)
 
+    def test_an_index_entry_is_one_clickable_block_in_the_shared_row_style(self):
+        """Maria's call (2026-07-28): one list design across the site.
+
+        The front page's technical FRA/TIL/DATERET grid gives way to the
+        person pages' relaxed rows -- title · date, the pair line, the
+        resumé, all inside one <a>. The search attributes stay on the
+        <li>, untouched by the layout.
+        """
+        entry = self.index.split('data-slug="1"', 1)[1].split("</li>", 1)[0]
+        self.assertIn('class="sibling-link"', entry)
+        self.assertIn("fra SK til P.C. Kierkegaard", entry)
+        anchor = entry.split("</a>", 1)[0]
+        self.assertIn("snustobaksdåse i afskedsgave", anchor)
+        self.assertNotIn("letter-meta", entry)
+
     def test_a_summary_follows_the_letter_into_its_siblings_lists(self):
         # Brev 2 is in the same correspondence as brev 1: its page's
         # "Samme brevveksling" list carries brev 1's summary.

@@ -573,61 +573,19 @@ h1::before {                       /* the gilt tick: one accent, top left */
   white-space: nowrap;
 }
 
+/* One row style for every list on the site (Maria, 2026-07-28): the
+   index's FRA/TIL/DATERET grid gave way to the shared .sibling-link
+   rows -- title · date, the pair line, the resumé. The li keeps only
+   the search's data attributes and the list its quiet padding.        */
 .letter-list {
   list-style: none;
   margin: 0;
-  padding: 0;
-}
-
-.letter-entry {
+  padding: 0.75rem 0.85rem 1rem;
   display: grid;
-  grid-template-columns: 6.75rem 1fr;
-  align-items: baseline;
-  gap: 0.4rem 1.5rem;
-  padding: 0.95rem 1.5rem 1.05rem;
-  border-top: 1px solid var(--rule-faint);
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
 }
-.letter-entry:first-child { border-top: 0; }
-.letter-entry:hover { background: var(--hover); }
-
-.letter-entry h4 {
-  margin: 0;
-  font-family: var(--display);
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1.2;
-}
-.letter-entry h4 a {
-  text-decoration: none;
-  border-bottom: 1px solid rgba(46, 74, 90, 0.28);
-}
-.letter-entry h4 a:hover { border-bottom-color: var(--gilt); }
-
-/* The label rhythm: tiny caps over the value, three fields in fixed columns.
-   Fixed (not auto) columns on purpose — the fields must line up down the whole
-   wall, not shuffle sideways whenever a sender's name is longer.            */
-.letter-entry .letter-meta {
-  margin: 0;
-  display: grid;
-  grid-template-columns: 8.75rem 9.5rem 1fr;
-  align-items: start;
-  gap: 0.5rem 1rem;
-}
-.letter-entry .letter-meta > div { min-width: 0; }
-.letter-entry .letter-meta dt {
-  font-family: var(--label);
-  font-size: 0.61rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--muted);
-  line-height: 1.4;
-}
-.letter-entry .letter-meta dd {
-  margin: 0;
-  font-size: 0.97rem;
-  line-height: 1.4;
-}
+.letter-entry { padding: 0; }
 
 /* --- the presenter's resumé -------------------------------------------
    The only voice on the site that is neither the edition's nor the letter
@@ -651,13 +609,10 @@ h1::before {                       /* the gilt tick: one accent, top left */
   line-height: 1.62;
   color: var(--ink-soft);
 }
-/* In the index entry's grid it belongs to the letter, not the row: the
-   second column, under the three fields.                                */
-.letter-entry .letter-summary { grid-column: 2; }
-/* In the compact link lists she sits a touch smaller and keeps a small
-   foot of air before the next letter's line.                            */
+/* In the link lists she sits a touch smaller and keeps a small foot of
+   air before the next letter's line.                                    */
 .sibling-list .letter-summary,
-.person-letters .letter-summary {
+.letter-list .letter-summary {
   margin: 0.35rem 0 0.65rem;
   font-size: 0.95rem;
 }
@@ -2006,17 +1961,7 @@ body.page-timeline { --shell: 60rem; }
     justify-self: start;
     margin-top: 0.6rem;
   }
-  .letter-entry {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
-    padding-inline: 1.1rem;
-  }
-  .letter-entry .letter-meta {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem 1rem;
-  }
-  .letter-entry .letter-meta > div:last-child { grid-column: 1 / -1; }
-  .letter-entry .letter-summary { grid-column: 1; }
+  .letter-list { padding-inline: 0.6rem; }
   .group-head { padding-inline: 1.1rem; }
   .finder { padding-inline: 1.1rem; }
   .finder-foot { margin-top: 0.85rem; }
