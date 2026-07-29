@@ -62,7 +62,7 @@ def timeline_model(letters, context):
     works = _work_blocks(context["publications"])
     placed, undated = _split(letters)
 
-    first, last = _extent(placed, works, homes)
+    first, last = _extent(placed, works)
     years = {
         year: {"year": year, "letters": [], "vague": [], "works": [], "homes": []}
         for year in range(first, last + 1)
@@ -73,8 +73,14 @@ def timeline_model(letters, context):
     for block in works:
         years[block["date"].year]["works"].append(block)
     for home in homes:
+        # A residence may be older than the scale -- Nytorv begins at his
+        # birth in 1813, the first preserved letter in 1829. Its early years
+        # are clipped, not drawn: the band enters the page already running
+        # (no cap, since the top of the scale is not its true beginning),
+        # and the register at the foot still tells the whole period.
         for segment in _segments(home):
-            years[segment["year"]]["homes"].append(segment)
+            if segment["year"] in years:
+                years[segment["year"]]["homes"].append(segment)
 
     slots = 1
     for year in years.values():
@@ -342,12 +348,16 @@ def _fraction(day):
     return (day - first).days / length
 
 
-def _extent(marks, works, homes):
-    """The first and last year anything at all happens in."""
-    starts = [mark["start"] for mark in marks] + [home["start"] for home in homes]
-    ends = [mark["end"] for mark in marks] + [home["end"] for home in homes]
-    starts += [block["date"] for block in works]
-    ends += [block["date"] for block in works]
+def _extent(marks, works):
+    """The first and last year a letter or a publication belongs to.
+
+    The residences do not stretch the scale (Maria, 2026-07-29): they are
+    the backdrop, and letting the backdrop open the page meant sixteen
+    empty childhood years before the first preserved letter. A band that
+    reaches past either end of the scale is clipped where the scale stops.
+    """
+    starts = [mark["start"] for mark in marks] + [block["date"] for block in works]
+    ends = [mark["end"] for mark in marks] + [block["date"] for block in works]
     return min(starts).year, max(ends).year
 
 

@@ -994,8 +994,8 @@ def timeline_page(model, links=None):
         title="Tidslinje",
         main=body,
         root=TIMELINE_TO_ROOT,
-        description="Søren Kierkegaards %s, %d skrifter og %d bopæle fra %d til "
-        "%d på én lineær tidsskala."
+        description="Søren Kierkegaards %s, %d skrifter og %d bopæle på én "
+        "lineær tidsskala fra %d til %d."
         % (
             _letter_count(counts["letters"]),
             counts["publications"],
@@ -1012,12 +1012,17 @@ def timeline_page(model, links=None):
 
 def _timeline_intro(model):
     counts = model["counts"]
+    # Not "his life from 1813": the scale begins at the first preserved
+    # letter (Maria, 2026-07-29 -- no empty childhood years), and the words
+    # above the rail say exactly what the reader gets. The years stay
+    # derived from the model, so the sentence can never drift from the page.
     lead = element(
         "p",
-        "Søren Kierkegaards liv fra %d til %d på én skala: brevene fra den "
-        "TEI-kodede udgave, sat op mod de skrifter, han fik udgivet, og de "
-        "adresser, han boede på. Hvert år fylder det samme, så de tavse år "
-        "fylder lige så meget som de travle."
+        "Søren Kierkegaards liv fra det første bevarede brev i %d til hans "
+        "død i %d, på én skala: brevene fra den TEI-kodede udgave, sat op "
+        "mod de skrifter, han fik udgivet, og de adresser, han boede på. "
+        "Hvert år fylder det samme, så de tavse år fylder lige så meget som "
+        "de travle."
         % (model["first_year"], model["last_year"]),
         class_="lead",
     )

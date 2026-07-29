@@ -1034,13 +1034,35 @@ class TimelineModelTest(unittest.TestCase):
     def years(self):
         return {year["year"]: year for year in self.model["years"]}
 
-    def test_the_scale_runs_from_the_first_year_to_the_last_without_gaps(self):
+    def test_the_scale_belongs_to_the_letters_and_the_works(self):
+        """From the first preserved letter, 1829, to the last year, 1855.
+
+        Maria's call (2026-07-29): no empty childhood years -- the scale
+        starts where the letters and the works start, not where a
+        residence dataset happens to begin. 1829 is derived, not chosen:
+        brev 1 is dated 8 March 1829.
+        """
         model = self.model
-        self.assertEqual(1813, model["first_year"])
+        self.assertEqual(1829, model["first_year"])
         self.assertEqual(1855, model["last_year"])
         self.assertEqual(
-            list(range(1813, 1856)), [year["year"] for year in model["years"]]
+            list(range(1829, 1856)), [year["year"] for year in model["years"]]
         )
+
+    def test_a_band_older_than_the_scale_is_clipped_not_dropped(self):
+        """Nytorv began in 1813; the scale begins in 1829.
+
+        The band enters the page already running -- no top cap, because
+        1829 is not its true beginning -- and the register at the foot
+        still tells the whole period, so nothing is silently lost.
+        """
+        first = {y["year"]: y for y in self.model["years"]}[1829]
+        nytorv = [b for b in first["homes"] if b["address"].startswith("Nytorv 2")]
+        self.assertEqual(1, len(nytorv))
+        self.assertFalse(nytorv[0]["starts"])
+        self.assertEqual(0.0, nytorv[0]["top"], "the band runs from the very top")
+        periods = [home["period"] for home in self.model["homes"]]
+        self.assertIn("5. maj 1813 – 1. september 1837", periods)
 
     def test_every_letter_is_placed_once_or_named_as_undated(self):
         placed = [
@@ -1119,6 +1141,9 @@ class TimelineModelTest(unittest.TestCase):
         )
 
     def test_the_two_stays_at_nytorv_stay_two_bands(self):
+        # Eight of the nine residences begin on the scale; the first stay
+        # at Nytorv began in 1813 and enters it already running, so only
+        # the return in 1844 draws a beginning.
         bands = [
             band
             for year in self.model["years"]
@@ -1126,8 +1151,12 @@ class TimelineModelTest(unittest.TestCase):
             if band["starts"]
         ]
         nytorv = [band for band in bands if band["address"].startswith("Nytorv 2")]
-        self.assertEqual(2, len(nytorv))
-        self.assertEqual(9, len(bands), "every residence begins exactly once")
+        self.assertEqual(1, len(nytorv))
+        self.assertEqual(8, len(bands), "every residence on the scale begins once")
+        addresses = {
+            band["address"] for year in self.model["years"] for band in year["homes"]
+        }
+        self.assertEqual(2, len([a for a in addresses if a.startswith("Nytorv 2")]))
 
     def test_the_last_band_stops_where_the_dataset_stops(self):
         year = self.years()[1855]
@@ -1263,9 +1292,19 @@ class TimelinePageTest(unittest.TestCase):
         for residence in self.context["residences"]:
             self.assertIn(_escape(residence["address"]), self.page)
 
-    def test_every_year_of_the_life_gets_its_own_row(self):
-        for year in range(1813, 1856):
-            self.assertIn(">%d<" % year, self.page)
+    def test_every_year_of_the_scale_gets_its_own_row(self):
+        for year in range(1829, 1856):
+            self.assertIn('id="aar-%d"' % year, self.page)
+        # And none before the first preserved letter: the childhood years
+        # held nothing but a residence band (Maria, 2026-07-29).
+        for year in (1813, 1820, 1828):
+            self.assertNotIn('id="aar-%d"' % year, self.page)
+
+    def test_the_intro_names_the_scale_honestly(self):
+        # Not "his life from 1813": the page begins at the first preserved
+        # letter, and the words above the rail must say exactly that.
+        self.assertIn("første bevarede brev", self.page)
+        self.assertNotIn("liv fra 1813", self.page)
 
     def test_every_letter_links_to_its_page(self):
         linked = set(re.findall(r'href="\.\./brev/([^/"]+)/"', self.page))
