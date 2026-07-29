@@ -1681,25 +1681,58 @@ class PresenterTest(unittest.TestCase):
         self.assertIn('class="presentation"', self.index)
         self.assertIn("Maria Notabene", self.index)
 
-    def test_the_welcome_shows_the_span_with_things_from_the_letters(self):
+    def test_the_welcome_is_a_foreword_and_says_so(self):
+        # Maria's direction (2026-07-29): the foreword always carries a
+        # heading, like the letters it stands in front of.
+        self.assertIn("<h2>Forord</h2>", self.welcome())
+
+    def test_the_welcome_draws_the_arc_from_schoolboy_to_grave(self):
         """Concrete, and every one of them checkable against a letter.
 
-        The snuff box is in letter 1, the eighty rigsdaler in letter 10, the
-        grave plot with room for one more name in letter 39 -- which is
-        quoted in the edition's own spelling, as everything quoted here is.
+        The apologising schoolboy is letter 1, the engagement letter 22, the
+        authorship letter 22 too, the grave plot with room for one more name
+        letter 39, the father's colic letter 23, the aunt in Jutland letter
+        29 and the cousin who would like a visit letter 40. Maria's revision
+        of 2026-07-29: the foreword hints the arc from child to near-death
+        instead of retelling anecdotes, and the other writers stand around
+        him as principals of their own letters.
         """
         welcome = self.welcome()
-        self.assertIn("snustobaksdåse", welcome)
-        self.assertIn("80 rigsdaler", welcome)
-        self.assertIn("Søren Aabye født d. 5 Mai 1813 død", welcome)
+        self.assertIn("skoledreng", welcome)
+        self.assertIn("plads på tavlen til ét navn mere", welcome)
+        self.assertIn("en far om sin kolik", welcome)
+        self.assertIn("en faster i Jylland", welcome)
+        self.assertIn("en kusine", welcome)
 
     def test_the_welcome_says_what_a_reader_can_do_here(self):
-        welcome = self.welcome()
-        for word in ("søg", "filtrér", "tidslinjen", "udgiveren"):
-            self.assertIn(word, welcome.lower(), "the welcome never mentions %s" % word)
+        """Browse, search, follow a year or a person -- and nothing more.
 
-    def test_the_welcome_points_at_the_om_page(self):
-        self.assertIn('href="om/"', self.welcome())
+        Decided 2026-07-29: the publisher reference waits for the
+        crediting-links decision, and the timeline is reached through the
+        navigation rather than promised here.
+        """
+        welcome = self.welcome().lower()
+        self.assertIn("bladr", welcome)
+        self.assertIn("søg", welcome)
+        self.assertIn("følg et år eller et menneske", welcome)
+        self.assertNotIn("udgiveren", welcome)
+
+    def test_the_welcome_closes_in_relation_not_information(self):
+        # The farewell Maria chose: reading here is something the reader
+        # and the hostess may end up doing together.
+        self.assertIn("så er vi to", self.welcome())
+
+    def test_her_signature_is_the_link_to_her_story(self):
+        """The old "who am I?" sentence became a link.
+
+        Maria's call (2026-07-29): instead of the foreword explaining her,
+        the signature itself points at the Om page's section about her --
+        the anchor the Om page already carries.
+        """
+        welcome = self.welcome()
+        sign = welcome.split('class="presentation-sign"', 1)[1]
+        self.assertIn('href="om/#notabene"', sign)
+        self.assertIn("Maria Notabene", sign)
 
     def test_the_welcome_promises_no_man_behind_the_philosopher(self):
         # The one thing a Kierkegaard letter site must not say.

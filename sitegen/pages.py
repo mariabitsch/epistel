@@ -78,7 +78,7 @@ def index_page(books, facets, timeline=False, links=None):
     count = sum(len(book["letters"]) for book in books)
     summaries = sum(1 for book in books for view in book["letters"] if view["summary"])
     body = element("h1", "Breve") + _intro(books, count, summaries)
-    body += _presentation(timeline=timeline)
+    body += _presentation()
     body += _finder(facets)
     body += _volume_navigation(books)
     body += "".join(_book(book) for book in books)
@@ -153,58 +153,51 @@ def _intro(books, count, summaries):
     return element("p", lead, class_="lead")
 
 
-def _presentation(timeline=False):
-    """The front page's welcome, in the presenter's own voice.
+def _presentation():
+    """The front page's foreword, in the presenter's own voice.
 
     The site's one editorial moment. It comes *after* the factual lead on
     purpose: the demonstration says what it is before an invented person says
-    anything at all, so a reader who skips the italics has still been told the
-    truth, and one who reads them meets a hostess rather than an authority.
+    anything at all, so a reader who skips the foreword has still been told
+    the truth, and one who reads it meets a hostess rather than an authority.
 
-    Every concrete thing in it is in a letter -- the snuff box the class gave
-    at a farewell in letter 1, the eighty rigsdaler and the destroyed receipt
-    in letter 10, the grave plot with room for one more name in letter 39,
-    quoted in the edition's own spelling. Nothing here is invented but her,
-    and the Om page one link away says so.
+    Rewritten 2026-07-29 with Maria: a real foreword under its own heading,
+    hinting the arc from child to near-death instead of retelling anecdotes.
+    Every concrete thing in it is in a letter -- the apologising schoolboy
+    in letter 1, the engagement and the authorship in letter 22, the grave
+    plot with room for one more name in letter 39, the father's colic in
+    letter 23, the aunt in Jutland in letter 29, the cousin who would like
+    a visit in letter 40. Nothing here is invented but her, and her
+    signature links to the Om page section that says so.
 
-    ``timeline`` only decides whether she may offer it: a build without the
-    curated datasets writes no timeline page, and she must not point at a door
-    that is not there.
+    The foreword no longer names the summaries or the timeline (the lead
+    carries the first, the navigation the second), so it is true in every
+    build, with or without the curated datasets -- no parameters needed.
     """
-    doings = "Bladr, søg på et ord eller filtrér efter afsender, modtager eller år."
-    if timeline:
-        doings += (
-            " Følg årene på tidslinjen, eller slå de mennesker op, som brevene "
-            "nævner."
-        )
-    else:
-        doings += " Slå de mennesker op, som brevene nævner."
-    body = element(
+    body = element("h2", "Forord")
+    body += element("p", "Et forord skal holde døren, ikke holde tale. Så kun dette:")
+    body += element(
         "p",
-        "Det begynder med en skoledreng, der i 1829 undskylder, at han aldrig "
-        "skriver, og bruger resten af brevet på nyt fra Borgerdydsskolen – "
-        "blandt andet en snustobaksdåse, klassen gav i afskedsgave. Senere "
-        "skylder en bror ham 80 rigsdaler, og gældsbeviset har han selv "
-        "tilintetgjort. Og et sted gør han familiegravstedet i stand på skrift, "
-        "med plads på tavlen til ét navn mere: »Søren Aabye født d. 5 Mai 1813 "
-        "død«.",
+        "Den første, du møder, er en skoledreng, der undskylder, at han "
+        "aldrig skriver. Siden er han forlovet, siden er han forfatter, og i "
+        "et udateret brev gør han familiens gravsted i stand på skrift og "
+        "lader der blive plads på tavlen til ét navn mere. Rundt om ham "
+        "skriver de andre: en far om sin kolik, en faster i Jylland om sin "
+        "sorg, en kusine, der bare gerne vil have besøg. Hovedpersoner i "
+        "deres egne breve, i godt selskab.",
     )
     body += element(
         "p",
-        "Herunder ligger brevene alle sammen. %s Brevene står også hos udgiveren "
-        "selv; Om-siden siger hvor." % doings,
+        "Bladr, søg, følg et år eller et menneske. God fornøjelse derinde. "
+        "Og kommer du til at holde af dem, så er vi to.",
     )
     body += element(
         "p",
-        "Selv har jeg ikke fundet et eneste af dem – de lå frit fremme. Jeg "
-        "skriver kun forord: de små under hvert brev i brevoversigten, og "
-        "dette her. Hvem jeg ellers er, står "
-        + element("a", "på Om-siden", href="%som/" % INDEX_TO_ROOT)
-        + ".",
+        element("a", text(PRESENTER), href="%som/#notabene" % INDEX_TO_ROOT),
+        class_="presentation-sign",
     )
-    body += element("p", text(PRESENTER), class_="presentation-sign")
     return element(
-        "section", body, class_="presentation", aria_label="Velkomst", lang="da"
+        "section", body, class_="presentation", aria_label="Forord", lang="da"
     )
 
 
