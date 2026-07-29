@@ -12,7 +12,7 @@ cheap to build, cheap to run, and safe to throw away.
 **State (2026-07-28 evening): the v2 display pass largely done.** 638
 static pages — 336 letter pages, 298 person pages (143 with bios), index
 with facets + client-side search, `/tidslinje/`, `/personer/`, `/om/`.
-332 tests green. The 2026-07-28 session (17 commits, straight to main)
+334 tests green. The 2026-07-28 session (17 commits, straight to main)
 cleared the old data queue and reshaped the display: resumés under every
 letter in every list, one shared row design site-wide, a per-letter
 Tegnforklaring for the text-critical marks, Maria's favicon, and the
@@ -212,8 +212,10 @@ display wishes. What remains, roughly ordered:
   prompt (no third layout); 48–40rem borrows the gutter so every
   landscape phone from 640px up holds the strip whole. The
   `CELL_HIT_PX`/`--tl-hit` coupling is now held by a test that reads
-  the stylesheet. The long scroll to 1829 is a separate, still-unopened
-  conversation.
+  the stylesheet. Same day, the scale start moved to the first
+  preserved letter (1829, derived not hard-coded; residences are
+  backdrop and clip against the scale) — the timeline is **done**;
+  Maria's further ideas deliberately rest so the demo can ship.
 - **New front-page intro** — Maria is considering writing it herself.
   If Claude drafts it, `docs/notabene.md` §§2–5 is the voice bible.
 - **Crediting links** — the mechanism is live (`data/links.json`: add
