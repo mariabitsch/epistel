@@ -21,8 +21,10 @@ korrektur of the UI strings landed — 38 findings, every one ruled by
 Maria: em dashes made Danish, »SK« unfolded to Søren Kierkegaard, the
 edition named »SKS« where it speaks outside /om/. The 2026-07-29
 session shipped the timeline's option A (one layout, finger-sized
-marks). Still open: the new intro text, the crediting-links decision,
-deploy — see the backlog and the handoff notes at the end.
+marks), quieted the letter view and **deployed**: the demo is live at
+<https://epistel-demo.netlify.app/> (public repo mariabitsch/epistel;
+every push to main deploys). Still open: the new intro text and the
+crediting-links decision — see the backlog and the handoff notes.
 
 ## Working here
 
@@ -240,8 +242,11 @@ display wishes. What remains, roughly ordered:
   parsed apparatus variants are preserved but have no UI yet.
 - `ded` (120 dedications) excluded — needs its own metadata/grouping/URL
   model if ever included.
-- Deploy: create the public repo, connect Netlify (Maria clicks), final
-  Danish proofread of UI strings.
+- ~~Deploy~~ **done 2026-07-29**: the repo is public
+  (github.com/mariabitsch/epistel) and the site live at
+  <https://epistel-demo.netlify.app/> — Netlify builds `main` on push,
+  so **every push to main deploys**. The korrektur session was the
+  final proofread.
 
 ## Explicitly out of scope
 
