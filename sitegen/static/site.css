@@ -741,32 +741,21 @@ h1::before {                       /* the gilt tick: one accent, top left */
   color: var(--prussian);
 }
 
-/* Closer: signature and dateline exhibited as two small objects, set to
-   the right the way they sit on the sheet. */
+/* Closer: signature and dateline set to the right the way they sit on
+   the sheet -- as text, not as exhibits (Maria, 2026-07-29): the words
+   and the placement carry it, boxes added nothing. The classes stay in
+   the markup; the retired box treatment, should a display want it back:
+   signed had padding 0.85rem 1.2rem, a 2px gilt left bar and a wash of
+   rgba(236, 230, 217, 0.5) with the display face on its last line;
+   the dateline had padding 0.4rem 0.85rem, a 1px rule border, ground
+   #faf7ef and the display face at 0.98rem. */
 .tei-closer {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.85rem;
+  gap: 0.4rem;
   margin: 2.4rem 0 0;
-}
-.tei-signed {
-  padding: 0.85rem 1.2rem;
-  border-left: 2px solid var(--gilt);
-  background: rgba(236, 230, 217, 0.5);
-  line-height: 1.55;
-}
-.tei-signed .tei-l:last-child {
-  font-family: var(--display);
-  font-size: 1.14rem;
-  margin-top: 0.2rem;
-}
-.tei-dateline {
-  padding: 0.4rem 0.85rem;
-  border: 1px solid var(--rule);
-  background: #faf7ef;
-  font-family: var(--display);
-  font-size: 0.98rem;
+  text-align: right;
 }
 
 /* Envelope address: frame within frame — the gallery-frame gesture, used
@@ -889,7 +878,11 @@ h1::before {                       /* the gilt tick: one accent, top left */
    supplied -> square brackets (the scholarly convention), gilt
    unclear  -> under-dots
    corr     -> a Prussian dashed rule (editor's correction, not doubt)
-   add      -> a faint ochre wash: written above the line in the source */
+   add      -> the same dots OVER the run: written above the line in the
+               source, so the mark sits where the writing did. Shape and
+               position distinguish it, never hue alone. (The retired
+               treatment -- ochre wash rgba(176,141,62,0.14) with a solid
+               bottom rule -- read as a link; Maria, 2026-07-29.) */
 .tei-supplied { color: var(--gilt-text); }     /* 6.13:1 on paper */
 .tei-supplied::before { content: "["; }
 .tei-supplied::after  { content: "]"; }
@@ -898,9 +891,7 @@ h1::before {                       /* the gilt tick: one accent, top left */
 .tei-corr    { border-bottom: 1px dashed rgba(46, 74, 90, 0.55); }
 
 .tei-add {
-  padding: 0 0.12em;
-  background: rgba(176, 141, 62, 0.14);   /* ink still 13.92:1 */
-  border-bottom: 1px solid rgba(176, 141, 62, 0.5);
+  border-top: 1px dotted rgba(122, 91, 24, 0.8);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }

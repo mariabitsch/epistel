@@ -797,6 +797,42 @@ class CorpusSiteBuildTest(unittest.TestCase):
         self.assertIn("tilføjet i kilden", page)
         self.assertIn('title="Tilføjet i kilden', page)
 
+    def test_the_closer_and_the_dateline_stand_as_text_not_exhibits(self):
+        """Maria's call (2026-07-29): no boxes around salutations and dates.
+
+        The signature block and the dateline stood in bordered, shaded
+        boxes -- museum treatment the words do not need. They stand as the
+        surrounding text now, still set to the right the way they sit on
+        the sheet. The classes stay in the markup for a display that wants
+        the boxes back.
+        """
+        css = self.read("assets", "site.css")
+        for selector in (r"\.tei-signed", r"\.tei-dateline"):
+            self.assertNotRegex(css, selector + r"[^{]*\{[^}]*background")
+            self.assertNotRegex(css, selector + r"[^{]*\{[^}]*border")
+        # Prefix match: the signed block also carries its source layout
+        # class (r-bagind), and both must survive the un-boxing.
+        page = self.read("brev", "29", "index.html")
+        self.assertIn('class="tei-signed', page)
+        self.assertIn('class="tei-dateline', page)
+
+    def test_the_added_text_mark_is_discreet_and_sits_over_the_line(self):
+        """Maria's call (2026-07-29): the add mark must not look like a link.
+
+        It wore an ochre wash and a solid bottom border -- link costume.
+        Now it is as quiet as the other apparatus marks: a dotted hairline
+        like unclear's, distinguished by position rather than colour -- it
+        sits OVER the run, because that is what it means: added in the
+        source, typically above the line. The tooltip still says so.
+        """
+        css = self.read("assets", "site.css")
+        self.assertNotRegex(css, r"\.tei-add\s*\{[^}]*background")
+        self.assertNotRegex(css, r"\.tei-add\s*\{[^}]*border-bottom")
+        self.assertRegex(css, r"\.tei-add\s*\{[^}]*border-top:\s*1px\s+dotted")
+        page = self.read("brev", "29", "index.html")
+        self.assertIn('class="tei-add"', page)
+        self.assertIn('title="Tilføjet i kilden', page)
+
     def test_the_latin_hand_is_explained_where_it_occurs(self):
         # Letter 1 switches to the Latin hand; the edition's own convention
         # ('Latin hand, in SKS rendered sans-serif') deserves words.
