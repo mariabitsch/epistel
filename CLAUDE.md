@@ -9,27 +9,18 @@ Skrifter*). The demo doubles as an architectural argument: the lasting value
 of a text collection lives in its raw-data layer; displays on top should be
 cheap to build, cheap to run, and safe to throw away.
 
-**State (2026-07-28 evening): the v2 display pass largely done.** 638
-static pages — 336 letter pages, 298 person pages (143 with bios), index
-with facets + client-side search, `/tidslinje/`, `/personer/`, `/om/`.
-334 tests green. The 2026-07-28 session (17 commits, straight to main)
-cleared the old data queue and reshaped the display: resumés under every
-letter in every list, one shared row design site-wide, a per-letter
-Tegnforklaring for the text-critical marks, Maria's favicon, and the
-`data/links.json` mechanism. The same night (10 commits) a full Danish
-korrektur of the UI strings landed — 38 findings, every one ruled by
-Maria: em dashes made Danish, »SK« unfolded to Søren Kierkegaard, the
-edition named »SKS« where it speaks outside /om/. The 2026-07-29
-session shipped the timeline's option A (one layout, finger-sized
-marks), quieted the letter view and **deployed**: the demo is live at
-<https://epistel-demo.netlify.app/> (public repo mariabitsch/epistel;
-every push to main deploys). Still open: the new intro text and the
-crediting-links decision — see the backlog and the handoff notes.
+**State:** live at <https://epistel-demo.netlify.app/> (public repo
+mariabitsch/epistel; every push to main deploys). 638 static pages — 336
+letter pages, 298 person pages (143 with bios), index with facets +
+client-side search, `/tidslinje/`, `/personer/`, `/om/`. 339 tests green.
+The front page opens with a factual lead (Maria's own text) and Maria
+Notabene's foreword, set in the letters' frame.
 
 ## Working here
 
 - Build: `python3 build.py` → `dist/` (deterministic, ~0.5 s). Serve with
-  `python3 -m http.server 8123 -d dist`.
+  `python3 -m http.server 8123 -d dist`; rebuild after changes or the
+  served pages are stale.
 - Tests: `python3 -m unittest` from the repo root — they run against the
   real vendored TEI, on purpose.
 - **Stack is Python 3 stdlib only** (ElementTree, unittest) + hand-written
@@ -112,8 +103,7 @@ verified with the instruction *outside knowledge is inadmissible — even a
 true claim is flagged if ungrounded*; flagged items were repaired and
 re-verified to zero. Oversized bios were trimmed **subtractively** (deletion
 only, programmatic no-new-content-words check). Extend the corpus or the
-datasets the same way; the workflow scripts live in the session archive and
-the method above is the important part.
+datasets the same way; the method is what matters.
 
 ## Verified source facts (hard-won — trust these)
 
@@ -155,30 +145,27 @@ the method above is the important part.
 - **Eckersberg design system** (`sitegen/static/site.css`): plaster
   ground, Prussian header, sea-green museum-label card, gilt as
   frame-lines only (never text). The pb chips are hidden since
-  2026-07-28 (Maria: apparatus, not reading matter) — their two-tone
-  design survives inert in the CSS. The text-critical marks stay and
-  are explained by the per-letter Tegnforklaring, whose legend lines
-  wear their own marks. **Every contrast pair is measured and
-  documented in the CSS — do not tweak palette values casually.** Fonts: Playfair Display + Spectral,
-  self-hosted woff2 + OFL licences (66 KB; ɔ/Ψ/ℳ fall back to system
-  serif, accepted). The three candidate directions live in
-  `design/varianter/` as project record. Meaning is never encoded by
-  color alone.
+  2026-07-28 (apparatus, not reading matter) — their two-tone design
+  survives inert in the CSS. The text-critical marks stay and are
+  explained by the per-letter Tegnforklaring, whose legend lines wear
+  their own marks. **Every contrast pair is measured and documented in
+  the CSS — do not tweak palette values casually.** Fonts: Playfair
+  Display + Spectral, self-hosted woff2 + OFL licences (66 KB; ɔ/Ψ/ℳ
+  fall back to system serif, accepted). The three candidate directions
+  live in `design/varianter/` as project record. Meaning is never
+  encoded by color alone.
 - **Maria Notabene** (`docs/notabene.md` — the voice bible; §§2–5 are
   approved canon, §5 is the summaries' few-shot material): the fictional
   presenter, after Nicolaus Notabene of *Forord* (1844) who could only
   write prefaces — now the wife takes the pen and still writes only
-  prefaces; the 333 summaries and the front-page intro *are* the
-  prefaces, the letters are the book. Renamed from Victoria Eremita
-  2026-07-28 (Maria's call). Openly carries the builder's first name —
-  transparent pseudonymity in SK's own tradition. Honestly disclosed on
-  `/om/` along with AI assistance. Summaries appear under **every letter
-  list** — index, "Samme brevveksling", person pages (Maria's decision
-  2026-07-28, revising the earlier index-only rule: the Notabene layer is
-  the site's core appeal). Every row carries its resumé, the current
-  letter's included; list entries are one clickable block each. The one
-  place she never sits is *above* a transcription — there the letter has
-  the word.
+  prefaces; the 333 summaries and the front page's foreword *are* the
+  prefaces, the letters are the book. In her own prose the comic *Forord*
+  inheritance is **felt, never named** (Maria, 2026-07-29). Openly
+  carries the builder's first name — transparent pseudonymity in SK's own
+  tradition, disclosed on `/om/` along with AI assistance. Summaries
+  appear under **every letter list**; every row carries its resumé, one
+  clickable block each. The one place she never sits is *above* a
+  transcription — there the letter has the word.
 - **Self-containment:** every external link comes from `data/links.json`
   (entries with id/href/label/rel/scope; today: the CC0 deed in every
   footer, upstream repo + tekster.kb.dk on `/om/`). Pages look entries up
@@ -193,60 +180,41 @@ the method above is the important part.
 
 Netlify (`netlify.toml`: `python3 build.py` → `dist/`, output stays
 host-agnostic) · MIT for code, CC0 data with provenance · public GitHub
-repo is the goal; no personal info in commits beyond Maria's name
-(repo-local email `mariacodes@salonen.dk`) · demo-light workflow ·
-neutral identity: an independent demonstration, no institution lookalike
-(but see v2 note below) · UI must work with JS off (search/facets are
-progressive enhancement).
+repo; no personal info in commits beyond Maria's name (repo-local email
+`mariacodes@salonen.dk`) · demo-light workflow · neutral identity: an
+independent demonstration, no institution lookalike · UI must work with
+JS off (search/facets are progressive enhancement) · timeline option A
+(2026-07-29): one layout at every width, 24 px targets, vend-telefonen
+below 40rem; the `CELL_HIT_PX`/`--tl-hit` px/rem coupling is held by a
+stylesheet-reading test · front page (2026-07-29): Maria's factual lead
+introduces the pseudonym before her foreword speaks; the foreword shares
+the letter transcriptions' frame via shared CSS selector lists, also
+test-held.
 
 ## Known gaps & v2 backlog
 
-The 2026-07-28 session cleared the old data queue (b43/50's date on the
-letter page, the four key-mismatch bios via `bio_keys.json`, Henriette
-Lund's grounded bio, withoutBio reasons in Danish) and most of the
-display wishes. What remains, roughly ordered:
-
-- **Timeline: option A shipped 2026-07-29** (commit e9d63bb): one
-  layout at every width, 24px finger targets (21 columns, 31.5rem
-  lane), works under the year (the scale lost its stretch exception),
-  addresses only in the foot register, shared 46rem shell. Maria's
-  simplification: below 40rem the strip yields to a vend-telefonen
-  prompt (no third layout); 48–40rem borrows the gutter so every
-  landscape phone from 640px up holds the strip whole. The
-  `CELL_HIT_PX`/`--tl-hit` coupling is now held by a test that reads
-  the stylesheet. Same day, the scale start moved to the first
-  preserved letter (1829, derived not hard-coded; residences are
-  backdrop and clip against the scale) — the timeline is **done**;
-  Maria's further ideas deliberately rest so the demo can ship.
-- **New front-page intro** — Maria is considering writing it herself.
-  If Claude drafts it, `docs/notabene.md` §§2–5 is the voice bible.
-- **Crediting links** — the mechanism is live (`data/links.json`: add
-  an entry *and* a render spot; the tests catch drift both ways). Which
-  links to add for generous crediting of kb-dk/SKS_tei is Maria's open
-  decision. Rule 5's no-lookalike clause stands regardless.
-- **Brevlisterne skal have luft** (prompt-forslag Maria endorsed
-  2026-07-29, deliberately parked): more distance between rows, the
-  sender emphasized. Not yet discussed in detail — bring it to Maria
-  before building.
-- Småting: more of Maria's "osv." TEI-annotation finds may come. Two
-  small decisions left open by the night's korrektur: the presentation
-  signature's decorative em dash (`content: "— "` in site.css — design,
-  not sentence: keep, or make Danish?), and four »udgaven« claims that
-  fell outside the SKS ruling's scope list (»Udgaven trykker ingen
-  brevtekst her«, »Udgaven daterer ikke disse 10 breve«, »lagt oven på
-  udgaven«, and the front page's »hører ikke til udgaven«) — extend
-  »SKS« there too, or leave them.
+- **Crediting links** — the mechanism is live (`data/links.json`: add an
+  entry *and* a render spot; the tests catch drift both ways). Which links
+  to add for generous crediting of kb-dk/SKS_tei is Maria's open decision;
+  the lead's publisher reference waits with it. The no-lookalike rule
+  stands regardless.
+- **Brevlisterne skal have luft** (endorsed 2026-07-29, deliberately
+  parked): more distance between rows, the sender emphasized. Not yet
+  designed — discuss before building.
+- Korrektur leftovers: the presentation signature's decorative em dash
+  (`content: "— "` in site.css — design, not sentence: keep, or make
+  Danish?), and three »udgaven« phrasings that fell outside the SKS
+  ruling's scope (»Udgaven trykker ingen brevtekst her«, »Udgaven daterer
+  ikke disse 10 breve«, »lagt oven på udgaven«) — extend »SKS« there too,
+  or leave them. (The front page's fourth resolved 2026-07-29 by
+  disappearing with the old lead.)
 - Dark mode: deliberately absent; the Eckersberg dark sketch survives as
   a CSS comment (so does the retired pb-chip design).
 - Commentary display: 759 `<ref type="commentary">` targets and the
   parsed apparatus variants are preserved but have no UI yet.
 - `ded` (120 dedications) excluded — needs its own metadata/grouping/URL
   model if ever included.
-- ~~Deploy~~ **done 2026-07-29**: the repo is public
-  (github.com/mariabitsch/epistel) and the site live at
-  <https://epistel-demo.netlify.app/> — Netlify builds `main` on push,
-  so **every push to main deploys**. The korrektur session was the
-  final proofread.
+- Småting: more TEI-annotation finds may come.
 
 ## Explicitly out of scope
 
@@ -255,64 +223,7 @@ runtime API calls, facsimile viewing beyond the vendored `ill_*.jpg`.
 
 ---
 
-## Handoff (2026-07-28 evening, Claude Fable 5 → next Claude)
-
-Kære næste Claude — you inherit a site that found its heart today. Maria
-said it best: Notabene's resumés are exactly what make this more than
-yet another Kierkegaard page — "jeg får lyst til at læse brevene". Her
-two-line prefaces now sit under every letter in every list, every row
-one clickable block, one shared design from the front page to the person
-pages. Before you touch anything, go *read* a little: Henriette Lund's
-person page (the birthday letters run like a novella), or brev 159.1
-with the 159.x drafts to Regine beneath it. It will tell you what the
-site wants to be better than any spec.
-
-Practical things that cost us time today, so they need not cost you any:
-
-- Maria runs `python3 -m http.server 8123 -d dist` — **rebuild `dist/`
-  after committing**, or she is looking at stale pages.
-- **Browser-cached CSS fooled us twice.** Hard-reload (cmd+shift+r)
-  before believing a screenshot; check `dist/assets/site.css` before
-  diagnosing.
-- The chrome extension could not resize a maximized Chrome window; once
-  Maria un-maximized, narrow-viewport checks worked fine. 2026-07-29:
-  macOS Stage Manager also makes resize_window hit the wrong window —
-  same-origin iframes at fixed widths are a reliable fallback for
-  responsive checks (media queries answer to the iframe viewport).
-- Red test first, even for one-line display fixes — every decision above
-  ended up encoded in a test, and that is why the day's 17 commits never
-  broke anything.
-- The grounding-only regeneration method (draft → adversarial modlæsning
-  with "outside knowledge is inadmissible" → repair with exactly the
-  notes the verifier points at → re-verify to zero) is documented in
-  `bios.json`'s note fields; Henriette Lund's entry is the freshest
-  worked example.
-
-Maria decides design and voice; bring her the fork in the road, not the
-finished detour. She answers quickly, warmly, and in Danish — and she is
-usually right, especially about her own site. God fornøjelse ♡
-
-### Night addendum (2026-07-28 late: the korrektur session)
-
-Ten commits (9573a0a..7b0a8a8), all agent-made under Maria's live
-verdicts, 324 tests green, `dist/` current. The method that worked: one
-persistent Opus agent proofread every UI string and reported 38 findings
-(sikker/forslag/smag); Maria ruled in batches; the same agent applied
-each batch, updating tests so every decision is now regression-guarded.
-Highlights for the next reader: the Om page's claim about where the
-resumés sit is verified against a *built* letter page, not against its
-own sentence; »SK« unfolds via `display_name` (persons.py) while the
-edition's raw form still travels in `data-name` and the facet values —
-whole-string match only, the Agerskov trap is test-pinned with the real
-Chr. Agerskov; both Tegnforklaringer share one machine-checked
-punctuation rule (fragment = no stop, sentence = stop, two fragments
-joined by an en dash). Tomorrow, in Maria's order: the timeline A/B/C
-decision (measured analysis in the backlog), Notabene's new front-page
-intro (hers to write or co-bake), crediting links, deploy.
-
----
-
 *Original brief by Claude Fable 5, July 2026; rewritten as an onboarding
-guide 2026-07-28 after v1 shipped; updated the same evening after the v2
-display session. Kept up to date as the project evolves — correct it when
-reality disagrees with it.*
+guide 2026-07-28 after v1 shipped; slimmed for the public repo 2026-07-29
+(process notes live in the local, uncommitted memory). Kept up to date as
+the project evolves — correct it when reality disagrees with it.*

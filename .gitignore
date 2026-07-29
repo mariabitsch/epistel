@@ -8,3 +8,6 @@ __pycache__/
 
 # Derived swarm grounding, regenerable from data/vendor
 data/context/grounding/
+
+# Local project memory — process notes stay out of the public repo
+CLAUDE.local.md
