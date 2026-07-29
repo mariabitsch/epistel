@@ -131,24 +131,28 @@ def letter_page(view, previous, following, section, person_links, timeline=False
 def _intro(books, count, summaries):
     """What the reader is looking at -- as many volumes as were built.
 
-    Written from the list, not from a sentence about one volume, so a build of
-    b1 alone and a build of the whole corpus both describe themselves
-    truthfully. The same goes for the summaries: they are named only when
-    there are some, because a build without the curated layer must not
-    promise them.
+    Maria's own lead (2026-07-29). Written from the list, not from a
+    sentence about one volume, so a build of b1 alone and a build of the
+    whole corpus both describe themselves truthfully -- hence "af 336
+    breve", not "af de 336 breve": the definite article would claim
+    completeness a partial build does not have. The same goes for the
+    presenter: she and her resumés enter only when there are some, because
+    a build without the curated layer must not promise them -- and without
+    that introduction the handover sentence would have no one to hand
+    over to.
     """
     lead = (
-        "Søren Kierkegaards breve, læst direkte fra den TEI-kodede udgave "
-        "<i>Søren Kierkegaards Skrifter</i>. Denne demonstration viser "
-        + element(
-            "strong", "%s i %s" % (_letter_count(count), _volume_count(len(books)))
-        )
-        + ", ordnet efter både bind og brevveksling."
+        "Dette er en søgbar visning af %s i %s fra "
+        % (_letter_count(count), _volume_count(len(books)))
+        + element("i", "Søren Kierkegaards Skrifter")
+        + ", hentet direkte fra forskningsprojektets rå filer."
     )
     if summaries:
         lead += (
-            " De korte resuméer under brevene er skrevet af %s og hører ikke "
-            "til udgaven." % text(PRESENTER)
+            " Men det er mere end det: Vi har ladet pseudonymet %s stå i "
+            "døren og vise nye læsere indenfor med små, venlige resuméer til "
+            "hvert brev, som man kan støtte sig til undervejs. Hun har "
+            "skrevet et forord, naturligvis." % text(PRESENTER)
         )
     return element("p", lead, class_="lead")
 

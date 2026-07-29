@@ -696,9 +696,10 @@ class CorpusSiteBuildTest(unittest.TestCase):
 
     def test_the_intro_describes_the_whole_corpus_not_one_volume(self):
         lead = re.search(r'<p class="lead">(.*?)</p>', self.index, re.S).group(1)
-        self.assertNotIn("Denne demonstration viser bindet", lead)
-        self.assertIn("336", lead)
-        self.assertIn("14", lead)
+        self.assertIn("søgbar visning", lead)
+        self.assertIn("336 breve", lead)
+        self.assertIn("14 bind", lead)
+        self.assertIn("<i>Søren Kierkegaards Skrifter</i>", lead)
 
     def test_the_index_still_hangs_each_correspondence_in_its_band(self):
         self.assertEqual(
@@ -1607,9 +1608,18 @@ class SummaryTest(unittest.TestCase):
             self.assertNotIn("letter-summary", entry)
 
     def test_the_index_says_whose_voice_the_summaries_are(self):
+        """Maria's own lead (2026-07-29) introduces the pseudonym outright.
+
+        The old "hører ikke til udgaven" disclaimer retired with it -- one
+        of the korrektur's four open »udgaven« phrasings, decided by
+        disappearing. The lead now says plainly that the resumés are the
+        pseudonym's, standing in the door, and hands over to her foreword.
+        """
         lead = self.index.split('class="lead"', 1)[1].split("</p>", 1)[0]
-        self.assertIn("Maria Notabene", lead)
-        self.assertIn("hører ikke til udgaven", lead)
+        self.assertIn("pseudonymet Maria Notabene", lead)
+        self.assertIn("resuméer", lead)
+        self.assertIn("Hun har skrevet et forord, naturligvis.", lead)
+        self.assertNotIn("hører ikke til udgaven", self.index)
 
     def test_a_build_without_the_summaries_promises_none(self):
         """No summaries, no sentence about summaries.
@@ -1625,7 +1635,7 @@ class SummaryTest(unittest.TestCase):
             self.assertNotIn("letter-summary", index)
             lead = index.split('class="lead"', 1)[1].split("</p>", 1)[0]
             self.assertNotIn("Maria Notabene", lead)
-            self.assertNotIn("hører ikke til udgaven", lead)
+            self.assertNotIn("resuméer", lead)
 
 
 class PresenterTest(unittest.TestCase):
