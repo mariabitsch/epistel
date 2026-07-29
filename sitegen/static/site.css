@@ -275,7 +275,9 @@ a:focus:not(:focus-visible) { outline: none; }
   padding: 2rem 0 2.5rem;
 }
 .site-footer p {
-  margin: 0;
+  margin-block: 0;   /* not the shorthand: it would reset the shared
+                        column's margin-inline: auto and pin the text
+                        to the left edge (SharedColumnTest) */
   font-size: 0.84rem;
   line-height: 1.68;
   color: var(--muted);                  /* 5.65:1 on plaster */

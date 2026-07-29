@@ -2023,6 +2023,49 @@ class PresenterTest(unittest.TestCase):
             self.assertEqual(self.about, self.read_from(other, "om", "index.html"))
 
 
+class SharedColumnTest(unittest.TestCase):
+    """Header band, main and footer band align on one shell column.
+
+    The shared rule near the top of site.css hands ``.site-footer > p``
+    its ``margin-inline: auto``. The header's child rules are single-class
+    selectors and lose to it on specificity, but any ``.site-footer p``
+    rule ties with it -- so a later ``margin:`` shorthand there resets the
+    inline margins and pins the footer text to the left edge, which is
+    exactly how the footer shipped misaligned (caught by Maria,
+    2026-07-29). Block-axis margins are fine; the shorthand is not.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        with open(
+            os.path.join(STATIC_DIRECTORY, "site.css"), encoding="utf-8"
+        ) as file:
+            cls.rules = re.findall(r"([^{}]+)\{([^{}]*)\}", file.read())
+
+    def test_the_shared_column_rule_covers_all_three_bands(self):
+        shared = [
+            sel
+            for sel, body in self.rules
+            if "margin-inline: auto" in body and "max-width: var(--shell)" in body
+        ]
+        self.assertTrue(
+            any(
+                ".site-header > p" in sel
+                and ".site-footer > p" in sel
+                and "main" in sel
+                for sel in shared
+            )
+        )
+
+    def test_no_footer_rule_clobbers_the_centering_shorthand(self):
+        clobbers = [
+            sel.strip()
+            for sel, body in self.rules
+            if ".site-footer" in sel and re.search(r"(?<![-\w])margin\s*:", body)
+        ]
+        self.assertEqual([], clobbers)
+
+
 class LinksTableTest(unittest.TestCase):
     """data/links.json: the one list of addresses the site may point at.
 
