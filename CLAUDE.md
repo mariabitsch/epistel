@@ -222,6 +222,10 @@ display wishes. What remains, roughly ordered:
   an entry *and* a render spot; the tests catch drift both ways). Which
   links to add for generous crediting of kb-dk/SKS_tei is Maria's open
   decision. Rule 5's no-lookalike clause stands regardless.
+- **Brevlisterne skal have luft** (prompt-forslag Maria endorsed
+  2026-07-29, deliberately parked): more distance between rows, the
+  sender emphasized. Not yet discussed in detail — bring it to Maria
+  before building.
 - Småting: more of Maria's "osv." TEI-annotation finds may come. Two
   small decisions left open by the night's korrektur: the presentation
   signature's decorative em dash (`content: "— "` in site.css — design,
