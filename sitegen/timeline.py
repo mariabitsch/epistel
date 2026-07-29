@@ -19,9 +19,9 @@ into the year's ``vague`` group, which the page draws as a set apart, marked
 **The scale is one year, everywhere.** Every position is a fraction of the year
 it belongs to, and every year gets the same height on the page, so the four
 years without a single letter or book take up exactly as much room as the four
-that hold half the authorship. The one exception is that a year *stretches*
-when its publications need more room than the scale gives them -- it never
-shrinks, and no year is ever compressed to make space for another.
+that hold half the authorship. The scale is perfectly uniform: the publications
+sit *under* their year rather than beside it (option A, 2026-07-29), so no
+year ever stretches for its books and none is compressed for another's.
 
 Coordinates are fractions of a year (0 at 1 January, 1 at 31 December) and the
 stylesheet multiplies them by one height token. The only pixel numbers here are
@@ -35,9 +35,11 @@ import datetime
 from . import dates
 
 # The height of one year on the page, and the smallest clickable height of a
-# letter mark. Both are also CSS tokens -- see the module docstring.
+# letter mark. Both are also CSS tokens -- see the module docstring. 24 CSS
+# pixels is WCAG 2.5.8's minimum target size: a mark a finger can hit
+# (Maria's wish, 2026-07-28; at this slack the real corpus needs 21 columns).
 YEAR_HEIGHT_PX = 176.0
-CELL_HIT_PX = 11.0
+CELL_HIT_PX = 24.0
 
 # Longer than this, and a letter's date is a period rather than a moment: it
 # gets no position on the day scale. Two months is the natural cut, because it
@@ -75,22 +77,16 @@ def timeline_model(letters, context):
             years[segment["year"]]["homes"].append(segment)
 
     slots = 1
-    home_slots = 1
     for year in years.values():
         year["letters"].sort(key=lambda mark: (mark["top"], mark["slug"]))
         year["vague"].sort(key=lambda mark: (mark["start"], mark["slug"]))
         year["works"].sort(key=lambda block: block["date"])
-        _lay_out_works(year["works"], year["year"])
         slots = max(slots, _lay_out_slots(year["letters"]))
-        home_slots = max(home_slots, 1 + max(
-            (segment["slot"] for segment in year["homes"]), default=0
-        ))
 
     return {
         "first_year": first,
         "last_year": last,
         "slots": slots,
-        "home_slots": home_slots,
         "years": [years[year] for year in sorted(years)],
         "undated": undated,
         # The bands again, whole, for the register at the foot of the page:
@@ -235,8 +231,6 @@ def _work_blocks(publications):
                 "date": date,
                 "date_text": _danish(date),
                 "entries": [entry],
-                "lead": 0.0,
-                "span": 0.0,
             }
         )
     for block in blocks:
@@ -245,22 +239,6 @@ def _work_blocks(publications):
                 entry["period"] if entry["period"] != block["date_text"] else None
             )
     return blocks
-
-
-def _lay_out_works(blocks, year):
-    """Give each block the share of the year that runs until the next one.
-
-    The stylesheet turns ``span`` into a minimum height, so a block reserves
-    its own stretch of time and the next one starts where it should. Where the
-    text needs more room than the time allows -- 1843 and 1844, six books each
-    -- the blocks push each other down and the year grows. That is the one
-    place the scale gives, and it gives by stretching, never by squeezing.
-    """
-    for index, block in enumerate(blocks):
-        start = _fraction(block["date"])
-        following = blocks[index + 1] if index + 1 < len(blocks) else None
-        block["lead"] = start if index == 0 else 0.0
-        block["span"] = (_fraction(following["date"]) if following else 1.0) - start
 
 
 # ---------------------------------------------------------------------------
@@ -314,27 +292,18 @@ def _segments(home):
     for year in range(home["start"].year, last_year + 1):
         top = _fraction(max(home["start"], datetime.date(year, 1, 1)))
         bottom = _fraction(home["end"]) if home["end"].year == year else 1.0
-        starts = year == home["start"].year
-        # He lived at Nytorv for twenty-four years, which is some three
-        # thousand pixels of band. Naming it again every tenth year saves a
-        # reader who scrolls into the middle of it from scrolling back -- but
-        # only where the band runs the whole year, so a repeat can never land
-        # on top of the label of a band beginning or ending that year.
-        labelled = starts or (not year % 10 and top == 0.0 and bottom >= 1.0)
         segments.append(
             {
                 "year": year,
+                # The band lane is a hairline and carries no words (option A:
+                # the addresses live in the register at the foot) -- the name
+                # rides along for the model's tests and for whoever reads it.
                 "address": home["address"],
-                "period": home["period"],
                 "approx": home["approx"],
                 "top": top,
                 "height": max(bottom - top, 0.0),
-                "starts": starts,
-                "labelled": labelled,
-                "continued": labelled and not starts,
+                "starts": year == home["start"].year,
                 "ends": year == last_year,
-                "note": home["note"],
-                "modern": home["modern"],
                 "slot": home["slot"],
             }
         )

@@ -1234,20 +1234,28 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
 
 /* ============================================================== TIMELINE
    One life on one linear scale. The page is a stack of years, all the same
-   height, and each year is a row of four lanes hung beside the scale: where
-   he lived, the letters, the letters that cannot be placed within their year,
-   and what he published.
+   height. Each year is one grid with two rows: three lanes hung beside the
+   scale -- where he lived, the letters, the letters that cannot be placed
+   within their year -- and, in the row below, what he published. That is
+   the page's ONE layout (option A, Maria 2026-07-29): the same grid at
+   every width, so the geometry the Python side guarantees holds on every
+   screen. Only the tokens breathe at narrow widths; below the strip's
+   minimum the page asks the reader to turn the phone (.tl-rotate).
 
    THE ONE RULE OF THE SCALE
    -------------------------
-   Every year is --tl-year tall and every mark sits at its own fraction of its
-   year, so the four silent years take up as much room as the four that hold
-   half the authorship. A year only ever *stretches*, and only when its
-   publications need more room than the year gives them: the works lane
-   reserves its time as min-height, and text that outgrows it pushes the rest
-   of the year down. Nothing is ever compressed to make space for something
-   else. The marks are positioned in percentages, so a stretched year is
-   simply the same year drawn larger -- letters, bands and books stay in step.
+   Every year is --tl-year tall and every mark sits at its own fraction of
+   its year, so the four silent years take up as much room as the four that
+   hold half the authorship. The scale is perfectly uniform: the works sit
+   under their year and reserve no time on it, so no year ever stretches
+   for its books and none is compressed for another's.
+
+   EVERY MARK IS A FINGER TARGET
+   -----------------------------
+   --tl-hit and --tl-cell are 1.5rem = 24 CSS px, WCAG 2.5.8's minimum
+   target size. sitegen/timeline.py deals the slot columns with the same 24
+   px of vertical slack (CELL_HIT_PX), so the hit areas grow invisibly
+   around the drawn marks and never overlap -- the coupling is test-held.
 
    COLOUR CARRIES NOTHING ON ITS OWN
    ---------------------------------
@@ -1273,33 +1281,44 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
    No new hues: every value below is a token from the Eckersberg palette above
    or an alpha of one.                                                      */
 
-body.page-timeline { --shell: 60rem; }
+/* No page-local shell: the timeline sits in the site's shared 46rem column,
+   which is what lets a phone held in landscape hold the whole strip.      */
 
 .tl {
   /* The scale, and the size of one letter. Both are also numbers in
      sitegen/timeline.py, which lays out the columns of overlapping marks --
-     change one and change the other. */
+     change one and change the other (a test compares them, 16px per rem). */
   --tl-year: 11rem;
-  --tl-cell: 0.75rem;
-  --tl-hit: 0.7rem;
+  --tl-cell: 1.5rem;
+  --tl-hit: 1.5rem;
 
   --tl-axis: 3.1rem;
-  --tl-homes: 8rem;
+  --tl-homes: 1rem;
   --tl-letters: calc(var(--slots) * var(--tl-cell));
-  --tl-vague: 5.5rem;
   --tl-gap: 0.85rem;
 
   margin-top: 2.8rem;
 }
 
+/* The one grid. The works row is under the strip at every width, so the
+   "Kun år" lane can be the flexible column: 21 letter columns of 24 px plus
+   axis, band hairline and gaps leave it 2.6rem at the narrowest and near
+   4rem on desktop -- the chips wrap.                                      */
 .tl-head,
 .tl-year {
   display: grid;
   grid-template-columns:
-    var(--tl-axis) var(--tl-homes) var(--tl-letters) var(--tl-vague)
-    minmax(0, 1fr);
+    var(--tl-axis) var(--tl-homes) var(--tl-letters) minmax(0, 1fr);
+  grid-template-areas:
+    "axis homes letters vague"
+    "works works works works";
   column-gap: var(--tl-gap);
 }
+.tl-axis { grid-area: axis; }
+.tl-homes { grid-area: homes; }
+.tl-letters { grid-area: letters; }
+.tl-vague { grid-area: vague; }
+.tl-works { grid-area: works; }
 
 /* The lane names ride along at the top of the window: on a page this tall,
    a reader who scrolls into 1849 should not have to scroll back to find out
@@ -1318,6 +1337,10 @@ body.page-timeline { --shell: 60rem; }
   text-transform: uppercase;
   color: var(--muted);                  /* 6.35:1 on the ground */
 }
+/* Hidden, not removed: the head row is auto-placed, so a missing span in
+   the middle would slide every label after it into the wrong lane. The band
+   hairline has no room for a word; the legend names the bands instead. */
+.tl-head-homes { visibility: hidden; }
 
 .tl-year {
   position: relative;
@@ -1347,7 +1370,9 @@ body.page-timeline { --shell: 60rem; }
   color: var(--ink-soft);               /* 8.41:1 */
 }
 
-/* --- where he lived ---------------------------------------------------- */
+/* --- where he lived ----------------------------------------------------
+   A hairline lane: the bands carry the time, the register at the foot of
+   the page carries the addresses -- at every width.                      */
 
 .tl-homes { position: relative; }
 
@@ -1355,7 +1380,7 @@ body.page-timeline { --shell: 60rem; }
   position: absolute;
   top: calc(var(--top) * 100%);
   height: calc(var(--height) * 100%);
-  left: calc(var(--slot) * 0.95rem);
+  left: calc(var(--slot) * 0.5rem);
   right: 0;
 }
 /* The band itself: a sea-green edged strip. Bands run for years, so only the
@@ -1366,7 +1391,7 @@ body.page-timeline { --shell: 60rem; }
   top: 0;
   bottom: 0;
   left: 0;
-  width: 0.55rem;
+  width: 0.4rem;
   background: var(--sea-tint);
   border-left: 1px solid var(--seagreen);
   border-right: 1px solid var(--seagreen);
@@ -1384,28 +1409,8 @@ body.page-timeline { --shell: 60rem; }
   );
 }
 
-/* Labels line up in one column whatever slot their band sits in, so a year
-   where two bands overlap does not read as a second, indented list. */
-.tl-home-label {
-  position: absolute;
-  top: -0.15rem;
-  left: calc((var(--homes) - var(--slot)) * 0.95rem + 0.3rem);
-  right: 0;
-  margin: 0;
-  line-height: 1.35;
-}
-.tl-home-address {
-  display: block;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--ink-soft);               /* 8.41:1 */
-}
-.tl-home-period {
-  display: block;
-  font-size: 0.72rem;
-  color: var(--muted);                  /* 6.35:1 */
-}
-/* The dataset's own doubt, said in words next to the dashes that show it. */
+/* The dataset's own doubt, said in words next to the dashes that show it
+   -- in the register at the foot of the page, where the words live. */
 .tl-approx {
   display: block;
   font-family: var(--label);
@@ -1488,8 +1493,9 @@ body.page-timeline { --shell: 60rem; }
    easiest lie this page could tell. It gets its number instead.          */
 
 .tl-vague {
-  align-self: center;
+  align-self: start;
   min-width: 0;
+  padding-top: 0.2rem;
 }
 .tl-vague-mark {
   margin: 0 0 0.2rem;
@@ -1508,10 +1514,12 @@ body.page-timeline { --shell: 60rem; }
   padding: 0;
   list-style: none;
 }
+/* The chips are letter targets too: with this padding a chip stands 24 px
+   tall and at least 24 px wide -- the same WCAG 2.5.8 floor as the marks. */
 .tl-vague-item > a {
   display: block;
   min-width: 1.55rem;
-  padding: 0.05rem 0.25rem;
+  padding: 0.22rem 0.3rem;
   border: 1px dashed var(--gilt-text);  /* 6.13:1 on paper */
   background: var(--paper);
   font-family: var(--label);
@@ -1527,11 +1535,8 @@ body.page-timeline { --shell: 60rem; }
 }
 
 /* --- what he published ------------------------------------------------
-   Each block reserves the stretch of time that runs until the next one, as a
-   minimum height. Where the titles need more room than the year can give --
-   1843 and 1844, six books each -- the blocks push each other down and the
-   year grows with them. That is the only give in the scale, and it gives by
-   stretching.                                                             */
+   Under the year, at every width: the date names the position, the strip
+   above keeps its uniform scale, and no block reserves any time.         */
 
 .tl-works {
   margin: 0;
@@ -1540,12 +1545,11 @@ body.page-timeline { --shell: 60rem; }
 }
 .tl-work {
   position: relative;
-  min-height: calc(var(--span) * var(--tl-year));
   padding-left: 1.05rem;
 }
-.tl-work:first-child { margin-top: calc(var(--lead) * var(--tl-year)); }
-/* A leader from the lane's edge to the date: this line is the publication's
-   real position on the scale, whatever the text below it had to do. */
+.tl-work:first-child { padding-top: 0.5rem; }
+/* A short leader to the date -- an anchor for the eye, not a position:
+   the position is the date's words now that the works sit below the year. */
 .tl-work::before {
   content: "";
   position: absolute;
@@ -1742,6 +1746,7 @@ body.page-timeline { --shell: 60rem; }
 }
 .tl-home-register dd { margin: 0; }
 .tl-home-register .tl-home-period {
+  display: block;
   font-size: 0.86rem;
   color: var(--ink-soft);
 }
@@ -1784,65 +1789,39 @@ body.page-timeline { --shell: 60rem; }
 }
 
 /* --------------------------------------------------- timeline, narrower
-   Two steps down. First the lanes give up their slack; then the publications
-   drop below the strip and take the full width, because a book title set in
-   a hundred pixels is not a reading experience. The scale survives both: the
-   strip keeps its year height, and the works keep their order.            */
-
-@media (max-width: 62rem) {
-  .tl {
-    --tl-homes: 6.2rem;
-    --tl-cell: 0.62rem;
-    --tl-vague: 4.6rem;
-    --tl-gap: 0.6rem;
-  }
-  .tl-home-address { font-size: 0.72rem; }
-  .tl-home-period { font-size: 0.66rem; }
-}
+   The same grid all the way down -- only the tokens breathe. Below 48rem
+   the lanes give up their slack and the strip borrows most of the gutter:
+   21 columns of 24 px targets need the room, and every landscape phone
+   from 640 px up should hold the whole strip. Below 40rem no landscape is
+   left to fit, so the strip yields to the rotate prompt.                  */
 
 @media (max-width: 48rem) {
   .tl {
-    --tl-axis: 2.4rem;
-    --tl-homes: 1.1rem;
-    --tl-cell: 0.55rem;
+    --tl-axis: 2.2rem;
+    --tl-gap: 0.5rem;
+    margin-inline: calc(0.6rem - var(--gutter));
   }
-  .tl-head,
-  .tl-year {
-    grid-template-columns:
-      var(--tl-axis) var(--tl-homes) var(--tl-letters) minmax(0, 1fr);
-    grid-template-areas:
-      "axis homes letters vague"
-      "works works works works";
-  }
-  .tl-axis { grid-area: axis; }
-  .tl-homes { grid-area: homes; }
-  .tl-letters { grid-area: letters; }
-  .tl-vague { grid-area: vague; align-self: start; padding-top: 0.2rem; }
-  .tl-works { grid-area: works; }
-  /* The head row loses the two labels whose lanes no longer have room for
-     one: the works are below the strip now, and the band lane is a hairline
-     whose addresses have moved to the register at the foot of the page. */
-  .tl-head-works { display: none; }
-  /* Hidden, not removed: the head row is auto-placed, so a missing label in
-     the middle would slide every label after it into the wrong lane. */
-  .tl-head-homes { visibility: hidden; }
-  /* The address labels move to the register at the foot of the page; the
-     bands stay, because they are the part that is on the scale. */
-  .tl-home-label { display: none; }
-  .tl-home { left: calc(var(--slot) * 0.5rem); }
-  .tl-home-band { width: 0.4rem; }
-  /* No reserved time: the works are no longer beside the year, they are
-     under it, and reserving time would only add empty page. */
-  .tl-work,
-  .tl-work:first-child {
-    min-height: 0;
-    margin-top: 0;
-  }
-  .tl-work:first-child { padding-top: 0.5rem; }
-  .tl-work-list { margin-bottom: 0.7rem; }
   .tl-work-item--pseudonym { margin-left: 1rem; }
   .tl-legend > div { grid-template-columns: 5.5rem 1fr; }
   .tl-home-register > div { grid-template-columns: 1fr; }
+}
+
+/* Maria's simplification (2026-07-29): no third layout for a portrait
+   phone -- a friendly line asks for landscape instead, and everything
+   below the strip (undated letters, the registers) stays readable. */
+.tl-rotate {
+  display: none;
+  margin: 2.4rem 0 0;
+  padding: 1.1rem 1.3rem;
+  background: var(--paper);
+  border-left: 2px solid var(--gilt);
+  font-style: italic;
+  color: var(--ink-soft);               /* 9.08:1 on paper */
+}
+
+@media (max-width: 40rem) {
+  .tl { display: none; }
+  .tl-rotate { display: block; }
 }
 
 /* ========================================================== PRESENTATION

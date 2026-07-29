@@ -24,7 +24,7 @@ from pipeline.provenance import load_provenance
 from sitegen import dates
 from sitegen.site import STATIC_DIRECTORY, build_site, display_name, letter_slug
 from sitegen.tei_html import BodyRenderer
-from sitegen.timeline import timeline_model
+from sitegen.timeline import CELL_HIT_PX, YEAR_HEIGHT_PX, timeline_model
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VENDOR = os.path.join(REPO_ROOT, "data", "vendor")
@@ -1157,6 +1157,49 @@ class TimelineModelTest(unittest.TestCase):
         )
         self.assertEqual(widest + 1, self.model["slots"])
 
+    def test_every_mark_is_a_finger_sized_target(self):
+        """The slot layout deals columns with 24 px of vertical slack.
+
+        24 CSS pixels is WCAG 2.5.8's minimum target size, and it is also
+        Maria's wish (2026-07-28): letter marks a finger can hit. The slack
+        is what lets the hit area grow invisibly around a mark that is
+        drawn as a 3 px line -- the columns guarantee no two targets in a
+        lane ever come closer than this.
+        """
+        self.assertEqual(24.0, CELL_HIT_PX)
+
+    def test_the_python_pixels_and_the_stylesheet_tokens_agree(self):
+        """The coupling the backlog warns about, held by a test.
+
+        ``timeline.py`` reasons in pixels when it deals the slot columns;
+        ``site.css`` draws in rem. If either side changes alone, marks
+        overlap or waste a lane -- so the numbers are read from the
+        stylesheet and compared, at 16 px to the rem.
+        """
+        with open(
+            os.path.join(STATIC_DIRECTORY, "site.css"), encoding="utf-8"
+        ) as file:
+            css = file.read()
+        tokens = {
+            name: float(value)
+            for name, value in re.findall(r"(--tl-[a-z]+):\s*([\d.]+)rem", css)
+        }
+        self.assertEqual(CELL_HIT_PX, 16 * tokens["--tl-hit"])
+        self.assertEqual(YEAR_HEIGHT_PX, 16 * tokens["--tl-year"])
+        # The column is exactly one hit area wide: targets in neighbouring
+        # columns sit side by side, so the horizontal spacing is the cell.
+        self.assertEqual(tokens["--tl-hit"], tokens["--tl-cell"])
+
+    def test_the_letter_lane_fits_the_shared_shell(self):
+        """21 columns is the most the real corpus needs at 24 px of slack.
+
+        21 x 1.5rem is a 31.5rem letter lane, which is what fits inside
+        the site's shared 46rem shell once the works sit under the year
+        (option A, Maria 2026-07-29). If a new corpus pushes past 21, the
+        geometry has to be renegotiated, not silently overflowed.
+        """
+        self.assertLessEqual(self.model["slots"], 21)
+
 
 class TimelinePageTest(unittest.TestCase):
     """The built timeline page, read the way a visitor would read it."""
@@ -1265,6 +1308,55 @@ class TimelinePageTest(unittest.TestCase):
         # signed one says so: shape and words, never hue.
         self.assertEqual(12, self.page.count('class="tl-work-name">Pseudonym'))
         self.assertEqual(26, self.page.count('class="tl-work-name">Eget navn'))
+
+    def test_the_rail_carries_no_address_labels(self):
+        """Addresses live in the register at the foot, at every width.
+
+        Option A (Maria, 2026-07-29): one layout everywhere, and the band
+        lane is a hairline, so the rail has no room for names. The bands
+        stay -- they are the part that is on the scale -- and the register
+        still names every address.
+        """
+        self.assertNotIn("tl-home-label", self.page)
+        register = self.page.split('class="tl-home-register"', 1)[1]
+        for residence in self.context["residences"]:
+            self.assertIn(_escape(residence["address"]), register)
+
+    def test_no_year_reserves_time_for_its_works(self):
+        """The scale is uniform: works sit under the year, at every width.
+
+        Option A dissolves the one exception the scale used to have -- a
+        year stretching for its publications. No block reserves a share of
+        the year any more, so the custom properties that carried it are
+        gone, and so is the head label of the lane that no longer exists
+        beside the strip.
+        """
+        # With the colon: the custom properties. Without it the assertion
+        # would trip over the month box's class name, tl-letter--span.
+        self.assertNotIn("--lead:", self.page)
+        self.assertNotIn("--span:", self.page)
+        self.assertNotIn("tl-head-works", self.page)
+
+    def test_the_legend_no_longer_promises_a_stretch(self):
+        self.assertNotIn("strækkes", self.page)
+        self.assertIn("hvert år er lige højt", self.page)
+
+    def test_a_portrait_phone_is_asked_to_turn(self):
+        """Maria's simplification (2026-07-29): no third layout below the
+        strip's minimum width -- a friendly line asks for landscape. The
+        prompt is in the markup at every width; the stylesheet decides
+        when it shows and when the rail hides.
+        """
+        self.assertIn('class="tl-rotate"', self.page)
+        self.assertIn("Vend telefonen", self.page)
+        self.assertIn(".tl-rotate", self.read("assets", "site.css"))
+
+    def test_the_timeline_keeps_the_shared_shell(self):
+        # Option A's second wish: the page at the site's shared width, so
+        # a landscape phone holds the whole strip. No page-local override.
+        self.assertNotRegex(
+            self.read("assets", "site.css"), r"page-timeline[^}]*--shell"
+        )
 
     def test_no_raw_data_artifacts_reach_the_page(self):
         self.assertNotIn("None", self.page)

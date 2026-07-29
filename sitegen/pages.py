@@ -963,19 +963,29 @@ def _person_count(count):
 def timeline_page(model, links=None):
     """The letters against the books and the addresses, on one linear scale.
 
-    The page is a stack of years, each of them the same height, each holding
-    four lanes: where he lived, the letters he sent, the letters the edition
-    can only date to a year, and what he published. ``sitegen.timeline`` has
-    already decided every position; this function only writes them down.
+    The page is a stack of years, each of them the same height, holding three
+    lanes beside the scale -- where he lived, the letters he sent, and the
+    letters the edition can only date to a year -- with what he published
+    under the year strip, at every width (option A, Maria 2026-07-29).
+    ``sitegen.timeline`` has already decided every position; this function
+    only writes them down.
 
     Nothing here moves after the page is served -- the marks are elements with
     two custom properties, and the stylesheet does the arithmetic. There is no
-    script on the page, so there is nothing to fail.
+    script on the page, so there is nothing to fail. The rotate prompt is in
+    the markup at every width too; the stylesheet decides when the strip is
+    too wide for the screen and swaps them.
     """
     counts = model["counts"]
     body = element("h1", "Tidslinje")
     body += _timeline_intro(model)
     body += _timeline_legend()
+    body += element(
+        "p",
+        "Tidslinjen er for bred til skærmen på højkant. Vend telefonen, så "
+        "folder den sig ud.",
+        class_="tl-rotate",
+    )
     body += _timeline_rail(model)
     body += _undated(model["undated"])
     body += _home_register(model["homes"])
@@ -1076,12 +1086,12 @@ def _timeline_legend():
             "eller at de kun kender året.",
         ),
     ]
+    # No stretch exception any more: the works sit under their year at every
+    # width, so the scale is perfectly uniform (option A, Maria 2026-07-29).
     note = element(
         "p",
-        "Skalaen er lineær: hvert år er lige højt. Et år strækkes kun, hvor "
-        "årets udgivelser fylder mere end året – aldrig omvendt, og aldrig på "
-        "de stille års bekostning. Breve uden datering står nederst på "
-        "siden.",
+        "Skalaen er lineær: hvert år er lige højt. Årets udgivelser står "
+        "under årstallet, og breve uden datering står nederst på siden.",
         class_="tl-legend-note",
     )
     return element(
@@ -1102,6 +1112,10 @@ def _timeline_legend():
 
 
 def _timeline_rail(model):
+    # No "Udgivelser" label: the works lane sits under the year, not beside
+    # it, so it has no column of its own in the head. The homes span stays as
+    # a hidden placeholder -- the head is auto-placed, and a missing span in
+    # the middle would slide every label after it into the wrong lane.
     head = element(
         "div",
         "".join(
@@ -1111,7 +1125,6 @@ def _timeline_rail(model):
                 ("homes", "Bopæl"),
                 ("letters", "Breve"),
                 ("vague", "Kun år"),
-                ("works", "Udgivelser"),
             )
         ),
         class_="tl-head",
@@ -1122,7 +1135,7 @@ def _timeline_rail(model):
         "div",
         head + years,
         class_="tl",
-        style=_style(slots=model["slots"], homes=model["home_slots"]),
+        style=_style(slots=model["slots"]),
     )
 
 
@@ -1143,7 +1156,12 @@ def _timeline_year(year):
 
 
 def _homes(segments):
-    """One year's slice of the bands. Only a band's first year is labelled."""
+    """One year's slice of the bands: a hairline of sea-green, no words.
+
+    The addresses live in the register at the foot of the page, at every
+    width (option A, Maria 2026-07-29) -- the bands are the part that is on
+    the scale, so they are the part that stays beside it.
+    """
     bands = ""
     for segment in segments:
         band = element(
@@ -1152,27 +1170,9 @@ def _homes(segments):
             class_="tl-home-band",
             aria_hidden="true",
         )
-        label = ""
-        if segment["labelled"]:
-            label = element(
-                "p",
-                element("b", text(segment["address"]), class_="tl-home-address")
-                + element(
-                    "span",
-                    text(segment["period"])
-                    + (" (fortsat)" if segment["continued"] else ""),
-                    class_="tl-home-period",
-                )
-                + (
-                    element("span", "usikker datering", class_="tl-approx")
-                    if segment["approx"] and segment["starts"]
-                    else ""
-                ),
-                class_="tl-home-label",
-            )
         bands += element(
             "div",
-            band + label,
+            band,
             class_=classes(
                 "tl-home",
                 "tl-home--starts" if segment["starts"] else None,
@@ -1277,7 +1277,6 @@ def _works(blocks):
             )
             + element("ul", entries, class_="tl-work-list"),
             class_="tl-work",
-            style=_style(lead=block["lead"], span=block["span"]),
         )
     return element("ol", items, class_="tl-works")
 
