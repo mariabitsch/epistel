@@ -1732,6 +1732,48 @@ class PresenterTest(unittest.TestCase):
         # and the hostess may end up doing together.
         self.assertIn("så er vi to", self.welcome())
 
+    def test_the_foreword_is_set_in_the_letters_own_frame(self):
+        """Maria's typography direction (2026-07-29), held structurally.
+
+        The foreword is a letter to the reader, so it is set as one: the
+        transcriptions' paper frame, their opening face on its heading and
+        their closing mark -- as *shared* CSS rules, one selector list per
+        piece, so the foreword and the letters cannot drift apart silently.
+        The old 34rem cap is gone with it: the foreword sits at the same
+        measure the letters do.
+        """
+        with open(
+            os.path.join(STATIC_DIRECTORY, "site.css"), encoding="utf-8"
+        ) as file:
+            rules = re.findall(r"([^{}]+)\{([^{}]*)\}", file.read())
+        self.assertTrue(
+            any(
+                ".transcription" in sel and ".presentation" in sel
+                for sel, body in rules
+                if "background: var(--paper)" in body
+            ),
+            "the letter frame rule no longer covers the foreword",
+        )
+        self.assertTrue(
+            any(
+                ".transcription::after" in sel and ".presentation::after" in sel
+                for sel, _ in rules
+            ),
+            "the closing mark is no longer shared",
+        )
+        self.assertTrue(
+            any(
+                ".tei-salute .tei-l" in sel and ".presentation h2" in sel
+                for sel, _ in rules
+            ),
+            "the opening face is no longer shared",
+        )
+        self.assertEqual(
+            [],
+            [sel for sel, body in rules if ".presentation" in sel and "max-width" in body],
+            "the foreword is capped narrower than the letters",
+        )
+
     def test_her_signature_is_the_link_to_her_story(self):
         """The old "who am I?" sentence became a link.
 
