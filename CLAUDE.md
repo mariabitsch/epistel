@@ -12,17 +12,17 @@ cheap to build, cheap to run, and safe to throw away.
 **State (2026-07-28 evening): the v2 display pass largely done.** 638
 static pages — 336 letter pages, 298 person pages (143 with bios), index
 with facets + client-side search, `/tidslinje/`, `/personer/`, `/om/`.
-324 tests green. The 2026-07-28 session (17 commits, straight to main)
+332 tests green. The 2026-07-28 session (17 commits, straight to main)
 cleared the old data queue and reshaped the display: resumés under every
 letter in every list, one shared row design site-wide, a per-letter
 Tegnforklaring for the text-critical marks, Maria's favicon, and the
 `data/links.json` mechanism. The same night (10 commits) a full Danish
 korrektur of the UI strings landed — 38 findings, every one ruled by
 Maria: em dashes made Danish, »SK« unfolded to Søren Kierkegaard, the
-edition named »SKS« where it speaks outside /om/. Still open: the
-timeline decision (analysis ready in the backlog), the new intro text,
-the crediting-links decision, deploy — see the backlog and the handoff
-notes at the end.
+edition named »SKS« where it speaks outside /om/. The 2026-07-29
+session shipped the timeline's option A (one layout, finger-sized
+marks). Still open: the new intro text, the crediting-links decision,
+deploy — see the backlog and the handoff notes at the end.
 
 ## Working here
 
@@ -204,26 +204,16 @@ letter page, the four key-mismatch bios via `bio_keys.json`, Henriette
 Lund's grounded bio, withoutBio reasons in Danish) and most of the
 display wishes. What remains, roughly ordered:
 
-- **Timeline pass — wishes spoken 2026-07-28 night; Maria's A/B/C
-  decision pending.** She wants (1) finger-sized letter marks and
-  (2) the page at the site's shared 46rem width, fitting a landscape
-  phone. Measured against the real corpus: laying the mark columns out
-  with 24px touch slack (WCAG 2.5.8) needs only **21 columns** (today
-  18 at 11px), i.e. a 31.5rem letters lane — which fits the 46rem shell
-  *iff the works lane moves under the year at all widths* (as it
-  already does below 48rem). Claude recommends exactly that (**A**: one
-  layout everywhere; hit areas grow invisibly around the drawn marks,
-  the slot layout guarantees targets never overlap). A also dissolves
-  the old label-drift item: works-under-year reserves no time, so years
-  never stretch. Costs Maria must accept first: the 1843/44 stretch
-  disappears (the scale becomes perfectly uniform), address labels move
-  to the foot register on desktop too, and portrait phones need a
-  fallback (shrinking marks, or horizontal scroll inside the strip
-  alone). Options B (two layouts, two slot sets per mark) and C
-  (coarse-pointer enlargement only) were presented, not chosen.
-  Remember the coupling: `CELL_HIT_PX`/`YEAR_HEIGHT_PX` (timeline.py)
-  must agree with `--tl-hit`/`--tl-year` (site.css). The long scroll to
-  1829 is a separate, still-unopened conversation.
+- **Timeline: option A shipped 2026-07-29** (commit e9d63bb): one
+  layout at every width, 24px finger targets (21 columns, 31.5rem
+  lane), works under the year (the scale lost its stretch exception),
+  addresses only in the foot register, shared 46rem shell. Maria's
+  simplification: below 40rem the strip yields to a vend-telefonen
+  prompt (no third layout); 48–40rem borrows the gutter so every
+  landscape phone from 640px up holds the strip whole. The
+  `CELL_HIT_PX`/`--tl-hit` coupling is now held by a test that reads
+  the stylesheet. The long scroll to 1829 is a separate, still-unopened
+  conversation.
 - **New front-page intro** — Maria is considering writing it herself.
   If Claude drafts it, `docs/notabene.md` §§2–5 is the voice bible.
 - **Crediting links** — the mechanism is live (`data/links.json`: add
@@ -274,7 +264,10 @@ Practical things that cost us time today, so they need not cost you any:
   before believing a screenshot; check `dist/assets/site.css` before
   diagnosing.
 - The chrome extension could not resize a maximized Chrome window; once
-  Maria un-maximized, narrow-viewport checks worked fine.
+  Maria un-maximized, narrow-viewport checks worked fine. 2026-07-29:
+  macOS Stage Manager also makes resize_window hit the wrong window —
+  same-origin iframes at fixed widths are a reliable fallback for
+  responsive checks (media queries answer to the iframe viewport).
 - Red test first, even for one-line display fixes — every decision above
   ended up encoded in a test, and that is why the day's 17 commits never
   broke anything.
