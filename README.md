@@ -9,7 +9,11 @@ offentligt tilgængeligt) — visningen ovenpå er et tyndt, statisk og
 udskifteligt lag. Poleret formidling uden server, database eller
 driftsmiljø.
 
-**Status: under opbygning.** Byggebriefen ligger i `CLAUDE.md`.
+**Status: demoen er hel.** 638 statiske sider — 336 breve med
+transskription og tekstkritiske markeringer, 298 personsider, indeks med
+søgning, tidslinje — bygget deterministisk med `python3 build.py`
+(Python 3-stdlib, ingen afhængigheder) og serveret som ren statik.
+Byggebriefen ligger i `CLAUDE.md`.
 
 ---
 
