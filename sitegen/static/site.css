@@ -1914,8 +1914,26 @@ sup, .r-sup { font-size: 0.66em; line-height: 0; }
   color: var(--muted);
 }
 /* The pinned commit, set on its own line: it is a fact to be checked, not
-   a phrase to be read, and it is too long to sit inside a sentence.      */
+   a phrase to be read, and it is too long to sit inside a sentence. The
+   Om page stopped printing the hash on 2026-08-03 (the technical notes in
+   the repo carry it); the rule is kept for the day a page needs it again. */
 .prose .commit { margin-top: 0.6rem; }
+
+/* The source notes at the foot of the Om page: apparatus, so a step down
+   in size, but the same ink -- they are the page's evidence, and evidence
+   set in grey reads as a disclaimer. The markers are links into the list
+   and are left unmarked: a superscript numeral is already a signal, and
+   an underline under a raised digit is a smudge.                        */
+.prose .om-notes {
+  margin: 1.4rem 0 0;
+  padding-left: 1.5rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.prose .om-notes li { margin-top: 0.9rem; }
+.prose sup { line-height: 0; }
+.prose sup a { text-decoration: none; }
 
 /* ------------------------------------------------------------ narrow */
 
