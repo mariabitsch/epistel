@@ -716,11 +716,15 @@ class CorpusSiteBuildTest(unittest.TestCase):
         self.assertIn("b171-correspContext1", anchors)
 
     def test_the_intro_describes_the_whole_corpus_not_one_volume(self):
+        # Maria chose lead #3 (2026-08-03): the group count leaves the lead
+        # (structure is the list's job), "bevarede" carries the grounded
+        # hint of loss, and the edition's uncertainty is named as kept.
         lead = re.search(r'<p class="lead">(.*?)</p>', self.index, re.S).group(1)
         self.assertIn("søgbar visning", lead)
-        self.assertIn("336 breve", lead)
-        self.assertIn("14 grupper", lead)
+        self.assertIn("336 bevarede breve", lead)
         self.assertIn("<i>Søren Kierkegaards Skrifter</i>", lead)
+        self.assertIn("dateringer, forbehold og huller bevaret", lead)
+        self.assertNotIn("grupper", lead)
 
     def test_the_index_still_hangs_each_correspondence_in_its_band(self):
         self.assertEqual(
@@ -1650,16 +1654,20 @@ class SummaryTest(unittest.TestCase):
             self.assertIn(fragment, entry)
 
     def test_the_index_says_whose_voice_the_summaries_are(self):
-        """Maria's own lead (2026-07-29) introduces the pseudonym outright.
+        """The lead stands the presenter in the door, in the house's way.
 
-        The old "hører ikke til udgaven" disclaimer retired with it -- one
-        of the korrektur's four open »udgaven« phrasings, decided by
-        disappearing. The lead now says plainly that the resumés are the
-        pseudonym's, standing in the door, and hands over to her foreword.
+        Maria's lead #3 (2026-08-03, replacing her 2026-07-29 original):
+        the pseudonym is introduced through "husets egen pseudonyme
+        tradition" rather than the word "pseudonymet" -- the disclosure
+        proper is one click away on /om/ -- and the resumé promises no
+        interpretation, "blot nok til at man ved, hvilken dør man åbner".
+        The handover sentence is untouchable.
         """
         lead = self.index.split('class="lead"', 1)[1].split("</p>", 1)[0]
-        self.assertIn("pseudonymet Maria Notabene", lead)
-        self.assertIn("resuméer", lead)
+        self.assertIn("pseudonyme tradition", lead)
+        self.assertIn("Maria Notabene", lead)
+        self.assertIn("resumé til hvert brev", lead)
+        self.assertIn("hvilken dør man åbner", lead)
         self.assertIn("Hun har skrevet et forord, naturligvis.", lead)
         self.assertNotIn("hører ikke til udgaven", self.index)
 

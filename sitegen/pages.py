@@ -131,28 +131,33 @@ def letter_page(view, previous, following, section, person_links, timeline=False
 def _intro(books, count, summaries):
     """What the reader is looking at -- as many volumes as were built.
 
-    Maria's own lead (2026-07-29). Written from the list, not from a
-    sentence about one volume, so a build of b1 alone and a build of the
-    whole corpus both describe themselves truthfully -- hence "af 336
-    breve", not "af de 336 breve": the definite article would claim
-    completeness a partial build does not have. The same goes for the
-    presenter: she and her resumés enter only when there are some, because
-    a build without the curated layer must not promise them -- and without
+    Maria's lead #3 (2026-08-03, replacing her 2026-07-29 original): the
+    group count leaves the lead -- structure is the list's own job right
+    below -- "bevarede" carries the grounded hint of loss, and the
+    pseudonym is introduced through the house's own tradition rather than
+    the word itself; the disclosure proper is one click away on /om/.
+    Still written from the list, not from a sentence about one volume, so
+    a build of b1 alone and a build of the whole corpus both describe
+    themselves truthfully -- "af 336 bevarede breve", never "de 336": the
+    definite article would claim completeness a partial build does not
+    have. The presenter and her resumé enter only when there are some; a
+    build without the curated layer must not promise them, and without
     that introduction the handover sentence would have no one to hand
     over to.
     """
     lead = (
-        "Dette er en søgbar visning af %s i %s fra "
-        % (_letter_count(count), _volume_count(len(books)))
+        "Dette er en søgbar visning af %s fra "
+        % _preserved_letter_count(count)
         + element("i", "Søren Kierkegaards Skrifter")
-        + ", hentet direkte fra forskningsprojektets rå filer."
+        + ", læst direkte fra den videnskabelige udgaves egne filer og med "
+        "dens dateringer, forbehold og huller bevaret."
     )
     if summaries:
         lead += (
-            " Men det er mere end det: Vi har ladet pseudonymet %s stå i "
-            "døren og vise nye læsere indenfor med små, venlige resuméer til "
-            "hvert brev, som man kan støtte sig til undervejs. Hun har "
-            "skrevet et forord, naturligvis." % text(PRESENTER)
+            " Men det er mere end det: i husets egen pseudonyme tradition "
+            "står %s i døren med et kort resumé til hvert brev – ingen "
+            "fortolkning, blot nok til at man ved, hvilken dør man åbner. "
+            "Hun har skrevet et forord, naturligvis." % text(PRESENTER)
         )
     return element("p", lead, class_="lead")
 
@@ -2020,6 +2025,12 @@ def _date(view):
 
 def _letter_count(count):
     return "%d brev" % count if count == 1 else "%d breve" % count
+
+
+def _preserved_letter_count(count):
+    # The lead's word (Maria's lead #3, 2026-08-03): "bevarede" is the
+    # grounded hint that most of the correspondence never reached us.
+    return "%d bevaret brev" % count if count == 1 else "%d bevarede breve" % count
 
 
 def _volume_count(count):
