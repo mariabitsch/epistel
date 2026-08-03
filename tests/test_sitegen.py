@@ -2012,6 +2012,18 @@ class PresenterTest(unittest.TestCase):
         )
         self.assertNotIn("txt-root#n-", page)
 
+    def test_a_publication_links_to_its_tekstredegoerelse(self):
+        """Each publication on the timeline links to the SKS account of its
+        own dating (Maria's crediting decision, 2026-08-03). The addresses
+        travel per entry in publications.json; the timeline links only the
+        ones under the declared tekster.kb.dk prefix and leaves every other
+        source as text -- no address outside the table's permission.
+        """
+        page = self.read("tidslinje", "index.html")
+        self.assertIn(
+            'href="https://tekster.kb.dk/text/sks-fqa-txr-root"', page
+        )
+
     def test_every_built_page_is_self_contained_within_its_scope(self):
         for path in _built_pages(self.directory.name):
             page = self.read_from(path)
@@ -2034,11 +2046,11 @@ class PresenterTest(unittest.TestCase):
         removing one is one thing, caught everywhere.
         """
         for entry in _links_data()["links"]:
-            # A template entry's href is the declared prefix; the rendered
-            # address continues past it, so the match is open-ended there.
+            # A template or prefix entry's href is the declared prefix; the
+            # rendered address continues past it, so the match is open-ended.
             expected = (
                 'href="%s' % entry["href"]
-                if entry.get("template")
+                if entry.get("template") or entry.get("prefix")
                 else 'href="%s"' % entry["href"]
             )
             with self.subTest(link=entry["id"]):

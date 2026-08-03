@@ -228,6 +228,9 @@ def _work_blocks(publications):
             # block's date does -- several entries cover a run of numbers or a
             # serial ("25. maj - 25. september 1855").
             "period": publication["date"]["raw"],
+            # The dataset's per-entry sources travel along so the page can
+            # link a title to the SKS account of its own dating.
+            "sources": publication.get("sources") or [],
         }
         if blocks and blocks[-1]["date"] == date:
             blocks[-1]["entries"].append(entry)

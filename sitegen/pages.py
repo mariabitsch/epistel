@@ -1019,7 +1019,7 @@ def timeline_page(model, links=None):
         "folder den sig ud.",
         class_="tl-rotate",
     )
-    body += _timeline_rail(model)
+    body += _timeline_rail(model, links=links)
     body += _undated(model["undated"])
     body += _home_register(model["homes"])
     body += _dataset_note(model["meta"])
@@ -1149,7 +1149,7 @@ def _timeline_legend():
     )
 
 
-def _timeline_rail(model):
+def _timeline_rail(model, links=None):
     # No "Udgivelser" label: the works lane sits under the year, not beside
     # it, so it has no column of its own in the head. The homes span stays as
     # a hidden placeholder -- the head is auto-placed, and a missing span in
@@ -1168,7 +1168,7 @@ def _timeline_rail(model):
         class_="tl-head",
         aria_hidden="true",
     )
-    years = "".join(_timeline_year(year) for year in model["years"])
+    years = "".join(_timeline_year(year, links=links) for year in model["years"])
     return element(
         "div",
         head + years,
@@ -1177,12 +1177,12 @@ def _timeline_rail(model):
     )
 
 
-def _timeline_year(year):
+def _timeline_year(year, links=None):
     inner = element("h2", text("%d" % year["year"]), class_="tl-axis")
     inner += _homes(year["homes"])
     inner += _letters(year["letters"], year["year"])
     inner += _vague(year["vague"], year["year"])
-    inner += _works(year["works"])
+    inner += _works(year["works"], links=links)
     return element(
         "section",
         inner,
@@ -1293,7 +1293,7 @@ def _vague(marks, year):
     )
 
 
-def _works(blocks):
+def _works(blocks, links=None):
     """The publications: one block per day something came out.
 
     Three books came out on 16 October 1843 and two on 17 June 1844, so a block
@@ -1305,7 +1305,7 @@ def _works(blocks):
         return element("div", "", class_="tl-works")
     items = ""
     for block in blocks:
-        entries = "".join(_work(entry) for entry in block["entries"])
+        entries = "".join(_work(entry, links) for entry in block["entries"])
         items += element(
             "li",
             element(
@@ -1319,10 +1319,12 @@ def _works(blocks):
     return element("ol", items, class_="tl-works")
 
 
-def _work(entry):
+def _work(entry, links=None):
     pseudonym = entry["pseudonym"]
     inner = element("span", "", class_="tl-work-mark", aria_hidden="true")
-    inner += element("b", text(entry["title"]), class_="tl-work-title")
+    inner += element(
+        "b", _work_title(entry, links), class_="tl-work-title"
+    )
     inner += element(
         "span",
         "Pseudonym: %s" % text(pseudonym) if pseudonym else "Eget navn",
@@ -1338,6 +1340,36 @@ def _work(entry):
         class_="tl-work-item tl-work-item--%s"
         % ("pseudonym" if pseudonym else "signed"),
     )
+
+
+def _work_title(entry, links):
+    """The title, linked to the SKS account of its own dating when it can be.
+
+    Every publication's date follows the edition's tekstredegørelse, and the
+    dataset carries the address per entry (Maria's crediting decision,
+    2026-08-03). Only addresses under the link table's declared
+    tekster.kb.dk prefix become anchors; every other source stays named in
+    the dataset and unlinked on the page, so no page points anywhere the
+    table has not permitted.
+    """
+    permit = next(
+        (e for e in (links or {}).get("links", ()) if e["id"] == "sks-txr"),
+        None,
+    )
+    if permit:
+        href = next(
+            (
+                source.get("url")
+                for source in entry.get("sources", ())
+                if (source.get("url") or "").startswith(permit["href"])
+            ),
+            None,
+        )
+        if href:
+            return element(
+                "a", text(entry["title"]), href=href, rel=permit["rel"]
+            )
+    return text(entry["title"])
 
 
 def _undated(letters):
