@@ -53,6 +53,15 @@ FOOTER_LINKS = tuple(
 ABOUT_LINKS = FOOTER_LINKS + tuple(
     entry["href"] for entry in _DECLARED_LINKS if entry["scope"] == "om"
 )
+# Template entries declare a common prefix as their href; stripping the
+# prefix removes the scheme, which is all assert_self_contained looks for,
+# so the same mechanism covers per-letter addresses without new machinery.
+BREV_LINKS = FOOTER_LINKS + tuple(
+    entry["href"] for entry in _DECLARED_LINKS if entry["scope"] == "brev"
+)
+TIMELINE_LINKS = FOOTER_LINKS + tuple(
+    entry["href"] for entry in _DECLARED_LINKS if entry["scope"] == "tidslinje"
+)
 
 
 def assert_self_contained(case, page, allowed=FOOTER_LINKS):
@@ -739,6 +748,13 @@ class CorpusSiteBuildTest(unittest.TestCase):
         self.assertIn("B259", page)
         self.assertIn("J.L.A. Kolderup-Rosenvinge", page)
         self.assertIn('href="../../#gruppe-b259"', page)
+
+    def test_a_build_without_the_links_table_shows_no_edition_row(self):
+        # This class builds without links.json on purpose: the SKS row is
+        # an anchor and nothing but, so without the table it is absent
+        # rather than degraded to text pointing nowhere.
+        page = self.read("brev", "43", "index.html")
+        self.assertNotIn("<dt>SKS</dt>", page)
 
     def test_same_correspondence_stays_inside_the_volume(self):
         """b79 is one correspondence: all 41 letters to and from Emil Boesen.
@@ -1970,15 +1986,43 @@ class PresenterTest(unittest.TestCase):
         for parts, expected in pairs:
             self.assertIn(expected, self.read(*parts), "/".join(parts))
 
-    def test_every_built_page_is_self_contained_and_om_is_the_one_exception(self):
+    def test_a_letter_links_to_its_own_place_in_the_edition(self):
+        """Every letter page carries one quiet deep link to the annotated
+        edition (Maria's crediting decision, 2026-08-03). The address comes
+        from links.json's template entry, so the self-containment allowlist
+        and the pages move together; the scheme was verified against
+        tekster.kb.dk 2026-08-01, sub-numbers verbatim.
+        """
+        page = self.read("brev", "43", "index.html")
+        self.assertIn("<dt>SKS</dt>", page)
+        self.assertIn(
+            'href="https://tekster.kb.dk/text/sks-b43-txt-root#n43"', page
+        )
+        draft = self.read("brev", "159.1", "index.html")
+        self.assertIn(
+            'href="https://tekster.kb.dk/text/sks-b127-txt-root#n159.1"', draft
+        )
+
+    def test_a_stub_links_to_its_group_root_not_a_dead_anchor(self):
+        # The three cross-reference stubs have no #n anchor at the
+        # publisher's; they link to the group root instead of at nothing.
+        page = self.read("brev", "b171-n171a", "index.html")
+        self.assertIn(
+            'href="https://tekster.kb.dk/text/sks-b171-txt-root"', page
+        )
+        self.assertNotIn("txt-root#n-", page)
+
+    def test_every_built_page_is_self_contained_within_its_scope(self):
         for path in _built_pages(self.directory.name):
             page = self.read_from(path)
-            allowed = (
-                ABOUT_LINKS
-                if os.path.basename(os.path.dirname(path)) == "om"
-                else FOOTER_LINKS
-            )
-            with self.subTest(page=os.path.relpath(path, self.directory.name)):
+            rel = os.path.relpath(path, self.directory.name)
+            top = rel.split(os.sep)[0]
+            allowed = {
+                "om": ABOUT_LINKS,
+                "brev": BREV_LINKS,
+                "tidslinje": TIMELINE_LINKS,
+            }.get(top, FOOTER_LINKS)
+            with self.subTest(page=rel):
                 assert_self_contained(self, page, allowed)
 
     def test_every_declared_link_appears_where_its_scope_says(self):
@@ -1990,7 +2034,13 @@ class PresenterTest(unittest.TestCase):
         removing one is one thing, caught everywhere.
         """
         for entry in _links_data()["links"]:
-            expected = 'href="%s"' % entry["href"]
+            # A template entry's href is the declared prefix; the rendered
+            # address continues past it, so the match is open-ended there.
+            expected = (
+                'href="%s' % entry["href"]
+                if entry.get("template")
+                else 'href="%s"' % entry["href"]
+            )
             with self.subTest(link=entry["id"]):
                 if entry["scope"] == "footer":
                     for parts in (
@@ -1999,6 +2049,10 @@ class PresenterTest(unittest.TestCase):
                         ("om", "index.html"),
                     ):
                         self.assertIn(expected, self.read(*parts), "/".join(parts))
+                elif entry["scope"] == "brev":
+                    self.assertIn(expected, self.read("brev", "1", "index.html"))
+                elif entry["scope"] == "tidslinje":
+                    self.assertIn(expected, self.read("tidslinje", "index.html"))
                 else:
                     self.assertIn(expected, self.about)
 
@@ -2112,9 +2166,13 @@ class LinksTableTest(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)))
         self.assertEqual(len(hrefs), len(set(hrefs)))
 
-    def test_scopes_are_the_two_the_display_knows(self):
+    def test_scopes_are_the_ones_the_display_knows(self):
         for entry in self.links:
-            self.assertIn(entry["scope"], ("footer", "om"), entry["id"])
+            self.assertIn(
+                entry["scope"],
+                ("footer", "om", "brev", "tidslinje"),
+                entry["id"],
+            )
 
     def test_the_repository_link_agrees_with_the_provenance_record(self):
         recorded = load_provenance(VENDOR)

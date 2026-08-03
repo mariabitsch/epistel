@@ -103,7 +103,7 @@ def letter_page(view, previous, following, section, person_links, timeline=False
         class_="crumb",
     )
     header += element("h1", text(view["title"]))
-    header += _metadata(view, section, person_links)
+    header += _metadata(view, section, person_links, links=links)
 
     article = element("header", header)
     transcription = _transcription(view)
@@ -529,7 +529,35 @@ def _transcription(view):
     )
 
 
-def _metadata(view, section, person_links=None):
+def _edition_link(view, links):
+    """One quiet deep link to the letter's own place at the publisher's.
+
+    The address comes from the link table's template entry (Maria's
+    crediting decision, 2026-08-03): group root ``sks-{dir}-txt-root``,
+    anchor ``#n{number}`` -- the scheme verified against tekster.kb.dk
+    2026-08-01, sub-numbers verbatim. The three unnumbered stubs have no
+    anchor at the publisher's and link to the group root instead. Without
+    the table the row is simply absent: the transcription itself never
+    depended on it.
+    """
+    entry = next(
+        (e for e in (links or {}).get("links", ()) if e["id"] == "sks-letter"),
+        None,
+    )
+    if not entry or not entry.get("template"):
+        return None
+    href = entry["template"].format(
+        volume=view["volume"]["id"], number=view["number"]
+    )
+    if view["numbered"]:
+        label = "Brevet hos %s" % entry["label"]
+    else:
+        href = href.split("#", 1)[0]
+        label = "Gruppen hos %s" % entry["label"]
+    return element("a", text(label), href=href, rel=entry["rel"])
+
+
+def _metadata(view, section, person_links=None, links=None):
     """The panel above the transcription -- correspDesc, never the heading.
 
     The edition's own letter headings are a display string that is sometimes
@@ -583,6 +611,9 @@ def _metadata(view, section, person_links=None):
             ),
         )
     )
+    edition = _edition_link(view, links)
+    if edition:
+        rows.append(("SKS", edition))
     return _definition_list(rows, class_name="letter-meta")
 
 
