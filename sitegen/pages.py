@@ -1466,36 +1466,60 @@ def _dataset_note(meta):
 # ---------------------------------------------------------------------------
 
 
+# The number of automated tests the Om page claims to have behind it. It is
+# a fact about this repository, so it is written here rather than counted at
+# build time -- and a test counts the suite with unittest discovery and
+# compares it with the built page, so the sentence cannot go stale quietly.
+AUTOMATED_TESTS = 352
+
+# The figures the Om page states about the site it belongs to. Every one of
+# them is recounted from the built pages in the test suite
+# (``test_every_number_the_om_page_claims_matches_the_built_site``), because
+# a page that counts itself wrong is exactly the kind of small lie this
+# demonstration cannot afford.
+BUILT_PAGES = 638
+LETTERS = 336
+PERSON_PAGES = 298
+BIOGRAPHIES = 143
+SUMMARIES = 336
+LETTERS_ON_THE_SCALE = 326
+LETTERS_WITHOUT_A_DATE = 10
+PUBLICATIONS = 38
+RESIDENCES = 9
+
+
 def about_page(provenance=None, timeline=False, links=None):
     """What the site is, where the text comes from, and who the hostess is.
 
     Rule 5 of the build brief lives here: the demonstration has to be
     recognisable as a demonstration inside a minute, without anyone feeling
     taken in. So this page states the source and its licence, the code's
-    licence, the upstream commit the vendored files were taken at, and --
-    plainly -- that Maria Notabene is invented and that the site was built
-    with AI assistance.
+    licence, where the vendored copy came from, and -- plainly -- that Maria
+    Notabene is invented and that the site was built with AI assistance.
+
+    The text is Maria's, approved 2026-08-03, and it is hardcoded here like
+    every other page's prose: the build is offline and reads no manuscript.
+    Every claim about the world outside the letters carries a note marker
+    into the source list at the foot of the page, and every address in it
+    comes from ``data/links.json`` by id, so a build without the table keeps
+    the words and loses only the anchors.
 
     ``provenance`` is ``pipeline.provenance.load_provenance``'s dict or None.
-    Without it the page names the upstream repository but claims no pinned
-    commit: a pin the build cannot verify against the record beside the files
-    would be worse than no pin at all.
+    Without it the page still names the upstream repository -- that is the
+    project's own prose -- but drops the sentence about the release the copy
+    was taken from and the two records that back it: a chain the build cannot
+    verify against the record beside the files would be worse than none.
+    Since 2026-08-03 the commit itself is not printed here at all; it lives
+    in the technical notes, and a test holds those to ``PROVENANCE.md``.
     """
     body = element("h1", "Om")
-    body += element(
-        "p",
-        "<i>epistel</i> er en uafhængig demonstrationsvisning af Søren "
-        "Kierkegaards breve, bygget på offentligt tilgængelige TEI-filer. Den "
-        "er ikke en udgivelse fra udgiverne bag <i>Søren Kierkegaards "
-        "Skrifter</i> (SKS), og den har ingen anden autoritet end den, kilderne selv "
-        "har.",
-        class_="lead",
-    )
+    body += _about_lead(links)
+    body += _about_research()
+    body += _about_originals(provenance, links=links)
     body += _about_display()
-    body += _about_source(provenance, links=links)
-    body += _about_code()
     body += _about_presenter()
-    body += _about_people()
+    body += _about_code(links)
+    body += _about_notes(provenance, links=links)
     return _document(
         title="Om",
         main=element("div", body, class_="prose"),
@@ -1508,132 +1532,419 @@ def about_page(provenance=None, timeline=False, links=None):
     )
 
 
-def _about_display():
-    """The architecture note the brief asks for, written to be read."""
-    body = element("h2", "Projektet")
-    body += element(
-        "p",
-        "Et forsøg på at bygge en ordentlig læseoplevelse oven på en "
-        "tekstsamling, man ikke selv ejer. En automatiseret proces henter alt "
-        "på siden ud af de TEI-filer, udgaven er kodet i. Den kører én gang og "
-        "efterlader en mappe med almindelige HTML-sider. Der er ingen server, "
-        "ingen database, og siden henter ingenting, mens du læser den.",
-    )
-    body += element(
-        "p",
-        "Det er en pointe og ikke en spareøvelse. Værdien i en tekstsamling "
-        "ligger i dens rådata – de standardformaterede filer, som enhver kan "
-        "hente, læse og bygge videre på. TEI er en international standard for "
-        "kodning og annotering af tekstudgaver til videnskabelig brug. "
-        "Derfor: visningen læser fra offentligt tilgængelige "
-        "TEI-filer; visningslaget er bevidst tyndt og udskifteligt. Vil nogen "
-        "om ti år bygge noget helt andet oven på de samme filer, koster det "
-        "ikke andet end arbejdet, og brevene tager ingen skade af det. Denne "
-        "visning må gerne smides væk. Filerne må ikke.",
-    )
-    return element("section", body, id="projektet")
+def _note(number):
+    """A footnote marker: the smallest thing that can carry a source.
+
+    The markers and the list at the foot are generated from the same
+    numbering, and a test checks that neither side has an entry the other
+    does not -- a page whose sources cannot be reached is a page without
+    sources.
+    """
+    return element("sup", element("a", "%d" % number, href="#note-%d" % number))
 
 
-def _about_source(provenance, links=None):
-    """The vendored TEI: whose it is, what licence it carries, which commit."""
-    repository = (provenance or {}).get("repository")
-    body = element("h2", "Teksten")
-    body += element(
+def _about_lead(links):
+    """What this is, whose text it stands on, and what it is not.
+
+    No section wrapper and no heading: the opening belongs to the h1, the
+    way it did before this page grew sections.
+    """
+    body = element(
         "p",
-        "Brevteksterne kommer fra den TEI-kodede udgave af <i>Søren "
-        "Kierkegaards Skrifter</i>, som ligger offentligt i repositoriet "
-        + _linked(links, "upstream-repository", "kb-dk/SKS_tei", href=repository)
-        + ". Filerne er stillet til rådighed under "
+        "<i>epistel</i> er en uafhængig demonstrationsvisning af Søren "
+        "Kierkegaards breve. Den bygger på forskningsprojektet <i>Søren "
+        "Kierkegaards Skrifter</i> (SKS), som Det Kgl. Bibliotek gør "
+        "tilgængeligt to steder: som læsbar tekstsamling på "
+        + _linked(links, "publishers-edition", "tekster.kb.dk/sks")
+        + " og som rå datafiler i repositoriet "
+        + _linked(links, "upstream-repository", "kb-dk/SKS_tei")
+        + ". Datafilerne ligger under "
         + _linked(links, "cc0-deed", "CC0 1.0")
-        + " – et afkald på ophavsret, der lader hvem som helst bruge dem til "
-        "hvad som helst, også dette.",
+        + " – et fuldt afkald på ophavsret, og dermed netop den licens, der "
+        "gør et forsøg som dette muligt uden at spørge nogen om lov. "
+        "<i>epistel</i> er ikke en udgivelse fra Det Kgl. Bibliotek eller fra "
+        "udgiverne bag SKS, og visningen har ingen anden autoritet end den, "
+        "kilderne selv har.",
+        class_="lead",
+    )
+    body += element(
+        "p",
+        "Ønsket har været at bygge en engagerende læseoplevelse som et tyndt "
+        "og udskifteligt formidlingslag oven på et datalag, man ikke selv "
+        "ejer – og at gøre det billigt og vedligeholdelsesfrit. Der er ingen "
+        "server bag <i>epistel</i> og ingen database. En automatiseret proces "
+        "læser kildefilerne igennem på et halvt sekund og efterlader %d "
+        "færdige HTML-sider, som en hvilken som helst webserver kan levere. "
+        "Det er både en pointe og en spareøvelse: værdien i en tekstsamling "
+        "ligger i dens rådata, og visninger oven på dem bør være billige at "
+        "bygge, billige at drive og trygge at kassere. Vil nogen om ti år "
+        "lave noget helt andet med de samme filer, koster det kun arbejdet. "
+        "Denne visning må gerne smides væk. Originalfilerne i SKS må ikke."
+        % BUILT_PAGES,
+    )
+    body += element(
+        "p",
+        "<i>epistel</i> er lavet af én person i samarbejde med et virtuelt "
+        "team på cirka 100 AI-agenter i Claude Code over en lille uges tid – "
+        "så langt er der fra det første til det sidste commit. Mere end "
+        "halvdelen af agenterne har haft til opgave at skrive og verificere "
+        "formidlingstekster og at finde og efterprøve kilder.",
+    )
+    return body
+
+
+def _about_research():
+    """Whose work this stands on: the archive, the centre, the edition.
+
+    None of it happened here, and the page says so in that order -- the
+    papers were public for a century and a half before anyone annotated
+    them. Every date in this section carries a note marker.
+    """
+    body = element("h2", "Forskningsprojektet")
+    body += element(
+        "p",
+        "Brevene er ikke fundet på et loft. De har ligget offentligt i "
+        "halvandet århundrede: Kierkegaards efterladte papirer blev skænket "
+        "til Universitetsbiblioteket ved gavebrev af 31. maj 1875 af hans "
+        "bror, biskop P.C. Kierkegaard – biblioteket modtog manuskripterne i "
+        "juli samme år – og fulgte i 1938 med bibliotekets "
+        "håndskriftsamlinger over i Det Kgl. Bibliotek. Blandt dem er "
+        "brevene." + _note(1),
+    )
+    body += element(
+        "p",
+        "Selve annoteringen er nyere. Søren Kierkegaard Forskningscenteret "
+        "blev oprettet i 1993 (eller 1994 – kilderne er ikke enige)"
+        + _note(2)
+        + " og finansieret af Danmarks Grundforskningsfond med bevillinger "
+        "fra Kulturministeriet og Ministeriet for Videnskab, Teknologi og "
+        "Udvikling. Opgaven var en ny, tekstkritisk og annoteret udgave af "
+        "alt, hvad Kierkegaard har skrevet. I 1997 indledtes udgivelsen af "
+        "<i>Søren Kierkegaards Skrifter</i> i 55 bind – 28 tekstbind med 27 "
+        "tilhørende kommentarbind – og det sidste bind udkom i 2013."
+        + _note(3),
+    )
+    body += element(
+        "p",
+        "Det er kommentarbindene, der gør SKS-udgaven til det, den er. Her "
+        "ligger tekstredegørelserne, der gør rede for hvert enkelt skrifts "
+        "overlevering og datering, og de kommentarer, der oversætter "
+        "citaterne, opløser forkortelserne og identificerer de mennesker, "
+        "gadenavne og bogtitler, som Kierkegaard og hans brevvekslende "
+        "omgangskreds kunne nøjes med at antyde. Brevene udgør bind 28, "
+        "<i>Breve og dedikationer</i>, der udkom i 2013 og dermed sluttede "
+        "værket; redaktionen tæller Niels Jørgen Cappelørn, Joakim Garff, "
+        "Johnny Kondrup, Karsten Kynde, Tonny Aagaard Olesen og Steen "
+        "Tullberg." + _note(4) + " Det er det arbejde, alt her hviler på; "
+        "det er ikke gjort her, og det kunne ikke gøres her.",
+    )
+    body += element(
+        "p",
+        "Den digitale udgave flyttede for nylig fra forskningscenterets eget "
+        "sks.dk til Det Kgl. Biblioteks tekstportal i et samarbejde mellem de "
+        "to, og sks.dk lukkede endeligt 1. maj 2023. Visningen er ny, "
+        "datamaterialet det samme." + _note(5) + " Det er den flytning, der "
+        "har efterladt teksterne dér, hvor <i>epistel</i> kan nå dem – hos en "
+        "institution, hvis opgave er at bevare, og i et format, der kan læses "
+        "af andet end øjne.",
+    )
+    return element("section", body, id="forskningsprojektet")
+
+
+def _about_originals(provenance, links=None):
+    """The files themselves: the format, the copy, the corpus, the marks.
+
+    The provenance paragraph is the one part of the page that depends on
+    the build: with a record beside the vendored files it says where the
+    copy came from and links the two documents that spell the chain out;
+    without one it says only what can be seen -- the copy lies unchanged
+    in the project.
+    """
+    body = element("h2", "Originalteksterne")
+    body += element(
+        "p",
+        "Formatet hedder TEI, Text Encoding Initiative – retningslinjer "
+        "udviklet og vedligeholdt af et internationalt konsortium, som "
+        "biblioteker, museer, forlag og forskere siden 1994 har brugt, når en "
+        "tekstudgave skal kodes til videnskabelig brug."
+        + _note(6)
+        + " Det interessante ved TEI er ikke, at teksten bliver "
+        "maskinlæsbar – det bliver enhver tekstfil – men at <i>redaktionens "
+        "arbejde</i> bliver det. Når SKS-udgaven daterer et brev, står "
+        "dateringen i filen som en oplysning med sin egen usikkerhed og sin "
+        "egen begrundelse; når en person nævnes, står vedkommende med den "
+        "normaliserede navneform, registret bruger; når udgiverne har rettet "
+        "en skrivefejl eller opløst en forkortelse, står både det, der stod, "
+        "og det, de gjorde ved det. Materialet blev oversat til TEI fra sit "
+        "oprindelige format af Karsten Kynde med bidrag fra Sigfrid "
+        "Lundberg." + _note(7),
     )
     kept = (
-        "Kopien ligger uændret i projektet og bliver aldrig rettet; alt, hvad "
-        "visningen gør ved teksten, sker i den automatiserede proces."
+        "<i>epistel</i> læser brevene direkte fra de filer, uden mellemled og "
+        "uden rettelser. Kopien ligger uændret i projektet"
     )
-    if provenance and provenance.get("commit"):
-        # Maria's wording (korrektur 2026-07-28): a reader who does not know
-        # what a commit is still has to be able to read the sentence, so the
-        # plain words come first and the term is introduced after them.
+    if provenance:
         kept += (
-            " Kopien er hentet fra én bestemt udgivelse af teksterne – et "
-            "<i>commit</i>:"
+            ", hentet fra én bestemt udgivelse af filerne, og hvert led i "
+            "kæden fra kilde til side kan efterprøves – den er skrevet ned i "
+            "projektets "
+            + _linked(links, "provenance-record", "proveniensdokument")
+            + " og gengivet led for led i de "
+            + _linked(links, "technical-notes", "indholdstekniske noter")
+            + " i repoet."
         )
+    else:
+        kept += "."
     body += element("p", kept)
-    if provenance and provenance.get("commit"):
-        # Forty characters of hash on their own line: it is a fact to be
-        # checked rather than read, and inside a sentence it drags the
-        # punctuation around with it.
-        body += element(
-            "p", element("code", text(provenance["commit"])), class_="commit"
-        )
     body += element(
         "p",
-        "Udgaven kan også læses hos udgiverne selv på "
-        + _linked(links, "publishers-edition", "tekster.kb.dk/sks")
-        + ", hvor kommentarer, indledninger og tekstkritisk apparat er gengivet "
-        "i deres helhed. Det gør denne visning ikke.",
+        "Fjorten grupper af korrespondancer, ordnet som SKS-udgaven ordner "
+        "dem: efter modtagerkreds, fra familien over studiefællerne og Emil "
+        "Boesen til Regine Olsen, familien Lund, Rasmus Nielsen og til sidst "
+        "læserinderne. Det giver %d breve fra 1829 til 1855 – de fleste "
+        "skrevet af Kierkegaard eller til ham, enkelte mellem andre i kredsen "
+        "om ham." % LETTERS,
     )
-    return element("section", body, id="teksten")
-
-
-def _about_code():
-    body = element("h2", "Koden")
     body += element(
         "p",
-        "Generatoren er skrevet i Python uden andet end standardbiblioteket, og "
-        "siderne er HTML og CSS skrevet til lejligheden – uden frameworks. Én "
-        "lille JavaScript-fil klarer søgning og filtre. Koden er udgivet "
-        "under MIT-licensen. Kopien af "
-        "TEI-filerne beholder sin egen CC0-status: MIT gælder kun det, der er "
-        "skrevet her.",
+        "Det tekstkritiske apparat følger med teksten. På hver brevside "
+        "markerer <i>epistel</i> med tilbageholdenhed, hvad udgiverne har "
+        "gjort – rettet, tilføjet, noteret et skift til latinsk hånd – og "
+        "forklarer mærkerne i en tegnforklaring under brevet. Kommentarer, "
+        "indledninger og tekstredegørelser er derimod gengivet i deres "
+        "helhed i SKS på Det Kgl. Biblioteks tekstportal, og <i>epistel</i> "
+        "linker til den kommenterede udgave overalt.",
     )
-    return element("section", body, id="koden")
+    body += element(
+        "p",
+        "Til gengæld holder visningen fast i kildens usikkerhed. Et brev, der "
+        "kun kan dateres til en måned, står som »december 1848« og ikke som "
+        "en opdigtet dag; et brev, SKS-udgaven daterer efter poststemplet, "
+        "siger det. Brev 39 har mistet sin overskrift i kilden; det siger "
+        "resuméet ligeud, og brevsiden gengiver i stedet udgavens egen note, "
+        "»udateret [1846-47]«. Ét sted i materialet er en øvre tidsgrænse "
+        "skrevet forkert og kan ikke læses maskinelt; visningen citerer den, "
+        "som den står, i stedet for at gætte. Uvished er historisk oplysning, "
+        "ikke en fejl, der skal pyntes væk – og en visning, der glatter den "
+        "ud, fortæller mindre end kilden, ikke mere.",
+    )
+    return element("section", body, id="originalteksterne")
+
+
+def _about_display():
+    """The four things the display adds: the list, the people, the scale, her.
+
+    Every figure in here is a claim about the build the reader is looking
+    at, and every one of them is recounted from the built pages by the
+    suite.
+    """
+    body = element("h2", "Formidlingen")
+    body += element(
+        "p",
+        "Brevoversigten er visningens omdrejningspunkt. Man kan søge i den, "
+        "og man kan filtrere efter afsender, modtager og år. Søgningen kører "
+        "i browseren på et indeks, der bygges færdigt sammen med siderne, så "
+        "der ikke skal spørges nogen server om noget; den folder æ, ø og å "
+        "ud, så <i>Soren</i> finder <i>Søren</i> og <i>Kaerlighed</i> finder "
+        "<i>Kjærlighed</i>. Kontrollerne folder sig først ud, når browseren "
+        "kan drive dem; er JavaScript slået fra, vises de slet ikke, og alle "
+        "%d breve står der stadig som almindelig tekst." % LETTERS,
+    )
+    body += element(
+        "p",
+        "Persongalleriet er SKS-udgavens eget. Enhver, som SKS selv har "
+        "mærket op med navn i en brevtekst, får sin side – %d i alt – med de "
+        "breve, vedkommende har skrevet, modtaget og er nævnt i. På %d af "
+        "siderne står desuden en kort biografi skrevet ud af udgavens egen "
+        "kommentar, med henvisning til den note, den bygger på. Har "
+        "kommentaren intet at sige om personen, siger siden det i stedet for "
+        "at gætte. Det er i øvrigt her, brevene begynder at ligne noget andet "
+        "end enkeltdokumenter: Henriette Lunds side samler de fjorten breve, "
+        "hendes onkel skrev til hende – hendes fødselsdag den 12. november "
+        "vender tilbage i flere af dem – og de læses i træk som en lille "
+        "roman." % (PERSON_PAGES, BIOGRAPHIES),
+    )
+    body += element(
+        "p",
+        "Tidslinjen sætter livet op på én lineær skala fra det første "
+        "bevarede brev i 1829 til Kierkegaards død i 1855: %d breve placeret "
+        "i et år, %d uden datering, %d skrifter udgivet i hans levetid og %d "
+        "bopæle. Hvert år fylder det samme, så de tavse år fylder lige så "
+        "meget som de travle – hvilket er hele grunden til at lave sådan en."
+        % (
+            LETTERS_ON_THE_SCALE,
+            LETTERS_WITHOUT_A_DATE,
+            PUBLICATIONS,
+            RESIDENCES,
+        ),
+    )
+    body += element(
+        "p",
+        "Og så er der det lag, der egentlig var anledningen. Under hvert brev "
+        "i hver liste står to linjer om, hvad der er i det. De skal gøre det "
+        "muligt at læse sig igennem brevene som en sammenhængende tekst i "
+        "stedet for at klikke sig rundt i en atomiseret database – at vide, "
+        "hvad man går ind til, uden at få pointen røbet. De er skrevet af "
+        "%s." % text(PRESENTER),
+    )
+    return element("section", body, id="formidlingen")
 
 
 def _about_presenter():
-    """The disclosure. Plain Danish, no hedging, and no small print."""
+    """The disclosure. Plain Danish, no hedging, and no small print.
+
+    The section id is an address the front page's signature links at, so
+    it may not move. The last paragraph is the page's promise to keep
+    checking itself, and it names a number a test recounts.
+    """
     body = element("h2", text(PRESENTER))
     body += element(
         "p",
-        "%s findes ikke. Hun er opdigtet til lejligheden, i Kierkegaards egen "
-        "pseudonymtradition: et andet navn på titelbladet, som hele København "
-        "alligevel kunne regne ud. Navnet er lånt fra Nicolaus Notabene, som i "
-        "<i>Forord</i> (1844) kun måtte skrive forord, fordi hans kone "
-        "anså det for ægteskabelig utroskab at skrive bøger. Nu har konen taget "
-        "pennen, og hun skriver stadig kun forord. Fornavnet er lånt med et "
-        "blink fra hende, der har bygget siden." % text(PRESENTER),
+        "Hun var ikke planlagt. Hun voksede ud af arbejdet som et ekko af "
+        "Kierkegaards eget pseudonymgalleri: et navn på titelbladet, som hele "
+        "København alligevel kunne regne ud, hvem var. Og det skal siges rent "
+        "ud: hun findes ikke; hun er opdigtet til lejligheden.",
     )
     body += element(
         "p",
-        "Hun står for velkomsten på forsiden og for de korte resuméer i "
-        "brevoversigten. De hører ikke til udgaven, og de står aldrig oven "
-        "over selve brevteksten: når man læser brevet, skal brevet have ordet.",
+        "Fornavnet er lånt med et blink fra hende, der har bygget siden, "
+        "efternavnet fra Nicolaus Notabene, som i <i>Forord</i> (1844) kun "
+        "måtte skrive forord, fordi hans kone anså det for ægteskabelig "
+        "utroskab at skrive bøger."
+        + _note(8)
+        + " Nu har en efterkommer taget pennen, og hun skriver stadig kun "
+        "forord: forsidens velkomst er et forord, og de %d resuméer i "
+        "brevoversigten er %d små forord. Bogen skriver hun aldrig – brevene "
+        "er bogen." % (SUMMARIES, SUMMARIES),
     )
     body += element(
         "p",
-        "Resuméerne er skrevet med hjælp fra Claude (AI) efter en fastlagt "
-        "stemmebeskrivelse og derefter sendt gennem en modlæsningsrunde, hvor en "
-        "anden model havde til opgave at finde påstande, der ikke stod i brevet; "
-        "det, der blev fundet, er rettet. Fiktionen angår kun værtinden, aldrig "
-        "materialet: ingen kilde, ingen datering og ingen anekdote er fundet på.",
+        "Metafiktionen angår kun værtinden, aldrig materialet. Hun påstår "
+        "aldrig at have fundet, ejet, arvet eller reddet et eneste brev, og "
+        "hun opdigter ikke en kilde, en datering eller en anekdote. Hendes "
+        "tone er beskrevet i en stemmeguide, der ligger i projektet: moderne "
+        "rigsdansk, konkret, med citater i kildens egen retskrivning; en let "
+        "ironi, der kun må pege mod hende selv, mod tidens afstand og mod "
+        "udgivervanerne – aldrig mod brevskriverne, for der er sorg, sygdom, "
+        "gæld og døde søskende i de her breve. Og der er ét sted, hun aldrig "
+        "sidder: oven over en brevtekst. Dér har brevet ordet.",
+    )
+    body += element(
+        "p",
+        "Resuméerne og biografierne er skrevet med hjælp fra Claude (AI) "
+        "efter den stemmeguide og med en metode, der er værd at nævne, fordi "
+        "den er hele forskellen på formidling og opdigt: hver tekst er "
+        "skrevet alene på grundlag af det, den handler om – resuméet på "
+        "brevets egen tekst, biografien på udgavens kommentarnoter – og "
+        "derefter sendt gennem en modlæsningsrunde, hvor en anden model havde "
+        "én instruks: udefrakommende viden gælder ikke, og selv en sand "
+        "påstand flages, hvis den ikke står i grundlaget. Det, modlæsningen "
+        "fandt, er rettet med præcis de noter, den pegede på, og læst igennem "
+        "igen, til der ikke var flere flag. Var en biografi for lang, blev "
+        "den trimmet ved at fjerne ord, aldrig ved at skrive nye. Selve "
+        "modlæsningens rå output ligger i projektet som dokumentation.",
+    )
+    body += element(
+        "p",
+        "Og fordi det er kode, står afgørelserne ikke kun i en "
+        "hensigtserklæring: visningen har %d automatiske tests, der blandt "
+        "andet holder øje med, at det angivne commit ikke kan skride fra det, "
+        "der faktisk ligger i mappen, og at siden bliver ved med at sige de "
+        "sande ting om sig selv." % AUTOMATED_TESTS,
     )
     return element("section", body, id="notabene")
 
 
-def _about_people():
-    body = element("h2", "Personerne")
+def _about_code(links):
+    body = element("h2", "<i>epistel</i>s kildekode")
     body += element(
         "p",
-        "Personregistret er udgavens eget – hver person, udgaven selv har "
-        "mærket op med navn i en brevtekst – og de korte biografier er skrevet "
-        "ud af udgavens egen kommentar (<code>kom.xml</code>) med samme "
-        "AI-hjælp og samme modlæsning, med en henvisning under hver biografi "
-        "til den note, den bygger på. Har kommentaren ingen note om personen, "
-        "siger siden det i stedet for at gætte.",
+        "Generatoren er skrevet i Python og bruger ikke andet end "
+        "standardbiblioteket. Siderne er HTML og CSS skrevet til "
+        "lejligheden, uden frameworks, og én lille JavaScript-fil klarer "
+        "søgning og filtre. Hele kildekoden ligger offentligt på GitHub som "
+        + _linked(links, "project-repository", "mariabitsch/epistel")
+        + " under MIT-licensen: brug den, ændr den, byg noget bedre af den. "
+        "Kopien af TEI-filerne beholder sin egen CC0-status – MIT gælder kun "
+        "det, der er skrevet her.",
     )
-    return element("section", body, id="personerne")
+    body += element("p", "God fornøjelse!")
+    return element("section", body, id="kildekode")
+
+
+def _about_notes(provenance, links=None):
+    """The sources, numbered, at the foot of the page.
+
+    Everything the page asserts about the world outside the letters is
+    footnoted here, disagreements included: two sources give two founding
+    years for the research centre, and the note says so rather than
+    choosing one. The addresses are looked up by id like every other link
+    on the site, so a build without the table keeps the citations and
+    loses the anchors -- which is the right way round for a source list.
+    """
+    repository = (provenance or {}).get("repository")
+    notes = [
+        "»Ved gavebrev af 31. maj 1875 skænkede P.C. Kierkegaard papirerne "
+        "til Universitetsbiblioteket, som i juli samme år modtog "
+        "manuskripterne.« Det Kgl. Bibliotek: »Trusler og Tyvekoster – Søren "
+        "Kierkegaard-arkivet«, www2.kb.dk, bevaret i KB's eget webarkiv "
+        "(2010), "
+        + _linked(links, "kb-archived-kierkegaard-page", "wayback-01.kb.dk")
+        + ". Overførslen 1938 tillige i KB's nuværende "
+        "»Håndskriftsamlingens historie«, "
+        + _linked(links, "kb-manuscript-collection-history", "kb.dk")
+        + ". (UNESCO Memory of the World-formularen fra 1997 daterer løsere "
+        "overgangen »after the Second World War«; KB's egne to sider er "
+        "enige om 1938, og de er fulgt her.)",
+        "Oprettelsesåret 1993: Niels Jørgen Cappelørn, »Søren Kierkegaard "
+        "Forskningscenteret«, "
+        + _linked(links, "lex-research-centre", "lex.dk")
+        + ". Oprettelsesåret 1994: »den til formålet af Danmarks "
+        "Grundforskningsfond i 1994 oprettede Søren Kierkegaard "
+        "Forskningscenter«, <i>Magasin fra Det Kongelige Bibliotek</i>, "
+        + _linked(links, "magasin-research-centre", "tidsskrift.dk")
+        + ". Uenigheden gengives åbent i stedet for at vælge ét år.",
+        "Finansiering, formål, 55 bind, 1997–2013: lex.dk (jf. note 2); "
+        "fordelingen 28 tekstbind + 27 kommentarbind: Københavns "
+        "Universitet, Søren Kierkegaard Forskningscenteret, "
+        + _linked(links, "skc-department", "teol.ku.dk")
+        + ".",
+        "Bind 28/K28, <i>Breve og dedikationer</i>, 2013; »mere end 300 "
+        "breve til og fra Kierkegaard« fordelt på »14 grupper af "
+        "korrespondancer«; redaktionen: Gads Forlag, "
+        + _linked(links, "gads-volume-28", "gad.dk")
+        + ", og SKS' elektroniske udgave, "
+        + _linked(links, "sks-electronic-edition", "sks.etxt.dk")
+        + ".",
+        "»SKS flytter til Det Kgl. Bibliotek«, Københavns Universitet, "
+        + _linked(links, "skc-move-announcement", "teol.ku.dk")
+        + " – flytningen i samarbejde mellem SKC og KB; sks.dk lukkede "
+        "1. maj 2023; »visningen er ny, datamaterialet det samme«.",
+        "TEI Consortium, "
+        + _linked(links, "tei-consortium", "tei-c.org")
+        + " – Text Encoding Initiative; retningslinjerne brugt siden 1994 af "
+        "biblioteker, museer, forlag og forskere.",
+        _linked(links, "upstream-repository", "kb-dk/SKS_tei", href=repository)
+        + ", README – »translated into TEI from the original kn1 format by "
+        "Karsten Kynde with some contributions from Sigfrid Lundberg«; "
+        "repositoriets licens CC0-1.0.",
+        "»At være Forfatter, naar man er Ægtemand, siger hun, er aabenbar "
+        "Utroskab …« – Nicolaus Notabene, <i>Forord</i> (1844), i SKS på Det "
+        "Kgl. Biblioteks tekstportal, "
+        + _linked(links, "forord-text", "tekster.kb.dk")
+        + ". (Citatet i noten er parafrasens belæg; sætningen fortsætter i "
+        "kilden.)",
+    ]
+    body = element("h2", "Noter")
+    body += element(
+        "ol",
+        "".join(
+            element("li", note, id="note-%d" % number)
+            for number, note in enumerate(notes, start=1)
+        ),
+        class_="om-notes",
+    )
+    return element("section", body, id="noter")
 
 
 def _style(**values):

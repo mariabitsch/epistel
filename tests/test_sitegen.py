@@ -62,6 +62,12 @@ BREV_LINKS = FOOTER_LINKS + tuple(
 TIMELINE_LINKS = FOOTER_LINKS + tuple(
     entry["href"] for entry in _DECLARED_LINKS if entry["scope"] == "tidslinje"
 )
+# This project's own repository, read from the table like every other
+# address: the Om page links its two records (PROVENANCE.md and the
+# technical notes) as files inside it.
+PROJECT_REPOSITORY = next(
+    entry["href"] for entry in _DECLARED_LINKS if entry["id"] == "project-repository"
+)
 
 
 def assert_self_contained(case, page, allowed=FOOTER_LINKS):
@@ -1684,8 +1690,8 @@ class PresenterTest(unittest.TestCase):
 
     These tests hold the parts of that promise a build can actually check:
     that she is on the front page, that the Om page exists and names the
-    source, the licences, the pin and the AI assistance, and that the reader
-    can get there from any page.
+    source, the licences, the records behind the vendored copy and the AI
+    assistance, and that the reader can get there from any page.
     """
 
     @classmethod
@@ -1854,25 +1860,51 @@ class PresenterTest(unittest.TestCase):
         self.assertIn("demonstrationsvisning", self.about)
 
     def test_the_om_page_states_the_architecture_note(self):
+        """The thesis, in the approved text's own words (Maria, 2026-08-02).
+
+        The old page said "Det er en pointe og ikke en spareøvelse". Maria
+        ruled that out: it is both, and pretending otherwise made the page
+        sound defensive about the one thing it is proudest of.
+        """
+        self.assertIn("tyndt og udskifteligt formidlingslag", self.about)
+        self.assertIn("Det er både en pointe og en spareøvelse", self.about)
+        self.assertNotIn("ikke en spareøvelse", self.about)
         self.assertIn(
-            "visningen læser fra offentligt tilgængelige TEI-filer", self.about
+            "Denne visning må gerne smides væk. Originalfilerne i SKS må ikke.",
+            self.about,
         )
-        self.assertIn("tyndt og udskifteligt", self.about)
 
     def test_the_om_page_names_the_source_and_its_licence(self):
         self.assertIn("kb-dk/SKS_tei", self.about)
         self.assertIn("CC0", self.about)
         self.assertIn(FOOTER_LINKS[0], self.about)
 
-    def test_the_om_page_pins_the_commit_the_files_were_taken_at(self):
-        """The reader is told the same commit the provenance file records.
+    def test_the_om_page_points_at_the_records_instead_of_printing_the_commit(self):
+        """The chain is linked to, not recited (Maria's ruling, 2026-08-03).
 
-        Not a constant in the generator: the page is built from
-        ``data/vendor/PROVENANCE.md``, so the two cannot drift apart.
+        The page used to print the forty-character commit hash. It now
+        sends the reader to the two documents that carry it -- the
+        provenance record beside the vendored files and the technical
+        notes in the repo -- because a hash on a prose page is a fact
+        nobody can check *here* anyway, and the page reads better without
+        it. The weakening is acceptable exactly because the build still
+        verifies: ``ProvenanceTest`` holds the notes' commit against
+        ``PROVENANCE.md``, and the repository address the page links still
+        comes from the record rather than from the links table.
         """
         recorded = self.read_from(VENDOR, "PROVENANCE.md")
         self.assertIn(self.provenance["commit"], recorded)
-        self.assertIn(self.provenance["commit"], self.about)
+        self.assertNotIn(self.provenance["commit"], self.about)
+        self.assertIn("proveniensdokument", self.about)
+        self.assertIn("indholdstekniske noter", self.about)
+        self.assertIn(
+            'href="%s/blob/main/data/vendor/PROVENANCE.md"' % PROJECT_REPOSITORY,
+            self.about,
+        )
+        self.assertIn(
+            'href="%s/blob/main/docs/indholdstekniske-noter.md"' % PROJECT_REPOSITORY,
+            self.about,
+        )
 
     def test_the_om_page_sends_the_reader_to_the_publishers_own_edition(self):
         self.assertIn("tekster.kb.dk/sks", self.about)
@@ -1887,21 +1919,31 @@ class PresenterTest(unittest.TestCase):
         self.assertIn("pseudonym", disclosure)
         self.assertIn("Claude", disclosure)
 
-    def test_the_om_page_introduces_its_three_pieces_of_jargon(self):
-        """TEI, SKS and commit are explained, not assumed (korrektur, 2026-07-28).
+    def test_the_presenter_is_a_descendant_and_no_longer_the_wife(self):
+        """Maria's ruling (2026-08-03): "en efterkommer", not "konen".
+
+        Nicolaus Notabene's wife is a character in a book from 1844; a
+        presenter writing in 2026 cannot be her without the fiction
+        reaching into the material, which is the one thing it may never
+        do. "En efterkommer" keeps the inheritance and drops the claim --
+        and, like the rest of her prose, it leaves the comic *Forord*
+        joke felt rather than named.
+        """
+        disclosure = self.about.split('id="notabene"', 1)[1]
+        self.assertIn("Nu har en efterkommer taget pennen", disclosure)
+        self.assertNotIn("Nu har konen taget pennen", disclosure)
+
+    def test_the_om_page_introduces_the_jargon_it_cannot_avoid(self):
+        """TEI and SKS are explained, not assumed (korrektur, 2026-07-28).
 
         The page is read by people deciding whether to believe it, not by
-        people who already know what a TEI file or a commit is. The words
-        stay -- they are the honest names for the things -- but each one
-        arrives with the plain Danish that says what it means. SKS joined
-        them when the rest of the site started naming the edition by its
-        initials (item 31): the expansion has to live somewhere, and this
-        is the page a reader comes to for it.
+        people who already know what a TEI file is. The words stay -- they
+        are the honest names for the things -- but each one arrives with
+        the plain Danish that says what it means. "Commit" left the page
+        with the hash (2026-08-03), so it no longer needs unfolding here.
         """
-        self.assertIn("TEI er en international standard", self.about)
-        self.assertIn("tekstudgaver til videnskabelig brug", self.about)
-        self.assertIn("én bestemt udgivelse af teksterne", self.about)
-        self.assertIn("<i>commit</i>", self.about)
+        self.assertIn("Formatet hedder TEI, Text Encoding Initiative", self.about)
+        self.assertIn("kodes til videnskabelig brug", self.about)
         self.assertIn("<i>Søren Kierkegaards Skrifter</i> (SKS)", self.about)
 
     def test_the_edition_speaks_under_its_own_name_away_from_this_page(self):
@@ -1947,7 +1989,7 @@ class PresenterTest(unittest.TestCase):
         letter: every resumé on it comes after the letter's own text.
         """
         disclosure = self.about.split('id="notabene"', 1)[1]
-        self.assertIn("aldrig oven over selve brevteksten", disclosure)
+        self.assertIn("ét sted, hun aldrig sidder: oven over en brevtekst", disclosure)
         self.assertNotIn("brevenes egne sider", disclosure)
 
         letter = self.read("brev", "1", "index.html")
@@ -1961,16 +2003,150 @@ class PresenterTest(unittest.TestCase):
             self.assertGreater(position, transcription)
 
     def test_the_om_page_explains_where_the_biographies_come_from(self):
-        self.assertIn("kommentar", self.about)
-        self.assertIn("kom.xml", self.about)
+        """The filename left the page with the rest of the machinery.
 
-    def test_a_build_without_a_provenance_record_claims_no_pin(self):
-        """No record, no pin: the page says what it can vouch for and no more."""
+        The approved text (2026-08-03) says where a biography comes from in
+        words a reader can act on -- the edition's own commentary notes,
+        cited under each biography -- instead of naming ``kom.xml``, which
+        now lives in the technical notes the page links.
+        """
+        self.assertIn("biografien på udgavens kommentarnoter", self.about)
+        self.assertIn("med henvisning til den note, den bygger på", self.about)
+
+    def test_a_build_without_a_provenance_record_claims_nothing_it_cannot_show(self):
+        """No record, no claim about one -- the page keeps only what is true.
+
+        Since 2026-08-03 the page prints no commit at all; what it does
+        claim is that the copy came from one particular release of the
+        files and that the chain is written down in the project's
+        provenance document. A build with no ``PROVENANCE.md`` beside the
+        files cannot vouch for either, so both the sentence and its two
+        links go, and the paragraph keeps the part that is still true: the
+        copy lies unchanged in the project. The repository is still named,
+        because that is the project's own prose.
+        """
         with tempfile.TemporaryDirectory() as other:
             build_site(self.volumes, other, context=self.context)
             about = self.read_from(other, "om", "index.html")
             self.assertIn("kb-dk/SKS_tei", about)
+            self.assertIn("Kopien ligger uændret i projektet", about)
             self.assertNotIn(self.provenance["commit"], about)
+            self.assertNotIn("hentet fra én bestemt udgivelse af filerne", about)
+            self.assertNotIn("proveniensdokument", about)
+
+    def test_the_om_page_carries_its_sources_as_numbered_notes(self):
+        """Every claim about the outside world is footnoted, and the notes work.
+
+        The text makes eight statements no reader can check against the
+        letters -- when the papers were given away, when the research
+        centre was founded, who edited volume 28 -- and each carries a
+        marker into the note list at the foot of the page. Markers and
+        notes are generated from the same numbering, so a note without a
+        marker (or the other way round) is a broken page, not a detail.
+        """
+        markers = re.findall(r'<sup><a href="#note-(\d+)">(\d+)</a></sup>', self.about)
+        notes = re.findall(r'<li id="note-(\d+)">', self.about)
+        self.assertEqual([str(number) for number in range(1, 9)], notes)
+        self.assertEqual(set(notes), {href for href, _ in markers})
+        for href, label in markers:
+            self.assertEqual(href, label, "the marker shows a number it does not go to")
+
+    def test_the_om_pages_sections_keep_the_anchors_that_are_linked_to(self):
+        """Section ids are addresses other pages and readers already hold.
+
+        ``#notabene`` is the one that must never move: the front page's
+        signature links straight at it (held by
+        ``test_her_signature_is_the_link_to_her_story``). The rest are the
+        approved text's own sections, kept as anchors so a reader can send
+        someone the paragraph rather than the page.
+        """
+        for anchor in (
+            "forskningsprojektet",
+            "originalteksterne",
+            "formidlingen",
+            "notabene",
+            "kildekode",
+            "noter",
+        ):
+            self.assertIn('id="%s"' % anchor, self.about)
+
+    def test_every_number_the_om_page_claims_matches_the_built_site(self):
+        """The page counts the site it belongs to; the test recounts it.
+
+        Nine figures in the text are claims about this build -- pages,
+        letters, groups, person pages, biographies, summaries and the
+        timeline's four. Each sentence here is assembled from a fresh
+        count of what the build actually wrote, so a corpus or a dataset
+        that grows breaks the sentence loudly instead of leaving the page
+        quietly wrong. It is the same standard the text sets for itself:
+        the page keeps saying true things about itself.
+        """
+        root = self.directory.name
+        timeline = self.read("tidslinje", "index.html")
+        undated = timeline.split('class="tl-undated-list"', 1)[1].split("</ul>", 1)[0]
+        persons = sorted(os.listdir(os.path.join(root, "person")))
+        biographies = sum(
+            1
+            for slug in persons
+            if 'class="person-bio"' in self.read("person", slug, "index.html")
+        )
+        pages = len(_built_pages(root))
+        letters = len(os.listdir(os.path.join(root, "brev")))
+        summaries = self.index.count('class="letter-summary"')
+        placed = timeline.count('class="tl-letter tl-letter--') + timeline.count(
+            'class="tl-vague-item"'
+        )
+        claims = (
+            "efterlader %d færdige HTML-sider" % pages,
+            "Det giver %d breve fra 1829 til 1855" % letters,
+            "alle %d breve står der stadig som almindelig tekst" % letters,
+            "får sin side – %d i alt" % len(persons),
+            "På %d af siderne står desuden en kort biografi" % biographies,
+            "de %d resuméer i brevoversigten er %d små forord" % (summaries, summaries),
+            "%d breve placeret i et år, %d uden datering, %d skrifter udgivet i "
+            "hans levetid og %d bopæle"
+            % (
+                placed,
+                undated.count("<li"),
+                timeline.count('class="tl-work-item'),
+                timeline.count('class="tl-home-period"'),
+            ),
+        )
+        for claim in claims:
+            self.assertIn(claim, self.about)
+        # The fourteen groups are spelled out in the prose, so the figure
+        # is checked against the build and the word against the page.
+        self.assertEqual(14, self.result["volumes"])
+        self.assertIn("Fjorten grupper af korrespondancer", self.about)
+
+    def test_the_om_page_reports_the_true_number_of_automated_tests(self):
+        """The page's boast, counted rather than believed.
+
+        "siden bliver ved med at sige de sande ting om sig selv" is the
+        text's own promise, and it is made in a sentence that names a
+        number of tests -- so the number comes from unittest discovery
+        over this repository. Adding a test now fails this one until the
+        sentence is updated, which is the cheapest way to keep a boast
+        from going stale in silence.
+        """
+        counted = unittest.defaultTestLoader.discover(REPO_ROOT).countTestCases()
+        self.assertIn("visningen har %d automatiske tests" % counted, self.about)
+        # The technical notes the page links make the same claim, in the
+        # same repository, and would otherwise go stale on their own.
+        notes_path = os.path.join(REPO_ROOT, "docs", "indholdstekniske-noter.md")
+        with open(notes_path, encoding="utf-8") as file:
+            self.assertRegex(file.read(), r"%d\s+automatiske test" % counted)
+
+    def test_the_om_page_keeps_the_sites_danish_dashes(self):
+        """En dashes, like every other Danish string the site renders.
+
+        The approved manuscript was typed with em dashes; they were
+        converted on the way into the generator, because the korrektur of
+        2026-07-28 settled the site's Danish punctuation and
+        ``DanishEmDashesTest`` holds the datasets to it. This holds the
+        longest page of prose on the site to the same rule.
+        """
+        self.assertNotIn("—", self.about)
 
     # -- the site around them ---------------------------------------------
 

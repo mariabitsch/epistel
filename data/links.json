@@ -28,6 +28,110 @@
       "scope": "om"
     },
     {
+      "id": "project-repository",
+      "href": "https://github.com/mariabitsch/epistel",
+      "label": "mariabitsch/epistel",
+      "rel": "external",
+      "scope": "om",
+      "note": "Denne visnings egen kildekode, MIT-licenseret. Om-siden inviterer til at bygge videre; så skal adressen med."
+    },
+    {
+      "id": "provenance-record",
+      "href": "https://github.com/mariabitsch/epistel/blob/main/data/vendor/PROVENANCE.md",
+      "label": "proveniensdokument",
+      "rel": "external",
+      "scope": "om",
+      "note": "Optegnelsen ved siden af de vendorerede filer: hentemønster, pinned commit og sha256 pr. fil. Om-siden viser ikke længere selve commit'et, men peger hertil (Marias dom 2026-08-03); byggeprocessen efterprøver stadig optegnelsen."
+    },
+    {
+      "id": "technical-notes",
+      "href": "https://github.com/mariabitsch/epistel/blob/main/docs/indholdstekniske-noter.md",
+      "label": "indholdstekniske noter",
+      "rel": "external",
+      "scope": "om",
+      "note": "Om-sidens tekniske bagside i repoet: kæden fra kilde til side, led for led, inklusive commit-angivelsen."
+    },
+    {
+      "id": "kb-archived-kierkegaard-page",
+      "href": "http://wayback-01.kb.dk/wayback/20100504132726/http://www2.kb.dk/elib/mss/tt/mow/kierkegaard.htm",
+      "label": "wayback-01.kb.dk",
+      "rel": "external",
+      "scope": "om",
+      "note": "Belæg for gavebrevet af 31. maj 1875 (note 1). Den oprindelige side på www2.kb.dk findes ikke længere; KB's eget webarkiv har den fra 2010, og det er derfor adressen står som et arkivopslag."
+    },
+    {
+      "id": "kb-manuscript-collection-history",
+      "href": "https://www.kb.dk/en/find-materials/collections/manuscript-collection/history-manuscript-collection",
+      "label": "kb.dk",
+      "rel": "external",
+      "scope": "om",
+      "note": "Belæg for overførslen i 1938 (note 1) – KB's nuværende »Håndskriftsamlingens historie«."
+    },
+    {
+      "id": "lex-research-centre",
+      "href": "https://lex.dk/Søren_Kierkegaard_Forskningscenteret",
+      "label": "lex.dk",
+      "rel": "external",
+      "scope": "om",
+      "note": "Cappelørns opslag: oprettelsesåret 1993, finansieringen, de 55 bind og årene 1997–2013 (note 2 og 3)."
+    },
+    {
+      "id": "magasin-research-centre",
+      "href": "https://tidsskrift.dk/magasin/article/view/66771",
+      "label": "tidsskrift.dk",
+      "rel": "external",
+      "scope": "om",
+      "note": "Magasin fra Det Kongelige Bibliotek, der skriver 1994 (note 2). Uenigheden om oprettelsesåret gengives åbent i stedet for at vælge."
+    },
+    {
+      "id": "skc-department",
+      "href": "https://teol.ku.dk/skc/sks/",
+      "label": "teol.ku.dk",
+      "rel": "external",
+      "scope": "om",
+      "note": "Københavns Universitets side om SKS: fordelingen 28 tekstbind + 27 kommentarbind (note 3)."
+    },
+    {
+      "id": "skc-move-announcement",
+      "href": "https://teol.ku.dk/skc/sks/sks-flytter-til-det-kgl.-bibliotek/",
+      "label": "teol.ku.dk",
+      "rel": "external",
+      "scope": "om",
+      "note": "Meddelelsen om flytningen fra sks.dk til Det Kgl. Biblioteks tekstportal, 1. maj 2023 (note 5)."
+    },
+    {
+      "id": "gads-volume-28",
+      "href": "https://gad.dk/sks-bind28-og-k28",
+      "label": "gad.dk",
+      "rel": "external",
+      "scope": "om",
+      "note": "Forlagets side om bind 28/K28: »14 grupper af korrespondancer« og redaktionens navne (note 4)."
+    },
+    {
+      "id": "sks-electronic-edition",
+      "href": "https://sks.etxt.dk/forside/bd.htm",
+      "label": "sks.etxt.dk",
+      "rel": "external",
+      "scope": "om",
+      "note": "SKS' elektroniske bindoversigt, brugt som andet belæg for bind 28's indhold og redaktion (note 4)."
+    },
+    {
+      "id": "tei-consortium",
+      "href": "https://tei-c.org/",
+      "label": "tei-c.org",
+      "rel": "external",
+      "scope": "om",
+      "note": "TEI Consortium – retningslinjerne selv, bag formatet hele visningen læser (note 6)."
+    },
+    {
+      "id": "forord-text",
+      "href": "https://tekster.kb.dk/text/sks-f-txt-root",
+      "label": "tekster.kb.dk",
+      "rel": "external",
+      "scope": "om",
+      "note": "Nicolaus Notabenes Forord (1844) hos udgiveren: belægget for citatet om ægteskabelig utroskab (note 8). Værtindens efternavn kommer herfra, så teksten skal kunne slås efter."
+    },
+    {
       "id": "sks-letter",
       "href": "https://tekster.kb.dk/text/",
       "template": "https://tekster.kb.dk/text/sks-{volume}-txt-root#n{number}",
