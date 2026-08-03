@@ -210,7 +210,7 @@ def _book(volume, context):
     """One volume, as the index and the letter pages need it."""
     identity = {
         "id": volume["volume"],
-        "anchor": "bind-%s" % volume["volume"],
+        "anchor": "gruppe-%s" % volume["volume"],
         "shortTitle": volume["shortTitle"] or volume["volume"].upper(),
         "title": volume["title"] or "Uden titel",
     }

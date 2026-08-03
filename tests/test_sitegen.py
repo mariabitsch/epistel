@@ -673,18 +673,24 @@ class CorpusSiteBuildTest(unittest.TestCase):
     # -- the index at corpus scale ---------------------------------------
 
     def test_the_index_is_grouped_by_volume(self):
+        # Maria's ruling (2026-08-03): the fourteen divisions are called
+        # "grupper" everywhere the reader meets them -- the edition's own
+        # word (Gads: "14 grupper af korrespondancer"); "bind" was wrong,
+        # the letters are one volume of SKS (28). Old #bind-* anchors die
+        # with the rename, accepted at the demo stage.
         for anchor, title in (
-            ("bind-b1", "Familien Kierkegaard"),
-            ("bind-b79", "Emil Boesen"),
-            ("bind-b308", "Læserinder"),
+            ("gruppe-b1", "Familien Kierkegaard"),
+            ("gruppe-b79", "Emil Boesen"),
+            ("gruppe-b308", "Læserinder"),
         ):
             self.assertIn('id="%s"' % anchor, self.index)
             self.assertIn(title, self.index)
 
     def test_a_volume_navigation_links_every_volume(self):
         self.assertIn('class="volume-nav"', self.index)
+        self.assertIn('aria-label="Grupper"', self.index)
         for volume in self.volumes:
-            self.assertIn('href="#bind-%s"' % volume["volume"], self.index)
+            self.assertIn('href="#gruppe-%s"' % volume["volume"], self.index)
 
     def test_correspondence_anchors_are_unique_across_volumes(self):
         # correspContext1 exists in all fourteen files; the index has to keep
@@ -698,7 +704,7 @@ class CorpusSiteBuildTest(unittest.TestCase):
         lead = re.search(r'<p class="lead">(.*?)</p>', self.index, re.S).group(1)
         self.assertIn("søgbar visning", lead)
         self.assertIn("336 breve", lead)
-        self.assertIn("14 bind", lead)
+        self.assertIn("14 grupper", lead)
         self.assertIn("<i>Søren Kierkegaards Skrifter</i>", lead)
 
     def test_the_index_still_hangs_each_correspondence_in_its_band(self):
@@ -726,11 +732,13 @@ class CorpusSiteBuildTest(unittest.TestCase):
         self.assertIn('href="../159/"', page)
         self.assertIn('href="../159.2/"', page)
 
-    def test_a_letter_names_the_volume_it_was_printed_in(self):
+    def test_a_letter_names_the_group_it_belongs_to(self):
         page = self.read("brev", "262", "index.html")
+        self.assertIn("<dt>Gruppe</dt>", page)
+        self.assertNotIn("<dt>Bind</dt>", page)
         self.assertIn("B259", page)
         self.assertIn("J.L.A. Kolderup-Rosenvinge", page)
-        self.assertIn('href="../../#bind-b259"', page)
+        self.assertIn('href="../../#gruppe-b259"', page)
 
     def test_same_correspondence_stays_inside_the_volume(self):
         """b79 is one correspondence: all 41 letters to and from Emil Boesen.
