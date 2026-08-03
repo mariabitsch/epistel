@@ -35,6 +35,15 @@
       "rel": "external",
       "scope": "brev",
       "note": "Dybt link pr. brev til den kommenterede udgave. Skemaet efterprøvet mod tekster.kb.dk 2026-08-01: alle 14 gruppe-rødder svarer 200, ankrene er brevnumrene ordret, delnumre (159.1 osv.) inklusive. Stubbene (n=»-«) har intet anker hos udgiveren og linker til gruppens rod uden fragment."
+    },
+    {
+      "id": "sks-txr",
+      "href": "https://tekster.kb.dk/text/sks-",
+      "prefix": true,
+      "label": "tekster.kb.dk",
+      "rel": "external",
+      "scope": "tidslinje",
+      "note": "Tilladelses-præfiks for udgivelsernes links til deres tekstredegørelser. Adresserne står pr. post i data/context/publications.json (sources[].url); tidslinjen linker kun adresser under præfikset og lader alle andre kilder stå som tekst."
     }
   ]
 }
