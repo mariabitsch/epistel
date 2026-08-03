@@ -2154,6 +2154,22 @@ class ProvenanceTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as empty:
             self.assertIsNone(load_provenance(empty))
 
+    def test_the_technical_notes_pin_the_same_commit_as_the_record(self):
+        """docs/indholdstekniske-noter.md cannot drift from PROVENANCE.md.
+
+        Maria's ruling (2026-08-03): the Om page no longer shows the pinned
+        commit itself -- the technical notes in the repo do, and the page
+        links there. The weakening is acceptable exactly because the build
+        still verifies: this test holds the notes' commit to the record
+        beside the files, the same guarantee the page used to carry.
+        """
+        recorded = load_provenance(VENDOR)
+        notes_path = os.path.join(REPO_ROOT, "docs", "indholdstekniske-noter.md")
+        with open(notes_path, encoding="utf-8") as file:
+            notes = file.read()
+        self.assertIn(recorded["commit"], notes)
+        self.assertIn(recorded["repository"].rsplit("/", 1)[-1], notes)
+
 
 def _built_pages(root):
     """Every HTML page the build wrote, in a stable order."""
