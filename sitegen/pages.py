@@ -345,7 +345,7 @@ def _volume_navigation(books):
         "nav",
         element("ol", items, class_="volume-list"),
         class_="volume-nav",
-        aria_label="Bind",
+        aria_label="Grupper",
     )
 
 
@@ -565,12 +565,14 @@ def _metadata(view, section, person_links=None):
                 ),
             )
         )
-    # Which of the edition's volumes printed this letter -- the reader's way
-    # back into the index at the right place.
+    # Which of the edition's correspondence groups the letter belongs to --
+    # the reader's way back into the index at the right place. "Gruppe" is
+    # the edition's own word (Maria, 2026-08-03); "Bind" was wrong, the
+    # letters are one volume of SKS (28).
     volume = view["volume"]
     rows.append(
         (
-            "Bind",
+            "Gruppe",
             element(
                 "a",
                 "%s – %s" % (text(volume["shortTitle"]), text(volume["title"])),
@@ -1644,7 +1646,12 @@ def _letter_count(count):
 
 
 def _volume_count(count):
-    return "%d bind" % count
+    # "Gruppe" is the edition's own word for the fourteen divisions of the
+    # letters (Gads: "14 grupper af korrespondancer"); the letters together
+    # are one volume of SKS, 28 -- so "bind" said something false here.
+    # Singular matters: a partial build of one directory must describe
+    # itself truthfully too (see _intro's docstring).
+    return "%d gruppe" % count if count == 1 else "%d grupper" % count
 
 
 def _document(
