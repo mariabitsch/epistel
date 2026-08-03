@@ -5,7 +5,8 @@
   "notFromTEI": true,
   "generator": "Claude Opus 5 (skrivning), Claude Sonnet (adversarial efterkontrol), reparationsrunde med nul resterende flag",
   "grounding": "hvert resumé er belagt i brevets egen tekst (plain_text af parserens body)",
-  "generated": "2026-07-27/28"
+  "generated": "2026-07-27/28",
+  "stubGrounding": "De tre krydshenvisningsposter i b171 (xmlId n171a, n176a, na; @n=\"-\") har intet brevtekst-legeme; SKS trykker teksten under Brev 193 (Carls linjer på bagsiden af Sophies blad, bl. [1r]/[1v]) og Brev 194 (Jettes og Wilhelms). Deres resuméer er belagt i netop de to breves tekst og peger derhen. Tilføjet 2026-08-03 (Claude Fable 5, citater efterprøvet ordret mod plain_text af Brev 193/194 i samme session)."
  },
  "summaries": [
   {
@@ -1090,6 +1091,12 @@
   },
   {
    "volume": "b171",
+   "xmlId": "n171a",
+   "id": "-",
+   "summary": "Brevet findes – det står bare på bagsiden af Sophies ark. Under Brev 193 svarer onklen Carl, som »ikke noksom« kan takke for de to bøger, han har fået."
+  },
+  {
+   "volume": "b171",
    "xmlId": "n172",
    "id": "172",
    "summary": "Carls brev var kort, og Søren driller: sømmer det sig for et fornuftvæsen, »der gaar i Trøie og Buxer«? Selv fortæller han om sin nye støvlepudser, der ligner den gamle på en prik, men er langt mere omhyggelig."
@@ -1117,6 +1124,18 @@
    "xmlId": "n176",
    "id": "176",
    "summary": "I stedet for en gave fra Königstraße – pakker overlever sjældent posten – får Jette et brev på papir med tre berlinske bygninger i rammen. Så kan hun rejse i Berlin hjemme i dagligstuen og se den uhyre stenkumme foran museet."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "n176a",
+   "id": "-",
+   "summary": "Jettes brev deler nummer med Wilhelms: det læses under Brev 194, hvor onklen tilgiver hendes tavshed og glæder sig over, at det lille tørklæde er »nydeligt«."
+  },
+  {
+   "volume": "b171",
+   "xmlId": "na",
+   "id": "-",
+   "summary": "Wilhelms svar kom uventet og »desaarsag ingenlunde mindre kjært«: hans del af Brev 194 udnævner ham til dux og bemyndiger ham til at hilse Christian, Peder og Ferdinand – gerne opstillet i geled."
   },
   {
    "volume": "b171",

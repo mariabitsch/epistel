@@ -1494,7 +1494,7 @@ class SummaryTest(unittest.TestCase):
     where a presenter gets in the way, and there the letter has the word.
     """
 
-    SUMMARIES = 333
+    SUMMARIES = 336
     STUBS = ("b171-n171a", "b171-n176a", "b171-na")
 
     @classmethod
@@ -1608,12 +1608,24 @@ class SummaryTest(unittest.TestCase):
         self.assertIn("snustobaksdåse i afskedsgave", current)
         self.assertNotIn("<a ", current)
 
-    def test_a_letter_with_no_summary_is_given_none(self):
-        # The three cross-reference stubs in b171 print no text, so there is
-        # nothing to summarise and nothing is invented.
-        for slug in self.STUBS:
+    def test_the_cross_reference_stubs_carry_pointing_summaries(self):
+        """Maria's ruling (2026-08-02): the stubs get resumés after all.
+
+        The three b171 stubs are the edition's cross-references: the letter
+        exists, printed under another letter's number (Carl's on the verso
+        of Sophie's sheet as Brev 193; Jette's and Wilhelm's under Brev 194).
+        Notabene's resumé points at the right door instead of standing
+        silent -- grounded in the letters where SKS prints the text, not
+        invented. With these three, every letter row carries a resumé.
+        """
+        for slug, fragment in (
+            ("b171-n171a", "bagsiden af Sophies ark"),
+            ("b171-n176a", "deler nummer med Wilhelms"),
+            ("b171-na", "dux"),
+        ):
             entry = self.index.split('data-slug="%s"' % slug, 1)[1].split("</li>", 1)[0]
-            self.assertNotIn("letter-summary", entry)
+            self.assertIn("letter-summary", entry)
+            self.assertIn(fragment, entry)
 
     def test_the_index_says_whose_voice_the_summaries_are(self):
         """Maria's own lead (2026-07-29) introduces the pseudonym outright.
@@ -1649,7 +1661,7 @@ class SummaryTest(unittest.TestCase):
 class PresenterTest(unittest.TestCase):
     """The one invented thing on the site, and the page that owns up to it.
 
-    Maria Notabene writes the front page's welcome and the 333 summaries. The
+    Maria Notabene writes the front page's welcome and the 336 summaries. The
     site's honesty rests on two things being true at once: she is the only
     fiction here -- no invented source, date or anecdote anywhere -- and the
     page that says so is one click away from her, in plain Danish.

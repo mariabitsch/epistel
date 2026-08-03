@@ -497,8 +497,11 @@ def _summary(view):
     presenter is welcome, and she is marked as one. Every row of a list
     carries its resumé -- the current letter's included (Maria's second
     revision, same day) -- but she never sits *above* a transcription:
-    there the letter speaks for itself. The three letters the edition
-    prints as bare cross-references have no summary, and get none.
+    there the letter speaks for itself. Even the three letters the edition
+    prints as bare cross-references carry one (Maria, 2026-08-02): the
+    letter exists, printed under another letter's number, and the resumé
+    points at the right door -- grounded in Brev 193/194, where SKS prints
+    the text (see summaries.json's _meta.stubGrounding).
     """
     if not view["summary"]:
         return ""
