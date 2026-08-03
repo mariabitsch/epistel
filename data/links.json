@@ -2,7 +2,7 @@
   "_meta": {
     "description": "De eksterne adresser, det byggede site må pege på – og de eneste. Både sidegeneratoren og testsuiten læser denne fil: ændres eller fjernes et link her, følger siderne med, og en side, der peger på en adresse, som ikke står her, fejler i tests. At tilføje et link kræver også et sted at vise det (pages.py slår op pr. id); dækningstesten siger til, hvis et konfigureret link ingen steder vises.",
     "notFromTEI": true,
-    "scopes": "\"footer\" vises i foden på alle sider; \"om\" vises kun på Om-siden (oven i fodens links).",
+    "scopes": "\"footer\" vises i foden på alle sider; \"om\" vises kun på Om-siden (oven i fodens links); \"brev\" vises på hver brevside. Poster med et template-felt dannes pr. side: href er da fællespræfikset, som selvcontainment-testene afleder tilladelsen af.",
     "note": "upstream-repository skal stemme overens med repository-linjen i data/vendor/PROVENANCE.md – en test håndhæver det. Selve siden foretrækker altid den adresse, PROVENANCE.md faktisk optegner."
   },
   "links": [
@@ -26,6 +26,15 @@
       "label": "tekster.kb.dk/sks",
       "rel": "external",
       "scope": "om"
+    },
+    {
+      "id": "sks-letter",
+      "href": "https://tekster.kb.dk/text/",
+      "template": "https://tekster.kb.dk/text/sks-{volume}-txt-root#n{number}",
+      "label": "tekster.kb.dk",
+      "rel": "external",
+      "scope": "brev",
+      "note": "Dybt link pr. brev til den kommenterede udgave. Skemaet efterprøvet mod tekster.kb.dk 2026-08-01: alle 14 gruppe-rødder svarer 200, ankrene er brevnumrene ordret, delnumre (159.1 osv.) inklusive. Stubbene (n=»-«) har intet anker hos udgiveren og linker til gruppens rod uden fragment."
     }
   ]
 }
