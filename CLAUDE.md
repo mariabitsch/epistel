@@ -26,10 +26,14 @@ Notabene's foreword, set in the letters' frame.
 - **Stack is Python 3 stdlib only** (ElementTree, unittest) + hand-written
   HTML/CSS + one vanilla-JS file. No pip, no CDNs, no frameworks. Keep it
   defensibly boring.
-- Workflow (demo-light, Maria's standing go): atomic commits directly to
-  main, no issue/PR machinery. Tests required where the thesis lives — the
-  pipeline — and for display behavior that encodes a decision. New TEI
-  elements are modelled test-first; text is never dropped silently.
+- Workflow (public-repo, Maria 2026-08-03; supersedes the demo-light
+  direct-to-main rule from before the site went public): atomic commits on
+  a feature branch → PR → Netlify deploy preview → Maria reviews the built
+  site → merge to main, which deploys. Change and verification notes belong
+  in the PR body, in the repo — never on the website. Still no issue
+  machinery. Tests required where the thesis lives — the pipeline — and for
+  display behavior that encodes a decision. New TEI elements are modelled
+  test-first; text is never dropped silently.
 - Languages: UI Danish; code, comments, commits, developer docs English.
   Exception: `docs/notabene.md` is Danish on purpose — it *is* the voice.
 - Commits are co-authored by the models that did the work (e.g.
