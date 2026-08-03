@@ -20,6 +20,11 @@ do nothing.
 from .html import classes, element, text
 
 SITE_TITLE = "epistel"
+
+# What the pages are about, for the browser tab and the search result --
+# every <title> except the letters' carries it, because "Personer ❖ epistel"
+# says nothing to anyone outside the site (Maria's SEO ruling, 2026-08-03).
+CORPUS_TITLE = "Søren Kierkegaards breve"
 SITE_TAGLINE = "demonstrationsvisning"
 
 # Where each page type sits, and what it takes to get back to the root.
@@ -83,7 +88,7 @@ def index_page(books, facets, timeline=False, links=None):
     body += _volume_navigation(books)
     body += "".join(_book(book) for book in books)
     return _document(
-        title="Breve",
+        title=CORPUS_TITLE,
         main=body,
         root=INDEX_TO_ROOT,
         description="Søren Kierkegaards %s i %s, vist fra offentlige TEI-filer."
@@ -112,11 +117,20 @@ def letter_page(view, previous, following, section, person_links, timeline=False
     article += _same_correspondence(view, section)
 
     return _document(
-        title=view["title"],
+        # The letter's own names go in the title; the description holds the
+        # rest -- date first, then the resumé when this build wrote one.
+        title="%s: %s til %s"
+        % (view["title"], view["sender"], view["recipient"]),
         main=element("article", article, class_="letter"),
         root=LETTER_TO_ROOT,
-        description="%s: fra %s til %s, %s."
-        % (view["title"], view["sender"], view["recipient"], view["date_text"]),
+        description="%s, %s til %s, %s.%s"
+        % (
+            view["title"],
+            view["sender"],
+            view["recipient"],
+            view["date_text"],
+            " %s" % view["summary"] if view["summary"] else "",
+        ),
         timeline=timeline,
         here=INDEX_NAV,
         links=links,
@@ -749,7 +763,7 @@ def person_index_page(groups, register, timeline=False, links=None):
     body += _letter_navigation(groups)
     body += "".join(_person_group(group) for group in groups)
     return _document(
-        title="Personer",
+        title="Personer – %s" % CORPUS_TITLE,
         main=body,
         root=PERSON_INDEX_TO_ROOT,
         description="%s, som Søren Kierkegaards breve nævner ved navn."
@@ -853,7 +867,7 @@ def person_page(person, timeline=False, links=None):
         "Breve, hvor navnet står i selve brevteksten.",
     )
     return _document(
-        title=person["name"],
+        title="%s – %s" % (person["name"], CORPUS_TITLE),
         main=element("article", article, class_="person"),
         root=PERSON_TO_ROOT,
         description="%s i Søren Kierkegaards breve: %s."
@@ -1029,7 +1043,7 @@ def timeline_page(model, links=None):
     body += _home_register(model["homes"])
     body += _dataset_note(model["meta"])
     return _document(
-        title="Tidslinje",
+        title="Tidslinje – %s" % CORPUS_TITLE,
         main=body,
         root=TIMELINE_TO_ROOT,
         description="Søren Kierkegaards %s, %d skrifter og %d bopæle på én "
@@ -1475,7 +1489,7 @@ def _dataset_note(meta):
 # a fact about this repository, so it is written here rather than counted at
 # build time -- and a test counts the suite with unittest discovery and
 # compares it with the built page, so the sentence cannot go stale quietly.
-AUTOMATED_TESTS = 352
+AUTOMATED_TESTS = 356
 
 # The figures the Om page states about the site it belongs to. Every one of
 # them is recounted from the built pages in the test suite
@@ -1526,7 +1540,7 @@ def about_page(provenance=None, timeline=False, links=None):
     body += _about_code(links)
     body += _about_notes(provenance, links=links)
     return _document(
-        title="Om",
+        title="Om – %s" % CORPUS_TITLE,
         main=element("div", body, class_="prose"),
         root=ABOUT_TO_ROOT,
         description="Hvad epistel er, hvor teksten kommer fra, hvilke licenser "
@@ -2053,12 +2067,27 @@ def _document(
     scripts=(),
     links=None,
 ):
-    """The shell every page shares."""
+    """The shell every page shares.
+
+    The <title> and the social metadata are the page's face away from the
+    site (Maria's SEO ruling, 2026-08-03): the title must say what the page
+    is with no context -- letters name their correspondents, every other
+    page names the corpus -- and ❖ separates page from site in the tab.
+    Open Graph carries the same strings and nothing more: og:url and
+    og:image demand an absolute address, and the built output stays
+    host-agnostic on purpose, so they are deliberately absent.
+    """
     head = (
         element("meta", charset="utf-8")
         + element("meta", name="viewport", content="width=device-width, initial-scale=1")
         + element("meta", name="description", content=description)
-        + element("title", "%s · %s" % (text(title), SITE_TITLE))
+        + element("title", "%s ❖ %s" % (text(title), SITE_TITLE))
+        + element("meta", property="og:title", content=title)
+        + element("meta", property="og:description", content=description)
+        + element("meta", property="og:type", content="website")
+        + element("meta", property="og:site_name", content=SITE_TITLE)
+        + element("meta", property="og:locale", content="da_DK")
+        + element("meta", name="twitter:card", content="summary")
         + element("link", rel="stylesheet", href="%sassets/site.css" % root)
         # Maria's icon set, declared relatively like every other address
         # on the site; the files sit at the root (see site._copy_static).

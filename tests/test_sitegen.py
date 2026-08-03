@@ -2170,6 +2170,73 @@ class PresenterTest(unittest.TestCase):
         for parts, expected in pairs:
             self.assertIn(expected, self.read(*parts), "/".join(parts))
 
+    def test_titles_name_kierkegaard_for_the_world(self):
+        """Maria's SEO ruling (2026-08-03): a title must say what the page
+        is without the site as context -- letters carry their own names,
+        every other page carries the corpus. ❖ separates page from site in
+        the browser tab only; no visible content changes.
+        """
+        pairs = (
+            (
+                ("index.html",),
+                "<title>Søren Kierkegaards breve ❖ epistel</title>",
+            ),
+            (
+                ("brev", "1", "index.html"),
+                "<title>Brev 1: Søren Kierkegaard til P.C. Kierkegaard"
+                " ❖ epistel</title>",
+            ),
+            (
+                ("personer", "index.html"),
+                "<title>Personer – Søren Kierkegaards breve ❖ epistel</title>",
+            ),
+            (
+                ("tidslinje", "index.html"),
+                "<title>Tidslinje – Søren Kierkegaards breve ❖ epistel</title>",
+            ),
+            (
+                ("om", "index.html"),
+                "<title>Om – Søren Kierkegaards breve ❖ epistel</title>",
+            ),
+            (
+                ("person", "kierkegaard-peter-christian", "index.html"),
+                "<title>Peter Christian Kierkegaard – Søren Kierkegaards"
+                " breve ❖ epistel</title>",
+            ),
+        )
+        for parts, expected in pairs:
+            self.assertIn(expected, self.read(*parts), "/".join(parts))
+
+    def test_a_letter_description_carries_the_details(self):
+        # The title now holds the names, so the description holds the rest:
+        # date first, then the resumé when this build wrote one.
+        page = self.read("brev", "1", "index.html")
+        self.assertIn(
+            'name="description" content="Brev 1, Søren Kierkegaard til '
+            "P.C. Kierkegaard, 8. marts 1829. Søren bruger den første "
+            "halve side",
+            page,
+        )
+
+    def test_social_metadata_is_present_and_host_agnostic(self):
+        # Open Graph without og:url and og:image: both demand an absolute
+        # address, and the built output stays host-agnostic on purpose.
+        for parts in (("index.html",), ("brev", "1", "index.html")):
+            page = self.read(*parts)
+            self.assertIn('property="og:title"', page)
+            self.assertIn('property="og:description"', page)
+            self.assertIn('property="og:type" content="website"', page)
+            self.assertIn('property="og:site_name" content="epistel"', page)
+            self.assertIn('property="og:locale" content="da_DK"', page)
+            self.assertIn('name="twitter:card" content="summary"', page)
+            self.assertNotIn("og:url", page)
+            self.assertNotIn("og:image", page)
+
+    def test_robots_are_welcome(self):
+        robots = self.read("robots.txt")
+        self.assertIn("User-agent: *", robots)
+        self.assertIn("Allow: /", robots)
+
     def test_a_letter_links_to_its_own_place_in_the_edition(self):
         """Every letter page carries one quiet deep link to the annotated
         edition (Maria's crediting decision, 2026-08-03). The address comes

@@ -1,0 +1,3 @@
+# epistel - alle sider er offentlige og statiske.
+User-agent: *
+Allow: /
