@@ -223,7 +223,9 @@ test-held.
 ## Explicitly out of scope
 
 CMS, user accounts, editing, annotations, analytics, server components,
-runtime API calls, facsimile viewing beyond the vendored `ill_*.jpg`.
+runtime API calls, facsimile viewing (the TEI references ~30 `ill_*.jpg`
+illustrations via `@facs`/commentary figures, but no images are vendored
+or displayed).
 
 ---
 
