@@ -58,6 +58,7 @@ class ExportTest(unittest.TestCase):
             provenance=cls.provenance,
             context_dir=CONTEXT,
             files=load_file_record(VENDOR),
+            vendor_dir=VENDOR,
         )
 
     @classmethod
@@ -168,7 +169,8 @@ class ExportTest(unittest.TestCase):
         index = _read_json(self.out, "volumes.json")
         for volume in index["volumes"]:
             source = volume["source"]
-            self.assertEqual(sorted(source), ["kom.xml", "txt.xml"], volume["volume"])
+            # Every volume has its two TEI files; most also record images.
+            self.assertLessEqual({"kom.xml", "txt.xml"}, set(source), volume["volume"])
             for filename, entry in source.items():
                 recorded = record["%s/%s" % (volume["volume"], filename)]
                 self.assertEqual(entry["path"], recorded["path"])
@@ -208,6 +210,7 @@ class ExportTest(unittest.TestCase):
                 provenance=self.provenance,
                 context_dir=CONTEXT,
                 files=load_file_record(VENDOR),
+                vendor_dir=VENDOR,
             )
             self.assertEqual(_tree(self.out), _tree(again))
         finally:

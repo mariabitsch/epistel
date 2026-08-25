@@ -12,7 +12,7 @@ cheap to build, cheap to run, and safe to throw away.
 **State:** live at <https://epistel-demo.netlify.app/> (public repo
 mariabitsch/epistel; every push to main deploys). 638 static pages — 336
 letter pages, 298 person pages (143 with bios), index with facets +
-client-side search, `/tidslinje/`, `/personer/`, `/om/`. 386 tests green
+client-side search, `/tidslinje/`, `/personer/`, `/om/`. 390 tests green
 (that number is machine-guarded; see Working here). The front page opens
 with a factual lead (Maria's own text) and Maria Notabene's foreword, set
 in the letters' frame. Since 2026-08-25 the corpus is also published as
@@ -93,7 +93,10 @@ Guarantees the next team inherits (all tested):
 ## Data layers
 
 **`data/vendor/`** — 15 directories (14 `b*` letter volumes + `ded`), each
-with `txt.xml` + `kom.xml`, fetched pinned to upstream commit
+with `txt.xml` + `kom.xml`, plus the corpus volumes' 38 `ill_*.jpg`
+illustrations and the two shared `vignet/` files the letters reference
+(vendored 2026-08-25; upstream has no full-page letter scans — this is
+everything). All fetched pinned to upstream commit
 `27a6b110c24e97b381e010595b50f3ca3d4ca8c9`, sha256 per file in
 `PROVENANCE.md`. Never edit; never fetch from `master`; do not clone the
 upstream repo (~190 MB). `ded` is vendored but excluded from the corpus
@@ -160,7 +163,12 @@ datasets the same way; the method is what matters.
   co-signers (letters 3, 29–32); occasional missing whitespace between
   elements ("Cand:Theol:"); letter 1's "Hel<pb/>sing\ør," duplication (the
   file's only backslash); 759 commentary refs whose cross-volume targets
-  use uppercase dirs, 18 pointing at non-vendored journal volumes.
+  use uppercase dirs, 18 pointing at non-vendored journal volumes — and
+  two `graphic` urls with the same uppercase quirk (`../B120/ill_31.jpg`,
+  `ill_32`): preserved verbatim, resolved case-insensitively. One image
+  reference is dangling upstream: b241/249's `facs="../b241/ill_k15.jpg"`
+  (404 at the pin; the file exists as `ded/ill_k15.jpg`) — preserved
+  verbatim, pinned as the only one by the export's tests.
 
 ## Design & voice — binding principles
 
@@ -254,9 +262,9 @@ test-held.
 ## Explicitly out of scope
 
 CMS, user accounts, editing, annotations, analytics, server components,
-runtime API calls, facsimile viewing (the TEI references ~30 `ill_*.jpg`
-illustrations via `@facs`/commentary figures, but no images are vendored
-or displayed).
+runtime API calls, facsimile viewing on the *site* (the source's
+`ill_*.jpg` illustrations are vendored and travel with the export, where
+their TEI references resolve — but the site still displays none of them).
 
 ---
 
