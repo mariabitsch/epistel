@@ -1,5 +1,5 @@
 {
- "schemaVersion": "0.1.0",
+ "schemaVersion": "0.2.0",
  "language": "da",
  "source": {
   "repository": "https://github.com/kb-dk/SKS_tei",
@@ -52,5 +52,10 @@
    "license": null,
    "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
   }
+ },
+ "schemas": {
+  "letter": "schema/letter.schema.json",
+  "manifest": "schema/manifest.schema.json",
+  "volumes": "schema/volumes.schema.json"
  }
 }

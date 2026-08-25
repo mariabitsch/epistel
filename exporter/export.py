@@ -41,8 +41,9 @@ import shutil
 from .body import render_body
 
 # Bumped when the shape of the export changes. Consumers pin releases; this
-# number is what a release tag promises.
-SCHEMA_VERSION = "0.1.0"
+# number is what a release tag promises. 0.2.0: the schemas joined the
+# export (schema/ + the manifest's "schemas" field) — additive.
+SCHEMA_VERSION = "0.2.0"
 
 # SPDX identifiers. The vendor-derived layers inherit the edition's CC0.
 CC0 = "CC0-1.0"
@@ -110,11 +111,12 @@ def export_data(volumes, out_dir, provenance=None, context_dir=None, files=None)
             letters += 1
 
     context_layers = _copy_context(context_dir, out_dir)
+    schemas = _copy_schemas(out_dir)
 
     _write(os.path.join(out_dir, "volumes.json"), _volume_index(volumes, files))
     _write(
         os.path.join(out_dir, "manifest.json"),
-        _manifest(volumes, letters, provenance, context_layers),
+        _manifest(volumes, letters, provenance, context_layers, schemas),
     )
     return {
         "letters": letters,
@@ -204,7 +206,28 @@ def _volume_source(volume_name, files):
     return source or None
 
 
-def _manifest(volumes, letters, provenance, context_layers):
+def _copy_schemas(out_dir):
+    """Publish the JSON Schemas (draft-07) with the data they describe.
+
+    The source of truth is ``exporter/schemas/``; the copies land in
+    ``schema/`` and the manifest points at them, so a consumer holds data
+    and contract in the same download. Returns ``{name: relative path}``.
+    """
+    source_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "schemas")
+    schema_dir = os.path.join(out_dir, "schema")
+    os.makedirs(schema_dir)
+    schemas = {}
+    for name in sorted(os.listdir(source_dir)):
+        if not name.endswith(".schema.json"):
+            continue
+        shutil.copyfile(
+            os.path.join(source_dir, name), os.path.join(schema_dir, name)
+        )
+        schemas[name[: -len(".schema.json")]] = "schema/%s" % name
+    return schemas
+
+
+def _manifest(volumes, letters, provenance, context_layers, schemas):
     layers = {
         "letters": {"path": "letters/", "count": letters, "license": CC0},
         "volumes": {
@@ -219,6 +242,7 @@ def _manifest(volumes, letters, provenance, context_layers):
         "language": LANGUAGE,
         "source": provenance,
         "layers": layers,
+        "schemas": schemas,
     }
 
 

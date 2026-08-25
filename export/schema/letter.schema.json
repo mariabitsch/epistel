@@ -1,0 +1,100 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "epistel letter envelope",
+ "description": "One letter's metadata, exactly as the edition's TEI preserves it: raw correspondent names, dates with their uncertainty intact, nothing repaired. See docs/export-format.md.",
+ "type": "object",
+ "required": ["volume", "xmlId", "number", "heading", "sender", "recipient", "context", "body"],
+ "additionalProperties": false,
+ "properties": {
+  "volume": {"type": "string", "pattern": "^b[0-9]+$"},
+  "xmlId": {"type": "string", "minLength": 1},
+  "number": {
+   "type": "string",
+   "minLength": 1,
+   "description": "The edition's letter number; '-' for the three unnumbered b171 stubs."
+  },
+  "heading": {
+   "type": ["string", "null"],
+   "description": "The edition's own heading, verbatim; null or broken where the source lost it."
+  },
+  "sender": {"$ref": "#/definitions/correspondent"},
+  "recipient": {"$ref": "#/definitions/correspondent"},
+  "context": {
+   "type": "object",
+   "required": ["groupId", "sameAs", "notes"],
+   "additionalProperties": false,
+   "properties": {
+    "groupId": {"type": ["string", "null"]},
+    "sameAs": {"type": ["string", "null"]},
+    "notes": {"type": "array", "items": {"type": "string"}}
+   }
+  },
+  "body": {
+   "type": "string",
+   "pattern": "\\.html$",
+   "description": "Filename of the sidecar transcription fragment, next to this file."
+  }
+ },
+ "definitions": {
+  "correspondent": {
+   "description": "null when the edition records no such correspAction at all: a missing sender stays visibly missing.",
+   "anyOf": [
+    {"type": "null"},
+    {
+     "type": "object",
+     "required": ["name", "date", "place", "note"],
+     "additionalProperties": false,
+     "properties": {
+      "name": {"type": ["string", "null"], "description": "Raw string as the edition wrote it; no resolution."},
+      "date": {"anyOf": [{"type": "null"}, {"$ref": "#/definitions/date"}]},
+      "place": {
+       "anyOf": [
+        {"type": "null"},
+        {
+         "type": "object",
+         "required": ["name", "key"],
+         "additionalProperties": false,
+         "properties": {
+          "name": {"type": ["string", "null"]},
+          "key": {"type": ["string", "null"]}
+         }
+        }
+       ]
+      },
+      "note": {"type": ["string", "null"]}
+     }
+    }
+   ]
+  },
+  "dateValue": {
+   "type": "object",
+   "required": ["raw", "iso", "precision", "year", "month", "day"],
+   "additionalProperties": false,
+   "properties": {
+    "raw": {"type": ["string", "null"], "description": "The source string, kept even when unreadable."},
+    "iso": {"type": ["string", "null"], "description": "Derived reading, truncated to the real precision; null when raw is unreadable."},
+    "precision": {"enum": ["year", "month", "day", null]},
+    "year": {"type": ["integer", "null"]},
+    "month": {"type": ["integer", "null"]},
+    "day": {"type": ["integer", "null"]}
+   }
+  },
+  "date": {
+   "type": "object",
+   "required": ["raw", "iso", "precision", "year", "month", "day", "notBefore", "notAfter", "source", "text"],
+   "additionalProperties": false,
+   "properties": {
+    "raw": {"type": ["string", "null"]},
+    "iso": {"type": ["string", "null"]},
+    "precision": {"enum": ["year", "month", "day", null]},
+    "year": {"type": ["integer", "null"]},
+    "month": {"type": ["integer", "null"]},
+    "day": {"type": ["integer", "null"]},
+    "notBefore": {"anyOf": [{"type": "null"}, {"$ref": "#/definitions/dateValue"}]},
+    "notAfter": {"anyOf": [{"type": "null"}, {"$ref": "#/definitions/dateValue"}]},
+    "source": {"type": ["string", "null"], "description": "How the edition established the date (e.g. a postmark)."},
+    "text": {"type": ["string", "null"]}
+   }
+  }
+ }
+}

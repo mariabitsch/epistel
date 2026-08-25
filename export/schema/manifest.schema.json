@@ -1,0 +1,63 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "epistel export manifest",
+ "description": "What this export contains: schema version, source provenance, a license per layer, and where the schemas live. See docs/export-format.md.",
+ "type": "object",
+ "required": ["schemaVersion", "language", "source", "layers", "schemas"],
+ "additionalProperties": false,
+ "properties": {
+  "schemaVersion": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+  "language": {"type": "string"},
+  "source": {
+   "description": "The pinned upstream provenance; null when no record exists (an unverifiable pin would be worse than none).",
+   "anyOf": [
+    {"type": "null"},
+    {
+     "type": "object",
+     "required": ["repository", "commit"],
+     "additionalProperties": false,
+     "properties": {
+      "repository": {"type": "string"},
+      "commit": {"type": "string", "pattern": "^[0-9a-f]{7,40}$"}
+     }
+    }
+   ]
+  },
+  "layers": {
+   "type": "object",
+   "required": ["letters", "volumes"],
+   "properties": {
+    "letters": {"$ref": "#/definitions/vendorLayer"},
+    "volumes": {"$ref": "#/definitions/vendorLayer"}
+   },
+   "additionalProperties": {"$ref": "#/definitions/editorialLayer"}
+  },
+  "schemas": {
+   "type": "object",
+   "additionalProperties": {"type": "string", "pattern": "\\.schema\\.json$"}
+  }
+ },
+ "definitions": {
+  "vendorLayer": {
+   "type": "object",
+   "required": ["path", "count", "license"],
+   "additionalProperties": false,
+   "properties": {
+    "path": {"type": "string"},
+    "count": {"type": "integer", "minimum": 0},
+    "license": {"type": "string", "description": "SPDX identifier; the TEI-derived layers inherit CC0-1.0."}
+   }
+  },
+  "editorialLayer": {
+   "type": "object",
+   "required": ["path", "count", "license"],
+   "additionalProperties": false,
+   "properties": {
+    "path": {"type": "string"},
+    "count": {"type": "integer", "minimum": 0},
+    "license": {"type": ["string", "null"], "description": "SPDX identifier, or null while the choice is pending."},
+    "licenseNote": {"type": "string"}
+   }
+  }
+ }
+}
