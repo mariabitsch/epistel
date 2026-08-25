@@ -1,0 +1,36 @@
+{
+ "volume": "b120",
+ "xmlId": "n123",
+ "number": "123",
+ "heading": "Fra SK · 31. okt. 1844 · til Det Kongelige Bibliotek",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18441031",
+   "iso": "1844-10-31",
+   "precision": "day",
+   "year": 1844,
+   "month": 10,
+   "day": 31,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kongelige Bibliotek, Det",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext4",
+  "sameAs": null,
+  "notes": [
+   "Det Kongelige Bibliotek"
+  ]
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "volume": "b1",
+ "xmlId": "n17",
+ "number": "17",
+ "heading": "Fra SK · udateret [19. maj 1847] · til P.C. Kierkegaard",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18470519",
+   "iso": "1847-05-19",
+   "precision": "day",
+   "year": 1847,
+   "month": 5,
+   "day": 19,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kierkegaard, P.C.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "volume": "b1",
+ "xmlId": "n39",
+ "number": "39",
+ "heading": "· til familien",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18460000",
+   "iso": "1846",
+   "precision": "year",
+   "year": 1846,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18470000",
+    "iso": "1847",
+    "precision": "year",
+    "year": 1847,
+    "month": null,
+    "day": null
+   },
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": "· udateret [1846-47]"
+ },
+ "recipient": {
+  "name": "Kierkegaard, familien",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext7",
+  "sameAs": null,
+  "notes": [
+   "Vedrørende gravstedet"
+  ]
+ }
+}

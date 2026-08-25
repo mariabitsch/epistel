@@ -1,0 +1,41 @@
+{
+ "volume": "b79",
+ "xmlId": "n99",
+ "number": "99",
+ "heading": "Fra SK · udateret [1844-48] · til Emil Boesen",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18440000",
+   "iso": "1844",
+   "precision": "year",
+   "year": 1844,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18480000",
+    "iso": "1848",
+    "precision": "year",
+    "year": 1848,
+    "month": null,
+    "day": null
+   },
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Boesen, Emil",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "volume": "b208",
+ "xmlId": "n209",
+ "number": "209",
+ "heading": "Fra SK · udateret [aug. 1844] · til J.F. Giødwad",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18440800",
+   "iso": "1844-08",
+   "precision": "month",
+   "year": 1844,
+   "month": 8,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Giødwad, J.F.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext2",
+  "sameAs": null,
+  "notes": [
+   "J.F. Giødwad"
+  ]
+ }
+}

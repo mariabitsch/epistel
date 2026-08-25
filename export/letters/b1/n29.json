@@ -1,0 +1,36 @@
+{
+ "volume": "b1",
+ "xmlId": "n29",
+ "number": "29",
+ "heading": "Fra Else P. Kierkegaard · 4. sept. 1838 · til P.C. Kierkegaard og SK",
+ "sender": {
+  "name": "Kierkegaard, Else P.",
+  "date": {
+   "raw": "18380904",
+   "iso": "1838-09-04",
+   "precision": "day",
+   "year": 1838,
+   "month": 9,
+   "day": 4,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kierkegaard, P.C.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext4",
+  "sameAs": null,
+  "notes": [
+   "Else Pedersdatter Kierkegaard"
+  ]
+ }
+}

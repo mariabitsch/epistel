@@ -1,0 +1,34 @@
+{
+ "volume": "b171",
+ "xmlId": "n180",
+ "number": "180",
+ "heading": "Fra SK · 23. april 1846 · til Henriette Lund",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18460423",
+   "iso": "1846-04-23",
+   "precision": "day",
+   "year": 1846,
+   "month": 4,
+   "day": 23,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Lund, Henriette",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext2",
+  "sameAs": "#correspContext2",
+  "notes": []
+ }
+}

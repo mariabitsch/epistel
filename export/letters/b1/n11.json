@@ -1,0 +1,41 @@
+{
+ "volume": "b1",
+ "xmlId": "n11",
+ "number": "11",
+ "heading": "Fra SK · udateret [16. eller 17. maj 1844] · til P.C. Kierkegaard",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18440516",
+   "iso": "1844-05-16",
+   "precision": "day",
+   "year": 1844,
+   "month": 5,
+   "day": 16,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18440517",
+    "iso": "1844-05-17",
+    "precision": "day",
+    "year": 1844,
+    "month": 5,
+    "day": 17
+   },
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kierkegaard, P.C.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

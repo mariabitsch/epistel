@@ -1,0 +1,43 @@
+{
+ "volume": "b241",
+ "xmlId": "n243",
+ "number": "243",
+ "heading": "Fra C.R. · udateret [1845-50] · til SK",
+ "sender": {
+  "name": "C.R.",
+  "date": {
+   "raw": "18450000",
+   "iso": "1845",
+   "precision": "year",
+   "year": 1845,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18500000",
+    "iso": "1850",
+    "precision": "year",
+    "year": 1850,
+    "month": null,
+    "day": null
+   },
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext3",
+  "sameAs": null,
+  "notes": [
+   "C.R."
+  ]
+ }
+}

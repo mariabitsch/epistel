@@ -1,0 +1,36 @@
+{
+ "volume": "b241",
+ "xmlId": "n254",
+ "number": "254",
+ "heading": "Fra SK · udateret [april 1852] · til Jonas Collin d.æ.",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18520400",
+   "iso": "1852-04",
+   "precision": "month",
+   "year": 1852,
+   "month": 4,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Collin, Jonas",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext13",
+  "sameAs": null,
+  "notes": [
+   "Jonas Collin"
+  ]
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "volume": "b208",
+ "xmlId": "n232",
+ "number": "232",
+ "heading": "Fra SK · 19. juli 1855 · til C.F. Reitzel",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18550719",
+   "iso": "1855-07-19",
+   "precision": "day",
+   "year": 1855,
+   "month": 7,
+   "day": 19,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Reitzel, C.F.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext9",
+  "sameAs": null,
+  "notes": [
+   "C.F. Reitzel"
+  ]
+ }
+}

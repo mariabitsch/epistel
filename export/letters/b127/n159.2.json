@@ -1,0 +1,29 @@
+{
+ "volume": "b127",
+ "xmlId": "n159.2",
+ "number": "159.2",
+ "heading": "Udkast til Brev 159",
+ "sender": {
+  "name": null,
+  "date": {
+   "raw": "18491100",
+   "iso": "1849-11",
+   "precision": "month",
+   "year": 1849,
+   "month": 11,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": "Udkast til Brev 159"
+ },
+ "recipient": null,
+ "context": {
+  "groupId": "correspContext2",
+  "sameAs": "#correspContext2",
+  "notes": []
+ }
+}

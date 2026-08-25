@@ -1,0 +1,36 @@
+{
+ "volume": "b241",
+ "xmlId": "n245",
+ "number": "245",
+ "heading": "Fra Magnús Eiríksson · 14. okt. 1847 · til SK",
+ "sender": {
+  "name": "Eiríksson, Magnús",
+  "date": {
+   "raw": "18471014",
+   "iso": "1847-10-14",
+   "precision": "day",
+   "year": 1847,
+   "month": 10,
+   "day": 14,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext5",
+  "sameAs": null,
+  "notes": [
+   "Magnús Eiríksson"
+  ]
+ }
+}

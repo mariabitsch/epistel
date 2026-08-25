@@ -1,0 +1,36 @@
+{
+ "volume": "b308",
+ "xmlId": "n315",
+ "number": "315",
+ "heading": "Fra Petronella Ross · 12. juli 1851 · til SK",
+ "sender": {
+  "name": "Ross, Petronella",
+  "date": {
+   "raw": "18510712",
+   "iso": "1851-07-12",
+   "precision": "day",
+   "year": 1851,
+   "month": 7,
+   "day": 12,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext5",
+  "sameAs": null,
+  "notes": [
+   "Petronella Ross"
+  ]
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "volume": "b70",
+ "xmlId": "n71",
+ "number": "71",
+ "heading": "Fra SK · 28. juli 1838 · til J.L. Heiberg",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18380728",
+   "iso": "1838-07-28",
+   "precision": "day",
+   "year": 1838,
+   "month": 7,
+   "day": 28,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Heiberg, J.L.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

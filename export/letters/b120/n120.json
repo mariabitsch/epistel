@@ -1,0 +1,36 @@
+{
+ "volume": "b120",
+ "xmlId": "n120",
+ "number": "120",
+ "heading": "Fra SK · udateret [sept. 1838] · til F. Fabricius",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18380900",
+   "iso": "1838-09",
+   "precision": "month",
+   "year": 1838,
+   "month": 9,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Fabricius, F.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": null,
+  "notes": [
+   "F. Fabricius"
+  ]
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "volume": "b241",
+ "xmlId": "n255",
+ "number": "255",
+ "heading": "Fra SK · udateret [april 1852] · til A.S. Ørsted",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18520400",
+   "iso": "1852-04",
+   "precision": "month",
+   "year": 1852,
+   "month": 4,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Ørsted, A.S.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext14",
+  "sameAs": null,
+  "notes": [
+   "A.S. Ørsted"
+  ]
+ }
+}

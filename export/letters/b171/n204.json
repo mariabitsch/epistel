@@ -1,0 +1,34 @@
+{
+ "volume": "b171",
+ "xmlId": "n204",
+ "number": "204",
+ "heading": "Fra Henrik Lund · 24. dec. 1850 · til SK",
+ "sender": {
+  "name": "Lund, Henrik",
+  "date": {
+   "raw": "18501224",
+   "iso": "1850-12-24",
+   "precision": "day",
+   "year": 1850,
+   "month": 12,
+   "day": 24,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext7",
+  "sameAs": "#correspContext7",
+  "notes": []
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "volume": "b127",
+ "xmlId": "n159",
+ "number": "159",
+ "heading": "Fra SK · udateret [19. nov. 1849] · til Johan Frederik og Regine Schlegel",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18491119",
+   "iso": "1849-11-19",
+   "precision": "day",
+   "year": 1849,
+   "month": 11,
+   "day": 19,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Schlegel, J.F. og Regine",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext2",
+  "sameAs": null,
+  "notes": [
+   "Johan Frederik Schlegel og Regine Schlegel"
+  ]
+ }
+}

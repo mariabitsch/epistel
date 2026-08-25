@@ -1,0 +1,41 @@
+{
+ "volume": "b259",
+ "xmlId": "n270",
+ "number": "270",
+ "heading": "Fra SK · udateret [sept.-okt. 1848] · til J.L.A. Kolderup-Rosenvinge",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18480900",
+   "iso": "1848-09",
+   "precision": "month",
+   "year": 1848,
+   "month": 9,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18481000",
+    "iso": "1848-10",
+    "precision": "month",
+    "year": 1848,
+    "month": 10,
+    "day": null
+   },
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kolderup-Rosenvinge, J.L.A.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

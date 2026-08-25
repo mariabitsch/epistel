@@ -1,0 +1,36 @@
+{
+ "volume": "b79",
+ "xmlId": "n79",
+ "number": "79",
+ "heading": "Fra SK · 17. juli [1838] · til Emil Boesen",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18380717",
+   "iso": "1838-07-17",
+   "precision": "day",
+   "year": 1838,
+   "month": 7,
+   "day": 17,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "suppliedYear",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Boesen, Emil",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": null,
+  "notes": [
+   "Emil Boesen"
+  ]
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "volume": "b43",
+ "xmlId": "n66",
+ "number": "66",
+ "heading": "Fra SK · udateret [dec. 1849] · til P.M. Stilling",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18491200",
+   "iso": "1849-12",
+   "precision": "month",
+   "year": 1849,
+   "month": 12,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Stilling, P.M.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext10",
+  "sameAs": null,
+  "notes": [
+   "P.M. Stilling"
+  ]
+ }
+}

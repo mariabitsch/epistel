@@ -1,0 +1,34 @@
+{
+ "volume": "b127",
+ "xmlId": "n160",
+ "number": "160",
+ "heading": " Testamentarisk bestemmelse · nov. 1849",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18491100",
+   "iso": "1849-11",
+   "precision": "month",
+   "year": 1849,
+   "month": 11,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": "Testamentarisk bestemmelse · nov. 1849"
+ },
+ "recipient": {
+  "name": "Olsen, Regine",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext2",
+  "sameAs": "#correspContext2",
+  "notes": []
+ }
+}

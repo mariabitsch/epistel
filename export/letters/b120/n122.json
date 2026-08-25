@@ -1,0 +1,36 @@
+{
+ "volume": "b120",
+ "xmlId": "n122",
+ "number": "122",
+ "heading": "Fra SK · 2. juni 1841 · til kong Christian VIII",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18410602",
+   "iso": "1841-06-02",
+   "precision": "day",
+   "year": 1841,
+   "month": 6,
+   "day": 2,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Christian VIII, konge",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext3",
+  "sameAs": null,
+  "notes": [
+   "Kong Christian VIII"
+  ]
+ }
+}

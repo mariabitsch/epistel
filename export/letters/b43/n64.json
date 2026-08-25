@@ -1,0 +1,34 @@
+{
+ "volume": "b43",
+ "xmlId": "n64",
+ "number": "64",
+ "heading": "Fra SK · 31. dec. 1850 · til J.L. Phister",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18501231",
+   "iso": "1850-12-31",
+   "precision": "day",
+   "year": 1850,
+   "month": 12,
+   "day": 31,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Phister, J.L.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext8",
+  "sameAs": "#correspContext8",
+  "notes": []
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "volume": "b308",
+ "xmlId": "n318",
+ "number": "318",
+ "heading": "Fra ukendt · udateret · til SK",
+ "sender": {
+  "name": "ukendt",
+  "date": {
+   "raw": null,
+   "iso": null,
+   "precision": null,
+   "year": null,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "undated",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext8",
+  "sameAs": null,
+  "notes": [
+   "Ukendt"
+  ]
+ }
+}

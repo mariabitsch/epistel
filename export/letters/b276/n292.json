@@ -1,0 +1,34 @@
+{
+ "volume": "b276",
+ "xmlId": "n292",
+ "number": "292",
+ "heading": "Fra SK · udateret [aug. 1849] · til Rasmus Nielsen",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18490800",
+   "iso": "1849-08",
+   "precision": "month",
+   "year": 1849,
+   "month": 8,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Nielsen, Rasmus",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

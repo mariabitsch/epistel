@@ -1,0 +1,36 @@
+{
+ "volume": "b241",
+ "xmlId": "n249",
+ "number": "249",
+ "heading": "Fra H.C. Andersen · 15. maj 1849 · til SK",
+ "sender": {
+  "name": "Andersen, H.C.",
+  "date": {
+   "raw": "18490515",
+   "iso": "1849-05-15",
+   "precision": "day",
+   "year": 1849,
+   "month": 5,
+   "day": 15,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext8",
+  "sameAs": null,
+  "notes": [
+   "H.C. Andersen"
+  ]
+ }
+}

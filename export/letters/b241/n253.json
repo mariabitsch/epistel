@@ -1,0 +1,36 @@
+{
+ "volume": "b241",
+ "xmlId": "n253",
+ "number": "253",
+ "heading": "Fra ukendt · 15. okt. 1850 · til SK",
+ "sender": {
+  "name": "ukendt",
+  "date": {
+   "raw": "18501015",
+   "iso": "1850-10-15",
+   "precision": "day",
+   "year": 1850,
+   "month": 10,
+   "day": 15,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext12",
+  "sameAs": null,
+  "notes": [
+   "Ukendt"
+  ]
+ }
+}

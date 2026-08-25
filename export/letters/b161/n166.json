@@ -1,0 +1,34 @@
+{
+ "volume": "b161",
+ "xmlId": "n166",
+ "number": "166",
+ "heading": "Fra SK · [sept. 1847] · til H.N. Clausen",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18470900",
+   "iso": "1847-09",
+   "precision": "month",
+   "year": 1847,
+   "month": 9,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Clausen, H.N.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext4",
+  "sameAs": "#correspContext4",
+  "notes": []
+ }
+}

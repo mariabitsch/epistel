@@ -1,0 +1,36 @@
+{
+ "volume": "b208",
+ "xmlId": "n208",
+ "number": "208",
+ "heading": "Fra SK · udateret [feb. 1843] · til M.L. Nathanson",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18430200",
+   "iso": "1843-02",
+   "precision": "month",
+   "year": 1843,
+   "month": 2,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Nathanson, M.L.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": null,
+  "notes": [
+   "M.L. Nathanson"
+  ]
+ }
+}

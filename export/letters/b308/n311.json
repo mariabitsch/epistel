@@ -1,0 +1,36 @@
+{
+ "volume": "b308",
+ "xmlId": "n311",
+ "number": "311",
+ "heading": "Fra [F. Lodovica de Bretteville] · 10. dec. 1850 · til SK",
+ "sender": {
+  "name": "Bretteville, F. Lodovica de",
+  "date": {
+   "raw": "18501210",
+   "iso": "1850-12-10",
+   "precision": "day",
+   "year": 1850,
+   "month": 12,
+   "day": 10,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext2",
+  "sameAs": null,
+  "notes": [
+   "Fanny Lodovica de Bretteville"
+  ]
+ }
+}

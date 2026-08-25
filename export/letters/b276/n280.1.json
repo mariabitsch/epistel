@@ -1,0 +1,29 @@
+{
+ "volume": "b276",
+ "xmlId": "n280.1",
+ "number": "280.1",
+ "heading": "Udkast til brev 278",
+ "sender": {
+  "name": null,
+  "date": {
+   "raw": "18480800",
+   "iso": "1848-08",
+   "precision": "month",
+   "year": 1848,
+   "month": 8,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": null,
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

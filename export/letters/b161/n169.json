@@ -1,0 +1,36 @@
+{
+ "volume": "b161",
+ "xmlId": "n169",
+ "number": "169",
+ "heading": "Fra F.C. Petersen · 1. okt. 1847 · til SK",
+ "sender": {
+  "name": "Petersen, F.C.",
+  "date": {
+   "raw": "18471001",
+   "iso": "1847-10-01",
+   "precision": "day",
+   "year": 1847,
+   "month": 10,
+   "day": 1,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext5",
+  "sameAs": null,
+  "notes": [
+   "F.C. Petersen"
+  ]
+ }
+}

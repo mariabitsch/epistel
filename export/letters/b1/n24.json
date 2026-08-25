@@ -1,0 +1,43 @@
+{
+ "volume": "b1",
+ "xmlId": "n24",
+ "number": "24",
+ "heading": "Fra SK · udateret [1837-39] · til H.P. Kierkegaard",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18370000",
+   "iso": "1837",
+   "precision": "year",
+   "year": 1837,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18390000",
+    "iso": "1839",
+    "precision": "year",
+    "year": 1839,
+    "month": null,
+    "day": null
+   },
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kierkegaard, H.P.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext3",
+  "sameAs": null,
+  "notes": [
+   "Hans Peter Kierkegaard"
+  ]
+ }
+}

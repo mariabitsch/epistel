@@ -1,0 +1,29 @@
+{
+ "volume": "b276",
+ "xmlId": "n304.4",
+ "number": "304.4",
+ "heading": "Udkast til brev 302",
+ "sender": {
+  "name": null,
+  "date": {
+   "raw": "18500400",
+   "iso": "1850-04",
+   "precision": "month",
+   "year": 1850,
+   "month": 4,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": null,
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

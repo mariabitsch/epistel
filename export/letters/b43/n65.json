@@ -1,0 +1,36 @@
+{
+ "volume": "b43",
+ "xmlId": "n65",
+ "number": "65",
+ "heading": "Fra SK · 4. aug. 1849 · til C.E. Kiellerup",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18490804",
+   "iso": "1849-08-04",
+   "precision": "day",
+   "year": 1849,
+   "month": 8,
+   "day": 4,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kiellerup, C.E.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext9",
+  "sameAs": null,
+  "notes": [
+   "C.E. Kiellerup"
+  ]
+ }
+}

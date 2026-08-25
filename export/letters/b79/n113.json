@@ -1,0 +1,41 @@
+{
+ "volume": "b79",
+ "xmlId": "n113",
+ "number": "113",
+ "heading": "Fra SK · udateret [okt.-nov. 1849] · til Emil Boesen",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18491000",
+   "iso": "1849-10",
+   "precision": "month",
+   "year": 1849,
+   "month": 10,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18491100",
+    "iso": "1849-11",
+    "precision": "month",
+    "year": 1849,
+    "month": 11,
+    "day": null
+   },
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Boesen, Emil",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

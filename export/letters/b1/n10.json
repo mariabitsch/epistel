@@ -1,0 +1,41 @@
+{
+ "volume": "b1",
+ "xmlId": "n10",
+ "number": "10",
+ "heading": "Fra SK · udateret [2. eller 3. juli 1843] · til P.C. Kierkegaard",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18430702",
+   "iso": "1843-07-02",
+   "precision": "day",
+   "year": 1843,
+   "month": 7,
+   "day": 2,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18430703",
+    "iso": "1843-07-03",
+    "precision": "day",
+    "year": 1843,
+    "month": 7,
+    "day": 3
+   },
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kierkegaard, P.C.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

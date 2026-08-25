@@ -1,0 +1,36 @@
+{
+ "volume": "b120",
+ "xmlId": "n125",
+ "number": "125",
+ "heading": "Fra SK · 25. juni [1849] · til T. Algreen-Ussing",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18490625",
+   "iso": "1849-06-25",
+   "precision": "day",
+   "year": 1849,
+   "month": 6,
+   "day": 25,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "suppliedYear",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Algreen-Ussing, T.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext6",
+  "sameAs": null,
+  "notes": [
+   "T. Algreen-Ussing"
+  ]
+ }
+}

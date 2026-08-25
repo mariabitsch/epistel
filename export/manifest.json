@@ -1,0 +1,20 @@
+{
+ "schemaVersion": "0.1.0",
+ "language": "da",
+ "source": {
+  "repository": "https://github.com/kb-dk/SKS_tei",
+  "commit": "27a6b110c24e97b381e010595b50f3ca3d4ca8c9"
+ },
+ "layers": {
+  "letters": {
+   "path": "letters/",
+   "count": 336,
+   "license": "CC0-1.0"
+  },
+  "volumes": {
+   "path": "volumes.json",
+   "count": 14,
+   "license": "CC0-1.0"
+  }
+ }
+}

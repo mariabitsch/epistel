@@ -1,0 +1,34 @@
+{
+ "volume": "b70",
+ "xmlId": "n78",
+ "number": "78",
+ "heading": "Fra SK · udateret [aug. 1851] · til Johanne Luise Heiberg",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18510800",
+   "iso": "1851-08",
+   "precision": "month",
+   "year": 1851,
+   "month": 8,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Heiberg, Johanne Luise",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "volume": "b171",
+ "xmlId": "n195",
+ "number": "195",
+ "heading": "Fra SK · udateret [1847] · til Wilhelm Lund",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18470000",
+   "iso": "1847",
+   "precision": "year",
+   "year": 1847,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Lund, Wilhelm",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext6",
+  "sameAs": "#correspContext6",
+  "notes": []
+ }
+}

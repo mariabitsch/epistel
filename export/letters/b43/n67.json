@@ -1,0 +1,36 @@
+{
+ "volume": "b43",
+ "xmlId": "n67",
+ "number": "67",
+ "heading": "Fra O.L. Bang · 28. dec. 1849 · til SK",
+ "sender": {
+  "name": "Bang, O.L.",
+  "date": {
+   "raw": "18491228",
+   "iso": "1849-12-28",
+   "precision": "day",
+   "year": 1849,
+   "month": 12,
+   "day": 28,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext11",
+  "sameAs": null,
+  "notes": [
+   "O.L. Bang"
+  ]
+ }
+}

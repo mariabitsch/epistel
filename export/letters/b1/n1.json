@@ -1,0 +1,36 @@
+{
+ "volume": "b1",
+ "xmlId": "n1",
+ "number": "1",
+ "heading": "Fra SK · 8. marts 1829 · til P.C. Kierkegaard",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18290308",
+   "iso": "1829-03-08",
+   "precision": "day",
+   "year": 1829,
+   "month": 3,
+   "day": 8,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kierkegaard, P.C.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": null,
+  "notes": [
+   "Peter Christian Kierkegaard"
+  ]
+ }
+}

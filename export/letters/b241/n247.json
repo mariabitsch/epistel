@@ -1,0 +1,36 @@
+{
+ "volume": "b241",
+ "xmlId": "n247",
+ "number": "247",
+ "heading": "Fra SK · 17. jan. [1848] · til Julia C. Werliin",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18480117",
+   "iso": "1848-01-17",
+   "precision": "day",
+   "year": 1848,
+   "month": 1,
+   "day": 17,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "suppliedYear",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Werliin, Julia C.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext6",
+  "sameAs": null,
+  "notes": [
+   "Julia C. Werliin"
+  ]
+ }
+}
