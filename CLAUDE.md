@@ -74,7 +74,8 @@ Guarantees the next team inherits (all tested):
   guarantees are tested too: nothing repaired, nothing lost (a fragment's
   visible text equals the parsed reading text), deterministic output, the
   committed `export/` cannot drift from a fresh run, and the editorial
-  layers travel verbatim with their license honestly marked pending.
+  layers travel verbatim under their own license (CC BY-NC-SA 4.0),
+  distinct from the vendor layers' CC0.
 - **Every editorial dataset is independently disposable**: a build with no
   `data/context/` files still yields a complete, honest site (no timeline,
   no bios, no summaries — but 336 letters, 298 person pages, search).
@@ -207,7 +208,8 @@ datasets the same way; the method is what matters.
 ## Decisions log
 
 Netlify (`netlify.toml`: `python3 build.py` → `dist/`, output stays
-host-agnostic) · MIT for code, CC0 data with provenance · public GitHub
+host-agnostic) · MIT for code, CC0 data with provenance, the export's
+editorial layers CC BY-NC-SA 4.0 (Maria, 2026-08-25) · public GitHub
 repo; no personal info in commits beyond Maria's name (repo-local email
 `mariacodes@salonen.dk`) · demo-light workflow · neutral identity: an
 independent demonstration, no institution lookalike · UI must work with
@@ -242,11 +244,11 @@ test-held.
   parsed apparatus variants are preserved but have no UI yet.
 - `ded` (120 dedications) excluded — needs its own metadata/grouping/URL
   model if ever included.
-- Export follow-up: the editorial layer's license is Maria's open
-  decision; the manifest says "pending" until she rules. (The JSON
-  Schemas shipped with schemaVersion 0.2.0 — draft-07 in
-  `export/schema/`, validated by the suite when the optional
-  `fastjsonschema` is importable, e.g. from a local `.venv`.)
+- (Export foundations complete as of schemaVersion 0.2.0: JSON Schemas
+  in `export/schema/` — draft-07, validated by the suite when the
+  optional `fastjsonschema` is importable, e.g. from a local `.venv`
+  created with `python3 -m venv .venv && .venv/bin/pip install
+  fastjsonschema` — and the editorial layers licensed.)
 - Småting: more TEI-annotation finds may come.
 
 ## Explicitly out of scope

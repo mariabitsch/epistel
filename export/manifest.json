@@ -19,38 +19,38 @@
   "aliases": {
    "path": "context/aliases.json",
    "count": 71,
-   "license": null,
-   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
+   "license": "CC-BY-NC-SA-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   "bio_keys": {
    "path": "context/bio_keys.json",
    "count": 4,
-   "license": null,
-   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
+   "license": "CC-BY-NC-SA-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   "bios": {
    "path": "context/bios.json",
    "count": 206,
-   "license": null,
-   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
+   "license": "CC-BY-NC-SA-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   "publications": {
    "path": "context/publications.json",
    "count": 38,
-   "license": null,
-   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
+   "license": "CC-BY-NC-SA-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   "residences": {
    "path": "context/residences.json",
    "count": 9,
-   "license": null,
-   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
+   "license": "CC-BY-NC-SA-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   "summaries": {
    "path": "context/summaries.json",
    "count": 336,
-   "license": null,
-   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
+   "license": "CC-BY-NC-SA-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/"
   }
  },
  "schemas": {
