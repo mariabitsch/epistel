@@ -65,6 +65,7 @@ class ExportTest(unittest.TestCase):
             name
             for volume in self.volumes
             for name in os.listdir(os.path.join(self.out, "letters", volume["volume"]))
+            if name.endswith(".json")
         ]
         self.assertEqual(len(written), expected)
         self.assertEqual(self.result["letters"], expected)
@@ -124,7 +125,16 @@ class ExportTest(unittest.TestCase):
         )
         self.assertEqual(
             sorted(envelope),
-            ["context", "heading", "number", "recipient", "sender", "volume", "xmlId"],
+            [
+                "body",
+                "context",
+                "heading",
+                "number",
+                "recipient",
+                "sender",
+                "volume",
+                "xmlId",
+            ],
         )
 
     # -- the volume index --------------------------------------------------

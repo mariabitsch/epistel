@@ -38,6 +38,8 @@ import json
 import os
 import shutil
 
+from .body import render_body
+
 # Bumped when the shape of the export changes. Consumers pin releases; this
 # number is what a release tag promises.
 SCHEMA_VERSION = "0.1.0"
@@ -70,6 +72,13 @@ def export_data(volumes, out_dir, provenance=None):
                 os.path.join(volume_dir, letter["xmlId"] + ".json"),
                 _envelope(volume, letter),
             )
+            fragment = render_body(letter["body"])
+            with open(
+                os.path.join(volume_dir, letter["xmlId"] + ".html"),
+                "w",
+                encoding="utf-8",
+            ) as file:
+                file.write(fragment + "\n")
             letters += 1
 
     _write(os.path.join(out_dir, "volumes.json"), _volume_index(volumes))
@@ -90,6 +99,7 @@ def _envelope(volume, letter):
         "sender": letter["sender"],
         "recipient": letter["recipient"],
         "context": letter["context"],
+        "body": letter["xmlId"] + ".html",
     }
 
 
