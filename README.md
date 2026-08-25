@@ -21,9 +21,16 @@ HTML-transskriptioner for alle 336 breve, de redaktionelle datasæt
 verbatim, JSON-skemaer og proveniens med sha256-kæde tilbage til kilden.
 Formatet er beskrevet i [`docs/export-format.md`](docs/export-format.md);
 versionerede udgivelser med tarball ligger under
-[releases](https://github.com/mariabitsch/epistel/releases). Licenser:
-de TEI-afledte lag er CC0 som kilden, de redaktionelle lag
-[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+[releases](https://github.com/mariabitsch/epistel/releases).
+
+**Licenser — én pr. lag:** kildekoden er MIT ([`LICENSE`](LICENSE)) ·
+TEI-kopien er CC0 som kilden ([`data/vendor/PROVENANCE.md`](data/vendor/PROVENANCE.md)) ·
+de redaktionelle tekster (resuméer, biografier og kuraterede datasæt i
+`data/context/` og i eksportens `context/`-lag) er
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+([`data/context/LICENSE`](data/context/LICENSE)). GitHubs licens-badge
+viser kun rodens MIT; dette afsnit og eksportens manifest er de
+autoritative kort.
 
 ---
 

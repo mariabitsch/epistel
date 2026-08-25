@@ -1,0 +1,14 @@
+The curated editorial datasets in this directory — Maria Notabene's
+letter summaries, the person biographies, the publication and residence
+tables, and the join tables — are © 2026 Maria Bitsch and licensed under
+the Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+International license (CC BY-NC-SA 4.0):
+
+    https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+This license covers the editorial layer only. It does not cover the
+repository's source code (MIT — see /LICENSE) or the vendored TEI files
+(CC0 — see /data/vendor/PROVENANCE.md). Each dataset's _meta block
+states what it is and how it was made. The export copies these datasets
+verbatim into export/context/ under this same license, declared per
+layer in export/manifest.json.
