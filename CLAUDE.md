@@ -244,7 +244,7 @@ test-held.
   parsed apparatus variants are preserved but have no UI yet.
 - `ded` (120 dedications) excluded — needs its own metadata/grouping/URL
   model if ever included.
-- (Export foundations complete as of schemaVersion 0.2.0: JSON Schemas
+- (Export foundations complete as of schemaVersion 0.1.1: JSON Schemas
   in `export/schema/` — draft-07, validated by the suite when the
   optional `fastjsonschema` is importable, e.g. from a local `.venv`
   created with `python3 -m venv .venv && .venv/bin/pip install

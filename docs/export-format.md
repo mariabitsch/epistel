@@ -57,7 +57,7 @@ disk carry no order of their own.
 
 ```json
 {
-  "schemaVersion": "0.2.0",
+  "schemaVersion": "0.1.1",
   "language": "da",
   "source": {"repository": "...", "commit": "..."},
   "layers": {
