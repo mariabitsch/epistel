@@ -1910,7 +1910,7 @@ class PresenterTest(unittest.TestCase):
             self.about,
         )
         self.assertIn(
-            'href="%s/blob/main/docs/indholdstekniske-noter.md"' % PROJECT_REPOSITORY,
+            'href="%s/blob/main/docs/content-notes.md"' % PROJECT_REPOSITORY,
             self.about,
         )
 
@@ -2141,9 +2141,9 @@ class PresenterTest(unittest.TestCase):
         self.assertIn("visningen har %d automatiske tests" % counted, self.about)
         # The technical notes the page links make the same claim, in the
         # same repository, and would otherwise go stale on their own.
-        notes_path = os.path.join(REPO_ROOT, "docs", "indholdstekniske-noter.md")
+        notes_path = os.path.join(REPO_ROOT, "docs", "content-notes.md")
         with open(notes_path, encoding="utf-8") as file:
-            self.assertRegex(file.read(), r"%d\s+automatiske test" % counted)
+            self.assertRegex(file.read(), r"%d\s+automated tests" % counted)
 
     def test_the_om_page_keeps_the_sites_danish_dashes(self):
         """En dashes, like every other Danish string the site renders.
@@ -2476,7 +2476,7 @@ class ProvenanceTest(unittest.TestCase):
             self.assertIsNone(load_provenance(empty))
 
     def test_the_technical_notes_pin_the_same_commit_as_the_record(self):
-        """docs/indholdstekniske-noter.md cannot drift from PROVENANCE.md.
+        """docs/content-notes.md cannot drift from PROVENANCE.md.
 
         Maria's ruling (2026-08-03): the Om page no longer shows the pinned
         commit itself -- the technical notes in the repo do, and the page
@@ -2485,7 +2485,7 @@ class ProvenanceTest(unittest.TestCase):
         beside the files, the same guarantee the page used to carry.
         """
         recorded = load_provenance(VENDOR)
-        notes_path = os.path.join(REPO_ROOT, "docs", "indholdstekniske-noter.md")
+        notes_path = os.path.join(REPO_ROOT, "docs", "content-notes.md")
         with open(notes_path, encoding="utf-8") as file:
             notes = file.read()
         self.assertIn(recorded["commit"], notes)

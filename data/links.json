@@ -45,7 +45,7 @@
     },
     {
       "id": "technical-notes",
-      "href": "https://github.com/mariabitsch/epistel/blob/main/docs/indholdstekniske-noter.md",
+      "href": "https://github.com/mariabitsch/epistel/blob/main/docs/content-notes.md",
       "label": "indholdstekniske noter",
       "rel": "external",
       "scope": "om",
