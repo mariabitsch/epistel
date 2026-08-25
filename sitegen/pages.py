@@ -71,7 +71,7 @@ def _linked(links, link_id, fallback_label, href=None):
     )
 
 
-def index_page(books, facets, timeline=False, links=None):
+def index_page(books, facets, timeline=False, links=None, assets=None):
     """The front page: every letter, by volume and then by correspondence.
 
     One page for the whole corpus. The edition's own two levels of order are
@@ -97,10 +97,11 @@ def index_page(books, facets, timeline=False, links=None):
         here=INDEX_NAV,
         scripts=["assets/search.js"],
         links=links,
+        assets=assets,
     )
 
 
-def letter_page(view, previous, following, section, person_links, timeline=False, links=None):
+def letter_page(view, previous, following, section, person_links, timeline=False, links=None, assets=None):
     """One letter: what it is, what it says, and what it belongs with."""
     header = element(
         "p",
@@ -134,6 +135,7 @@ def letter_page(view, previous, following, section, person_links, timeline=False
         timeline=timeline,
         here=INDEX_NAV,
         links=links,
+        assets=assets,
     )
 
 
@@ -747,7 +749,7 @@ def _in_brackets(view):
 # ---------------------------------------------------------------------------
 
 
-def person_index_page(groups, register, timeline=False, links=None):
+def person_index_page(groups, register, timeline=False, links=None, assets=None):
     """Everyone the letters name, hung letter band by letter band.
 
     The register is the edition's own: every name it marked up in a letter's
@@ -771,6 +773,7 @@ def person_index_page(groups, register, timeline=False, links=None):
         timeline=timeline,
         here=PERSONS_NAV,
         links=links,
+        assets=assets,
     )
 
 
@@ -839,7 +842,7 @@ def _person_entry(person):
     )
 
 
-def person_page(person, timeline=False, links=None):
+def person_page(person, timeline=False, links=None, assets=None):
     """One person: who the commentary says they were, and their letters."""
     header = element(
         "p",
@@ -875,6 +878,7 @@ def person_page(person, timeline=False, links=None):
         timeline=timeline,
         here=PERSONS_NAV,
         links=links,
+        assets=assets,
     )
 
 
@@ -1012,7 +1016,7 @@ def _person_count(count):
 # ---------------------------------------------------------------------------
 
 
-def timeline_page(model, links=None):
+def timeline_page(model, links=None, assets=None):
     """The letters against the books and the addresses, on one linear scale.
 
     The page is a stack of years, each of them the same height, holding three
@@ -1059,6 +1063,7 @@ def timeline_page(model, links=None):
         timeline=True,
         here=TIMELINE_NAV,
         links=links,
+        assets=assets,
     )
 
 
@@ -1489,7 +1494,7 @@ def _dataset_note(meta):
 # a fact about this repository, so it is written here rather than counted at
 # build time -- and a test counts the suite with unittest discovery and
 # compares it with the built page, so the sentence cannot go stale quietly.
-AUTOMATED_TESTS = 391
+AUTOMATED_TESTS = 396
 
 # The figures the Om page states about the site it belongs to. Every one of
 # them is recounted from the built pages in the test suite
@@ -1507,7 +1512,7 @@ PUBLICATIONS = 38
 RESIDENCES = 9
 
 
-def about_page(provenance=None, timeline=False, links=None):
+def about_page(provenance=None, timeline=False, links=None, assets=None):
     """What the site is, where the text comes from, and who the hostess is.
 
     Rule 5 of the build brief lives here: the demonstration has to be
@@ -1548,6 +1553,7 @@ def about_page(provenance=None, timeline=False, links=None):
         timeline=timeline,
         here=ABOUT_NAV,
         links=links,
+        assets=assets,
     )
 
 
@@ -2059,6 +2065,11 @@ def _volume_count(count):
     return "%d gruppe" % count if count == 1 else "%d grupper" % count
 
 
+def _resolved(logical, assets):
+    """A logical asset path through the manifest; itself when absent."""
+    return (assets or {}).get(logical, logical)
+
+
 def _document(
     title,
     main,
@@ -2069,8 +2080,16 @@ def _document(
     here=None,
     scripts=(),
     links=None,
+    assets=None,
 ):
     """The shell every page shares.
+
+    ``assets`` is the manifest from ``sitegen.assets``: logical path ->
+    content-hashed path, both relative to the site root. Every asset
+    reference a page renders -- the stylesheet, the scripts -- goes through
+    it, so the pages always point at the names the build actually wrote.
+    Without a manifest the logical names stand as they are, which is what a
+    directly-rendered page in a test gets.
 
     The <title> and the social metadata are the page's face away from the
     site (Maria's SEO ruling, 2026-08-03): the title must say what the page
@@ -2091,7 +2110,11 @@ def _document(
         + element("meta", property="og:site_name", content=SITE_TITLE)
         + element("meta", property="og:locale", content="da_DK")
         + element("meta", name="twitter:card", content="summary")
-        + element("link", rel="stylesheet", href="%sassets/site.css" % root)
+        + element(
+            "link",
+            rel="stylesheet",
+            href="%s%s" % (root, _resolved("assets/site.css", assets)),
+        )
         # Maria's icon set, declared relatively like every other address
         # on the site; the files sit at the root (see site._copy_static).
         + element(
@@ -2140,7 +2163,7 @@ def _document(
     skip = element("a", "Spring til indhold", href="#indhold", class_="skip-link")
     body = skip + header + element("main", main, id="indhold") + footer
     body += "".join(
-        element("script", "", src="%s%s" % (root, source), defer=True)
+        element("script", "", src="%s%s" % (root, _resolved(source, assets)), defer=True)
         for source in scripts
     )
     return (

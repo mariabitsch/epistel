@@ -18,6 +18,8 @@ from pipeline.corpus import parse_corpus
 from sitegen import search
 from sitegen.site import build_site
 
+from .test_sitegen import hashed_asset, read_hashed
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VENDOR = os.path.join(ROOT, "data", "vendor")
 CONTEXT = os.path.join(ROOT, "data", "context")
@@ -64,7 +66,7 @@ class SearchIndexTest(unittest.TestCase):
         cls.volumes = parse_corpus(VENDOR)
         cls.directory = tempfile.TemporaryDirectory()
         cls.result = build_site(cls.volumes, cls.directory.name, context=cls.context)
-        cls.script = cls.read_from(cls.directory.name, "assets", "search-index.js")
+        cls.script = read_hashed(cls.directory.name, "search-index.js")
         cls.index = json.loads(
             cls.script[len("window.epistelSearchIndex=") :].rstrip().rstrip(";")
         )
@@ -143,15 +145,25 @@ class SearchIndexTest(unittest.TestCase):
     def test_the_index_is_deterministic(self):
         with tempfile.TemporaryDirectory() as other:
             build_site(self.volumes, other, context=self.context)
-            self.assertEqual(
-                self.script, self.read_from(other, "assets", "search-index.js")
-            )
+            self.assertEqual(self.script, read_hashed(other, "search-index.js"))
 
     def test_the_script_and_the_index_both_ship(self):
         for name in ("search.js", "search-index.js"):
             self.assertTrue(
-                os.path.exists(os.path.join(self.directory.name, "assets", name)), name
+                os.path.exists(hashed_asset(self.directory.name, name)), name
             )
+
+    def test_the_script_fetches_the_index_by_its_hashed_name(self):
+        """The lazy fetch must survive the renaming.
+
+        ``search.js`` loads the index by URL at runtime; the build rewrites
+        that reference to the hashed name before hashing the script itself,
+        so the shipped pair can never drift apart.
+        """
+        script = read_hashed(self.directory.name, "search.js")
+        index_name = os.path.basename(hashed_asset(self.directory.name, "search-index.js"))
+        self.assertIn('"assets/%s"' % index_name, script)
+        self.assertNotIn('"assets/search-index.js"', script)
 
 
 class FacetTest(unittest.TestCase):
@@ -267,10 +279,7 @@ class WithoutScriptTest(unittest.TestCase):
         self.assertIn('class="finder-empty" id="finder-empty" hidden', self.index)
 
     def test_hidden_really_hides_whatever_the_stylesheet_says(self):
-        with open(
-            os.path.join(self.directory.name, "assets", "site.css"), encoding="utf-8"
-        ) as file:
-            css = file.read()
+        css = read_hashed(self.directory.name, "site.css")
         self.assertIn("[hidden] { display: none !important; }", css)
 
     def test_every_letter_is_in_the_document_and_visible(self):
@@ -280,7 +289,8 @@ class WithoutScriptTest(unittest.TestCase):
             self.assertNotIn("hidden", entry)
 
     def test_the_script_never_blocks_the_page(self):
-        self.assertIn('<script src="assets/search.js" defer></script>', self.index)
+        script = os.path.basename(hashed_asset(self.directory.name, "search.js"))
+        self.assertIn('<script src="assets/%s" defer></script>' % script, self.index)
         self.assertEqual(1, self.index.count("<script"))
 
     def test_no_other_page_carries_a_script(self):
@@ -296,10 +306,7 @@ class WithoutScriptTest(unittest.TestCase):
                 self.assertNotIn("<script", file.read())
 
     def test_the_page_never_builds_markup_out_of_data(self):
-        with open(
-            os.path.join(self.directory.name, "assets", "search.js"), encoding="utf-8"
-        ) as file:
-            script = file.read()
+        script = read_hashed(self.directory.name, "search.js")
         self.assertNotIn("innerHTML", script)
         self.assertNotIn("insertAdjacentHTML", script)
         self.assertNotIn("document.write", script)

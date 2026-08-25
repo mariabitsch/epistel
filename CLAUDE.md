@@ -12,7 +12,7 @@ cheap to build, cheap to run, and safe to throw away.
 **State:** live at <https://epistel-demo.netlify.app/> (public repo
 mariabitsch/epistel; every push to main deploys). 638 static pages — 336
 letter pages, 298 person pages (143 with bios), index with facets +
-client-side search, `/tidslinje/`, `/personer/`, `/om/`. 391 tests green
+client-side search, `/tidslinje/`, `/personer/`, `/om/`. 396 tests green
 (that number is machine-guarded; see Working here). The front page opens
 with a factual lead (Maria's own text) and Maria Notabene's foreword, set
 in the letters' frame. Since 2026-08-25 the corpus is also published as
@@ -216,7 +216,10 @@ datasets the same way; the method is what matters.
 ## Decisions log
 
 Netlify (`netlify.toml`: `python3 build.py` → `dist/`, output stays
-host-agnostic) · MIT for code, CC0 data with provenance, the export's
+host-agnostic) · assets ship content-hashed and immutable
+(`sitegen/assets.py` + the `/assets/*` header in `netlify.toml`,
+test-held pair; Maria, 2026-08-25 — groundwork for showing images) ·
+MIT for code, CC0 data with provenance, the export's
 editorial layers CC BY-NC-SA 4.0 (Maria, 2026-08-25) · public GitHub
 repo; no personal info in commits beyond Maria's name (repo-local email
 `mariacodes@salonen.dk`) · demo-light workflow · neutral identity: an

@@ -38,6 +38,33 @@ def _links_data():
         return json.load(file)
 
 
+def hashed_asset(directory, name):
+    """The built path of ``name``, whose file name carries its content hash.
+
+    The build names assets after their content (``sitegen.assets``):
+    ``site.css`` ships as ``site.3f9a2c1e.css``. Tests resolve the logical
+    name to the single built file that differs only by the hash; zero or
+    two matches are both failures.
+    """
+    stem, extension = os.path.splitext(name)
+    folder = os.path.join(directory, "assets")
+    pattern = re.compile(
+        r"^%s\.[0-9a-f]{8}%s$" % (re.escape(stem), re.escape(extension))
+    )
+    matches = [entry for entry in os.listdir(folder) if pattern.match(entry)]
+    if len(matches) != 1:
+        raise AssertionError(
+            "expected exactly one hashed %s in %s, found %r" % (name, folder, matches)
+        )
+    return os.path.join(folder, matches[0])
+
+
+def read_hashed(directory, name):
+    """The text of a hashed asset, looked up by its logical name."""
+    with open(hashed_asset(directory, name), encoding="utf-8") as file:
+        return file.read()
+
+
 # Self-containment, page by page. Every page the build writes is a closed
 # system: the only addresses pointing off the site are the ones declared in
 # ``data/links.json`` -- the CC0 deed in the footer, which is the licence the
@@ -480,25 +507,62 @@ class SiteBuildTest(unittest.TestCase):
         )
 
     def test_the_stylesheet_ships_with_the_site(self):
-        self.assertTrue(
-            os.path.exists(os.path.join(self.directory.name, "assets", "site.css"))
+        self.assertTrue(os.path.exists(hashed_asset(self.directory.name, "site.css")))
+
+    def test_the_assets_carry_their_content_hash_in_their_names(self):
+        """Cache busting by name: an asset's URL states its exact content.
+
+        The pages' HTML lives at stable URLs and must revalidate, but a
+        file whose name carries its content hash can never change behind
+        its URL, so the host may cache it forever (netlify.toml declares
+        the header). The plain names must be *gone* -- a stale-named copy
+        beside the hashed one would defeat the whole arrangement.
+        """
+        assets = os.path.join(self.directory.name, "assets")
+        for name in ("site.css", "search.js", "search-index.js"):
+            hashed_asset(self.directory.name, name)  # exactly one, or it raises
+            self.assertFalse(
+                os.path.exists(os.path.join(assets, name)),
+                "%s still ships under its unhashed name" % name,
+            )
+        fonts = os.listdir(os.path.join(assets, "fonts"))
+        for name in fonts:
+            if name.endswith(".woff2"):
+                self.assertRegex(name, r"\.[0-9a-f]{8}\.woff2$")
+
+    def test_the_pages_link_the_hashed_stylesheet(self):
+        stylesheet = os.path.basename(hashed_asset(self.directory.name, "site.css"))
+        self.assertIn(
+            'href="assets/%s"' % stylesheet, self.read("index.html")
+        )
+        self.assertIn(
+            'href="../../assets/%s"' % stylesheet, self.read("brev", "1", "index.html")
         )
 
     def test_the_fonts_ship_with_the_site(self):
         """Self-hosted typography, copied byte for byte.
 
         The site must look the same on a machine that has never heard of
-        Google Fonts, so the woff2 files travel with it.
+        Google Fonts, so the woff2 files travel with it -- under hashed
+        names now, but the bytes behind them are untouched.
         """
         source = os.path.join(STATIC_DIRECTORY, "fonts")
         shipped = os.path.join(self.directory.name, "assets", "fonts")
         names = sorted(name for name in os.listdir(source) if name.endswith(".woff2"))
         self.assertTrue(names, "no webfonts are vendored")
+        shipped_names = os.listdir(shipped)
         for name in names:
             with open(os.path.join(source, name), "rb") as file:
                 original = file.read()
             self.assertEqual(original[:4], b"wOF2", "%s is not a woff2 file" % name)
-            with open(os.path.join(shipped, name), "rb") as file:
+            stem = os.path.splitext(name)[0]
+            matches = [
+                entry
+                for entry in shipped_names
+                if re.match(r"^%s\.[0-9a-f]{8}\.woff2$" % re.escape(stem), entry)
+            ]
+            self.assertEqual(1, len(matches), "no single hashed copy of %s" % name)
+            with open(os.path.join(shipped, matches[0]), "rb") as file:
                 self.assertEqual(file.read(), original, "%s changed in transit" % name)
 
     def test_every_vendored_font_carries_its_licence(self):
@@ -514,7 +578,7 @@ class SiteBuildTest(unittest.TestCase):
         classes stay in the markup for a display that wants them back --
         but the stylesheet keeps them quiet.
         """
-        css = self.read("assets", "site.css")
+        css = read_hashed(self.directory.name, "site.css")
         self.assertRegex(css, r"\.tei-pb\s*\{\s*display:\s*none")
         self.assertNotRegex(css, r"\.tei-placeName[^}]*border-bottom:\s*1px")
         page = self.read("brev", "1", "index.html")
@@ -522,9 +586,11 @@ class SiteBuildTest(unittest.TestCase):
         self.assertIn('class="tei-placeName', page)
 
     def test_the_stylesheet_fetches_nothing_at_runtime(self):
+        # Doubles as the reference guard for the hashed names: every
+        # ``url(...)`` the rewritten stylesheet holds must resolve to a
+        # file the build actually wrote.
         assets = os.path.join(self.directory.name, "assets")
-        with open(os.path.join(assets, "site.css"), encoding="utf-8") as file:
-            css = file.read()
+        css = read_hashed(self.directory.name, "site.css")
         self.assertNotIn("@import", css)
         references = [
             reference.strip("'\" ") for reference in re.findall(r"url\(([^)]+)\)", css)
@@ -546,6 +612,36 @@ class SiteBuildTest(unittest.TestCase):
             for parts in (("index.html",), ("brev", "1", "index.html")):
                 with open(os.path.join(other, *parts), encoding="utf-8") as file:
                     self.assertEqual(file.read(), self.read(*parts))
+
+
+class AssetNameTest(unittest.TestCase):
+    """The hashed name is a function of the content, nothing else."""
+
+    def test_a_changed_asset_changes_its_name(self):
+        from sitegen.assets import hashed_name
+
+        before = hashed_name("site.css", b"body { color: black }")
+        after = hashed_name("site.css", b"body { color: navy }")
+        self.assertNotEqual(before, after)
+        for name in (before, after):
+            self.assertRegex(name, r"^site\.[0-9a-f]{8}\.css$")
+
+
+class ImmutableCacheHeaderTest(unittest.TestCase):
+    """netlify.toml and the hashed names are one decision, held together.
+
+    ``immutable`` on ``/assets/*`` is only honest because every file under
+    that path carries its content hash in its name (``sitegen.assets``).
+    Whoever removes one side must meet this test asking about the other.
+    """
+
+    def test_the_hashed_assets_are_declared_immutable(self):
+        with open(os.path.join(REPO_ROOT, "netlify.toml"), encoding="utf-8") as file:
+            config = file.read()
+        self.assertIn('for = "/assets/*"', config)
+        self.assertRegex(
+            config, r'Cache-Control\s*=\s*"public, max-age=31536000, immutable"'
+        )
 
 
 class LetterSlugTest(unittest.TestCase):
@@ -841,7 +937,7 @@ class CorpusSiteBuildTest(unittest.TestCase):
         the sheet. The classes stay in the markup for a display that wants
         the boxes back.
         """
-        css = self.read("assets", "site.css")
+        css = read_hashed(self.directory.name, "site.css")
         for selector in (r"\.tei-signed", r"\.tei-dateline"):
             self.assertNotRegex(css, selector + r"[^{]*\{[^}]*background")
             self.assertNotRegex(css, selector + r"[^{]*\{[^}]*border")
@@ -860,7 +956,7 @@ class CorpusSiteBuildTest(unittest.TestCase):
         sits OVER the run, because that is what it means: added in the
         source, typically above the line. The tooltip still says so.
         """
-        css = self.read("assets", "site.css")
+        css = read_hashed(self.directory.name, "site.css")
         self.assertNotRegex(css, r"\.tei-add\s*\{[^}]*background")
         self.assertNotRegex(css, r"\.tei-add\s*\{[^}]*border-bottom")
         self.assertRegex(css, r"\.tei-add\s*\{[^}]*border-top:\s*1px\s+dotted")
@@ -1459,13 +1555,13 @@ class TimelinePageTest(unittest.TestCase):
         """
         self.assertIn('class="tl-rotate"', self.page)
         self.assertIn("Vend telefonen", self.page)
-        self.assertIn(".tl-rotate", self.read("assets", "site.css"))
+        self.assertIn(".tl-rotate", read_hashed(self.directory.name, "site.css"))
 
     def test_the_timeline_keeps_the_shared_shell(self):
         # Option A's second wish: the page at the site's shared width, so
         # a landscape phone holds the whole strip. No page-local override.
         self.assertNotRegex(
-            self.read("assets", "site.css"), r"page-timeline[^}]*--shell"
+            read_hashed(self.directory.name, "site.css"), r"page-timeline[^}]*--shell"
         )
 
     def test_no_raw_data_artifacts_reach_the_page(self):
