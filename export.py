@@ -45,11 +45,14 @@ def main(argv):
         provenance=provenance,
         context_dir=CONTEXT,
         files=load_file_record(VENDOR),
+        vendor_dir=VENDOR,
     )
     print(
         "export: wrote %d letter envelopes across %d volumes to %s"
         % (result["letters"], result["volumes"], os.path.relpath(out_dir, ROOT))
     )
+    print("export: %d source illustrations copied beside their letters"
+          % result["images"])
     if result["context"]:
         print(
             "export: editorial layers, verbatim: %s" % ", ".join(result["context"])

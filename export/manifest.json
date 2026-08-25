@@ -16,6 +16,11 @@
    "count": 14,
    "license": "CC0-1.0"
   },
+  "images": {
+   "path": "letters/",
+   "count": 40,
+   "license": "CC0-1.0"
+  },
   "aliases": {
    "path": "context/aliases.json",
    "count": 71,

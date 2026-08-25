@@ -77,7 +77,9 @@ EDITORIAL_LICENSE_NOTE = (
 )
 
 
-def export_data(volumes, out_dir, provenance=None, context_dir=None, files=None):
+def export_data(
+    volumes, out_dir, provenance=None, context_dir=None, files=None, vendor_dir=None
+):
     """Write the export. Returns ``{"letters": ..., "volumes": ...,
     "context": ...}``.
 
@@ -90,7 +92,11 @@ def export_data(volumes, out_dir, provenance=None, context_dir=None, files=None)
     ``pipeline.provenance.load_file_record`` output: with it, each volume in
     ``volumes.json`` names its source files with upstream path and sha256,
     so the way back to the TEI needs no folder-listing and no convention;
-    without it, ``source`` is honestly ``null``.
+    without it, ``source`` is honestly ``null``. With ``vendor_dir`` too,
+    the recorded images (the source's ``ill_*.jpg`` illustrations, several
+    of them manuscript facsimiles per ``pb/@facs``) are copied into
+    ``letters/<volume>/`` — beside the fragments, so the TEI's own relative
+    references (``../b1/ill_1.jpg``) resolve exactly as written.
     """
     if os.path.isdir(out_dir):
         shutil.rmtree(out_dir)
@@ -114,19 +120,47 @@ def export_data(volumes, out_dir, provenance=None, context_dir=None, files=None)
                 file.write(fragment + "\n")
             letters += 1
 
+    images = _copy_images(files, vendor_dir, out_dir, volumes)
     context_layers = _copy_context(context_dir, out_dir)
     schemas = _copy_schemas(out_dir)
 
     _write(os.path.join(out_dir, "volumes.json"), _volume_index(volumes, files))
     _write(
         os.path.join(out_dir, "manifest.json"),
-        _manifest(volumes, letters, provenance, context_layers, schemas),
+        _manifest(volumes, letters, provenance, context_layers, schemas, images),
     )
     return {
         "letters": letters,
         "volumes": len(volumes),
+        "images": images,
         "context": sorted(context_layers),
     }
+
+
+def _copy_images(files, vendor_dir, out_dir, volumes):
+    """Copy the recorded, vendored images beside their volume's letters.
+
+    The provenance record decides what counts: exactly the image files it
+    vouches for travel, each under ``letters/<its directory>/`` — the
+    corpus volumes' own illustrations plus the shared ``vignet/`` files
+    two letters reference. That placement makes the TEI's relative paths
+    resolve as written. Returns the count.
+    """
+    if not files or not vendor_dir:
+        return 0
+    copied = 0
+    for local in sorted(files):
+        if not local.lower().endswith((".jpg", ".jpeg")):
+            continue
+        directory, _, name = local.partition("/")
+        source = os.path.join(vendor_dir, local)
+        if not os.path.isfile(source):
+            continue
+        target_dir = os.path.join(out_dir, "letters", directory)
+        os.makedirs(target_dir, exist_ok=True)
+        shutil.copyfile(source, os.path.join(target_dir, name))
+        copied += 1
+    return copied
 
 
 def _copy_context(context_dir, out_dir):
@@ -231,7 +265,7 @@ def _copy_schemas(out_dir):
     return schemas
 
 
-def _manifest(volumes, letters, provenance, context_layers, schemas):
+def _manifest(volumes, letters, provenance, context_layers, schemas, images):
     layers = {
         "letters": {"path": "letters/", "count": letters, "license": CC0},
         "volumes": {
@@ -240,6 +274,8 @@ def _manifest(volumes, letters, provenance, context_layers, schemas):
             "license": CC0,
         },
     }
+    if images:
+        layers["images"] = {"path": "letters/", "count": images, "license": CC0}
     layers.update(sorted(context_layers.items()))
     return {
         "schemaVersion": SCHEMA_VERSION,

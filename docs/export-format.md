@@ -21,6 +21,8 @@ export/
   schema/*.schema.json          JSON Schemas (draft-07) for the three above
   letters/<volume>/<xmlId>.json one envelope per letter (metadata)
   letters/<volume>/<xmlId>.html the letter's transcription (see Vocabulary)
+  letters/<volume>/ill_*.jpg    the source's illustrations (see Images)
+  letters/vignet/*.jpg          shared vignettes two letters reference
 ```
 
 Each volume in `volumes.json` carries a `source` object naming its TEI
@@ -160,6 +162,36 @@ element would be added to this table, the test, and the renderer together.
 | `<span class="tei-witStart">` / `tei-witEnd` | witStart/witEnd | where a witness's coverage begins/ends |
 | `<span class="tei-pb">` | pb | page/leaf boundary: `data-n` the number, `data-edref` present = the printed SKS pagination, absent = the manuscript's leaves, `data-facs` a facsimile reference |
 | `<span class="tei-milestone">` | milestone | a boundary in another edition's numbering (`data-edref`, `data-unit`) |
+
+## Images
+
+The upstream repository holds no full-page scans of the letters; what it
+holds — and what this export carries, completely — is the source's **40
+illustrations** (`ill_*.jpg` in the letter volumes, plus two shared
+`vignet/` files): drawings in the letters, seals, commentary portraits.
+Several are tagged as manuscript facsimiles via `pb/@facs` in the TEI.
+Each file is recorded in the provenance table (upstream path + sha256)
+like every other vendored file, inherits the edition's CC0, and is copied
+under `letters/<its directory>/` — **beside the fragments, so the TEI's
+own relative references** (`data-facs="../b1/ill_1.jpg"`,
+`data-url="../vignet/vig-brev-blomst.jpg"`) **resolve exactly as
+written**. `ill_k*` files are referenced from the edition's commentary
+(not part of this export's fragments) and still travel as volume
+material.
+
+Two source quirks, preserved rather than repaired:
+
+* Two `graphic` urls write their volume directory in uppercase
+  (`../B120/ill_31.jpg`). The files are exported under the lowercase
+  directory the repository actually uses; resolve image references
+  case-insensitively (or lowercase the directory component) and both
+  resolve.
+* One reference is dangling at its written path: b241's letter 249 has
+  `facs="../b241/ill_k15.jpg"`, and the source repository holds no such
+  file — it exists as `ded/ill_k15.jpg`, referenced correctly from the
+  dedications' commentary. The reference travels verbatim; the export
+  does not guess on the source's behalf. The test suite pins this as the
+  only dangling reference.
 
 ## The editorial layers
 
