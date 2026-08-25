@@ -175,9 +175,11 @@ hand-curated data), `summaries` (Maria Notabene's letter summaries),
 whole directory — is a smaller but complete export.
 
 **License**: unlike the TEI-derived layers, this layer has an author, and
-its license is not yet chosen. The manifest carries `"license": null` and a
-`licenseNote` saying so; until a license is declared, all rights are
-reserved. Do not assume CC0 here.
+it is licensed [CC BY-NC-SA
+4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — reuse with
+attribution, non-commercially, under the same license. The manifest
+declares it per layer (`"license": "CC-BY-NC-SA-4.0"`). Do not assume CC0
+here; only the TEI-derived layers carry that.
 
 ## Versioning and consumption
 

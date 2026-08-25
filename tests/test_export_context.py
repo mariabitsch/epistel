@@ -63,14 +63,18 @@ class ExportContextTest(unittest.TestCase):
             self.assertEqual(layer["path"], "context/%s.json" % name)
             self.assertEqual(layer["count"], len(data[entries_key]), name)
 
-    def test_the_editorial_layers_do_not_claim_cc0(self):
+    def test_the_editorial_layers_carry_their_chosen_license(self):
         # The TEI-derived layers inherit the edition's CC0; the editorial
-        # layer has an author and no chosen license yet. Saying "pending"
-        # is honest; saying CC0 would be a false grant.
+        # layer has an author, and its license is her decision: CC BY-NC-SA
+        # 4.0 (Maria, 2026-08-25). Not CC0 — that would be a false grant.
         layers = self._manifest()["layers"]
         for name in CONTEXT_FILES:
-            self.assertIsNone(layers[name]["license"], name)
-            self.assertIn("pending", layers[name]["licenseNote"], name)
+            self.assertEqual(layers[name]["license"], "CC-BY-NC-SA-4.0", name)
+            self.assertIn(
+                "creativecommons.org/licenses/by-nc-sa/4.0",
+                layers[name]["licenseNote"],
+                name,
+            )
 
     def test_an_export_without_context_is_complete_and_valid(self):
         out = tempfile.mkdtemp(prefix="epistel-export-")

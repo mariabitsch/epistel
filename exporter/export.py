@@ -65,11 +65,13 @@ CONTEXT_FILES = {
     "aliases": "aliases",
 }
 
-# The editorial layer has an author and, as yet, no chosen license. The
-# manifest says so honestly; claiming CC0 here would be a false grant.
-PENDING_LICENSE_NOTE = (
-    "License pending: not yet chosen for this curated layer; "
-    "all rights reserved until it is."
+# The editorial layer has an author, and its license is her decision
+# (Maria, 2026-08-25): CC BY-NC-SA 4.0 — attribution, non-commercial,
+# share-alike. Distinct from the vendor layers' CC0 on purpose.
+EDITORIAL_LICENSE = "CC-BY-NC-SA-4.0"
+EDITORIAL_LICENSE_NOTE = (
+    "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 — "
+    "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 )
 
 
@@ -143,8 +145,8 @@ def _copy_context(context_dir, out_dir):
         layers[name] = {
             "path": "context/%s.json" % name,
             "count": len(entries),
-            "license": None,
-            "licenseNote": PENDING_LICENSE_NOTE,
+            "license": EDITORIAL_LICENSE,
+            "licenseNote": EDITORIAL_LICENSE_NOTE,
         }
     return layers
 
