@@ -9,8 +9,12 @@ directory of static files::
     person/<slug>/index.html    one person
     tidslinje/index.html        the years, with the curated context layer
     om/index.html               what the site is, and who the presenter is
-    assets/site.css             plus assets/fonts/ -- everything static/ holds
-    assets/search-index.js      the prebuilt free-text index
+    assets/site.<hash>.css      plus assets/fonts/ -- everything static/ holds
+    assets/search-index.<hash>.js   the prebuilt free-text index
+
+Every file under ``assets/`` carries its content hash in its name and is
+declared immutable to the host (``sitegen.assets`` has the whole story);
+the pages find the hashed names through the manifest that module returns.
 
 It takes a *list* of volumes and never asks how many there are, so a build of
 one volume and a build of all fourteen go down the same path. The output
@@ -43,6 +47,7 @@ from pipeline.context import summary_key
 from pipeline.parse_tei import plain_text
 
 from . import dates, pages, search
+from .assets import STATIC_DIRECTORY, write_assets  # noqa: F401  (re-exported)
 from .persons import build_register, person_keys, register_groups
 # Re-exported: naming a person is a display decision, and it lives in
 # ``sitegen.persons`` with the rest of them.
@@ -50,7 +55,6 @@ from .persons import display_name  # noqa: F401
 from .tei_html import BodyRenderer
 from .timeline import timeline_model
 
-STATIC_DIRECTORY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
 FAVICON_DIRECTORY = os.path.join(os.path.dirname(os.path.abspath(__file__)), "favicon")
 
 # Letters a volume's correspondence groups do not account for still get
@@ -97,10 +101,15 @@ def build_site(volumes, out_dir, context=None, provenance=None, links=None):
     has_timeline = bool(timeline)
 
     _reset(out_dir)
+    # Assets first: the pages link the stylesheet and the search script by
+    # their hashed names, so the manifest has to exist before any page does.
+    assets = write_assets(out_dir, search.index_script(index))
     _write(
         out_dir,
         ["index.html"],
-        pages.index_page(books, search.facets(views), timeline=has_timeline, links=links),
+        pages.index_page(
+            books, search.facets(views), timeline=has_timeline, links=links, assets=assets
+        ),
     )
     for previous, view, following in _neighbours(views):
         _write(
@@ -114,30 +123,38 @@ def build_site(volumes, out_dir, context=None, provenance=None, links=None):
                 _person_links(by_key, view),
                 timeline=has_timeline,
                 links=links,
+                assets=assets,
             ),
         )
     _write(
         out_dir,
         ["personer", "index.html"],
-        pages.person_index_page(register_groups(register), register, timeline=has_timeline, links=links),
+        pages.person_index_page(
+            register_groups(register), register, timeline=has_timeline, links=links, assets=assets
+        ),
     )
     for person in register:
         _write(
             out_dir,
             ["person", person["slug"], "index.html"],
-            pages.person_page(person, timeline=has_timeline, links=links),
+            pages.person_page(person, timeline=has_timeline, links=links, assets=assets),
         )
     if timeline:
-        _write(out_dir, ["tidslinje", "index.html"], pages.timeline_page(timeline, links=links))
+        _write(
+            out_dir,
+            ["tidslinje", "index.html"],
+            pages.timeline_page(timeline, links=links, assets=assets),
+        )
     # Always written, and never conditional on any dataset: the Om page is
     # what tells a reader this is a demonstration and who the presenter is.
     _write(
         out_dir,
         ["om", "index.html"],
-        pages.about_page(provenance=provenance, timeline=has_timeline, links=links),
+        pages.about_page(
+            provenance=provenance, timeline=has_timeline, links=links, assets=assets
+        ),
     )
-    _copy_static(out_dir)
-    _write(out_dir, ["assets", "search-index.js"], search.index_script(index))
+    _copy_favicons(out_dir)
 
     return {
         "volumes": len(books),
@@ -356,26 +373,17 @@ def _write(out_dir, parts, content):
         file.write(content)
 
 
-def _copy_static(out_dir):
-    """Copy ``static/`` in: the stylesheet, the fonts, and the fonts' licences.
+def _copy_favicons(out_dir):
+    """Copy the icons to the *root*, beside index.html.
 
-    Self-contained output -- the built site fetches nothing at runtime, so the
-    typography has to travel with it, and the OFL requires its notice to
-    travel with the typography. Developer notes (``README.md``) and dotfiles
-    stay in the repository: they are not part of the site. Copied by content
-    only, no timestamps, so two builds of the same input agree.
+    ``/favicon.ico`` is where a browser guesses before it has read a page,
+    so these keep their plain names and stable URLs -- the one corner of
+    the static files the fingerprinting (``sitegen.assets``) leaves alone.
+    The pages still declare them relatively -- see ``pages._document`` --
+    so the site keeps working from any directory of any static host.
+    Copied by content only, no timestamps, so two builds of the same input
+    agree.
     """
-    shutil.copytree(
-        STATIC_DIRECTORY,
-        os.path.join(out_dir, "assets"),
-        copy_function=shutil.copyfile,
-        ignore=shutil.ignore_patterns(".*", "README.md"),
-        dirs_exist_ok=True,
-    )
-    # The icons land at the *root*, beside index.html: /favicon.ico is
-    # where a browser guesses before it has read a page. The pages still
-    # declare them relatively -- see ``pages._document`` -- so the site
-    # keeps working from any directory of any static host.
     shutil.copytree(
         FAVICON_DIRECTORY,
         out_dir,
