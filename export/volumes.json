@@ -4,6 +4,16 @@
    "volume": "b1",
    "title": "Familien Kierkegaard",
    "shortTitle": "B1",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b1/kom.xml",
+     "sha256": "68936f65fb91dfc8e03ed546b31aedc3f8c05ddda92f12b13516d94f2b9ef9be"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b1/txt.xml",
+     "sha256": "28b8cb1234f972e288459b1e76fab66f996edf9a322bf220d3a151a77a4703a5"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -338,6 +348,16 @@
    "volume": "b43",
    "title": "Studiekammerater og bekendte",
    "shortTitle": "B43",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b43/kom.xml",
+     "sha256": "5103c427cdbabbedef80ad0afd75ba48b4e8fcc6efe892371fae1a249aeae63d"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b43/txt.xml",
+     "sha256": "cbdfe1c3c27724ad0cb17da1f66cf0c4ea44972f6a68e43d4d1da5ef30e6d225"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -615,6 +635,16 @@
    "volume": "b70",
    "title": "Familien Heiberg",
    "shortTitle": "B70",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b70/kom.xml",
+     "sha256": "629e56f371374464cd97dc3a2386bc91990db909fe6edac41b9a6249573172a8"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b70/txt.xml",
+     "sha256": "425be1201be792cc932cc1cd42f5acd001874ff3fed941f1b3a9fb92d72b8088"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -688,6 +718,16 @@
    "volume": "b79",
    "title": "Emil Boesen",
    "shortTitle": "B79",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b79/kom.xml",
+     "sha256": "cca29cf51661da99673781a7c2b17893ba6521676a92fd6362b4d3aa25e0e0b9"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b79/txt.xml",
+     "sha256": "f5c8b505e4d05db50c641cbd92889320269bec63fc16edfcbced257d67c2f3a8"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -953,6 +993,16 @@
    "volume": "b120",
    "title": "Kongehuset og offentlige myndigheder",
    "shortTitle": "B120",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b120/kom.xml",
+     "sha256": "f55b64ae09ef84f76f7becb2d443a1b82fb76cfb88beadb8d14cfae56511e359"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b120/txt.xml",
+     "sha256": "bfa25a002e7f45e83fcb1558356a0d8cc2fab0d9ffba62f8401b39a05f4a0db5"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -1068,6 +1118,16 @@
    "volume": "b127",
    "title": "Regine Olsen, gift Schlegel",
    "shortTitle": "B127",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b127/kom.xml",
+     "sha256": "8447e31801674231b820d493797df40348ce7a70f5cbe06034d9c78d9c6ceb55"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b127/txt.xml",
+     "sha256": "af2c84d84a11a95f3727c436ad88bab902dc8a38a581d7e28725d9486412b5da"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -1354,6 +1414,16 @@
    "volume": "b161",
    "title": "Lærere",
    "shortTitle": "B161",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b161/kom.xml",
+     "sha256": "6a0d313e6f89973115327ec037513fe128a990a54b254b99ea6681bbe634ee18"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b161/txt.xml",
+     "sha256": "d7542dc81457214009f3bd616e18b5af34d823b95397dc15a8fc2c1eafe75d61"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -1469,6 +1539,16 @@
    "volume": "b171",
    "title": "Familien Lund",
    "shortTitle": "B171",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b171/kom.xml",
+     "sha256": "7c2d879ab2cc76a963f1f551e995da0d997b6c594c2d04609be5b336de30d9ce"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b171/txt.xml",
+     "sha256": "64a97b352956d3daa69082c83529f0fb75c952d4bfd4098d6b8ceb0ff39afe27"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -1791,6 +1871,16 @@
    "volume": "b208",
    "title": "Sekretær, bogtrykker, redaktører og forlæggere",
    "shortTitle": "B208",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b208/kom.xml",
+     "sha256": "ea4406a0ca1cf937edd297cc2e8d379b0e5c4865b76eefa105ca82c650e667bf"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b208/txt.xml",
+     "sha256": "c7846610a34fd9f9f20b4d5b51773226e498cf82d8aae0832910f158f33c9b18"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -2047,6 +2137,16 @@
    "volume": "b234",
    "title": "Gejstlige",
    "shortTitle": "B234",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b234/kom.xml",
+     "sha256": "828eeb9c941577556081c6a28408b1a6ae81ae584bb7b93dc6ce529e57753c42"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b234/txt.xml",
+     "sha256": "91c4cd88574c88f8a0a4606c5f71228f0115ea9602acda2ede7b3841f304d6cf"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -2144,6 +2244,16 @@
    "volume": "b241",
    "title": "Følgebreve, takkebreve, anmodninger m.m.",
    "shortTitle": "B241",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b241/kom.xml",
+     "sha256": "180997784f0bcdf15cde627b61c5254219debc4970f73640a4269d4bf6463551"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b241/txt.xml",
+     "sha256": "76c0fd38b1e92f6cce513a1638b50ca5c7c81e46c909c00912eb04b26326da0b"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -2415,6 +2525,16 @@
    "volume": "b259",
    "title": "J.L.A. Kolderup-Rosenvinge",
    "shortTitle": "B259",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b259/kom.xml",
+     "sha256": "f6401a91f902e84b1e31178cdf7c8598af4c2cc420f64b901524f4de2367d80d"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b259/txt.xml",
+     "sha256": "535e2d2bd34263c268c2e7f44271be57405bcbe07b41a2e22e18d8ac7e3a5b68"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -2536,6 +2656,16 @@
    "volume": "b276",
    "title": "Rasmus Nielsen",
    "shortTitle": "B276",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b276/kom.xml",
+     "sha256": "a27b0954761f4f988f135fdb44371d92b25c55d4f5b10442007fec01c07c305e"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b276/txt.xml",
+     "sha256": "119499fd64ab148886f9944cef39c427c953b186ab986c527504d66dcdb84da4"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",
@@ -2783,6 +2913,16 @@
    "volume": "b308",
    "title": "Læserinder",
    "shortTitle": "B308",
+   "source": {
+    "kom.xml": {
+     "path": "data/v1.9/b308/kom.xml",
+     "sha256": "7e269ab0567ae3b4a50a7f18d59209c57739ad9abbbc9deead7c5b49daf69bae"
+    },
+    "txt.xml": {
+     "path": "data/v1.9/b308/txt.xml",
+     "sha256": "27f180e0b5894d910b2ed3bc8cd62f1d9367bc42de32d761cc291105d8c36e48"
+    }
+   },
    "groups": [
     {
      "id": "correspContext1",

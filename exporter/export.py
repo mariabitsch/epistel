@@ -72,7 +72,7 @@ PENDING_LICENSE_NOTE = (
 )
 
 
-def export_data(volumes, out_dir, provenance=None, context_dir=None):
+def export_data(volumes, out_dir, provenance=None, context_dir=None, files=None):
     """Write the export. Returns ``{"letters": ..., "volumes": ...,
     "context": ...}``.
 
@@ -81,7 +81,11 @@ def export_data(volumes, out_dir, provenance=None, context_dir=None):
     which case the manifest honestly records no source pin. ``context_dir``
     points at the curated datasets; ``None``, or a directory holding none of
     them, yields a smaller but complete export -- each editorial layer is
-    disposable on its own, exactly as it is for the site build.
+    disposable on its own, exactly as it is for the site build. ``files`` is
+    ``pipeline.provenance.load_file_record`` output: with it, each volume in
+    ``volumes.json`` names its source files with upstream path and sha256,
+    so the way back to the TEI needs no folder-listing and no convention;
+    without it, ``source`` is honestly ``null``.
     """
     if os.path.isdir(out_dir):
         shutil.rmtree(out_dir)
@@ -107,7 +111,7 @@ def export_data(volumes, out_dir, provenance=None, context_dir=None):
 
     context_layers = _copy_context(context_dir, out_dir)
 
-    _write(os.path.join(out_dir, "volumes.json"), _volume_index(volumes))
+    _write(os.path.join(out_dir, "volumes.json"), _volume_index(volumes, files))
     _write(
         os.path.join(out_dir, "manifest.json"),
         _manifest(volumes, letters, provenance, context_layers),
@@ -157,14 +161,15 @@ def _envelope(volume, letter):
     }
 
 
-def _volume_index(volumes):
-    """Titles, groups and document order; warnings stay on their volume."""
+def _volume_index(volumes, files):
+    """Titles, groups, document order and source files; warnings stay put."""
     return {
         "volumes": [
             {
                 "volume": volume["volume"],
                 "title": volume["title"],
                 "shortTitle": volume["shortTitle"],
+                "source": _volume_source(volume["volume"], files),
                 "groups": volume["groups"],
                 "letters": [
                     {
@@ -179,6 +184,24 @@ def _volume_index(volumes):
             for volume in volumes
         ]
     }
+
+
+def _volume_source(volume_name, files):
+    """The volume's source files from the provenance record, or ``None``.
+
+    Filed by basename (``txt.xml``, ``kom.xml``): the reader learns what
+    exists -- the commentary file included, which the export does not
+    otherwise use -- without listing any folder.
+    """
+    if not files:
+        return None
+    prefix = volume_name + "/"
+    source = {
+        local[len(prefix):]: entry
+        for local, entry in files.items()
+        if local.startswith(prefix)
+    }
+    return source or None
 
 
 def _manifest(volumes, letters, provenance, context_layers):

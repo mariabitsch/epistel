@@ -20,7 +20,7 @@ import unittest
 
 from exporter.export import export_data
 from pipeline.corpus import parse_corpus
-from pipeline.provenance import load_provenance
+from pipeline.provenance import load_file_record, load_provenance
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VENDOR = os.path.join(ROOT, "data", "vendor")
@@ -53,7 +53,11 @@ class ExportTest(unittest.TestCase):
         cls.provenance = load_provenance(VENDOR)
         cls.out = tempfile.mkdtemp(prefix="epistel-export-")
         cls.result = export_data(
-            cls.volumes, cls.out, provenance=cls.provenance, context_dir=CONTEXT
+            cls.volumes,
+            cls.out,
+            provenance=cls.provenance,
+            context_dir=CONTEXT,
+            files=load_file_record(VENDOR),
         )
 
     @classmethod
@@ -155,6 +159,33 @@ class ExportTest(unittest.TestCase):
             self.assertEqual(volume["groups"], parsed["groups"])
             self.assertEqual(volume["warnings"], parsed["warnings"])
 
+    def test_volumes_name_their_source_files_with_upstream_path_and_checksum(self):
+        # The way back to the TEI should not require looking in a folder:
+        # each volume names its source files, with the upstream path (which,
+        # with the manifest's pinned commit, is a stable raw URL) and the
+        # sha256 the provenance record vouches for.
+        record = load_file_record(VENDOR)
+        index = _read_json(self.out, "volumes.json")
+        for volume in index["volumes"]:
+            source = volume["source"]
+            self.assertEqual(sorted(source), ["kom.xml", "txt.xml"], volume["volume"])
+            for filename, entry in source.items():
+                recorded = record["%s/%s" % (volume["volume"], filename)]
+                self.assertEqual(entry["path"], recorded["path"])
+                self.assertEqual(entry["sha256"], recorded["sha256"])
+                self.assertTrue(entry["path"].endswith(filename))
+
+    def test_the_recorded_checksum_matches_the_vendored_bytes(self):
+        # The chain is only as honest as its weakest link: spot-verify that
+        # the provenance table describes the files actually on disk.
+        import hashlib
+
+        record = load_file_record(VENDOR)
+        for local in ("b1/txt.xml", "b1/kom.xml"):
+            with open(os.path.join(VENDOR, local), "rb") as file:
+                digest = hashlib.sha256(file.read()).hexdigest()
+            self.assertEqual(digest, record[local]["sha256"], local)
+
     # -- the manifest ------------------------------------------------------
 
     def test_manifest_records_provenance_and_a_license_per_layer(self):
@@ -172,7 +203,11 @@ class ExportTest(unittest.TestCase):
         again = tempfile.mkdtemp(prefix="epistel-export-")
         try:
             export_data(
-                self.volumes, again, provenance=self.provenance, context_dir=CONTEXT
+                self.volumes,
+                again,
+                provenance=self.provenance,
+                context_dir=CONTEXT,
+                files=load_file_record(VENDOR),
             )
             self.assertEqual(_tree(self.out), _tree(again))
         finally:

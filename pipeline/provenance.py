@@ -18,10 +18,16 @@ import re
 
 FILENAME = "PROVENANCE.md"
 
-# The record is Markdown written for humans; these two lines are the machine-
+# The record is Markdown written for humans; these lines are the machine-
 # readable part of it, and the test suite asserts that they stay findable.
 _REPOSITORY = re.compile(r"\*\*Upstream repository:\*\*\s*(\S+)")
 _COMMIT = re.compile(r"\*\*Pinned upstream commit:\*\*\s*`([0-9a-f]{7,40})`")
+
+# A row of the record's file table: local path, upstream path, sha256.
+_FILE_ROW = re.compile(
+    r"^\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|\s*`([0-9a-f]{64})`\s*\|",
+    re.MULTILINE,
+)
 
 
 def load_provenance(vendor_dir):
@@ -40,4 +46,27 @@ def load_provenance(vendor_dir):
     return {
         "repository": repository.group(1).rstrip("."),
         "commit": commit.group(1),
+    }
+
+
+def load_file_record(vendor_dir):
+    """The record's file table: local path -> upstream path and sha256.
+
+    Returns ``{"b1/txt.xml": {"path": "data/v1.9/b1/txt.xml",
+    "sha256": "..."}, ...}``, or ``None`` when there is no record or the
+    record has no table. The upstream path plus the pinned commit is a
+    stable address for the exact bytes; the checksum is what makes the
+    claim checkable.
+    """
+    path = os.path.join(vendor_dir, FILENAME)
+    if not os.path.isfile(path):
+        return None
+    with open(path, encoding="utf-8") as file:
+        recorded = file.read()
+    rows = _FILE_ROW.findall(recorded)
+    if not rows:
+        return None
+    return {
+        local: {"path": upstream, "sha256": sha256}
+        for local, upstream, sha256 in rows
     }
