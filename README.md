@@ -15,6 +15,16 @@ søgning, tidslinje — bygget deterministisk med `python3 build.py`
 (Python 3-stdlib, ingen afhængigheder) og serveret som ren statik.
 Byggebriefen ligger i `CLAUDE.md`.
 
+**Samlingen udgives også som data.** `python3 export.py` bygger
+`export/` (committet i repoet): typede JSON-konvolutter og semantiske
+HTML-transskriptioner for alle 336 breve, de redaktionelle datasæt
+verbatim, JSON-skemaer og proveniens med sha256-kæde tilbage til kilden.
+Formatet er beskrevet i [`docs/export-format.md`](docs/export-format.md);
+versionerede udgivelser med tarball ligger under
+[releases](https://github.com/mariabitsch/epistel/releases). Licenser:
+de TEI-afledte lag er CC0 som kilden, de redaktionelle lag
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
 ---
 
 *Bygget med AI-assistance (Claude).*
