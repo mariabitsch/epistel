@@ -14,6 +14,13 @@
       "scope": "footer"
     },
     {
+      "id": "cc-by-nc-sa-deed",
+      "href": "https://creativecommons.org/licenses/by-nc-sa/4.0/deed.da",
+      "label": "CC BY-NC-SA 4.0",
+      "rel": "license",
+      "scope": "om"
+    },
+    {
       "id": "upstream-repository",
       "href": "https://github.com/kb-dk/SKS_tei",
       "label": "kb-dk/SKS_tei",

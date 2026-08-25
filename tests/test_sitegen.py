@@ -1920,6 +1920,25 @@ class PresenterTest(unittest.TestCase):
     def test_the_om_page_names_the_code_licence(self):
         self.assertIn("MIT", self.about)
 
+    def test_the_om_page_licenses_notabenes_texts(self):
+        """The editorial layer's license, said on the page itself.
+
+        Maria's choice (2026-08-25): the summaries and biographies are
+        CC BY-NC-SA 4.0 — so the old claim that MIT covered everything
+        "skrevet her" had to narrow to the code. The license is a link
+        (from data/links.json, like every external link), and the page
+        keeps the three-layer split explicit: MIT code, CC0 TEI copy,
+        CC BY-NC-SA texts.
+        """
+        section = self.about.split('id="kildekode"', 1)[1]
+        self.assertIn("CC BY-NC-SA 4.0", section)
+        self.assertIn(
+            'href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.da"',
+            section,
+        )
+        self.assertIn("MIT gælder kun koden", section)
+        self.assertNotIn("skrevet her", section)
+
     def test_the_om_page_discloses_the_presenter_as_fiction(self):
         disclosure = self.about.split('id="notabene"', 1)[1]
         self.assertIn("Maria Notabene", disclosure)

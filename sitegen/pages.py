@@ -1489,7 +1489,7 @@ def _dataset_note(meta):
 # a fact about this repository, so it is written here rather than counted at
 # build time -- and a test counts the suite with unittest discovery and
 # compares it with the built page, so the sentence cannot go stale quietly.
-AUTOMATED_TESTS = 390
+AUTOMATED_TESTS = 391
 
 # The figures the Om page states about the site it belongs to. Every one of
 # them is recounted from the built pages in the test suite
@@ -1884,8 +1884,11 @@ def _about_code(links):
         "søgning og filtre. Hele kildekoden ligger offentligt på GitHub som "
         + _linked(links, "project-repository", "mariabitsch/epistel")
         + " under MIT-licensen: brug den, ændr den, byg noget bedre af den. "
-        "Kopien af TEI-filerne beholder sin egen CC0-status – MIT gælder kun "
-        "det, der er skrevet her.",
+        "Kopien af TEI-filerne beholder sin egen CC0-status, og Maria "
+        "Notabenes tekster – resuméerne og biografierne – er "
+        + _linked(links, "cc-by-nc-sa-deed", "CC BY-NC-SA 4.0")
+        + ": del dem gerne, med navn, ikke-kommercielt og på samme vilkår. "
+        "MIT gælder kun koden.",
     )
     body += element("p", "God fornøjelse!")
     return element("section", body, id="kildekode")
