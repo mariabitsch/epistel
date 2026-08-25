@@ -12,7 +12,7 @@ cheap to build, cheap to run, and safe to throw away.
 **State:** live at <https://epistel-demo.netlify.app/> (public repo
 mariabitsch/epistel; every push to main deploys). 638 static pages — 336
 letter pages, 298 person pages (143 with bios), index with facets +
-client-side search, `/tidslinje/`, `/personer/`, `/om/`. 381 tests green
+client-side search, `/tidslinje/`, `/personer/`, `/om/`. 386 tests green
 (that number is machine-guarded; see Working here). The front page opens
 with a factual lead (Maria's own text) and Maria Notabene's foreword, set
 in the letters' frame. Since 2026-08-25 the corpus is also published as
@@ -242,11 +242,11 @@ test-held.
   parsed apparatus variants are preserved but have no UI yet.
 - `ded` (120 dedications) excluded — needs its own metadata/grouping/URL
   model if ever included.
-- Export follow-ups: JSON Schema files (+ an optional
-  `fastjsonschema`-backed check) deferred to their own PR — the format
-  doc and the conformance tests carry the contract meanwhile. The
-  editorial layer's license is Maria's open decision; the manifest says
-  "pending" until she rules.
+- Export follow-up: the editorial layer's license is Maria's open
+  decision; the manifest says "pending" until she rules. (The JSON
+  Schemas shipped with schemaVersion 0.2.0 — draft-07 in
+  `export/schema/`, validated by the suite when the optional
+  `fastjsonschema` is importable, e.g. from a local `.venv`.)
 - Småting: more TEI-annotation finds may come.
 
 ## Explicitly out of scope

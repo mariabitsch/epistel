@@ -18,6 +18,7 @@ that every class used must be named in this file).
 export/
   manifest.json                 schemaVersion, provenance, license per layer
   volumes.json                  volume titles, groups, document order, warnings
+  schema/*.schema.json          JSON Schemas (draft-07) for the three above
   letters/<volume>/<xmlId>.json one envelope per letter (metadata)
   letters/<volume>/<xmlId>.html the letter's transcription (see Vocabulary)
 ```
@@ -56,15 +57,30 @@ disk carry no order of their own.
 
 ```json
 {
-  "schemaVersion": "0.1.0",
+  "schemaVersion": "0.2.0",
   "language": "da",
   "source": {"repository": "...", "commit": "..."},
   "layers": {
     "letters": {"path": "letters/", "count": 336, "license": "CC0-1.0"},
     "volumes": {"path": "volumes.json", "count": 14, "license": "CC0-1.0"}
+  },
+  "schemas": {
+    "letter": "schema/letter.schema.json",
+    "manifest": "schema/manifest.schema.json",
+    "volumes": "schema/volumes.schema.json"
   }
 }
 ```
+
+The schemas (JSON Schema **draft-07** — the draft the validation ecosystem
+supports universally) formally describe the manifest, the volume index and
+the letter envelope, with `additionalProperties: false` throughout: a field
+this document does not know cannot validate. The prose vocabulary table
+below remains the contract for the HTML *bodies*, which JSON Schema cannot
+describe. Validation is optional by design — the repository stays
+dependency-free; the test suite validates the committed export against the
+schemas when the pure-Python `fastjsonschema` package is available and
+skips visibly when it is not.
 
 `schemaVersion` is what a release tag promises; it changes when the shape of
 the export does. Licenses are SPDX identifiers, one per layer, because the
