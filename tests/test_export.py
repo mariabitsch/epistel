@@ -191,7 +191,7 @@ class ExportTest(unittest.TestCase):
     def test_manifest_records_provenance_and_a_license_per_layer(self):
         manifest = _read_json(self.out, "manifest.json")
         self.assertEqual(manifest["source"], self.provenance)
-        self.assertEqual(manifest["schemaVersion"], "0.2.0")
+        self.assertEqual(manifest["schemaVersion"], "0.1.1")
         letters = manifest["layers"]["letters"]
         self.assertEqual(letters["license"], "CC0-1.0")
         self.assertEqual(letters["count"], self.result["letters"])

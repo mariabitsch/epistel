@@ -41,9 +41,11 @@ import shutil
 from .body import render_body
 
 # Bumped when the shape of the export changes. Consumers pin releases; this
-# number is what a release tag promises. 0.2.0: the schemas joined the
-# export (schema/ + the manifest's "schemas" field) — additive.
-SCHEMA_VERSION = "0.2.0"
+# number is what a release tag promises. 0.1.1 (Maria's versioning call):
+# the schemas joined the export (schema/ + the manifest's "schemas" field)
+# and the editorial layers got their license — the data shapes themselves
+# are unchanged from 0.1.0.
+SCHEMA_VERSION = "0.1.1"
 
 # SPDX identifiers. The vendor-derived layers inherit the edition's CC0.
 CC0 = "CC0-1.0"
