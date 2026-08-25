@@ -19,7 +19,7 @@ import sys
 
 from exporter.export import export_data
 from pipeline.corpus import parse_corpus
-from pipeline.provenance import load_provenance
+from pipeline.provenance import load_file_record, load_provenance
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 VENDOR = os.path.join(ROOT, "data", "vendor")
@@ -40,7 +40,11 @@ def main(argv):
         print("export: source pinned to %s" % provenance["commit"])
 
     result = export_data(
-        volumes, out_dir, provenance=provenance, context_dir=CONTEXT
+        volumes,
+        out_dir,
+        provenance=provenance,
+        context_dir=CONTEXT,
+        files=load_file_record(VENDOR),
     )
     print(
         "export: wrote %d letter envelopes across %d volumes to %s"

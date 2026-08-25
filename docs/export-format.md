@@ -22,6 +22,15 @@ export/
   letters/<volume>/<xmlId>.html the letter's transcription (see Vocabulary)
 ```
 
+Each volume in `volumes.json` carries a `source` object naming its TEI
+files by basename — `txt.xml` (the letters) and `kom.xml` (the edition's
+commentary, which this export does not otherwise use) — each with the
+upstream repository path and the sha256 the provenance record vouches for.
+With the manifest's pinned commit, that is a stable, checkable address for
+the exact bytes (e.g. `https://raw.githubusercontent.com/<repository>/
+<commit>/<path>`); no folder needs listing to learn what exists. Without a
+provenance record, `source` is honestly `null`.
+
 Letters are filed by volume directory plus TEI `xml:id` — the only
 identifier every letter has (three b171 stubs carry no letter number). The
 edition's public letter number travels inside the envelope as `number`,
