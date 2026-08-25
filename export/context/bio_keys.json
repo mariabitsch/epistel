@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "description": "Kurateret sammenkoblingstabel: persName-nøgler i brevteksterne, hvis biografi i bios.json er arkiveret under en anden nøgle, fordi kommentarens nøglerum afviger fra brevteksternes (ombyttet navnerækkefølge, omflyttet efternavn, manglende komma). Tabellen er redaktionel — den er vores påstand om, at de to nøgleformer navngiver samme person, med evidens pr. opslag.",
+    "editorialLayer": true,
+    "notFromTEI": true,
+    "method": "Hver kobling er efterprøvet mod selve kommentarnoten: den godtages kun, hvor bioens kildenote glosserer den konkrete omtale i brevteksten, eller hvor biografien utvetydigt beskriver samme person som omtalen. En kobling, der ikke kunne afgøres med sikkerhed, ville stå udenfor med en begrundelse — den gættes ikke.",
+    "keySpace": "\"bodyKey\" er persName/@key i brevteksterne (data/vendor/b*/txt.xml) og dermed personregistrets nøgle; \"bioKey\" er nøglen i bios.json, som følger kommentarens nøglerum (kom.xml).",
+    "curated": "2026-07-28, Claude Fable 5, efterprøvet nøgle for nøgle mod kom.xml."
+  },
+  "bridges": [
+    {
+      "bodyKey": "Müller, Frederik Paludan",
+      "bioKey": "Paludan-Müller, Frederik",
+      "evidence": "Bioens kildenote b241:b-5179 glosserer netop denne omtale ('Fr. Paludan Müller', b241 brev 250) som 'Frederik Paludan-Müller (1809-76), da. digter og forf.'. Kommentaren kender også historikeren Casper Peter Paludan-Müller; fornavnet i begge nøgleformer udelukker forveksling."
+    },
+    {
+      "bodyKey": "Calderón, Pedro de la Barca",
+      "bioKey": "Barca, Pedro Calderón de la",
+      "evidence": "Samme fire navneled i to rækkefølger; biografien (kildenote b259:b-1720, samme bind som omtalerne) beskriver den spanske dramatiker Pedro Calderón de la Barca (1600-81), som brevene i Kolderup-Rosenvinge-vekslingen læser."
+    },
+    {
+      "bodyKey": "Collin, Edvard",
+      "bioKey": "Edvard, Collin",
+      "evidence": "Kommentarens nøgle har for- og efternavn i omvendt rækkefølge. Bioens kildenote b161:b-2644 er noten til netop den passage i b161, hvor brevteksten nævner 'Justitsraad Collin' med bodyKey'ens nøgle."
+    },
+    {
+      "bodyKey": "Frederik Christian Petersen",
+      "bioKey": "Petersen, Frederik Christian",
+      "evidence": "Unormaliseret nøgle uden komma på én tabelcelle i b161 ('F.C. Petersen'); bioens kildenote b161:b-2673 er noten til netop denne celle. Den normaliserede nøgle 'Petersen, Frederik Christian' findes også i brevteksterne og har allerede biografien."
+    }
+  ]
+}

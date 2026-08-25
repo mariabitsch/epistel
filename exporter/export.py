@@ -51,13 +51,37 @@ CC0 = "CC0-1.0"
 # per envelope (none in this corpus do).
 LANGUAGE = "da"
 
+# The curated editorial datasets (see pipeline.context), copied verbatim:
+# their _meta blocks, source citations and recorded disagreements are the
+# product. Maps file stem -> the key holding the entry list, for the
+# manifest's counts.
+CONTEXT_FILES = {
+    "publications": "publications",
+    "residences": "residences",
+    "summaries": "summaries",
+    "bios": "bios",
+    "bio_keys": "bridges",
+    "aliases": "aliases",
+}
 
-def export_data(volumes, out_dir, provenance=None):
-    """Write the export. Returns ``{"letters": ..., "volumes": ...}``.
+# The editorial layer has an author and, as yet, no chosen license. The
+# manifest says so honestly; claiming CC0 here would be a false grant.
+PENDING_LICENSE_NOTE = (
+    "License pending: not yet chosen for this curated layer; "
+    "all rights reserved until it is."
+)
+
+
+def export_data(volumes, out_dir, provenance=None, context_dir=None):
+    """Write the export. Returns ``{"letters": ..., "volumes": ...,
+    "context": ...}``.
 
     ``volumes`` is ``pipeline.corpus.parse_corpus`` output; ``provenance`` is
     ``pipeline.provenance.load_provenance`` output and may be ``None``, in
-    which case the manifest honestly records no source pin.
+    which case the manifest honestly records no source pin. ``context_dir``
+    points at the curated datasets; ``None``, or a directory holding none of
+    them, yields a smaller but complete export -- each editorial layer is
+    disposable on its own, exactly as it is for the site build.
     """
     if os.path.isdir(out_dir):
         shutil.rmtree(out_dir)
@@ -81,12 +105,42 @@ def export_data(volumes, out_dir, provenance=None):
                 file.write(fragment + "\n")
             letters += 1
 
+    context_layers = _copy_context(context_dir, out_dir)
+
     _write(os.path.join(out_dir, "volumes.json"), _volume_index(volumes))
     _write(
         os.path.join(out_dir, "manifest.json"),
-        _manifest(volumes, letters, provenance),
+        _manifest(volumes, letters, provenance, context_layers),
     )
-    return {"letters": letters, "volumes": len(volumes)}
+    return {
+        "letters": letters,
+        "volumes": len(volumes),
+        "context": sorted(context_layers),
+    }
+
+
+def _copy_context(context_dir, out_dir):
+    """Copy the curated files byte for byte; return manifest layer entries."""
+    layers = {}
+    if not context_dir or not os.path.isdir(context_dir):
+        return layers
+    for name, entries_key in CONTEXT_FILES.items():
+        source = os.path.join(context_dir, name + ".json")
+        if not os.path.isfile(source):
+            continue
+        with open(source, encoding="utf-8") as file:
+            entries = json.load(file).get(entries_key)
+        if not isinstance(entries, list):
+            raise ValueError("%s holds no %s" % (source, entries_key))
+        os.makedirs(os.path.join(out_dir, "context"), exist_ok=True)
+        shutil.copyfile(source, os.path.join(out_dir, "context", name + ".json"))
+        layers[name] = {
+            "path": "context/%s.json" % name,
+            "count": len(entries),
+            "license": None,
+            "licenseNote": PENDING_LICENSE_NOTE,
+        }
+    return layers
 
 
 def _envelope(volume, letter):
@@ -127,19 +181,21 @@ def _volume_index(volumes):
     }
 
 
-def _manifest(volumes, letters, provenance):
+def _manifest(volumes, letters, provenance, context_layers):
+    layers = {
+        "letters": {"path": "letters/", "count": letters, "license": CC0},
+        "volumes": {
+            "path": "volumes.json",
+            "count": len(volumes),
+            "license": CC0,
+        },
+    }
+    layers.update(sorted(context_layers.items()))
     return {
         "schemaVersion": SCHEMA_VERSION,
         "language": LANGUAGE,
         "source": provenance,
-        "layers": {
-            "letters": {"path": "letters/", "count": letters, "license": CC0},
-            "volumes": {
-                "path": "volumes.json",
-                "count": len(volumes),
-                "license": CC0,
-            },
-        },
+        "layers": layers,
     }
 
 

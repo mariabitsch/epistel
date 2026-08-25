@@ -15,6 +15,42 @@
    "path": "volumes.json",
    "count": 14,
    "license": "CC0-1.0"
+  },
+  "aliases": {
+   "path": "context/aliases.json",
+   "count": 71,
+   "license": null,
+   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
+  },
+  "bio_keys": {
+   "path": "context/bio_keys.json",
+   "count": 4,
+   "license": null,
+   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
+  },
+  "bios": {
+   "path": "context/bios.json",
+   "count": 206,
+   "license": null,
+   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
+  },
+  "publications": {
+   "path": "context/publications.json",
+   "count": 38,
+   "license": null,
+   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
+  },
+  "residences": {
+   "path": "context/residences.json",
+   "count": 9,
+   "license": null,
+   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
+  },
+  "summaries": {
+   "path": "context/summaries.json",
+   "count": 336,
+   "license": null,
+   "licenseNote": "License pending: not yet chosen for this curated layer; all rights reserved until it is."
   }
  }
 }

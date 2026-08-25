@@ -1,0 +1,637 @@
+{
+  "_meta": {
+    "description": "Kurateret sammenkoblingstabel: navneformerne i TEI-filernes correspDesc (afsender/modtager) sat op mod persName-nøglerne i brevteksterne. Udgaven giver ingen af delene et fælles id, så tabellen er redaktionel — den er vores påstand, ikke udgavens.",
+    "editorialLayer": true,
+    "notFromTEI": true,
+    "method": "Alle distinkte correspDesc-navneformer i korpus er trukket ud og matchet maskinelt (identisk streng, eller efternavn plus initialer udfoldet til netop én persName-nøgle). Resten er kurateret i hånden mod kommentaren i kom.xml. En form, der ikke kunne afgøres med sikkerhed, står i \"unmapped\" med en begrundelse — den gættes ikke. Breve med en uafklaret form optræder derfor ikke på nogen persons liste over sendte eller modtagne breve, og det er det ærlige udfald.",
+    "keySpace": "\"keys\" peger på persName/@key som den forekommer i brevteksterne (data/vendor/b*/txt.xml). Kommentarens nøglerum er ikke helt det samme; hvor de er uenige, vinder brevteksternes.",
+    "curated": "2026-07-28, Claude Opus 5, gennemgået form for form."
+  },
+  "aliases": [
+    {
+      "form": "SK",
+      "keys": [
+        "Kierkegaard, Søren Aabye"
+      ],
+      "method": "curated",
+      "note": "Udgavens gennemgående forkortelse for brevudgivelsens hovedperson."
+    },
+    {
+      "form": "Boesen, Emil",
+      "keys": [
+        "Boesen, Emil Ferdinand"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Olsen, Regine",
+      "keys": [
+        "Olsen, Regine"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Nielsen, Rasmus",
+      "keys": [
+        "Nielsen, Rasmus"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Kierkegaard, P.C.",
+      "keys": [
+        "Kierkegaard, Peter Christian"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Kolderup-Rosenvinge, J.L.A.",
+      "keys": [
+        "Kolderup-Rosenvinge, Janus Lauritz Andreas"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Lund, Henriette",
+      "keys": [
+        "Lund, Henriette"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Lund, Henrik",
+      "keys": [
+        "Lund, Henrik"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Levin, Israel",
+      "keys": [
+        "Levin, Israel"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Heiberg, J.L.",
+      "keys": [
+        "Heiberg, Johan Ludvig"
+      ],
+      "method": "curated",
+      "note": "Bindet rummer breve til og fra alle tre Heiberg'er, og udgaven skriver Johanne Luise Heiberg og Thomasine Gyllembourg fuldt ud; forkortelsen er mandens."
+    },
+    {
+      "form": "Lund, Carl",
+      "keys": [
+        "Lund, Carl Ferdinand"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Spang, Christiane Ph.",
+      "keys": [
+        "Spang, Christiane Philippine"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Kierkegaard, H.P.",
+      "keys": [
+        "Kierkegaard, Hans Peter"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Lund, Michael",
+      "keys": [
+        "Lund, Michael Frederik Christian"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Clausen, H.N.",
+      "keys": [
+        "Clausen, Henrik Nicolai"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Giødwad, J.F.",
+      "keys": [
+        "Giødwad, Jens Finsteen"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Kierkegaard, Henriette",
+      "keys": [
+        "Kierkegaard, Henriette"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Kofoed-Hansen, H.P.",
+      "keys": [
+        "Kofoed-Hansen, Hans Peter"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Philipsen, P.G.",
+      "keys": [
+        "Philipsen, Philip Gerson"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Bang, O.L.",
+      "keys": [
+        "Bang, Oluf Lundt"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Bremer, Fredrika",
+      "keys": [
+        "Bremer, Fredrika"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Kierkegaard, Else P.",
+      "keys": [
+        "Kierkegaard, Else Pedersdatter"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Kierkegaard, M.A.",
+      "keys": [
+        "Kierkegaard, Michael Andersen"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Luno, Bianco",
+      "keys": [
+        "Luno, Bianco"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Molbech, Chr.",
+      "keys": [
+        "Molbech, Christian"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Thomsen, Julie",
+      "keys": [
+        "Thomsen, Julie Augusta"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Bretteville, F. Lodovica de",
+      "keys": [
+        "Bretteville, Fanny Lodovica de"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Eiríksson, Magnús",
+      "keys": [
+        "Eiríksson, Magnús"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Ibsen, P.D.",
+      "keys": [
+        "Ibsen, Peter Diderik"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Kierkegaard, M.P.",
+      "keys": [
+        "Kierkegaard, Michael Pedersen"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Lund, Wilhelm",
+      "keys": [
+        "Lund, Wilhelm Nicolai"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Mynster, J.P.",
+      "keys": [
+        "Mynster, Jakob Peter"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Petersen, F.C.",
+      "keys": [
+        "Petersen, Frederik Christian"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Phister, J.L.",
+      "keys": [
+        "Phister, Joachim Ludvig"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Reitzel, C.A.",
+      "keys": [
+        "Reitzel, Carl Andreas"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Sibbern, F.C.",
+      "keys": [
+        "Sibbern, Frederik Christian"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Spang, P.J.",
+      "keys": [
+        "Spang, Peter Johannes"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Zeuthen, F.L.B.",
+      "keys": [
+        "Zeuthen, Frederik Ludvig Bang"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Algreen-Ussing, T.",
+      "keys": [
+        "Algreen-Ussing, Tage"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Andersen, H.C.",
+      "keys": [
+        "Andersen, Hans Christian"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Bojesen, E.F.C.",
+      "keys": [
+        "Bojesen, Ernst Frederik Christian"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "C.R.",
+      "keys": [
+        "C.R."
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Christian VIII, konge",
+      "keys": [
+        "Christian VIII"
+      ],
+      "method": "curated",
+      "note": "Samme person, men brevteksternes persName-nøgle bærer ingen titel."
+    },
+    {
+      "form": "Cold, Ole",
+      "keys": [
+        "Cold, Ole Johansen"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Collin, Jonas",
+      "keys": [
+        "Collin, Jonas"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Fabricius, F.",
+      "keys": [
+        "Fabricius, Frederik"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Hastrup, Hr.",
+      "keys": [
+        "Hastrup, Hr."
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Hauch, Carsten",
+      "keys": [
+        "Hauch, Carsten"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Heiberg, Johanne Luise",
+      "keys": [
+        "Heiberg, Johanne Luise"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Iversen, A.C.F.G.",
+      "keys": [
+        "Iversen, Andreas Christian Fürchtegott Gellert"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Kiellerup, C.E.",
+      "keys": [
+        "Kiellerup, Carl Emil"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "L.H.",
+      "keys": [
+        "L.H."
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Langhoff, B.S.",
+      "keys": [
+        "Langhoff, Boe Søren"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Lind, P.E.",
+      "keys": [
+        "Lind, Peter Engel"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Lund, Henriette og Wilhelm",
+      "keys": [
+        "Lund, Henriette",
+        "Lund, Wilhelm Nicolai"
+      ],
+      "method": "curated",
+      "note": "Ét brev til to af søskendebørnene."
+    },
+    {
+      "form": "Lund, Sophie og Carl",
+      "keys": [
+        "Lund, Sophie Wilhelmine",
+        "Lund, Carl Ferdinand"
+      ],
+      "method": "curated",
+      "note": "Ét brev til to af søskendebørnene."
+    },
+    {
+      "form": "Mynster, F.J.",
+      "keys": [
+        "Mynster, Frederik Joachim"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Nathanson, M.L.",
+      "keys": [
+        "Nathanson, Mendel Levin"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Nielsen, Michael",
+      "keys": [
+        "Nielsen, Michael"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Paludan-Müller, Fr.",
+      "keys": [
+        "Müller, Frederik Paludan"
+      ],
+      "method": "curated",
+      "note": "Digteren Frederik Paludan-Müller. Brevteksterne indekserer ham under Müller, kommentaren under Paludan-Müller; det er samme mand."
+    },
+    {
+      "form": "Reitzel, C.F.",
+      "keys": [
+        "Reitzel, Christian Frederik Theodor Martin"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Ross, Petronella",
+      "keys": [
+        "Ross, Petronella von"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Rudelbach, A.G.",
+      "keys": [
+        "Rudelbach, Andreas Gottlob"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "S: F:",
+      "keys": [
+        "S: F:"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Schlegel, J.F. og Regine",
+      "keys": [
+        "Schlegel, Johan Frederik",
+        "Olsen, Regine"
+      ],
+      "method": "curated",
+      "note": "Ét brev til ægteparret. Regine står i udgaven under sit pigenavn."
+    },
+    {
+      "form": "Schmidt, A.T.",
+      "keys": [
+        "Schmidt, Alexander Theodor"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Schou, C.J.",
+      "keys": [
+        "Schou, Christian Julius"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Trier, S.M.",
+      "keys": [
+        "Trier, Seligmann Meyer"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "Werliin, Julia C.",
+      "keys": [
+        "Werliin, Julia Constantia"
+      ],
+      "method": "expansion",
+      "note": null
+    },
+    {
+      "form": "e – e",
+      "keys": [
+        "e – e"
+      ],
+      "method": "exact",
+      "note": null
+    },
+    {
+      "form": "Ørsted, A.S.",
+      "keys": [
+        "Ørsted, Anders Sandøe"
+      ],
+      "method": "expansion",
+      "note": null
+    }
+  ],
+  "unmapped": [
+    {
+      "form": "ukendt",
+      "reason": "Udgaven kender ikke afsenderen eller modtageren. Ikke et navn."
+    },
+    {
+      "form": "Kierkegaard, familien",
+      "reason": "En gruppe, ikke en person: brev 39 er stilet til familien."
+    },
+    {
+      "form": "Lund, børn af Ferdinand",
+      "reason": "En gruppe: Ferdinand Lunds børn, som udgaven ikke navngiver enkeltvis."
+    },
+    {
+      "form": "Københavns Universitet",
+      "reason": "En institution, ikke en person."
+    },
+    {
+      "form": "Kongelige Bibliotek, Det",
+      "reason": "En institution, ikke en person."
+    },
+    {
+      "form": "Agerskov, Chr.",
+      "reason": "Kommentaren identificerer ham som Christian Wilhelm Hass Agerskov; brevteksternes eneste Agerskov er Niels Agerskov, en anden mand."
+    },
+    {
+      "form": "Møller, P.L.",
+      "reason": "P.L. Møller. Brevteksternes Møller'er er Niels Christian, Poul Martin og Rasmus — ingen af dem."
+    },
+    {
+      "form": "Nielsen, N.P.",
+      "reason": "Skuespilleren N.P. Nielsen. Brevteksternes Nielsen'er er Michael og Rasmus — ingen af dem."
+    },
+    {
+      "form": "Caroline Amalie, dronning",
+      "reason": "Optræder ikke som persName i nogen brevtekst."
+    },
+    {
+      "form": "Fibiger, Ilia",
+      "reason": "Optræder ikke som persName i nogen brevtekst."
+    },
+    {
+      "form": "Gyllembourg, Thomasine",
+      "reason": "Optræder ikke som persName i nogen brevtekst."
+    },
+    {
+      "form": "Stilling, P.M.",
+      "reason": "Optræder ikke som persName i nogen brevtekst."
+    },
+    {
+      "form": "Tryde, E.C.",
+      "reason": "Optræder ikke som persName i nogen brevtekst."
+    }
+  ]
+}

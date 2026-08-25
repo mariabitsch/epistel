@@ -136,6 +136,24 @@ element would be added to this table, the test, and the renderer together.
 | `<span class="tei-pb">` | pb | page/leaf boundary: `data-n` the number, `data-edref` present = the printed SKS pagination, absent = the manuscript's leaves, `data-facs` a facsimile reference |
 | `<span class="tei-milestone">` | milestone | a boundary in another edition's numbering (`data-edref`, `data-unit`) |
 
+## The editorial layers
+
+`export/context/` holds the curated datasets, copied **byte for byte** from
+`data/context/` — their `_meta` blocks state what each file is, where it
+came from and how it was verified, and that record is part of the product.
+Six files, each declared in the manifest with its entry count and each
+disposable on its own: `publications` and `residences` (the timeline's
+hand-curated data), `summaries` (Maria Notabene's letter summaries),
+`bios` (person biographies drawn from the edition's commentary),
+`bio_keys` and `aliases` (the two curated join tables; see each file's
+`_meta` for the join keys). An export without any of them — or without the
+whole directory — is a smaller but complete export.
+
+**License**: unlike the TEI-derived layers, this layer has an author, and
+its license is not yet chosen. The manifest carries `"license": null` and a
+`licenseNote` saying so; until a license is declared, all rights are
+reserved. Do not assume CC0 here.
+
 ## Versioning and consumption
 
 The export is consumed by pinning: clone at a commit, or fetch a tagged
