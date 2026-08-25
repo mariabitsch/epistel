@@ -1,0 +1,36 @@
+{
+ "volume": "b241",
+ "xmlId": "n241",
+ "number": "241",
+ "heading": "Fra SK · udateret [13. maj 1845] · til Hr. Hastrup",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18450513",
+   "iso": "1845-05-13",
+   "precision": "day",
+   "year": 1845,
+   "month": 5,
+   "day": 13,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Hastrup, Hr.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": null,
+  "notes": [
+   "Hr. Hastrup"
+  ]
+ }
+}

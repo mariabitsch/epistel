@@ -1,0 +1,36 @@
+{
+ "volume": "b208",
+ "xmlId": "n221",
+ "number": "221",
+ "heading": "Fra SK · 10. maj 1845 · til Bianco Luno",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18450510",
+   "iso": "1845-05-10",
+   "precision": "day",
+   "year": 1845,
+   "month": 5,
+   "day": 10,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Luno, Bianco",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext4",
+  "sameAs": null,
+  "notes": [
+   "Bianco Luno"
+  ]
+ }
+}

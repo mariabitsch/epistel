@@ -1,0 +1,36 @@
+{
+ "volume": "b120",
+ "xmlId": "n121",
+ "number": "121",
+ "heading": "Fra SK · 2. juni 1840 · til Københavns Universitet",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18400602",
+   "iso": "1840-06-02",
+   "precision": "day",
+   "year": 1840,
+   "month": 6,
+   "day": 2,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Københavns Universitet",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext2",
+  "sameAs": null,
+  "notes": [
+   "Københavns Universitet"
+  ]
+ }
+}

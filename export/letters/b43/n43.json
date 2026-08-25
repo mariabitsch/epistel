@@ -1,0 +1,36 @@
+{
+ "volume": "b43",
+ "xmlId": "n43",
+ "number": "43",
+ "heading": "Fra SK · 6. juli 1835 · til P.E. Lind",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18350706",
+   "iso": "1835-07-06",
+   "precision": "day",
+   "year": 1835,
+   "month": 7,
+   "day": 6,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Lind, P.E.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": null,
+  "notes": [
+   "P.E. Lind"
+  ]
+ }
+}

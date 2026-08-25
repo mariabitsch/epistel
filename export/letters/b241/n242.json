@@ -1,0 +1,36 @@
+{
+ "volume": "b241",
+ "xmlId": "n242",
+ "number": "242",
+ "heading": "Fra SK · 30. sept. 1845 · til Ole Cold",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18450930",
+   "iso": "1845-09-30",
+   "precision": "day",
+   "year": 1845,
+   "month": 9,
+   "day": 30,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Cold, Ole",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext2",
+  "sameAs": null,
+  "notes": [
+   "Ole Cold"
+  ]
+ }
+}

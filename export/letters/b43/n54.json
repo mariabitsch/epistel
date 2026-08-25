@@ -1,0 +1,36 @@
+{
+ "volume": "b43",
+ "xmlId": "n54",
+ "number": "54",
+ "heading": "Fra SK · udateret [april 1846] · til H.P. Kofoed-Hansen",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18460400",
+   "iso": "1846-04",
+   "precision": "month",
+   "year": 1846,
+   "month": 4,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kofoed-Hansen, H.P.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext5",
+  "sameAs": null,
+  "notes": [
+   "H.P. Kofoed-Hansen"
+  ]
+ }
+}

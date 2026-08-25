@@ -1,0 +1,41 @@
+{
+ "volume": "b208",
+ "xmlId": "n218",
+ "number": "218",
+ "heading": "Fra SK · udateret [jan.-feb. 1846] · til Israel Levin",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18460100",
+   "iso": "1846-01",
+   "precision": "month",
+   "year": 1846,
+   "month": 1,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18460200",
+    "iso": "1846-02",
+    "precision": "month",
+    "year": 1846,
+    "month": 2,
+    "day": null
+   },
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Levin, Israel",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext3",
+  "sameAs": "#correspContext3",
+  "notes": []
+ }
+}

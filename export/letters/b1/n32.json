@@ -1,0 +1,36 @@
+{
+ "volume": "b1",
+ "xmlId": "n32",
+ "number": "32",
+ "heading": "Fra M.A. Kierkegaard · 16. marts 1839 · til P.C. Kierkegaard og SK",
+ "sender": {
+  "name": "Kierkegaard, M.A.",
+  "date": {
+   "raw": "18390316",
+   "iso": "1839-03-16",
+   "precision": "day",
+   "year": 1839,
+   "month": 3,
+   "day": 16,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kierkegaard, P.C.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext5",
+  "sameAs": null,
+  "notes": [
+   "Michael Andersen Kierkegaard"
+  ]
+ }
+}

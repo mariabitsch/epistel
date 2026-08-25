@@ -1,0 +1,36 @@
+{
+ "volume": "b1",
+ "xmlId": "n35",
+ "number": "35",
+ "heading": "Fra SK · udateret [aug. 1844] · til Henriette Kierkegaard",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18440800",
+   "iso": "1844-08",
+   "precision": "month",
+   "year": 1844,
+   "month": 8,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kierkegaard, Henriette",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext6",
+  "sameAs": null,
+  "notes": [
+   "Henriette Kierkegaard"
+  ]
+ }
+}

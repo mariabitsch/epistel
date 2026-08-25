@@ -1,0 +1,36 @@
+{
+ "volume": "b234",
+ "xmlId": "n239",
+ "number": "239",
+ "heading": "Fra SK · udateret [april 1854] · til F.J. Mynster",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18540400",
+   "iso": "1854-04",
+   "precision": "month",
+   "year": 1854,
+   "month": 4,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Mynster, F.J.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext4",
+  "sameAs": null,
+  "notes": [
+   "F.J. Mynster"
+  ]
+ }
+}

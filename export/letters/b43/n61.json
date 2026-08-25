@@ -1,0 +1,36 @@
+{
+ "volume": "b43",
+ "xmlId": "n61",
+ "number": "61",
+ "heading": "Fra F.L.B. Zeuthen · 11. maj 1848 · til SK",
+ "sender": {
+  "name": "Zeuthen, F.L.B.",
+  "date": {
+   "raw": "18480511",
+   "iso": "1848-05-11",
+   "precision": "day",
+   "year": 1848,
+   "month": 5,
+   "day": 11,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext7",
+  "sameAs": null,
+  "notes": [
+   "F.L.B. Zeuthen"
+  ]
+ }
+}

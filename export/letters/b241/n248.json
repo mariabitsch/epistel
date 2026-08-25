@@ -1,0 +1,36 @@
+{
+ "volume": "b241",
+ "xmlId": "n248",
+ "number": "248",
+ "heading": "Fra A.T. Schmidt · 7. maj 1849 · til SK",
+ "sender": {
+  "name": "Schmidt, A.T.",
+  "date": {
+   "raw": "18490507",
+   "iso": "1849-05-07",
+   "precision": "day",
+   "year": 1849,
+   "month": 5,
+   "day": 7,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext7",
+  "sameAs": null,
+  "notes": [
+   "A.T. Schmidt"
+  ]
+ }
+}

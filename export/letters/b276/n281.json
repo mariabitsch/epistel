@@ -1,0 +1,41 @@
+{
+ "volume": "b276",
+ "xmlId": "n281",
+ "number": "281",
+ "heading": "Fra SK · udateret [1848-49] · til Rasmus Nielsen",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18480000",
+   "iso": "1848",
+   "precision": "year",
+   "year": 1848,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18490000",
+    "iso": "1849",
+    "precision": "year",
+    "year": 1849,
+    "month": null,
+    "day": null
+   },
+   "source": "undated",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Nielsen, Rasmus",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

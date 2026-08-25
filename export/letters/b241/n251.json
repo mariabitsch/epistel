@@ -1,0 +1,36 @@
+{
+ "volume": "b241",
+ "xmlId": "n251",
+ "number": "251",
+ "heading": "Fra Carsten Hauch · 17. maj 1849 · til SK",
+ "sender": {
+  "name": "Hauch, Carsten",
+  "date": {
+   "raw": "18490517",
+   "iso": "1849-05-17",
+   "precision": "day",
+   "year": 1849,
+   "month": 5,
+   "day": 17,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext10",
+  "sameAs": null,
+  "notes": [
+   "Carsten Hauch"
+  ]
+ }
+}

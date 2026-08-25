@@ -1,0 +1,36 @@
+{
+ "volume": "b43",
+ "xmlId": "n44",
+ "number": "44",
+ "heading": "Fra SK · 7. dec. 1837 · til Chr. Agerskov",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18371207",
+   "iso": "1837-12-07",
+   "precision": "day",
+   "year": 1837,
+   "month": 12,
+   "day": 7,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Agerskov, Chr.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext2",
+  "sameAs": null,
+  "notes": [
+   "Chr. Agerskov"
+  ]
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "volume": "b171",
+ "xmlId": "n171",
+ "number": "171",
+ "heading": "Fra SK · 8. dec. 1841 · til Carl Lund",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18411208",
+   "iso": "1841-12-08",
+   "precision": "day",
+   "year": 1841,
+   "month": 12,
+   "day": 8,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Lund, Carl",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": null,
+  "notes": [
+   "Carl Lund"
+  ]
+ }
+}

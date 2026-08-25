@@ -1,0 +1,43 @@
+{
+ "volume": "b43",
+ "xmlId": "n63",
+ "number": "63",
+ "heading": "Fra SK · udateret [1848/49] · til J.L. Phister",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18480000",
+   "iso": "1848",
+   "precision": "year",
+   "year": 1848,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18490000",
+    "iso": "1849",
+    "precision": "year",
+    "year": 1849,
+    "month": null,
+    "day": null
+   },
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Phister, J.L.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext8",
+  "sameAs": null,
+  "notes": [
+   "J.L. Phister"
+  ]
+ }
+}

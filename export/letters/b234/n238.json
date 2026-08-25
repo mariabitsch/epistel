@@ -1,0 +1,36 @@
+{
+ "volume": "b234",
+ "xmlId": "n238",
+ "number": "238",
+ "heading": "Fra A.G. Rudelbach · 18. nov. 1850 · til SK",
+ "sender": {
+  "name": "Rudelbach, A.G.",
+  "date": {
+   "raw": "18501118",
+   "iso": "1850-11-18",
+   "precision": "day",
+   "year": 1850,
+   "month": 11,
+   "day": 18,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext3",
+  "sameAs": null,
+  "notes": [
+   "A.G. Rudelbach"
+  ]
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "volume": "b79",
+ "xmlId": "n116",
+ "number": "116",
+ "heading": "Fra SK · stemplet 12. april [1850] · til Emil Boesen",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18500412",
+   "iso": "1850-04-12",
+   "precision": "day",
+   "year": 1850,
+   "month": 4,
+   "day": 12,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "stamp",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Boesen, Emil",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

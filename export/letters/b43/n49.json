@@ -1,0 +1,41 @@
+{
+ "volume": "b43",
+ "xmlId": "n49",
+ "number": "49",
+ "heading": "Fra SK · udateret [1846-47] · til Christiane Ph. Spang",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18460000",
+   "iso": "1846",
+   "precision": "year",
+   "year": 1846,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18470000",
+    "iso": "1847",
+    "precision": "year",
+    "year": 1847,
+    "month": null,
+    "day": null
+   },
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Spang, Christiane Ph.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext3",
+  "sameAs": "#correspContext3",
+  "notes": []
+ }
+}

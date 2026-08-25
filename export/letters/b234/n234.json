@@ -1,0 +1,36 @@
+{
+ "volume": "b234",
+ "xmlId": "n234",
+ "number": "234",
+ "heading": "Fra SK · udateret [juli 1844] · til P.D. Ibsen",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18440700",
+   "iso": "1844-07",
+   "precision": "month",
+   "year": 1844,
+   "month": 7,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Ibsen, P.D.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": null,
+  "notes": [
+   "P.D. Ibsen"
+  ]
+ }
+}

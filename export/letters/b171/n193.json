@@ -1,0 +1,36 @@
+{
+ "volume": "b171",
+ "xmlId": "n193",
+ "number": "193",
+ "heading": "Fra SK · 22. jan. 1842 · til Sophie Lund og Carl Lund",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18420122",
+   "iso": "1842-01-22",
+   "precision": "day",
+   "year": 1842,
+   "month": 1,
+   "day": 22,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Lund, Sophie og Carl",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext4",
+  "sameAs": null,
+  "notes": [
+   "Sophie Lund og Carl Lund"
+  ]
+ }
+}

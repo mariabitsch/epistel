@@ -1,0 +1,41 @@
+{
+ "volume": "b1",
+ "xmlId": "n33",
+ "number": "33",
+ "heading": "Fra SK · 16. april [1846-54] · til M.A. Kierkegaard",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18460416",
+   "iso": "1846-04-16",
+   "precision": "day",
+   "year": 1846,
+   "month": 4,
+   "day": 16,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18540416",
+    "iso": "1854-04-16",
+    "precision": "day",
+    "year": 1854,
+    "month": 4,
+    "day": 16
+   },
+   "source": "suppliedYear",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Kierkegaard, M.A.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext5",
+  "sameAs": "#correspContext5",
+  "notes": []
+ }
+}

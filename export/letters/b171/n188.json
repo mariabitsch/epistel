@@ -1,0 +1,36 @@
+{
+ "volume": "b171",
+ "xmlId": "n188",
+ "number": "188",
+ "heading": "Fra SK · stemplet 28. dec. [1841] · til Michael Lund",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18411228",
+   "iso": "1841-12-28",
+   "precision": "day",
+   "year": 1841,
+   "month": 12,
+   "day": 28,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "stamp",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Lund, Michael",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext3",
+  "sameAs": null,
+  "notes": [
+   "Michael Lund"
+  ]
+ }
+}

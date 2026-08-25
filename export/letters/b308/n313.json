@@ -1,0 +1,36 @@
+{
+ "volume": "b308",
+ "xmlId": "n313",
+ "number": "313",
+ "heading": "Fra e – e · 21. maj 1851 · til SK",
+ "sender": {
+  "name": "e – e",
+  "date": {
+   "raw": "18510521",
+   "iso": "1851-05-21",
+   "precision": "day",
+   "year": 1851,
+   "month": 5,
+   "day": 21,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext3",
+  "sameAs": null,
+  "notes": [
+   "e – e"
+  ]
+ }
+}

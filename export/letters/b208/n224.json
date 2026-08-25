@@ -1,0 +1,43 @@
+{
+ "volume": "b208",
+ "xmlId": "n224",
+ "number": "224",
+ "heading": "Fra SK · juli-aug. 1847 · til C.A. Reitzel",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18470700",
+   "iso": "1847-07",
+   "precision": "month",
+   "year": 1847,
+   "month": 7,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18470800",
+    "iso": "1847-08",
+    "precision": "month",
+    "year": 1847,
+    "month": 8,
+    "day": null
+   },
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Reitzel, C.A.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext5",
+  "sameAs": null,
+  "notes": [
+   "C.A. Reitzel"
+  ]
+ }
+}

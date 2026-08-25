@@ -1,0 +1,36 @@
+{
+ "volume": "b234",
+ "xmlId": "n236",
+ "number": "236",
+ "heading": "Fra SK · 30. okt. [1848] · til J.P. Mynster",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18481030",
+   "iso": "1848-10-30",
+   "precision": "day",
+   "year": 1848,
+   "month": 10,
+   "day": 30,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "suppliedYear",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Mynster, J.P.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext2",
+  "sameAs": null,
+  "notes": [
+   "J.P. Mynster"
+  ]
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "volume": "b127",
+ "xmlId": "n127",
+ "number": "127",
+ "heading": "Fra SK · udateret [1840] · til Regine Olsen",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18400000",
+   "iso": "1840",
+   "precision": "year",
+   "year": 1840,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Olsen, Regine",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": null,
+  "notes": [
+   "Regine Olsen"
+  ]
+ }
+}

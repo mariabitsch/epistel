@@ -1,0 +1,43 @@
+{
+ "volume": "b208",
+ "xmlId": "n230",
+ "number": "230",
+ "heading": "Fra SK · udateret [jan.-feb. 1852] · til B.S. Langhoff",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18520100",
+   "iso": "1852-01",
+   "precision": "month",
+   "year": 1852,
+   "month": 1,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18520200",
+    "iso": "1852-02",
+    "precision": "month",
+    "year": 1852,
+    "month": 2,
+    "day": null
+   },
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Langhoff, B.S.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext7",
+  "sameAs": null,
+  "notes": [
+   "B.S. Langhoff"
+  ]
+ }
+}

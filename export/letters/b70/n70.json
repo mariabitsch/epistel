@@ -1,0 +1,36 @@
+{
+ "volume": "b70",
+ "xmlId": "n70",
+ "number": "70",
+ "heading": "Fra J.L. Heiberg · 16. marts 1836 · til SK",
+ "sender": {
+  "name": "Heiberg, J.L.",
+  "date": {
+   "raw": "18360316",
+   "iso": "1836-03-16",
+   "precision": "day",
+   "year": 1836,
+   "month": 3,
+   "day": 16,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": null,
+  "notes": [
+   "Johan Ludvig Heiberg, Johanne Luise Heiberg og Thomasine Gyllembourg"
+  ]
+ }
+}

@@ -1,0 +1,2931 @@
+{
+ "volumes": [
+  {
+   "volume": "b1",
+   "title": "Familien Kierkegaard",
+   "shortTitle": "B1",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "P.C. Kierkegaard",
+     "notes": [
+      "Peter Christian Kierkegaard"
+     ],
+     "letterIds": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22"
+     ]
+    },
+    {
+     "id": "correspContext2",
+     "heading": "M.P. Kierkegaard",
+     "notes": [
+      "Michael Pedersen Kierkegaard"
+     ],
+     "letterIds": [
+      "23"
+     ]
+    },
+    {
+     "id": "correspContext3",
+     "heading": "H.P. Kierkegaard",
+     "notes": [
+      "Hans Peter Kierkegaard"
+     ],
+     "letterIds": [
+      "24",
+      "25",
+      "26",
+      "27",
+      "28"
+     ]
+    },
+    {
+     "id": "correspContext4",
+     "heading": "Else P. Kierkegaard",
+     "notes": [
+      "Else Pedersdatter Kierkegaard"
+     ],
+     "letterIds": [
+      "29",
+      "30",
+      "31"
+     ]
+    },
+    {
+     "id": "correspContext5",
+     "heading": "M.A. Kierkegaard",
+     "notes": [
+      "Michael Andersen Kierkegaard"
+     ],
+     "letterIds": [
+      "32",
+      "33",
+      "34"
+     ]
+    },
+    {
+     "id": "correspContext6",
+     "heading": "Henriette Kierkegaard",
+     "notes": [
+      "Henriette Kierkegaard"
+     ],
+     "letterIds": [
+      "35",
+      "36",
+      "37",
+      "38"
+     ]
+    },
+    {
+     "id": "correspContext7",
+     "heading": "Vedrørende gravstedet",
+     "notes": [
+      "Vedrørende gravstedet"
+     ],
+     "letterIds": [
+      "39"
+     ]
+    },
+    {
+     "id": "correspContext8",
+     "heading": "Julie Thomsen",
+     "notes": [
+      "Julie Thomsen"
+     ],
+     "letterIds": [
+      "40",
+      "41",
+      "42"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b1",
+     "xmlId": "n1",
+     "number": "1"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n2",
+     "number": "2"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n3",
+     "number": "3"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n4",
+     "number": "4"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n5",
+     "number": "5"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n6",
+     "number": "6"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n7",
+     "number": "7"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n8",
+     "number": "8"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n9",
+     "number": "9"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n10",
+     "number": "10"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n11",
+     "number": "11"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n12",
+     "number": "12"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n13",
+     "number": "13"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n14",
+     "number": "14"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n15",
+     "number": "15"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n16",
+     "number": "16"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n17",
+     "number": "17"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n18",
+     "number": "18"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n19",
+     "number": "19"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n20",
+     "number": "20"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n21",
+     "number": "21"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n22",
+     "number": "22"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n23",
+     "number": "23"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n24",
+     "number": "24"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n25",
+     "number": "25"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n26",
+     "number": "26"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n27",
+     "number": "27"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n28",
+     "number": "28"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n29",
+     "number": "29"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n30",
+     "number": "30"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n31",
+     "number": "31"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n32",
+     "number": "32"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n33",
+     "number": "33"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n34",
+     "number": "34"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n35",
+     "number": "35"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n36",
+     "number": "36"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n37",
+     "number": "37"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n38",
+     "number": "38"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n39",
+     "number": "39"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n40",
+     "number": "40"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n41",
+     "number": "41"
+    },
+    {
+     "volume": "b1",
+     "xmlId": "n42",
+     "number": "42"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b43",
+   "title": "Studiekammerater og bekendte",
+   "shortTitle": "B43",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "P.E. Lind",
+     "notes": [
+      "P.E. Lind"
+     ],
+     "letterIds": [
+      "43"
+     ]
+    },
+    {
+     "id": "correspContext2",
+     "heading": "Chr. Agerskov",
+     "notes": [
+      "Chr. Agerskov"
+     ],
+     "letterIds": [
+      "44"
+     ]
+    },
+    {
+     "id": "correspContext3",
+     "heading": "Spang",
+     "notes": [
+      "P.J. Spang og C.P.D. Spang"
+     ],
+     "letterIds": [
+      "45",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "52"
+     ]
+    },
+    {
+     "id": "correspContext4",
+     "heading": "P.L. Møller",
+     "notes": [
+      "P.L. Møller"
+     ],
+     "letterIds": [
+      "53"
+     ]
+    },
+    {
+     "id": "correspContext5",
+     "heading": "H.P. Kofoed-Hansen",
+     "notes": [
+      "H.P. Kofoed-Hansen"
+     ],
+     "letterIds": [
+      "54",
+      "55",
+      "56",
+      "57"
+     ]
+    },
+    {
+     "id": "correspContext6",
+     "heading": "Chr. Molbech",
+     "notes": [
+      "Chr. Molbech"
+     ],
+     "letterIds": [
+      "58",
+      "59",
+      "60"
+     ]
+    },
+    {
+     "id": "correspContext7",
+     "heading": "F.L.B. Zeuthen",
+     "notes": [
+      "F.L.B. Zeuthen"
+     ],
+     "letterIds": [
+      "61",
+      "62"
+     ]
+    },
+    {
+     "id": "correspContext8",
+     "heading": "J.L. Phister",
+     "notes": [
+      "J.L. Phister"
+     ],
+     "letterIds": [
+      "63",
+      "64"
+     ]
+    },
+    {
+     "id": "correspContext9",
+     "heading": "C.E. Kiellerup",
+     "notes": [
+      "C.E. Kiellerup"
+     ],
+     "letterIds": [
+      "65"
+     ]
+    },
+    {
+     "id": "correspContext10",
+     "heading": "P.M. Stilling",
+     "notes": [
+      "P.M. Stilling"
+     ],
+     "letterIds": [
+      "66"
+     ]
+    },
+    {
+     "id": "correspContext11",
+     "heading": "O.L. Bang",
+     "notes": [
+      "O.L. Bang"
+     ],
+     "letterIds": [
+      "67",
+      "68",
+      "69"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b43",
+     "xmlId": "n43",
+     "number": "43"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n44",
+     "number": "44"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n45",
+     "number": "45"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n46",
+     "number": "46"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n47",
+     "number": "47"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n48",
+     "number": "48"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n49",
+     "number": "49"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n50",
+     "number": "50"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n51",
+     "number": "51"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n52",
+     "number": "52"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n53",
+     "number": "53"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n54",
+     "number": "54"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n55",
+     "number": "55"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n56",
+     "number": "56"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n57",
+     "number": "57"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n58",
+     "number": "58"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n59",
+     "number": "59"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n60",
+     "number": "60"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n61",
+     "number": "61"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n62",
+     "number": "62"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n63",
+     "number": "63"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n64",
+     "number": "64"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n65",
+     "number": "65"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n66",
+     "number": "66"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n67",
+     "number": "67"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n68",
+     "number": "68"
+    },
+    {
+     "volume": "b43",
+     "xmlId": "n69",
+     "number": "69"
+    }
+   ],
+   "warnings": [
+    {
+     "letterId": "50",
+     "tag": "date",
+     "message": "unreadable date '1847000' kept as raw value only"
+    }
+   ]
+  },
+  {
+   "volume": "b70",
+   "title": "Familien Heiberg",
+   "shortTitle": "B70",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "Heiberg og Th. Gyllembourg",
+     "notes": [
+      "Johan Ludvig Heiberg, Johanne Luise Heiberg og Thomasine Gyllembourg"
+     ],
+     "letterIds": [
+      "70",
+      "71",
+      "72",
+      "73",
+      "74",
+      "75",
+      "76",
+      "77",
+      "78"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b70",
+     "xmlId": "n70",
+     "number": "70"
+    },
+    {
+     "volume": "b70",
+     "xmlId": "n71",
+     "number": "71"
+    },
+    {
+     "volume": "b70",
+     "xmlId": "n72",
+     "number": "72"
+    },
+    {
+     "volume": "b70",
+     "xmlId": "n73",
+     "number": "73"
+    },
+    {
+     "volume": "b70",
+     "xmlId": "n74",
+     "number": "74"
+    },
+    {
+     "volume": "b70",
+     "xmlId": "n75",
+     "number": "75"
+    },
+    {
+     "volume": "b70",
+     "xmlId": "n76",
+     "number": "76"
+    },
+    {
+     "volume": "b70",
+     "xmlId": "n77",
+     "number": "77"
+    },
+    {
+     "volume": "b70",
+     "xmlId": "n78",
+     "number": "78"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b79",
+   "title": "Emil Boesen",
+   "shortTitle": "B79",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "Emil Boesen",
+     "notes": [
+      "Emil Boesen"
+     ],
+     "letterIds": [
+      "79",
+      "80",
+      "81",
+      "82",
+      "83",
+      "84",
+      "85",
+      "86",
+      "87",
+      "88",
+      "89",
+      "90",
+      "91",
+      "92",
+      "93",
+      "94",
+      "95",
+      "96",
+      "97",
+      "98",
+      "99",
+      "100",
+      "101",
+      "102",
+      "103",
+      "104",
+      "105",
+      "106",
+      "107",
+      "108",
+      "109",
+      "110",
+      "111",
+      "112",
+      "113",
+      "114",
+      "115",
+      "116",
+      "117",
+      "118",
+      "119"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b79",
+     "xmlId": "n79",
+     "number": "79"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n80",
+     "number": "80"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n81",
+     "number": "81"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n82",
+     "number": "82"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n83",
+     "number": "83"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n84",
+     "number": "84"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n85",
+     "number": "85"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n86",
+     "number": "86"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n87",
+     "number": "87"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n88",
+     "number": "88"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n89",
+     "number": "89"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n90",
+     "number": "90"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n91",
+     "number": "91"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n92",
+     "number": "92"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n93",
+     "number": "93"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n94",
+     "number": "94"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n95",
+     "number": "95"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n96",
+     "number": "96"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n97",
+     "number": "97"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n98",
+     "number": "98"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n99",
+     "number": "99"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n100",
+     "number": "100"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n101",
+     "number": "101"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n102",
+     "number": "102"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n103",
+     "number": "103"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n104",
+     "number": "104"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n105",
+     "number": "105"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n106",
+     "number": "106"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n107",
+     "number": "107"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n108",
+     "number": "108"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n109",
+     "number": "109"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n110",
+     "number": "110"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n111",
+     "number": "111"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n112",
+     "number": "112"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n113",
+     "number": "113"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n114",
+     "number": "114"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n115",
+     "number": "115"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n116",
+     "number": "116"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n117",
+     "number": "117"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n118",
+     "number": "118"
+    },
+    {
+     "volume": "b79",
+     "xmlId": "n119",
+     "number": "119"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b120",
+   "title": "Kongehuset og offentlige myndigheder",
+   "shortTitle": "B120",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "F. Fabricius",
+     "notes": [
+      "F. Fabricius"
+     ],
+     "letterIds": [
+      "120"
+     ]
+    },
+    {
+     "id": "correspContext2",
+     "heading": "Københavns Universitet",
+     "notes": [
+      "Københavns Universitet"
+     ],
+     "letterIds": [
+      "121"
+     ]
+    },
+    {
+     "id": "correspContext3",
+     "heading": "Kong Christian VIII",
+     "notes": [
+      "Kong Christian VIII"
+     ],
+     "letterIds": [
+      "122"
+     ]
+    },
+    {
+     "id": "correspContext4",
+     "heading": "Det Kongelige Bibliotek",
+     "notes": [
+      "Det Kongelige Bibliotek"
+     ],
+     "letterIds": [
+      "123"
+     ]
+    },
+    {
+     "id": "correspContext5",
+     "heading": "S.M. Trier",
+     "notes": [
+      "S.M. Trier"
+     ],
+     "letterIds": [
+      "124"
+     ]
+    },
+    {
+     "id": "correspContext6",
+     "heading": "T. Algreen-Ussing",
+     "notes": [
+      "T. Algreen-Ussing"
+     ],
+     "letterIds": [
+      "125"
+     ]
+    },
+    {
+     "id": "correspContext7",
+     "heading": "Dronning Caroline Amalie",
+     "notes": [
+      "Dronning Caroline Amalie"
+     ],
+     "letterIds": [
+      "126"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b120",
+     "xmlId": "n120",
+     "number": "120"
+    },
+    {
+     "volume": "b120",
+     "xmlId": "n121",
+     "number": "121"
+    },
+    {
+     "volume": "b120",
+     "xmlId": "n122",
+     "number": "122"
+    },
+    {
+     "volume": "b120",
+     "xmlId": "n123",
+     "number": "123"
+    },
+    {
+     "volume": "b120",
+     "xmlId": "n124",
+     "number": "124"
+    },
+    {
+     "volume": "b120",
+     "xmlId": "n125",
+     "number": "125"
+    },
+    {
+     "volume": "b120",
+     "xmlId": "n126",
+     "number": "126"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b127",
+   "title": "Regine Olsen, gift Schlegel",
+   "shortTitle": "B127",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "Regine Olsen",
+     "notes": [
+      "Regine Olsen"
+     ],
+     "letterIds": [
+      "127",
+      "128",
+      "129",
+      "130",
+      "131",
+      "132",
+      "133",
+      "134",
+      "135",
+      "136",
+      "137",
+      "138",
+      "139",
+      "140",
+      "141",
+      "142",
+      "143",
+      "144",
+      "145",
+      "146",
+      "147",
+      "148",
+      "149",
+      "150",
+      "151",
+      "152",
+      "153",
+      "154",
+      "155",
+      "156",
+      "157",
+      "158"
+     ]
+    },
+    {
+     "id": "correspContext2",
+     "heading": "Schlegel",
+     "notes": [
+      "Johan Frederik Schlegel og Regine Schlegel"
+     ],
+     "letterIds": [
+      "159",
+      "159.1",
+      "159.2",
+      "159.3",
+      "159.4",
+      "159.5",
+      "159.6",
+      "159.7",
+      "159.8",
+      "159.9",
+      "160"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b127",
+     "xmlId": "n127",
+     "number": "127"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n128",
+     "number": "128"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n129",
+     "number": "129"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n130",
+     "number": "130"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n131",
+     "number": "131"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n132",
+     "number": "132"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n133",
+     "number": "133"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n134",
+     "number": "134"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n135",
+     "number": "135"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n136",
+     "number": "136"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n137",
+     "number": "137"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n138",
+     "number": "138"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n139",
+     "number": "139"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n140",
+     "number": "140"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n141",
+     "number": "141"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n142",
+     "number": "142"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n143",
+     "number": "143"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n144",
+     "number": "144"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n145",
+     "number": "145"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n146",
+     "number": "146"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n147",
+     "number": "147"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n148",
+     "number": "148"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n149",
+     "number": "149"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n150",
+     "number": "150"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n151",
+     "number": "151"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n152",
+     "number": "152"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n153",
+     "number": "153"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n154",
+     "number": "154"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n155",
+     "number": "155"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n156",
+     "number": "156"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n157",
+     "number": "157"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n158",
+     "number": "158"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n159",
+     "number": "159"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n159.1",
+     "number": "159.1"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n159.2",
+     "number": "159.2"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n159.3",
+     "number": "159.3"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n159.4",
+     "number": "159.4"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n159.5",
+     "number": "159.5"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n159.6",
+     "number": "159.6"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n159.7",
+     "number": "159.7"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n159.8",
+     "number": "159.8"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n159.9",
+     "number": "159.9"
+    },
+    {
+     "volume": "b127",
+     "xmlId": "n160",
+     "number": "160"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b161",
+   "title": "Lærere",
+   "shortTitle": "B161",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "E.F.C. Bojesen",
+     "notes": [
+      "E.F.C. Bojesen"
+     ],
+     "letterIds": [
+      "161"
+     ]
+    },
+    {
+     "id": "correspContext2",
+     "heading": "F.C. Sibbern",
+     "notes": [
+      "F.C. Sibbern"
+     ],
+     "letterIds": [
+      "162",
+      "163"
+     ]
+    },
+    {
+     "id": "correspContext3",
+     "heading": "Michael Nielsen",
+     "notes": [
+      "Michael Nielsen"
+     ],
+     "letterIds": [
+      "164"
+     ]
+    },
+    {
+     "id": "correspContext4",
+     "heading": "H.N. Clausen",
+     "notes": [
+      "H.N. Clausen"
+     ],
+     "letterIds": [
+      "165",
+      "166",
+      "167",
+      "168"
+     ]
+    },
+    {
+     "id": "correspContext5",
+     "heading": "F.C. Petersen",
+     "notes": [
+      "F.C. Petersen"
+     ],
+     "letterIds": [
+      "169",
+      "170"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b161",
+     "xmlId": "n161",
+     "number": "161"
+    },
+    {
+     "volume": "b161",
+     "xmlId": "n162",
+     "number": "162"
+    },
+    {
+     "volume": "b161",
+     "xmlId": "n163",
+     "number": "163"
+    },
+    {
+     "volume": "b161",
+     "xmlId": "n164",
+     "number": "164"
+    },
+    {
+     "volume": "b161",
+     "xmlId": "n165",
+     "number": "165"
+    },
+    {
+     "volume": "b161",
+     "xmlId": "n166",
+     "number": "166"
+    },
+    {
+     "volume": "b161",
+     "xmlId": "n167",
+     "number": "167"
+    },
+    {
+     "volume": "b161",
+     "xmlId": "n168",
+     "number": "168"
+    },
+    {
+     "volume": "b161",
+     "xmlId": "n169",
+     "number": "169"
+    },
+    {
+     "volume": "b161",
+     "xmlId": "n170",
+     "number": "170"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b171",
+   "title": "Familien Lund",
+   "shortTitle": "B171",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "Carl Lund",
+     "notes": [
+      "Carl Lund"
+     ],
+     "letterIds": [
+      "171",
+      "172",
+      "-",
+      "173",
+      "174",
+      "175"
+     ]
+    },
+    {
+     "id": "correspContext2",
+     "heading": "Henriette Lund",
+     "notes": [
+      "Henriette Lund"
+     ],
+     "letterIds": [
+      "176",
+      "-",
+      "177",
+      "178",
+      "179",
+      "180",
+      "181",
+      "182",
+      "183",
+      "184",
+      "185",
+      "186",
+      "187"
+     ]
+    },
+    {
+     "id": "correspContext3",
+     "heading": "Michael Lund",
+     "notes": [
+      "Michael Lund"
+     ],
+     "letterIds": [
+      "188",
+      "189",
+      "190",
+      "191",
+      "192"
+     ]
+    },
+    {
+     "id": "correspContext4",
+     "heading": "Sophie Lund og Carl Lund",
+     "notes": [
+      "Sophie Lund og Carl Lund"
+     ],
+     "letterIds": [
+      "193"
+     ]
+    },
+    {
+     "id": "correspContext5",
+     "heading": "Henriette Lund og Wilhelm Lund",
+     "notes": [
+      "Henriette Lund og Wilhelm Lund"
+     ],
+     "letterIds": [
+      "194"
+     ]
+    },
+    {
+     "id": "correspContext6",
+     "heading": "Wilhelm Lund",
+     "notes": [
+      "Wilhelm Lund"
+     ],
+     "letterIds": [
+      "-",
+      "195"
+     ]
+    },
+    {
+     "id": "correspContext7",
+     "heading": "Henrik Lund",
+     "notes": [
+      "Henrik Lund"
+     ],
+     "letterIds": [
+      "196",
+      "197",
+      "198",
+      "199",
+      "200",
+      "201",
+      "202",
+      "203",
+      "204",
+      "205",
+      "206"
+     ]
+    },
+    {
+     "id": "correspContext8",
+     "heading": "Ferdinand Lunds børn",
+     "notes": [
+      "Ferdinand Lunds børn"
+     ],
+     "letterIds": [
+      "207"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b171",
+     "xmlId": "n171",
+     "number": "171"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n172",
+     "number": "172"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n171a",
+     "number": "-"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n173",
+     "number": "173"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n174",
+     "number": "174"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n175",
+     "number": "175"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n176",
+     "number": "176"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n176a",
+     "number": "-"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n177",
+     "number": "177"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n178",
+     "number": "178"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n179",
+     "number": "179"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n180",
+     "number": "180"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n181",
+     "number": "181"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n182",
+     "number": "182"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n183",
+     "number": "183"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n184",
+     "number": "184"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n185",
+     "number": "185"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n186",
+     "number": "186"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n187",
+     "number": "187"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n188",
+     "number": "188"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n189",
+     "number": "189"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n190",
+     "number": "190"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n191",
+     "number": "191"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n192",
+     "number": "192"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n193",
+     "number": "193"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n194",
+     "number": "194"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "na",
+     "number": "-"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n195",
+     "number": "195"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n196",
+     "number": "196"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n197",
+     "number": "197"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n198",
+     "number": "198"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n199",
+     "number": "199"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n200",
+     "number": "200"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n201",
+     "number": "201"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n202",
+     "number": "202"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n203",
+     "number": "203"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n204",
+     "number": "204"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n205",
+     "number": "205"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n206",
+     "number": "206"
+    },
+    {
+     "volume": "b171",
+     "xmlId": "n207",
+     "number": "207"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b208",
+   "title": "Sekretær, bogtrykker, redaktører og forlæggere",
+   "shortTitle": "B208",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "M.L. Nathanson",
+     "notes": [
+      "M.L. Nathanson"
+     ],
+     "letterIds": [
+      "208"
+     ]
+    },
+    {
+     "id": "correspContext2",
+     "heading": "J.F. Giødwad",
+     "notes": [
+      "J.F. Giødwad"
+     ],
+     "letterIds": [
+      "209",
+      "210",
+      "211"
+     ]
+    },
+    {
+     "id": "correspContext3",
+     "heading": "Israel Levin",
+     "notes": [
+      "Israel Levin"
+     ],
+     "letterIds": [
+      "212",
+      "213",
+      "214",
+      "215",
+      "216",
+      "217",
+      "218",
+      "219",
+      "220"
+     ]
+    },
+    {
+     "id": "correspContext4",
+     "heading": "Bianco Luno",
+     "notes": [
+      "Bianco Luno"
+     ],
+     "letterIds": [
+      "221",
+      "222",
+      "223"
+     ]
+    },
+    {
+     "id": "correspContext5",
+     "heading": "C.A. Reitzel",
+     "notes": [
+      "C.A. Reitzel"
+     ],
+     "letterIds": [
+      "224",
+      "225"
+     ]
+    },
+    {
+     "id": "correspContext6",
+     "heading": "P.G. Philipsen",
+     "notes": [
+      "P.G. Philipsen"
+     ],
+     "letterIds": [
+      "226",
+      "227",
+      "228",
+      "229"
+     ]
+    },
+    {
+     "id": "correspContext7",
+     "heading": "B.S. Langhoff",
+     "notes": [
+      "B.S. Langhoff"
+     ],
+     "letterIds": [
+      "230"
+     ]
+    },
+    {
+     "id": "correspContext8",
+     "heading": "A.C.F.G. Iversen",
+     "notes": [
+      "A.C.F.G. Iversen"
+     ],
+     "letterIds": [
+      "231"
+     ]
+    },
+    {
+     "id": "correspContext9",
+     "heading": "C.F. Reitzel",
+     "notes": [
+      "C.F. Reitzel"
+     ],
+     "letterIds": [
+      "232"
+     ]
+    },
+    {
+     "id": "correspContext10",
+     "heading": "C.J. Schou",
+     "notes": [
+      "C.J. Schou"
+     ],
+     "letterIds": [
+      "233"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b208",
+     "xmlId": "n208",
+     "number": "208"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n209",
+     "number": "209"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n210",
+     "number": "210"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n211",
+     "number": "211"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n212",
+     "number": "212"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n213",
+     "number": "213"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n214",
+     "number": "214"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n215",
+     "number": "215"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n216",
+     "number": "216"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n217",
+     "number": "217"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n218",
+     "number": "218"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n219",
+     "number": "219"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n220",
+     "number": "220"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n221",
+     "number": "221"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n222",
+     "number": "222"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n223",
+     "number": "223"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n224",
+     "number": "224"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n225",
+     "number": "225"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n226",
+     "number": "226"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n227",
+     "number": "227"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n228",
+     "number": "228"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n229",
+     "number": "229"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n230",
+     "number": "230"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n231",
+     "number": "231"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n232",
+     "number": "232"
+    },
+    {
+     "volume": "b208",
+     "xmlId": "n233",
+     "number": "233"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b234",
+   "title": "Gejstlige",
+   "shortTitle": "B234",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "P.D. Ibsen",
+     "notes": [
+      "P.D. Ibsen"
+     ],
+     "letterIds": [
+      "234",
+      "235"
+     ]
+    },
+    {
+     "id": "correspContext2",
+     "heading": "J.P. Mynster",
+     "notes": [
+      "J.P. Mynster"
+     ],
+     "letterIds": [
+      "236",
+      "237"
+     ]
+    },
+    {
+     "id": "correspContext3",
+     "heading": "A.G. Rudelbach",
+     "notes": [
+      "A.G. Rudelbach"
+     ],
+     "letterIds": [
+      "238"
+     ]
+    },
+    {
+     "id": "correspContext4",
+     "heading": "F.J. Mynster",
+     "notes": [
+      "F.J. Mynster"
+     ],
+     "letterIds": [
+      "239"
+     ]
+    },
+    {
+     "id": "correspContext5",
+     "heading": "E.C. Tryde",
+     "notes": [
+      "E.C. Tryde"
+     ],
+     "letterIds": [
+      "240"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b234",
+     "xmlId": "n234",
+     "number": "234"
+    },
+    {
+     "volume": "b234",
+     "xmlId": "n235",
+     "number": "235"
+    },
+    {
+     "volume": "b234",
+     "xmlId": "n236",
+     "number": "236"
+    },
+    {
+     "volume": "b234",
+     "xmlId": "n237",
+     "number": "237"
+    },
+    {
+     "volume": "b234",
+     "xmlId": "n238",
+     "number": "238"
+    },
+    {
+     "volume": "b234",
+     "xmlId": "n239",
+     "number": "239"
+    },
+    {
+     "volume": "b234",
+     "xmlId": "n240",
+     "number": "240"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b241",
+   "title": "Følgebreve, takkebreve, anmodninger m.m.",
+   "shortTitle": "B241",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "Hr. Hastrup",
+     "notes": [
+      "Hr. Hastrup"
+     ],
+     "letterIds": [
+      "241"
+     ]
+    },
+    {
+     "id": "correspContext2",
+     "heading": "Ole Cold",
+     "notes": [
+      "Ole Cold"
+     ],
+     "letterIds": [
+      "242"
+     ]
+    },
+    {
+     "id": "correspContext3",
+     "heading": "C.R.",
+     "notes": [
+      "C.R."
+     ],
+     "letterIds": [
+      "243"
+     ]
+    },
+    {
+     "id": "correspContext4",
+     "heading": "Ukendt",
+     "notes": [
+      "Ukendt"
+     ],
+     "letterIds": [
+      "244"
+     ]
+    },
+    {
+     "id": "correspContext5",
+     "heading": "Magnus Eiriksson",
+     "notes": [
+      "Magnús Eiríksson"
+     ],
+     "letterIds": [
+      "245",
+      "246"
+     ]
+    },
+    {
+     "id": "correspContext6",
+     "heading": "Julia C. Werliin",
+     "notes": [
+      "Julia C. Werliin"
+     ],
+     "letterIds": [
+      "247"
+     ]
+    },
+    {
+     "id": "correspContext7",
+     "heading": "A.T. Schmidt",
+     "notes": [
+      "A.T. Schmidt"
+     ],
+     "letterIds": [
+      "248"
+     ]
+    },
+    {
+     "id": "correspContext8",
+     "heading": "H.C. Andersen",
+     "notes": [
+      "H.C. Andersen"
+     ],
+     "letterIds": [
+      "249"
+     ]
+    },
+    {
+     "id": "correspContext9",
+     "heading": "Fr. Paludan-Müller",
+     "notes": [
+      "Fr. Paludan-Müller"
+     ],
+     "letterIds": [
+      "250"
+     ]
+    },
+    {
+     "id": "correspContext10",
+     "heading": "Carsten Hauch",
+     "notes": [
+      "Carsten Hauch"
+     ],
+     "letterIds": [
+      "251"
+     ]
+    },
+    {
+     "id": "correspContext11",
+     "heading": "N.P. Nielsen",
+     "notes": [
+      "N.P. Nielsen"
+     ],
+     "letterIds": [
+      "252"
+     ]
+    },
+    {
+     "id": "correspContext12",
+     "heading": "Ukendt",
+     "notes": [
+      "Ukendt"
+     ],
+     "letterIds": [
+      "253"
+     ]
+    },
+    {
+     "id": "correspContext13",
+     "heading": "Jonas Collin",
+     "notes": [
+      "Jonas Collin"
+     ],
+     "letterIds": [
+      "254"
+     ]
+    },
+    {
+     "id": "correspContext14",
+     "heading": "A.S. Ørsted",
+     "notes": [
+      "A.S. Ørsted"
+     ],
+     "letterIds": [
+      "255"
+     ]
+    },
+    {
+     "id": "correspContext15",
+     "heading": "Ukendt",
+     "notes": [
+      "Ukendt"
+     ],
+     "letterIds": [
+      "256"
+     ]
+    },
+    {
+     "id": "correspContext16",
+     "heading": "Ukendt",
+     "notes": [
+      "Ukendt"
+     ],
+     "letterIds": [
+      "257"
+     ]
+    },
+    {
+     "id": "correspContext17",
+     "heading": "Ukendt",
+     "notes": [
+      "Ukendt"
+     ],
+     "letterIds": [
+      "258"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b241",
+     "xmlId": "n241",
+     "number": "241"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n242",
+     "number": "242"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n243",
+     "number": "243"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n244",
+     "number": "244"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n245",
+     "number": "245"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n246",
+     "number": "246"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n247",
+     "number": "247"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n248",
+     "number": "248"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n249",
+     "number": "249"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n250",
+     "number": "250"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n251",
+     "number": "251"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n252",
+     "number": "252"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n253",
+     "number": "253"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n254",
+     "number": "254"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n255",
+     "number": "255"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n256",
+     "number": "256"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n257",
+     "number": "257"
+    },
+    {
+     "volume": "b241",
+     "xmlId": "n258",
+     "number": "258"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b259",
+   "title": "J.L.A. Kolderup-Rosenvinge",
+   "shortTitle": "B259",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "J.L.A. Kolderup-Rosenvinge",
+     "notes": [
+      "J.L.A. Kolderup-Rosenvinge"
+     ],
+     "letterIds": [
+      "259",
+      "260",
+      "261",
+      "262",
+      "263",
+      "264",
+      "265",
+      "266",
+      "267",
+      "268",
+      "269",
+      "270",
+      "271",
+      "272",
+      "273",
+      "274",
+      "275"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b259",
+     "xmlId": "n259",
+     "number": "259"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n260",
+     "number": "260"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n261",
+     "number": "261"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n262",
+     "number": "262"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n263",
+     "number": "263"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n264",
+     "number": "264"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n265",
+     "number": "265"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n266",
+     "number": "266"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n267",
+     "number": "267"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n268",
+     "number": "268"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n269",
+     "number": "269"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n270",
+     "number": "270"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n271",
+     "number": "271"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n272",
+     "number": "272"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n273",
+     "number": "273"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n274",
+     "number": "274"
+    },
+    {
+     "volume": "b259",
+     "xmlId": "n275",
+     "number": "275"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b276",
+   "title": "Rasmus Nielsen",
+   "shortTitle": "B276",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "Rasmus Nielsen",
+     "notes": [
+      "Rasmus Nielsen"
+     ],
+     "letterIds": [
+      "276",
+      "277",
+      "278",
+      "279",
+      "280",
+      "280.1",
+      "281",
+      "282",
+      "283",
+      "284",
+      "285",
+      "286",
+      "287",
+      "288",
+      "289",
+      "290",
+      "291",
+      "292",
+      "293",
+      "294",
+      "295",
+      "296",
+      "297",
+      "298",
+      "299",
+      "300",
+      "301",
+      "302",
+      "303",
+      "304",
+      "304.1",
+      "304.2",
+      "304.3",
+      "304.4",
+      "304.5",
+      "305",
+      "306",
+      "307"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b276",
+     "xmlId": "n276",
+     "number": "276"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n277",
+     "number": "277"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n278",
+     "number": "278"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n279",
+     "number": "279"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n280",
+     "number": "280"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n280.1",
+     "number": "280.1"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n281",
+     "number": "281"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n282",
+     "number": "282"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n283",
+     "number": "283"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n284",
+     "number": "284"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n285",
+     "number": "285"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n286",
+     "number": "286"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n287",
+     "number": "287"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n288",
+     "number": "288"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n289",
+     "number": "289"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n290",
+     "number": "290"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n291",
+     "number": "291"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n292",
+     "number": "292"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n293",
+     "number": "293"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n294",
+     "number": "294"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n295",
+     "number": "295"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n296",
+     "number": "296"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n297",
+     "number": "297"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n298",
+     "number": "298"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n299",
+     "number": "299"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n300",
+     "number": "300"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n301",
+     "number": "301"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n302",
+     "number": "302"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n303",
+     "number": "303"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n304",
+     "number": "304"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n304.1",
+     "number": "304.1"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n304.2",
+     "number": "304.2"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n304.3",
+     "number": "304.3"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n304.4",
+     "number": "304.4"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n304.5",
+     "number": "304.5"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n305",
+     "number": "305"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n306",
+     "number": "306"
+    },
+    {
+     "volume": "b276",
+     "xmlId": "n307",
+     "number": "307"
+    }
+   ],
+   "warnings": []
+  },
+  {
+   "volume": "b308",
+   "title": "Læserinder",
+   "shortTitle": "B308",
+   "groups": [
+    {
+     "id": "correspContext1",
+     "heading": "Fredrika Bremer",
+     "notes": [
+      "Fredrika Bremer"
+     ],
+     "letterIds": [
+      "308",
+      "309",
+      "310"
+     ]
+    },
+    {
+     "id": "correspContext2",
+     "heading": "F. Lodovica de Bretteville",
+     "notes": [
+      "Fanny Lodovica de Bretteville"
+     ],
+     "letterIds": [
+      "311",
+      "312"
+     ]
+    },
+    {
+     "id": "correspContext3",
+     "heading": "e – e",
+     "notes": [
+      "e – e"
+     ],
+     "letterIds": [
+      "313"
+     ]
+    },
+    {
+     "id": "correspContext4",
+     "heading": "S: F:",
+     "notes": [
+      "S: F:"
+     ],
+     "letterIds": [
+      "314"
+     ]
+    },
+    {
+     "id": "correspContext5",
+     "heading": "Petronella Ross",
+     "notes": [
+      "Petronella Ross"
+     ],
+     "letterIds": [
+      "315"
+     ]
+    },
+    {
+     "id": "correspContext6",
+     "heading": "Ilia Fibiger",
+     "notes": [
+      "Ilia Fibiger"
+     ],
+     "letterIds": [
+      "316"
+     ]
+    },
+    {
+     "id": "correspContext7",
+     "heading": "L.H.",
+     "notes": [
+      "L.H."
+     ],
+     "letterIds": [
+      "317"
+     ]
+    },
+    {
+     "id": "correspContext8",
+     "heading": "Ukendt",
+     "notes": [
+      "Ukendt"
+     ],
+     "letterIds": [
+      "318"
+     ]
+    }
+   ],
+   "letters": [
+    {
+     "volume": "b308",
+     "xmlId": "n308",
+     "number": "308"
+    },
+    {
+     "volume": "b308",
+     "xmlId": "n309",
+     "number": "309"
+    },
+    {
+     "volume": "b308",
+     "xmlId": "n310",
+     "number": "310"
+    },
+    {
+     "volume": "b308",
+     "xmlId": "n311",
+     "number": "311"
+    },
+    {
+     "volume": "b308",
+     "xmlId": "n312",
+     "number": "312"
+    },
+    {
+     "volume": "b308",
+     "xmlId": "n313",
+     "number": "313"
+    },
+    {
+     "volume": "b308",
+     "xmlId": "n314",
+     "number": "314"
+    },
+    {
+     "volume": "b308",
+     "xmlId": "n315",
+     "number": "315"
+    },
+    {
+     "volume": "b308",
+     "xmlId": "n316",
+     "number": "316"
+    },
+    {
+     "volume": "b308",
+     "xmlId": "n317",
+     "number": "317"
+    },
+    {
+     "volume": "b308",
+     "xmlId": "n318",
+     "number": "318"
+    }
+   ],
+   "warnings": []
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "volume": "b1",
+ "xmlId": "n41",
+ "number": "41",
+ "heading": "Fra SK · udateret [1847-48] · til Julie Thomsen",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18470000",
+   "iso": "1847",
+   "precision": "year",
+   "year": 1847,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18480000",
+    "iso": "1848",
+    "precision": "year",
+    "year": 1848,
+    "month": null,
+    "day": null
+   },
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Thomsen, Julie",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext8",
+  "sameAs": "#correspContext8",
+  "notes": []
+ }
+}

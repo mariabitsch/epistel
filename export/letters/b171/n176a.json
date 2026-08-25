@@ -1,0 +1,34 @@
+{
+ "volume": "b171",
+ "xmlId": "n176a",
+ "number": "-",
+ "heading": "Fra SK · udateret [feb. 1842] · til Henriette Lund, se Brev 194",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18420200",
+   "iso": "1842-02",
+   "precision": "month",
+   "year": 1842,
+   "month": 2,
+   "day": null,
+   "notBefore": null,
+   "notAfter": null,
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": ", se Brev 194"
+ },
+ "recipient": {
+  "name": "Lund, Henriette",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext2",
+  "sameAs": "#correspContext2",
+  "notes": []
+ }
+}

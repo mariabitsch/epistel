@@ -1,0 +1,36 @@
+{
+ "volume": "b208",
+ "xmlId": "n233",
+ "number": "233",
+ "heading": "Fra SK · 19. juli 1855 · til C.J. Schou",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18550719",
+   "iso": "1855-07-19",
+   "precision": "day",
+   "year": 1855,
+   "month": 7,
+   "day": 19,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Schou, C.J.",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext10",
+  "sameAs": null,
+  "notes": [
+   "C.J. Schou"
+  ]
+ }
+}

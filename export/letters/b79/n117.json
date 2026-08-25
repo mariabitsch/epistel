@@ -1,0 +1,34 @@
+{
+ "volume": "b79",
+ "xmlId": "n117",
+ "number": "117",
+ "heading": "Fra Emil Boesen · 29. april 1850 · til SK",
+ "sender": {
+  "name": "Boesen, Emil",
+  "date": {
+   "raw": "18500429",
+   "iso": "1850-04-29",
+   "precision": "day",
+   "year": 1850,
+   "month": 4,
+   "day": 29,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

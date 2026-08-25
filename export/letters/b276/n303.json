@@ -1,0 +1,41 @@
+{
+ "volume": "b276",
+ "xmlId": "n303",
+ "number": "303",
+ "heading": "Fra Rasmus Nielsen · [marts-april 1850] · til SK",
+ "sender": {
+  "name": "Nielsen, Rasmus",
+  "date": {
+   "raw": "18500300",
+   "iso": "1850-03",
+   "precision": "month",
+   "year": 1850,
+   "month": 3,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18500400",
+    "iso": "1850-04",
+    "precision": "month",
+    "year": 1850,
+    "month": 4,
+    "day": null
+   },
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": "fejlagtigt dateret af R. Nielsen"
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext1",
+  "sameAs": "#correspContext1",
+  "notes": []
+ }
+}

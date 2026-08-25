@@ -1,0 +1,43 @@
+{
+ "volume": "b171",
+ "xmlId": "n196",
+ "number": "196",
+ "heading": "Fra SK · udateret [1842-49] · til Henrik Lund",
+ "sender": {
+  "name": "SK",
+  "date": {
+   "raw": "18420000",
+   "iso": "1842",
+   "precision": "year",
+   "year": 1842,
+   "month": null,
+   "day": null,
+   "notBefore": null,
+   "notAfter": {
+    "raw": "18490000",
+    "iso": "1849",
+    "precision": "year",
+    "year": 1849,
+    "month": null,
+    "day": null
+   },
+   "source": "supplied",
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "Lund, Henrik",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext7",
+  "sameAs": null,
+  "notes": [
+   "Henrik Lund"
+  ]
+ }
+}

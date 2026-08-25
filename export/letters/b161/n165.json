@@ -1,0 +1,36 @@
+{
+ "volume": "b161",
+ "xmlId": "n165",
+ "number": "165",
+ "heading": "Fra H.N. Clausen · 25. sept. 1847 · til SK",
+ "sender": {
+  "name": "Clausen, H.N.",
+  "date": {
+   "raw": "18470925",
+   "iso": "1847-09-25",
+   "precision": "day",
+   "year": 1847,
+   "month": 9,
+   "day": 25,
+   "notBefore": null,
+   "notAfter": null,
+   "source": null,
+   "text": null
+  },
+  "place": null,
+  "note": null
+ },
+ "recipient": {
+  "name": "SK",
+  "date": null,
+  "place": null,
+  "note": null
+ },
+ "context": {
+  "groupId": "correspContext4",
+  "sameAs": null,
+  "notes": [
+   "H.N. Clausen"
+  ]
+ }
+}
