@@ -22,7 +22,7 @@ repoets pull requests.*
   en angivelse, bygningen ikke kan efterprøve mod optegnelsen ved siden af
   filerne, ville være værre end ingen.
 - **Deterministisk og offline.** Byggeprocessen henter intet fra nettet. Samme
-  filer ind giver samme sider ud, på enhver maskine, hver gang. 375
+  filer ind giver samme sider ud, på enhver maskine, hver gang. 379
   automatiske test kører mod de rigtige vendorerede filer — ikke mod testdata.
 - **Afgrænsning.** Af de 15 vendorerede mapper indgår 14 i korpus — én for
   hver af bind 28's grupper. Mappen `ded` med dedikationerne er hentet og

@@ -1,0 +1,267 @@
+{
+  "_meta": {
+    "dataset": "residences",
+    "title": "Søren Kierkegaards bopæle i København (1813–1855)",
+    "description": "Kronologisk liste over de adresser, Søren Kierkegaard boede på – fra fødehjemmet på Nytorv til det sidste logi i Klædeboderne. Datasættet er lavet til tidslinjesiden, hvor brevene kan ses op mod, hvor han befandt sig.",
+    "editorialLayer": true,
+    "notFromTEI": "Dette er et redaktionelt lag, håndkurateret og kildebelagt. Det stammer IKKE fra den vendorerede TEI i data/vendor/, som er uændret kildetekst. Alt her er tilføjet ovenpå og kan bestrides, rettes og skiftes ud uafhængigt af TEI-laget.",
+    "compiled": "2026-07-27",
+    "compiledWith": "Håndkurateret med AI-assistance (Claude Opus 5). Hver post er verificeret mod online kilder på kompileringsdatoen; hvor kilder er uenige, står uenigheden i postens note.",
+    "datingPrinciple": "Kilderne er langt mindre præcise om bopæle end om udgivelser, og flytninger fulgte som regel de københavnske flyttedage i april og oktober. Præcisionen (»day«, »month«, »year«) siger, hvor meget kilden faktisk fastslår. Poster, hvor perioden er omstridt eller kun tilnærmet, har \"approx\": true – der er ikke gættet en dato frem for at få tidslinjen til at se pæn ud.",
+    "addressNote": "Feltet address gengiver adressen, som den kendes fra Kierkegaards tid; i København blev ejendomme dengang typisk angivet ved matrikelnummer inden for et kvarter, og de nuværende husnumre stammer først fra tiden efter. modernNote angiver den nutidige adresse, hvor den er en anden, og om bygningen stadig står.",
+    "generalSources": [
+      {
+        "work": "Dansk Biografisk Leksikon, »Søren Kierkegaard«, lex.dk",
+        "url": "https://biografiskleksikon.lex.dk/S%C3%B8ren_Kierkegaard"
+      },
+      {
+        "work": "Indenforvoldene.dk – topografisk opslagsværk over ejendomme i det indre København, med bopælsregister",
+        "url": "https://www.indenforvoldene.dk/bopaelsregister-k"
+      },
+      {
+        "work": "Helle Sahl Madsen, artikelserie om Kierkegaards boliger, Kristeligt Dagblad, maj 2013",
+        "url": "https://www.kristeligt-dagblad.dk/bagsiden/s%C3%B8ren-kierkegaard-boede-p%C3%A5-den-samme-adresse-i-28-%C3%A5r"
+      },
+      {
+        "work": "Søren Kierkegaard Forskningscenteret, »Tidstavle over Søren Kierkegaards liv og værker«, Københavns Universitet",
+        "url": "https://teol.ku.dk/skc/om-soeren-kierkegaard/tidslinje/"
+      }
+    ]
+  },
+  "residences": [
+    {
+      "address": "Nytorv 2",
+      "modernNote": "Huset blev revet ned i 1908; på grunden ligger i dag en bankbygning på Nytorv 2. En mindeplade på facaden lyder: »I det Hus som laa her indtil 1908 boede Søren Kierkegaard fra sin Fødsel 5. Mai 1813 til 27. April 1848.« Indenforvoldene.dk fører ejendommen som »Nytorv 27 (nedrevet)«.",
+      "from": {
+        "raw": "5. maj 1813",
+        "iso": "1813-05-05",
+        "precision": "day"
+      },
+      "to": {
+        "raw": "1. september 1837",
+        "iso": "1837-09-01",
+        "precision": "day"
+      },
+      "note": "Fødehjemmet. Faderen, hosekræmmer Michael Pedersen Kierkegaard, havde købt ejendommen i 1808. Familien boede på hele første sal og i stuelejligheden til højre. Den 1. sept. 1837 forlod Søren Kierkegaard det fædrene hus.",
+      "sources": [
+        {
+          "work": "Dansk Biografisk Leksikon, »Søren Kierkegaard«: »1.9. forlod Søren Kierkegaard det fædrene hus på Nytorv«",
+          "url": "https://biografiskleksikon.lex.dk/S%C3%B8ren_Kierkegaard"
+        },
+        {
+          "work": "Helle Sahl Madsen, »Søren Kierkegaard boede på den samme adresse i 28 år«, Kristeligt Dagblad 2013",
+          "url": "https://www.kristeligt-dagblad.dk/bagsiden/s%C3%B8ren-kierkegaard-boede-p%C3%A5-den-samme-adresse-i-28-%C3%A5r"
+        }
+      ]
+    },
+    {
+      "address": "Løvstræde 7",
+      "modernNote": null,
+      "from": {
+        "raw": "efteråret 1837",
+        "iso": "1837",
+        "precision": "year"
+      },
+      "to": {
+        "raw": "1838",
+        "iso": "1838",
+        "precision": "year"
+      },
+      "approx": true,
+      "note": "Første egen bolig efter han flyttede hjemmefra; Dansk Biografisk Leksikon omtaler den blot som »vinteren i Løvstræde«. Husnummeret 7 er kun belagt hos Kristeligt Dagblad, og indenforvoldene.dk's bopælsregister springer Løvstræde helt over og fører ham på Kultorvet allerede fra 1837. Både adresse og periode er derfor usikre.",
+      "sources": [
+        {
+          "work": "Dansk Biografisk Leksikon, »Søren Kierkegaard«",
+          "url": "https://biografiskleksikon.lex.dk/S%C3%B8ren_Kierkegaard"
+        },
+        {
+          "work": "Helle Sahl Madsen, »Søren Kierkegaard boede på den samme adresse i 28 år«, Kristeligt Dagblad 2013",
+          "url": "https://www.kristeligt-dagblad.dk/bagsiden/s%C3%B8ren-kierkegaard-boede-p%C3%A5-den-samme-adresse-i-28-%C3%A5r"
+        }
+      ]
+    },
+    {
+      "address": "Kultorvet (matr. 130, Klædebo Kvarter), 1. sal",
+      "modernNote": "I dag Kultorvet 11, en del af hjørneejendommen Kultorvet 9-13 / Rosengården 2; forhuset er opført 1822-23 og står stadig.",
+      "from": {
+        "raw": "1838",
+        "iso": "1838",
+        "precision": "year"
+      },
+      "to": {
+        "raw": "1840",
+        "iso": "1840",
+        "precision": "year"
+      },
+      "approx": true,
+      "note": "Her boede han, da faderen døde i august 1838, og da Af en endnu Levendes Papirer udkom. Kilderne er uenige om starten: indenforvoldene.dk skriver 1837, mens Udfordringen daterer flytningen fra Løvstræde til april 1838 – og angiver husnummeret som 22, hvilket ingen andre kilder bekræfter. Han er sikkert bevidnet på Kultorvet i februar 1839.",
+      "sources": [
+        {
+          "work": "Indenforvoldene.dk, bopælsregister K: »1837 – 1840 Kultorvet 11, 1.sal«",
+          "url": "https://www.indenforvoldene.dk/bopaelsregister-k"
+        },
+        {
+          "work": "Indenforvoldene.dk, »Kultorvet 9-11-13-13a-c / Rosengården 2«: »I Kultorvet 11 boede filosoffen Søren Kierkegaard på 1.sal fra 1837 til 1840«",
+          "url": "https://www.indenforvoldene.dk/kultorvet-9-11-13-13a-c-rosengaarden-2"
+        }
+      ]
+    },
+    {
+      "address": "Nørregade 230A (matr. 230a, Klædebo Kvarter)",
+      "modernNote": "I dag Nørregade 38.",
+      "from": {
+        "raw": "1840",
+        "iso": "1840",
+        "precision": "year"
+      },
+      "to": {
+        "raw": "oktober 1844",
+        "iso": "1844-10",
+        "precision": "month"
+      },
+      "approx": true,
+      "note": "Han flyttede hertil efter teologisk embedseksamen i juli 1840 og forlovelsen med Regine Olsen i september. Perioden er afbrudt af Berlin-opholdet fra oktober 1841 til marts 1842; indenforvoldene.dk fører ham her »i 1841 og igen 1843-1844«, hvilket sandsynligvis afspejler vejviserens huller snarere end egentlige flytninger.",
+      "sources": [
+        {
+          "work": "Dansk Biografisk Leksikon, »Søren Kierkegaard«: »boede Søren Kierkegaard i Nørregade, nuvær. nr. 38«",
+          "url": "https://biografiskleksikon.lex.dk/S%C3%B8ren_Kierkegaard"
+        },
+        {
+          "work": "Indenforvoldene.dk, »Nørregade 38«",
+          "url": "https://www.indenforvoldene.dk/noerregade-38"
+        }
+      ]
+    },
+    {
+      "address": "Nytorv 2, 1. sal til venstre",
+      "modernNote": "Huset blev revet ned i 1908; på grunden ligger i dag en bankbygning på Nytorv 2.",
+      "from": {
+        "raw": "oktober 1844",
+        "iso": "1844-10",
+        "precision": "month"
+      },
+      "to": {
+        "raw": "27. april 1848",
+        "iso": "1848-04-27",
+        "precision": "day"
+      },
+      "note": "Tilbage i barndomshjemmet, som han blev eneejer af i 1843, nu i lejligheden på første sal til venstre. Her skrev han hovedparten af det pseudonyme forfatterskab. Ejendommen blev solgt i 1847, og han flyttede ud 27. april 1848.",
+      "sources": [
+        {
+          "work": "Dansk Biografisk Leksikon, »Søren Kierkegaard«: »okt. 1844-april 1848 boede han der selv«",
+          "url": "https://biografiskleksikon.lex.dk/S%C3%B8ren_Kierkegaard"
+        },
+        {
+          "work": "Helle Sahl Madsen, »Søren Kierkegaard boede på den samme adresse i 28 år«, Kristeligt Dagblad 2013",
+          "url": "https://www.kristeligt-dagblad.dk/bagsiden/s%C3%B8ren-kierkegaard-boede-p%C3%A5-den-samme-adresse-i-28-%C3%A5r"
+        }
+      ]
+    },
+    {
+      "address": "Rosenborggade (matr. 156, Klædebo Kvarter), hjørnet af Tornebuskegade",
+      "modernNote": "I dag Rosenborggade 7-9 / Tornebuskegade 1; ejendommen står stadig og er opført 1847.",
+      "from": {
+        "raw": "april 1848",
+        "iso": "1848-04",
+        "precision": "month"
+      },
+      "to": {
+        "raw": "april 1850",
+        "iso": "1850-04",
+        "precision": "month"
+      },
+      "note": "Dansk Biografisk Leksikon kalder den en »brillant og dyr Leilighed«. Han lejede sig først ind på første sal i nr. 7 og flyttede derefter til en større lejlighed på første sal i nr. 9 for hjørnebeliggenheden. Han flyttede efter sigende, fordi han ikke kunne holde garver J.J. Grams huder ud.",
+      "sources": [
+        {
+          "work": "Indenforvoldene.dk, »Rosenborggade 7-9 / Tornebuskegade 1«: »fra april 1848 til april 1850«",
+          "url": "https://www.indenforvoldene.dk/rosenborggade-7-9-tornebuskegade-1"
+        },
+        {
+          "work": "Dansk Biografisk Leksikon, »Søren Kierkegaard«",
+          "url": "https://biografiskleksikon.lex.dk/S%C3%B8ren_Kierkegaard"
+        }
+      ]
+    },
+    {
+      "address": "Nørregade (matr. 36c, Nørre Kvarter)",
+      "modernNote": "I dag Nørregade 35.",
+      "from": {
+        "raw": "april 1850",
+        "iso": "1850-04",
+        "precision": "month"
+      },
+      "to": {
+        "raw": "april 1851",
+        "iso": "1851-04",
+        "precision": "month"
+      },
+      "approx": true,
+      "note": "Kilderne er uenige om, hvornår han flyttede videre: indenforvoldene.dk angiver april 1851, mens Dansk Biografisk Leksikon lader ham blive til oktober 1851. Her følges april 1851, som stemmer med Kristeligt Dagblads datering af indflytningen på Østerbro.",
+      "sources": [
+        {
+          "work": "Indenforvoldene.dk, »Nørregade 35«: »fra april 1850 til april 1851«",
+          "url": "https://www.indenforvoldene.dk/noerregade-35"
+        },
+        {
+          "work": "Dansk Biografisk Leksikon, »Søren Kierkegaard«",
+          "url": "https://biografiskleksikon.lex.dk/S%C3%B8ren_Kierkegaard"
+        }
+      ]
+    },
+    {
+      "address": "Østerbro 108A, forhusets 1. sal",
+      "modernNote": "Ejendommen hedder i dag Østerbrogade 50; den oprindelige bygning blev revet ned, da Willemoesgade skulle føres ud i Østerbrogade.",
+      "from": {
+        "raw": "april 1851",
+        "iso": "1851-04",
+        "precision": "month"
+      },
+      "to": {
+        "raw": "oktober 1852",
+        "iso": "1852-10",
+        "precision": "month"
+      },
+      "approx": true,
+      "note": "Hans eneste bopæl uden for voldene, med udsigt over Sortedamssøen. Dansk Biografisk Leksikon daterer indflytningen til oktober 1851 i stedet for april – begge dele er flyttedage, og uenigheden er ikke afgjort.",
+      "sources": [
+        {
+          "work": "Helle Sahl Madsen, »Kierkegaards eneste bolig uden for voldene«, Kristeligt Dagblad, 3. maj 2013",
+          "url": "https://www.kristeligt-dagblad.dk/bagsiden/kierkegaards-eneste-bolig-uden-voldene"
+        },
+        {
+          "work": "Dansk Biografisk Leksikon, »Søren Kierkegaard«",
+          "url": "https://biografiskleksikon.lex.dk/S%C3%B8ren_Kierkegaard"
+        }
+      ]
+    },
+    {
+      "address": "Klædeboderne 5-6, 1. sal mod gaden",
+      "modernNote": "I dag Skindergade 38 / Dyrkøb 5, over for Vor Frue Kirke.",
+      "from": {
+        "raw": "oktober 1852",
+        "iso": "1852-10",
+        "precision": "month"
+      },
+      "to": {
+        "raw": "2. oktober 1855",
+        "iso": "1855-10-02",
+        "precision": "day"
+      },
+      "note": "Den sidste og beskedneste bolig – han var logerende her. Herfra førte han kirkekampen. Han blev indlagt på Frederiks Hospital 2. okt. 1855 og døde der 11. nov. uden at komme hjem. Auktionen over hans bogsamling blev holdt i lejligheden 8.-10. april 1856.",
+      "sources": [
+        {
+          "work": "Helle Sahl Madsen, »Kierkegaards eneste bolig uden for voldene«, Kristeligt Dagblad, 3. maj 2013",
+          "url": "https://www.kristeligt-dagblad.dk/bagsiden/kierkegaards-eneste-bolig-uden-voldene"
+        },
+        {
+          "work": "Indenforvoldene.dk, bopælsregister K: »1853 – 1855 Skindergade 38«",
+          "url": "https://www.indenforvoldene.dk/bopaelsregister-k"
+        },
+        {
+          "work": "Søren Kierkegaard Forskningscenteret, »Tidstavle over Søren Kierkegaards liv og værker« (indlæggelse 2. okt., død 11. nov. 1855)",
+          "url": "https://teol.ku.dk/skc/om-soeren-kierkegaard/tidslinje/"
+        }
+      ]
+    }
+  ]
+}

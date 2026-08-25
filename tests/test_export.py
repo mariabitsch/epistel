@@ -24,6 +24,7 @@ from pipeline.provenance import load_provenance
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VENDOR = os.path.join(ROOT, "data", "vendor")
+CONTEXT = os.path.join(ROOT, "data", "context")
 COMMITTED_EXPORT = os.path.join(ROOT, "export")
 
 
@@ -51,7 +52,9 @@ class ExportTest(unittest.TestCase):
         cls.volumes = parse_corpus(VENDOR)
         cls.provenance = load_provenance(VENDOR)
         cls.out = tempfile.mkdtemp(prefix="epistel-export-")
-        cls.result = export_data(cls.volumes, cls.out, provenance=cls.provenance)
+        cls.result = export_data(
+            cls.volumes, cls.out, provenance=cls.provenance, context_dir=CONTEXT
+        )
 
     @classmethod
     def tearDownClass(cls):
@@ -168,7 +171,9 @@ class ExportTest(unittest.TestCase):
     def test_the_export_is_deterministic(self):
         again = tempfile.mkdtemp(prefix="epistel-export-")
         try:
-            export_data(self.volumes, again, provenance=self.provenance)
+            export_data(
+                self.volumes, again, provenance=self.provenance, context_dir=CONTEXT
+            )
             self.assertEqual(_tree(self.out), _tree(again))
         finally:
             shutil.rmtree(again)

@@ -23,6 +23,7 @@ from pipeline.provenance import load_provenance
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 VENDOR = os.path.join(ROOT, "data", "vendor")
+CONTEXT = os.path.join(ROOT, "data", "context")
 
 
 def main(argv):
@@ -38,11 +39,19 @@ def main(argv):
     else:
         print("export: source pinned to %s" % provenance["commit"])
 
-    result = export_data(volumes, out_dir, provenance=provenance)
+    result = export_data(
+        volumes, out_dir, provenance=provenance, context_dir=CONTEXT
+    )
     print(
         "export: wrote %d letter envelopes across %d volumes to %s"
         % (result["letters"], result["volumes"], os.path.relpath(out_dir, ROOT))
     )
+    if result["context"]:
+        print(
+            "export: editorial layers, verbatim: %s" % ", ".join(result["context"])
+        )
+    else:
+        print("export: no curated datasets: exporting the vendor layer alone")
     return 0
 
 
