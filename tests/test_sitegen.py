@@ -2144,6 +2144,11 @@ class PresenterTest(unittest.TestCase):
         notes_path = os.path.join(REPO_ROOT, "docs", "content-notes.md")
         with open(notes_path, encoding="utf-8") as file:
             self.assertRegex(file.read(), r"%d\s+automated tests" % counted)
+        # And the project guide, which went quietly stale once (339 while
+        # the suite counted 381; noticed 2026-08-25). Same cure: count it.
+        guide_path = os.path.join(REPO_ROOT, "CLAUDE.md")
+        with open(guide_path, encoding="utf-8") as file:
+            self.assertRegex(file.read(), r"%d\s+tests green" % counted)
 
     def test_the_om_page_keeps_the_sites_danish_dashes(self):
         """En dashes, like every other Danish string the site renders.

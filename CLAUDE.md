@@ -12,17 +12,27 @@ cheap to build, cheap to run, and safe to throw away.
 **State:** live at <https://epistel-demo.netlify.app/> (public repo
 mariabitsch/epistel; every push to main deploys). 638 static pages — 336
 letter pages, 298 person pages (143 with bios), index with facets +
-client-side search, `/tidslinje/`, `/personer/`, `/om/`. 339 tests green.
-The front page opens with a factual lead (Maria's own text) and Maria
-Notabene's foreword, set in the letters' frame.
+client-side search, `/tidslinje/`, `/personer/`, `/om/`. 381 tests green
+(that number is machine-guarded; see Working here). The front page opens
+with a factual lead (Maria's own text) and Maria Notabene's foreword, set
+in the letters' frame. Since 2026-08-25 the corpus is also published as
+**data**: a typed JSON export in `export/`, released via git tags
+(first release `v0.1.0`); `docs/export-format.md` is its contract.
 
 ## Working here
 
 - Build: `python3 build.py` → `dist/` (deterministic, ~0.5 s). Serve with
   `python3 -m http.server 8123 -d dist`; rebuild after changes or the
   served pages are stale.
+- Export: `python3 export.py` → `export/` (deterministic, committed on
+  purpose — the diff is the review artifact, and a drift test holds the
+  committed copy to a fresh run). Regenerate after any pipeline or
+  exporter change; tag a release when `schemaVersion` earns it.
 - Tests: `python3 -m unittest` from the repo root — they run against the
-  real vendored TEI, on purpose.
+  real vendored TEI, on purpose. The suite counts itself: adding tests
+  means bumping `AUTOMATED_TESTS` in `sitegen/pages.py`,
+  `docs/content-notes.md` and the "tests green" number in this guide —
+  all three are guard-enforced.
 - **Stack is Python 3 stdlib only** (ElementTree, unittest) + hand-written
   HTML/CSS + one vanilla-JS file. No pip, no CDNs, no frameworks. Keep it
   defensibly boring.
@@ -33,7 +43,10 @@ Notabene's foreword, set in the letters' frame.
   in the PR body, in the repo — never on the website. Still no issue
   machinery. Tests required where the thesis lives — the pipeline — and for
   display behavior that encodes a decision. New TEI elements are modelled
-  test-first; text is never dropped silently.
+  test-first; text is never dropped silently. **A PR that changes what this
+  guide states — products, commands, counts, guarantees — updates the
+  guide in the same PR**: it is part of the change, not an afterthought
+  (rule added 2026-08-25, after the guide had quietly gone stale).
 - Languages: UI Danish; code, comments, commits, developer docs English.
   Exception: `docs/notabene.md` is Danish on purpose — it *is* the voice.
 - Commits are co-authored by the models that did the work (e.g.
@@ -46,13 +59,22 @@ data/vendor/    TEI, unchanged, pinned SHA, PROVENANCE.md   ← read-only truth
 data/context/   curated + AI-derived editorial data          ← honest, sourced
 pipeline/       TEI → plain data (contracts in docstrings)   ← the seam
 sitegen/        data → HTML/CSS/JS                           ← disposable
-build.py        orchestrates; dist/ is the whole product
+exporter/       data → typed JSON + semantic HTML            ← the data product
+build.py        orchestrates the site; dist/ is the site
+export.py       orchestrates the export; export/ is committed and released
 ```
 
 Guarantees the next team inherits (all tested):
 
 - The display can be rewritten without touching `pipeline/` — that
-  separation is the thesis.
+  separation is the thesis. Since 2026-08-25 `exporter/` proves it from
+  the other side: a second pipeline consumer whose product is the corpus
+  itself as data — envelopes + semantic HTML bodies in a closed,
+  TEI-named vocabulary (`docs/export-format.md` is the contract). Its
+  guarantees are tested too: nothing repaired, nothing lost (a fragment's
+  visible text equals the parsed reading text), deterministic output, the
+  committed `export/` cannot drift from a fresh run, and the editorial
+  layers travel verbatim with their license honestly marked pending.
 - **Every editorial dataset is independently disposable**: a build with no
   `data/context/` files still yields a complete, honest site (no timeline,
   no bios, no summaries — but 336 letters, 298 person pages, search).
@@ -61,7 +83,9 @@ Guarantees the next team inherits (all tested):
   the search seam), `pipeline/parse_kom.py` (commentary notes),
   `pipeline/corpus.py` (what "the corpus" is; why ded is excluded),
   `pipeline/context.py` (editorial loaders), `pipeline/provenance.py`
-  (Om page's pinned SHA cannot drift from PROVENANCE.md),
+  (pinned SHA + the per-file record; neither the Om page nor the export
+  can drift from PROVENANCE.md), `exporter/export.py` +
+  `exporter/body.py` (the export's layout and vocabulary),
   `sitegen/persons.py` (register + slugs), `sitegen/search.py` (facets +
   inverted index; å/ø/æ folding duplicated in JS, test-guarded).
 
@@ -80,7 +104,7 @@ what it is and where it came from:
 - `publications.json` (38) + `residences.json` (9): hand-curated, dates
   verbatim from the edition's tekstredegørelser, source-cited per entry,
   disagreements recorded in notes, `approx` flags where sources conflict.
-- `summaries.json` (333): Maria Notabene's index summaries, grounded solely
+- `summaries.json` (336): Maria Notabene's index summaries, grounded solely
   in each letter's own text. `bios.json` (206): person bios derived from
   the commentary's notes, source-cited per person (`bind:note-id`); 13
   persons honestly bio-less with reasons. Henriette Lund's entry is a
@@ -162,7 +186,7 @@ datasets the same way; the method is what matters.
   approved canon, §5 is the summaries' few-shot material): the fictional
   presenter, after Nicolaus Notabene of *Forord* (1844) who could only
   write prefaces — now the wife takes the pen and still writes only
-  prefaces; the 333 summaries and the front page's foreword *are* the
+  prefaces; the 336 summaries and the front page's foreword *are* the
   prefaces, the letters are the book. In her own prose the comic *Forord*
   inheritance is **felt, never named** (Maria, 2026-07-29). Openly
   carries the builder's first name — transparent pseudonymity in SK's own
@@ -218,6 +242,11 @@ test-held.
   parsed apparatus variants are preserved but have no UI yet.
 - `ded` (120 dedications) excluded — needs its own metadata/grouping/URL
   model if ever included.
+- Export follow-ups: JSON Schema files (+ an optional
+  `fastjsonschema`-backed check) deferred to their own PR — the format
+  doc and the conformance tests carry the contract meanwhile. The
+  editorial layer's license is Maria's open decision; the manifest says
+  "pending" until she rules.
 - Småting: more TEI-annotation finds may come.
 
 ## Explicitly out of scope
