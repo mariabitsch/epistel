@@ -1,0 +1,18 @@
+Investigate: I'll read the image against the packet and the draft, then flag only ungrounded or visually wrong claims.{
+  "image": "b1/ill_3.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "sammenfoldet brev set fra den side, der bærer adressen",
+      "field": "alt",
+      "problem": "Billedet viser arkene udfoldede: hele versosiden er synlig, inkl. felterne omkring udskriften og lak ved kanterne. Et sammenfoldet brev set fra adressesiden ville kun vise midterfeltet. Foldelinjerne viser at arkene har været foldet, men den fotograferede tilstand er udfoldet — udkastets egen note medgiver at »arkene ligger udfoldede«."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "længere nede til højre »At aabne efter min Død.«",
+      "field": "alt",
+      "problem": "Layoutet fremstilles som gældende begge ark. På det øverste ark står linjen tydeligt nede til højre i midterfeltet; på det nederste står den mere centreret under navnelinjen, ikke tydeligt til højre."
+    }
+  ],
+  "visualNotes": "Blyantspåskriften langs øverste arks højre kant er i gengivelsen ret læselig (arkivsignatur-lignende), stærkere end »kun delvis læselig« siger; pakken bekræfter den ikke, så den bør fortsat ikke gengives. Venstre røde lak nederst er et lille aflangt fragment, højre en fyldigere rund klat. Svag gulfarvning i øverste arks øvre venstre felt. Udskriften på det øverste ark sidder i midterfeltet af et 3×3-foldegitter."
+}

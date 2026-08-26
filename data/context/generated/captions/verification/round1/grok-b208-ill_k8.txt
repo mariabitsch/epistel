@@ -1,0 +1,5 @@
+{
+  "image": "b208/ill_k8.jpg",
+  "flags": [],
+  "visualNotes": "Ingen modsigelse. Den øverste venstre klammenote er kun delvis læselig og tæller visuelt som tre linjer efter det korte understregede ord. 3-tallet i blyantspåtegningen nederst er hævet, hvilket alt-tekstens citat ikke markerer. De to orange streger er tydeligt mere orange end det røde »No 234.«. En klemt, flerinjet margentilføjelse og spredte små pletter er synlige, men udeladt — ikke i strid med det sagte."
+}

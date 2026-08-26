@@ -1,0 +1,34 @@
+{
+  "id": "b1/ill_4.jpg",
+  "alt": "Et lyst, foldet ark papir fotograferet fladt, med en vandret foldelinje midt på og skrå foldelinjer hen over begge halvdele. I den øverste halvdel står en adresse skrevet med brunt blæk i to skrå, opadgående linjer — vendt på hovedet i billedet — og øverst i venstre hjørne ses en kort håndskreven påskrift i samme retning. Under den vandrette foldelinje, til højre for midten, sidder et lille rektangulært mærke med guldfarvet bund og rød kant; på det ses en rødtrykt stående figur under en bue af små versaler, og under mærket ses et smalt, trekantet lyst felt i papiret. Skrift fra papirets anden side skimtes svagt igennem over hele arket.",
+  "caption": "Brev 28 udenpå: arket bærer foldelinjerne endnu, det lille guldfarvede mærke sidder der endnu, med et trekantet lyst felt i papiret under sig, og adressen står på skrå »Til Hr Magister Kierkegaard. – hersteds.« Indeni takker H.P. Kierkegaard for »den tilsendte Bog« og håber at komme selv om nogle dage — vognen har han ikke til sin rådighed i de første.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »4. Brev 28, for- og bagside af konvolut« — grundlag for at billedet er brev 28's konvolut, og for at der ses to sider af den",
+    "pakken, manifest-posten: figuren og pageBreak'et hører begge til letter 28 (b1), rend »verso«, facs »../b1/ill_4.jpg«",
+    "billedet: vandret foldelinje midt på arket og flere skrå foldelinjer hen over begge halvdele — grundlag for »foldet sammen«",
+    "billedet, øverste halvdel: to skrå, opadgående linjer i brunt blæk, vendt på hovedet i filen; oplæst efter 180°-rotation som »Til« (lille, øverst til venstre), »Hr Magister Kierkegaard. –« og et sammentrukket ord, der svarer til »hersteds«",
+    "pakken, brev 28's læsetekst (slutningen): »Til   Hr Magister Kierkegaard. –  hersteds. –« — ordlyden i captionen er citeret herfra, ikke aflæst af billedet",
+    "billedet, under foldelinjen til højre: lille rektangulært mærke, guldfarvet bund med rød kant, rødtrykt stående figur under en bue af små versaler",
+    "billedet: smal trekantet papirflig, der peger nedad fra mærket — grundlag for »lukket med«",
+    "billedet: svag gennemslående skrift over hele arket (spejlvendte linjer af håndskrift fra den anden side)",
+    "pakken, brev 28's overskrift: Fra H.P. Kierkegaard · 14. maj 1849 · til SK — grundlag for afsendernavnet, som udgaven skriver det",
+    "pakken, brev 28's læsetekst: »Inderlig Tak, kjære høistærede Ven! for den tilsendte Bog.« (»den tilsendte Bog« citeret ordret)",
+    "pakken, brev 28's læsetekst: »Jeg vilde vistnok hellere personlig have takket Dig idag; men da jeg ikke har Vognen til min Raadighed i de første Dage ...« — grundlag for afbuddet og for vognen"
+  ],
+  "note": "Tvivl og fravalg: (1) ORIENTERING: hele scanningen står 180° drejet i forhold til skriften — både adressen og hjørnepåskriften læses først, når billedet vendes. Alt-teksten siger det ligeud (»vendt på hovedet i billedet«), fordi det er det, en seer møder; captionen tier om det, da det er en scanningsomstændighed, ikke en oplysning om brevet. (2) Adressens ordlyd er citeret fra pakkens læsetekst, ikke fra billedet: jeg kan efter rotation genkende »Til«, »Hr Magister Kierkegaard. –« og formen af det sidste ord, men den sammentrukne kursiv ville jeg ikke turde transskribere alene ud fra scanningen. Skriveren af adressen er IKKE tilskrevet nogen — hverken billedet eller pakken siger, hvis hånd det er. (3) Hjørnepåskriften øverst til venstre er udeladt begge steder: den ligner et årstal, der ender på »1849«, men de foranstående tegn er ulæselige for mig, og et halvt læst årstal ville låne autoritet fra brevets kendte datering. Alt-teksten nævner kun, at påskriften er der. (4) MÆRKET: buen af versaler over figuren kan jeg delvis se — bogstavgrupperne ligner »...NO VERI...« — men mærket fylder kun godt 130 px i scanningen, og jeg gengiver derfor intet af indskriften; figuren beskrives neutralt som »en rødtrykt stående figur« uden at navngive, hvad den forestiller (der anes en plante til venstre og en rund genstand nederst til højre, begge for utydelige til at benævnes). Bliver en skarpere gengivelse tilgængelig, er indskriften det første, der bør efterprøves. (5) »lukket med« er en let slutning: mærket sidder ved spidsen af en nedadpegende papirflig, altså hvor et lukkemærke hører hjemme. Jeg skriver ikke, at det er brudt eller ubrudt — flig og mærke kan jeg se, forløbet kan jeg ikke. (6) Den gennemslående skrift er beskrevet som »skrift fra papirets anden side«; at det er brev 28's egen tekst — altså at brevet er sin egen konvolut — er fristende og sandsynligt (udgaven kalder billedet en konvolut til netop dette brev), men hverken billedet eller pakken siger det, og captionen påstår det ikke. (7) Kommentarnoterne er brugt til at forstå, ikke til at tilføje: b-674 (at bogen er Lilien paa Marken og Fuglen under Himlen, dedikationseksemplaret i sort glanspapir) er bevidst ude — captionen siger kun »den tilsendte Bog«, som brevet selv gør; b-680 (»hersteds« = København) er også ude, så udgavens eget ord får lov at stå. (8) »for- og bagside« fra udgavens head er ikke gentaget som en påstand om, hvad man ser hvor: billedet viser ét fladt ark med to felter, og hvilket felt der er forsiden, afgør jeg ikke. (9) Datoen 14. maj 1849 er ikke nævnt — den står ved siden af på brevsiden.",
+  "repairs": [
+    {
+      "flag": "codex+grok runde 1, tvivl: »foldet sammen, lukket med et lille guldfarvet mærke« — arket vises åbnet og fladt; at mærket har lukket det, er en slutning",
+      "action": "arbitreret mod billedet: korrekt, arket ligger udfoldet (adressen står på hovedet) — omskrevet til det synlige: foldelinjer, mærket med den afrevne flig."
+    },
+    {
+      "flag": "grok runde 1, tvivl: »melder afbud til at komme selv« — læseteksten siger, at han håber at komme om nogle dage",
+      "action": "arbitreret mod pakken: »afbud« var for stærk en parafrase — omskrevet til brevets egen bevægelse (håber at komme om nogle dage)."
+    },
+    {
+      "flag": "grok runde 2, tvivl: »papirflig«/»afrevet« — det synlige er et trekantet lyst felt; om det er en flig eller en rift kan ikke afgøres",
+      "action": "arbitreret mod billedet: begge steder generaliseret til »trekantet lyst felt i papiret«. Codex runde 2: ren."
+    }
+  ]
+}

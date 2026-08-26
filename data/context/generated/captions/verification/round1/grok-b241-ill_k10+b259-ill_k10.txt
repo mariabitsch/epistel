@@ -1,0 +1,5 @@
+Investigate: I'll read the full grounding packet and draft, then check the image against every claim.{
+  "image": "b241/ill_k10.jpg / b259/ill_k10.jpg",
+  "flags": [],
+  "visualNotes": "Intet i billedet modsiger udkastet. Hesten står i profil mod venstre med skraveret krop, kort manke og nedhængende hale på en streg under hovene, som beskrevet. Øverste (beskårne) annonce nævner konkret grønne rullegardiner og forsatsklodser tilsalgs i Gothersgaden 6; kødannoncen har desuden »Prisen er som sædvanlig« og lister de nyrøgede varer som skjært kød, pølser og tunger; nederste annonce har husnummer 144 og slutter med initialer plus Sørensen."
+}

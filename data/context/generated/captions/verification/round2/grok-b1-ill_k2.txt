@@ -1,0 +1,12 @@
+**Investigate.** I'll read the image against the draft and the packet — only what's on the photograph or in the grounding — then return the flags JSON.{
+  "image": "b1/ill_k2.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "det øverste omslutter et mindre motiv med lodrette streger under en buet overkant, for utydeligt til at bestemmes sikkert",
+      "field": "alt",
+      "problem": "Geometrien er rigtig, men påstanden om at motivet ikke kan bestemmes sikkert, passer ikke med billedet. De lodrette streger under den buede overkant danner en lyre (åg, strenge, krop), læsbar med omtrent samme tydelighed som den nederste rundbygning med søjler."
+    }
+  ],
+  "visualNotes": "Øverste rygornament er en lyre. Ryggen har desuden forgyldte tværlinjer ved hoved og fod. Første titelords sidste bogstav ligger i ryggens krumning; de tre nederste linjer (Taler / af / Kierkegaard) er klare."
+}

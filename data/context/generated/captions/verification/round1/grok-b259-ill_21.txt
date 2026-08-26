@@ -1,0 +1,12 @@
+Investigate: I'll read the full prompt, the image, and the draft against the grounding packet only.I'll check the captions method and any trial-round flags so I match this project's bar for groundedness.{
+  "image": "b259/ill_21.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "»KJØBENHAVNS«",
+      "field": "alt",
+      "problem": "Stemplet står ikke i pakken. »UNIVERSITETS« og »BIBLIOTHEK« er tydelige; øverste linje følger ovalens bue i mindre kapitæler, og slået Ø vs. O i »KJØBENHAVNS« er ikke sikkert. En sikker citeret læsning af netop det bogstav er ikke belagt."
+    }
+  ],
+  "visualNotes": "Stempel og underskrift sidder lige under tekstblokken, ikke ved bladets underkant; nedenunder er et stort tomt felt. Øverste stempellinje har en stjerne i hver side. En linje er udrykket langt til venstre; en anden begynder med et isoleret »?«. Grønlige pletter ved begge sidekanter i samme højde — mulig vandret fold, ikke nævnt. Understregningen sidder på den latinske vending over to linjer."
+}

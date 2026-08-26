@@ -1,0 +1,1 @@
+I'll verify the draft against the letter image and the grounding packet, checking both visual accuracy and whether every claim is actually grounded.I'll check the captions method and a trial verification so I apply the same groundedness bar.

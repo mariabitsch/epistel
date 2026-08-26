@@ -1,0 +1,13 @@
+Downscaled Image 1: 507.1 KB (3331x2198) → 371.3 KB (1910x1260)
+Investigate: I'll read the full grounding packet and draft, then check the image against every claim before writing the JSON verdict.I'll inspect the vendor image at full resolution and check the draft's visual claims against the packet.I'll read the method notes and the prior round's flags so this check stays consistent with how the pipeline scores drafts.I'll compare this round's draft with other caption verifications and crop the scan so I can check the remaining visual claims.The repaired alt still ascribes quoted titles to points 4–8; point 8 only quotes »Angest«. Everything else in the alt and caption traces to the image or the packet.{
+  "image": "b208/ill_20.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "punkterne 4 til 8, hvor punkterne indledes med bogtitler i anførselstegn",
+      "field": "alt",
+      "problem": "Punkt 8 indledes med »Begrebet«; kun »Angest« står i anførselstegn. Punkterne 4–7 har hele titlen i anførselstegn. Relativsætningen dækker stadig 4–8; kun to-linjersskemaet er scopet til 4–7."
+    }
+  ],
+  "visualNotes": "Punkt 8 har kun »Angest« i anførselstegn. 970 står gråt i Mit Forlangende-kolonnen mellem punkt 8 og den løbende tekstlinje, ikke nede ved 9–10. De to navngivne kolonner rummer beløb; restoplagstallene sidder i de indrykkede linjer, med enhedspriser (»a 3rd« o.l.) derimellem. Højre side har ca. 10+14 linjer i de to afsnit plus den påbegyndte linje, nærmere 25 end »godt tyve«. Indføjelsestegn over »Hvad«. På linje 10 er 225 og 87 lysere end 312."
+}

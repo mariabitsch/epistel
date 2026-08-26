@@ -1,0 +1,541 @@
+Reading additional input from stdin...
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03ec9-e834-7150-bf99-a0e1fb72bfb1
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b171/ill_19.jpg
+
+Billedfil: `data/vendor/b171/ill_19.jpg` (tilladt primærkilde).
+
+## Manifest-post: b171/ill_19.jpg (export/images.json)
+```json
+{
+ "id": "b171/ill_19.jpg",
+ "path": "letters/b171/ill_19.jpg",
+ "source": {
+  "path": "data/v1.9/b171/ill_19.jpg",
+  "sha256": "0565b915ee7b49af14e2560dfb5c60fdd2b8db9bca70bb1bddaa942fbf1b30ab"
+ },
+ "figures": [
+  {
+   "volume": "b171",
+   "file": "txt.xml",
+   "xmlId": "ill_19",
+   "type": null,
+   "rend": "opening",
+   "url": "../b171/ill_19.jpg",
+   "head": [
+    "19. Brev 202, bl. [2v] og [1r]"
+   ],
+   "figDesc": null,
+   "letter": "202",
+   "letterXmlId": "n202"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b171",
+   "file": "txt.xml",
+   "xmlId": "id9cf79ee0-88a0-4cfa-8419-1eba1d0fea16",
+   "n": "1r",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b171/ill_19.jpg",
+   "letter": "202",
+   "letterXmlId": "n202"
+  },
+  {
+   "volume": "b171",
+   "file": "txt.xml",
+   "xmlId": "id285f2b52-c9bc-47ca-9f77-63ad0fdf7d64",
+   "n": "2v",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b171/ill_19.jpg",
+   "letter": "202",
+   "letterXmlId": "n202"
+  },
+  {
+   "volume": "b171",
+   "file": "txt.xml",
+   "xmlId": "id341ddcac-902d-45ca-9abc-bd5573eff4d0",
+   "n": null,
+   "rend": null,
+   "edRef": null,
+   "facs": "../b171/ill_19.jpg",
+   "letter": "202",
+   "letterXmlId": "n202"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 19. Brev 202, bl. [2v] og [1r]
+
+## Brev 202 (b171) — overskrift og læsetekst
+Overskrift: Fra Henrik Lund · 12. april 1850 · til SK
+
+19. Brev 202, bl. [2v] og [1r]Odensed 12 April 1850. Kjære Onkel!  At jeg i saa lang Tid ikke har skrevet Dig til, haaber jeg Du undskylder, naar Du tager i Betænkning den vidtløftige Opgave, Du i Dit sidste Brev stillede mig: at give Dig en Oversigt over Ankomsttiden af de vigtigste Trækfugle. For at besvare den nogenlunde fuldstændig, har jeg deels selv i Skovene her i Omegnen gaaet paa Opdagelser deels hos flere Landmænd og Zoologer indhentet Beretninger om deres Erfaringer. Her følger Resultatet af mine Efterforskninger indtil Dato:    Sanglærken  blive naar Vinteren er meget mild, ellers trække de sydpaa, og komme alm. tilbage sidst i Januar ell først i Februar.  Guulspurven  Stær ankom iaar i Februar; Viben og Glenten ligeledes 2 50.Kirsebærknækkeren42 50.Heiren er seet v. Hvidkilde pr. Svendborg sidst2 eller først3. 50.Forskjellige Ænder sammesteds til samme Tid., navnlig Graa-And.; Svanen ligeledesSangdrossel i Marts; ligeledes de andre Turdusarter.Vipstjært3 50. ɔ:Motocilla alba.Storken er kommen sidst i Marts; men jeg har ikke seet den endnu.Præstekraventidlig3. 50.; de andre Sumpfugle ankomme sidst3 ell alm. først4.Duernehele3.Digesmutterne (Saxicola) i April. S. oenanthe 54 50; S.rubetra sidst4.Svalen sidst i April alm.Muursvalen først i Mai.De forskjellige Sangere (Sylvia etc) sidst4 - først5.ligeledesden gule Vipstjært.  Rørspurven    tidlig4.   Snepper ankomførst4 50. ellers sidst3, undertiden hele4.Lattermaagentidlig4. 50.Aftenbakken (Caprimulgus)sidst4 og først5.Tornskaden (Lanius collurio) i April; de andre Tornskader ere Standfugle. Høge, Falke  først4.  Nattergalen alm. 10-125.  Vendehals   sidst5.  Af Bogfinker, Træløbere, Træpiggere, Fuglekonger ere nogle Standfugle, andre Trækfugle.  Der findes meget rigtigt en Fugl som kaldes »Skovskaden« (Corvus glandarius); den er lys askebrun, har en Top, som den kan reise i Veiret, paa Hovedet og et hvidt- sort- og himmelblaat tavlet Speil paa Vingerne, hvilket gjør den til en meget smuk Fugl. Jeg troer, at der hos en Bundtmager paa Østergade findes i Vinduet et udstoppet Exemplar af denne Fugl. Da den er en Standfugl, er det meget rimeligt at Du kan have seet den i Skovene i Vinter; den er ikke saa ganske sjelden; jeg har seet af dem i Skovene ved Vedbæk. Hvad mig selv angaaer da lever jeg herovre, uden at have synderligt meget at bestille, og uden at faae meget bestilt, men forresten vel. I det Haab at det Sidste ogsaa er Tilfældet med Dig, beder jeg Dig modtage en oprigtig Hilsen fraDin hengivne Neveu  Henrik       S. T.     Hr Mag. art. S. Kierkegaard Hjørnet af Rosenborg- og Tornebuskgaden. 1ste Sal   fr. Kjøbenhavn.    H. LundUnderl. iOdense. 
+
+## Kommentarnote b-1101 (b171/kom.xml, ordret)
+Lemma: Odense d 12 April 1850
+
+Henrik Lund () var i 1850 underlæge ved feltlazarettet i Odense (). – d 12 April 50: .
+
+## Kommentarnote b-1103 (b171/kom.xml, ordret)
+Lemma: skrevet Dig til
+
+fast udtryk i breve: skrevet til dig.
+
+## Kommentarnote b-1104 (b171/kom.xml, ordret)
+Lemma: den ... Opgave, Du i Dit sidste Brev stillede mig ... de vigtigste Trækfugle
+
+Dette brev fra SK synes ikke at være bevaret.
+
+## Kommentarnote b-1106 (b171/kom.xml, ordret)
+Lemma: Sanglærken
+
+.
+
+## Kommentarnote b-1107 (b171/kom.xml, ordret)
+Lemma: Guulspurven
+
+også kaldt guldspurv, Emberiza citrinella L. Sml. N. Kjærbølling Danmarks Fugle (), s. 199f.
+
+## Kommentarnote b-1108 (b171/kom.xml, ordret)
+Lemma: Stær
+
+fugl af familien Sturnidæ, hørende til spurvefuglene; her formentlig den alm. stær, Sturnus vulgaris L. Sml. N. Kjærbølling Danmarks Fugle (), s. 85f.
+
+## Kommentarnote b-1109 (b171/kom.xml, ordret)
+Lemma: Viben
+
+vadefugl med en fjertop i nakken, Vanellus cristatus; viben udgør en slægt af brokfuglenes familie. Sml. N. Kjærbølling Danmarks Fugle (), s. 254f.
+
+## Kommentarnote b-1110 (b171/kom.xml, ordret)
+Lemma: Glenten
+
+rovfugl af falkenes familie, Milvus; her formentlig den røde glente, Falco milvus L. el. Milvus regalis Briss, der er den mest alm. art i Danmark. Sml. N. Kjærbølling Danmarks Fugle (), s. 14f.
+
+## Kommentarnote b-1111 (b171/kom.xml, ordret)
+Lemma: 2 50
+
+feb. 1850.
+
+## Kommentarnote b-1112 (b171/kom.xml, ordret)
+Lemma: Kirsebærknækkeren
+
+el. kirsebærfuglen el. kirsebærkernebideren, en alm. kernebider, Loxia coccothraustes L. el. Coccothraustes vulgaris Pallas; kernebideren (Coccothraustes) udgør en gruppe inden for finkefamilien. Sml. N. Kjærbølling Danmarks Fugle (), s. 205-207.
+
+## Kommentarnote b-1113 (b171/kom.xml, ordret)
+Lemma: 42 50
+
+4. feb. 1850.
+
+## Kommentarnote b-1114 (b171/kom.xml, ordret)
+Lemma: Heiren
+
+vadefugl af familien Ardeidæ; her formentlig om den egl. hejre af slægten Ardea L., men der kan også være tale om fiske- el. gråhejren, Ardea cinerea L. Sml. N. Kjærbølling Danmarks Fugle (), s. 264-266.
+
+## Kommentarnote b-1115 (b171/kom.xml, ordret)
+Lemma: v.
+
+ved.
+
+## Kommentarnote b-1116 (b171/kom.xml, ordret)
+Lemma: Hvidkilde
+
+hovedgården Hvidkilde, dengang hørende til baroniet Lehn, beliggende ved Hvidkilde Sø, o. 5 km NV for Svendborg ().
+
+## Kommentarnote b-1117 (b171/kom.xml, ordret)
+Lemma: pr.
+
+udtryk anvendt ved postforsendelser, hvor 'pr.' bruges ved adressering til steder på landet, hvis post ud- og indleveres på en større bys postekspedition, i dette tilfælde i Svendborg ().
+
+## Kommentarnote b-1118 (b171/kom.xml, ordret)
+Lemma: Svendborg
+
+købstad, beliggende ud til Svendborg Sund i den sydøstlige del af Fyn.
+
+## Kommentarnote b-1119 (b171/kom.xml, ordret)
+Lemma: sidst2 eller først3. 50
+
+sidst i feb. el. først i marts 1850.
+
+## Kommentarnote b-1121 (b171/kom.xml, ordret)
+Lemma: Graa-And
+
+el. stokand, Anas boschas L., andefugl af slægten Anas. Sml. N. Kjærbølling Danmarks Fugle (), s. 365f.
+
+## Kommentarnote b-1122 (b171/kom.xml, ordret)
+Lemma: Svanen
+
+fugl af familien Cygnidæ, hørende til andefuglene, her formentlig den hvide knopsvane, Cygnus olor L. Sml. N. Kjærbølling Danmarks Fugle (), s. 351f.
+
+## Kommentarnote b-1123 (b171/kom.xml, ordret)
+Lemma: Sangdrossel
+
+Turdus musicus L., betegnelse for forskellige drosselfugle fx bøgdrossel og grådrossel, arter tilhørende slægten Turdus, se følgende kommentar. Sml. desuden N. Kjærbølling Danmarks Fugle (), s. 128f.
+
+## Kommentarnote b-1124 (b171/kom.xml, ordret)
+Lemma: Turdusarter
+
+fx misteldrossel, Turdus viscivorus L.; snarredrossel, Turdus pilaris L.; vindrossel, Turdus iliacus L.; ringdrossel, Turdus torquatus L.; og sortdroslen el. solsorten, Turdus merula L. Sml. N. Kjærbølling Danmarks Fugle (), s. 124-134.
+
+## Kommentarnote b-1125 (b171/kom.xml, ordret)
+Lemma: Vipstjært
+
+hører til små sangfugle ().
+
+## Kommentarnote b-1126 (b171/kom.xml, ordret)
+Lemma: 3 50
+
+marts 1850.
+
+## Kommentarnote b-1127 (b171/kom.xml, ordret)
+Lemma: Motocilla alba
+
+egl. Motacilla alba L., den lat. betegnelse for den hvide vipstjært, der er den mest kendte, delt i henved 15 racer. Sml. N. Kjærbølling Danmarks Fugle (), s. 137-139.
+
+## Kommentarnote b-1128 (b171/kom.xml, ordret)
+Lemma: Storken
+
+vadefugl af familien Ciconiidæ, her om den hvide art, Ciconia alba Briss el. Ardea ciconia L., med røde ben og rødt næb, der var en alm. trækfugl i Danmark. Sml. N. Kjærbølling Danmarks Fugle (), s. 261f.
+
+## Kommentarnote b-1129 (b171/kom.xml, ordret)
+Lemma: Præstekraven
+
+vadefugl af slægten Ægialites (strandpiber), især Æ. hiaticula L. (præstekrave), der har en hvid halsring over et bredere sort bånd. Sml. N. Kjærbølling Danmarks Fugle (), s. 249f.
+
+## Kommentarnote b-1130 (b171/kom.xml, ordret)
+Lemma: tidlig3. 50
+
+i begyndelsen af marts 1850.
+
+## Kommentarnote b-1131 (b171/kom.xml, ordret)
+Lemma: Sumpfugle
+
+formentlig fugle af gruppen Grallæ (vadefugle).
+
+## Kommentarnote b-1132 (b171/kom.xml, ordret)
+Lemma: sidst3
+
+sidste i marts el. almindeligvis i begyndelsen af april.
+
+## Kommentarnote b-1133 (b171/kom.xml, ordret)
+Lemma: først4
+
+i begyndelsen af april.
+
+## Kommentarnote b-1134 (b171/kom.xml, ordret)
+Lemma: Duerne
+
+sigter formentlig til ringduer, især den store skovdue, Columba palumbus L., der er alm. i Danmark, men muligvis også den lille skovdue, Columba oenas L., der er sjældnere i Danmark. Sml. N. Kjærbølling Danmarks Fugle (), s. 228-230.
+
+## Kommentarnote b-1135 (b171/kom.xml, ordret)
+Lemma: hele3
+
+hele marts.
+
+## Kommentarnote b-1136 (b171/kom.xml, ordret)
+Lemma: Digesmutterne (Saxicola)
+
+sigter til digesmutteslægten, Saxicola el. Saxicolinæ. Sml. N. Kjærbølling Danmarks Fugle (), s. 149.
+
+## Kommentarnote b-1137 (b171/kom.xml, ordret)
+Lemma: S. oenanthe
+
+Saxicola oenanthe, lat. betegnelse for grå digesmutte, undertiden kaldt stenpikker. Sml. N. Kjærbølling Danmarks Fugle (), s. 150f.
+
+## Kommentarnote b-1138 (b171/kom.xml, ordret)
+Lemma: 54 50
+
+5. april 1850.
+
+## Kommentarnote b-1139 (b171/kom.xml, ordret)
+Lemma: S. rubetra
+
+Saxicola rubetra, lat. betegnelse for brunstrubet digesmutte el. rødbrystet skvætte. Sml. N. Kjærbølling Danmarks Fugle (), s. 151f.
+
+## Kommentarnote b-1142 (b171/kom.xml, ordret)
+Lemma: sidst4.
+
+sidst i april.
+
+## Kommentarnote b-1144 (b171/kom.xml, ordret)
+Lemma: Svalen
+
+fugl af familien Hirundinidæ, hørende til spurvefuglene; her tænkes formentlig på forstuesvalen, Hirundo rustica L., også kendt som landsvalen, marksvalen, hussvalen og ladesvalen. Sml. N. Kjærbølling Danmarks Fugle (), s. 110-112.
+
+## Kommentarnote b-1145 (b171/kom.xml, ordret)
+Lemma: Muursvalen
+
+Hirundo urbica L., også kendt som bysvalen, tagskægssvalen og hvidsvale el. hvid svale. Sml. N. Kjærbølling Danmarks Fugle (), s. 112f.
+
+## Kommentarnote b-1146 (b171/kom.xml, ordret)
+Lemma: De forskjellige Sangere (Sylvia etc)
+
+sigter til sangerslægten Sylvia inden for sangfuglenes orden, fx gærdesanger, Sylvia curruca L., også kendt som græssmutte; havesanger, Sylvia hortensis Gm., også kendt som havesmutte; tornsanger, Sylvia cinerea; og sorthovedet sanger, Sylvia atricapilla L., også kendt som munkefugl, munk el. haveskade. Sml. N. Kjærbølling Danmarks Fugle (), s. 156-158.
+
+## Kommentarnote b-1148 (b171/kom.xml, ordret)
+Lemma: sidst4 – først5.
+
+sidst i april til begyndelsen af maj.
+
+## Kommentarnote b-1151 (b171/kom.xml, ordret)
+Lemma: den gule Vipstjært
+
+Motacilla flava L., til forskel fra den hvide vipstjært (), også kendt som majfugl. Sml. N. Kjærbølling Danmarks Fugle (), s. 140f.
+
+## Kommentarnote b-1152 (b171/kom.xml, ordret)
+Lemma: Rørspurven
+
+Emberiza schoeniclus, også kendt som rørværling. Sml. N. Kjærbølling Danmarks Fugle (), s. 201f.
+
+## Kommentarnote b-1154 (b171/kom.xml, ordret)
+Lemma: tidlig4.
+
+i begyndelsen af april.
+
+## Kommentarnote b-1155 (b171/kom.xml, ordret)
+Lemma: Snepper
+
+vadefugl af gruppen Scolopacinæ, især af slægten Scolopax L., omfattende arten skovsneppe el. holtsneppe, Scolopax rusticula L. Sml. N. Kjærbølling Danmarks Fugle (), s. 297f.
+
+## Kommentarnote b-1156 (b171/kom.xml, ordret)
+Lemma: først4 50
+
+i begyndelsen af april 1850.
+
+## Kommentarnote b-1157 (b171/kom.xml, ordret)
+Lemma: sidst3
+
+sidst i marts.
+
+## Kommentarnote b-1158 (b171/kom.xml, ordret)
+Lemma: hele4.
+
+i hele april.
+
+## Kommentarnote b-1159 (b171/kom.xml, ordret)
+Lemma: Lattermaagen
+
+el. hættemaagen, Larus risibundus L. Sml. N. Kjærbølling Danmarks Fugle (), s. 335-337.
+
+## Kommentarnote b-1161 (b171/kom.xml, ordret)
+Lemma: Aftenbakken (Caprimulgus)
+
+el. natteravnen, Caprimulgus europaeus L. Sml. N. Kjærbølling Danmarks Fugle (), s. 105-107.
+
+## Kommentarnote b-1164 (b171/kom.xml, ordret)
+Lemma: Tornskaden (Lanius collurio)
+
+almindelig el. rødrygget tornskade, spurvefugl af tornskadeslægten Lanius. Sml. N. Kjærbølling Danmarks Fugle (), s. 123f.
+
+## Kommentarnote b-1165 (b171/kom.xml, ordret)
+Lemma: de andre Tornskader
+
+fx stor tornskade, Lanius excubitor L., hvoraf de fleste er standfugle, mens nogle trækker sydpå om vinteren; evt. også rosenbrystet tornskade, Lanius minor, og rødhovedet tornskade, Lanius senator el. Lanius rufus Briss. Sml. N. Kjærbølling Danmarks Fugle (), s. 120-123.
+
+## Kommentarnote b-1166 (b171/kom.xml, ordret)
+Lemma: Høge
+
+dagrovfugl af gruppen Accipitrinæ, især familien Astures el. Asturinæ. Sml. N. Kjærbølling Danmarks Fugle (), s. 29-35.
+
+## Kommentarnote b-1167 (b171/kom.xml, ordret)
+Lemma: Falke
+
+gruppe af rovfugle (Falconinæ), især slægten Falco. Sml. N. Kjærbølling Danmarks Fugle (), s. 5f.
+
+## Kommentarnote b-1169 (b171/kom.xml, ordret)
+Lemma: Nattergalen
+
+i Danmark især den nordlige el. store nattergal, Sylvia philomela el. Luscinia philomela, men især på Fyn også den sydlige el. lille nattergal, Sylvia luscinia el. Luscinia vera, trækfugl hørende til drosselfuglene. Sml. N. Kjærbølling Danmarks Fugle (), s. 172-175.
+
+## Kommentarnote b-1170 (b171/kom.xml, ordret)
+Lemma: 10-125
+
+10.-12. maj.
+
+## Kommentarnote b-1171 (b171/kom.xml, ordret)
+Lemma: Vendehals
+
+klatrefugl af undergruppen Jynginæ, især arten Yunx el. Yynx torquilla L. Sml. N. Kjærbølling Danmarks Fugle (), s. 66f.
+
+## Kommentarnote b-1173 (b171/kom.xml, ordret)
+Lemma: Bogfinker
+
+Fringilla coelebs el. cælebs L., hørende til finkeslægten, Fringilla. Sml. N. Kjærbølling Danmarks Fugle (), s. 209-211.
+
+## Kommentarnote b-1174 (b171/kom.xml, ordret)
+Lemma: Træløbere
+
+klatrende spurvefugl af familien Certhidæ, også betegnelse for alm. træpigger, Certhia familiaris L. Sml. N. Kjærbølling Danmarks Fugle (), s. 68f.
+
+## Kommentarnote b-1175 (b171/kom.xml, ordret)
+Lemma: Træpiggere
+
+se foregående kommentar; også betegnelse for spætte, klatrefugl af familien Picus el. Picidæ L. Sml. N. Kjærbølling Danmarks Fugle (), s. 57f.
+
+## Kommentarnote b-1176 (b171/kom.xml, ordret)
+Lemma: Fuglekonger
+
+el. (i Danmark) den gultoppede fuglekonge af arten Regulus flavicapillus el. Regulus cristatus Koch el. Motacilla regulus L., hørende til en slægt af meget små sangfugle, Regulus Ray. Sml. N. Kjærbølling Danmarks Fugle (), s. 190f.
+
+## Kommentarnote b-1177 (b171/kom.xml, ordret)
+Lemma: »Skovskaden« (Corvus glandarius)
+
+standfugl af arten Corvus glandarius L. el. Garrulus glandarius L., hørende til ravnefuglene. Sml. N. Kjærbølling Danmarks Fugle (), s. 100-102.
+
+## Kommentarnote b-1178 (b171/kom.xml, ordret)
+Lemma: Bundtmager
+
+dvs. buntmager, person, der forarbejder pels, fremstiller pelsværk og handler med pelsvarer.
+
+## Kommentarnote b-1179 (b171/kom.xml, ordret)
+Lemma: Østergade
+
+strøggade i København (se kort 2, C2).
+
+## Kommentarnote b-1180 (b171/kom.xml, ordret)
+Lemma: Vedbæk
+
+lille by med toldindkassering, landingsbro, flere lyststeder og en kro, beliggende ved kysten i det nordøstlige Sjælland små 20 km N for København.
+
+## Kommentarnote b-1181 (b171/kom.xml, ordret)
+Lemma: uden at have synderligt meget at bestille
+
+.
+
+## Kommentarnote b-3088 (b171/kom.xml, ordret)
+Lemma: Henrik
+
+SKs nevø Henrik Lund ().
+
+## Kommentarnote b-1182 (b171/kom.xml, ordret)
+Lemma: S. T.
+
+'salvo titulo' ().
+
+## Kommentarnote b-1183 (b171/kom.xml, ordret)
+Lemma: Mag. art.
+
+.
+
+## Kommentarnote b-1184 (b171/kom.xml, ordret)
+Lemma: Hjørnet af Rosenborg- og Tornebuskgaden. 1ste Sal
+
+.
+
+## Kommentarnote b-1185 (b171/kom.xml, ordret)
+Lemma: fr.
+
+franko el. franco ().
+
+## Kommentarnote b-1186 (b171/kom.xml, ordret)
+Lemma: Underl. i Odense
+
+underlæge ved feltlazarettet i Odense ().
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b171/ill_19.jpg",
+  "alt": "To sider af et håndskrevet brev fotograferet ved siden af hinanden på lyst, foldet papir. Venstre side er næsten tom: midt på den sidder en oval rød lakklat, og til venstre for den står en adresse skrevet på tværs af siden i flere linjer; nederst i midten står med blyant »1850 12/4«. Gennem papiret skimtes spejlvendt skrift fra bagsiden, og lodrette og vandrette foldelinjer krydser siden. Højre side er tæt beskrevet med brunt blæk i skråtstillet håndskrift: en datolinje øverst til højre, derunder en tiltale, et afsnit på omkring femten linjer og til sidst en liste, hvor de enkelte opslagsord er understreget og de to øverste er samlet af en klamme, der peger over mod en fælles tekst til højre.",
+  "caption": "Udskriften til venstre, brevets første side til højre: det røde lakssegl og adressen til »Hr Mag. art. S. Kierkegaard« i København — og så Henrik Lunds undskyldning for sin lange tavshed. Onklen havde bedt om en oversigt over trækfuglenes ankomsttider, og listen begynder nederst på siden med understregede fuglenavne, hvor Sanglærken og Guulspurven deler klamme og ankomsttid.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »19. Brev 202, bl. [2v] og [1r]« — rækkefølgen [2v] før [1r] svarer til det, billedet viser: udskriftssiden til venstre, brevets første side til højre",
+    "billedet, venstre side: oval rød lakklat midt på siden",
+    "billedet, venstre side: adresse skrevet på tværs af siden i flere linjer, til venstre for lakken",
+    "billedet, venstre side: blyantspåskriften »1850 12/4« nederst i midten",
+    "billedet, venstre side: spejlvendt gennemskin af skrift fra bagsiden; lodrette og vandrette foldelinjer",
+    "billedet, højre side: datolinje øverst til højre, tiltale, ét afsnit på ca. femten linjer, derefter en liste",
+    "billedet, højre side: listens opslagsord er understreget, og de to øverste er samlet af en klamme, der peger over mod én fælles tekst til højre",
+    "pakken, brev 202's læsetekst: »Hr Mag. art. S. Kierkegaard« (citeret ordret fra udskriften) og »fr. Kjøbenhavn.« — grundlag for »i København«",
+    "pakken, brev 202's overskrift: Fra Henrik Lund · 12. april 1850 · til SK — grundlag for at navngive skriveren Henrik Lund",
+    "pakken, brev 202's læsetekst: »At jeg i saa lang Tid ikke har skrevet Dig til, haaber jeg Du undskylder« — grundlag for »undskyldning for sin lange tavshed«",
+    "pakken, brev 202's læsetekst: »Kjære Onkel!« — grundlag for »Onklen«",
+    "pakken, brev 202's læsetekst: »at give Dig en Oversigt over Ankomsttiden af de vigtigste Trækfugle« — grundlag for, hvad opgaven gik ud på",
+    "pakken, brev 202's læsetekst: listen åbner med »Sanglærken« og »Guulspurven« over ét fælles svar (»blive naar Vinteren er meget mild ... komme alm. tilbage sidst i Januar ell først i Februar«) — grundlag for »deler klamme og ankomsttid«"
+  ],
+  "note": "Tvivl og fravalg: (1) Jeg siger ikke, at arket er ét foldet ark (bifolium), selv om fold og papir ser sammenhængende ud i billedet — udgaven siger kun »bl. [2v] og [1r]«, og hvordan de to blade sidder sammen, kan jeg ikke afgøre. Captionen siger derfor blot, hvad der er til venstre og til højre. (2) Seglets tilstand: den røde lak ser hel ud i scanningen, men om det er et ubrudt segl eller en åbnet klat, kan jeg ikke se sikkert — captionen og alt-teksten siger kun, at den er der. Af samme grund står der »lakssegl« i captionen (funktionen fremgår af udskriftssiden) og det neutrale »lakklat« i alt-teksten. (3) Adressens vinkel: skriften på venstre side står drejet i forhold til siden, men om det er en kvart omgang eller mindre, tør jeg ikke fastslå — jeg skriver »på tværs af siden«. (4) Udskriftens fulde ordlyd (»Hjørnet af Rosenborg- og Tornebuskgaden. 1ste Sal«, afsenderpåtegningen »H. Lund Underl. i Odense«) er læselig i pakkens læsetekst, men jeg kan ikke selv læse den sikkert i billedet og har derfor kun citeret navnelinjen; gadenavnet er udeladt af captionen for at holde antallet af citater nede. (5) Blyantsdatoen »1850 12/4« er gengivet i alt-teksten som det, den er — cifre på papiret. Jeg tilskriver den ikke en senere hånd og bruger den ikke i captionen, selv om medium og skriftbillede adskiller sig fra brevets: hvem der har skrevet den og hvornår, siger hverken billedet eller pakken. (6) Kommentarnoterne er ikke brugt som viden: hverken b-1101/b-1186 (Henrik Lund som underlæge ved feltlazarettet i Odense), b-1104 (at SKs brev med opgaven ikke synes bevaret) eller de mange artsbestemmelser er kommet i captionen. Særlig b-1104 var fristende — at bestillingsbrevet er væk, mens svaret ligger her — men det er viden, brevet ikke selv har. (7) Det lange fuglenavn under Sanglærken/Guulspurven-klammen (»Stær«, »Viben«, »Glenten«, »Kirsebærknækkeren«, »Heiren«) kan jeg delvis læse i billedet, men jeg citerer intet fra håndskriften ud over det, pakkens læsetekst gengiver. (8) Brevets øvrige indhold (skovskaden, den udstoppede fugl hos buntmageren på Østergade, den afsluttende hilsen) står på sider, billedet ikke viser, og er ladt ude. (9) »Kjære Onkel!« er ikke citeret i captionen — jeg omtaler ham som »Onklen«, da brevets modtager i øvrigt fremgår af udskriften og af metadata ved siden af billedet.",
+  "repairs": []
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{
+  "image": "b171/ill_19.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "Udskriften til venstre",
+      "field": "caption",
+      "problem": "Venstre side viser håndskrift, adresse og gennemskinnende tekst, ikke en udskrift. Grounding-pakken dokumenterer kun, at billedet viser bl. [2v] og [1r], ikke en transskription på venstre side."
+    }
+  ],
+  "visualNotes": "Venstre side er en håndskrevet adresse-/bagside med gennemskinnende spejlvendt skrift; højre side er brevets tæt beskrevne tekstside."
+}
+tokens used
+28.029
+{
+  "image": "b171/ill_19.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "Udskriften til venstre",
+      "field": "caption",
+      "problem": "Venstre side viser håndskrift, adresse og gennemskinnende tekst, ikke en udskrift. Grounding-pakken dokumenterer kun, at billedet viser bl. [2v] og [1r], ikke en transskription på venstre side."
+    }
+  ],
+  "visualNotes": "Venstre side er en håndskrevet adresse-/bagside med gennemskinnende spejlvendt skrift; højre side er brevets tæt beskrevne tekstside."
+}

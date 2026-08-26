@@ -1,0 +1,5 @@
+Investigate: I'll read the full prompt, look at the letter image, and check the draft alt/caption against only the image and the grounding packet.{
+  "image": "b1/ill_2.jpg",
+  "flags": [],
+  "visualNotes": "Matches. Main block is ~33 lines plus the date (so »godt tredive« is fair for the dense Kurrent, not a full-page count). Left margin is empty of this side's writing — that is the show-through zone — so »kant til kant« is idiomatic rather than literal. Parenthetical after the date is readable as 1829 in a lighter, thinner hand; alt correctly withholds the reading. P.S. is four lines starting with a clear P.S.; SK's addition is two lines, the second the single word Fader, starting to the right of »Gange fra ham.« Signature is a larger Latin-leaning M P Kierkegaard. SK's hand is close in size to the P.S.; »endnu mindre og finere« is slight but visible."
+}

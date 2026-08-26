@@ -1,0 +1,24 @@
+Investigate: I'll verify the draft against the image and the packet only — groundedness and visual accuracy, nothing else.I'll check the trial-round playbook and earlier flags so I match that bar, then go claim by claim against the picture.{
+  "image": "b127/ill_15.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "mørkt stribet forklæde",
+      "field": "alt",
+      "problem": "Det tydeligste forklæde er det hvide stykke over brystet. Det mørke stof, der hænger ned ad hendes venstre side, kan være sjal eller overskørt; de lyse linjer i det kan ligeså godt være stikkets skravering eller folder som striber."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "blå kokarde",
+      "field": "alt",
+      "problem": "På turbanen ses et blåt klæde viklet om det hvide, orangemønstrede hovedtøj, med en fjer stukket i. En kokarde (roset) er ikke tydeligt adskilt fra det viklede bånd."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "Hen over skødet ligger en guldfarvet genstand med tværstang",
+      "field": "alt",
+      "problem": "Genstanden (fæste med tværstang, slank del ud til højre) sidder ved den siddendes højre hofte, ikke hen over skødet; skødet optages af de gule bukser."
+    }
+  ],
+  "visualNotes": "Øverst: hvidt forklæde/bib over brystet og olivengrønt sjal om skuldrene, ikke nævnt; ved vinduet et lille ophængt bur- eller kasselignende objekt. Nederst: tre søjleskafter (ét venstre, to højre), ikke to; gul støvle synlig; det blå på turbanen er et viklet bånd."
+}

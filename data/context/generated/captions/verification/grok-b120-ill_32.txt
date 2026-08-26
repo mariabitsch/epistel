@@ -1,0 +1,4 @@
+Downscaled Image 1: 331.6 KB (2048x3244) → 252.8 KB (1233x1953)
+Investigate: I'll verify the draft against the image and the grounding packet only, then return the JSON verdict.I'll check the original scan and earlier verifier examples so the flags match the pipeline's bar.I'll crop the date line, line-endings, the Old Testament block, and the lower half so the visual claims can be checked at full resolution.Max turns reached
+
+Error: max turns reached

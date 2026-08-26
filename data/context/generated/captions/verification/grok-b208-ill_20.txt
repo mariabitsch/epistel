@@ -1,0 +1,2 @@
+Downscaled Image 1: 507.1 KB (3331x2198) → 371.3 KB (1910x1260)
+I'll verify the draft against the grounding packet and the image only — reading the full prompt first, then checking every claim.

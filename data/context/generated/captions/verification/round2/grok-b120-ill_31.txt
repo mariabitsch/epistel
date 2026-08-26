@@ -1,0 +1,13 @@
+Downscaled Image 1: 406.0 KB (2048x3170) → 313.5 KB (1247x1930)
+I'll verify this draft against the image and the grounding packet only — groundedness and visual accuracy, nothing else.I'll look at the vendor file more closely so I can check line count, the insertions, and the crossed-out word against the draft.I'll check how the TEI marks the two insertions — that can confirm whether they sit above the line or in the running text.I'll crop the insertion lines and the crossed-out word so I can check those claims against the image itself.{
+  "image": "b120/ill_31.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "To korte indskud er skrevet ind over linjerne i blokkens øverste del",
+      "field": "alt",
+      "problem": "Der sidder et tredje interlineart indskud længere nede i blokken: et lille »ex« skrevet over linjen i mellemrummet mellem »me« og »hisce« (omtrent niende linje). Tallet to passer på den øverste del (»c. laude« og »L E P E O«), men læses »to korte indskud« som samlet antal indskud over linjerne, er det for lavt. Pakkens læsetekst har »ex hisce« netop dér."
+    }
+  ],
+  "visualNotes": "Tredje indskud: lille »ex« over linjen ca. linje 9, mellem »me« og »hisce«. Ellers stemmer billedet med udkastet: 15 linjer i blokken; »c. laude« presset ind i mindre skrift i højre margen af linje 2; »LEPEO« over linje 4 mellem »universitatis« og »absolvissem«; udstregning i næstsidste linje; siden ender på »in animum«."
+}

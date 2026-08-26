@@ -1,0 +1,18 @@
+Investigate: I'll check the image and packet against the draft's alt and caption, and only flag ungrounded or visually wrong claims.I'll compare the draft to previous trial flags and look at the image more closely so I only raise groundedness or visual-accuracy issues.{
+  "image": "b1/ill_4.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "lukket med et lille guldfarvet mærke",
+      "field": "caption",
+      "problem": "Billedet viser arket åbnet og fladt, med mærket ved spidsen af en nedadpegende papirflig; pakken nævner hverken mærke eller lukning. At mærket har lukket konvolutten er en slutning fra placeringen, ikke en aflæsning."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "melder afbud til at komme selv",
+      "field": "caption",
+      "problem": "Læseteksten siger, at han hellere ville have takket personligt i dag, men ikke har vognen i de første dage, og at han håber at komme op om nogle dage. »Afbud« står ikke i pakken og passer dårligt med den bebudede visitt; det er en parafrase, ikke en sporbar talehandling."
+    }
+  ],
+  "visualNotes": "Øverste halvdel, til højre nær folden: lille omvendt påtegning i gråt, ikke nævnt i alt. Hjørnepåskriften øverst til venstre er understreget og i mørkere streg end adressen. Gennemslaget i den nedre halvdel er ret tydeligt, ikke kun svagt. Arket er fotograferet åbnet; fligen hænger frit under mærket."
+}

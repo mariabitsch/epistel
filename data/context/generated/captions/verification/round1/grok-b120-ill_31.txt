@@ -1,0 +1,19 @@
+Downscaled Image 1: 406.0 KB (2048x3170) → 313.5 KB (1247x1930)
+Investigate: I'll read the image against the packet and draft, then flag only ungrounded or visually wrong claims.{
+  "image": "b120/ill_31.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "en tætskrevet tekstblok på omkring tyve linjer",
+      "field": "alt",
+      "problem": "Kropsblokken i nederste halvdel har 15 linjer, talt på billedet. »Omkring tyve« rammer ikke; selv med de to indskud talt med som ekstra linjer kommer man ikke over 17."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "et enkelt ord midt i blokken er streget ud",
+      "field": "alt",
+      "problem": "Udstregningen sidder i blokkens næstsidste linje (nederst i blokken), ikke midt i den. Alt-teksten har lige før brugt »blokkens øverste del« zonalt, så »midt i« læses som positionsangivelse."
+    }
+  ],
+  "visualNotes": "Kroppen er 15 linjer; udstregningen er i næstsidste linje, ét tæt overstreget ord, ulæseligt. »c. laude« er klemt ind i højre margen på 2. kropslinje, svagt hævet; »LEPEO« er det tydeligt interlineære indskud. Øverste højre ord læses som »Kierkegaard.«; nederste venstre mærke som »1 H. 189 g.« i en tredje, mindre hånd. Muligt tredje indskud (»ex«) længere nede, for usikkert at fastholde."
+}

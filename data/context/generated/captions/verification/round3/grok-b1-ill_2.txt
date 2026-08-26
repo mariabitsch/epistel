@@ -1,0 +1,5 @@
+Investigate: I'll read the full prompt, grounding packet, and draft, then check the image against every claim.{
+  "image": "b1/ill_2.jpg",
+  "flags": [],
+  "visualNotes": "Brødteksten er ca. 33 linjer, så »godt tredive« holder. Datolinjen er læselig som »Den 15 Julii«; parentesen til højre ligner 1829, men alt-teksten læser den med rette ikke. 37 står tydeligt øverst til højre. Underskriften er større og mere latinsk i trækket end brødtekstens kurrent. P.S. er fire linjer, den sidste kort (»Gange fra ham.«); SKs tilføjelse begynder til højre for den og slutter med ét ord (»Fader.«) på næste linje. Gennemslag også nederst til venstre, ikke kun langs kanten. Små margener findes trods »kant til kant«."
+}

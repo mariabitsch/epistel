@@ -1,0 +1,184 @@
+Reading additional input from stdin...
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03ed2-5e85-7023-9ad0-c5ea696faba1
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b1/ill_4.jpg
+
+Billedfil: `data/vendor/b1/ill_4.jpg` (tilladt primærkilde).
+
+## Manifest-post: b1/ill_4.jpg (export/images.json)
+```json
+{
+ "id": "b1/ill_4.jpg",
+ "path": "letters/b1/ill_4.jpg",
+ "source": {
+  "path": "data/v1.9/b1/ill_4.jpg",
+  "sha256": "2ae6a961bf747cf5816f2c0701bd25319c12b33f98234ed044ae11c7e969f86f"
+ },
+ "figures": [
+  {
+   "volume": "b1",
+   "file": "txt.xml",
+   "xmlId": "ill_4",
+   "type": null,
+   "rend": "verso",
+   "url": "../b1/ill_4.jpg",
+   "head": [
+    "4. Brev 28, for- og bagside af konvolut"
+   ],
+   "figDesc": null,
+   "letter": "28",
+   "letterXmlId": "n28"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b1",
+   "file": "txt.xml",
+   "xmlId": "id5f71c769-c5f8-407a-ade2-1dd07b2e05f5",
+   "n": "2v",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b1/ill_4.jpg",
+   "letter": "28",
+   "letterXmlId": "n28"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 4. Brev 28, for- og bagside af konvolut
+
+## Brev 28 (b1) — overskrift og læsetekst
+Overskrift: Fra H.P. Kierkegaard · 14. maj 1849 · til SK
+
+   14de May 1849.  Inderlig Tak, kjære høistærede Ven! for den tilsendte Bog. – Jeg behøver heldigviis ikke at tage min Tilflugt til den almindelige forslidte Floskel »Du veed ikke hvor det har glædet mig!« o. s. v., jeg kan og ønsker hellere at sige: »Du veed at en saadan Opmærksomhed fra Dig forskaffer mig en stor Glæde, derfor viser Du mig den.« – Tak for denne, og for enhver Glæde, som gjennem Dig er bleven mig tildeel; det være sig directe eller indirecte; – de have alle bidraget til at forfriske, styrke og oplive mig! –Jeg vilde vistnok hellere personlig have takket Dig idag; men da jeg ikke har Vognen til min Raadighed i de første Dage, og jeg ikke vilde opsætte at takke Dig, saa haaber jeg at Du tillader at jeg om nogle Dage lader forhøre om Du er hjemme, og hvis saa er, kommer op til Dig en Timestid. –   Din hengivne    Peter  Kierkegaard. –   4. Brev 28, for- og bagside af konvolut Til   Hr Magister Kierkegaard. –  hersteds. –
+
+## Kommentarnote b-673 (b1/kom.xml, ordret)
+Lemma: 14de May 1849
+
+se følgende kommentar.
+
+## Kommentarnote b-674 (b1/kom.xml, ordret)
+Lemma: den tilsendte Bog
+
+sigter til Lilien paa Marken og Fuglen under Himlen. Tre gudelige Taler, der udkom den 14. maj 1849, se tekstredegørelsen i SKS K11, 7. H.P. Kierkegaard modtog et dedikationseksemplar af bogen, indbundet i sort glanspapir, se Dedikation 65, i SKS 28, 508.
+
+## Kommentarnote b-675 (b1/kom.xml, ordret)
+Lemma: forskaffer mig
+
+giver mig.
+
+## Kommentarnote b-676 (b1/kom.xml, ordret)
+Lemma: vistnok
+
+sandelig.
+
+## Kommentarnote b-677 (b1/kom.xml, ordret)
+Lemma: hvis saa er
+
+det er således, det er tilfældet.
+
+## Kommentarnote b-678 (b1/kom.xml, ordret)
+Lemma: Peter Kierkegaard
+
+.
+
+## Kommentarnote b-679 (b1/kom.xml, ordret)
+Lemma: Magister Kierkegaard
+
+.
+
+## Kommentarnote b-680 (b1/kom.xml, ordret)
+Lemma: hersteds
+
+København.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b1/ill_4.jpg",
+  "alt": "Et lyst, foldet ark papir fotograferet fladt, med en vandret foldelinje midt på og skrå foldelinjer hen over begge halvdele. I den øverste halvdel står en adresse skrevet med brunt blæk i to skrå, opadgående linjer — vendt på hovedet i billedet — og øverst i venstre hjørne ses en kort håndskreven påskrift i samme retning. Under den vandrette foldelinje, til højre for midten, sidder et lille rektangulært mærke med guldfarvet bund og rød kant; på det ses en rødtrykt stående figur under en bue af små versaler, og fra mærket peger en smal, trekantet papirflig nedad. Skrift fra papirets anden side skimtes svagt igennem over hele arket.",
+  "caption": "Brev 28 udenpå: arket bærer foldelinjerne endnu, det lille guldfarvede mærke sidder med en afrevet papirflig under sig, og adressen står på skrå »Til Hr Magister Kierkegaard. – hersteds.« Indeni takker H.P. Kierkegaard for »den tilsendte Bog« og håber at komme selv om nogle dage — vognen har han ikke til sin rådighed i de første.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »4. Brev 28, for- og bagside af konvolut« — grundlag for at billedet er brev 28's konvolut, og for at der ses to sider af den",
+    "pakken, manifest-posten: figuren og pageBreak'et hører begge til letter 28 (b1), rend »verso«, facs »../b1/ill_4.jpg«",
+    "billedet: vandret foldelinje midt på arket og flere skrå foldelinjer hen over begge halvdele — grundlag for »foldet sammen«",
+    "billedet, øverste halvdel: to skrå, opadgående linjer i brunt blæk, vendt på hovedet i filen; oplæst efter 180°-rotation som »Til« (lille, øverst til venstre), »Hr Magister Kierkegaard. –« og et sammentrukket ord, der svarer til »hersteds«",
+    "pakken, brev 28's læsetekst (slutningen): »Til   Hr Magister Kierkegaard. –  hersteds. –« — ordlyden i captionen er citeret herfra, ikke aflæst af billedet",
+    "billedet, under foldelinjen til højre: lille rektangulært mærke, guldfarvet bund med rød kant, rødtrykt stående figur under en bue af små versaler",
+    "billedet: smal trekantet papirflig, der peger nedad fra mærket — grundlag for »lukket med«",
+    "billedet: svag gennemslående skrift over hele arket (spejlvendte linjer af håndskrift fra den anden side)",
+    "pakken, brev 28's overskrift: Fra H.P. Kierkegaard · 14. maj 1849 · til SK — grundlag for afsendernavnet, som udgaven skriver det",
+    "pakken, brev 28's læsetekst: »Inderlig Tak, kjære høistærede Ven! for den tilsendte Bog.« (»den tilsendte Bog« citeret ordret)",
+    "pakken, brev 28's læsetekst: »Jeg vilde vistnok hellere personlig have takket Dig idag; men da jeg ikke har Vognen til min Raadighed i de første Dage ...« — grundlag for afbuddet og for vognen"
+  ],
+  "note": "Tvivl og fravalg: (1) ORIENTERING: hele scanningen står 180° drejet i forhold til skriften — både adressen og hjørnepåskriften læses først, når billedet vendes. Alt-teksten siger det ligeud (»vendt på hovedet i billedet«), fordi det er det, en seer møder; captionen tier om det, da det er en scanningsomstændighed, ikke en oplysning om brevet. (2) Adressens ordlyd er citeret fra pakkens læsetekst, ikke fra billedet: jeg kan efter rotation genkende »Til«, »Hr Magister Kierkegaard. –« og formen af det sidste ord, men den sammentrukne kursiv ville jeg ikke turde transskribere alene ud fra scanningen. Skriveren af adressen er IKKE tilskrevet nogen — hverken billedet eller pakken siger, hvis hånd det er. (3) Hjørnepåskriften øverst til venstre er udeladt begge steder: den ligner et årstal, der ender på »1849«, men de foranstående tegn er ulæselige for mig, og et halvt læst årstal ville låne autoritet fra brevets kendte datering. Alt-teksten nævner kun, at påskriften er der. (4) MÆRKET: buen af versaler over figuren kan jeg delvis se — bogstavgrupperne ligner »...NO VERI...« — men mærket fylder kun godt 130 px i scanningen, og jeg gengiver derfor intet af indskriften; figuren beskrives neutralt som »en rødtrykt stående figur« uden at navngive, hvad den forestiller (der anes en plante til venstre og en rund genstand nederst til højre, begge for utydelige til at benævnes). Bliver en skarpere gengivelse tilgængelig, er indskriften det første, der bør efterprøves. (5) »lukket med« er en let slutning: mærket sidder ved spidsen af en nedadpegende papirflig, altså hvor et lukkemærke hører hjemme. Jeg skriver ikke, at det er brudt eller ubrudt — flig og mærke kan jeg se, forløbet kan jeg ikke. (6) Den gennemslående skrift er beskrevet som »skrift fra papirets anden side«; at det er brev 28's egen tekst — altså at brevet er sin egen konvolut — er fristende og sandsynligt (udgaven kalder billedet en konvolut til netop dette brev), men hverken billedet eller pakken siger det, og captionen påstår det ikke. (7) Kommentarnoterne er brugt til at forstå, ikke til at tilføje: b-674 (at bogen er Lilien paa Marken og Fuglen under Himlen, dedikationseksemplaret i sort glanspapir) er bevidst ude — captionen siger kun »den tilsendte Bog«, som brevet selv gør; b-680 (»hersteds« = København) er også ude, så udgavens eget ord får lov at stå. (8) »for- og bagside« fra udgavens head er ikke gentaget som en påstand om, hvad man ser hvor: billedet viser ét fladt ark med to felter, og hvilket felt der er forsiden, afgør jeg ikke. (9) Datoen 14. maj 1849 er ikke nævnt — den står ved siden af på brevsiden.",
+  "repairs": [
+    {
+      "flag": "codex+grok runde 1, tvivl: »foldet sammen, lukket med et lille guldfarvet mærke« — arket vises åbnet og fladt; at mærket har lukket det, er en slutning",
+      "action": "arbitreret mod billedet: korrekt, arket ligger udfoldet (adressen står på hovedet) — omskrevet til det synlige: foldelinjer, mærket med den afrevne flig."
+    },
+    {
+      "flag": "grok runde 1, tvivl: »melder afbud til at komme selv« — læseteksten siger, at han håber at komme om nogle dage",
+      "action": "arbitreret mod pakken: »afbud« var for stærk en parafrase — omskrevet til brevets egen bevægelse (håber at komme om nogle dage)."
+    }
+  ]
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{"image":"b1/ill_4.jpg","flags":[],"visualNotes":"Ingen synlige modsigelser."}
+tokens used
+6.906
+{"image":"b1/ill_4.jpg","flags":[],"visualNotes":"Ingen synlige modsigelser."}

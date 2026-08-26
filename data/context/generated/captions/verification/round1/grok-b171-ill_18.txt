@@ -1,0 +1,24 @@
+**Investigate.** I'll check the draft's alt and caption against the image and the packet only — outside knowledge and visual misreadings get flagged; taste and omissions do not.{
+  "image": "b171/ill_18.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "en mindre inde i teksten længere nede",
+      "field": "alt",
+      "problem": "Den fremtrædende plet længere nede er stor og mørkebrun, sidder ved venstre kant ved den nederste foldelinje og æder sig ind i linjerne; den er ikke en mindre plet inde i tekstblokken. (Den store øverste plet og pletten ved venstre kant omtrent midtvejs er til gengæld synlige som beskrevet.)"
+    },
+    {
+      "severity": "fejl",
+      "claim": "det nederste venstre hjørne har en skrå kant",
+      "field": "alt",
+      "problem": "Hjørnet ses som tilnærmelsesvis retvinklet; der er ingen synlig skrå afskæring."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "tre små runde blækprikker",
+      "field": "alt",
+      "problem": "Tre små runde mørke prikker er synlige i venstre margen, men de er sorte, ikke brune som skriftens blæk. Om de er blækstænk, huller eller mærker efter opklæbning kan ikke afgøres ud fra billedet; »blæk-« er en materialeidentifikation."
+    }
+  ],
+  "visualNotes": "Nederste foldelinjes venstre plet er en af bladets største og mørkeste skader, ikke en lille tekstplet; nederste venstre hjørne er retvinklet. De tre prikker er sorte, i modsætning til det brune blæk. Første foldelinje ligger nærmere to femtedele end en tredjedel nede (stadig foreneligt med »cirka«). Det rødlige mærke nederst til højre ligner tallet 7, som udkastet rigtigt undlader at læse. Captionen er pakkegrundet; ingen flag dér."
+}

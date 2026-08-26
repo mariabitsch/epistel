@@ -1,0 +1,29 @@
+{
+  "id": "b43/ill_5.jpg",
+  "alt": "Et gulnet manuskriptblad, beskrevet med brunt blæk i sin øverste del; resten af bladet står tomt. Øverst til højre en kort dateringslinje, hvor dag og måned er skrevet som en brøk over hinanden. Derunder seks linjer løbende tekst, en højrestillet slutningshilsen og en underskrift, og nedenfor til venstre to kortere linjer. Ude i venstre margen står et enkelt ord, »Copi«, ud for næste afsnit, der begynder med en indrykket tiltale, efterfulgt af en højrestillet linje, fire linjer tekst og til sidst to højrestillede linjer med hilsen og underskriften »Victor Eremita«. Papiret har brunlige pletter og synlige folde- og slidmærker langs kanterne.",
+  "caption": "Brevets første blad bærer to underskrifter. Øverst melder Giødwad med sit eget navn, at et forseglet brev til Victor Eremita er blevet afleveret på Kierkegaards bopæl; nedenunder står afskriften af svaret, »jeg har aldrig noget færdigt«, underskrevet Victor Eremita.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »5. Brev 53, bl. [1r]« — grundlag for »Brevets første blad«",
+    "billedet: ét blad, brunt blæk, tekst kun på den øverste del af siden, den nederste tredjedel ubeskrevet",
+    "billedet: gulnet papir med brunlige pletter og folde-/slidmærker, tydeligst langs venstre og øvre kant",
+    "billedet, øverst til højre: dateringslinje med dag og måned skrevet som brøk over hinanden (svarer til læstekstens »Kbhvn 2712 45«; ikke citeret i captionen)",
+    "billedet: første afsnit på seks linjer, derefter en højrestillet hilsen og en underskrift; talt i billedet",
+    "billedet: to kortere linjer nedenfor til venstre (læsteksten har her »S T.« og »Hr. P. L. Møller«)",
+    "billedet, venstre margen: ordet »Copi« skrevet ud for det følgende afsnit — læsbart og bekræftet af læsteksten, der har »Copi« samme sted",
+    "billedet: andet afsnit indledes af en indrykket tiltale, derpå en højrestillet linje, fire linjer tekst og to højrestillede slutlinjer; talt i billedet",
+    "billedet, nederst til højre: underskriften »Victor Eremita«, læsbar og bekræftet af læsteksten",
+    "pakken, brev 53's læsetekst: »Hr. Mag.Kierkegaard tilsendte mig for nogle Dage siden et forseglet Brev, som i hans Fraværelse var blevet afleveret paa hans Bopæl, skiønt adresseret til Victor Eremita« — grundlag for hele captionens første led, herunder »Kierkegaards bopæl«",
+    "pakken, brev 53's læsetekst: »fra denne har jeg modtaget en Billet, hvoraf han har bedet mig at sende Dem en Copi, som hermed følger« — grundlag for »afskriften af svaret«",
+    "pakken, brev 53's læsetekst: »jeg har aldrig noget færdigt« (citeret ordret)",
+    "pakken, brev 53's læsetekst: svaret slutter »Deres ærbødige  Victor Eremita« — grundlag for »underskrevet Victor Eremita«",
+    "pakken, brev 53's overskrift: Fra J.F. Giødwad og SK · 25. og 27. dec. 1845 · til P.L. Møller — grundlag for at kalde afsenderen af det øverste brev Giødwad"
+  ],
+  "note": "Tvivl og fravalg: (1) Hele bladet ser ud til at være skrevet med én hånd og ét blæk — også afskriften, der bærer Victor Eremitas underskrift. Det er en tolkning, jeg ikke kan belægge: hverken billedet eller pakken siger, hvem der førte pennen i afskriften, og udgaven oplyser det ikke. Captionen siger derfor kun, at afskriften står der og er underskrevet Victor Eremita — ikke hvem der har skrevet den. Alt-teksten nævner heller ikke hænder. (2) Overskriften kalder brevet »Fra J.F. Giødwad og SK«, altså identificerer udgaven selv SK som ophav til billetten. Jeg har alligevel ladet captionen blive på sidens egen overflade og ikke skrevet »Kierkegaard underskriver som Victor Eremita«: pointen er synlig for læseren, og opløsningen af pseudonymet ville sige mere, end brevet selv gør. Dette er et bevidst valg, ikke en oversete mulighed. (3) Håndskriften er læsbar for mig i strøg, men jeg citerer intet fra billedet, som ikke også står i læsteksten. Kun tre ord er gengivet direkte i alt-teksten (»Copi«, »Victor Eremita«), fordi de står frit og tydeligt og bekræftes ord for ord af pakken. Dateringslinjen øverst har jeg beskrevet som form (brøkskrivning), ikke transskriberet, da årstallets sidste ciffer er svært at afgøre i scanningen. (4) Ubrugte kommentarnoter, som ville tilføje viden uden for brevet: b-2137 og b-2483 (Frater Taciturnus' artikel mod P.L. Møller i Fædrelandet 27. dec. 1845, Corsaren, Gæa), b-2139 (Giødwads biografi og hans rolle ved de pseudonyme skrifter), b-2141 (Victor Eremita som udgiver af Enten – Eller), b-2479 (Møllers brev synes ikke bevaret), b-2482 (»S T.« = salvo titulo), b-2140 (»Billet« = kort skriftlig meddelelse). Særligt b-2480 (SK boede på Nytorv matr. 2) er fravalgt: captionen siger »Kierkegaards bopæl«, som brevet selv gør. (5) Manifestets »rend: recto« og pageBreak »n: 1r« med »rend: supplied« er udgavens apparat; foliering og bladbetegnelse er ikke gentaget i captionen, kun brugt til at kalde det brevets første blad. (6) Der er ikke fotokredit i udgavens head (»5. Brev 53, bl. [1r]«), derfor credit null. (7) Nederst på bladet anes ingen påskrift, arkivstempel eller blyantstal; jeg har ledt og intet fundet, og siger derfor blot, at den nederste tredjedel er tom. (8) Bladet er recto af to (facs peger samme sted); hvad der står på de følgende blade, ved jeg intet om og hævder intet om.",
+  "repairs": [
+    {
+      "flag": "codex runde 1, tvivl: »øverste to tredjedele« — skriften fylder snarere den øverste halvdel",
+      "action": "arbitreret: to læsere, to brøker — andelen generaliseret til »sin øverste del«. Grok var ren."
+    }
+  ]
+}

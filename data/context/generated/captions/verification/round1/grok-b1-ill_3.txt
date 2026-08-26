@@ -1,0 +1,12 @@
+I'll verify the draft against the image and the grounding packet only — groundedness and visual accuracy, nothing else.Checking the verifier prompt and a prior trial verdict so I can calibrate what actually counts as a flag.{
+  "image": "b1/ill_3.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "det er lukket med mørk, næsten sort lak ved både øverste og nederste kant",
+      "field": "alt",
+      "problem": "Arket vises fladt med et fuldt foldgitter over hele fladen, ikke som en tillukket pakke. To mørke lakklatter er synlige øverst og nederst, men »lukket med« påstår en tillukket tilstand billedet ikke viser."
+    }
+  ],
+  "visualNotes": "Øverste lakklat sidder lidt under papirkanten på den øvre fold; farven er i scanningen sort, ikke mørkebrun. Nederste klat overlapper den lyse ovale plet. Lodret påskrift i øverste arks højre margen er grå og mere læselig end »kun delvis« antyder, drejet 90°: »D. Pk. 3. Læg 5« — pakken bekræfter ikke strengen som påskrift på dette billede (b-1773's analoge signatur gælder et andet dokument). Nederste arks venstre røde lak er et halvmåneformet fragment, den højre en fyldigere klat."
+}

@@ -1,0 +1,5 @@
+Investigate: I'll check the image against the draft and the packet, then return only the JSON verdict.I'll inspect the vendor scan and a previous verification so the flags stay in the same style.I'll check the round-1 flags against this draft so I only raise what is still actually wrong.{
+  "image": "b120/ill_12.jpg",
+  "flags": [],
+  "visualNotes": "Lodret fold mellem spalterne. Linjen »Bentzen. 1841. Falkenskiold« er sort, jævn kobberstikskrift — mørkere end det brune kropsblæk, altså tryk, ikke brevets hånd. Tallet efter »Fierde Klasse« ligner 36058. »Til Kongen!« har forstørret T, K og ! med resten af ordene skrevet under. Højre spaltes sidste linje ender i orddeling »ud-«. Bundpåtegningen ligner »Indk. 4/6 41 …«."
+}

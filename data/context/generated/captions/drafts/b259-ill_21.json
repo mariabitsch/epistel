@@ -1,0 +1,29 @@
+{
+  "id": "b259/ill_21.jpg",
+  "alt": "En håndskreven brevside: blegt gulligt papir beskrevet med brunt blæk i en tæt, hurtig kursivskrift. Teksten fylder den øverste godt halvdel af siden i godt tyve lange linjer, der løber tværs over bladet; den nederste halvdel står tom. Et par ord er understreget. Nederst til højre står to linjer med større, mere svungen skrift — en hilsen og en underskrift. Nederst i midten sidder et blåt ovalt biblioteksstempel med tre linjer: en buet øverste linje i mindre kapitæler og derunder »UNIVERSITETS« og »BIBLIOTHEK«. Langs venstre kant ses en foldelinje, og ved begge sidekanter omkring midten sidder blegt grønlige og brunlige misfarvninger; enkelte små brune pletter ligger spredt over papiret.",
+  "caption": "Brev 267's andet blad. Kolderup-Rosenvinge skriver brevet som en spadseretur og måler vejen i papir: af »det tomme Rum paa Papiret« kan han se, at der endnu er et stykke igen til Nørreport. Han skriver, til han når Kannikestrædet, siger »God Morgen!« og skriver under — og det tomme rum, han målte med, står her stadig.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »21. Brev 267, bl. [2r]« — grundlag for »Brev 267's andet blad« (bl. [2r] = blad 2, recto)",
+    "pakken, manifest-posten: figure med rend »recto« og pageBreak med n »2r«, begge med url/facs »../b259/ill_21.jpg« i bind b259, brev 267",
+    "pakken, brev 267's overskrift: Fra J.L.A. Kolderup-Rosenvinge · 20. aug. 1848 · til SK — grundlag for at kalde skriveren Kolderup-Rosenvinge",
+    "pakken, brev 267's læsetekst: head-markøren »21. Brev 267, bl. [2r]« står umiddelbart før »Da jeg af det tomme Rum paa Papiret kan see, at vi endnu have et Stykke Vej tilbage inden vi komme til Nørreport« — grundlag for, at dette blad begynder dér",
+    "pakken, brev 267's læsetekst: »det tomme Rum paa Papiret« (citeret ordret)",
+    "pakken, brev 267's læsetekst: »jeg maa da bede Dem om Tilgivelse for om De paa Spadseretouren bliver overstænket af mit ærgerlige Lune« og »ønskes besvaret paa næste Spadseretour« — grundlag for »skriver brevet som en spadseretur«",
+    "pakken, brev 267's læsetekst: »Nu seer jeg Kannikestrædet og takker Dem meget for Touren«",
+    "pakken, brev 267's læsetekst: »God Morgen!« (citeret ordret), efterfulgt af »Deres hengivneste Kolderup Rosenvinge« — grundlag for »skriver under«",
+    "billedet: teksten fylder kun den øverste godt halvdel af bladet, den nederste halvdel er ubeskrevet — grundlag for »det tomme rum … står her stadig«",
+    "billedet: brunt blæk, tæt hurtig kursiv, godt tyve linjer tværs over et blegt gulligt blad",
+    "billedet: to linjer med større, mere svungen skrift nederst til højre (hilsen + underskrift)",
+    "billedet: enkelte ord understreget midt i teksten",
+    "billedet: blåt ovalt stempel nederst i midten, tre linjer, læses »KJØBENHAVNS / UNIVERSITETS / BIBLIOTHEK«",
+    "billedet: foldelinje langs venstre kant, blegt grønlige og brunlige misfarvninger ved begge sidekanter omkring midten, spredte små brune pletter"
+  ],
+  "note": "Tvivl og fravalg: (1) Håndskriften er kun stedvis læsbar for mig. Jeg citerer intet fra billedet — alle citater er pakkens trykte læsetekst, og at netop denne side begynder ved »Da jeg af det tomme Rum paa Papiret kan see« hviler på head-markørens placering i læseteksten, ikke på min egen læsning af bladet. Brevet er autoriteten, øjet vidnet. (2) Underskriften nederst til højre gengiver jeg ikke som navn ud fra skriften; at det er Kolderup-Rosenvinge, følger af brevets overskrift og af læsetekstens »Deres hengivneste Kolderup Rosenvinge«. (3) Understregningerne: jeg kan se, at ét ord sidst på en linje og tre ord på den følgende er understreget, og læseteksten har den latinske vending »nata in vanos tumultus gens« netop dér — men at koble de to ville være en gætning, så alt-teksten siger kun, at et par ord er understreget, og captionen nævner dem ikke. Jeg mener også at ane en understregning ved »ældste«; for usikker til at gengive. (4) Stemplet: de to nederste linjer, »UNIVERSITETS« og »BIBLIOTHEK«, står klart; den øverste linjes stavemåde (Ø eller O i »KJØBENHAVNS«) kan jeg ikke afgøre sikkert, og de små ornamenter mellem ordene beskrives ikke. Stemplet er holdt ude af captionen med vilje: det fortæller om bladets senere liv, og hverken brevet eller pakken siger noget om, hvor det havnede. (5) Misfarvningerne ved sidekanterne ligner spor efter opklæbning eller fugt, men det er tolkning — alt-teksten siger kun, at de er der. (6) Linjetallet er angivet blødt (»godt tyve«); linjerne løber ujævnt, og jeg har ikke talt dem sikkert. (7) Brevets indhold i øvrigt — Christensens afhandling, Cavaignac, digtet »Den Gordiske Knude«, citaterne fra Livius og Pomponius Mela — hører til de foregående blade og er ladt ude; captionen holder sig til det, denne side selv bærer. (8) Kommentarnoterne (b-1466 om Strachwitz, b-1487 om P.F. Lunde m.fl.) er ikke brugt: de tilføjer viden, brevet ikke selv har. (9) Ikke påstået: at Kierkegaard og Kolderup-Rosenvinge faktisk gik tur sammen. Brevet er skrevet som en spadseretur — det er brevets egen form, og captionen siger ikke mere end det. (10) Papirfarven kan skyldes scanningen lige så vel som bladet; beskrevet neutralt som »blegt gulligt«.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, tvivl: »KJØBENHAVNS« — stemplets øverste, buede linje er ikke sikkert læselig (Ø/O), og stemplet står ikke i pakken",
+      "action": "arbitreret: øverste linje generaliseret; de to tydelige linjer citeres fortsat. Udkasterens egen note flagede samme tvivl. Codex var ren."
+    }
+  ]
+}

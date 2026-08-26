@@ -1,0 +1,213 @@
+Reading additional input from stdin...
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03ed4-1a26-7042-a4ed-a63fe2829772
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Note (added for the full round, 2026-08-26, after the trial):
+the edition abbreviates Søren Kierkegaard as »SK« (e.g. »Fra SK« in
+letter headings). Expanding »SK« to »Kierkegaard« or »Søren
+Kierkegaard« is NOT an ungrounded claim — the grounding packet's
+edition is Søren Kierkegaards Skrifter, and this instruction states it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b276/ill_22.jpg
+
+Billedfil: `data/vendor/b276/ill_22.jpg` (tilladt primærkilde).
+
+## Manifest-post: b276/ill_22.jpg (export/images.json)
+```json
+{
+ "id": "b276/ill_22.jpg",
+ "path": "letters/b276/ill_22.jpg",
+ "source": {
+  "path": "data/v1.9/b276/ill_22.jpg",
+  "sha256": "7d96d5649d292e734bc3de98370f771ce16a1a69674e7c077421e6bce51a8cff"
+ },
+ "figures": [
+  {
+   "volume": "b276",
+   "file": "txt.xml",
+   "xmlId": "ill_22",
+   "type": null,
+   "rend": "recto",
+   "url": "../b276/ill_22.jpg",
+   "head": [
+    "22. Brev 283, bl. [1r]"
+   ],
+   "figDesc": null,
+   "letter": "283",
+   "letterXmlId": "n283"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b276",
+   "file": "txt.xml",
+   "xmlId": "idf047f02e-51bd-4aae-b9dc-c1929d448a6c",
+   "n": "1r",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b276/ill_22.jpg",
+   "letter": "283",
+   "letterXmlId": "n283"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 22. Brev 283, bl. [1r]
+
+## Brev 283 (b276) — overskrift og læsetekst
+Overskrift: Fra Rasmus Nielsen · 29. maj 1849 · til SK
+
+22. Brev 283, bl. [1r]Tirsdag d 29 Mai 1849. Kjære Hr Magister!  De vil endnu erindre det Øieblik, da De første Gang »kaldte paa mig«. Hvad De den Gang udtalte, var tilvisse for alvorligt til at meddeles paa en Spadseretour. I Eenhed med hiint Indtryk er Det, der for nærværende Tid ligger mig paa Sinde, nu ogsaa af den Natur, at jeg for ingen Priis vil have det afhandlet paa en Spadseretour. Den Udvei at lade mit personlige Anliggende aldeles uberørt og spadsere frit omkring med Dem i ganske andre Samtaler er mig for søgt og for slibrig. De skjønner altsaa heraf, at vi neppe ville mødes igjen, før De engang finder Tid og Leilighed til atter »at kalde paa mig«. Om det nogensinde skeer, om det skeer iaar eller ad Aare, maa naturligviis beroe paa Dem: jeg har Tid at vente.  Deres R. N. P.S.Deres »gudelige Taler« har jeg rigtig bekommet, og bringer Dem herved min hjertelige Tak for den skjønne Gave.   S T   Hr Magister Kierkegaard   S T    Hr Magister Kierkegaard.
+
+## Kommentarnote b-5486 (b276/kom.xml, ordret)
+Lemma: Tirsdag d 29 Mai 1849
+
+Rasmus Nielsens store værk Evangelietroen og den moderne Bevidsthed. Forelæsninger over Jesu Liv, første Del, Kbh. 1849, ktl. 700, blev annonceret som udkommet i Adresseavisen, nr. 116, den 19. maj 1849.
+
+## Kommentarnote b-5487 (b276/kom.xml, ordret)
+Lemma: Hr Magister
+
+.
+
+## Kommentarnote b-5488 (b276/kom.xml, ordret)
+Lemma: det Øieblik, da De første Gang »kaldte paa mig«
+
+se Brev 276, i SKS 28, 431. Det var i forsommeren 1848, SK sendte bud efter Rasmus Nielsen ().
+
+## Kommentarnote b-4445 (b276/kom.xml, ordret)
+Lemma: slibrig
+
+uærlig, falsk, tvetydig.
+
+## Kommentarnote b-5491 (b276/kom.xml, ordret)
+Lemma: Deres »gudelige Taler«
+
+dvs. Lilien paa Marken og Fuglen under Himlen. Tre gudelige Taler, Kbh. 1849, i SKS 11, 5-48. Talerne udkom den 14. maj 1849. Se dedikation nr. 70, SKS 28, 509.
+
+## Kommentarnote b-5492 (b276/kom.xml, ordret)
+Lemma: bekommet
+
+modtaget.
+
+## Kommentarnote b-5493 (b276/kom.xml, ordret)
+Lemma: S T
+
+.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b276/ill_22.jpg",
+  "alt": "En tæt håndskrevet brevside i brunt blæk på lyst papir; skriften er skrå kursiv og løber i flere indrykkede afsnit. Øverst i venstre hjørne sidder en lille farvelagt tegning: et sort lam står på en grøn og rødlig græstot og bærer over skulderen en olivenfarvet stang med et kors på toppen, hvorfra der hænger en rød fane med mørk, ulæselig skrift. Øverst til højre står en datolinje. Nederst til venstre står et afsnit, der begynder »P.S.«, og til højre for det en afslutning og signaturen »R. N.«; nedenunder løber en linje, hvor ordet »Kierkegaard« kan læses. Store buede klammer er trukket i højre side mellem de nederste linjer. I nederste højre hjørne er »1849« og et lille brøktal skrevet med blyant, og yderst i hjørnet sidder et rødt tegn på et par streger.",
+  "caption": "Rasmus Nielsen vil ikke have sit anliggende afhandlet på en spadseretur, og før Kierkegaard igen kalder på ham, mødes de næppe: »jeg har Tid at vente.« Øverst i hjørnet står et sort lam med korsfane, nederst signaturen »R. N.«",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »22. Brev 283, bl. [1r]« — billedet er brev 283's første blad, recto (manifestets figure har rend »recto«, og pageBreak n=»1r« peger på samme fil)",
+    "pakken, brev 283's overskrift: Fra Rasmus Nielsen · 29. maj 1849 · til SK — grundlag for at kalde skriveren Rasmus Nielsen og modtageren Kierkegaard",
+    "pakken, brev 283's læsetekst: »nu ogsaa af den Natur, at jeg for ingen Priis vil have det afhandlet paa en Spadseretour« — grundlag for »vil ikke have sit anliggende afhandlet på en spadseretur« (»mit personlige Anliggende« står i næste afsnit)",
+    "pakken, brev 283's læsetekst: »at vi neppe ville mødes igjen, før De engang finder Tid og Leilighed til atter ›at kalde paa mig‹« — grundlag for »før Kierkegaard igen kalder på ham, mødes de næppe«",
+    "pakken, brev 283's læsetekst: »jeg har Tid at vente.« (citeret ordret)",
+    "pakken, brev 283's læsetekst: »Deres R. N.« — signaturens form gengivet som udgaven trykker den; i billedet ses de to bogstaver med punktum nederst til højre",
+    "billedet: håndskrift i brunt blæk, skrå kursiv, indrykkede afsnit på ét blad",
+    "billedet, øverste venstre hjørne: farvelagt tegning af et sort, uldet firbenet dyr med kort hale og ét synligt øre, stående på en grøn-rødlig græstot",
+    "billedet, samme sted: en olivenfarvet stang med tværstykke (kors) i toppen, lagt over dyrets ryg, med en rød fane, hvis mørke bogstaver ikke kan læses",
+    "billedet, øverste højre hjørne: en datolinje i samme hånd og blæk som brevteksten",
+    "billedet, nederste venstre del: et afsnit, der begynder med de læsbare bogstaver »P.S.«",
+    "billedet, nederste linje: ordet »Kierkegaard« er læsbart",
+    "billedet, højre side forneden: to store buede klammer trukket ud for de nederste linjer",
+    "billedet, nederste højre hjørne: »1849« og et brøktal skrevet med blyant, tydeligt lysere og med andet skriveredskab end brevteksten; yderst i hjørnet et rødt tegn på et par streger"
+  ],
+  "note": "Tvivl og fravalg: (1) DYRET. Uldet krop, klove, kort hale og et lille hoved i profil læser jeg som et lam, og stangen har tydeligt et kors i toppen. Jeg har med vilje IKKE navngivet motivet (Guds lam / Agnus Dei / påskelam): det ville være udefrakommende ikonografisk viden, og hverken brevet eller pakken nævner tegningen med ét ord. Er »lam« for meget, kan det generaliseres til »et lille sort dyr«. (2) Fanen bærer mørk skrift i flere bogstaver; den er for lille og for udtværet til at læses, og jeg gengiver intet af den. (3) Jeg siger ikke, HVORDAN tegningen er kommet på papiret — trykt/præget brevhoved farvelagt i hånden, eller tegnet af brevskriveren selv? Det kan billedet ikke afgøre, og captionen siger derfor kun, at lammet står der. (4) DATOEN, rundens største tvivl: blyantsnotatet i hjørnet læser jeg som »1849 25/5«, mens udgaven daterer brevet 29. maj 1849 og læseteksten trykker »Tirsdag d 29 Mai 1849«. Jeg har zoomet på begge: brevets eget dagtal er en hastig krusedulle, som jeg ikke selv kan afgøre, og blyantens andet ciffer ligner tælleren i »5«-formen forneden (topstreg + bue), altså 25 — men 29 kan ikke udelukkes. En caption om, at en senere hånd daterer brevet fire dage tidligere end udgaven, ville være en god Notabene-pointe om udgivervaner, men den hviler på MIN læsning af to utydelige cifre, så den er holdt ude. Arbitreringen må gerne tage stilling. Alt-teksten siger derfor kun »et lille brøktal«, ikke hvilket. (5) Blyantsnotatets ophav er ikke tilskrevet nogen: andet redskab og anden hånd ses, men »senere«, »arkivarens« osv. ville være tolkning. (6) Det røde tegn i hjørnet ligner »1X« eller »IX«; for utydeligt til at gengives, derfor kun »et rødt tegn på et par streger«. (7) Klammerne i højre side gengives som streger, ikke som betydning — om de samler efterskriftet, adressen eller blot er sving med pennen, siger billedet ikke. (8) IKKE brugt kommentarmateriale: b-5486 (Rasmus Nielsens Evangelietroen, annonceret 19. maj 1849), b-5491 (»gudelige Taler« = Lilien paa Marken og Fuglen under Himlen, udkommet 14. maj 1849, dedikation nr. 70) og b-5488 (det første »kaldte paa mig« var i forsommeren 1848, jf. Brev 276). Alle tre er sande og fristende, og alle tre tilføjer viden, brevet ikke selv har. Af samme grund er efterskriftets tak for »gudelige Taler« nævnt hverken i caption eller alt-tekst ud over selve »P.S.«-blokkens tilstedeværelse — den kan tages ind, hvis arbitreringen ønsker det, for ordene står i brevet selv. (9) Ordet »slibrig« er ikke citeret (glosen b-4445 ville være nødvendig for at forstå det), og »S T« er ladt ude — dets kommentarnote er tom. (10) Papirets brunlige pletter, foldespor og den skygge, bladet kaster langs underkanten (det er fotograferet enkeltvis mod lys bund), er udeladt begge steder som optagelsesforhold, ikke indhold. (11) Afsnittene er ikke talt: indrykningerne er tydelige, men et præcist tal er ikke robust ved denne opløsning — derfor »flere afsnit«. (12) Kun dette ene blad er vist; læseteksten gentager adresselinjen »S T Hr Magister Kierkegaard« to gange, og hvor den anden står, kan billedet ikke vise. Ingen påstand om resten af brevet. (13) Signaturen står i captionen i udgavens form »R. N.«; i billedet kan jeg ikke se, om der er mellemrum mellem bogstaverne.",
+  "repairs": []
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{
+  "image": "b276/ill_22.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "et sort lam",
+      "field": "alt",
+      "problem": "Dyret kan ses, men billedet og grounding-pakken bekræfter ikke sikkert, at det er et lam; det bør beskrives mere neutralt som et lille sort firbenet dyr."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "et sort lam med korsfane",
+      "field": "caption",
+      "problem": "»Lam« er en usikker identifikation af motivet. Korset og den røde fane er synlige, men dyrearten er ikke sikkert fastslået."
+    }
+  ],
+  "visualNotes": "Det viste dyr kan ikke sikkert identificeres som et lam ud fra billedet alene."
+}
+tokens used
+7.612
+{
+  "image": "b276/ill_22.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "et sort lam",
+      "field": "alt",
+      "problem": "Dyret kan ses, men billedet og grounding-pakken bekræfter ikke sikkert, at det er et lam; det bør beskrives mere neutralt som et lille sort firbenet dyr."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "et sort lam med korsfane",
+      "field": "caption",
+      "problem": "»Lam« er en usikker identifikation af motivet. Korset og den røde fane er synlige, men dyrearten er ikke sikkert fastslået."
+    }
+  ],
+  "visualNotes": "Det viste dyr kan ikke sikkert identificeres som et lam ud fra billedet alene."
+}

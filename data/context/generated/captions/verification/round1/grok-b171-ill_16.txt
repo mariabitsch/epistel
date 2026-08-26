@@ -1,0 +1,12 @@
+I'll verify the draft against the image and the grounding packet only — visual accuracy and groundedness, nothing else.I'll check the captions method and earlier verifier rounds so I match this pipeline's bar for groundedness and visual accuracy.I'll crop the labels, the heading line, and the side frames so I can check those claims against the image, not against memory.{
+  "image": "b171/ill_16.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "trykt dekorationsramme",
+      "field": "alt",
+      "problem": "Rammen ser mekanisk reproduceret ud (ensartet gulgrøn farve, skravering, satte gotiske typer) og er tydeligt ikke samme hånd som det brune blæk, men fotografiet viser ikke om den er litograferet, stukket eller på anden måde trykt. Pakken siger kun »en ualmindelig Art Papir«, ikke »trykt«."
+    }
+  ],
+  "visualNotes": "Midternavnet er »Museum.« med punktum. Foran museets søjlerække står også en allé af lavere, afrundede træer, ikke kun de to høje. Venstre og højre vignet har ligeledes små figurer. I sideborternes ruder anes hhv. et landskabsagtigt motiv og en menneskeskikkelse; de er stadig ikke sikkert bestemmelige. Brødteksten ender midt i sætningen om Königstraße. Blyantsmærket øverst til højre ligner et ciffer (»13« eller »3«)."
+}
