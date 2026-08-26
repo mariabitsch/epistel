@@ -42,6 +42,6 @@ import json, sys
 prompt = sys.argv[1]; b64 = sys.argv[2]
 print(json.dumps([{"type": "text", "text": prompt},
                   {"type": "image", "data": b64, "mimeType": "image/jpeg"}]))
-' "$PROMPT" "$B64")" --max-turns 6 > "$OUT" 2>&1
+' "$PROMPT" "$B64")" --max-turns 10 > "$OUT" 2>&1
 fi
 echo "wrote $OUT"
