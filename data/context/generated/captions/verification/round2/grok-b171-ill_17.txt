@@ -1,0 +1,12 @@
+I'll verify this draft against the image and the grounding packet only — no outside knowledge. First I need a closer look at the letter itself.I’ll check the trial-round verification standard so I apply the same bar to this draft.A sibling letter already had `gotisk kursiv` flagged. I’ll check that draft and this image’s verification trail before scoring.{
+  "image": "b171/ill_17.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "gotisk kursiv",
+      "field": "alt",
+      "problem": "Paleografisk betegnelse. Billedet viser ældre, tæt kursiv (tiltalen mere åben end brødteksten); hverken billedet eller pakken kalder skriften gotisk. Termen kan ikke fastslås af grundingen alene."
+    }
+  ],
+  "visualNotes": "Krigeren holder et kort sværd i højre hånd og har skæg og gullige støvler. Venstre ornamentsøjle går langt længere ned end højre ranke. Fuglens vinger er overvejende guld og grønne med et blåligt parti. Det lille grøn-røde skjold sidder på søjlen under soklen, ikke frit hængende."
+}

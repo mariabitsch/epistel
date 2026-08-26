@@ -1,0 +1,12 @@
+I'll start by reading the full prompt and the draft against the image and grounding packet.I’ll check the captions playbook and the image again so I can judge the draft against the same standard as the rest of the round.{
+  "image": "b79/ill_k6.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "Mellem linjerne anes svage spor af skrift, der skinner igennem fra bagsiden",
+      "field": "alt",
+      "problem": "Jeg kan ikke sikkert se skrift fra bagsiden. De svage mærker mellem linjerne kan ligeså godt være papirets tekstur, folde-/knækskygger eller scanningens lysfald. Pakken bekræfter ikke gennemsigtning. »anes« tøver, men påstanden om at det er skrift fra bagsiden er stadig en sikker tolkning af tvetydige spor."
+    }
+  ],
+  "visualNotes": "Tydelig vandret folde- eller knæklinje tværs over midten ved afsnitsbruddet og en svag lodret nær højre kant; lille rød prik nederst til højre. Venstre margen er bredere end højre, hvor de lange linjer går tæt på kanten. Tiltalen »Kjære!« og datolinjen kan anes og matcher pakken — udkastet citerer dem rigtignok ikke. Gennemsigtning fra bagsiden er ikke tydelig for mig."
+}

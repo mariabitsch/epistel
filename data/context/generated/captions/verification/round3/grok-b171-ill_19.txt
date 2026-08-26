@@ -1,0 +1,6 @@
+Downscaled Image 1: 478.8 KB (3314x2647) → 340.4 KB (1736x1387)
+Investigate: I'll read the full prompt and grounding packet, then check the draft against the image only.The compressed attachment lost handwriting detail, so I’m checking the vendored original of the same plate before I score readings.{
+  "image": "b171/ill_19.jpg",
+  "flags": [],
+  "visualNotes": "Blyantsnotatet »1850 12/4« sidder på højre blad, nederst til venstre ved midterfolden — alt-teksten siger kun »ved midterfolden«, uden blad. Lakklatten sidder til højre for venstre sides midte, tættere på folden end på den geometriske midte. Venstre kant har et lille »8«; under/ved adressen ses afsenderlinjerne; listen under klammen fortsætter med flere understregede navne; et lille »1« nederst til højre på højre blad."
+}

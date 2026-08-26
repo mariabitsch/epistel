@@ -1,0 +1,5 @@
+I'll verify this draft against the image and the packet only — no outside knowledge. First I'm reading the letter image closely, then I'll check every claim in the alt text and caption.{
+  "image": "b276/ill_22.jpg",
+  "flags": [],
+  "visualNotes": "Ingen visuel modsigelse. Datolinjen øverst til højre er samme brune blæk som brødteksten og begynder læseligt med »Tirsdag«; dagtallet er hastigt. Blyantsbrøken i hjørnet læses nærmest som 25/5 (bevidst holdt ude). »Deres« står over signaturen; adresselinjen rummer også »Hr Magister«, og »S T« sidder ovenover. Fanens mørke skrift er ved denne opløsning reelt ulæselig."
+}

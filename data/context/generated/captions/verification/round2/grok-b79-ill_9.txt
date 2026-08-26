@@ -1,0 +1,12 @@
+Investigate: I'll verify the draft alt and caption against the image and the grounding packet only, then return the JSON flags.I'll look at prior verifier calibration and the source image so I can check the draft against what is actually visible.I'll check earlier flags on this image and similar envelope drafts so I can calibrate what counts as a real problem.{
+  "image": "b79/ill_9.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "en skrå streg ved adressen",
+      "field": "alt",
+      "problem": "Den røde markering ved »Boesen« er et flerstroget, W-agtigt tegn med en buet hale, ikke én skrå streg."
+    }
+  ],
+  "visualNotes": "Det store røde tegn nederst i midten er tallet 13. På venstre felt, mellem segl og midterfold, står et brunt mærke lig ½ plus en lodret streg. Adressen blander kurrent (»An«/»dem Her«) og latinsk kursiv (»Cand. theol. E. Boesen«, »Copenhagen«). Også højre kant har en trekantet foldeklap. Den store brune sløjfe yderst til højre ligner et paraf."
+}

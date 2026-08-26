@@ -1,0 +1,32 @@
+{
+  "id": "b79/ill_k6.jpg",
+  "alt": "Et enkelt håndskrevet brevark: cremefarvet papir beskrevet med brunt blæk i en fin, hurtig løbeskrift, hvor bogstaverne løber sammen. Øverst til højre står en kort datolinje, og længere nede, mod venstre, en kort tiltalelinje for sig selv og så to tætskrevne afsnit — et kortere øverst og et længere, der fylder resten af siden og slutter med en kort linje et stykke over papirets nederste kant. Linjerne løber ud til begge sider med nogenlunde lige brede margener. Mellem linjerne anes svage, lysere mærker. Ved højre kant, ud for midten af siden, sidder en lille brunlig plet.",
+  "caption": "Første side af Emil Boesens brev fra Horsens, marts 1850 — den side, udgaven viser frem som eksempel på hans svært læselige håndskrift. Otte år tidligere havde Kierkegaard bedt Boesen skrive »kraftigt og – tydeligt – og hurtigt«.",
+  "credit": null,
+  "sources": [
+    "billedet: ét ark, upright format, cremefarvet papir med brunt blæk; ingen anden side eller opslag er med",
+    "billedet: skriften er fin og løbende, bogstaverne løber sammen — beskrevet neutralt i alt-teksten, uden at nogen ordlyd gengives",
+    "billedet: kort datolinje øverst til højre; kort tiltalelinje for sig selv derunder; to afsnit, det andet fylder resten af siden og slutter med en kort linje",
+    "billedet: svage spor af skrift, der skinner igennem fra bagsiden, tydeligst i den øverste tredjedel",
+    "billedet: lille brunlig plet ved højre kant ud for midten",
+    "pakken, manifestet: figuren har rend »recto« — grundlag for at det er forsiden af arket, og for at alt-teksten ikke påstår noget om bagsiden",
+    "pakken, udgavens head: »6. Brev 115 af 7. marts 1850 fra Emil Boesen, bl. [1r].« — grundlag for »Emil Boesens brev«, for »marts 1850« og for »første side«",
+    "pakken, udgavens head: »Eksempel på Boesens svært læselige håndskrift« — udgavens egen begrundelse for at trykke pladen; captionens »som udgaven viser frem som eksempel på« gengiver den, i stedet for at siden selv bedømmes",
+    "pakken, brev 115's overskrift: Fra Emil Boesen · 7. marts 1850 · til SK, og læsetekstens indledning »Horsensd 7de Marts 1850.« — grundlag for »fra Horsens«",
+    "pakken, manifestets pageBreaks: brev 115's pb med facs=»../b79/ill_k6.jpg«, n=»1r« — udgaven lader denne plade stå for brevets første blad",
+    "pakken, kommentarnote b-1987: lemma »Du skriver saa utydeligt ... det Hele løber sammen«, indhold »sml. illustration 6« — udgaven peger selv fra Kierkegaards klage i brev 83 til netop dette billede; det er den forbindelse, captionen bygger på",
+    "pakken, brev 83's læsetekst: »Skriv kraftigt og – tydeligt – og hurtigt –« (citeret ordret, med udgavens tankestreger)",
+    "pakken, brev 83's overskrift: Fra SK · 1. jan. 1842 · til Emil Boesen, sammenholdt med brev 115's 7. marts 1850 — grundlag for »otte år tidligere«"
+  ],
+  "note": "Tvivl og fravalg: (1) Håndskriften er ikke gengivet nogen steder. Jeg kan følge enkelte ord (datolinjen, tiltalen) mod læseteksten, men brevet er autoriteten og øjet kun vidne her, så hverken alt eller caption citerer noget fra selve arket. Alt det citerede kommer fra pakkens trykte gengivelser. (2) Jeg mener at kunne se folde- eller knæklinjer i papiret — en vandret på tværs af midten og noget lodret nær højre side — men de er svage nok til, at jeg ikke tør skelne dem fra scanningens skygger og lysfald; udeladt af alt-teksten. (3) Nederst til højre anes en meget lille rød prik. Den kan være et stempel, et arkivmærke eller en artefakt fra scanningen; for utydelig til at beskrives, udeladt. (4) Antallet af linjer og afsnittenes præcise længde er ikke talt op i alt-teksten — jeg beskriver kun, at der er et kortere og et længere afsnit, da tætheden gør en optælling usikker. (5) Udgavens »bl. [1r]« er ikke gentaget som foliering; den ses ikke i billedet, og manifestets rend=»recto« bærer allerede påstanden om forsiden. (6) Bevidst ikke brugt: alt kommentarstoffet om brevets indhold (Stillings piece, Helweg, moderens død, Lovise Holtermann, hestemarkedet, sognepræsten i Horsens). Det tilføjer viden, billedet ikke selv rejser, og head'en siger klart, hvad pladen er trykt for. (7) Overvejet og fravalgt: brevets egen smukke linje på netop denne side, »som det da ogsaa er Længsel efter Dig, der nu har bragt mig til at tage Papiret frem«. Den ville give en varmere caption, men pakken forbinder dette billede med Kierkegaards klage over håndskriften, ikke med længselssætningen — og to pointer i to sætninger blev for meget. Nævnes her, hvis arbitreringen vil bytte. (8) Ironien i captionen peger mod udgivervanen (at trykke et menneskes håndskrift frem som skoleeksempel) og mod Kierkegaards egne tankestreger — ikke mod Boesen, hvis brev handler om ensomhed, faderens fald og moderens død. (9) »Otte år tidligere« er regnet ud fra pakkens to overskrifter (1. jan. 1842 → 7. marts 1850); ingen anden kronologi er brugt. (10) Papirets farve er beskrevet som cremefarvet efter scanningen; om det skyldes papiret selv eller optagelsen, kan jeg ikke afgøre.",
+  "repairs": [
+    {
+      "flag": "codex runde 1, fejl: tiltalelinjen står ikke direkte under datolinjen, men længere nede mod venstre",
+      "action": "arbitreret mod billedet: placeringen rettet. Grok var ren."
+    },
+    {
+      "flag": "codex runde 2, tvivl: »fotograferet forfra« udokumenteret; grok runde 2, tvivl: bagside-gennemslag kan ikke skelnes fra papirtekstur",
+      "action": "arbitreret: begge tolkninger droppet — arket beskrives direkte, mærkerne uden årsag."
+    }
+  ]
+}

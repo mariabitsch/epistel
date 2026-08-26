@@ -1,0 +1,33 @@
+{
+  "id": "b79/ill_11.jpg",
+  "alt": "Et enkelt blad lyst, blåligt papir fotograferet mod hvid bund, så bladets kanter ses. Øverst står en håndskreven tekst i mørkt blæk: en kort tiltalelinje, derefter to afsnit, en underskrift trukket ud i en stor sløjfe ude til højre, og under den, ude til venstre, en linje med sted og dato, hvor »29 Apr: 1850« kan læses. Skriften fylder kun den øverste halvdel af bladet. Nederst i venstre hjørne er skrevet med blyant: »1850« og under en brøkstreg »29« over »4«.",
+  "caption": "Indbydelsen, som Emil Boesen skrev den: bryllup i Frue Kirke onsdag den 1. maj, klokken 6 »(eller 7)«. »Jeg kommer ikke selv«, skriver han, for han er »blevet dygtig forkjølet«. Brevet slutter midt på arket.",
+  "credit": null,
+  "sources": [
+    "pakken, manifest-posten: id b79/ill_11.jpg, figure i b79/txt.xml knyttet til brev 117 (letter: \"117\") — grundlag for at billedet hører til dette brev",
+    "pakken, udgavens head: »11. Brev 117, bl. [1r]« — udgavens eneste billedtekst; ingen fotokredit, derfor credit: null",
+    "pakken, brev 117's overskrift: Fra Emil Boesen · 29. april 1850 · til SK — grundlag for at kalde skriveren Emil Boesen",
+    "pakken, brev 117's læsetekst: »Jeg vil herved indbyde Dig til mit Bryllup, Onsdag Eftermiddag (1 Mai). Kl: 6 (eller 7) i Frue-Kirke.« — grundlag for »indbydelsen«, for ugedag og dato, for »klokken 6 »(eller 7)«« og for Frue Kirke",
+    "pakken, brev 117's læsetekst: »Jeg kommer ikke selv, da jeg er blevet dygtig forkjølet« — begge citater i captionen, ordret",
+    "billedet: ét blad, lyst blåligt papir, fritlagt mod hvid baggrund med synlige bladkanter",
+    "billedet: håndskrift i mørkt blæk øverst på siden — tiltalelinje, to afsnit på tilsammen ca. ti linjer, underskrift med stor sløjfe til højre, sted- og datolinje under den til venstre",
+    "billedet: datolinjen kan læses som »29 Apr: 1850«, i overensstemmelse med pakkens læsetekst »Kbhvn. d 29 Apr: 1850«",
+    "billedet: skriften ophører omkring midt på bladet; den nedre halvdel er ubeskrevet — grundlag for captionens sidste sætning og for alt-tekstens »resten står ubeskrevet«",
+    "billedet, nederste venstre hjørne: blyantspåskrift »1850« og »29/4« skrevet som brøk"
+  ],
+  "note": "Tvivl og fravalg: (1) Håndskriften er kun delvis læsbar for mig. Alt, captionen citerer, er taget fra pakkens trykte læsetekst, ikke aflæst af billedet; det eneste, jeg selv læser i billedet, er datolinjens »29 Apr: 1850« (som pakken bekræfter) og blyantstallene nederst, der er cifre og derfor til at stole på. Underskriften ligner »Din Emil Boesen«, men jeg gengiver den ikke som læst — alt-teksten siger kun, at der ER en underskrift. (2) Blyantspåskriften »1850 29/4« nederst til venstre er skrevet med et andet redskab end brevet og ser senere ud, men hvem der har sat den (arkiv, samler, udgiver), kan hverken billedet eller pakken sige — captionen nævner den derfor slet ikke, og alt-teksten beskriver den uden at tilskrive den nogen. (3) Papirets blå tone kan skyldes scanning eller belysning; jeg skriver »lyst, blåligt« og ikke en bestemt papirfarve. (4) Manifestet giver figuren rend=\"verso\", mens udgavens head kalder bladet »bl. [1r]«. Modsætningen står uforklaret; jeg siger intet om recto/verso nogen af stederne. (5) Læseteksten rummer også adressen »Til Hr: Magister Kjerkegaard. NørregadeN. 45.«, men den ses ikke på dette blad (formentlig på et andet blad eller en bagside). Ikke brugt. (6) Kommentarnoterne er bevidst ikke brugt: b-2371 (brudens navn Lovise Holtermann og ministerialbogens vielsesindførsel) og b-2377 (»Nørregade N. 45« er fejl for nr. 43) tilføjer viden, brevet ikke selv har. b-2374's ordforklaring (»dygtig« = ordentlig, heftig) er heller ikke brugt; citatet står i kildens egen form og forklarer sig selv i sammenhængen. (7) Jeg har ikke regnet på afstanden mellem brevets dato og bryllupsdagen (»to dage efter«): brevdatoen står som metadata ved siden af billedet, og captionen skal ikke gentage den. (8) »Frue Kirke« står i captionen i moderne form, fordi det er mine egne ord; kildens »Frue-Kirke« ville kun stå med bindestreg inde i et citat. (9) Linjetallet er hedget som »omkring ti linjer« — ombrydningen og tiltalelinjen gør en eksakt optælling usikker. (10) Ved bladets øverste og nederste højre kant anes et par ganske små rødlige pletter; de er for utydelige til at afgøre, hvad de er, og er udeladt begge steder.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, tvivl: »omkring ti linjer« — grok tæller 7",
+      "action": "arbitreret: linjetallet droppet."
+    },
+    {
+      "flag": "grok runde 1, fejl: »resten af siden er blank« — blyantspåskriften nederst til venstre, som alt-teksten selv beskriver, modsiger det",
+      "action": "arbitreret: bisætningen droppet. Codex var ren."
+    },
+    {
+      "flag": "codex+grok runde 2, fejl: »resten står ubeskrevet« modsiges af blyantspåskriften, som alt-teksten selv beskriver lige efter",
+      "action": "arbitreret: bisætningen droppet."
+    }
+  ]
+}

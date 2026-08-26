@@ -1,0 +1,6 @@
+Downscaled Image 1: 478.8 KB (3314x2647) → 340.4 KB (1736x1387)
+Investigate: I'll read the full prompt, the draft, and the image against the grounding packet only.I'll inspect the image more closely so I can check layout, handwriting, and the claims in the draft.I'll check the captions method and any earlier verification of this image so I can match the project's bar.{
+  "image": "b171/ill_19.jpg",
+  "flags": [],
+  "visualNotes": "Blyantsdatoen »1850 12/4« sidder på højre blad, lige til højre for midterfolden under listen; alt-tekstens »ved midterfolden« holder. Lakken sidder i venstre sides højre felt ind mod folden, ikke i geometrisk midte. Venstre kant har et »8«; til højre for lakken små påtegninger; højre blad har svagt gennemskin øverst og et lille tal nederst til højre."
+}

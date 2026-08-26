@@ -1,0 +1,5 @@
+Investigate: I'll read the image against the packet and the draft, then flag only ungrounded or visually wrong claims.I'll check the captions playbook and the trial round so the flags match how this pipeline actually judges visual claims.I'll look at the vendor file itself so the line count, folds, and colours are checked against the source image, not a compressed copy.{
+  "image": "b79/ill_k4.jpg",
+  "flags": [],
+  "visualNotes": "Skriftblokken har blank margen under den øvre fold og sidder derfor nærmere midten af det mørke bånd end dets øverste kant. Til højre for »240« en større, bleg cirkulær skjold, forskellig fra de små rustbrune pletter. Øverste venstre foldehjørne er revnet igennem. Kraftigst krøllet i nederste venstre hjørne. Fotograferet på hvid bund med slagskygge."
+}

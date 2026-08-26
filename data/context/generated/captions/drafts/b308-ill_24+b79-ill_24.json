@@ -1,0 +1,55 @@
+{
+  "ids": [
+    "b308/ill_24.jpg",
+    "b79/ill_24.jpg"
+  ],
+  "alt": "To gamle brevark fotograferet oven på hinanden, begge med adressesiden opad og med tydelige foldelinjer. Det øverste, mindre og gullige ark har i øverste højre hjørne et rødbrunt frimærke med teksten »FIRE R.B.S.« nederst, annulleret med et stempel af koncentriske ringe; til venstre for mærket sidder et ovalt stempel i grønligt blæk med tal i, og længere til venstre et håndskrevet tal. Midt på arket står tre håndskrevne linjer i brunt blæk under en enkelt kort indledning, og langs venstre kant løber en halv snes linjer skrift på tværs, drejet en kvart omgang. Skriften fra indersiden skinner svagt igennem papiret, og under adressen sidder et sort, ovalt laksegl. Det nederste, større og lysere ark har ligeledes et rødbrunt frimærke i øverste højre hjørne, annulleret med et rundt, mere udfyldt stempel, og til venstre for det et kort skriftmærke med to bogstaver, derunder en håndskreven linje og længere nede endnu en; nederst midt på arket sidder et rødt laksegl, der er revnet midt over, og til højre for det anes et rundt poststempel.",
+  "captions": {
+    "b308/ill_24.jpg": "Øverst adressesiden af brev 317: frimærke, poststempel og et sort laksegl. Indeni takker en kvinde, der kun underskriver sig L H, for to bøger hun har læst »med min hele Sjæl« — og undskylder til sidst »saa langt et Brev«.",
+    "b79/ill_24.jpg": "Nederst adressesiden af brev 119 fra Emil Boesen, med et rødt laksegl brudt midt over. Indeni takker han for tre bøger og beder om et par ord igen: »Du veed, hvor glad jeg bliver, naar jeg seer Din Udskrift.«"
+  },
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »24. Øverst: Brev 317, bl. [3v]; nederst: Brev 119, bl. [2v]« — grundlag for hele fordelingen øverst/nederst og for at kalde arkene brevblade (bl., verso), ikke konvolutter",
+    "pakkens manifest-post b308/ill_24.jpg: figure med rend »verso«, letter »317« — grundlag for at det øverste ark hører til brev 317",
+    "pakkens manifest-post b79/ill_24.jpg: pageBreak n=»2v«, facs=»../b79/ill_24.jpg«, letter »119« — grundlag for at det nederste ark hører til brev 119",
+    "billedet, øverste ark: rødbrunt frimærke i øverste højre hjørne med »POST« øverst og »FIRE R.B.S.« nederst, annulleret med koncentriske ringe",
+    "billedet, øverste ark: ovalt stempel i grønligt blæk til venstre for frimærket, med tal i (tallene er ikke gengivet, se note)",
+    "billedet, øverste ark: håndskrevet tal helt til venstre i samme højde (ikke gengivet, se note)",
+    "billedet, øverste ark: tre linjer håndskrift i brunt blæk midt på arket, med en kort indledning foran den første linje",
+    "billedet, øverste ark: en halv snes linjer skrift langs venstre kant, drejet en kvart omgang (ikke transskriberet, se note)",
+    "billedet, øverste ark: skriften fra indersiden skinner igennem papiret",
+    "billedet, øverste ark: sort, ovalt laksegl under adressen",
+    "billedet, nederste ark: lysere og større end det øverste; rødbrunt frimærke i øverste højre hjørne annulleret med koncentriske ringe",
+    "billedet, nederste ark: kort skriftmærke med to bogstaver over adressen, derunder én linje og længere nede endnu én",
+    "billedet, nederste ark: rødt laksegl nederst midt på arket, revnet midt over",
+    "billedet, nederste ark: rundt poststempel til højre for seglet, kun delvis synligt (ikke læst, se note)",
+    "billedet, begge ark: gennemgående foldelinjer",
+    "pakken, brev 317's læsetekst: »Til  Herr Doctor Søren KjerkegaardØsterbro 108 A.  Kjøbenhavn« — udgaven lægger adressen i brevets egen læsetekst; grundlag for at kalde det øverste arks skrift en adresse",
+    "pakken, brev 317's læsetekst: »som en Qvinde der har Lyst til at gjøre det Forunderlige« og »en gammel 34 aarig Piges fulde dybe Tak« — grundlag for »en kvinde«",
+    "pakken, brev 317's læsetekst: underskriften »Deres taknemligeL H –« — grundlag for »kun underskriver sig L H«",
+    "pakken, brev 317's læsetekst: »Jeg har læst Deres »til Selvprøvelse Deres Indøvelse i Christendommen« — grundlag for »to bøger« (titlerne er ikke gengivet, se note)",
+    "pakken, brev 317's læsetekst: »jeg har virkelig læst dem saa godt som jeg formaaede med min hele Sjæl at læse« — citeret ordret som »med min hele Sjæl«",
+    "pakken, brev 317's læsetekst: »jeg har havt Egoisme nok til at trætte Dem med saa langt et Brev; forskrækkes jeg skamfuld« — citeret ordret som »saa langt et Brev«, grundlag for »undskylder«",
+    "pakken, brev 119's overskrift: Fra Emil Boesen · 25. sept. 1851 · til SK — grundlag for at nævne Boesen som brevets skriver",
+    "pakken, brev 119's læsetekst: »S. T.  Hr: Magister S: Kierkegaard.  Østerbro ved Kjøbenhavn.« — udgaven lægger adressen i brevets egen læsetekst; grundlag for at kalde det nederste arks skrift en adresse",
+    "pakken, brev 119's læsetekst: »Mange Tak for Dine 3 sidste Bøger, Du har sendt mig« — grundlag for »takker han for tre bøger«",
+    "pakken, brev 119's læsetekst: »et Par Ord engang imellem kunde Du dog gjerne skrive« og »Skriv engang til mig!« — grundlag for »beder om et par ord igen«",
+    "pakken, brev 119's læsetekst: »Du veed, hvor glad jeg bliver, naar jeg seer Din Udskrift« (citeret ordret)"
+  ],
+  "note": "Tvivl og fravalg: (1) Det ovale stempel på det øverste ark indeholder tal, hvor »3« og »52« forekommer læselige og et ciffer eller to foran dem ikke er det. Jeg gengiver intet af det — hverken i alt eller caption — og udleder ikke brevets datering af stemplet; dateringen står i overskriften ved siden af billedet i forvejen og er derfor heller ikke gentaget. (2) Det håndskrevne tal længst til venstre på det øverste ark (ligner »27«) er ikke gengivet: det kan være en arkiv- eller posthusnotering, og jeg kan hverken læse det sikkert eller belægge, hvad det er. (3) De skråt- eller tværtskrevne linjer langs det øverste arks venstre kant er ikke transskriberet og ikke forklaret. Jeg kan ikke afgøre, om det er brevets egen tekst, der fortsætter ud på ydersiden, eller en senere påskrift; antallet »en halv snes« er et forsigtigt skøn, fordi linjerne løber ud i kanten. (4) Ingen håndskrift er tilskrevet en person. Adresserne står i udgavens egne læsetekster som en del af hvert brev, og captionerne læner sig på dét — ikke på en vurdering af hænderne. Derfor står der »brev 119 fra Emil Boesen« og ikke »Emil Boesens hånd«. (5) Adressernes ordlyd er ikke transskriberet i alt-teksten: en scanning af kursiv fra 1850'erne er ikke noget, jeg vil gengive med sikkerhed. Metodens regel er fulgt — brevet er autoriteten, øjet et vidne. (6) Frimærkerne er ikke identificeret som nogen bestemt udgave, og deres værdi er kun gengivet, hvor den kan læses: »FIRE R.B.S.« står tydeligt på det øverste, mens det nederste mærkes tekst er dækket af annulleringen og derfor kun beskrevet ved farve og stempel. Om de to mærker er ens, siger jeg ikke. (7) Det runde poststempel til højre for det røde segl er kun delvis synligt og vender på hovedet i forhold til arket; det er ikke læst. (8) Det sorte laksegl er beskrevet som sort og intet andet. Sort lak kunne friste til en tolkning om sorg, og den er der intet belæg for. Seglenes aftryk (begge har et præg) er ikke beskrevet nærmere — motiverne kan jeg ikke se. (9) Det røde segl er revnet lodret midt over. Jeg skriver »brudt midt over« i captionen, men undlader at sige, at det skete ved åbningen — det er en rimelig læsning, ikke en iagttagelse. (10) Kommentarnote b-3272 om, at »L H« muligvis er Louise Hage, er BEVIDST ikke brugt: brevet underskriver sig L H og intet andet, og udgaven skriver selv »muligvis«. Af samme grund er b-5409's overvejelse om hendes alder ladt ude, selv om brevet selv siger »34 aarig«. (11) Titlerne på de to bøger i brev 317 er ikke gengivet. Brevets egne anførselstegn er uafsluttede og skrivemåden lille begyndelsesbogstav (»til Selvprøvelse«); at rette op på det ville være at citere kommentarens fulde titler, og det er viden, brevet ikke selv har. Samme grund til at de tre bøger i brev 119 blot er »tre bøger« — kommentarnote b-2409 navngiver dem, brevet gør ikke. (12) »Din Udskrift« i brev 119 står uforklaret i captionen. Kommentaren siger, hvad ordet dækker, men brevet gør ikke, og Notabene lader det mærkelige stå. Citatet handler om Kierkegaards påskrift på et brev til Boesen, ikke om den adresse, man ser på pladen; captionen siger derfor »Indeni«, så de to ikke kan forveksles. (13) Bevidst ikke koblet: begge breve er stilet til SK på Østerbro med et halvt års mellemrum, og det er formentlig derfor, de to blade er sat sammen på én planche. Udgaven siger det ikke, og jeg lader det være. (14) Papirernes størrelse er ikke angivet i mål; kun at det nederste ark er større og lysere end det øverste, som det ses af opstillingen. (15) De to id'er deler fil og sha256 og har hver sin caption efter Marias kald; alt-teksten er fælles og beskriver hele pladen, så den er sand begge steder.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, fejl: »koncentriske ringe« — annulleringsstemplerne læses forskelligt på de to mærker",
+      "action": "arbitreret: generaliseret til »et rundt stempel«. Codex var ren."
+    },
+    {
+      "flag": "grok runde 2, fejl: annulleringerne var byttet om — runde-1-reparationen ramte den forkerte forekomst",
+      "action": "arbitreret mod billedet (arbitrators eget syn enigt med grok begge runder): det øverste arks mærke bærer de tydelige koncentriske ringe, det nederste (større og lysere ark) et rundt, mere udfyldt stempel — nu beskrevet hver for sig."
+    },
+    {
+      "flag": "grok runde 3, tvivl: »POST« på det øverste mærke dækkes delvist af ringstemplet og kan ikke læses sikkert",
+      "action": "arbitreret: kun »FIRE R.B.S.« citeres. Codex runde 3: ren."
+    }
+  ]
+}

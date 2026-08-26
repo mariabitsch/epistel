@@ -1,0 +1,3 @@
+Investigate: I'll check the letter image against the packet and the draft alt/caption, then flag only ungrounded or visually wrong claims.I'll zoom in on the salutation, date, strike-through, interlinear words, and the closing so I can check the draft's readings against the leaf.The first crops missed the strike-through and the inserted words; I'll recrop those two spots and the closing lines.Max turns reached
+
+Error: max turns reached

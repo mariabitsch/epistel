@@ -1,7 +1,7 @@
 {
   "id": "b171/ill_19.jpg",
   "alt": "To sider af et håndskrevet brev fotograferet ved siden af hinanden på lyst, foldet papir. Venstre side er næsten tom: midt på den sidder en oval rød lakklat, og til venstre for den står en adresse skrevet på tværs af siden i flere linjer; nederst ved midterfolden står med blyant »1850 12/4«. Gennem papiret skimtes spejlvendt skrift fra bagsiden, og lodrette og vandrette foldelinjer krydser siden. Højre side er tæt beskrevet med brunt blæk i skråtstillet håndskrift: en datolinje øverst til højre, derunder en tiltale, et afsnit på omkring femten linjer og til sidst en liste, hvor de enkelte opslagsord er understreget og de to øverste er samlet af en klamme, der peger over mod en fælles tekst til højre.",
-  "caption": "Adressesiden til venstre, brevets første side til højre: det røde lakssegl og adressen til »Hr Mag. art. S. Kierkegaard« i København — og så Henrik Lunds undskyldning for sin lange tavshed. Onklen havde bedt om en oversigt over trækfuglenes ankomsttider, og listen begynder nederst på siden med understregede fuglenavne, hvor Sanglærken og Guulspurven deler klamme og ankomsttid.",
+  "caption": "Adressesiden til venstre, brevets første side til højre: den røde lak og adressen til »Hr Mag. art. S. Kierkegaard« i København — og så Henrik Lunds undskyldning for sin lange tavshed. Onklen havde bedt om en oversigt over trækfuglenes ankomsttider, og listen begynder nederst på siden med understregede fuglenavne, hvor Sanglærken og Guulspurven deler klamme og ankomsttid.",
   "credit": null,
   "sources": [
     "pakken, udgavens head: »19. Brev 202, bl. [2v] og [1r]« — rækkefølgen [2v] før [1r] svarer til det, billedet viser: udskriftssiden til venstre, brevets første side til højre",
@@ -27,6 +27,10 @@
     {
       "flag": "grok runde 1 (genkørsel), fejl: »nederst i midten« om blyantsnotatet »1850 12/4« — det sidder ved midterfolden, på/ved højre blad",
       "action": "arbitreret mod billedet: notatet sidder nederst ved midterfolden — formuleringen rettet dertil; den er sand under begge læsninger af hvilket blad, det tilhører."
+    },
+    {
+      "flag": "codex runde 2, tvivl: »lakssegl« — funktionen som segl kan ikke bekræftes",
+      "action": "arbitreret: »den røde lak« — alt-teksten sagde allerede »lakklat«. Grok runde 2: ren."
     }
   ]
 }

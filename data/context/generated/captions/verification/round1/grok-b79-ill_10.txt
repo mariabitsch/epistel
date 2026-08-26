@@ -1,0 +1,18 @@
+I'll inspect the image closely and check every claim in the draft against the packet and what's actually visible.{
+  "image": "b79/ill_10.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "et indre, ovalt felt",
+      "field": "alt",
+      "problem": "Det indre aftryk er cirkulært: en rund, ophøjet rand om et rundt felt. Billedet viser ikke et ovalt felt. (Den brudte lakflig mod højre kan få hele klatten til at virke bredere end den er høj, men selve stempelrammen er rund.)"
+    },
+    {
+      "severity": "tvivl",
+      "claim": "et stykke af papiret er fulgt med",
+      "field": "caption",
+      "problem": "At lakken er brudt, og at papiret under og omkring den er revet, ses på billedet og er korrekt i alt-teksten. »Er fulgt med« påstår en årsagssammenhæng — at papiret er revet i samme handling som lakbruddet, eller at et stykke er gået med det manglende lak. Pakken siger intet om bruddet. Billedet viser den lyse, lasede papirflig stadig siddende på arket (især nedad), rumligt adskilt fra det manglende lakstykke til højre. Sammenkædningen er en slutning, ikke en iagttagelse."
+    }
+  ],
+  "visualNotes": "Det indre felt er cirkulært, ikke ovalt. Indeni ses et mandehoved i profil vendt mod højre (pande, næse, baghoved med bølgede former der kan være hår eller draperi); relieffet er slidt, revnet og prikket, men mere læsbart end alt-tekstens »kun anes« og stemmer med udgavens head. Den lyse papirflig sidder stadig fast under seglet, især nedad; toppen af lakken ligger på urørt papir. Lakken har mørke porer/bobler."
+}

@@ -1,0 +1,5 @@
+Investigate: I'll check the image against the draft alt/caption and the packet, and only flag ungrounded or visually wrong claims.{
+  "image": "b79/ill_11.jpg",
+  "flags": [],
+  "visualNotes": "Ingen visuel modstrid. Blyantens 29/4 står til højre for 1850, ikke under; alt-teksten påstår ikke det modsatte. Et par ganske små rødlige pletter ved højre kant er udeladt. Kropsskriften er kun delvis læsbar; captionens citater er pakkebekræftede og modsiger ikke det synlige."
+}

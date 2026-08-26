@@ -1,0 +1,5 @@
+I'll verify the draft against the image and the grounding packet only — no outside knowledge.I’ll check the vendored photograph at higher resolution so handwriting and small marks aren’t judged from the compressed attachment alone.{
+  "image": "b276/ill_23.jpg",
+  "flags": [],
+  "visualNotes": "Arket har tre skriftretninger, ikke to: de øverste to linjer og hjørnepåskriften er vendt 180° i forhold til midteradressen; nederste halvdel er drejet 90°. Alt-tekstens »i forhold til resten« er derfor lidt løs, men den samlede beskrivelse skelner retningerne, og captionen siger præcist »i forhold til adressen«. Hånden ved den store lakklat er bredere og mørkere end brevteksten. Hjørnepåskriften er tynd; vendt 180° ses fire cifre og en skråstreg. Ved midterlakken en ekstra mikroskopisk rød prik ud over det nævnte fragment. Det blege mærke nederst til venstre er tegnagtigt, ikke en lakdråbe."
+}

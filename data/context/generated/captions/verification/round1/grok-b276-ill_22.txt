@@ -1,0 +1,12 @@
+I'll verify the draft against the letter image and the grounding packet, checking both visual accuracy and whether every claim is actually grounded.I'll check the captions method and a trial verification so I apply the same groundedness bar.{
+  "image": "b276/ill_22.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "en lille farvelagt tegning",
+      "field": "alt",
+      "problem": "Pakken omtaler ikke vignetten. Billedet viser et lille farvelagt motiv øverst til venstre, men om det er tegnet i hånden, et trykt eller præget brevhoved eller et koloreret tryk, kan ikke afgøres. »Tegning« påstår en fremstillingsteknik."
+    }
+  ],
+  "visualNotes": "Dyret står i profil mod venstre (uldet sort krop, kort hale, ét synligt øre); jeg læser det også som lam. Stangen er mere gul-guld/okker end olivengrøn; fanen mere rosa end dybrød, med mørke tegn der ligner skrift men ikke kan læses. Datolinjen øverst til højre er læselig som ugedag + Mai 1849; dagtallet er kruset. Blyantens brøktal ligner 25/5 (udkastet gengiver med rette ikke cifrene). To klammer forneden: én om Deres/R.N. ved P.S., én om adresselinjen, over hvilken »S T« anes. Brunlige pletter og en skygge langs underkanten."
+}

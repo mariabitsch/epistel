@@ -1,0 +1,5 @@
+**Investigate** — adversarial grounding check of one image's alt and caption against the picture and the packet only. I'll look at the drawing first, then walk every claim.I’ll check the captions method and a trial round so the severity bar matches the rest of the pipeline.{
+  "image": "vignet/vig-brev-blomst.jpg",
+  "flags": [],
+  "visualNotes": "Intet modsiger udkastet. Stænglen er dobbeltstreget det meste af vejen, indtil linjerne samles i den tykke, tilspidsende afslutning nede til venstre. Blomstens midterparti har et par indre mærker. Venstre kronblade er mere løkkeformede/omridsede end de højre, som er slankere. Ingen skrift, ingen ramme."
+}

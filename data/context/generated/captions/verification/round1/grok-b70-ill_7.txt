@@ -1,0 +1,18 @@
+I'll verify the draft against the image and the grounding packet only — no outside knowledge.The greeting, date, deletion, fold, tear and signature all match; two caption claims still need flags.{
+  "image": "b70/ill_7.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "Hele brev 72 på ét blad",
+      "field": "caption",
+      "problem": "Pakken identificerer billedet som bl. [1r] (figure rend »recto«, pageBreak n=»1r«), ikke som brevet i sin helhed. Læseteksten rummer desuden linjerne »Til Hr Prof. J.L. Heiberg R. af D.« og »Hermed en Pakke«, som ikke står på denne recto. At hele brevet fylder ét blad er ikke belagt i billedet eller pakken."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "ordene »af hvad jeg skriver« skudt ind over linjen",
+      "field": "caption",
+      "problem": "Indskuddet er synligt, men skriften er lille, gotisk og delvis tæt på linjen ovenover; jeg kan ikke selv læse de fire ord sikkert på billedet. Pakkens læsetekst har »af hvad jeg skriver« i brødteksten på dette sted, men mærker dem ikke som indskud. Captionens sikre identifikation af netop de indskudte ord er en sammenstilling, ikke en pakkebekræftet aflæsning af selve indskuddet."
+    }
+  ],
+  "visualNotes": "To brødtekstafsnit i øvre midte, ikke fyldende den øvre halvdel; nederste felt tomt bortset fra adresse og underskrift. Første linje over underskriften kan læses »Deres«. Blyantsmærket nederst til venstre ligner et »1«. Også en vandret fold i nederste tredjedel. Indskuddet sidder over tredje linje i andet afsnit. Pakkens læsetekst fortsætter forbi denne recto."
+}

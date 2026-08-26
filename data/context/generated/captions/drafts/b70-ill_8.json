@@ -1,0 +1,31 @@
+{
+  "id": "b70/ill_8.jpg",
+  "alt": "Fotografi af to papirer lagt oven på hinanden mod hvid baggrund: nederst et stort cremefarvet ark med synlige foldelinjer og et lille revet hak i venstre kant, og oven på dets øverste halvdel et mindre, blåligt ark. Det blålige ark er fyldt af tætte linjer brunt blæk i en lille, skråtstillet håndskrift; lidt under midten er et ord streget kraftigt ud som en mørk klat. Det cremefarvede arks nedre halvdel er beskrevet med større, mere spredt håndskrift: et enkelt kort ord øverst, derunder fire linjer, så et navn i stor svungen skrift, og nederst til højre tre korte linjer, hvor den sidste ender i en understregende sløjfe.",
+  "caption": "Kierkegaard forsikrer Johanne Luise Heiberg om, at det ikke er meningen at få hende til at læse en hel lille bog — kun den ene lille artikel, som »forholder sig særligt til Dem«. Nedenunder ligger konvolutten med dedikationen til »Den lykkelige Kunstnerinde«, »med Beundring fra Forfatteren«.",
+  "credit": null,
+  "sources": [
+    "billedet: to papirer oven på hinanden — et stort cremefarvet ark nederst, et mindre blåligt ark oven på dets øverste halvdel",
+    "billedet: det blålige ark er tætskrevet med brunt blæk i lille, skråtstillet håndskrift (linjeantallet er ikke talt — skriften er for tæt til en sikker optælling, derfor kun »tætte linjer«)",
+    "billedet: et ord i den nedre tredjedel af det blålige ark er streget kraftigt ud og står som en mørk klat",
+    "billedet: det cremefarvede ark har synlige foldelinjer og en ujævn, revet kant i højre side",
+    "billedet: det cremefarvede arks nedre halvdel har et enkelt kort ord øverst, fire linjer under det, et navn i stor svungen skrift og tre korte linjer nederst til højre, den sidste med en sløjfe under sig",
+    "pakken, udgavens head: »8. Brev 78, bl. [1r], med dedikation på konvolut, bl. [1r]« — grundlag for at de to papirer er brevets første blad og konvolutten med dedikationen",
+    "pakken, brev 78's overskrift: Fra SK · udateret [aug. 1851] · til Johanne Luise Heiberg — grundlag for skriver og modtager og for navneformen »Johanne Luise Heiberg«",
+    "pakken, brev 78's læsetekst: »Ikke er det, end i fjerneste Maade, Meningen hermed, at ville endog blot foranledige Dem til at læse en lille Bog, der dog til syvende og sidst, og maaskee længe før, vel vilde kjede og trætte.« — grundlag for »forsikrer … at det ikke er meningen at få hende til at læse en hel lille bog«",
+    "pakken, brev 78's læsetekst: »Men i Bogen omtales etsteds en lille æsthetisk Artikel« — grundlag for »den ene artikel i den«",
+    "pakken, brev 78's læsetekst: »den lille Artikel forholder sig særligt til Dem« (citeret ordret som »forholder sig særligt til Dem«)",
+    "pakken, brev 78's læsetekst, dedikationen: »Den lykkelige Kunstnerinde« (citeret ordret)",
+    "pakken, kommentarnote b-5074's lemma: »Den lykkelige Kunstnerinde ... med Beundring fra Forfatteren« — brugt alene for udgavens egen ordmellemrums-form af de tre sidste linjer, der i læseteksten står sammenskrevet (»med BeundringfraForfatteren.«)"
+  ],
+  "note": "Tvivl og fravalg: (1) Håndskriften er ikke læsbar for mig i nogen sikker grad. Jeg citerer derfor intet ud fra billedet — hvert citat i captionen kommer fra pakkens trykte læsetekst. Navnet »Frue Heiberg« og ordet øverst på konvolutten (der ligner »Til«) står tydeligere end resten, og de stemmer med læseteksten, men jeg lader dem gælde som iagttagelse, ikke som transskription: alt-teksten siger kun »et navn i stor svungen skrift« og »et enkelt kort ord«. (2) Det overstregede ord midt på det blålige ark kan ikke læses, og læseteksten viser ingen sletning der. Det er beskrevet som en mørk klat i alt-teksten og slet ikke brugt i captionen. (3) Nederst til højre på det blålige ark anes et lille blegt mærke (kunne være et blyantstal eller et bogstav); for utydeligt til at gengives, udeladt begge steder. (4) Papirfarven på det øverste ark er blåligt gråt i scanningen; jeg skriver »blåligt« hedgende, da papirfarver forskydes i reproduktion. (5) »Konvolut« er ikke min slutning fra billedet (det cremefarvede ark ligger fladt udfoldet og ligner mest et stort ombukket ark) — ordet er udgavens eget i head'en. (6) Kommentarnote b-5074's oplysning om, at dedikationen ikke står i bogen selv, men på det foldede papir, der omsluttede bogen, er IKKE brugt: den ville tilføje viden, brevet og head'en ikke selv har. Head'ens »på konvolut« bærer alt, captionen siger. (7) Kommentarnote b-5072 (Johanne Luise Heibergs levetid, karriere, titulaturen 'fru') og b-5073 (at hun senere har bevidnet modtagelsen og læsningen i sine erindringer) er begge udeladt af samme grund. (8) Artiklens titel »Krisen og en Krise i en Skuespillerindes Liv«, pseudonymet Inter et Inter og »Fædrelandet« 1848 No 188-91 står i brevet og kunne bruges, men er udeladt for korthedens skyld; det er et bevidst valg, ikke et grounding-problem. (9) Jeg tilskriver ingen af de to hænder: pakken siger, at brevet er fra SK, men hverken head eller læsetekst udtaler sig om, hvem der har ført pennen på konvolutten, og captionen siger derfor kun »konvolutten med dedikationen«. (10) Manifestets to pageBreaks peger begge på samme fil med n=»1r«, rend=»supplied«; det er eksportens join, ikke billedstof, og er ikke brugt. (11) Ingen fotokredit i head'en — credit er null.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, tvivl: den revne kant — det tydelige hak sidder i venstre kant, højre er kun let ujævn",
+      "action": "arbitreret mod billedet: bekræftet ved arbitrators eget syn — rettet til »et lille revet hak i venstre kant«. Codex var ren."
+    },
+    {
+      "flag": "grok runde 2, tvivl (×2): klatten sidder lidt under midten, ikke i nedre tredjedel; »artikel i den« — pakken siger artiklen var trykt i Fædrelandet, ikke i bogen",
+      "action": "arbitreret: placeringen rettet; »i den« droppet, så artiklen ikke stedfæstes til bogen. Codex runde 2: ren."
+    }
+  ]
+}

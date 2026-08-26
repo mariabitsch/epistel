@@ -1,6 +1,6 @@
 {
   "id": "b171/ill_17.jpg",
-  "alt": "Et håndskrevet brevark fotograferet forfra. Langs øverste kant og et stykke ned ad begge sider løber en guldfarvet ramme af snoede ranker og små blade; nederste kant er uden ornament. I venstre bord står en kriger med hjelm, harnisk, rød kappe og et rundt gyldent skjold på en høj ornamentsokkel, og under ham hænger et lille grønt og rødt skjoldformet felt. Øverst til højre flyver en farvelagt fugl med rødt hoved, grøn spættet krop, blå og gyldne vinger og lang hale. Inden for rammen står brevteksten med brun blæk i gotisk kursiv, indledt med »Min kjære Sophie!« og datoen »d. 22 Jan. 42.« ude til højre, og afsluttet med en underskrift nederst til højre. Arket har vandrette foldelinjer, en mørkebrun plet ved øverste kant, en brunlig plet med et lille hul i sidens højre halvdel ved en foldelinje og nogle små mørke pletter ude ved højre kant.",
+  "alt": "Et håndskrevet brevark fotograferet forfra. Langs øverste kant og et stykke ned ad begge sider løber en guldfarvet ramme af snoede ranker og små blade; nederste kant er uden ornament. I venstre bord står en kriger med hjelm, harnisk, rød kappe og et rundt gyldent skjold på en høj ornamentsokkel, og under ham hænger et lille grønt og rødt skjoldformet felt. Øverst til højre flyver en farvelagt fugl med rødt hoved, grøn spættet krop, blå og gyldne vinger og lang hale. Inden for rammen står brevteksten med brun blæk i ældre, tæt kursiv, indledt med »Min kjære Sophie!« og datoen »d. 22 Jan. 42.« ude til højre, og afsluttet med en underskrift nederst til højre. Arket har vandrette foldelinjer, en mørkebrun plet ved øverste kant, en brunlig plet med et lille hul i sidens højre halvdel ved en foldelinje og nogle små mørke pletter ude ved højre kant.",
   "caption": "Guldranker, en kriger med skjold og en broget fugl om brevet til niecen Sophie Lund, dateret »d. 22 Jan. 42«. Rammen får sin egen sætning på arkets bagside, hvor onklen har indrettet brevet, så hendes bror Carl kan »klippe den fri«.",
   "credit": null,
   "sources": [
@@ -26,6 +26,10 @@
     {
       "flag": "grok runde 1, tvivl: pletten med hullet sidder ikke »midt på siden«, men i højre side ved en vandret foldelinje",
       "action": "arbitreret mod billedet: bekræftet — placeringen rettet til sidens højre halvdel ved en foldelinje."
+    },
+    {
+      "flag": "grok runde 2, tvivl: »gotisk kursiv« — paleografisk term uden belæg i billede eller pakke",
+      "action": "arbitreret som på ill_16: generaliseret til »ældre, tæt kursiv«. Codex runde 2: ren."
     }
   ]
 }

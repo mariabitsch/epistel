@@ -1,0 +1,12 @@
+**Investigate** — I'll check the draft's alt and caption against the attached drawing and the grounding packet, and flag only ungrounded or visually wrong claims.I'll inspect the drawing's pixel extent so claims about edges, crop, and stroke endings can be checked against the file, not just the preview.{
+  "image": "vignet/vig-brev-blomst.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "en krans af aflange, spidse kronblade",
+      "field": "alt",
+      "problem": "Flere af de strålende kronblade har afrundede, ikke spidse, spidser — især det brede parti øverst til venstre og de venstreudpegende. Kun de øverste/øverste-højre taper tydeligere. Ved 130×145 px er spidsformen desuden jpeg-tvetydig; »spidse« som fællesbestemmelse er for sikkert."
+    }
+  ],
+  "visualNotes": "Øverste venstre kronblad er bredt og afrundet, næsten lappet. Nederst på blomsterhovedet er to rundede løkker, ikke én. Stænglen er to konturstreger indtil den nederst til venstre bliver en tyk streg (med en tynd følgestreg) der skæres af billedkanten. Bladet er det eneste klart spidse element."
+}

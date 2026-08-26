@@ -1,0 +1,5 @@
+Investigate: I'll verify this one image's alt and caption against the image and the grounding packet only, then return the JSON verdict.I’ll check the captions method and the trial round so I apply the same bar the pipeline used last time.{
+  "image": "b79/ill_k6.jpg",
+  "flags": [],
+  "visualNotes": "Matcher billedet: datolinje øverst til højre, »Kjære!« for sig, to tætte afsnit (kort så langt), sidste linje kortere med luft under kanten, brunlig plet ved højre midte, svag gennemsigtning. Udeladt og uimodsagt: tydelig vandret knæklinje ved afsnitsskiftet og en lille rød prik nederst til højre."
+}

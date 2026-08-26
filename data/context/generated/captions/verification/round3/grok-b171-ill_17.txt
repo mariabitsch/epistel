@@ -1,0 +1,5 @@
+Investigate: I'll verify the draft's alt and caption against the attached image and the grounding packet only, then return the JSON verdict.I'll inspect the vendor image more closely so color and layout claims can be checked against the sheet itself.{
+  "image": "b171/ill_17.jpg",
+  "flags": [],
+  "visualNotes": "Krigeren holder et kort sværd i højre hånd og har skæg og gullige støvler. Venstre ornamentsøjle går langt længere ned end højre ranke. Fuglens vinger er overvejende guld og grønne med et blåligt parti. Det lille grøn-røde felt sidder på søjlen under soklen."
+}

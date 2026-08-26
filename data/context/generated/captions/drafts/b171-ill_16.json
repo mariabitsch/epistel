@@ -6,7 +6,7 @@
   "sources": [
     "pakken, udgavens head: »16. Brev 176, bl. [1r]« — billedet er brev 176's første blad, forsiden; ingen fotokredit i head, derfor credit = null",
     "pakken, manifest-posten: figure med rend »recto« og pageBreak n=»1r«, begge i b171/txt.xml og begge knyttet til letter »176«",
-    "billedet: trykt dekorationsramme i gulgrøn farve om et håndskrevet skrivefelt (farven beskrives, som den ses; trykteknikken kan ikke afgøres og påstås ikke)",
+    "billedet: dekorationsramme i gulgrøn farve om et håndskrevet skrivefelt (farven beskrives, som den ses; trykteknikken kan ikke afgøres og påstås ikke)",
     "billedet: tre landskabsvignetter øverst med klassicistiske søjlebygninger, den midterste størst, med høje træer og små figurer foran facaden",
     "billedet: navnene står i gotiske bogstaver under vignetterne: »Opernhaus«, »Museum.«, »Schauspielhaus« — læst direkte i billedet",
     "billedet: sideborterne er snoede rocailleornamenter og tynde ranker; midt i hver bord sidder en lille skråtstillet billedramme om et motiv, der er for utydeligt til at bestemmes",
@@ -34,6 +34,10 @@
     {
       "flag": "(egen rettelse) dublet »gulgrøn … i gulgrøn farve« opstået ved runde-1-reparationen",
       "action": "ordlyden glattet: »en dekorationsramme i gulgrøn farve«."
+    },
+    {
+      "flag": "codex runde 2, tvivl: »trykt dekorationsramme« — nu kun i en source-linje; alt/caption var allerede renset",
+      "action": "source-linjen bragt i overensstemmelse (»dekorationsramme i gulgrøn farve«); teknikken påstås ingen steder."
     }
   ]
 }

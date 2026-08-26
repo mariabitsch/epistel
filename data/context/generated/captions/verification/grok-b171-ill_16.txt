@@ -1,1 +1,0 @@
-**Investigate** — adversarial grounding check of one image draft: I'll read the attached letter photograph against the packet and flag only ungrounded or visually wrong claims.

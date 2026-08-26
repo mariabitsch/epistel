@@ -1,0 +1,5 @@
+**Investigate.** I'll read the full prompt and grounding packet, then check the draft against the image itself.{
+  "image": "b79/ill_k6.jpg",
+  "flags": [],
+  "visualNotes": "Vandret knæk-/foldelinje tværs over midten; meget lille rød prik nederst til højre. Ingen af delene modsiger alt eller caption."
+}

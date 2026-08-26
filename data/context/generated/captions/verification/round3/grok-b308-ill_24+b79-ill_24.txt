@@ -1,0 +1,12 @@
+Investigate: I'll read the full prompt, then check the image and draft against the grounding packet only.I'll inspect the attached plate closely and check every visual claim in the draft against the image and packet.The plate is in front of me; I’ll check the vendor file next so stamp text and the top-sheet layout aren’t just a guess.{
+  "image": "b308/ill_24.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "et rødbrunt frimærke med teksten »POST« og »FIRE R.B.S.«",
+      "field": "alt",
+      "problem": "»FIRE R.B.S.« kan læses nederst på det øverste mærke. »POST« hører til den øvre indskrift, som de koncentriske ringe delvis dækker; bogstaverne er ikke sikre ved billedets opløsning, og pakken bekræfter hverken »POST« eller »FIRE R.B.S.«. (På det nederste mærke er »POST« til gengæld tydeligere — men alt-teksten lægger ordet på det øverste.)"
+    }
+  ],
+  "visualNotes": "Øverste mærke: koncentriske ringe og »FIRE R.B.S.« tydelige; øvre indskrift usikker. Nederste mærke: rundt, mere udfyldt stempel, »POST« læseligt foroven. Ved »27« et kort mærke i anden, hurtigere hånd (ikke læst i udkastet). Sort ovalt segl under øverste adresse; rødt segl revnet lodret, delvis rundt poststempel til højre (omvendt, ulæst). S.T. med to bogstaver på nederste ark; tre adresselinjer øverst, to nederst. Venstre kant: ca. 10 tværlinjer. Ingen visuel modsigelse af captionerne."
+}

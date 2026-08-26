@@ -1,0 +1,1 @@
+Investigate: I'll check the attached drawing against the draft's alt and caption, and only flag claims that aren't in the image or the grounding packet.

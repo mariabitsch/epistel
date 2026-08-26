@@ -1,0 +1,5 @@
+Investigate: I'll read the full prompt, grounding packet, and draft, then check the image against every claim.I'll check the captions method and the trial audit so I judge this the same way as the rest of the round.{
+  "image": "b79/ill_k5.jpg",
+  "flags": [],
+  "visualNotes": "I sivene umiddelbart ved det store hoved står en lille figur; mellem måneringen og brinken svæver yderligere nogle små barnefigurer, som hverken er med i ringen eller i den øverste tumlende flok. Som filen ligger, står »Taf. XXX.« øverst til venstre og den tyske billedtekst i højre margen på langs (alt-teksten beskriver pladen drejet, så tavlenummeret kommer øverst og titlen under rammen)."
+}

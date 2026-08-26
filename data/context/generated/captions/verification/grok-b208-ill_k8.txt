@@ -1,1 +1,0 @@
-Investigate: I'll verify the draft alt and caption against the letter image and the grounding packet only, then return the JSON flags.

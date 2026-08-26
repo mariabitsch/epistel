@@ -1,0 +1,170 @@
+Reading additional input from stdin...
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03edc-574c-7b61-9b8f-8a2a12c63275
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Note (added for the full round, 2026-08-26, after the trial):
+the edition abbreviates Søren Kierkegaard as »SK« (e.g. »Fra SK« in
+letter headings). Expanding »SK« to »Kierkegaard« or »Søren
+Kierkegaard« is NOT an ungrounded claim — the grounding packet's
+edition is Søren Kierkegaards Skrifter, and this instruction states it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b79/ill_11.jpg
+
+Billedfil: `data/vendor/b79/ill_11.jpg` (tilladt primærkilde).
+
+## Manifest-post: b79/ill_11.jpg (export/images.json)
+```json
+{
+ "id": "b79/ill_11.jpg",
+ "path": "letters/b79/ill_11.jpg",
+ "source": {
+  "path": "data/v1.9/b79/ill_11.jpg",
+  "sha256": "653d4665568ca8ab187b3c12a1c25e356f6195c84b65e88ae515d0c35ee7c55a"
+ },
+ "figures": [
+  {
+   "volume": "b79",
+   "file": "txt.xml",
+   "xmlId": "ill_11",
+   "type": null,
+   "rend": "verso",
+   "url": "../b79/ill_11.jpg",
+   "head": [
+    "11. Brev 117, bl. [1r]"
+   ],
+   "figDesc": null,
+   "letter": "117",
+   "letterXmlId": "n117"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b79",
+   "file": "txt.xml",
+   "xmlId": "id02e0e1dd-d7c7-4644-880d-4c6e2469b19b",
+   "n": "1r",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b79/ill_11.jpg",
+   "letter": "117",
+   "letterXmlId": "n117"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 11. Brev 117, bl. [1r]
+
+## Brev 117 (b79) — overskrift og læsetekst
+Overskrift: Fra Emil Boesen · 29. april 1850 · til SK
+
+11. Brev 117, bl. [1r] Kjære!Jeg vil herved indbyde Dig til mit Bryllup, Onsdag Eftermiddag (1 Mai). Kl: 6 (eller 7) i Frue-Kirke. Jeg kommer ikke selv, da jeg er blevet dygtig forkjølet, og maa beflitte mig paa hurtig at blive af med Forkjølelsen igjen. Svar udbedes, og det vil være os en stor Fornøielse, om Du vil komme. Din Emil Boesen. Kbhvn. d 29 Apr: 1850. Til  Hr: Magister Kjerkegaard.  NørregadeN. 45.
+
+## Kommentarnote b-2371 (b79/kom.xml, ordret)
+Lemma: mit Bryllup, Onsdag Eftermiddag (1 Mai)
+
+Emil Boesens bryllup med sin forlovede, Lovise Holtermann (), onsdag den 1. maj 1850 i Vor Frue Kirke i København. Jf. ministerialbogen for vielser for Vor Frue sogn 1837-55, s. 416f.
+
+## Kommentarnote b-2372 (b79/kom.xml, ordret)
+Lemma: Frue-Kirke
+
+Vor Frue Kirke i København.
+
+## Kommentarnote b-2374 (b79/kom.xml, ordret)
+Lemma: dygtig
+
+ordentlig, heftig.
+
+## Kommentarnote b-3127 (b79/kom.xml, ordret)
+Lemma: Emil Boesen
+
+SKs nære ven ().
+
+## Kommentarnote b-2375 (b79/kom.xml, ordret)
+Lemma: Magister Kjerkegaard
+
+.
+
+## Kommentarnote b-2377 (b79/kom.xml, ordret)
+Lemma: Nørregade N. 45
+
+fejl for Nørregade nr. 43 ().
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b79/ill_11.jpg",
+  "alt": "Et enkelt blad lyst, blåligt papir fotograferet mod hvid bund, så bladets kanter ses. Øverst står en håndskreven tekst i mørkt blæk: en kort tiltalelinje, derefter to afsnit på tilsammen omkring ti linjer, en underskrift trukket ud i en stor sløjfe ude til højre, og under den, ude til venstre, en linje med sted og dato, hvor »29 Apr: 1850« kan læses. Skriften fylder kun den øverste halvdel af bladet; resten står ubeskrevet. Nederst i venstre hjørne er skrevet med blyant: »1850« og under en brøkstreg »29« over »4«.",
+  "caption": "Indbydelsen, som Emil Boesen skrev den: bryllup i Frue Kirke onsdag den 1. maj, klokken 6 »(eller 7)«. »Jeg kommer ikke selv«, skriver han, for han er »blevet dygtig forkjølet«. Brevet slutter midt på arket, og resten af siden er blank.",
+  "credit": null,
+  "sources": [
+    "pakken, manifest-posten: id b79/ill_11.jpg, figure i b79/txt.xml knyttet til brev 117 (letter: \"117\") — grundlag for at billedet hører til dette brev",
+    "pakken, udgavens head: »11. Brev 117, bl. [1r]« — udgavens eneste billedtekst; ingen fotokredit, derfor credit: null",
+    "pakken, brev 117's overskrift: Fra Emil Boesen · 29. april 1850 · til SK — grundlag for at kalde skriveren Emil Boesen",
+    "pakken, brev 117's læsetekst: »Jeg vil herved indbyde Dig til mit Bryllup, Onsdag Eftermiddag (1 Mai). Kl: 6 (eller 7) i Frue-Kirke.« — grundlag for »indbydelsen«, for ugedag og dato, for »klokken 6 »(eller 7)«« og for Frue Kirke",
+    "pakken, brev 117's læsetekst: »Jeg kommer ikke selv, da jeg er blevet dygtig forkjølet« — begge citater i captionen, ordret",
+    "billedet: ét blad, lyst blåligt papir, fritlagt mod hvid baggrund med synlige bladkanter",
+    "billedet: håndskrift i mørkt blæk øverst på siden — tiltalelinje, to afsnit på tilsammen ca. ti linjer, underskrift med stor sløjfe til højre, sted- og datolinje under den til venstre",
+    "billedet: datolinjen kan læses som »29 Apr: 1850«, i overensstemmelse med pakkens læsetekst »Kbhvn. d 29 Apr: 1850«",
+    "billedet: skriften ophører omkring midt på bladet; den nedre halvdel er ubeskrevet — grundlag for captionens sidste sætning og for alt-tekstens »resten står ubeskrevet«",
+    "billedet, nederste venstre hjørne: blyantspåskrift »1850« og »29/4« skrevet som brøk"
+  ],
+  "note": "Tvivl og fravalg: (1) Håndskriften er kun delvis læsbar for mig. Alt, captionen citerer, er taget fra pakkens trykte læsetekst, ikke aflæst af billedet; det eneste, jeg selv læser i billedet, er datolinjens »29 Apr: 1850« (som pakken bekræfter) og blyantstallene nederst, der er cifre og derfor til at stole på. Underskriften ligner »Din Emil Boesen«, men jeg gengiver den ikke som læst — alt-teksten siger kun, at der ER en underskrift. (2) Blyantspåskriften »1850 29/4« nederst til venstre er skrevet med et andet redskab end brevet og ser senere ud, men hvem der har sat den (arkiv, samler, udgiver), kan hverken billedet eller pakken sige — captionen nævner den derfor slet ikke, og alt-teksten beskriver den uden at tilskrive den nogen. (3) Papirets blå tone kan skyldes scanning eller belysning; jeg skriver »lyst, blåligt« og ikke en bestemt papirfarve. (4) Manifestet giver figuren rend=\"verso\", mens udgavens head kalder bladet »bl. [1r]«. Modsætningen står uforklaret; jeg siger intet om recto/verso nogen af stederne. (5) Læseteksten rummer også adressen »Til Hr: Magister Kjerkegaard. NørregadeN. 45.«, men den ses ikke på dette blad (formentlig på et andet blad eller en bagside). Ikke brugt. (6) Kommentarnoterne er bevidst ikke brugt: b-2371 (brudens navn Lovise Holtermann og ministerialbogens vielsesindførsel) og b-2377 (»Nørregade N. 45« er fejl for nr. 43) tilføjer viden, brevet ikke selv har. b-2374's ordforklaring (»dygtig« = ordentlig, heftig) er heller ikke brugt; citatet står i kildens egen form og forklarer sig selv i sammenhængen. (7) Jeg har ikke regnet på afstanden mellem brevets dato og bryllupsdagen (»to dage efter«): brevdatoen står som metadata ved siden af billedet, og captionen skal ikke gentage den. (8) »Frue Kirke« står i captionen i moderne form, fordi det er mine egne ord; kildens »Frue-Kirke« ville kun stå med bindestreg inde i et citat. (9) Linjetallet er hedget som »omkring ti linjer« — ombrydningen og tiltalelinjen gør en eksakt optælling usikker. (10) Ved bladets øverste og nederste højre kant anes et par ganske små rødlige pletter; de er for utydelige til at afgøre, hvad de er, og er udeladt begge steder.",
+  "repairs": []
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{"image":"b79/ill_11.jpg","flags":[],"visualNotes":""}
+tokens used
+6.282
+{"image":"b79/ill_11.jpg","flags":[],"visualNotes":""}

@@ -1,0 +1,12 @@
+Investigate: I'll verify the alt and caption against the image and the packet only — no outside knowledge.I'll check the trial-round verifier prompt and a few sample flags so I match the same bar.{
+  "image": "b79/ill_9.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "under det et ovalt stempel, hvis tekst står spejlvendt",
+      "field": "alt",
+      "problem": "Det ovale stempel er lavt i kontrast, og pakken omtaler det ikke. At teksten »står spejlvendt« er en sikker påstand om et usikkert mærke. På billedet ligner bogstaverne en 180°-vending (på hovedet) snarere end et spejlvendt afsmit: de vender ikke baglæns, når man drejer dem."
+    }
+  ],
+  "visualNotes": "Det store røde tegn nederst i midten er tydeligt tallet 13. Den røde markering ved navnet er et flerstroget, W-agtigt tegn, ikke en enkelt skrå streg. På venstre felt, mellem segl og midterfold, står et brunt mærke lig ½. Den store brune sløjfe yderst til højre ligner et paraf. Adressen blander kurrent (»An«/»dem Her«) og latinsk kursiv (»Cand. theol. E. Boesen«, »Copenhagen«). Også højre kant har en trekantet foldeklap."
+}

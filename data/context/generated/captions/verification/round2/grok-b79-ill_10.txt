@@ -1,0 +1,12 @@
+I'll verify the draft against the image and the grounding packet only — groundedness and visual accuracy, nothing else.{
+  "image": "b79/ill_10.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "et relief kun anes",
+      "field": "alt",
+      "problem": "Relieffet er tydeligere end «kun anes»: i det indre felt ses et mandehoved i profil mod højre (næse, hage, hals og draperi) inden for en dobbelt cirkelrand. Udgavens head bekræfter samme motiv («mandehoved i profil»). «Kun anes» underdriver det synlige."
+    }
+  ],
+  "visualNotes": "Profilhovedet mod højre er læsbart trods revner og porer, ikke blot anet; klædningsfolder nederst til venstre i feltet er blandt de klareste træk. Dobbelt cirkelrand. Lakken er tæt pockmarkeret. Papiret er beige/gulnet mere end stærkt brunt, med let fold forneden. Mod højre er cirkelaftrykket afbrudt; en lavere laktunge fortsætter ud, så det manglende er en del af medaljonen, ikke et tomt hul i lakken."
+}

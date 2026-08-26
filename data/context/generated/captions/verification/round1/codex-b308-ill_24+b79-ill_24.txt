@@ -1,0 +1,413 @@
+Reading additional input from stdin...
+2026-08-26T16:19:17.003783Z ERROR codex_models_manager::cache: failed to load models cache: missing field `base_instructions` at line 97 column 5
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03ede-657b-7191-bb54-20a85dbda458
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Note (added for the full round, 2026-08-26, after the trial):
+the edition abbreviates Søren Kierkegaard as »SK« (e.g. »Fra SK« in
+letter headings). Expanding »SK« to »Kierkegaard« or »Søren
+Kierkegaard« is NOT an ungrounded claim — the grounding packet's
+edition is Søren Kierkegaards Skrifter, and this instruction states it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b308/ill_24.jpg + b79/ill_24.jpg
+
+**Én planche, to manifest-id'er** (identisk fil, samme sha256, vendoret i to bind). Alt-teksten er fælles. Captionen udkastes pr. id mod dets eget brev — men et id helt uden forekomster i udgaven skal stå caption-løst med begrundelse (kun alt-teksten deles).
+
+Billedfil: `data/vendor/b308/ill_24.jpg` (tilladt primærkilde).
+Billedfil: `data/vendor/b79/ill_24.jpg` (tilladt primærkilde).
+
+## Manifest-post: b308/ill_24.jpg (export/images.json)
+```json
+{
+ "id": "b308/ill_24.jpg",
+ "path": "letters/b308/ill_24.jpg",
+ "source": {
+  "path": "data/v1.9/b308/ill_24.jpg",
+  "sha256": "f3999ec2861d951669f7b2738c7787a9bef4cee38fce93ac0f5c413370c07dea"
+ },
+ "figures": [
+  {
+   "volume": "b308",
+   "file": "txt.xml",
+   "xmlId": "ill_24",
+   "type": null,
+   "rend": "verso",
+   "url": "../b308/ill_24.jpg",
+   "head": [
+    "24. Øverst: Brev 317, bl. [3v]; nederst: Brev 119, bl. [2v]"
+   ],
+   "figDesc": null,
+   "letter": "317",
+   "letterXmlId": "n317"
+  }
+ ],
+ "pageBreaks": []
+}
+```
+
+## Manifest-post: b79/ill_24.jpg (export/images.json)
+```json
+{
+ "id": "b79/ill_24.jpg",
+ "path": "letters/b79/ill_24.jpg",
+ "source": {
+  "path": "data/v1.9/b79/ill_24.jpg",
+  "sha256": "f3999ec2861d951669f7b2738c7787a9bef4cee38fce93ac0f5c413370c07dea"
+ },
+ "figures": [],
+ "pageBreaks": [
+  {
+   "volume": "b79",
+   "file": "txt.xml",
+   "xmlId": "id2eb62d5a-0ad0-4546-8012-cfdcf99ca667",
+   "n": "2v",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b79/ill_24.jpg",
+   "letter": "119",
+   "letterXmlId": "n119"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 24. Øverst: Brev 317, bl. [3v]; nederst: Brev 119, bl. [2v]
+
+## Brev 317 (b308) — overskrift og læsetekst
+Overskrift: Fra L.H. · 19. marts 1852 · til SK
+
+Den 19de Marts 1852     Maaskee vil De finde det forunderligt at modtage et Brev fra En, Dem aldeles Fremmed? – dog hvis jeg blot nogenlunde har forstaaet Dem, troer jeg ikke at De vil dømme mig som en Qvinde der har Lyst til at gjøre det Forunderlige (I Sandhed dette er mig snarere modbydeligt) og heller ikke betragte dette »at jeg skriver Dem til, saaledes; men der boer i min Sjæl en saa dyb Taknemmelighedsfølelse som jeg føler Trang til at udtale for Dem, Jeg har læst Deres »til Selvprøvelse Deres Indøvelse i Christendommen, jeg har virkelig læst dem saa godt som jeg formaaede med min hele Sjæl at læse, og troer idetmindste at have forstaaet Aanden deri  jeg har gjennem Dem bedre lært at forstaae mig selv, De har ligesom borttaget fra mig en af mine inderste Lidelser, at blive misforstaaet af Andre som man elsker, og forstaaende sig selv i Følelsen, – dog ikke at kunde forklare sig forstaaelig for dem, og saa det allertungeste – at staae enkelte Øjeblikke uvis om at det, at man ikke kan følge med de Andre i mange Anskuelser, maaskee kunde ligge i den uhyre Selvkjærlighed at man ikke noksom gaaer ind paa de Andres fordi det er saa svært at give Slip paa det der er bleven Sandhed igjennem Ens egen Anskuelse – dog at det for disse er Sandhed erkjender jeg fuldkommen, – jeg har bedet af mit inderste Hjerte, at den hellige Aand vilde klare for mig, om jeg maatte beholde som mit hvad jeg forstod, hvad jeg fandt Hvile i som jeg kunde bringe i Samklang med Christendommens simple sande Grundvold, jeg maatte da give Afkald paa om de Andre forstode mig, og lade det beroe paa, om de i mit Liv med dem kunde finde Christendom. – Jeg er ikke christeligt opdraget men i mit velsignede Hjem var den inderligste Kjærlighed herskende, jeg kjendte ingen Frygt; men min Moder selv i Besiddelse af den ømmeste Samvittighedsfølelse, indskjærpede os denne altid til at være Dommer over vore Handlinger; men da senere Verden, og de Ting der ere i Verden, ikke gav mig det hvori min Sjæl kunde  finde Hvile, og efterat Gud havde borttaget det fra mig hvori jeg troede at kunde finde Lyksalighed her paa Jorden (thi jeg havde gjort den jordiske Kjærlighed til min Afgud, da bad og atter bad jeg til mine Øjne opklaredes til at see hvor den Trøst var at finde, som formaaede at bære dette Liv tillidsfuldt og glad, og naae Maalet i Troe Haab og Kjærlighed. – Nu lever jeg med Mennesker gode, christelige, som Hjertet kan holde af; men de høre til et saakaldt Parthi, (det Grundtvigske), alt hvad der hedder Parthi er min Følelse imod det forstyrrer mig Kjærlighedslivet, sætter mig for bestemte synlige Grændser for dette, i denne stærke Udtalelse af »at denne er en Christen, og denne ikke,« hvo tør sige det uden Gud? jeg erkjender saa tydelig her det stærke Troesliv; men det forekommer mig som om Kjærlighedslivet ikke ret har Inderlighed, og gaaer Haand i Haand med hiint hvorfor Hovmod kom̄er tilsyne; men lad mig ikke eensidig og uretfærdig for selv at faae Ret, bedømme en Mands Anskuelser til hvem jeg ikke selv kjender saa meget, fordi jeg maaskee seer disse godt ere opfattede af Andre og fordi Aanden forekommer mig at træde frem i en saa underlig bestemt afsluttet Form der synes mig at maatte meddele Eensidighed til denne, »de tale hans Sprog naar de tale om christelige Ting, – hvor kan jeg udtale det jeg i Sandhed er opfyldt af og min Sjæl i Sandhed har modtaget, som er blevet mit Eget hvor kan det udtales under en fremmed Form? Naar Aanden er der, danner Formen sig da ikke af sig selv? eller er det mig der er uklar nu? – Med Alle som de kalde de Opvakte tale de strax naar de see dem, – jeg kan det ikke, for mig vilde det være usandt og tale da udelukkende om Christendommen, for at føle Samfundslivets Glæde som de sige; for mig taber Christendommen i Inderlighed derved, gjerne vil jeg med et kjerligt oprigtigt Hjerte nærme mig den Bedrøvede den Lidende som gjennem Kjerlighed vil forstaae mig vise ham, eller hende, hen der hvor jeg selv finder Fred og Trøst (hvor ofte har jeg ikke fundet denne i Ypperstepræsten); men denne christelige Snak kan jeg aldrig komme til at føre, de troe ikke at Troeslivet kan leve hos En, fordi man hverken kan eller vil saaledes udtale sig; see dette ængstede mig i Begyndelsen, thi saaledes følede jeg kunde Christendommen aldrig fremkomme hos mig – og dog maae disse Mennesker erkjendes for saa sande Christne, (og ere det ogsaa) men – I Deres Skrifter har jeg fundet hvad der kan klare for mig i denne Retning; thi hvad der dybest og inderligst griber min Sjæl, opfylder mig altid med en stille Salighed, som jeg ogsaa har en Trang til at mine Kjere skulde føle i mit Liv, i min Væren med Hensyn til dem; men fortælle dem min Salighed med Ord, kan jeg ikke; men maaskee have de ondt ved at forstaae denne Modsætning i min Natur, thi meget Andet kan jeg meddele mig livligt om; vel kan jeg tænke mig christelig Glæde forhøiet i Udtalelse med den Enkelte, der om han selv er forskjellig i Anskuelse vil føle og erkjende, at Aanden er den Samme, de have en dyb almindelig Syndserkjendelse; men det forekommer mig, som om de ikke saaledes som De Doctor Kjerkegaard i Deres Skrifter pegede paa Synden i dens Enkeltheder i deres eget Hjerte ikke saaledes som De udtaler det, – sige »Du er Manden; men bliver jeg nu ukjærlig og maaskee Uretfærdig, saa er det ikke fordi jeg vil dadle, hvem jeg holder af; men fordi jeg maa  forklare for mig selv, hvorfor jeg saa ofte ikke kan dele Anskuelser med dem; – See dette kunde maaskee forekomme Dem som en barnagtig ringe Lidelse; men den bliver ikke ringe, hvor Kjerligheden er stor til de Mennesker; men Kjerlighed til Sandhed, dog størst; og Tanken ikke ejer megen Klarhed til at forsvare hvad der brænder i Følelsen som Sandhed. Jeg har nu søgt at forklare hvorfor min Sjæl er opfyldt af dyb Taknemlighed over at De har bragt mig til at forstaae mig selv, og derved bragt mere Fred og mindre Bedrøvelse i mit Indre. – Det er ikke til den kloge aandrige og satiriske Doctor Kjerkegaard, jeg skriver dette, han kunde jo medlidende smile over den Uklarhed at jeg troede at forstaae ham; – med Tanken kan jeg vistnok langtfra følge ham; men jeg troer at kunne det med Følelsen, (noget som den i vor Tid ved Forstandserkjendelse oplyste Qvinde vel ville smile af; men som jeg maa troe da denne, naar jeg har bedet den hellige Aand at give mig Reenhed i Følelsen, da altid har bragt mig længere paa Erkjendelsens Vej, end Forstanden, nej det er ikke til den kloge Doctor Kjerkegaard det er skrevet, men til ham, der som mig synes opfatter Christendommen i dens hele Inderlighed, og gjennem denne Inderlighed vil forstaae den Følelse og Trang der har bragt mig til mod Sædvane at gaae saa stærkt udad at jeg har maattet takke, thi taus bliver jeg her, i denne Retning, thi stride om Følelser kan jeg ikke; men derfor trænger dog Hjertet til engang at udtale sin Tak – dog naar jeg seer at jeg har havt Egoisme nok til at trætte Dem med saa langt et Brev; forskrækkes jeg skamfuld, og min Trøst bliver da, at det dog kun er for en Sjæl jeg har udtalt mig og at kun 2 Øjne komme til at hvile herpaa, Øjne der see dybt nok i det menneskelige Hjerte til at være overbærende. Det er ingen attenaarig Piges enthusiastiske Tak; – men en gammel 34 aarig Piges fulde dybe Tak, som staaer ene blandt Fremmede, men ved  Dem har opnaaet meer Klarhed over sit inderste Væsen, – og derved meer Fred, og meer Mod til ikke at lade sig overvælde af hvad der for hende ikke kan blive Sandhed i Følelsen, meer Styrke til at stride den gode Strid med Bestandighed. Deres taknemligeL H –24. Øverst: Brev 317, bl. [3v]; nederst: Brev 119, bl. [2v] Til  Herr Doctor Søren KjerkegaardØsterbro 108 A.  Kjøbenhavn  
+
+## Brev 119 (b79) — overskrift og læsetekst
+Overskrift: Fra Emil Boesen · 25. sept. 1851 · til SK
+
+Kjære!Mange Tak for Dine 3 sidste Bøger, Du har sendt mig; thi den første af disse 3, »Synderinden«, har jeg endnu ikke sagt Dig Tak for; men Du veed, hvor glad jeg bliver, naar jeg seer Din Udskrift; den nævnte kom, da her var det meget Vrævl i Anledning af det spandetske Forslag, som gjorde Folk her paa Egnen noget fortumlede, og jeg længtes efter at høre noget fra Dig; Du har maaskee slet ikke tænkt paa den Sag, da Du udgav den; men jeg læste den til min Opbyggelse i den Anledning og var glad ved den. Noget efter kom Stykket i Fædrelandet, ved hvilket Du vandt Jyderne i høi Grad. Af Altergangstalerne har jeg især læst i den sidste; den anden Bog, om Din Forfatter-Virksomhed, blev jeg først noget forundret ved at læse; jeg troede ikke, Du vilde udtale Dig saaledes nu, og saa var det, som om Du sagde Farvel; men saa læste jeg den igjen uden Betænkninger ved den. Nu seer jeg, at Du har udgivet en større Bog; men den er endnu ikke kommen herover; gid den vilde komme i disse Dage. Hvordan har Du det ellers, er Du rask? et Par Ord engang imellem kunde Du dog gjerne skrive, for at jeg kan vide, hvor Du er. Steenstrup fortalte i Sommer, at Du boede ude paa Østerbro, boer Du der endnu? Louise beder om at hilse Dig; der ligger en lille Dreng, der hedder Johannes, inde hos hende i sin Vugge, og det er besynderligt at see paa ham;  kort efter at Storken havde bragt ham, kom den igjen og beed hende slemt i Brystet, saa hun maatte ligge længe til Sengs; nu er hun rask igjen og pynter Huset med Blomster. Med mine Prædikener gaaer det, som det bedst kan; jeg ønsker i det Mindste at gjøre mig Flid for, at de skal blive saa gode, som mueligt; om Løverdagen sidder jeg tit flere Timer stille, uden at skrive; først hen mod Aften gaaer Pennen hurtigere, og jeg bliver først færdig Kl: 10, til Besvær for Louise, der venter saalænge paa mig ved Aftensbordet. Søndagen er altfor anstrængende; men det er for en Deel forkeert med al denne Studeren. Jeg vilde gjerne til Kjøbenhavn, naar Confirmationerne midt i October er forbi; men veed endnu ikke, om jeg kommer, især da jeg ogsaa gjerne vil dertil næste Foraar. Skriv engang til mig!Din Emil Boesen.  Horsensd. 25 September 1851.   Brevet har ligget et Par Dage, og jeg har læst den sidste Bog; hvor det er godt, Du har givet den ud. Vi trænge Alle haardt til bestandig at faae det indpræget, hvor vi ere.    S. T.  Hr: Magister S: Kierkegaard.  Østerbro ved Kjøbenhavn.
+
+## Kommentarnote b-5390 (b308/kom.xml, ordret)
+Lemma: at jeg skriver Dem til
+
+fast udtryk i breve: skriver til Dem.
+
+## Kommentarnote b-5391 (b308/kom.xml, ordret)
+Lemma: »til Selvprøvelse
+
+Til Selvprøvelse Samtiden anbefalet, i SKS 13, 29-108. Bogen udkom den 12. sept. 1851, se tekstredegørelsen i SKS K13, 101.
+
+## Kommentarnote b-5392 (b308/kom.xml, ordret)
+Lemma: Indøvelse i Christendommen
+
+Indøvelse i Christendom af pseudonymen Anti-Climacus, nr. I-III, udg. af S. Kierkegaard, i SKS 12, 5-253. Bogen udkom den 25. sept. 1850, se tekstredegørelsen i SKS K12, 7.
+
+## Kommentarnote b-5393 (b308/kom.xml, ordret)
+Lemma: klare for mig
+
+bringe mig til klarhed over, gøre mig det klart.
+
+## Kommentarnote b-5394 (b308/kom.xml, ordret)
+Lemma: mit velsignede Hjem
+
+.
+
+## Kommentarnote b-5395 (b308/kom.xml, ordret)
+Lemma: min Moder
+
+.
+
+## Kommentarnote b-5396 (b308/kom.xml, ordret)
+Lemma: Troe Haab og Kjærlighed
+
+hentyder til 1 Kor 13,13, hvor Paulus efter at have lovsunget kærligheden skriver: »Saa bliver da Tro, Haab, Kierlighed, disse tre; men først iblandt disse er Kierligheden« (NT-1819).
+
+## Kommentarnote b-5397 (b308/kom.xml, ordret)
+Lemma: saakaldt Parthi, (det Grundtvigske) (...) »at denne er en Christen, og denne ikke,«
+
+Det grundtvigske parti, dvs. N.F.S. Grundtvigs tilhængere, ofte kaldt grundtvigianerne, refererede hyppigt til sig selv som 'de ortodokse', dvs. som dem, der stod for og repræsenterede den sande og rette kristne tro og lære, se fx Grundtvigs Tale til Folkeraadet om Dansk Kirkefrihed savnet, Kbh. 1839, s. 13, hvor han omtaler sig selv og sine tilhængere som »os saakalte overdrevne Rettroende (Ultra-Orthodoxer)«. Se endvidere Grundtvigs artikel »De Helliges Samfund« i Dansk Kirketidende, udg. af R.Th. Fenger og C.J. Brandt (bd. 1-8, 1845-53, ktl. 321-325), nr. 6, den 7. nov. 1847, bd. 3, 1848, sp. 81-96; især sp. 95f., hvor Grundtvig skriver, at det er hans »fulde og faste Overbeviisning, at skiøndt selv de bedste Stats-Kirker, christelig talt, er vildsomme Skyggedale, hvor man neppe nok kan kiende det hellige almindelige Kirkesamfund og slet ikke de Helliges Fællesskab, saa skal og vil dog Herrens sande Discipler blive der til det Yderste, det er [dvs.]: til de der ikke længer kan faae Lov til at beholde Daaben og Nadveren uforvanskede og undgaae virkelig Delagtighed i de guddommelige Naademidlers Misbrug og Vanhelligelse.« Og skriver videre, at »de virkelige Christne kan dog heller ikke undvære Præster af deres egen Midte, saa, hvor de christelige Præster ei kan faae Lov til, for deres Vedkommende, at holde Daaben og Nadveren i Ære, der vil de nødes til at træde ud af Statskirken, og vil naturligviis blive fulgt af alle dem, der 'høre Herrens Røst.' Langt fra imidlertid at ville fremskynde denne Skilsmisse, skal vi tvertimod af al Magt forsinke den.« Se også følgende passage i Grundtvigs artikel »Hedenskab og Christendom i Danmark« i ugeskriftet Danskeren, udg. af Grundtvig, nr. 6, den 8. feb. 1851, bd. 4, 1851, s. 82f.: »Naar jeg her nævner 'Hedenskabet' først, da maa jeg bemærke, at det skeer (...) fordi jeg troer, vi har endnu mest af det, thi saa meget kiender jeg dog til Christendommen og saa høit skatter jeg den, at jeg vilde ønske, at baade jeg og alle Danskere var hele Christne, ikke blot fra øverst til nederst, men ogsaa fra inderst til yderst, i Sind og Skind; men jeg veed ogsaa, at der hører meget til, saa naar man indbilder sig, det er skedt uden at man selv vidste det, da tager man mærkelig Feil, og det gaaer da med ens Christendom, ligesom det gaaer med mangen en Jonfrues Deilighed og med mangen en Professors Viisdom, at ingen kan see dem uden de selv.« Sml. også følgende passage i SKs Til Selvprøvelse Samtiden anbefalet (): »Der er blandt os Nogle, som gjøre Fordring paa i strengeste Forstand at være Christne, at være det i Modsætning til os Andre: dem har jeg ikke kunnet slutte mig til. Deels mener jeg, at deres Liv ikke indfrier den Maalestok, som de selv foranledige eller nødsage En til at anlægge ved saa stærkt at fremhæve at de ere Christne – dog dette er mig det mindre Vigtige; deels er jeg for lidt Christen til at turde slutte mig til Nogen, som gjør en saadan Fordring.« SKS 13, 49,23-29. – Parthi: Allerede i 1826 skrev Grundtvig, at han hverken duede til at »stifte Partier« eller havde lyst og evne til at være »Parti-Høvding«, Vigtige Spørgsmaal til Danmarks Lovkyndige, Kbh. 1826, s. 51f. Og selv efter at han i løbet af 1830'erne og 1840'erne havde fået mange tilhængere, nægtede han, at der bestod en sådan sekt el. et sådant parti, jf. fx Dansk Kirketidende, nr. 107, den 17. okt. 1847, bd. 3, 1848, sp. 33f.
+
+## Kommentarnote b-5399 (b308/kom.xml, ordret)
+Lemma: hvo
+
+hvem.
+
+## Kommentarnote b-5400 (b308/kom.xml, ordret)
+Lemma: kom̄er
+
+kommer.
+
+## Kommentarnote b-5401 (b308/kom.xml, ordret)
+Lemma: hans Sprog
+
+sigter formentlig til N.F.S. Grundtvigs sprogbrug.
+
+## Kommentarnote b-5402 (b308/kom.xml, ordret)
+Lemma: Alle som de kalde de Opvakte
+
+sigter formentlig her til de grundtvigsk opvakte ().
+
+## Kommentarnote b-5403 (b308/kom.xml, ordret)
+Lemma: Samfundslivets Glæde
+
+glæden ved det fælles liv i menigheden.
+
+## Kommentarnote b-5404 (b308/kom.xml, ordret)
+Lemma: Ypperstepræsten
+
+sigter formentlig til den første tale over Hebr 4,15 i »Ypperstepræsten« – »Tolderen« – »Synderinden«, tre Taler ved Altergangen om Fredagen, i SKS 11, 249-259. Bogen udkom den 14. nov. 1849, se tekstredegørelsen i SKS K11, 253.
+
+## Kommentarnote b-3268 (b308/kom.xml, ordret)
+Lemma: Doctor Kjerkegaard
+
+.
+
+## Kommentarnote b-5406 (b308/kom.xml, ordret)
+Lemma: sige »Du er Manden
+
+hentyder til beretningen i 2 Sam 12,1-7 om profeten Natan, der fortalte kong David en lignelse om en rig mand, som tog en fattig mands eneste lam og tilberedte det til en besøgende, fordi den rige mand ikke nænnede at tage sine egne får og okser, skønt han havde mange af dem. David blev meget vred og sagde, at den rige mand skulle erstatte lammet firdobbelt og dø; da sagde Natan til David: »Du er manden!« David havde nemlig ladet Urias dræbe og derefter giftet sig med hans kone Batseba. SK citerer og kommenterer beretningen i Til Selvprøvelse Samtiden anbefalet (), i SKS 13, 65f.
+
+## Kommentarnote b-5408 (b308/kom.xml, ordret)
+Lemma: vistnok
+
+rigtignok, sandt nok.
+
+## Kommentarnote b-5409 (b308/kom.xml, ordret)
+Lemma: en gammel 34 aarig Piges
+
+Hvis brevets forfatter skulle være Louise Hage, ville hun i marts 1852 have været o. 30 år ().
+
+## Kommentarnote b-5410 (b308/kom.xml, ordret)
+Lemma: stride den gode Strid
+
+hentyder til 1 Tim 6,12, hvor Paulus formaner Timotheus: »Strid troens gode strid, grib det evige liv, som du blev kaldet til og har bekendt dig til med den gode bekendelse i mange vidners påhør.« Jf. også 2 Tim 4,7, hvor Paulus om sig selv skriver: »Jeg har stridt den gode strid, fuldført løbet og bevaret troen«.
+
+## Kommentarnote b-5411 (b308/kom.xml, ordret)
+Lemma: med Bestandighed
+
+med udholdenhed, trofasthed.
+
+## Kommentarnote b-3272 (b308/kom.xml, ordret)
+Lemma: L H
+
+Der er muligvis taler om Gjertrud Lovise Christiane Fransisca Hage, kaldt Louise Hage (1823-1907), datter af hippologisk forf., premierløjtnant, fra 1830 overkrigskommissær, senere ejer af Pedersborg Johannes Philip Hage (1796-1863) og Christiane Caroline Erica el. Erike Hage, f. Sundt til Benzonseje S for Roskilde (1802-57). Jf. ministerialbogen for Ørsted sogn 1814-32, og Mikael Sundt »Familjen Sundt« i Personalhistorisk Tidsskrift, 2. rk., udg. af G.L. Wad, bd. 4, Kbh. 1889, s. 39-100; s. 65 og s. 70f. If. folketællingen feb. 1850 og 1855 (Skt. Annæ vestre kvarter) boede hun sammen med sin faster Martha Benedicte Hage på 4. sal i Kronprinsessegade matrikelnr. 402. If. E. Collin Anonymer og Pseudonymer i den danske, norske og islandske Literatur, Kbh. 1869, s. 167 og s. 53, havde grevinde Louise Schmettau, f. Hage, under mærket »L. H.« udgivet Christelig Kalender, Kbh. 1856. Det lille opbyggelseshefte, bestående af et bibelvers og et salmevers til hver dag i året, fik stor udbredelse; 2. opl. udkom allerede i 1859 og 11. opl. i 1906. Louise Hage kunde dog først kalde sig grevinde Schmettau, efter at hun den 2. juni 1860 var blevet gift med hofjægermester, cand.jur. Christian Ludvig Leopold Greve af Schmettau (f. 1806 i Altona i Slesvig, d. 1878 i København), jf. Garnisons Kirkes ministerialbog for vielser 1857-67, upagineret, hvoraf det fremgår, at selve vielsen fandt sted i Kastelskirken. – Louise Hages to yngste søskende, tvillingeparret Harald Johannes Hage og Thora Johanne Hage (f. 1828) blev begge den 14. april 1844 konfirmeret af pastor N.F.S. Grundtvig () i Vartov Hospitalskirke, jf. ministerialbogen for Helligaands Hospital 1834-51, bl. 30 og bl. 50.
+
+## Kommentarnote b-5412 (b308/kom.xml, ordret)
+Lemma: Østerbro 108 A
+
+.
+
+## Kommentarnote b-2409 (b79/kom.xml, ordret)
+Lemma: Dine 3 sidste Bøger
+
+En opbyggelig Tale, der var udkommet den 20. dec. 1850, se tekstredegørelsen i SKS K12, 285 (); To Taler ved Altergangen om Fredagen, der var udkommet den 7. aug. 1851, se tekstredegørelsen i SKS K12, 329 (); og Om min Forfatter-Virksomhed, der var udkommet samme dag som de to altergangstaler, den 7. aug. 1851, se tekstredegørelsen i SKS K13, 7 ().
+
+## Kommentarnote b-2410 (b79/kom.xml, ordret)
+Lemma: »Synderinden«
+
+sigter til En opbyggelig Tale (), som SK selv har givet titlen »Synderinden«, i SKS 12, 263,1.
+
+## Kommentarnote b-2411 (b79/kom.xml, ordret)
+Lemma: Din Udskrift
+
+SKs påskrift af Emil Boesens navn og adresse på konvolutten.
+
+## Kommentarnote b-2412 (b79/kom.xml, ordret)
+Lemma: det spandetske Forslag
+
+.
+
+## Kommentarnote b-2414 (b79/kom.xml, ordret)
+Lemma: Stykket i Fædrelandet
+
+sigter til SKs artikel »Foranlediget ved en Yttring af Dr. Rudelbach mig betræffende [angående]« i Fædrelandet, nr. 26, den 31. jan. 1851, i SKS 14, 109-116, hvor SK bl.a. afviser at have udtrykt støtte til indførelse af borgerligt indgået ægteskab også kaldt civilægteskab.
+
+## Kommentarnote b-2415 (b79/kom.xml, ordret)
+Lemma: Af Altergangstalerne har jeg især læst i den sidste
+
+sigter til nr. »II. 1 Peter IV, 8« i To Taler ved Altergangen om Fredagen (), i SKS 12, 293-302.
+
+## Kommentarnote b-2416 (b79/kom.xml, ordret)
+Lemma: om Din Forfatter-Virksomhed
+
+sigter til Om min Forfatter-Virksomhed ().
+
+## Kommentarnote b-2417 (b79/kom.xml, ordret)
+Lemma: Du har udgivet en større Bog
+
+sigter til Til Selvprøvelse Samtiden anbefalet, der udkom den 12. sept. 1851, se tekstredegørelsen i SKS K13, 101. Sml. følgende passage i Emil Boesens brev, skrevet i efteråret 1851 fra et ophold i København til sin kone i Horsens, hvor Boesen fortæller om et besøg hos SK, mens han boede på Østerbro (), og nævner følgende: »'Til Selvprøvelse' gav han mig et Exemplar af i sædvanlig Skikkelse [indbundet i sort glanspapir med tresidet guldsnit], saa nu kan du laane den ud, du har derovre, og bruge den, som du vil.« Carl Koch Søren Kierkegaard og Emil Boesen (), s. 35.
+
+## Kommentarnote b-2418 (b79/kom.xml, ordret)
+Lemma: Steenstrup
+
+sigter formentlig til Mathias Georg Gotthilf Steenstrup (1822-1904), da. forf.; dimitteredes 1840 til Københavns Universitet, 1845 cand.theol., fra 1849 studier i litteraturhistorie, kulturhistorie og filosofi og 1854 mag.art. på en afhandling om historiefilosofi; udgav bl.a. Det theologiske Studium ved vort Universitet, Kbh. 1848. I 1850 boede Mathias Steenstrup i huset på Østerbro matrikelnr. 108 A2 (), jf. Veiviser eller Anviisning til Kjøbenhavns (...) Beboere for Aaret 1850.
+
+## Kommentarnote b-2419 (b79/kom.xml, ordret)
+Lemma: at Du boede ude paa Østerbro
+
+SK boede på 1. sal i huset på Østerbro matrikelnr. 108 A fra april flyttedag i 1851 til okt. flyttedag i 1852, se »Introduktion til Løse papirer« i SKS K27, 12.
+
+## Kommentarnote b-2420 (b79/kom.xml, ordret)
+Lemma: Louise
+
+Emil Boesens kone ( og ).
+
+## Kommentarnote b-2421 (b79/kom.xml, ordret)
+Lemma: en lille Dreng, der hedder Johannes
+
+Emil og Louise Boesens søn, Sophus Johannes Boesen blev født den 11. maj og døbt den 16. juli 1851, jf. ministerialbog for Horsens sogn for 1847-52, bl. 40.
+
+## Kommentarnote b-2422 (b79/kom.xml, ordret)
+Lemma: besynderligt
+
+specielt, usædvanligt, underligt.
+
+## Kommentarnote b-2423 (b79/kom.xml, ordret)
+Lemma: Storken havde bragt ham
+
+hentyder til den folkelige forestilling, at det er storken, der bringer de nyfødte børn.
+
+## Kommentarnote b-2424 (b79/kom.xml, ordret)
+Lemma: beed hende slemt i Brystet
+
+En sådan forestilling er ikke identificeret. Der er formentlig tale om betændelse i brystkirtlerne hos en ammende kvinde.
+
+## Kommentarnote b-2425 (b79/kom.xml, ordret)
+Lemma: Confirmationerne midt i October
+
+If. »Supplement til Horsens Kirkes Chordegns Ministerialbog autoriseret 31 Dec 1828, indeholdende Confirmerede fra Aar 1838« og frem til 1863, holdt sognepræsten efterårskonfirmation på 1. søndag efter Michaelis og den residerende kapellan på 2. søndag efter Michaelis. Af ministerialbogen, bl. 97, fremgår det, at Emil Boesen i 1851 havde efterårskonfirmation på 2. søndag efter Michaelis, svarende til den 17. søndag efter trinitatis, der i 1851 faldt den 12. okt.
+
+## Kommentarnote b-2426 (b79/kom.xml, ordret)
+Lemma: Emil Boesen
+
+SKs nære ven ().
+
+## Kommentarnote b-2427 (b79/kom.xml, ordret)
+Lemma: Horsens
+
+.
+
+## Kommentarnote b-2428 (b79/kom.xml, ordret)
+Lemma: den sidste Bog
+
+Til Selvprøvelse Samtiden anbefalet ().
+
+## Kommentarnote b-2429 (b79/kom.xml, ordret)
+Lemma: S. T.
+
+'salvo titulo' ().
+
+## Kommentarnote b-2430 (b79/kom.xml, ordret)
+Lemma: Magister S: Kierkegaard
+
+.
+
+## Kommentarnote b-2431 (b79/kom.xml, ordret)
+Lemma: Østerbro ved Kjøbenhavn
+
+.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "ids": [
+    "b308/ill_24.jpg",
+    "b79/ill_24.jpg"
+  ],
+  "alt": "To gamle brevark fotograferet oven på hinanden, begge med adressesiden opad og med tydelige foldelinjer. Det øverste, mindre og gullige ark har i øverste højre hjørne et rødbrunt frimærke med teksten »POST« og »FIRE R.B.S.«, annulleret med et stempel af koncentriske ringe; til venstre for mærket sidder et ovalt stempel i grønligt blæk med tal i, og længere til venstre et håndskrevet tal. Midt på arket står tre håndskrevne linjer i brunt blæk under en enkelt kort indledning, og langs venstre kant løber en halv snes linjer skrift på tværs, drejet en kvart omgang. Skriften fra indersiden skinner svagt igennem papiret, og under adressen sidder et sort, ovalt laksegl. Det nederste, større og lysere ark har ligeledes et rødbrunt frimærke i øverste højre hjørne annulleret med koncentriske ringe, og til venstre for det et kort skriftmærke med to bogstaver, derunder en håndskreven linje og længere nede endnu en; nederst midt på arket sidder et rødt laksegl, der er revnet midt over, og til højre for det anes et rundt poststempel.",
+  "captions": {
+    "b308/ill_24.jpg": "Øverst adressesiden af brev 317: frimærke, poststempel og et sort laksegl. Indeni takker en kvinde, der kun underskriver sig L H, for to bøger hun har læst »med min hele Sjæl« — og undskylder til sidst »saa langt et Brev«.",
+    "b79/ill_24.jpg": "Nederst adressesiden af brev 119 fra Emil Boesen, med et rødt laksegl brudt midt over. Indeni takker han for tre bøger og beder om et par ord igen: »Du veed, hvor glad jeg bliver, naar jeg seer Din Udskrift.«"
+  },
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »24. Øverst: Brev 317, bl. [3v]; nederst: Brev 119, bl. [2v]« — grundlag for hele fordelingen øverst/nederst og for at kalde arkene brevblade (bl., verso), ikke konvolutter",
+    "pakkens manifest-post b308/ill_24.jpg: figure med rend »verso«, letter »317« — grundlag for at det øverste ark hører til brev 317",
+    "pakkens manifest-post b79/ill_24.jpg: pageBreak n=»2v«, facs=»../b79/ill_24.jpg«, letter »119« — grundlag for at det nederste ark hører til brev 119",
+    "billedet, øverste ark: rødbrunt frimærke i øverste højre hjørne med »POST« øverst og »FIRE R.B.S.« nederst, annulleret med koncentriske ringe",
+    "billedet, øverste ark: ovalt stempel i grønligt blæk til venstre for frimærket, med tal i (tallene er ikke gengivet, se note)",
+    "billedet, øverste ark: håndskrevet tal helt til venstre i samme højde (ikke gengivet, se note)",
+    "billedet, øverste ark: tre linjer håndskrift i brunt blæk midt på arket, med en kort indledning foran den første linje",
+    "billedet, øverste ark: en halv snes linjer skrift langs venstre kant, drejet en kvart omgang (ikke transskriberet, se note)",
+    "billedet, øverste ark: skriften fra indersiden skinner igennem papiret",
+    "billedet, øverste ark: sort, ovalt laksegl under adressen",
+    "billedet, nederste ark: lysere og større end det øverste; rødbrunt frimærke i øverste højre hjørne annulleret med koncentriske ringe",
+    "billedet, nederste ark: kort skriftmærke med to bogstaver over adressen, derunder én linje og længere nede endnu én",
+    "billedet, nederste ark: rødt laksegl nederst midt på arket, revnet midt over",
+    "billedet, nederste ark: rundt poststempel til højre for seglet, kun delvis synligt (ikke læst, se note)",
+    "billedet, begge ark: gennemgående foldelinjer",
+    "pakken, brev 317's læsetekst: »Til  Herr Doctor Søren KjerkegaardØsterbro 108 A.  Kjøbenhavn« — udgaven lægger adressen i brevets egen læsetekst; grundlag for at kalde det øverste arks skrift en adresse",
+    "pakken, brev 317's læsetekst: »som en Qvinde der har Lyst til at gjøre det Forunderlige« og »en gammel 34 aarig Piges fulde dybe Tak« — grundlag for »en kvinde«",
+    "pakken, brev 317's læsetekst: underskriften »Deres taknemligeL H –« — grundlag for »kun underskriver sig L H«",
+    "pakken, brev 317's læsetekst: »Jeg har læst Deres »til Selvprøvelse Deres Indøvelse i Christendommen« — grundlag for »to bøger« (titlerne er ikke gengivet, se note)",
+    "pakken, brev 317's læsetekst: »jeg har virkelig læst dem saa godt som jeg formaaede med min hele Sjæl at læse« — citeret ordret som »med min hele Sjæl«",
+    "pakken, brev 317's læsetekst: »jeg har havt Egoisme nok til at trætte Dem med saa langt et Brev; forskrækkes jeg skamfuld« — citeret ordret som »saa langt et Brev«, grundlag for »undskylder«",
+    "pakken, brev 119's overskrift: Fra Emil Boesen · 25. sept. 1851 · til SK — grundlag for at nævne Boesen som brevets skriver",
+    "pakken, brev 119's læsetekst: »S. T.  Hr: Magister S: Kierkegaard.  Østerbro ved Kjøbenhavn.« — udgaven lægger adressen i brevets egen læsetekst; grundlag for at kalde det nederste arks skrift en adresse",
+    "pakken, brev 119's læsetekst: »Mange Tak for Dine 3 sidste Bøger, Du har sendt mig« — grundlag for »takker han for tre bøger«",
+    "pakken, brev 119's læsetekst: »et Par Ord engang imellem kunde Du dog gjerne skrive« og »Skriv engang til mig!« — grundlag for »beder om et par ord igen«",
+    "pakken, brev 119's læsetekst: »Du veed, hvor glad jeg bliver, naar jeg seer Din Udskrift« (citeret ordret)"
+  ],
+  "note": "Tvivl og fravalg: (1) Det ovale stempel på det øverste ark indeholder tal, hvor »3« og »52« forekommer læselige og et ciffer eller to foran dem ikke er det. Jeg gengiver intet af det — hverken i alt eller caption — og udleder ikke brevets datering af stemplet; dateringen står i overskriften ved siden af billedet i forvejen og er derfor heller ikke gentaget. (2) Det håndskrevne tal længst til venstre på det øverste ark (ligner »27«) er ikke gengivet: det kan være en arkiv- eller posthusnotering, og jeg kan hverken læse det sikkert eller belægge, hvad det er. (3) De skråt- eller tværtskrevne linjer langs det øverste arks venstre kant er ikke transskriberet og ikke forklaret. Jeg kan ikke afgøre, om det er brevets egen tekst, der fortsætter ud på ydersiden, eller en senere påskrift; antallet »en halv snes« er et forsigtigt skøn, fordi linjerne løber ud i kanten. (4) Ingen håndskrift er tilskrevet en person. Adresserne står i udgavens egne læsetekster som en del af hvert brev, og captionerne læner sig på dét — ikke på en vurdering af hænderne. Derfor står der »brev 119 fra Emil Boesen« og ikke »Emil Boesens hånd«. (5) Adressernes ordlyd er ikke transskriberet i alt-teksten: en scanning af kursiv fra 1850'erne er ikke noget, jeg vil gengive med sikkerhed. Metodens regel er fulgt — brevet er autoriteten, øjet et vidne. (6) Frimærkerne er ikke identificeret som nogen bestemt udgave, og deres værdi er kun gengivet, hvor den kan læses: »FIRE R.B.S.« står tydeligt på det øverste, mens det nederste mærkes tekst er dækket af annulleringen og derfor kun beskrevet ved farve og stempel. Om de to mærker er ens, siger jeg ikke. (7) Det runde poststempel til højre for det røde segl er kun delvis synligt og vender på hovedet i forhold til arket; det er ikke læst. (8) Det sorte laksegl er beskrevet som sort og intet andet. Sort lak kunne friste til en tolkning om sorg, og den er der intet belæg for. Seglenes aftryk (begge har et præg) er ikke beskrevet nærmere — motiverne kan jeg ikke se. (9) Det røde segl er revnet lodret midt over. Jeg skriver »brudt midt over« i captionen, men undlader at sige, at det skete ved åbningen — det er en rimelig læsning, ikke en iagttagelse. (10) Kommentarnote b-3272 om, at »L H« muligvis er Louise Hage, er BEVIDST ikke brugt: brevet underskriver sig L H og intet andet, og udgaven skriver selv »muligvis«. Af samme grund er b-5409's overvejelse om hendes alder ladt ude, selv om brevet selv siger »34 aarig«. (11) Titlerne på de to bøger i brev 317 er ikke gengivet. Brevets egne anførselstegn er uafsluttede og skrivemåden lille begyndelsesbogstav (»til Selvprøvelse«); at rette op på det ville være at citere kommentarens fulde titler, og det er viden, brevet ikke selv har. Samme grund til at de tre bøger i brev 119 blot er »tre bøger« — kommentarnote b-2409 navngiver dem, brevet gør ikke. (12) »Din Udskrift« i brev 119 står uforklaret i captionen. Kommentaren siger, hvad ordet dækker, men brevet gør ikke, og Notabene lader det mærkelige stå. Citatet handler om Kierkegaards påskrift på et brev til Boesen, ikke om den adresse, man ser på pladen; captionen siger derfor »Indeni«, så de to ikke kan forveksles. (13) Bevidst ikke koblet: begge breve er stilet til SK på Østerbro med et halvt års mellemrum, og det er formentlig derfor, de to blade er sat sammen på én planche. Udgaven siger det ikke, og jeg lader det være. (14) Papirernes størrelse er ikke angivet i mål; kun at det nederste ark er større og lysere end det øverste, som det ses af opstillingen. (15) De to id'er deler fil og sha256 og har hver sin caption efter Marias kald; alt-teksten er fælles og beskriver hele pladen, så den er sand begge steder.",
+  "repairs": []
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{
+  "image": "b308/ill_24.jpg; b79/ill_24.jpg",
+  "flags": [],
+  "visualNotes": ""
+}
+tokens used
+15.259
+{
+  "image": "b308/ill_24.jpg; b79/ill_24.jpg",
+  "flags": [],
+  "visualNotes": ""
+}

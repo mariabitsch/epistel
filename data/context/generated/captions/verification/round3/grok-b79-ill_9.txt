@@ -1,0 +1,5 @@
+Investigate: I'll verify the draft alt and caption against the image and the grounding packet only — no outside knowledge.I’ll compare the draft’s visual claims against the photograph itself, then check each caption statement against the packet.I’ll look at earlier rounds for this image only to calibrate severity, then judge this draft on the photograph and packet.{
+  "image": "b79/ill_9.jpg",
+  "flags": [],
+  "visualNotes": "Det store røde tegn nederst i midten er tallet 13. På venstre felt, mellem segl og midterfold, står et brunt mærke lig ½ plus en lodret streg. Adressen blander kurrent (»An«/»dem Her«) og latinsk kursiv (»Cand. theol. E. Boesen«, »Copenhagen«). Også højre kant har en trekantet foldeklap. Den store brune sløjfe yderst til højre ligner et paraf."
+}
