@@ -1,3 +1,107 @@
+Reading additional input from stdin...
+2026-08-26T18:27:20.325107Z ERROR codex_models_manager::cache: failed to load models cache: missing field `base_instructions` at line 97 column 5
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03f53-ad14-7980-a985-2f9bd922b9b7
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Note (added for the full round, 2026-08-26, after the trial):
+the edition abbreviates Søren Kierkegaard as »SK« (e.g. »Fra SK« in
+letter headings). Expanding »SK« to »Kierkegaard« or »Søren
+Kierkegaard« is NOT an ungrounded claim — the grounding packet's
+edition is Søren Kierkegaards Skrifter, and this instruction states it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b241/ill_k9.jpg
+
+Billedfil: `data/vendor/b241/ill_k9.jpg` (tilladt primærkilde).
+
+## Manifest-post: b241/ill_k9.jpg (export/images.json)
+```json
+{
+ "id": "b241/ill_k9.jpg",
+ "path": "letters/b241/ill_k9.jpg",
+ "source": {
+  "path": "data/v1.9/b241/ill_k9.jpg",
+  "sha256": "10e5310d6801dd6cca7565347302eb1fe6a86725ed9eb339a41520a2031a71b2"
+ },
+ "figures": [],
+ "pageBreaks": [
+  {
+   "volume": "b241",
+   "file": "txt.xml",
+   "xmlId": "id177f5713-b95f-4ec8-bc1d-c7fd67aa3daa",
+   "n": "1r",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b241/ill_k9.jpg",
+   "letter": "256",
+   "letterXmlId": "n256"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- (ingen — ingen figur har en head)
+
+## Brev 256 (b241) — overskrift og læsetekst
+Overskrift: Fra SK · udateret · til ukendt
+
+Da Ansøgeren gjennem en Række Aar er mig nøiere Bekjendt og i enhver Henseende til hans Fordeel, skjønt fra mange Sider dog altid fra den meest fordeelagtige: er det mig en Tilfredsstillelse paa det Varmeste at anbefale ham. Hvor almindelig derfor end denne Anbefaling kan lyde, saa meget er vist, Ansøgerens Værdighed er ualmindelig – det vil sige, jeg kjender idetmindste ikke eet Menneske til, som jeg saaledes vilde føle mig forpligtet til at anbefale.ærbødigstS. Kierkegaard.
+
+## Kommentarnote b-5237 (b241/kom.xml, ordret)
+Lemma: Ansøgeren
+
+Hvem ansøgeren er, har ikke ladet sig identificere.
+---
+The draft JSON under verification (contents inline):
+---
 {
   "id": "b241/ill_k9.jpg",
   "alt": "Et bredt, lavt stykke lyst papir beskrevet med håndskrift i mørkt blæk. Otte linjer løbende skrift fylder papirets bredde; den ottende linje ender tidligere end de øvrige og efterlader et tomt stykke til højre. Nederst til højre står to kortere linjer: et enkelt ord og under det underskriften »S. Kierkegaard« med en stor sløjfe på det sidste bogstav. Over anden linje er et lille ord skrevet ind. Papiret har en lodret foldelinje ned gennem midten og en vandret på tværs af den nederste del, begge med et svagt blågrønt skær. Langs højre kant sidder flere brunlige og grå pletter, og en lille mørk plet ses nede midt på arket.",
@@ -30,3 +134,10 @@
     }
   ]
 }
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{"image":"b241/ill_k9.jpg","flags":[],"visualNotes":""}
+tokens used
+4.618
+{"image":"b241/ill_k9.jpg","flags":[],"visualNotes":""}

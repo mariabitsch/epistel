@@ -28,6 +28,10 @@
     {
       "flag": "codex+grok runde 2, fejl: »resten står ubeskrevet« modsiges af blyantspåskriften, som alt-teksten selv beskriver lige efter",
       "action": "arbitreret: bisætningen droppet."
+    },
+    {
+      "flag": "overlaps-undersøgelsen: HØJ overlap med resuméet for brev 117 (kort indbydelse — anker og resumé kan dårligt undgå hinanden)",
+      "action": "bevidst IKKE forkortet: Maria citerede captionen som en af rundens guldklumper i doktor-runden (2026-08-26); hendes dom vejer tungere end overlapsreglen her."
     }
   ]
 }

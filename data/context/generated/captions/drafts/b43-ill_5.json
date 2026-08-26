@@ -1,7 +1,7 @@
 {
   "id": "b43/ill_5.jpg",
   "alt": "Et gulnet manuskriptblad, beskrevet med brunt blæk i sin øverste del; resten af bladet står tomt. Øverst til højre en kort dateringslinje, hvor dag og måned er skrevet som en brøk over hinanden. Derunder seks linjer løbende tekst, en højrestillet slutningshilsen og en underskrift, og nedenfor til venstre to kortere linjer. Ude i venstre margen står et enkelt ord, »Copi«, ud for næste afsnit, der begynder med en indrykket tiltale, efterfulgt af en højrestillet linje, fire linjer tekst og til sidst to højrestillede linjer med hilsen og underskriften »Victor Eremita«. Papiret har brunlige pletter og synlige folde- og slidmærker langs kanterne.",
-  "caption": "Brevets første blad bærer to underskrifter. Øverst melder Giødwad med sit eget navn, at et forseglet brev til Victor Eremita er blevet afleveret på Kierkegaards bopæl; nedenunder står afskriften af svaret, »jeg har aldrig noget færdigt«, underskrevet Victor Eremita.",
+  "caption": "Brevets første blad bærer to underskrifter: øverst Giødwads eget navn, nederst — under afskriften af svaret — Victor Eremita.",
   "credit": null,
   "sources": [
     "pakken, udgavens head: »5. Brev 53, bl. [1r]« — grundlag for »Brevets første blad«",
@@ -24,6 +24,10 @@
     {
       "flag": "codex runde 1, tvivl: »øverste to tredjedele« — skriften fylder snarere den øverste halvdel",
       "action": "arbitreret: to læsere, to brøker — andelen generaliseret til »sin øverste del«. Grok var ren."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
     }
   ]
 }

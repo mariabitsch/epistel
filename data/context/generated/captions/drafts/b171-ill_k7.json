@@ -1,7 +1,7 @@
 {
   "id": "b171/ill_k7.jpg",
   "alt": "Et højformat brevark med en dekorativ ramme i guldfarve om et tomt skrivefelt. Øverst en symmetrisk ranke, der i midten samles om to runde rosetter med lyseblå bund og små røde prikker. Langs begge sider står en høj stængel med smalle blade og nedhængende ranker; midt på hver sidder et vinget fabeldyr med fugleagtigt hoved, og under det en frugtlignende knop med to hængende dusker. Nederst en bort af snoede ranker med en urnelignende figur i midten og palmetter i hjørnerne. Inden for rammen er papiret tomt — ingen skrift, kun enkelte små pletter, et utydeligt gråt spor øverst til højre og et par svage, lyse aftryk i papiret foroven og forneden. Arket er cremefarvet og let plettet langs kanterne.",
-  "caption": "Forsiden af brevet til nevøen Michael Lund er optaget af guld: ranker, dusker og to vingede fabeldyr om et felt, hvor der ikke står et ord. Kierkegaard begynder derfor sit svar inde i arket, »da en Kunstner har ladet das unvordenkliche Seyn, das allem Denken zuvorkommt, gaae iforveien« — Schellings yndlingsudtryk, som Michael skal vise videre til onkel Peter. Den 31. januar vælger han »atter« papir af lignende art; det skal minde Michael om, at onklen er i Berlin.",
+  "caption": "Forsiden af brevet til nevøen Michael Lund er optaget af guld: ranker, dusker og to vingede fabeldyr om et felt, hvor der ikke står et ord. Kierkegaard begynder derfor sit svar inde i arket.",
   "credit": null,
   "sources": [
     "billedet: højformat ark, dekorativ ramme i guldfarve, skrivefeltet inden for rammen uden skrift",
@@ -24,6 +24,14 @@
     {
       "flag": "grok runde 1, tvivl: »blyantsspor« — mediet kan ikke belægges",
       "action": "arbitreret: generaliseret til »gråt spor«. Codex var ren."
+    },
+    {
+      "flag": "doktor-runden (Maria, 2026-08-26): captionens slutsætning refererede brev 190 af 31. jan. — et senere brev end det afbildede brev 189",
+      "action": "sætningen fjernet; captionen bliver på det afbildede brevs egen side. Ren sletning, ingen nye påstande."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
     }
   ]
 }

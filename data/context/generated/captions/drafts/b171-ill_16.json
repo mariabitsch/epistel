@@ -1,7 +1,7 @@
 {
   "id": "b171/ill_16.jpg",
   "alt": "Et håndskrevet brevark med en dekorationsramme i gulgrøn farve. Øverst i rammen sidder tre landskabsvignetter med klassicistiske søjlebygninger, hver med sit navn under sig i gotiske bogstaver: »Opernhaus« til venstre, »Museum« i midten og »Schauspielhaus« til højre. Midtervignetten er størst og viser en lang søjlefacade med høje træer og nogle små figurer foran. Rammen fortsætter ned ad begge sider som snoede rocailleornamenter og tynde ranker, med en lille skråtstillet billedramme om et utydeligt motiv midt i hver sidebort, og lukkes forneden af en bort med et vifteformet skalmotiv i midten. Inden for rammen står brevteksten med brunt blæk i ældre, tæt kursiv: tiltalen »Min kjære Jette!« øverst i midten, »d. 13 Dec.« ude til højre og »Berlin.« under den til venstre, derefter tre afsnit, der fylder skrivefeltet på nær en stribe forneden. Papiret er cremefarvet med spredte små brune pletter og et blegt mærke øverst i højre hjørne; arket er fotograferet mod hvid bund, og dets højre kant kaster en smal skygge.",
-  "caption": "Jettes fødselsdag faldt, mens Kierkegaard var i Berlin, og planen om en foræring fra Königstraße opgav han. Hun fik i stedet sin gratulation på dette papir, hvis ramme »forestiller 3 store Bygninger i Berlin« — og foran museet står de træer, brevet beder hende se efter på tegningen.",
+  "caption": "Fødselsdagshilsenen til Jette, skrevet i Berlin på papir, hvis ramme »forestiller 3 store Bygninger i Berlin« — og foran museet står de træer, brevet beder hende se efter på tegningen.",
   "credit": null,
   "sources": [
     "pakken, udgavens head: »16. Brev 176, bl. [1r]« — billedet er brev 176's første blad, forsiden; ingen fotokredit i head, derfor credit = null",
@@ -38,6 +38,14 @@
     {
       "flag": "codex runde 2, tvivl: »trykt dekorationsramme« — nu kun i en source-linje; alt/caption var allerede renset",
       "action": "source-linjen bragt i overensstemmelse (»dekorationsramme i gulgrøn farve«); teknikken påstås ingen steder."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
+    },
+    {
+      "flag": "codex efter forkortelsen, fejl: »Jettes fødselsdagshilsen« kunne læses som en hilsen fra Jette",
+      "action": "arbitreret: omskrevet til »Fødselsdagshilsenen til Jette« — afsenderretningen entydig."
     }
   ]
 }

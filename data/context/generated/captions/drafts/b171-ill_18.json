@@ -1,7 +1,7 @@
 {
   "id": "b171/ill_18.jpg",
-  "alt": "Fotografi af et håndskrevet brevblad i høj portrætformat: cremefarvet, let gulnet papir med brede margener. Den øverste fjerdedel står tom; derunder begynder teksten med tiltalen »Min kjære Carl.« og løber i en skrå, tæt kursiv med brunt blæk gennem en række indrykkede afsnit ned til en afsluttende linje og en kort linje i højre side nederst. To vandrette foldelinjer krydser bladet, cirka en tredjedel og cirka tre fjerdedele nede. Flere brune pletter sidder på papiret: en stor øverst mod midten, en ved venstre kant omtrent midtvejs og endnu en stor ved venstre kant nær den nederste foldelinje, hvor den går ind over skriftens linjer; i venstre margen ses et par små runde mørke prikker. Svage, lysere mønsterspor anes i papiret øverst til venstre og langs den øverste højre kant. Nederst til højre sidder et lille rødligt mærke, og ",
-  "caption": "Bagsiden af brev 193, halvdelen til nevøen Carl. Kierkegaard havde længe betragtet »en tynd Stok« i vinduet hos en kunstdrejer; da han endelig trådte ind i butikken, slog han en stor rude i stykker, betalte ruden og lod stokken stå.",
+  "alt": "Fotografi af et håndskrevet brevblad i høj portrætformat: cremefarvet, let gulnet papir med brede margener. Den øverste fjerdedel står tom; derunder begynder teksten med tiltalen »Min kjære Carl.« og løber i en skrå, tæt kursiv med brunt blæk gennem en række indrykkede afsnit ned til en afsluttende linje og en kort linje i højre side nederst. To vandrette foldelinjer krydser bladet, cirka en tredjedel og cirka tre fjerdedele nede. Flere brune pletter sidder på papiret: en stor øverst mod midten, en ved venstre kant omtrent midtvejs og endnu en stor ved venstre kant nær den nederste foldelinje, hvor den går ind over skriftens linjer; i venstre margen ses nogle få små runde mørke prikker. Svage, lysere mønsterspor anes i papiret øverst til venstre og langs den øverste højre kant. Nederst til højre sidder et lille rødligt mærke, og ",
+  "caption": "Bagsiden af brev 193, halvdelen til nevøen Carl: her står historien om »en tynd Stok« hos kunstdrejeren.",
   "credit": null,
   "sources": [
     "billedet: cremefarvet, let gulnet blad i høj portrætformat med brede margener; den øverste fjerdedel uden skrift",
@@ -38,6 +38,14 @@
     {
       "flag": "grok runde 2, fejl: kun to prikker synlige — grok runde 1 talte selv tre",
       "action": "arbitreret: læserens egen tælling svinger mellem runderne — tallet generaliseret til »et par«. Codex runde 2: ren."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
+    },
+    {
+      "flag": "codex efter forkortelsen, fejl: tæller tre prikker mod »et par« — læsernes tælling har svinget 3/2/3 gennem runderne",
+      "action": "arbitreret: generaliseret helt (»nogle få«), så ingen tælling påstås."
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "id": "b120/ill_12.jpg",
   "alt": "Et gulnet, håndskrevet ark med iturevne kanter og lyse, halvgennemsigtige strimler langs overkanten. Øverst til venstre står trykt »N. 4.« ved siden af et kronet monogram med romertallet VIII over et våbenskjold med løver, og til højre for det med frakturskrift »Fierde Klasse« efterfulgt af et håndskrevet tal, »til Documenter efter Stempelpapirs Forordningens §. 5. litt. d.« og en trykt værdiangivelse, der begynder »42« og ender »Sølv.«; nedenunder linjen »Bentzen. 1841. Falkenskiold«. Øverst til højre er der med store, svungne bogstaver skrevet »Til Kongen!«. Resten af siden er skrevet med brunt blæk i to spalter, tilsyneladende med samme hånd: den venstre har en dateringslinje og ét afsnit på ni linjer og er derefter tom hele vejen ned, mens den højre er fuldskrevet med to afsnit helt ud til arkets nederste kant, hvor det sidste ord er delt midt over. Nederst til venstre står en kort påtegning i en anden hånd med tal og en datobrøk.",
-  "caption": "»Til Kongen!« står der øverst, med sving: Kierkegaard beder Christian VIII om lov til at indlevere sin magisterafhandling »om Begrebet Ironi med stadigt Hensyn til Socrates« »i Modersmaalet«. Ærindet står to gange på det stemplede ark — kort i venstre spalte, udførligt i højre, og den udførlige når ikke at blive færdig på bladet.",
+  "caption": "»Til Kongen!« står der øverst, med sving. Ærindet — lov til at indlevere afhandlingen »i Modersmaalet« — står to gange på det stemplede ark: kort i venstre spalte, udførligt i højre, og den udførlige når ikke at blive færdig på bladet.",
   "credit": null,
   "sources": [
     "pakken, udgavens head: »12. Brev 122, bl. [1r]« — grundlag for, at arket er brev 122's første blad (og for »på bladet«)",
@@ -26,6 +26,14 @@
     {
       "flag": "grok runde 1, tvivl: »42 Rigsbankskilling Sølv.« — frakturordet efter »42« står ikke i pakken og er flertydigt i billedet (lang s/k/t)",
       "action": "arbitreret mod billedet: kun de robuste dele citeres (»42«, »Sølv.«), det flertydige ord generaliseret til »en trykt værdiangivelse«."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
+    },
+    {
+      "flag": "codex efter forkortelsen, fejl: »skrive« — ansøgningen gælder at indlevere den udarbejdede afhandling på modersmålet",
+      "action": "arbitreret: forkortelsen havde forvansket verbet — »indlevere« genindsat."
     }
   ]
 }

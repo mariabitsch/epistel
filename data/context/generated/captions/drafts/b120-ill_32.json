@@ -1,7 +1,7 @@
 {
   "id": "b120/ill_32.jpg",
   "alt": "Et cremefarvet ark papir, fotograferet mod en lys baggrund. Øverst står omkring ti linjer håndskrift i brun blæk, skråtstillet latinsk kursiv; den første linje begynder midt i en sætning, og et par af linjerne ender med et ord, der er delt hen over linjeskiftet. Under teksten står en kortere linje omtrent midt på arket, »Hauniæ die 2 Junii. 1840.«, og efter et tomt mellemrum følger tre indrykkede linjer, som slutter med en vandret streg. Den nederste halvdel af arket er ubeskrevet; dér anes kun svage, blågrå skygger, og i nederste højre hjørne et lille, udvisket gråligt mærke.",
-  "caption": "Brevets anden side begynder midt i sætningen: Kierkegaard fortæller Københavns Universitet, at han sagde teologien helt farvel — »omnino theologiæ valedixi« — og at han aldrig havde taget de forladte studier op igen, hvis ikke faderens død havde bundet ham ved et slags løfte. Under datoen står listen over, hvad han har læst af Det Gamle Testamente.",
+  "caption": "Brevets anden side begynder midt i sætningen: »omnino theologiæ valedixi« — sagt til Københavns Universitet. Under datoen står listen over, hvad han har læst af Det Gamle Testamente.",
   "credit": null,
   "sources": [
     "pakken, udgavens head: »Brev 121, bl. [1v]« — siden er brev 121's eget blad, versosiden; grundlag for »brevets anden side«",
@@ -29,6 +29,10 @@
     {
       "flag": "grok runde 1 (genkørsel), tvivl: gennemslags-skriften kan ikke bekræftes — kun svage blågrå skygger ses",
       "action": "arbitreret: omskrevet til det robuste (»svage, blågrå skygger«), gennemslags-tolkningen droppet."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
     }
   ]
 }

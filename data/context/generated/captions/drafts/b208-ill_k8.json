@@ -1,7 +1,7 @@
 {
   "id": "b208/ill_k8.jpg",
   "alt": "Håndskrevet brevside på cremefarvet papir med en vandret foldelinje midt over og let slidte kanter. Øverst til venstre står et kort understreget ord og dernæst en note på tre linjer i skarpe klammer, og under den tiltalen »Kjere Giødvad«, understreget. Tværs over sidens øverste del ligger en række kraftige skrå streger, som overstreger et par linjer svag blyantskrift; i samme felt står »No 234.« med rødt, og til venstre ses to orange kridtstreger. Resten af siden er tre afsnit med brun blækhåndskrift. I det midterste afsnit er en hel linje streget ud med ét langt strøg, et ord er tilføjet over linjen, og en tilføjelse er skrevet ind i højre margen. Nederst midt på siden står med blyant »[XI 3 B 12«.",
-  "caption": "Brevets første side: Kierkegaard afbryder den faste ugedag hos vennen Giødwad, redaktør af »Fædrelandet«, fordi bladet efter Kierkegaards dom har handlet uforsvarligt med hans forfattervirksomhed. Dér står sætningen: »Jeg ønsker blot min Frihed, og saa veed Gud vil jeg gjerne see Dem.« Brevet blev aldrig sendt.",
+  "caption": "Brevets første side — det brev, der aldrig blev sendt. Dér står sætningen: »Jeg ønsker blot min Frihed, og saa veed Gud vil jeg gjerne see Dem.«",
   "credit": null,
   "sources": [
     "billedet: cremefarvet ark med én vandret foldelinje omtrent midt over siden, let slidte og bølgede kanter, spredte små pletter",
@@ -27,6 +27,10 @@
     {
       "flag": "codex runde 1, fejl: »Siden slutter: …« — citatet er ikke sidens sidste linje; flere afsnit følger nedenfor",
       "action": "arbitreret mod billedet: positionspåstanden droppet (»Dér står sætningen: …«). Grok var ren."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
     }
   ]
 }

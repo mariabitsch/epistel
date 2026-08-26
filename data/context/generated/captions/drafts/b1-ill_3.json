@@ -1,7 +1,7 @@
 {
   "id": "b1/ill_3.jpg",
   "alt": "To fotografier under hinanden, hvert af et udfoldet brevark set fra den side, der bærer adressen. Begge ark er skrevet med brunt blæk i den samme hånd: »Til« på en linje for sig, derunder »Hr Pastor Dr. Kierkegaard«, og længere nede »At aabne efter min Død.« Det øverste ark er stort og har tydelige foldelinjer i et gitter; det bærer rester af mørk, næsten sort lak ved både øverste og nederste kant, og ved den nederste lakklat ses desuden en lys, oval plet. Langs det øverste arks højre kant står en lodret, kun delvis læselig påskrift med blyant. Det nederste ark er lavere, har svagere foldelinjer og rød lak ved både venstre og højre kant; dets nederste halvdel er tom.",
-  "caption": "To udskrifter til den samme mand, Kierkegaards bror, og uden på begge den samme besked: »At aabne efter min Død.« Øverst brev 20, det med den sorte lak, som gør Regine Schlegel til arving efter en forlovelse, Kierkegaard regner for lige så forpligtende som et ægteskab; nederst brev 22, det med den røde, hvor hun er »Den Ubenævnte, hvis Navn engang vil nævnes,« som hele forfattervirksomheden er tilegnet.",
+  "caption": "To udskrifter til den samme mand, Kierkegaards bror, og uden på begge den samme besked: »At aabne efter min Død.« Øverst brev 20, det med den sorte lak; nederst brev 22, det med den røde.",
   "credit": null,
   "sources": [
     "pakken, udgavens head: »3. Udskrift til Brev 20 (øverst) og til Brev 22 (nederst)« — eneste grundlag for at det øverste ark hører til brev 20 og det nederste til brev 22, og for ordet »udskrift«",
@@ -37,6 +37,10 @@
     {
       "flag": "grok runde 2, tvivl: »længere nede til højre« gælder kun det øverste ark — på det nederste står linjen nærmere midten",
       "action": "arbitreret mod billedet: placeringen generaliseret til »længere nede«."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
     }
   ]
 }

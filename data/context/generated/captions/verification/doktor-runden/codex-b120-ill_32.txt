@@ -1,0 +1,169 @@
+Reading additional input from stdin...
+2026-08-26T18:27:20.323398Z ERROR codex_models_manager::cache: failed to load models cache: missing field `base_instructions` at line 97 column 5
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03f53-ab19-76b2-9702-89af124c6662
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Note (added for the full round, 2026-08-26, after the trial):
+the edition abbreviates Søren Kierkegaard as »SK« (e.g. »Fra SK« in
+letter headings). Expanding »SK« to »Kierkegaard« or »Søren
+Kierkegaard« is NOT an ungrounded claim — the grounding packet's
+edition is Søren Kierkegaards Skrifter, and this instruction states it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b120/ill_32.jpg
+
+Billedfil: `data/vendor/b120/ill_32.jpg` (tilladt primærkilde).
+
+## Manifest-post: b120/ill_32.jpg (export/images.json)
+```json
+{
+ "id": "b120/ill_32.jpg",
+ "path": "letters/b120/ill_32.jpg",
+ "source": {
+  "path": "data/v1.9/b120/ill_32.jpg",
+  "sha256": "e87118bc5f3f9e51f3b66d3421eb04b931bc71ea610d7a9a2a796e3831894b9e"
+ },
+ "figures": [
+  {
+   "volume": "b120",
+   "file": "txt.xml",
+   "xmlId": "ill_32",
+   "type": null,
+   "rend": "recto",
+   "url": "../B120/ill_32.jpg",
+   "head": [
+    "Brev 121, bl. [1v]"
+   ],
+   "figDesc": null,
+   "letter": "121",
+   "letterXmlId": "n121"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b120",
+   "file": "txt.xml",
+   "xmlId": "ide99a09ae-674f-41db-9a6d-310e70cef103",
+   "n": "1v",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b120/ill_32.jpg",
+   "letter": "121",
+   "letterXmlId": "n121"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- Brev 121, bl. [1v]
+
+## Brev 121 (b120) — overskrift og læsetekst
+Overskrift: Fra SK · 2. juni 1840 · til Københavns Universitet
+
+   Brev 121, bl. [1r] S. V. Theologorum ordini in universitate Hafniensi!     S. P. D.     Severinus Aabye Kierkegaard.      Natus sum Hauniæ 1813 d. 5. Mai, Michael Petersen Kierkegaard, olim mercatorem, jam defunctum veneror. Dimissus c. laude ex schola privata Haufniensi 1830, quum priora examina hujus nostræ universitatis L E P E O. absolvissem, ad theologiam animum et mentem ita contuli, ut exegeticas et historicas disciplinas amplecti atque retinere maxime mihi haberem propositum. Frequentavi igitur assidue prælectiones hujus nostræ universitatis; quibus temporibus quanti ad me ex hisce prælectionibus redundaverint fructus, quanta subsidia, equidem non possum non hodie grato animo recordari. Decursu vero temporum, quum in dies magis magisque fines theologiæ egrederer, pleno vento ad illud philosophiæ studium, quod tunc temporis  præcipue inter nos innotuit atque esplenduit, delatus, in animum induxi Brev 121, bl. [1v]neque me, qui theologiæ, neque theologiam esse, quæ mihi satisfaceret, et omnino theologiæ valedixi. Quæ quum ita essent, libere fateor, me, ni mors patris me voto quodammodo obstrinxisset, nunquam a me impetrasse, ut vestigia jam derelicta studia jam oblivioni  tradita denuo succiperem. Fluctus igitur renatare conatus, qui quondam feliciora auspicatus eram, nunc beatior ad vos redeo professores summe venerabiles, et studia mea vobis quam maxime commendata velim.    Hauniædie 2 Junii. 1840.    Ex vetere Testamento legi: Genesin, XVI psalmos ex primo libro psalmorum, librum quartum psalmorum, IX pr: capita Exodi. – 
+
+## Kommentarnote b-2488 (b120/kom.xml, ordret)
+Lemma: S. V. Theologorum ordini in universitate Hafniensi ... Hauniæ die 2 Junii. 1840
+
+lat., Søren Aabye Kierkegaard hilser hjerteligt det højstærede kollegium af teologer på Københavns Universitet. / Jeg blev født i København den 5. maj 1813 og mindes [min fader,] den tidligere købmand, nu afdøde Michael Petersen Kierkegaard med ærefrygt. Da jeg som dimittend med førstekarakter fra en privatskole i København havde bestået de indledende eksaminer på dette vort universitet, indkaldt med udmærkelse, rettede jeg min opmærksomhed og koncentration mod teologien således, at jeg besluttede mig for særligt at fordybe mig i og opholde mig ved de eksegetiske og historiske discipliner. Jeg har derfor flittigt overværet forelæsningerne på dette vort universitet. Hvor stort et udbytte, der dengang skyllede ind over mig fra netop disse forelæsninger, og til hvilken støtte de var, kan jeg i dag slet ikke mindes uden taknemlighed. Mens jeg, som tiden gik, imidlertid bevægede mig længere og længere væk fra teologiens enemærker, var alle sejl sat til for det studium af filosofien, som på det tidspunkt blev kendt og lyste op hos os. Optaget heraf indså jeg, at hverken kunne jeg tilfredsstille teologien, eller teologien tilfredsstille mig, så jeg opgav teologien fuldstændigt. Jeg indrømmer åbent, at jeg ikke af mig selv var nået frem til den beslutning, at jeg atter skulle træde ind på den sti, jeg havde forladt, og genoptage de studier, der var gået i glemsel, hvis min faders død ikke havde forpligtet mig ved en form for løfte. Idet jeg altså har anstrengt mig for at svømme tilbage gennem bølgerne – i sin tid kom jeg heldigere fra start – vender jeg nu tilbage til jer, højstærede professorer, og jeg ønsker hermed at anbefale jer mine studier på det kraftigste. / København den 2. juni 1840. – S. V.: lat. forkortelse enten for 'summe venerabili' el. for 'summe venerabilium'. – S. P. D.: fast forkortelse for den lat. brevhilsen 'salutem plurimam dicit'. – Michael Petersen Kierkegaard: egl. Michael Pedersen Kierkegaard (1756-1838), døbt Michel den 12. dec. 1756 i Sædding Kirke, jf. »Ministerial-Bog over særdeles Kirkelige-Forretninger i Sæding fra Aar 1703«, fol. 134; løste i 1780 borgerskab som hosekræmmer i København, opnåede otte år senere tilladelse til at importere kolonialvarer og videresælge dem en gros, trak sig i en alder af 40 år tilbage med en betragtelig formue, som han i tiden efter forøgede, formentlig som rentier og investor. Efter sin første kones død giftede han sig i 1797 med Anne Lund, med hvem han fik syv børn, tre døtre, som var de ældste, og fire sønner, hvoraf P.C. Kierkegaard var den ældste og SK den yngste. Købte i 1808 ejendommen på Nytorv, Vestre kvarter, matrikelnr. 2 (se kort 2, B1-2), hvor han boede fra 1809 til sin død. – c. laude: cum laude, lat., med udmærkelse (førstekarakter ved eksamen). – ex schola privata Haufniensi: lat., sigter til Borgerdydsskolen, københavnsk privatskole for borgerskabets sønner, stiftet af Selskabet for Borgerdyd og åbnet den 1. maj 1787, to år senere delt i to skoler, hvoraf den ene blev til Borgerdydskolen på Christianshavn og den anden til Borgerdydsskolen i København, der fra 1813 fik til huse på første og anden sal i Den Gyldendalske Boghandels Gård i Klareboderne 8, gadenr. 3 (se kort 2, C2), og som på samme tid var kommet under Michael Nielsens ledelse (se nedenfor). Fra Borgerdydsskolen kunne drengene dimitteres til Københavns Universitet for dér at tage den adgangsgivende 'examen artium', svarende til senere tiders studentereksamen. – L E P E O: fast lat. forkortelse for 'laude (el. laudabilis ()) et publico encomio ornatus', normalt gengivet på da. med udtrykket 'indkaldt med udmærkelse'; tilføjelsen 'publico encomio ornatus' betyder egl. 'hædret med offentlig ros', hvilket hentyder til den praksis, at en studerende, der havde taget eksamen med karakteren 'udmærkelse' i tillæg som en yderligere anerkendelse kunne blive 'indkaldt' til ros hos rektor (jf. 'laudabilis præ ceteris' ()).
+
+## Kommentarnote b-2489 (b120/kom.xml, ordret)
+Lemma: Ex vetere Testamento legi: Genesin ... IX pr: capita Exodi
+
+lat., Af Det gamle Testamente har jeg læst: Første Mosebog, 16 salmer fra Salmernes første Bog, Salmernes fjerde Bog, de første 9 kapitler i Anden Mosebog.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b120/ill_32.jpg",
+  "alt": "Et cremefarvet ark papir, fotograferet mod en lys baggrund. Øverst står omkring ti linjer håndskrift i brun blæk, skråtstillet latinsk kursiv; den første linje begynder midt i en sætning, og et par af linjerne ender med et ord, der er delt hen over linjeskiftet. Under teksten står en kortere linje omtrent midt på arket, »Hauniæ die 2 Junii. 1840.«, og efter et tomt mellemrum følger tre indrykkede linjer, som slutter med en vandret streg. Den nederste halvdel af arket er ubeskrevet; dér anes kun svage, blågrå skygger, og i nederste højre hjørne et lille, udvisket gråligt mærke.",
+  "caption": "Brevets anden side begynder midt i sætningen: »omnino theologiæ valedixi« — sagt til Københavns Universitet. Under datoen står listen over, hvad han har læst af Det Gamle Testamente.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »Brev 121, bl. [1v]« — siden er brev 121's eget blad, versosiden; grundlag for »brevets anden side«",
+    "pakken, manifest-posten: figure med rend »recto« og pageBreak med n »1v«, facs »../b120/ill_32.jpg«, letter »121« — sidens plads i brevet",
+    "pakken, brev 121's læsetekst: sideskiftet står midt i en sætning, »in animum induxi Brev 121, bl. [1v]neque me, qui theologiæ, neque theologiam esse, quæ mihi satisfaceret« — grundlag for »begynder midt i sætningen«",
+    "billedet, linje 1: siden åbner med »neque me, qui theologiæ, neque theologiam esse,« — samme ord som læsteksten efter sideskiftet",
+    "pakken, brev 121's overskrift: »Fra SK · 2. juni 1840 · til Københavns Universitet« — grundlag for »Københavns Universitet« og for at kalde skriveren Kierkegaard (et formelt brev, ikke et familiebrev)",
+    "pakken, brev 121's læsetekst: »et omnino theologiæ valedixi« (citeret ordret efter læsteksten); i billedet står ordet delt som »vale=« i linje 2 og »dixi.« i linje 3",
+    "pakken, kommentarnote b-2488: »så jeg opgav teologien fuldstændigt« — udgavens egen oversættelse; grundlag for den danske gengivelse »sagde teologien helt farvel«",
+    "pakken, brev 121's læsetekst: »libere fateor, me, ni mors patris me voto quodammodo obstrinxisset, nunquam a me impetrasse, ut vestigia jam derelicta studia jam oblivioni tradita denuo succiperem«",
+    "pakken, kommentarnote b-2488: »Jeg indrømmer åbent, at jeg ikke af mig selv var nået frem til den beslutning, at jeg atter skulle træde ind på den sti, jeg havde forladt, og genoptage de studier, der var gået i glemsel, hvis min faders død ikke havde forpligtet mig ved en form for løfte« — grundlag for hele den anden ledsætning i captionen",
+    "billedet, linje efter tekstblokken: »Hauniæ die 2 Junii. 1840.« står alene, omtrent midt på arket; samme ordlyd som læstekstens »Hauniædie 2 Junii. 1840.«",
+    "pakken, brev 121's læsetekst: »Ex vetere Testamento legi: Genesin, XVI psalmos ex primo libro psalmorum, librum quartum psalmorum, IX pr: capita Exodi. –« — de tre indrykkede linjer under datoen",
+    "pakken, kommentarnote b-2489: »Af Det gamle Testamente har jeg læst: Første Mosebog, 16 salmer fra Salmernes første Bog, Salmernes fjerde Bog, de første 9 kapitler i Anden Mosebog« — grundlag for »hvad han har læst af Det Gamle Testamente«",
+    "billedet: elleve tætskrevne linjer øverst, derefter datolinjen, derefter tre indrykkede linjer med bredere linjeafstand, sluttende med en vandret streg",
+    "billedet: den nederste halvdel af arket er ubeskrevet; svag skrift skinner igennem fra den anden side, og i nederste højre hjørne sidder et lille, udvisket gråligt mærke",
+    "billedet: blækket er brunt, papiret cremefarvet uden synlige rifter eller brune pletter"
+  ],
+  "note": "Tvivl og fravalg: (1) Jeg transskriberer intet fra billedet ud over det, læsteksten selv trykker. Den latinske kursiv er for mig kun delvis læsbar; alt, jeg citerer, er sammenholdt ord for ord med pakkens læsetekst, og hvor jeg ikke kunne følge skriften (fx linje 4-7's ordslutninger), siger jeg intet. (2) Citatet »omnino theologiæ valedixi« er sat i læstekstens form. I manuskriptet står ordet delt over linjeskiftet, »vale« i linje 2 og »dixi.« i linje 3, med et lille tegn efter »vale«. Tegnets form (to korte parallelle streger?) beskriver jeg ikke, for et lignende tegn står også efter »tradita« i linje 6, hvor der ikke er nogen orddeling — så jeg kan ikke afgøre, hvad tegnet betyder, og alt-teksten siger kun, at nogle ord er delt hen over linjeskiftene. (3) Jeg tæller elleve linjer i den øverste blok og tre i den nederste; tallene er talt på billedet i fuld opløsning, men linje 11 er kortere end de øvrige, og hvis en modlæser tæller anderledes, skal tallene generaliseres. (4) Den svage skrift i den blanke nederste halvdel: jeg påstår ikke, at det er brevets rectoside, der skinner igennem (det ville passe med »bl. [1v]«, men jeg kan hverken læse spejlvendte ord eller udelukke afsmitning fra et naboblad). Alt-teksten siger derfor kun »skrift, der skinner igennem fra papirets anden side« — det er den ene slutning i alt-teksten, der ikke er ren aflæsning; hvis den falder, kan den skrives om til »svage, ulæselige spor«. (5) Mærket i nederste højre hjørne er gråblåt og udvisket; det kunne være et stempel eller et arkivmærke, men intet af det kan læses, så det beskrives kun som et mærke og indgår ikke i captionen. (6) Langs arkets venstre kant løber en smal, mørkere stribe. Jeg kan ikke afgøre, om det er en fold, en beskæringskant eller skygge mod baggrunden, og har udeladt den. (7) Ikke brugt fra kommentarnoten b-2488: faderens fulde biografi (Michael Pedersen Kierkegaard, 1756-1838, hosekræmmer, Nytorv), Borgerdydsskolen, forkortelserne S. V., S. P. D. og L E P E O. Alt sammen sandt og alt sammen viden, brevet ikke selv har — kun notens oversættelse af brevets egne ord er brugt. (8) Brevets første halvdel (fødsel 1813, dimissionen, forelæsningerne, filosofien der »lyste op hos os«) hører til bl. [1r] og står ikke på dette blad; captionen holder sig til den side, billedet viser. (9) Jeg siger ikke, hvad brevet er til for — hverken »ansøgning«, »indstilling« eller »embedseksamen«: hverken brevet eller noterne bruger et sådant ord, og genren ville være et gæt. (10) Fristelsen, jeg lod ligge: at knytte faderens død her sammen med gravstedsbrevet eller med brev 23's kolik. Sammenhængen er ægte nok i udgaven, men den står ikke i denne pakke.",
+  "repairs": [
+    {
+      "flag": "codex runde 1, fejl (×2): »elleve linjer« (codex tæller ti) og »næsten fra kant til kant« (brede margener)",
+      "action": "arbitreret: linjetallet generaliseret til »omkring ti«, kant-til-kant-påstanden droppet."
+    },
+    {
+      "flag": "grok runde 1 (genkørsel), tvivl: gennemslags-skriften kan ikke bekræftes — kun svage blågrå skygger ses",
+      "action": "arbitreret: omskrevet til det robuste (»svage, blågrå skygger«), gennemslags-tolkningen droppet."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
+    }
+  ]
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{"image":"b120/ill_32.jpg","flags":[],"visualNotes":"Ingen væsentlige modsigelser; beskrivelsen stemmer med billedet og grounding-pakken."}
+tokens used
+8.585
+{"image":"b120/ill_32.jpg","flags":[],"visualNotes":"Ingen væsentlige modsigelser; beskrivelsen stemmer med billedet og grounding-pakken."}

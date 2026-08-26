@@ -1,0 +1,432 @@
+Reading additional input from stdin...
+2026-08-26T18:27:20.318028Z ERROR codex_models_manager::cache: failed to load models cache: missing field `base_instructions` at line 97 column 5
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03f53-ad28-7e50-9bac-824322111ca2
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Note (added for the full round, 2026-08-26, after the trial):
+the edition abbreviates Søren Kierkegaard as »SK« (e.g. »Fra SK« in
+letter headings). Expanding »SK« to »Kierkegaard« or »Søren
+Kierkegaard« is NOT an ungrounded claim — the grounding packet's
+edition is Søren Kierkegaards Skrifter, and this instruction states it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b171/ill_k7.jpg
+
+Billedfil: `data/vendor/b171/ill_k7.jpg` (tilladt primærkilde).
+
+## Manifest-post: b171/ill_k7.jpg (export/images.json)
+```json
+{
+ "id": "b171/ill_k7.jpg",
+ "path": "letters/b171/ill_k7.jpg",
+ "source": {
+  "path": "data/v1.9/b171/ill_k7.jpg",
+  "sha256": "7275e2d6662783d1b035dbbc33c68d06f64a43bdcbd1918562d96e0a85aa3997"
+ },
+ "figures": [
+  {
+   "volume": "b171",
+   "file": "kom.xml",
+   "xmlId": "ill_k7",
+   "type": null,
+   "rend": "recto",
+   "url": "../b171/ill_k7.jpg",
+   "head": [
+    "7. Forsiden af Brev 189 af 16. jan. 1842, sendt af SK fra Berlin til nevøen Michael Lund ()"
+   ],
+   "figDesc": null,
+   "letter": null,
+   "letterXmlId": null
+  }
+ ],
+ "pageBreaks": []
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 7. Forsiden af Brev 189 af 16. jan. 1842, sendt af SK fra Berlin til nevøen Michael Lund ()
+
+## Brev 189 (b171) — overskrift og læsetekst
+Overskrift: Fra SK · 16. jan. 1842 · til Michael Lund
+
+Min kjære Michael!d. 16 Jan. 42. Dit Brev har jeg rigtigt modtaget, og begynder jeg mit Svar paa denne Side, da en Kunstner har ladet das unvordenkliche Seyn, das allem Denken zuvorkommt, gaae iforveien. Du forstaaer formodl. ikke hvad jeg mener, vil Du imidlertid have den Godhed at vise dette Sted til Onkel Peter og sige ham, at det er Geheimeraad Schellings Yndlings-Udtryk, og at jeg haaber, at han deraf vil kunde gjøre sig en Forestilling om det Fremskridt ud over Identitæts-Philosophien, som S. mener at have gjort. Du har rigtigt modtaget den Dig efter bedste Overlæg tiltænkte Julegave, og Du er tilfreds, det glæder mig. Mit Ønske, som skulde ledsage Gaven, kommer vel noget silde, men dog forhaabentlig altid betimelig nok til at indhente den, da det er ret solide Ting, Du har faaet. – At Du har i rette Tid bragt Onkel Peter og E. B. til Kundskab om min forandrede Bopæl, skal Du have Tak for, og det fornøier mig at vide, at jeg henvender mig til et paalideligt Msk, naar jeg henvender mig til min gode Michael.Efter nogle Dages forfærdelige Kulde, har vi nu smukt Vinterveir, og som Kulden i hine Dage var efter en Maalestok, som jeg ikke har kjendt i Kbhvn., saaledes har ogsaa de sidste Dage i Behagelighed overgaaet de kjøbh. Vinterdage.Vi kjøre i Kane saa det er en Lyst. Droscher og alle Vogne næsten ere forvandlede til Slæder, men i Almdl. saa lavbenede, at det seer latterligt ud.  Skulde Juleferien for min gode Michael have været saa fattig paa Glæde, at han ikke skulde have en ell. anden lille Begivenhed at fortælle mig? Jeg vil erindre ham om, at man altid har godt af at øve sig i skriftligt at fortælle en ell. anden Begivenhed, og at jeg i den Henseende er en god Korrespondent, da jeg væsentlig interesserer mig for det Samme som han. Har Du ell. Henrich ikke talt med Prof:Sibbern i Ferien? Skaf mig at vide, om han har modtaget et Brev fra mig. Har Jette ikke modtaget mit Brev, jeg har idetmindste intet Svar seet. Lad den Næste, der skriver, oplyse mig derom.Lev vel min kjære M. Modtag, hvad jeg betroer Dig en Hilsen til H. C. S. W. J., modtag, hvad Du selv maa beholde en Hilsen til Dig fraDin Onkel.  An Dem Hrn Michael Lund     Copenhagen store KjøbmagergadeNo 7.  fr.  
+
+## Brev 190 (b171) — overskrift og læsetekst
+Overskrift: Fra SK · 31. jan. [1842] · til Michael Lund
+
+Min kjære Michael! d. 31 Jan.  Dit Brev har jeg rigtigt modtaget, og iler nu med at besvare det, nu siger jeg; thi jeg har ikke havt Leilighed dertil i de foregaaende Dage. Da Du formodl. ikke har Noget mod, at jeg ogsaa ved Papiret erindrer Dig om, at jeg er i Berlin, saa har jeg atter valgt af en lignende Art. Men hvoraf kommer det, at Du skriver denne Gang, var det ikke Henrichs Tour, ell. har Henrich skrevet, og Brevet er forkommet? Jeg har nu ikke Brevene ved Haanden, men dersom Henrich har faaet Svar paa alle de Breve han har skrevet, saa var det ogsaa hans Tour denne Gang at skrive mig til. Vil Du oplyse mig herom næste Gang; thi Du lader jo til at være et paalideligt Msk.Lehmanns Domvidste jeg allerede af Viserne, om den hele Begivenhed end med nogle Udeladelser er optaget i de preussiske Aviser. Imidlertid har det fornøiet mig at læse Din Efterretning desangaaende, da jeg derved altid har faaet mange Smaatræk, der for Een, der har været saa fortrolig med de politiske Forhold derhjemme som jeg, altid ere mere. Vi har haft det temlig koldt i Berlin, fornemlig har Østenvinden ret viist sig i al sin Ubarmhjertighed. Nu er det atter lidt mildere, ell. rettere meget mildt, det tøer, og vi har Vestenvind. I Berlin er det overhovedet enten 8° Kulde  og bidende Østenvind ell. Vestenvind Tøeveir, og ubehagelig Taage. Berlin ligger i en Sump, man behøver blot at stikke Fingeren i Jorden, saa har man Vand. Dit Brev har fornøiet mig, Du har virkelig gjort Fremskridt, ikke blot er det, som Du selv bemærker, det længste, Du har skrevet, men ogsaa det bedste. Naar Du troer, at jeg kjører i Kane, saa er Du i Vildfarelse, det overlader jeg til Berlinerne. Kanekjørsel har jeg altid fundet for kold. Dertil kommer, at medens man ell. i Preussen kjører ualmindeligt rask (saaledes kjørte jeg fE fra Stralsund til Berlin 31 Miil i 22 Timer) saa kjører de i Kane meget langsomt, har i Almdl. een Hest for og en heel Familie i. Hvad een Hest kan trække faaer man her at see. Jeg har seet 11 Personer i en Vogn med een Hest for kjøre til Charlottenburg. Forøvrigt gaaer Alt sin vanlige Gang. Jeg har Forelæsninger, og Geheimeraaden har besluttet at læse to Timer af Gangen for om muligt at blive færdig i Semestret. Hils H. C. S. J. W. Lev vel min kjære Michael, modtag en HilsenDinOnkel.  An   dem Hrn Michael Lund     Copenhagen st. KjøbmagergadeNo 7. fr. 
+
+## Kommentarnote b-3066 (b171/kom.xml, ordret)
+*Denne note omslutter selve figuren i kommentarbindet.*
+Lemma: Papiret (...) atter valgt af en lignende Art
+
+se illustration 7, s. 403.
+
+## Kommentarnote b-851 (b171/kom.xml, ordret)
+Lemma: Michael
+
+SKs nevø Michael Lund ().
+
+## Kommentarnote b-852 (b171/kom.xml, ordret)
+Lemma: d. 16 Jan. 42
+
+på hvilket tidspunkt SK opholdt sig i Berlin ().
+
+## Kommentarnote b-853 (b171/kom.xml, ordret)
+Lemma: Dit Brev
+
+Brevet synes ikke at være bevaret.
+
+## Kommentarnote b-3061 (b171/kom.xml, ordret)
+Lemma: rigtigt modtaget
+
+.
+
+## Kommentarnote b-3303 (b171/kom.xml, ordret)
+Lemma: og begynder jeg
+
+også, desuden.
+
+## Kommentarnote b-3063 (b171/kom.xml, ordret)
+Lemma: en Kunstner
+
+se illustration 7, der udgør forsiden af det foldede blad, hvor brevteksten står på bl. [2r] og [2v].
+
+## Kommentarnote b-854 (b171/kom.xml, ordret)
+Lemma: das unvordenkliche Seyn, das allem Denken zuvorkommt
+
+ty., dvs. den væren, forud for hvilken man intet kan tænke, altså som går forud for al tænkning (). Sml. følgende passage i SKs notater fra F.W.J. Schellings forelæsninger over »Philosophie der Offenbarung« (): »Nu kunde man indvende: [']en saadan forud for al Mulighed gaaende Virkelighed er ikke at tænke'[.] Dette ligger der noget Sandt i, hvorfor man ogsaa kan bruge dette Udtryk om dette Seyn, at det er das unvordenkliche Seyn. Som saadant er det Anfang for al Tænken, men saaledes ikke Tænken, det er Tænkningens første Objekt (...), der ikke er Tænkningens Indhold men kan blive det.« SKS 19, 335,16-22; se også 339,21-25.
+
+## Kommentarnote b-855 (b171/kom.xml, ordret)
+Lemma: Onkel Peter
+
+Michael Lunds onkel og SKs ældre bror Peter Christian Kierkegaard ().
+
+## Kommentarnote b-856 (b171/kom.xml, ordret)
+Lemma: Geheimeraad Schellings Yndlings-Udtryk
+
+Friedrich Wilhelm Joseph Schelling (1775-1854), ty. filosof; studerede filosofi og teologi sammen med den ty. filosof G.W.F. Hegel i Tübingen; fra 1798 ekstraordinær prof. i Jena, fra 1803 prof. i Würzburg, fra 1806 medlem af det bayerske Videnskabernes Akademi og generalsekretær i Akademiet for de bildende Kunster i München, herefter marginaliseret af Hegel, holdt 1820-26 forelæsninger i Erlangen som honorær prof., men blev fra 1827 prof. i München, hvor han nogle år senere blev gehejmeråd (Geheimrath) og præsident for Videnskabernes Akademi. Derfra blev han i 1840 kaldet til prof. i filosofi ved universitetet i Berlin, hvor han den 15. nov. 1841 indledte sine tiltrædelsesforelæsninger over »Philosophie der Offenbarung«, jf. indledningen til notesbog 11, i SKS K19, 421-433. SK fulgte disse forelæsninger fra den 15. nov. 1841 og tog fyldige notater fra dem frem til den 4. feb. 1842, se notesbog 11, i SKS 19, 305-367. I disse notater forekommer udtrykket »das unvordenkliche Seyn« adskillige gange, se SKS 19, 335,16-22, 336,31-39, 337,38-338,6, 338,11-14, 338,16-17, 338,24-31, 338,34-37, 339,3-5, 339,21-25, 340,1-2, og 340,18-22, se også 342,41-343,3.
+
+## Kommentarnote b-857 (b171/kom.xml, ordret)
+Lemma: det Fremskridt ud over Identitæts-Philosophien ... have gjort
+
+hentyder formentlig til det skifte, der fx ses i Schellings frihedsafhandling, »Philosophische Untersuchungen über das Wesen der menschlichen Freyheit und die damit zusammenhängenden Gegenstände« i F.W.J. Schelling's philosophische Schriften bd. 1, Landshut 1809, ktl. 763, s. 397-511, hvor han problematiserer sin egen forudgående identitetsfilosofi, jf. Schellings forord i Philosophische Schriften bd. 1, s. V-XII.
+
+## Kommentarnote b-858 (b171/kom.xml, ordret)
+Lemma: den Dig ... tiltænkte Julegave
+
+Hvilken julegave, Michael Lund har modtaget fra SK, har ikke ladet sig identificere.
+
+## Kommentarnote b-859 (b171/kom.xml, ordret)
+Lemma: bragt Onkel Peter og E. B. til Kundskab om min forandrede Bopæl
+
+sml. Brev 188, hvor SK netop har bedt Michael Lund bringe adresseændringen til sin bror P.C. Kierkegaards og sin nære ven Emil Boesens () kundskab, i SKS 28, 302,1-5. – min forandrede Bopæl: fra Mittelstraße til Jägerstraße ( og ).
+
+## Kommentarnote b-3064 (b171/kom.xml, ordret)
+Lemma: nogle Dages forfærdelige Kulde
+
+Anført i reaumur (forkortet R) omregnet til celcius (forkortet C) var de laveste og højeste temperaturer i hvert af døgnene fra den 10. til den 16. jan. 1842 følgende: den 10. jan. ÷ 5° R (÷ 6,3° C) og ÷ 2,8° R (÷ 3,5° C); den 11. jan. ÷ 4,3° R (÷ 5,4° C) og ÷ 1,7° R (÷ 2,1° C); den 12. jan. ÷ 4° R (÷ 5° C) og ÷ 1,2° R (÷ 1,5° C); den 13. jan. ÷ 5° R (÷ 6,3° C) og ÷ 1° R (÷ 1,3° C); den 14. jan. ÷ 4° R (÷ 5° C) og 0° R (0° C); den 15. jan. ÷ 4,5° R (÷ 5,6° C) og 0° R (0° C); og den 16. jan. ÷ 4,2° R (÷ 5,3° C) og + 1,2° R (+ 1,5° C). Se Königlich privilegirte Berlinische Zeitung von Staats- und gelehrten Sachen, nr. 8, den 11. jan., nr. 9, den 12. jan., nr. 10, den 13. jan., nr. 11 den 14. jan., nr. 12, den 15. jan., nr. 13, den 17. jan. og nr. 14, den 18. jan. 1842.
+
+## Kommentarnote b-860 (b171/kom.xml, ordret)
+Lemma: Henrich
+
+SKs nevø og Michael Lunds ældre bror Henrik Lund ().
+
+## Kommentarnote b-861 (b171/kom.xml, ordret)
+Lemma: Prof: Sibbern
+
+Frederik Christian Sibbern (1785-1872), da. filosof og forf.; 1810 cand.jur., 1811 dr.phil. på en retsfilosofisk afhandling, fra 1813 ekstraordinær og fra 1829 ordinær prof. i filosofi og assessor i konsistoriet ved Københavns Universitet, var i 1830'erne en af SKs lærere.
+
+## Kommentarnote b-862 (b171/kom.xml, ordret)
+Lemma: om han har modtaget et Brev fra mig
+
+hentyder formentlig til SKs brev af 15. dec. 1841 til F.C. Sibbern, Brev 162 i SKS 28, 268-270.
+
+## Kommentarnote b-863 (b171/kom.xml, ordret)
+Lemma: Jette
+
+SKs niece og Michael Lunds kusine Henriette (kaldt Jette) Lund ().
+
+## Kommentarnote b-864 (b171/kom.xml, ordret)
+Lemma: mit Brev
+
+hentyder muligvis til SKs brev af 13. dec. 1841, Brev 176 i SKS 28, 288f.; der kan også have været et mellemliggende brev, der ledsagede det tørklæde, SK sendte til Jette Kierkegaard som en forsinket fødselsdagsgave ().
+
+## Kommentarnote b-865 (b171/kom.xml, ordret)
+Lemma: H.
+
+SKs nevø og Michael Lunds ældre bror Henrik Lund ().
+
+## Kommentarnote b-866 (b171/kom.xml, ordret)
+Lemma: C.
+
+SKs nevø og Michael Lunds yngre bror Carl Lund ().
+
+## Kommentarnote b-867 (b171/kom.xml, ordret)
+Lemma: S.
+
+SKs niece og Michael Lunds yngre søster Sophie Lund ().
+
+## Kommentarnote b-868 (b171/kom.xml, ordret)
+Lemma: W.
+
+SKs nevø og Michael Lunds fætter Wilhelm Lund ().
+
+## Kommentarnote b-869 (b171/kom.xml, ordret)
+Lemma: J.
+
+.
+
+## Kommentarnote b-3297 (b171/kom.xml, ordret)
+Lemma: An Dem Hrn
+
+dvs. An den Herrn.
+
+## Kommentarnote b-870 (b171/kom.xml, ordret)
+Lemma: store Kjøbmagergade No 7
+
+.
+
+## Kommentarnote b-871 (b171/kom.xml, ordret)
+Lemma: fr.
+
+franko el. franco ().
+
+## Kommentarnote b-872 (b171/kom.xml, ordret)
+Lemma: Michael
+
+SKs nevø Michael Lund ().
+
+## Kommentarnote b-873 (b171/kom.xml, ordret)
+Lemma: d. 31 Jan.
+
+den 31. jan. 1842, på hvilket tidspunkt SK opholdt sig i Berlin ().
+
+## Kommentarnote b-874 (b171/kom.xml, ordret)
+Lemma: Dit Brev
+
+Brevet synes ikke at være bevaret.
+
+## Kommentarnote b-3065 (b171/kom.xml, ordret)
+Lemma: rigtigt modtaget
+
+.
+
+## Kommentarnote b-875 (b171/kom.xml, ordret)
+Lemma: jeg er i Berlin
+
+.
+
+## Kommentarnote b-878 (b171/kom.xml, ordret)
+Lemma: Henrichs
+
+SKs nevø og Michael Lunds ældre bror Henrik Lund ().
+
+## Kommentarnote b-879 (b171/kom.xml, ordret)
+Lemma: forkommet
+
+bortkommet, gået tabt.
+
+## Kommentarnote b-880 (b171/kom.xml, ordret)
+Lemma: Lehmanns Dom
+
+sigter til, at den daværende leder af den nationalliberale opposition Orla Lehmann i jan. 1842 ved højesteret, hvor han selv procederede sit forsvar, blev dømt til tre måneders fængsel. Dommen skyldtes, at Lehmann i jan. 1841 havde talt ved et landbomøde i Nykøbing F. og dér søgt at godtgøre, at enevælden egl. ikke havde været til gavn for bondestanden, og at den heller ikke udgjorde nogen garanti for fremtiden. – Lehmanns: Peter Martin Orla Lehmann (1810-70), da. jurist og politiker; dimitteres 1827 fra Borgerdydsskolen i København til Københavns Universitet, 1833 cand.jur., derefter på udenlandsrejse til Tyskland med studier i Berlin; vendte i maj 1834 tilbage til Danmark og sluttede sig til den liberale bevægelse, fra 1835 som medredaktør af Kjøbenhavnsposten og fra dec. 1839 som medredaktør af Fædrelandet; fra april 1840 valgt medlem af Københavns borgerrepræsentation og fra dec. 1840 af stænderforsamlingen i Roskilde. Senere blev han højesteretsadvokat, minister, amtmand over Vejle amt og medlem først af Folketinget og siden af Landstinget.
+
+## Kommentarnote b-3067 (b171/kom.xml, ordret)
+Lemma: vidste (...) af
+
+var bekendt med fra, kendte til gennem.
+
+## Kommentarnote b-881 (b171/kom.xml, ordret)
+Lemma: af Viserne
+
+hentyder måske til C.C. Rosenhoffs digte »Orla Lehmann« og »Opskrift til en Kraft-Suppe«, trykt i Den Frisindede, hhv. nr. 9, den 22. jan. 1842, og nr. 10, den 25. jan. 1842. Sagen blev også dækket i det satiriske ugeskrift Corsaren (), men det bragte ingen viser.
+
+## Kommentarnote b-882 (b171/kom.xml, ordret)
+Lemma: om den hele Begivenhed ... optaget i de preussiske Aviser
+
+se fx rubrikken »Dänemark. / Kopenhagen, 21 Jan.« i Allgemeine Zeitung, nr. 30, den 30. jan. 1842, s. 239, hvor det indledningsvis fortælles: »Vorgestern vertheidigte Orla Lehmann seine Sache vor dem höchsten Gericht mit einer Kraft der Rede, wie sie selten von einer dänischen Tribune gehört seyn mag. Der Gerichtssaal, die Gänge, die Treppen waren gedrängt voll von Zuhörern, die schon mehrere Stunden vor Eröffnung der Session versammelt gewesen waren. Als er sich wegbegeben wollte, machte man Miene ihn zu tragen oder die Pferde von seinem Wagen zu spannen; beides verhinderte Lehmann, aber er mußte es geschehen lassen, daß 6 bis 7000 Menschen ihn unter lauten Beifallsbezeugungen nach Hause begleiteten, und ihm trotz der unmächtigen Bestrebungen der Polizei ein Lebehoch brachten. Von da zog ein Haufen nach der Amalienburg und brachte auf dem Schloßplatz Hochrufe für Lehmann und die Constitution aus.« Derpå rapporteres der om den dom på tre måneders fængsel, som Højesteret idømte Lehmann, og om de optøjer, det gav anledning til, ikke mindst om aftenen, hvor store syngende skarer forsøgte at trænge ind på slotspladsen, der var spærret af militæret, og »ein Haufen, der dort andringen wollte, mußte sich nach Zurücklassung einiger Gefangenen und Verwundeten begnügen in einer angränzenden Straße: Pereat . . . .! es lebe die Constitution, es lebe Lehmann!' zu schreien. Andere zogen unter Absingung von Gesängen – man will die Marseillaise und die Parisienne gehört haben – durch die Straßen.« Efter at der er rapporteret om det store opbud af væbnet militær i byen, fortælles det videre: »Lehmann hat seinen Arrest, ein wohleingerichtetes Zimmer im Rathhause, schon bezogen und empfängt zahllose Besuche von seinen Anhängern. – Es steht jetzt in Frage, ob Lehmann durch die ihm auferlegte Strafe seinen Sitz in der Ständeversammlung und als Repräsentant der Stadt Kopenhagen verliert oder nicht.« I det spørgsmål herskede der stor uenighed mellem royalisterne og de liberale, meddeles det til sidst i reportagen fra København. Se også en lignende reportage under »Kopenhagen, den 21. Januar« i Königlich privilegirte Berlinische Zeitung von Staats- und gelehrten Sachen, nr. 22, den 27. jan. 1842; og også nr. 23, den 28. jan. 1842, hvor det under »Kopenhagen, den 22. Jan.« oplyses, at Orla Lehmann if. Fædrelandet havde indfundet sig i den civile arrest, hvorpå det hedder: »Die Berl. Ztg. [Berlingske Zeitung] bemerkt mit Bezug auf die Verurtheilung Lehmanns, die Ruhe sei gestern Abend in der Stadt nicht gestört worden, und es habe kein Gassenauflauf stattgefunden.«
+
+## Kommentarnote b-883 (b171/kom.xml, ordret)
+Lemma: har været saa fortrolig med de politiske Forhold derhjemme
+
+SK havde holdt et delvist politisk foredrag om »Vor Journal-Litteratur« i Studenterforeningen den 28. nov. 1835. Desuden havde han udgivet fire artikler polemisk vendte mod Orla Lehmann, Kjøbenhavnspostens Morgenbetragtninger i Nr. 43, under mærket B., i Kjøbenhavns flyvende Post, nr. 76, den 18. feb. 1836, i SKS 14, 11-16; Om Fædrelandets Polemik I-II, under mærket B., i Kjøbenhavns flyvende Post, føljeton, nr. 82-83, den 12. og 15. marts 1836, i SKS 14, 17-26; samt Til Hr. Orla Lehmann, i eget navn, i Kjøbenhavns flyvende Post, nr. 87, den 10. april 1836, i SKS 14, 27-35.
+
+## Kommentarnote b-3068 (b171/kom.xml, ordret)
+Lemma: haft det temlig koldt i Berlin
+
+.
+
+## Kommentarnote b-3069 (b171/kom.xml, ordret)
+Lemma: Nu er det ... meget mildt, det tøer
+
+Anført i reaumur (forkortet R) omregnet til celcius (forkortet C) var døgntemperaturerne og vejret den 31. jan. 1842 følgende: kl. 5 om morgenen 0° R (0° C) og overskyet; kl. 8 om morgenen + 0,7° R (+ 0,9° C) og tåget; kl. 12 middag + 1,2° R (+ 1,5° C) og overskyet; kl. 2 om eftermiddagen + 1,4° R (+ 1,8° C) og overskyet; kl. 6 om aftenen + 0,3° R (+ 0,4° C) og overskyet; samt kl. 10 om aftenen ÷ 1,2° R (÷ 1,5° C) og tåget. Se Königlich privilegirte Berlinische Zeitung von Staats- und gelehrten Sachen, nr. 26, den 1. feb., og nr. 27, den 2. feb. 1842. I den følgende uge var der fortsat nattefrost, men tøvejr om dagen; se Königlich privilegirte Berlinische Zeitung von Staats- und gelehrten Sachen, nr. 27, den 2. feb., nr. 28, den 3. feb., nr. 29, den 4. feb., nr. 30, den 5. feb., nr. 31, den 7. feb., nr. 32, den 8. feb., og nr. 33, den 9. feb. 1842.
+
+## Kommentarnote b-884 (b171/kom.xml, ordret)
+Lemma: 8° Kulde
+
+Anført i reaumur (forkortet R) omregnet til celcius (forkortet C) var det ÷ 7° R (÷ 8,8° C) om morgenen kl. 5 og kl. 8 den 9. jan. 1842. Se Königlich privilegirte Berlinische Zeitung von Staats- und gelehrten Sachen, nr. 7, den 10. jan. 1842. – En temperatur på ÷ 8° R svarer til ÷ 10° C.
+
+## Kommentarnote b-885 (b171/kom.xml, ordret)
+Lemma: Berlin ligger i en Sump
+
+Berlin () ligger på en lav, flad, sandet slette ml. floderne Oder og Elben, mens den gennemstrømmes af den forgrenede flod Spree.
+
+## Kommentarnote b-886 (b171/kom.xml, ordret)
+Lemma: ell.
+
+ellers.
+
+## Kommentarnote b-887 (b171/kom.xml, ordret)
+Lemma: Preussen
+
+kongeriget Preussen med Berlin som hovedstad.
+
+## Kommentarnote b-888 (b171/kom.xml, ordret)
+Lemma: fra Stralsund til Berlin
+
+SK rejste til Berlin med det preussiske dampskib »Königin Elisabeth« fra København (den 25. okt. 1841) til Stralsund (ankomst den 26. okt. 1841) og fra Stralsund til Berlin med diligence. Jf. notesbog 8, især Not8:2, i SKS 19, 225, med kommentarer. – Stralsund: tidl. hansestad ved farvandet ml. Rügen og fastlandet, hørte fra 1815 til kongeriget Preussen og var administrationsby i distriktet af samme navn.
+
+## Kommentarnote b-889 (b171/kom.xml, ordret)
+Lemma: Charlottenburg
+
+lille by i det preussiske regeringsdistrikt Potsdam, beliggende umiddelbart V for Berlin; Chausseen Charlottenburg fører fra Unter den Linden midt gennem Thiergarten til Charlottenburg.
+
+## Kommentarnote b-890 (b171/kom.xml, ordret)
+Lemma: Jeg har Forelæsninger
+
+Foruden F.W.J. Schellings forelæsninger () fulgte SK også Ph. Marheinekes forelæsninger over »Die Christliche Dogmatik, mit Rücksicht auf Daubs System« (se SKs fyldige notater fra forelæsningerne i Not9:1 og Not10:8-9, i SKS 19, 249-277 og 288-301) og K. Werders forelæsninger over »Logik und Metaphysik mit besonderer Rücksicht auf die bedeutendsten älteren und neueren Systeme« (se Not9:2-9, i SKS 19, 278-282), jf. »Verzeichniss der Vorlesungen, welche an der Friedrich-Wilhelms-Universität zu Berlin im Winterhalbenjahre 1841-42 vom 17. October an gehalten« (Universitetsarkivet). Derimod opgav SK at følge H. Steffens antropologiske forelæsninger, jf. bemærkningen herom i Brev 162 af 15. dec. 1841 til F.C. Sibbern, i SKS 28, 268f.
+
+## Kommentarnote b-891 (b171/kom.xml, ordret)
+Lemma: Geheimeraaden har besluttet at læse to Timer af Gangen
+
+sigter til F.W.J. Schellings forelæsninger over »Philosophie der Offenbarung«, som SK fulgte (). Schelling synes at have begyndt med sine dobbeltforelæsninger den 1. feb. 1842, jf. SKs referat af den »37. et 38.« forelæsning, dateret »d. 1 Febr. [1842]«, SKS 19, 359,9, hvor han ved referatets begyndelse i marginen har noteret: »(han læser 2 Timer af Gangen)«, s. 359m.
+
+## Kommentarnote b-892 (b171/kom.xml, ordret)
+Lemma: H.
+
+SKs nevø og Michael Lunds ældre bror Henrik Lund ().
+
+## Kommentarnote b-893 (b171/kom.xml, ordret)
+Lemma: C.
+
+SKs nevø og Michael Lunds yngre bror Carl Lund ().
+
+## Kommentarnote b-894 (b171/kom.xml, ordret)
+Lemma: S.
+
+SKs niece og Michael Lunds yngre søster Sophie Lund ().
+
+## Kommentarnote b-895 (b171/kom.xml, ordret)
+Lemma: J.
+
+SKs niece og Michael Lunds kusine Henriette (kaldt Jette) Lund ().
+
+## Kommentarnote b-896 (b171/kom.xml, ordret)
+Lemma: W.
+
+SKs nevø og Michael Lunds fætter Wilhelm Lund ().
+
+## Kommentarnote b-3298 (b171/kom.xml, ordret)
+Lemma: An dem Hrn
+
+dvs. An den Herrn.
+
+## Kommentarnote b-897 (b171/kom.xml, ordret)
+Lemma: st. Kjøbmagergade No 7
+
+.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b171/ill_k7.jpg",
+  "alt": "Et højformat brevark med en dekorativ ramme i guldfarve om et tomt skrivefelt. Øverst en symmetrisk ranke, der i midten samles om to runde rosetter med lyseblå bund og små røde prikker. Langs begge sider står en høj stængel med smalle blade og nedhængende ranker; midt på hver sidder et vinget fabeldyr med fugleagtigt hoved, og under det en frugtlignende knop med to hængende dusker. Nederst en bort af snoede ranker med en urnelignende figur i midten og palmetter i hjørnerne. Inden for rammen er papiret tomt — ingen skrift, kun enkelte små pletter, et utydeligt gråt spor øverst til højre og et par svage, lyse aftryk i papiret foroven og forneden. Arket er cremefarvet og let plettet langs kanterne.",
+  "caption": "Forsiden af brevet til nevøen Michael Lund er optaget af guld: ranker, dusker og to vingede fabeldyr om et felt, hvor der ikke står et ord. Kierkegaard begynder derfor sit svar inde i arket.",
+  "credit": null,
+  "sources": [
+    "billedet: højformat ark, dekorativ ramme i guldfarve, skrivefeltet inden for rammen uden skrift",
+    "billedet: øverst en symmetrisk ranke med to runde rosetter i midten, lyseblå bund med små røde prikker (de eneste ikke-gyldne farver på arket)",
+    "billedet: en høj bladstængel i hver side, hver med et vinget væsen med fugleagtigt hoved og en frugtlignende knop med to hængende dusker under sig",
+    "billedet: nederste bort af snoede ranker med en urnelignende figur i midten og palmetter i hjørnerne",
+    "billedet: cremefarvet, langs kanterne let plettet papir; et utydeligt blyantsspor øverst til højre og svage lyse aftryk i papiret foroven og forneden",
+    "pakken, manifestposten: \"rend\": \"recto\" — grundlag for at kalde det forsiden",
+    "pakken, udgavens head: »7. Forsiden af Brev 189 af 16. jan. 1842, sendt af SK fra Berlin til nevøen Michael Lund« — grundlag for »forsiden af brevet til nevøen Michael Lund«",
+    "pakken, brev 189's læsetekst: »begynder jeg mit Svar paa denne Side, da en Kunstner har ladet das unvordenkliche Seyn, das allem Denken zuvorkommt, gaae iforveien« (citeret ordret fra »da en Kunstner«)",
+    "pakken, kommentarnote b-3063 (lemma »en Kunstner«): »se illustration 7, der udgør forsiden af det foldede blad, hvor brevteksten står på bl. [2r] og [2v]« — grundlag for »begynder sit svar inde i arket«",
+    "pakken, brev 189's læsetekst: »vil Du imidlertid have den Godhed at vise dette Sted til Onkel Peter og sige ham, at det er Geheimeraad Schellings Yndlings-Udtryk«",
+    "pakken, brev 190's overskrift: Fra SK · 31. jan. [1842] · til Michael Lund — grundlag for datoen",
+    "pakken, brev 190's læsetekst: »Da Du formodl. ikke har Noget mod, at jeg ogsaa ved Papiret erindrer Dig om, at jeg er i Berlin, saa har jeg atter valgt af en lignende Art« (»atter« citeret ordret)",
+    "pakken, brev 189's læsetekst, underskriften »Din Onkel« — grundlag for at kalde ham »onklen«",
+    "pakken, kommentarnote b-3066 (lemma »Papiret (...) atter valgt af en lignende Art«): »se illustration 7, s. 403« — noten, der omslutter figuren i kommentarbindet; belægger, at udgaven selv trykker billedet netop dér, hvor brev 190 taler om papiret"
+  ],
+  "note": "Tvivl og fravalg: (1) Fabeldyrene: jeg ser vinger og et fugleagtigt, kamlignende hoved på en oprullet krop, men kan ikke afgøre, om det er griffe, sfinks eller en ren grotesk-figur — derfor generaliseret til »vinget fabeldyr med fugleagtigt hoved« begge steder. (2) Teknikken er ikke navngivet: guldet kan være trykt, påført med guldfarve eller begge dele, og de blå/røde rosetter kan være håndkolorerede. Jeg skriver »i guldfarve« i alt-teksten og blot »guld« i captionen; »guldtryk« ville være en påstand, billedet ikke bærer. (3) Udgaven kalder bladet »det foldede blad« (b-3063), men jeg kan ikke med sikkerhed se en foldelinje i scanningen; folden er derfor ikke nævnt i alt-teksten, og captionen siger »inde i arket« frem for at udpege bl. [2r]. (4) De svage lyse aftryk foroven og forneden i det tomme felt kunne være blindpræg, vandmærke eller aftryk fra et andet ark; jeg konstaterer dem kun. Det blege blyantsspor øverst til højre er ulæseligt for mig og gengives ikke. (5) Kommentarens store note om Schelling (b-856: karriere, tiltrædelsesforelæsningerne, notesbog 11) er ikke brugt — captionen bruger kun brevets egne ord om »Geheimeraad Schellings Yndlings-Udtryk«; jeg har hverken oversat eller forklaret den tyske vending, da brevet selv lader den stå uoversat (»Du forstaaer formodl. ikke hvad jeg mener«). (6) Brev 189's og 190's øvrige indhold (julegaven, kulden i Berlin, kaneturene, Orla Lehmanns dom) er ladt ude — captionen holder sig til det, brevene siger om selve papiret. (7) Brev 190's papir er IKKE dette ark: udgaven binder billedet til brev 189, og brev 190 siger selv »atter valgt af en lignende Art«, altså et lignende, ikke det samme. Captionen er formuleret så den forskel bevares; forbindelsen er med, fordi udgaven trykker figuren netop i noten til brev 190's bemærkning om papiret. (8) Head'ens tomme parentes »()« er udgavens eget krydshenvisnings-tomrum i eksporten, ikke en fotokredit — `credit` er derfor null. (9) Navnevalg: »Kierkegaard«, ikke »Søren« — han er 28-29 år og skriver som onkel til sin nevø; familieregistret bæres af »onklen« og »onkel Peter« i stedet. (10) Ingen påstand om arkets størrelse, papirkvalitet eller producent; intet af det kan ses.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, tvivl: »blyantsspor« — mediet kan ikke belægges",
+      "action": "arbitreret: generaliseret til »gråt spor«. Codex var ren."
+    },
+    {
+      "flag": "doktor-runden (Maria, 2026-08-26): captionens slutsætning refererede brev 190 af 31. jan. — et senere brev end det afbildede brev 189",
+      "action": "sætningen fjernet; captionen bliver på det afbildede brevs egen side. Ren sletning, ingen nye påstande."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
+    }
+  ]
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{"image":"b171/ill_k7.jpg","flags":[],"visualNotes":""}
+tokens used
+13.603
+{"image":"b171/ill_k7.jpg","flags":[],"visualNotes":""}
