@@ -51,8 +51,8 @@ def main(argv):
         "export: wrote %d letter envelopes across %d volumes to %s"
         % (result["letters"], result["volumes"], os.path.relpath(out_dir, ROOT))
     )
-    print("export: %d source illustrations copied beside their letters"
-          % result["images"])
+    print("export: %d source illustrations copied beside their letters, "
+          "described in images.json" % result["images"])
     if result["context"]:
         print(
             "export: editorial layers, verbatim: %s" % ", ".join(result["context"])

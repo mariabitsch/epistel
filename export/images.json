@@ -1,0 +1,1371 @@
+{
+ "images": [
+  {
+   "id": "b1/ill_1.jpg",
+   "path": "letters/b1/ill_1.jpg",
+   "source": {
+    "path": "data/v1.9/b1/ill_1.jpg",
+    "sha256": "5bf8f7bbbc9bf3520a88b49ad73991cac28c172c7ee521ee5decb6bda8cc3b49"
+   },
+   "figures": [
+    {
+     "volume": "b1",
+     "file": "txt.xml",
+     "xmlId": "ill_1",
+     "type": null,
+     "rend": "verso",
+     "url": "../b1/ill_1.jpg",
+     "head": [
+      "1. Brev 2, bl. [2v], udskrift"
+     ],
+     "figDesc": null,
+     "letter": "2",
+     "letterXmlId": "n2"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b1",
+     "file": "txt.xml",
+     "xmlId": "id767b1df6-e66d-4495-8328-49b79cbe07e6",
+     "n": "2v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b1/ill_1.jpg",
+     "letter": "2",
+     "letterXmlId": "n2"
+    }
+   ]
+  },
+  {
+   "id": "b1/ill_2.jpg",
+   "path": "letters/b1/ill_2.jpg",
+   "source": {
+    "path": "data/v1.9/b1/ill_2.jpg",
+    "sha256": "d0ae3bab1db015993090b948c925c9793e3d49c07e0bc339cc6b9366083e0930"
+   },
+   "figures": [
+    {
+     "volume": "b1",
+     "file": "txt.xml",
+     "xmlId": "ill_2",
+     "type": null,
+     "rend": "verso",
+     "url": "../b1/ill_2.jpg",
+     "head": [
+      "2. Brev 3, bl. [1v]. Nederst SKs tilføjelse i brevet fra faderen til P.C. Kierkegaard"
+     ],
+     "figDesc": null,
+     "letter": "3",
+     "letterXmlId": "n3"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b1",
+     "file": "txt.xml",
+     "xmlId": "ida0be0f62-36e1-4a4d-a8cd-9b4b09f69ddf",
+     "n": "1v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b1/ill_2.jpg",
+     "letter": "3",
+     "letterXmlId": "n3"
+    }
+   ]
+  },
+  {
+   "id": "b1/ill_3.jpg",
+   "path": "letters/b1/ill_3.jpg",
+   "source": {
+    "path": "data/v1.9/b1/ill_3.jpg",
+    "sha256": "078e4b5d4d5216cbd6d88cdd35cc448091875ced380a75326d865129018e226f"
+   },
+   "figures": [
+    {
+     "volume": "b1",
+     "file": "txt.xml",
+     "xmlId": "ill_3",
+     "type": null,
+     "rend": "verso",
+     "url": "../b1/ill_3.jpg",
+     "head": [
+      "3. Udskrift til Brev 20 (øverst) og til Brev 22 (nederst)"
+     ],
+     "figDesc": null,
+     "letter": "22",
+     "letterXmlId": "n22"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b1",
+     "file": "txt.xml",
+     "xmlId": "id8fa0b435-544e-4844-b563-8e0d8d098f70",
+     "n": "1v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b1/ill_3.jpg",
+     "letter": "20",
+     "letterXmlId": "n20"
+    },
+    {
+     "volume": "b1",
+     "file": "txt.xml",
+     "xmlId": "idbcff2b21-4055-4e31-a2d3-de160478da7d",
+     "n": "1v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b1/ill_3.jpg",
+     "letter": "22",
+     "letterXmlId": "n22"
+    }
+   ]
+  },
+  {
+   "id": "b1/ill_4.jpg",
+   "path": "letters/b1/ill_4.jpg",
+   "source": {
+    "path": "data/v1.9/b1/ill_4.jpg",
+    "sha256": "2ae6a961bf747cf5816f2c0701bd25319c12b33f98234ed044ae11c7e969f86f"
+   },
+   "figures": [
+    {
+     "volume": "b1",
+     "file": "txt.xml",
+     "xmlId": "ill_4",
+     "type": null,
+     "rend": "verso",
+     "url": "../b1/ill_4.jpg",
+     "head": [
+      "4. Brev 28, for- og bagside af konvolut"
+     ],
+     "figDesc": null,
+     "letter": "28",
+     "letterXmlId": "n28"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b1",
+     "file": "txt.xml",
+     "xmlId": "id5f71c769-c5f8-407a-ade2-1dd07b2e05f5",
+     "n": "2v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b1/ill_4.jpg",
+     "letter": "28",
+     "letterXmlId": "n28"
+    }
+   ]
+  },
+  {
+   "id": "b1/ill_k1.jpg",
+   "path": "letters/b1/ill_k1.jpg",
+   "source": {
+    "path": "data/v1.9/b1/ill_k1.jpg",
+    "sha256": "bca39018d18f8df2784e6cbccc12e2471093ab7d0f9f4647caf7075f5662c7e1"
+   },
+   "figures": [],
+   "pageBreaks": [
+    {
+     "volume": "b1",
+     "file": "txt.xml",
+     "xmlId": "id018a8d58-98d2-4f07-a502-313a8efac953",
+     "n": "1v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b1/ill_k1.jpg",
+     "letter": "2",
+     "letterXmlId": "n2"
+    }
+   ]
+  },
+  {
+   "id": "b1/ill_k2.jpg",
+   "path": "letters/b1/ill_k2.jpg",
+   "source": {
+    "path": "data/v1.9/b1/ill_k2.jpg",
+    "sha256": "7effd32d0a2e1fe490455ba676095509c96436d809d5fc038e1e8492a42027b2"
+   },
+   "figures": [
+    {
+     "volume": "b1",
+     "file": "kom.xml",
+     "xmlId": "ill_k2",
+     "type": null,
+     "rend": "verso",
+     "url": "../b1/ill_k2.jpg",
+     "head": [
+      "2. Særindbinding af Opbyggelige Taler i forskjellig Aand ()",
+      "(foto: Josiah Thompson)"
+     ],
+     "figDesc": null,
+     "letter": null,
+     "letterXmlId": null
+    }
+   ],
+   "pageBreaks": []
+  },
+  {
+   "id": "b1/ill_k3.jpg",
+   "path": "letters/b1/ill_k3.jpg",
+   "source": {
+    "path": "data/v1.9/b1/ill_k3.jpg",
+    "sha256": "0d7042917e1c2faceb8f19f9a9be8a7193a8cb854d7aee257c532c0e6e5fa27d"
+   },
+   "figures": [
+    {
+     "volume": "b1",
+     "file": "kom.xml",
+     "xmlId": "ill_k3",
+     "type": null,
+     "rend": "recto",
+     "url": "../b1/ill_k3.jpg",
+     "head": [
+      "3. Familiegravstedet på Assistens Kirkegård",
+      "(foto: David Cain)"
+     ],
+     "figDesc": null,
+     "letter": null,
+     "letterXmlId": null
+    }
+   ],
+   "pageBreaks": []
+  },
+  {
+   "id": "b120/ill_12.jpg",
+   "path": "letters/b120/ill_12.jpg",
+   "source": {
+    "path": "data/v1.9/b120/ill_12.jpg",
+    "sha256": "9f318d8d46f5c6dcb2030d02085a3681d23a0ef154a76dfe0ddd570e2d48e200"
+   },
+   "figures": [
+    {
+     "volume": "b120",
+     "file": "txt.xml",
+     "xmlId": "ill_12",
+     "type": null,
+     "rend": "verso",
+     "url": "../b120/ill_12.jpg",
+     "head": [
+      "12. Brev 122, bl. [1r]"
+     ],
+     "figDesc": null,
+     "letter": "122",
+     "letterXmlId": "n122"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b120",
+     "file": "txt.xml",
+     "xmlId": "ida751e2c3-34a1-4fd1-8002-ddbff5cf2201",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b120/ill_12.jpg",
+     "letter": "122",
+     "letterXmlId": "n122"
+    }
+   ]
+  },
+  {
+   "id": "b120/ill_31.jpg",
+   "path": "letters/b120/ill_31.jpg",
+   "source": {
+    "path": "data/v1.9/b120/ill_31.jpg",
+    "sha256": "30f9f44dba08cc9d8561c898f2f3f1eb2fad9a5966832774f566a4e5b276e28c"
+   },
+   "figures": [
+    {
+     "volume": "b120",
+     "file": "txt.xml",
+     "xmlId": "ill_31",
+     "type": null,
+     "rend": "recto",
+     "url": "../B120/ill_31.jpg",
+     "head": [
+      "Brev 121, bl. [1r]"
+     ],
+     "figDesc": null,
+     "letter": "121",
+     "letterXmlId": "n121"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b120",
+     "file": "txt.xml",
+     "xmlId": "id7ec0fd7a-74e3-43cd-b848-485696b6234b",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b120/ill_31.jpg",
+     "letter": "121",
+     "letterXmlId": "n121"
+    }
+   ]
+  },
+  {
+   "id": "b120/ill_32.jpg",
+   "path": "letters/b120/ill_32.jpg",
+   "source": {
+    "path": "data/v1.9/b120/ill_32.jpg",
+    "sha256": "e87118bc5f3f9e51f3b66d3421eb04b931bc71ea610d7a9a2a796e3831894b9e"
+   },
+   "figures": [
+    {
+     "volume": "b120",
+     "file": "txt.xml",
+     "xmlId": "ill_32",
+     "type": null,
+     "rend": "recto",
+     "url": "../B120/ill_32.jpg",
+     "head": [
+      "Brev 121, bl. [1v]"
+     ],
+     "figDesc": null,
+     "letter": "121",
+     "letterXmlId": "n121"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b120",
+     "file": "txt.xml",
+     "xmlId": "ide99a09ae-674f-41db-9a6d-310e70cef103",
+     "n": "1v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b120/ill_32.jpg",
+     "letter": "121",
+     "letterXmlId": "n121"
+    }
+   ]
+  },
+  {
+   "id": "b127/ill_13.jpg",
+   "path": "letters/b127/ill_13.jpg",
+   "source": {
+    "path": "data/v1.9/b127/ill_13.jpg",
+    "sha256": "981bd8870cf44b0280d808b2557a5b10fb44ec5466a64e71b7c11af5c7da13f0"
+   },
+   "figures": [
+    {
+     "volume": "b127",
+     "file": "txt.xml",
+     "xmlId": "ill_13",
+     "type": null,
+     "rend": "recto",
+     "url": "../b127/ill_13.jpg",
+     "head": [
+      "13. Brev 139, bl. [1r]"
+     ],
+     "figDesc": null,
+     "letter": "139",
+     "letterXmlId": "n139"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b127",
+     "file": "txt.xml",
+     "xmlId": "idcdd27c31-2fbc-41eb-936e-7f5e8e7d9a09",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b127/ill_13.jpg",
+     "letter": "139",
+     "letterXmlId": "n139"
+    }
+   ]
+  },
+  {
+   "id": "b127/ill_14.jpg",
+   "path": "letters/b127/ill_14.jpg",
+   "source": {
+    "path": "data/v1.9/b127/ill_14.jpg",
+    "sha256": "00297f64539b8834a02d7772712dbc90de722298dafe433663fbf7e3a59c2ff7"
+   },
+   "figures": [
+    {
+     "volume": "b127",
+     "file": "txt.xml",
+     "xmlId": "ill_14",
+     "type": null,
+     "rend": "verso",
+     "url": "../b127/ill_14.jpg",
+     "head": [
+      "14. Et koloreret kort vedlagt Brev 139 med påskrift af SK og Regine Olsen på bagsiden; naturlig størrelse"
+     ],
+     "figDesc": null,
+     "letter": "139",
+     "letterXmlId": "n139"
+    }
+   ],
+   "pageBreaks": []
+  },
+  {
+   "id": "b127/ill_15.jpg",
+   "path": "letters/b127/ill_15.jpg",
+   "source": {
+    "path": "data/v1.9/b127/ill_15.jpg",
+    "sha256": "e7dca9b557d96d6242cf40c74f32be3b68aa3286141c33245af819d204f35718"
+   },
+   "figures": [
+    {
+     "volume": "b127",
+     "file": "txt.xml",
+     "xmlId": "ill_15",
+     "type": null,
+     "rend": "opening",
+     "url": "../b127/ill_15.jpg",
+     "head": [
+      "15. Et koloreret kort vedlagt Brev 136 (øverst) og Brev 146 (nederst); naturlig størrelse"
+     ],
+     "figDesc": null,
+     "letter": "136",
+     "letterXmlId": "n136"
+    }
+   ],
+   "pageBreaks": []
+  },
+  {
+   "id": "b171/ill_16.jpg",
+   "path": "letters/b171/ill_16.jpg",
+   "source": {
+    "path": "data/v1.9/b171/ill_16.jpg",
+    "sha256": "80d1aaf8e0c06a07ab8a7c32bfad33725e4c89f074243e5c01816ede099362ab"
+   },
+   "figures": [
+    {
+     "volume": "b171",
+     "file": "txt.xml",
+     "xmlId": "ill_16",
+     "type": null,
+     "rend": "recto",
+     "url": "../b171/ill_16.jpg",
+     "head": [
+      "16. Brev 176, bl. [1r]"
+     ],
+     "figDesc": null,
+     "letter": "176",
+     "letterXmlId": "n176"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b171",
+     "file": "txt.xml",
+     "xmlId": "id6920786f-406e-4ecd-bf99-919dd4ea6598",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b171/ill_16.jpg",
+     "letter": "176",
+     "letterXmlId": "n176"
+    }
+   ]
+  },
+  {
+   "id": "b171/ill_17.jpg",
+   "path": "letters/b171/ill_17.jpg",
+   "source": {
+    "path": "data/v1.9/b171/ill_17.jpg",
+    "sha256": "2f14467312ef18cd6f4fa2608d6bdb50e2cccd023b75890df6a7f5cf6d8d3453"
+   },
+   "figures": [
+    {
+     "volume": "b171",
+     "file": "txt.xml",
+     "xmlId": "ill_17",
+     "type": null,
+     "rend": "recto",
+     "url": "../b171/ill_17.jpg",
+     "head": [
+      "17. Brev 193, bl. [1r]"
+     ],
+     "figDesc": null,
+     "letter": "193",
+     "letterXmlId": "n193"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b171",
+     "file": "txt.xml",
+     "xmlId": "idee1057ce-a1ed-4a9e-afee-d29c7d5900b3",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b171/ill_17.jpg",
+     "letter": "193",
+     "letterXmlId": "n193"
+    }
+   ]
+  },
+  {
+   "id": "b171/ill_18.jpg",
+   "path": "letters/b171/ill_18.jpg",
+   "source": {
+    "path": "data/v1.9/b171/ill_18.jpg",
+    "sha256": "a43fa15e168a1264c7017220b2e03b6fd3d2ef4875f29d82fc72f74c4e9ad723"
+   },
+   "figures": [
+    {
+     "volume": "b171",
+     "file": "txt.xml",
+     "xmlId": "ill_18",
+     "type": null,
+     "rend": "verso",
+     "url": "../b171/ill_18.jpg",
+     "head": [
+      "18. Brev 193, bl. [1v]"
+     ],
+     "figDesc": null,
+     "letter": "193",
+     "letterXmlId": "n193"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b171",
+     "file": "txt.xml",
+     "xmlId": "id6caf5905-fd9b-4815-b803-0d272ae01007",
+     "n": "1v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b171/ill_18.jpg",
+     "letter": "193",
+     "letterXmlId": "n193"
+    }
+   ]
+  },
+  {
+   "id": "b171/ill_19.jpg",
+   "path": "letters/b171/ill_19.jpg",
+   "source": {
+    "path": "data/v1.9/b171/ill_19.jpg",
+    "sha256": "0565b915ee7b49af14e2560dfb5c60fdd2b8db9bca70bb1bddaa942fbf1b30ab"
+   },
+   "figures": [
+    {
+     "volume": "b171",
+     "file": "txt.xml",
+     "xmlId": "ill_19",
+     "type": null,
+     "rend": "opening",
+     "url": "../b171/ill_19.jpg",
+     "head": [
+      "19. Brev 202, bl. [2v] og [1r]"
+     ],
+     "figDesc": null,
+     "letter": "202",
+     "letterXmlId": "n202"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b171",
+     "file": "txt.xml",
+     "xmlId": "id9cf79ee0-88a0-4cfa-8419-1eba1d0fea16",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b171/ill_19.jpg",
+     "letter": "202",
+     "letterXmlId": "n202"
+    },
+    {
+     "volume": "b171",
+     "file": "txt.xml",
+     "xmlId": "id285f2b52-c9bc-47ca-9f77-63ad0fdf7d64",
+     "n": "2v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b171/ill_19.jpg",
+     "letter": "202",
+     "letterXmlId": "n202"
+    },
+    {
+     "volume": "b171",
+     "file": "txt.xml",
+     "xmlId": "id341ddcac-902d-45ca-9abc-bd5573eff4d0",
+     "n": null,
+     "rend": null,
+     "edRef": null,
+     "facs": "../b171/ill_19.jpg",
+     "letter": "202",
+     "letterXmlId": "n202"
+    }
+   ]
+  },
+  {
+   "id": "b171/ill_k7.jpg",
+   "path": "letters/b171/ill_k7.jpg",
+   "source": {
+    "path": "data/v1.9/b171/ill_k7.jpg",
+    "sha256": "7275e2d6662783d1b035dbbc33c68d06f64a43bdcbd1918562d96e0a85aa3997"
+   },
+   "figures": [
+    {
+     "volume": "b171",
+     "file": "kom.xml",
+     "xmlId": "ill_k7",
+     "type": null,
+     "rend": "recto",
+     "url": "../b171/ill_k7.jpg",
+     "head": [
+      "7. Forsiden af Brev 189 af 16. jan. 1842, sendt af SK fra Berlin til nevøen Michael Lund ()"
+     ],
+     "figDesc": null,
+     "letter": null,
+     "letterXmlId": null
+    }
+   ],
+   "pageBreaks": []
+  },
+  {
+   "id": "b208/ill_20.jpg",
+   "path": "letters/b208/ill_20.jpg",
+   "source": {
+    "path": "data/v1.9/b208/ill_20.jpg",
+    "sha256": "310e3fe7ae566dabcb3b408d9ea9b3366b5c014b7360e9e1d627ff26368abcdb"
+   },
+   "figures": [
+    {
+     "volume": "b208",
+     "file": "txt.xml",
+     "xmlId": "ill_20",
+     "type": null,
+     "rend": "opening",
+     "url": "../b208/ill_20.jpg",
+     "head": [
+      "20. Brev 224, bl. [1v]-[2r], med C.A. Reitzels tilføjelser med blæk og blyant nederst bl. [1v]"
+     ],
+     "figDesc": null,
+     "letter": "224",
+     "letterXmlId": "n224"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b208",
+     "file": "txt.xml",
+     "xmlId": "id5fba1d67-b77f-4e35-a070-895a078e8b01",
+     "n": "1v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b208/ill_20.jpg",
+     "letter": "224",
+     "letterXmlId": "n224"
+    },
+    {
+     "volume": "b208",
+     "file": "txt.xml",
+     "xmlId": "s2r",
+     "n": "2r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b208/ill_20.jpg",
+     "letter": "224",
+     "letterXmlId": "n224"
+    }
+   ]
+  },
+  {
+   "id": "b208/ill_k8.jpg",
+   "path": "letters/b208/ill_k8.jpg",
+   "source": {
+    "path": "data/v1.9/b208/ill_k8.jpg",
+    "sha256": "3a19d89c6005d194e596930b7ac301b5080517c7b98338243d184b1ef524bdff"
+   },
+   "figures": [],
+   "pageBreaks": [
+    {
+     "volume": "b208",
+     "file": "txt.xml",
+     "xmlId": "id1e5b37e3-6d3b-4c37-9eab-a523d2795708",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b208/ill_k8.jpg",
+     "letter": "211",
+     "letterXmlId": "n211"
+    }
+   ]
+  },
+  {
+   "id": "b241/ill_k10.jpg",
+   "path": "letters/b241/ill_k10.jpg",
+   "source": {
+    "path": "data/v1.9/b241/ill_k10.jpg",
+    "sha256": "d88f1f3f7d69b4788737c08e1809de19dd5688b19d9633b8d36967305972bad3"
+   },
+   "figures": [],
+   "pageBreaks": []
+  },
+  {
+   "id": "b241/ill_k9.jpg",
+   "path": "letters/b241/ill_k9.jpg",
+   "source": {
+    "path": "data/v1.9/b241/ill_k9.jpg",
+    "sha256": "10e5310d6801dd6cca7565347302eb1fe6a86725ed9eb339a41520a2031a71b2"
+   },
+   "figures": [],
+   "pageBreaks": [
+    {
+     "volume": "b241",
+     "file": "txt.xml",
+     "xmlId": "id177f5713-b95f-4ec8-bc1d-c7fd67aa3daa",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b241/ill_k9.jpg",
+     "letter": "256",
+     "letterXmlId": "n256"
+    }
+   ]
+  },
+  {
+   "id": "b259/ill_21.jpg",
+   "path": "letters/b259/ill_21.jpg",
+   "source": {
+    "path": "data/v1.9/b259/ill_21.jpg",
+    "sha256": "b44d9e826c7e817ebad715cc130ad45dd2e53a73fad6570b38e016477355c19e"
+   },
+   "figures": [
+    {
+     "volume": "b259",
+     "file": "txt.xml",
+     "xmlId": "ill_21",
+     "type": null,
+     "rend": "recto",
+     "url": "../b259/ill_21.jpg",
+     "head": [
+      "21. Brev 267, bl. [2r]"
+     ],
+     "figDesc": null,
+     "letter": "267",
+     "letterXmlId": "n267"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b259",
+     "file": "txt.xml",
+     "xmlId": "ida2d6c469-7101-4684-8a24-18f6e177a559",
+     "n": "2r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b259/ill_21.jpg",
+     "letter": "267",
+     "letterXmlId": "n267"
+    }
+   ]
+  },
+  {
+   "id": "b259/ill_k10.jpg",
+   "path": "letters/b259/ill_k10.jpg",
+   "source": {
+    "path": "data/v1.9/b259/ill_k10.jpg",
+    "sha256": "d88f1f3f7d69b4788737c08e1809de19dd5688b19d9633b8d36967305972bad3"
+   },
+   "figures": [
+    {
+     "volume": "b259",
+     "file": "kom.xml",
+     "xmlId": "ill_k10",
+     "type": null,
+     "rend": "recto",
+     "url": "../b259/ill_k10.jpg",
+     "head": [
+      "10. Vignet fra hesteslagter Koblauchs annonce i Adresseavisen ()"
+     ],
+     "figDesc": null,
+     "letter": null,
+     "letterXmlId": null
+    }
+   ],
+   "pageBreaks": []
+  },
+  {
+   "id": "b276/ill_22.jpg",
+   "path": "letters/b276/ill_22.jpg",
+   "source": {
+    "path": "data/v1.9/b276/ill_22.jpg",
+    "sha256": "7d96d5649d292e734bc3de98370f771ce16a1a69674e7c077421e6bce51a8cff"
+   },
+   "figures": [
+    {
+     "volume": "b276",
+     "file": "txt.xml",
+     "xmlId": "ill_22",
+     "type": null,
+     "rend": "recto",
+     "url": "../b276/ill_22.jpg",
+     "head": [
+      "22. Brev 283, bl. [1r]"
+     ],
+     "figDesc": null,
+     "letter": "283",
+     "letterXmlId": "n283"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b276",
+     "file": "txt.xml",
+     "xmlId": "idf047f02e-51bd-4aae-b9dc-c1929d448a6c",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b276/ill_22.jpg",
+     "letter": "283",
+     "letterXmlId": "n283"
+    }
+   ]
+  },
+  {
+   "id": "b276/ill_23.jpg",
+   "path": "letters/b276/ill_23.jpg",
+   "source": {
+    "path": "data/v1.9/b276/ill_23.jpg",
+    "sha256": "191927c2b90a3dc827333f0137dbb3cdbbca7cd2cdc5adcccab7d0ad9910682c"
+   },
+   "figures": [
+    {
+     "volume": "b276",
+     "file": "txt.xml",
+     "xmlId": "ill_23",
+     "type": null,
+     "rend": "verso",
+     "url": "../b276/ill_23.jpg",
+     "head": [
+      "23. Brev 285, nederst bl. [1r] og øverst [2v]"
+     ],
+     "figDesc": null,
+     "letter": "285",
+     "letterXmlId": "n285"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b276",
+     "file": "txt.xml",
+     "xmlId": "id66046fe3-0b02-4b52-b427-93b99d66d55b",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b276/ill_23.jpg",
+     "letter": "285",
+     "letterXmlId": "n285"
+    },
+    {
+     "volume": "b276",
+     "file": "txt.xml",
+     "xmlId": "idb74baa09-33c1-402b-81a3-00264e08e8d9",
+     "n": "2v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b276/ill_23.jpg",
+     "letter": "285",
+     "letterXmlId": "n285"
+    }
+   ]
+  },
+  {
+   "id": "b308/ill_24.jpg",
+   "path": "letters/b308/ill_24.jpg",
+   "source": {
+    "path": "data/v1.9/b308/ill_24.jpg",
+    "sha256": "f3999ec2861d951669f7b2738c7787a9bef4cee38fce93ac0f5c413370c07dea"
+   },
+   "figures": [
+    {
+     "volume": "b308",
+     "file": "txt.xml",
+     "xmlId": "ill_24",
+     "type": null,
+     "rend": "verso",
+     "url": "../b308/ill_24.jpg",
+     "head": [
+      "24. Øverst: Brev 317, bl. [3v]; nederst: Brev 119, bl. [2v]"
+     ],
+     "figDesc": null,
+     "letter": "317",
+     "letterXmlId": "n317"
+    }
+   ],
+   "pageBreaks": []
+  },
+  {
+   "id": "b43/ill_5.jpg",
+   "path": "letters/b43/ill_5.jpg",
+   "source": {
+    "path": "data/v1.9/b43/ill_5.jpg",
+    "sha256": "cdb07e6b4947bdcef4dc2b4c730e5dbf0349cbd20493e9b761c72a1afb2327dd"
+   },
+   "figures": [
+    {
+     "volume": "b43",
+     "file": "txt.xml",
+     "xmlId": "ill_5",
+     "type": null,
+     "rend": "recto",
+     "url": "../b43/ill_5.jpg",
+     "head": [
+      "5. Brev 53, bl. [1r]"
+     ],
+     "figDesc": null,
+     "letter": "53",
+     "letterXmlId": "n53"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b43",
+     "file": "txt.xml",
+     "xmlId": "ide6539d47-5270-4033-8d73-93ad2b6bc315",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b43/ill_5.jpg",
+     "letter": "53",
+     "letterXmlId": "n53"
+    }
+   ]
+  },
+  {
+   "id": "b43/ill_6.jpg",
+   "path": "letters/b43/ill_6.jpg",
+   "source": {
+    "path": "data/v1.9/b43/ill_6.jpg",
+    "sha256": "567600921ef8f83b54923718368eabd3562dc3ce32e0b800928baab1d0a2f291"
+   },
+   "figures": [
+    {
+     "volume": "b43",
+     "file": "txt.xml",
+     "xmlId": "ill_6",
+     "type": null,
+     "rend": "recto",
+     "url": "../b43/ill_6.jpg",
+     "head": [
+      "6. Brev 59, bl. [1r]"
+     ],
+     "figDesc": null,
+     "letter": "59",
+     "letterXmlId": "n59"
+    }
+   ],
+   "pageBreaks": []
+  },
+  {
+   "id": "b70/ill_7.jpg",
+   "path": "letters/b70/ill_7.jpg",
+   "source": {
+    "path": "data/v1.9/b70/ill_7.jpg",
+    "sha256": "38d896e935d26f401918dfa7a8814c45910f4e9516fef154ab0308e11541e9fb"
+   },
+   "figures": [
+    {
+     "volume": "b70",
+     "file": "txt.xml",
+     "xmlId": "ill_7",
+     "type": null,
+     "rend": "recto",
+     "url": "../b70/ill_7.jpg",
+     "head": [
+      "7. Brev 72, bl. [1r]"
+     ],
+     "figDesc": null,
+     "letter": "72",
+     "letterXmlId": "n72"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b70",
+     "file": "txt.xml",
+     "xmlId": "id5e637829-99bc-4fd1-a3a6-78e84c10578a",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b70/ill_7.jpg",
+     "letter": "72",
+     "letterXmlId": "n72"
+    }
+   ]
+  },
+  {
+   "id": "b70/ill_8.jpg",
+   "path": "letters/b70/ill_8.jpg",
+   "source": {
+    "path": "data/v1.9/b70/ill_8.jpg",
+    "sha256": "0f4412b20cb6eec5cda5bf73ed41a56850b876b6ce41d5a1825a919bd9c7a54a"
+   },
+   "figures": [
+    {
+     "volume": "b70",
+     "file": "txt.xml",
+     "xmlId": "ill_8",
+     "type": null,
+     "rend": "recto",
+     "url": "../b70/ill_8.jpg",
+     "head": [
+      "8. Brev 78, bl. [1r], med dedikation på konvolut, bl. [1r]"
+     ],
+     "figDesc": null,
+     "letter": "78",
+     "letterXmlId": "n78"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b70",
+     "file": "txt.xml",
+     "xmlId": "id86d31057-f44a-4ed1-a592-3aefc0f2f3ed",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b70/ill_8.jpg",
+     "letter": "78",
+     "letterXmlId": "n78"
+    },
+    {
+     "volume": "b70",
+     "file": "txt.xml",
+     "xmlId": "idd701fe3c-c0d1-4bf6-8ec8-9579e44c0c14",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b70/ill_8.jpg",
+     "letter": "78",
+     "letterXmlId": "n78"
+    }
+   ]
+  },
+  {
+   "id": "b79/ill_10.jpg",
+   "path": "letters/b79/ill_10.jpg",
+   "source": {
+    "path": "data/v1.9/b79/ill_10.jpg",
+    "sha256": "0cd239044f701ebdf771ea53ca80b6a0b635b6ba72698200f795f190cbfd24bb"
+   },
+   "figures": [
+    {
+     "volume": "b79",
+     "file": "txt.xml",
+     "xmlId": "ill_10",
+     "type": null,
+     "rend": "recto",
+     "url": "../b79/ill_10.jpg",
+     "head": [
+      "10. SKs signet af mandehoved i profil i rød lak på Brev 89",
+      "(foto: © Fondation Martin Bodmer, Cologny (Genève))"
+     ],
+     "figDesc": null,
+     "letter": "89",
+     "letterXmlId": "n89"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b79",
+     "file": "txt.xml",
+     "xmlId": "id02798d77-9fb8-4995-a9b0-dcb69f52f544",
+     "n": "1v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b79/ill_10.jpg",
+     "letter": "89",
+     "letterXmlId": "n89"
+    }
+   ]
+  },
+  {
+   "id": "b79/ill_11.jpg",
+   "path": "letters/b79/ill_11.jpg",
+   "source": {
+    "path": "data/v1.9/b79/ill_11.jpg",
+    "sha256": "653d4665568ca8ab187b3c12a1c25e356f6195c84b65e88ae515d0c35ee7c55a"
+   },
+   "figures": [
+    {
+     "volume": "b79",
+     "file": "txt.xml",
+     "xmlId": "ill_11",
+     "type": null,
+     "rend": "verso",
+     "url": "../b79/ill_11.jpg",
+     "head": [
+      "11. Brev 117, bl. [1r]"
+     ],
+     "figDesc": null,
+     "letter": "117",
+     "letterXmlId": "n117"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b79",
+     "file": "txt.xml",
+     "xmlId": "id02e0e1dd-d7c7-4644-880d-4c6e2469b19b",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b79/ill_11.jpg",
+     "letter": "117",
+     "letterXmlId": "n117"
+    }
+   ]
+  },
+  {
+   "id": "b79/ill_24.jpg",
+   "path": "letters/b79/ill_24.jpg",
+   "source": {
+    "path": "data/v1.9/b79/ill_24.jpg",
+    "sha256": "f3999ec2861d951669f7b2738c7787a9bef4cee38fce93ac0f5c413370c07dea"
+   },
+   "figures": [],
+   "pageBreaks": [
+    {
+     "volume": "b79",
+     "file": "txt.xml",
+     "xmlId": "id2eb62d5a-0ad0-4546-8012-cfdcf99ca667",
+     "n": "2v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b79/ill_24.jpg",
+     "letter": "119",
+     "letterXmlId": "n119"
+    }
+   ]
+  },
+  {
+   "id": "b79/ill_9.jpg",
+   "path": "letters/b79/ill_9.jpg",
+   "source": {
+    "path": "data/v1.9/b79/ill_9.jpg",
+    "sha256": "8f76e184c1b52739e20058ecad4e74eca1dcf805a860804a860c831844e05ca2"
+   },
+   "figures": [
+    {
+     "volume": "b79",
+     "file": "txt.xml",
+     "xmlId": "ill_9",
+     "type": null,
+     "rend": "recto",
+     "url": "../b79/ill_9.jpg",
+     "head": [
+      "9. Brev 81: udskrift og SKs signet »SAK« i rød lak"
+     ],
+     "figDesc": null,
+     "letter": "81",
+     "letterXmlId": "n81"
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b79",
+     "file": "txt.xml",
+     "xmlId": "id04fc31ef-7f16-438b-bf14-8e2ac14e225b",
+     "n": "2v",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b79/ill_9.jpg",
+     "letter": "81",
+     "letterXmlId": "n81"
+    }
+   ]
+  },
+  {
+   "id": "b79/ill_k4.jpg",
+   "path": "letters/b79/ill_k4.jpg",
+   "source": {
+    "path": "data/v1.9/b79/ill_k4.jpg",
+    "sha256": "b5297364812538f9620ac2783d815b9756fbf5871d3b2bb781a0f63ae646456b"
+   },
+   "figures": [],
+   "pageBreaks": []
+  },
+  {
+   "id": "b79/ill_k5.jpg",
+   "path": "letters/b79/ill_k5.jpg",
+   "source": {
+    "path": "data/v1.9/b79/ill_k5.jpg",
+    "sha256": "6752f81fce825de0882217dab5cf53cfa11df59179c126e88c7a8004f5aa2539"
+   },
+   "figures": [
+    {
+     "volume": "b79",
+     "file": "kom.xml",
+     "xmlId": "ill_k5",
+     "type": null,
+     "rend": "recto",
+     "url": "../b79/ill_k5.jpg",
+     "head": [
+      "5. »Elfen, tanzend im Mondenschein« ().",
+      "Tavle XXX i tillægget, W. Vollmer's Mythologie. Abbildungen"
+     ],
+     "figDesc": null,
+     "letter": null,
+     "letterXmlId": null
+    }
+   ],
+   "pageBreaks": []
+  },
+  {
+   "id": "b79/ill_k6.jpg",
+   "path": "letters/b79/ill_k6.jpg",
+   "source": {
+    "path": "data/v1.9/b79/ill_k6.jpg",
+    "sha256": "7bcc31689c30a5e3b4c10dad26e8a7fadb2b1237eb3070903fa459d40ca44e57"
+   },
+   "figures": [
+    {
+     "volume": "b79",
+     "file": "kom.xml",
+     "xmlId": "ill_k6",
+     "type": null,
+     "rend": "recto",
+     "url": "../b79/ill_k6.jpg",
+     "head": [
+      "6. Brev 115 af 7. marts 1850 fra Emil Boesen, bl. [1r].",
+      "Eksempel på Boesens svært læselige håndskrift ()"
+     ],
+     "figDesc": null,
+     "letter": null,
+     "letterXmlId": null
+    }
+   ],
+   "pageBreaks": [
+    {
+     "volume": "b79",
+     "file": "txt.xml",
+     "xmlId": "id599a0e9d-c9bf-4df1-989d-3291d3fc18de",
+     "n": "1r",
+     "rend": "supplied",
+     "edRef": null,
+     "facs": "../b79/ill_k6.jpg",
+     "letter": "115",
+     "letterXmlId": "n115"
+    }
+   ]
+  },
+  {
+   "id": "vignet/vig-brev-blomst.jpg",
+   "path": "letters/vignet/vig-brev-blomst.jpg",
+   "source": {
+    "path": "data/v1.9/vignet/vig-brev-blomst.jpg",
+    "sha256": "69f13c313cb60e9c3955557bed61dcb87a8c3e03c9db0cc1a911d562978f2443"
+   },
+   "figures": [
+    {
+     "volume": "b171",
+     "file": "txt.xml",
+     "xmlId": "idc3fe910c-dd2e-4c36-bc26-c55d93de50c5",
+     "type": "vignet",
+     "rend": null,
+     "url": "../vignet/vig-brev-blomst.jpg",
+     "head": [],
+     "figDesc": null,
+     "letter": "178",
+     "letterXmlId": "n178"
+    }
+   ],
+   "pageBreaks": []
+  },
+  {
+   "id": "vignet/vig-brev-kikkert.jpg",
+   "path": "letters/vignet/vig-brev-kikkert.jpg",
+   "source": {
+    "path": "data/v1.9/vignet/vig-brev-kikkert.jpg",
+    "sha256": "e0acce4a608a1d33521aefac053587fab573568c6649549df95cd632957846b3"
+   },
+   "figures": [
+    {
+     "volume": "b127",
+     "file": "txt.xml",
+     "xmlId": "idb0c831ea-5d58-4f88-b298-db9577df9239",
+     "type": "vignet",
+     "rend": null,
+     "url": "../vignet/vig-brev-kikkert.jpg",
+     "head": [],
+     "figDesc": null,
+     "letter": "129",
+     "letterXmlId": "n129"
+    }
+   ],
+   "pageBreaks": []
+  }
+ ],
+ "unshippedReferences": [
+  {
+   "volume": "b241",
+   "file": "txt.xml",
+   "element": "pb",
+   "url": "../b241/ill_k15.jpg",
+   "letter": "249",
+   "letterXmlId": "n249"
+  },
+  {
+   "volume": "ded",
+   "file": "txt.xml",
+   "element": "figure",
+   "url": "../ded/ill_25.jpg",
+   "letter": null,
+   "letterXmlId": null
+  },
+  {
+   "volume": "ded",
+   "file": "txt.xml",
+   "element": "figure",
+   "url": "../ded/ill_26.jpg",
+   "letter": null,
+   "letterXmlId": null
+  },
+  {
+   "volume": "ded",
+   "file": "txt.xml",
+   "element": "figure",
+   "url": "../ded/ill_27.jpg",
+   "letter": null,
+   "letterXmlId": null
+  },
+  {
+   "volume": "ded",
+   "file": "txt.xml",
+   "element": "figure",
+   "url": "../ded/ill_28.jpg",
+   "letter": null,
+   "letterXmlId": null
+  },
+  {
+   "volume": "ded",
+   "file": "txt.xml",
+   "element": "figure",
+   "url": "../ded/ill_29.jpg",
+   "letter": null,
+   "letterXmlId": null
+  },
+  {
+   "volume": "ded",
+   "file": "txt.xml",
+   "element": "pb",
+   "url": "../ded/ill_k11.jpg",
+   "letter": null,
+   "letterXmlId": null
+  },
+  {
+   "volume": "ded",
+   "file": "kom.xml",
+   "element": "figure",
+   "url": "../ded/ill_k15.jpg",
+   "letter": null,
+   "letterXmlId": null
+  }
+ ]
+}

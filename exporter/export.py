@@ -15,6 +15,7 @@ Layout
     export/
       manifest.json            schemaVersion, provenance, a license per layer
       volumes.json             volume titles, groups, document order, warnings
+      images.json              every vendored illustration and its references
       letters/<vol>/<xmlId>.json   one envelope per letter
 
 Letters are filed by volume plus ``xml:id`` -- the only identifier every
@@ -39,13 +40,15 @@ import os
 import shutil
 
 from .body import render_body
+from .images import image_manifest
 
 # Bumped when the shape of the export changes. Consumers pin releases; this
-# number is what a release tag promises. 0.1.1 (Maria's versioning call):
-# the schemas joined the export (schema/ + the manifest's "schemas" field)
-# and the editorial layers got their license — the data shapes themselves
-# are unchanged from 0.1.0.
-SCHEMA_VERSION = "0.1.1"
+# number is what a release tag promises. 0.2.0: images.json joins the
+# export — a new file, a new schema, and the images layer now points at
+# its manifest rather than at the directory the files sit in. Additive for
+# anything reading letters or volumes. 0.1.1 (Maria's versioning call) was
+# the schemas joining the export and the editorial layers' license.
+SCHEMA_VERSION = "0.2.0"
 
 # SPDX identifiers. The vendor-derived layers inherit the edition's CC0.
 CC0 = "CC0-1.0"
@@ -96,7 +99,8 @@ def export_data(
     the recorded images (the source's ``ill_*.jpg`` illustrations, several
     of them manuscript facsimiles per ``pb/@facs``) are copied into
     ``letters/<volume>/`` — beside the fragments, so the TEI's own relative
-    references (``../b1/ill_1.jpg``) resolve exactly as written.
+    references (``../b1/ill_1.jpg``) resolve exactly as written — and
+    ``images.json`` describes them as a dataset (see ``exporter.images``).
     """
     if os.path.isdir(out_dir):
         shutil.rmtree(out_dir)
@@ -121,6 +125,10 @@ def export_data(
             letters += 1
 
     images = _copy_images(files, vendor_dir, out_dir, volumes)
+    if images:
+        _write(
+            os.path.join(out_dir, "images.json"), image_manifest(files, vendor_dir)
+        )
     context_layers = _copy_context(context_dir, out_dir)
     schemas = _copy_schemas(out_dir)
 
@@ -275,7 +283,9 @@ def _manifest(volumes, letters, provenance, context_layers, schemas, images):
         },
     }
     if images:
-        layers["images"] = {"path": "letters/", "count": images, "license": CC0}
+        # The layer's entry point is its manifest, as the volumes layer's
+        # is volumes.json; each entry there says where its file sits.
+        layers["images"] = {"path": "images.json", "count": images, "license": CC0}
     layers.update(sorted(context_layers.items()))
     return {
         "schemaVersion": SCHEMA_VERSION,
