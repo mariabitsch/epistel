@@ -28,7 +28,8 @@
    "required": ["letters", "volumes"],
    "properties": {
     "letters": {"$ref": "#/definitions/vendorLayer"},
-    "volumes": {"$ref": "#/definitions/vendorLayer"}
+    "volumes": {"$ref": "#/definitions/vendorLayer"},
+    "images": {"$ref": "#/definitions/vendorLayer"}
    },
    "additionalProperties": {"$ref": "#/definitions/editorialLayer"}
   },
