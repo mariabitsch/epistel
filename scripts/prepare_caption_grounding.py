@@ -36,6 +36,7 @@ Run from the repo root: ``python3 scripts/prepare_caption_grounding.py``
 """
 
 import json
+import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -152,6 +153,19 @@ def packet(group, corpus):
         for _, occ, _ in occurrences
         if occ.get("letter")
     )
+
+    # Letters the edition's own head captions name ("Brev 146"): a plate
+    # can carry material from more than the letter whose division holds
+    # the figure (e.g. b127/ill_15: "vedlagt Brev 136 (øverst) og Brev
+    # 146 (nederst)"). Volume-local, and only letters the corpus has.
+    for _, occ, kind in occurrences:
+        if kind != "figure":
+            continue
+        known = {l["id"] for l in corpus.volumes.get(occ["volume"], {}).get("letters", [])}
+        for head in occ.get("head") or []:
+            for named in re.findall(r"[Bb]rev (\d+(?:\.\d+)?)", head):
+                if named in known and (occ["volume"], named) not in letters:
+                    letters.append((occ["volume"], named))
 
     # kom.xml figures: enclosing note, plus the letters that reference it.
     enclosing = []
