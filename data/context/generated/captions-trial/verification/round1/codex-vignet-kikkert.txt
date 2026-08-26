@@ -1,0 +1,142 @@
+Reading additional input from stdin...
+2026-08-26T09:21:22.065352Z ERROR codex_models_manager::cache: failed to load models cache: missing field `base_instructions` at line 97 column 5
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03d5f-c7e4-7c92-931a-9aa40f9f4752
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: vignet/vig-brev-kikkert.jpg
+
+Billedfilen selv: `data/vendor/vignet/vig-brev-kikkert.jpg` (tilladt primærkilde).
+
+## Manifest-post (export/images.json)
+```json
+{
+ "id": "vignet/vig-brev-kikkert.jpg",
+ "path": "letters/vignet/vig-brev-kikkert.jpg",
+ "source": {
+  "path": "data/v1.9/vignet/vig-brev-kikkert.jpg",
+  "sha256": "e0acce4a608a1d33521aefac053587fab573568c6649549df95cd632957846b3"
+ },
+ "figures": [
+  {
+   "volume": "b127",
+   "file": "txt.xml",
+   "xmlId": "idb0c831ea-5d58-4f88-b298-db9577df9239",
+   "type": "vignet",
+   "rend": null,
+   "url": "../vignet/vig-brev-kikkert.jpg",
+   "head": [],
+   "figDesc": null,
+   "letter": "129",
+   "letterXmlId": "n129"
+  }
+ ],
+ "pageBreaks": []
+}
+```
+
+## Udgavens egne billedtekster (head)
+- (ingen — figuren har ingen head)
+
+## Brev 129 — overskrift og læsetekst
+Overskrift: Fra SK · udateret [1840] · til Regine Olsen
+
+Min Regine!  Det er Knippelsbro. Den Person med Kikkerten det er mig. Du veed, at de Personer, der forekomme paa Landskaber i Almdl: see Noget curieuse ud; Du kan derfor trøste Dig med, at jeg ikke seer slet saa grim ud, og at enhver kunstnerisk Opfattelse altid har noget Idealt endog i at karrikere. Flere Kunstkjendere have været uenige om, hvorfor Maleren slet ikke har anbragt nogen som helst Omgivelse; nogle have troet, at det var en Allusion til et Folkesagn om et Msk, der i den Grad havde fortabt sig i Nydelse af Udsigt fra Knippelsbro, at han tilsidst slet Intet saae, uden det Billede, som Sjælen selv frembragte, og som han ligesaa godt kunde have seet i et mørkt Værelse; andre have formeent, at det havde sin Grund deri, at han ikke var stærk i det Perspektiv, der er nødvendigt for at tegne – Huse. Kikkerten selv har imidlertid en egen Beskaffenhed, hvorom Traditionen fortæller Følgende. Det yderste Glas er nemlig Speilglas, saaledes, at man, naar man retter den mod Trekroner og stiller sig selv paa venstre Side af Broen, under Vinkel af 35o mod Kbhv:,  seer Noget ganske Andet end alle de andre Msker, der omgive Een; saa at man, midt under en gemütlig Passiar om Udsigten over Skibene, seer ell. troer at see ell. haaber at see, ell. ønsker at see; ell fortvivler over ikke at see det som Kikkertens hemmelighedsfulde Aand viser den, der forstaaer at give den sin rigtige Retning. Kun i de rette Hænder, og for det rette Øie er den en guddommelig Telegraph, for enhver Anden et unyttigt Møbel. –Din Broder bebreidede mig igaar, at jeg  bestandig talte om: min Skomager, min Frugthandler, min Kræmer, min Hyrekudsk, etc etc etc; han synes derved at sigte mig for en fremherskende Brug af den første Persons Eiendoms-Pronomen. At jeg er vel ikke extensivt men intensivt langt stærkere i Brugen af den anden Persons Eiendoms-Pronomen, det veed kun Du om Din trofaste Ven, og hvorledes skulde han ogsaa kunde vide det,  hvorledes overhovedet noget Msk, – da jeg kun er Din    Din for evig   Som Vitterligheds-Vidne tillader jeg mig at lade min forevigede P. Møller optræde.     Givet paa vort Studerekammer. 
+
+## Kommentarnote b-1800 (b127/kom.xml, ordret, tags fjernet)
+Det er Knippelsbro Knippelsbro var en vindebro, der fra enden af Nybørs førte over havnen til Christianshavn, hvorfor den også i daglig tale kaldtes Christianshavns Bro (se kort 2, C3). Regine boede hos sine forældre i Nye-Børs (matrikel nr. 66) i en nu nedrevet ejendom, som man kaldte »De sex Søstre«, ml. Børsen og Knippelsbro (se kort 2, C3). SK skriver i Brev 135, at han hver dag tager til Knippelsbro, jf. SKS 28, 222.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "vignet/vig-brev-kikkert.jpg",
+  "alt": "Enkel stregtegning i sort på hvid bund: to lange, svagt opadbuede vandrette streger spænder mellem to lodrette streger, og fladen mellem dem er tom. På den nederste streg står en lille figur i profil med høj hat og lang frakke og holder en lang kikkert for øjet, rettet mod højre. Øverst til højre, uden for den højre lodrette streg, står et par ord skrevet i hånden med skråskrift.",
+  "caption": "»Den Person med Kikkerten det er mig«, står der i brevet, hvor tegningen sidder. Omgivelser har broen ingen af — og kunstkenderne er ifølge brevet uenige om hvorfor.",
+  "sources": [
+    "billedet: to lange, svagt opadbuede vandrette streger spænder mellem to lodrette streger; fladen over, mellem og under stregerne er tom (bekræftet på 2-8x forstørrede udsnit)",
+    "billedet: sort streg på hvid/lys bund — derfor »stregtegning i sort på hvid bund« (om materialet, blæk/blyant, siges intet)",
+    "billedet: en lille figur i profil på den nederste streg, ca. en tredjedel inde fra venstre, med høj spids hat og lang frakke, begge arme løftet om et langt rør, der udvider sig mod den fjerne ende og holdes for øjet, rettet mod højre",
+    "billedet: et par ord i håndskrevet skråskrift øverst til højre, placeret uden for den højre lodrette streg",
+    "pakken, brev 129's læsetekst: »Den Person med Kikkerten det er mig« — citeret ordret",
+    "pakken, brev 129's læsetekst: »Det er Knippelsbro« — grundlaget for at kalde motivet »broen« i captionen",
+    "pakken, brev 129's læsetekst: »Flere Kunstkjendere have været uenige om, hvorfor Maleren slet ikke har anbragt nogen som helst Omgivelse« — grundlaget for »Omgivelser har broen ingen af« og »kunstkenderne ... uenige om hvorfor«",
+    "pakken, manifest-post: figuren ligger i b127/txt.xml med letter »129« og type »vignet« — grundlaget for »i brevet, hvor tegningen sidder«"
+  ],
+  "note": "Håndskriften øverst til højre: første ord ligner »Tre«, andet ord ligner »Kroner« (altså »Trekroner«, som brevteksten selv nævner: »naar man retter den mod Trekroner«). Jeg kan ikke læse det med sikkerhed ved 400x221 px, så alt-teksten siger kun, at der står håndskrevne ord — læsningen er bevidst holdt ude af både alt og caption. Værd at få en modlæser til at se på netop det.\n\nBevidste fravalg: (1) Intet om hvem der har tegnet, og intet om materiale (blæk/pen/blyant). Brevet omtaler selv »Maleren« i tredje person og spøgefuldt, og hverken billedet eller pakken siger, hvem tegneren er — derfor står »Maleren« ikke i captionen, og SK tillægges ikke tegningen. (2) Alt-teksten kalder ikke motivet en bro og siger ikke, at figuren er brevskriveren; begge dele kommer fra brevteksten, ikke fra det, man ser, og hører derfor til i captionen.\n\nUsikkert i billedet: om de to lodrette streger er en tegnet ramme eller kanten af papiret/udklippet — de er ujævne og lidt skæve, og håndskriften sidder uden for den højre. Den øverste bue når ikke helt ud til den venstre lodrette streg og har en lille fortykkelse ved sin højre ende (formentlig et penselstrøg/en streg, ikke et selvstændigt motiv). Figurens ansigt er få streger; køn, ansigtstræk og fodtøj kan ikke afgøres.\n\nUdgaven har ingen head/figDesc til denne figur (pakken), så caption og alt hviler udelukkende på billedet + brev 129's egen tekst."
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{
+  "image": "vignet/vig-brev-kikkert.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "fladen mellem dem er tom",
+      "field": "alt",
+      "problem": "Fladen mellem de to vandrette streger er ikke tom; den indeholder figuren med kikkerten."
+    }
+  ],
+  "visualNotes": "Den øverste buede streg når ikke helt frem til den venstre lodrette streg."
+}
+tokens used
+9.587
+{
+  "image": "vignet/vig-brev-kikkert.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "fladen mellem dem er tom",
+      "field": "alt",
+      "problem": "Fladen mellem de to vandrette streger er ikke tom; den indeholder figuren med kikkerten."
+    }
+  ],
+  "visualNotes": "Den øverste buede streg når ikke helt frem til den venstre lodrette streg."
+}

@@ -1,0 +1,43 @@
+{
+  "id": "b1/ill_1.jpg",
+  "alt": "Foldet, gulnet brevark, set fra den side der bærer adressen. I midterfeltet står med håndskrift »Cand: Theol: P. C. Kierkegaard« og »unter Linden 20 drey Treppen«, med stor skrift »Berlin« og til venstre nogle linjer på tysk om det medfølgende; til højre et ovalt stempel med teksten »HAMBURG 6/4«. Spredt over arket ligger røde og sorte tal og påtegninger, nederst i midten en rund, orangerød laksegl, og papiret har tydelige foldespor, brune pletter og skrift fra arkets anden side, der skinner igennem.",
+  "caption": "Skrevet på brevets eget ark: broderens adresse i Berlin, »unter Linden 20 drey Treppen«, og på tysk, hvad der følger med — en lille kasse med to bøger. Lakseglet sidder der endnu.",
+  "sources": [
+    "billedet: arket er gulligt/cremefarvet, har tydelige vandrette og lodrette foldespor og brune pletter langs kanterne",
+    "billedet: skrift fra den anden side af arket ses gennem papiret",
+    "billedet: håndskrevet adresse i midterfeltet, »Cand: Theol: P. C. Kierkegaard« over »unter Linden 20 drey Treppen«",
+    "billedet: ordet »Berlin« skrevet stort i midterfeltets højre side",
+    "billedet: flere linjer med tysk håndskrift i midterfeltets venstre side, herunder »PCK« med kraftige bogstaver",
+    "billedet: ovalt stempel med teksten »HAMBURG« og »6/4« i midterfeltets højre side",
+    "billedet: røde og sorte tal og påtegninger flere steder på arket; et yderligere rundt stempel i nederste felt",
+    "billedet: rund, orangerød laksegl nederst midt på arket",
+    "pakken, udgavens head: »1. Brev 2, bl. [2v], udskrift« — »udskriften« er udgavens eget ord for siden; adressen står på brev 2's eget blad",
+    "pakken, brev 2's overskrift: »Fra SK · 25. marts 1829 · til P.C. Kierkegaard« og brevets tiltale »Kjære Broder!« — modtageren er brevskriverens bror",
+    "pakken, brev 2's læsetekst (udskriften): »Cand: Theol: P. C. Kierkegaard  unter Linden 20 drey Treppen« og »Berlin«",
+    "pakken, brev 2's læsetekst (udskriften): »Hiermit 1 Kastchen in Leinen, mit 2 gedruckteBücher gem. P C K.« — en lille kasse med to bøger følger med",
+    "pakken, brev 2's læsetekst: »hvilke Bøger efter Dit Forlangende følge med i en lille Kasse indsyt i Læret snøret og forseglet«"
+  ],
+  "note": "Tvivl og fravalg: (1) Jeg tolker IKKE »6/4« som en dato og siger ikke »poststempel« — kun at der står et ovalt stempel med den tekst. (2) Det andet, runde stempel i nederste felt kunne jeg ikke læse sikkert; det ligner ordet HAMBURG i en cirkel, men er delvis udvisket, så det er kun nævnt som »et yderligere rundt stempel« og indgår ikke i captionen. (3) De sorte og røde tal (bl.a. noget der ligner »7 1/2«, et stort rødt ciffer, »680« og »1/2«) samt to-tre navne-/initialpåtegninger i nederste felt kunne jeg ikke læse pålideligt og har derfor ikke citeret eller tydet; jeg påstår heller ikke, hvem der har skrevet dem, eller at de er postvæsenets. (4) Om de røde streger er kridt eller rødt blæk, kan jeg ikke afgøre — derfor bare »røde tal«. (5) Lakseglet har intet aflæseligt aftryk i billedet; jeg beskriver kun form og farve. (6) Jeg påstår ikke, at adressen er skrevet med SK's egen hånd — det kan ikke afgøres af billedet eller pakken; captionen siger derfor »broderens adresse«, ikke »Søren skriver«. (7) »Brevets eget bagblad er konvolutten« hviler på udgavens head (bl. [2v], udskrift) plus billedets foldespor og segl; det er den ene slutning i captionen, der ikke er ren aflæsning. (8) Den tyske værdiangivelse (»Franco Hamburg  den Werth 8 Rbthl Silber«) er udeladt af hensyn til længden — den ville være et oplagt alternativ til bogkassen, hvis captionen skal skifte fokus.",
+  "repairs": [
+    {
+      "flag": "codex fejl: »fotograferet på ydersiden«",
+      "action": "omskrevet til »set fra den side der bærer adressen« — adressen er synlig i billedet og bekræftet af læseteksten; 'ydersiden' var en slutning"
+    },
+    {
+      "flag": "codex fejl: »Brevets eget bagblad er konvolutten«",
+      "action": "omskrevet til »Udskriften på brevets eget ark« — udgavens eget ord (udskrift), ingen konvolut-påstand"
+    },
+    {
+      "flag": "grok: ingen flag",
+      "action": "-"
+    },
+    {
+      "flag": "grok runde 2, tvivl: »indersiden« er samme slutningstype som »ydersiden«",
+      "action": "omskrevet til »arkets anden side« (kildelistens egen sporbare formulering); »svagt« droppet — gennemsigtningen er tydelig"
+    },
+    {
+      "flag": "Marias sprogrunde (doktor-runden), 2026-08-26",
+      "action": "»Udskriften på« → »Skrevet på« (lettere anslag, samme påstand)"
+    }
+  ]
+}

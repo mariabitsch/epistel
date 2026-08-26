@@ -1,0 +1,5 @@
+Investigate: I'll inspect the image itself and check every claim in the draft against the picture and the grounding packet.{
+  "image": "vignet/vig-brev-kikkert.jpg",
+  "flags": [],
+  "visualNotes": "Håndskriften øverst til højre læses her som »Tre Kroner« (to adskilte ord); det matcher brevets »Trekroner«. Draften har holdt læsningen ude, og intet i alt eller caption modsiger billedet. Øverste bue har en lille fortykkelse i højre ende; figuren står ca. en tredjedel inde fra venstre; røret udvider sig mod den fjerne ende."
+}

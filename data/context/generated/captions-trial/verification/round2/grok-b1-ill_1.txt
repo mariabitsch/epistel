@@ -1,0 +1,12 @@
+Investigate: I'll verify the draft alt and caption against the attached image and the grounding packet only, then return a flags JSON.{
+  "image": "b1/ill_1.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "skrift fra indersiden, der skinner svagt igennem",
+      "field": "alt",
+      "problem": "At skrift skinner igennem papiret er synligt. At den anden side er »indersiden« er en slutning: pakken siger bl. [2v], udskrift/verso, ikke inde/ude, og billedet viser kun skrift fra arkets bagside. Samme type slutning som den tidligere flaggede »ydersiden«. Kildelisten bruger selv den sporbare formulering »den anden side«."
+    }
+  ],
+  "visualNotes": "Gennemsigtningen på venstre og højre fløj er ret tydelig, ikke kun svag. Nederste felt har et rundt, sløret stempel ud over lakseglet. Venstre tredjedel er næsten uden påskrift (foldeflig). Lakseglet er mere rav-/orangebrunt end rødt."
+}

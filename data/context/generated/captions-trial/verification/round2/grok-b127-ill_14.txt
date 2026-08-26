@@ -1,0 +1,12 @@
+I'll verify the draft against the image and the grounding packet only — visual accuracy and groundedness, nothing else.{
+  "image": "b127/ill_14.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "stribet turban",
+      "field": "alt",
+      "problem": "Hovedklædet er viklet og kan kaldes turban, men mønsteret er ternet (grønt gitter på hvidt), ikke stribet."
+    }
+  ],
+  "visualNotes": "Hovedklædet er ternet, ikke stribet. Jakken har mørklilla ærmer med guldbånd og guldbroderi på det røde bryst; skoene er okkergule. Vinduet har grønblå skodder. Bagsiden har et blegt blyantstal nederst til venstre (127)."
+}

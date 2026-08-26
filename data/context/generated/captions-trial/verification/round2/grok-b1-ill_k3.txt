@@ -1,0 +1,5 @@
+I'll verify the draft against the attached photograph and the packet only — no outside knowledge.{
+  "image": "b1/ill_k3.jpg",
+  "flags": [],
+  "visualNotes": "Kun den højre tavle hælder tydeligt; den venstre står næsten lodret på soklen foran monumentets underdel. Mellem tavlerne en mørk åbning. Venstre tavle bærer også overskriften »M. P. KIERKEGAARDS GRAVSTED«. Foran monumentet en flad stenplint; bag gitteret tagsten og tæt beplantning — ikke påstået i udkastet. Alle citerede indskrifter er læselige og stemmer."
+}

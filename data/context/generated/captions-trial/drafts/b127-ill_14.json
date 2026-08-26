@@ -1,0 +1,43 @@
+{
+  "id": "b127/ill_14.jpg",
+  "alt": "Et koloreret kort: en ung mand med mønstret turban, rød jakke over en lyseblå vest og mønstrede vinrøde bukser sidder på en stenbænk med et lutlignende strengeinstrument i skødet og strækker den ene hånd op mod en ung kvinde, der læner sig ud af et vindue ovenover og holder en lille buket ned mod hans hånd; et grønt klæde hænger ud af vinduet, et andet ligger på bænken, og bagved ses et landskab med et højt smalt tårn, bygninger og bjerge under en gylden himmel. Nedenunder ses kortets bagside med fem håndskrevne verselinjer på tysk — under dem står »des Knaben Wunderhorn« — og derunder nogle linjer på dansk skrevet med en anden hånd i brunligt blæk. I bagsidens fire hjørner sidder runde orange mærker.",
+  "caption": "Kortet fulgte med brev 139, hvor Kierkegaard dvæler ved blomsten i kvindens hånd: hvem rækker den til hvem? »Det veed ingen Trediemand.« Bagsiden har både Kierkegaard og Regine skrevet på.",
+  "sources": [
+    "billedet: ung mand siddende på stenbænk, mønstret hovedklæde/turban (udkast så striber, modlæser tern — derfor kun »mønstret«), rød jakke med guldkant over lyseblå vest, mønstrede vinrøde bukser, gule sko",
+    "billedet: han holder et bugformet strengeinstrument med hals og stemmeskruer i skødet (beskrevet hedgende som »lutlignende«, da typen ikke kan afgøres sikkert)",
+    "billedet: kvinde i vindue ovenover, læner sig ud og holder en lille buket ned mod hans udstrakte hånd",
+    "billedet: grønt klæde hængende ud af vinduet, et tilsvarende grønt klæde lagt på bænken til højre",
+    "billedet: baggrund med højt smalt tårn, bygninger, bjerge og gylden himmel",
+    "pakken, udgavens head: »Et koloreret kort« — udgavens eget ord; trykteknikken (stik/radering/litografi) kan ikke afgøres af billedet",
+    "billedet, nederste panel: bagside med fem håndskrevne verselinjer på tysk og kildeangivelsen »des Knaben Wunderhorn« under dem",
+    "billedet, nederste panel: fire linjer på dansk under de tyske, skrevet med tydeligt anden hånd og brunligere blæk",
+    "billedet, nederste panel: fire runde orange mærker i hjørnerne",
+    "pakken, udgavens head: »Et koloreret kort vedlagt Brev 139 med påskrift af SK og Regine Olsen på bagsiden« — grundlag for »fulgte med brev 139« og for »Bagsiden har de skrevet på begge to«",
+    "pakken, brev 139's læsetekst: »Hun holder en Blomst i Haanden. Er det hende, der rækker ham den, ell. har hun modtaget den af ham, giver Den tilbage for atter at modtage den?«",
+    "pakken, brev 139's læsetekst: »Det veed ingen Trediemand.« (citeret ordret)",
+    "pakken, brev 139's overskrift: Fra SK · udateret [1840] · til Regine Olsen — grundlag for at kalde skriveren Kierkegaard"
+  ],
+  "note": "Tvivl og fravalg: (1) Udgaven siger, at BÅDE SK og Regine Olsen har skrevet på bagsiden, men ikke hvem der skrev hvad. Billedet viser to tydeligt forskellige hænder og blækfarver, men jeg kan ikke tilskrive dem — captionen siger derfor kun, at de begge har skrevet der. (2) De tyske verselinjer i scanningen svarer til den tekst, læsteksten gengiver (»Es vergeht keine Stund in der Nacht ...«), men den gotiske kursiv er kun delvis læsbar for mig; jeg citerer intet fra den ud over den trykte gengivelse i pakken, og jeg citerer slet ikke de fire danske linjer, som er endnu vanskeligere at læse i billedet. (3) Kommentarnoten b-1878 (visen »Wenn ich ein Vöglein wär«, Arnim/Brentano, Reitzel-regningen 1836) er ikke brugt: den tilføjer viden, brevet ikke selv har. (4) Udgavens »naturlig størrelse« er ikke gentaget — den kan ikke ses i billedet og gælder kun det trykte oplag. (5) Nederst til venstre på bagsiden anes et blegt blyantstal (ligner »127« eller »27«); det er for utydeligt til at gengive og er udeladt begge steder. (6) De orange hjørnemærker ligner spor efter opklæbning, men det er en tolkning — alt-teksten siger kun, at mærkerne er der. (7) Bevidst ikke koblet: det grønne klæde i billedet og »Jeg sender hermed et Halstørklæde« i brev 139. Sammenhængen er fristende, men hverken billedet eller pakken hævder den. (8) Personerne på stikket er beskrevet neutralt som ung mand/ung kvinde uden national eller etnisk benævnelse; dragt, tårn og landskab er beskrevet, som de ses. (9) Brevets øvrige indhold (drømmen, vinduet »hos Schlegels«, halstørklædet) er ladt ude — captionen holder sig til det, brevet siger om selve billedet.",
+  "repairs": [
+    {
+      "flag": "codex+grok tvivl: »stik« kan ikke belægges",
+      "action": "erstattet med udgavens eget ord »kort«"
+    },
+    {
+      "flag": "codex fejl: »underskrevet ›des Knaben Wunderhorn‹«",
+      "action": "omskrevet til »under dem står …« — en kildeangivelse, ikke en underskrift"
+    },
+    {
+      "flag": "grok visualNotes: vest/ærmer/farvenuancer, himlen gulgrå, dansk ombrydning",
+      "action": "arbitreret mod billedet: lyseblå vest tilføjet, bukserne kaldes vinrøde, himlen gylden, »fire linjer« blødt op til »nogle linjer« (ombrydningen gør tallet usikkert); ærmerne udeladt som usikre"
+    },
+    {
+      "flag": "grok runde 2, tvivl: »stribet turban« — modlæseren ser tern, ikke striber",
+      "action": "demoveret til »mønstret turban« efter konsensus-reglen: detaljer, læserne ser forskelligt, generaliseres"
+    },
+    {
+      "flag": "Marias sprogrunde (doktor-runden), 2026-08-26",
+      "action": "»bliver ved« → »dvæler ved«; »hendes hånd« → »kvindens hånd«; »har de skrevet på begge to« → »har både Kierkegaard og Regine skrevet på« — referenter skærpet, lyrisk syntaks bevaret"
+    }
+  ]
+}

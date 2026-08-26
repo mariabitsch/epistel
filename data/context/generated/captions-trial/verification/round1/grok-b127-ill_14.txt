@@ -1,0 +1,12 @@
+I'll verify the draft against the image and the grounding packet only — visual accuracy and groundedness, nothing else.{
+  "image": "b127/ill_14.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "Et koloreret stik",
+      "field": "alt",
+      "problem": "Pakken kalder det et »koloreret kort«, ikke et stik. Billedet viser et farvelagt tryk med skravering, men om teknikken er kobberstik, radering, litografi eller andet kan ikke afgøres sikkert ud fra fotografiet."
+    }
+  ],
+  "visualNotes": "Jakken har lyseblå vest og mørke ærmer (alt siger kun rød jakke). Bukserne er mere vinrøde/magenta end jakkens skarlagen. Himlen er guldgul-grå mere end tydeligt gulrød. På bagsiden står »kun, og tag« ude til højre som ombrydning af tredje danske linje, ikke som ekstra verselinje."
+}
