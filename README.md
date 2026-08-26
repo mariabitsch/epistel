@@ -17,7 +17,8 @@ Byggebriefen ligger i `CLAUDE.md`.
 
 **Samlingen udgives også som data.** `python3 export.py` bygger
 `export/` (committet i repoet): typede JSON-konvolutter og semantiske
-HTML-transskriptioner for alle 336 breve, de redaktionelle datasæt
+HTML-transskriptioner for alle 336 breve, udgavens 40 illustrationer med
+et manifest over hver eneste henvisning til dem, de redaktionelle datasæt
 verbatim, JSON-skemaer og proveniens med sha256-kæde tilbage til kilden.
 Formatet er beskrevet i [`docs/export-format.md`](docs/export-format.md);
 versionerede udgivelser med tarball ligger under

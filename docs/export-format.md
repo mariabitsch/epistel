@@ -18,7 +18,8 @@ that every class used must be named in this file).
 export/
   manifest.json                 schemaVersion, provenance, license per layer
   volumes.json                  volume titles, groups, document order, warnings
-  schema/*.schema.json          JSON Schemas (draft-07) for the three above
+  images.json                   every illustration file and its references
+  schema/*.schema.json          JSON Schemas (draft-07) for the above
   letters/<volume>/<xmlId>.json one envelope per letter (metadata)
   letters/<volume>/<xmlId>.html the letter's transcription (see Vocabulary)
   letters/<volume>/ill_*.jpg    the source's illustrations (see Images)
@@ -59,14 +60,16 @@ disk carry no order of their own.
 
 ```json
 {
-  "schemaVersion": "0.1.1",
+  "schemaVersion": "0.2.0",
   "language": "da",
   "source": {"repository": "...", "commit": "..."},
   "layers": {
     "letters": {"path": "letters/", "count": 336, "license": "CC0-1.0"},
-    "volumes": {"path": "volumes.json", "count": 14, "license": "CC0-1.0"}
+    "volumes": {"path": "volumes.json", "count": 14, "license": "CC0-1.0"},
+    "images": {"path": "images.json", "count": 40, "license": "CC0-1.0"}
   },
   "schemas": {
+    "images": "schema/images.schema.json",
     "letter": "schema/letter.schema.json",
     "manifest": "schema/manifest.schema.json",
     "volumes": "schema/volumes.schema.json"
@@ -74,9 +77,14 @@ disk carry no order of their own.
 }
 ```
 
+A layer's `path` is its entry point: the directory the letters live in, or
+the file that describes the layer. The image *files* sit beside the
+letters; `images.json` is where each one says so.
+
 The schemas (JSON Schema **draft-07** — the draft the validation ecosystem
-supports universally) formally describe the manifest, the volume index and
-the letter envelope, with `additionalProperties: false` throughout: a field
+supports universally) formally describe the manifest, the volume index, the
+image manifest and the letter envelope, with `additionalProperties: false`
+throughout: a field
 this document does not know cannot validate. The prose vocabulary table
 below remains the contract for the HTML *bodies*, which JSON Schema cannot
 describe. Validation is optional by design — the repository stays
@@ -179,19 +187,79 @@ written**. `ill_k*` files are referenced from the edition's commentary
 (not part of this export's fragments) and still travel as volume
 material.
 
-Two source quirks, preserved rather than repaired:
+### The image manifest
+
+`images.json` is the same 40 files as *data*, so a consumer never has to
+open an XML file to know what an image is:
+
+```json
+{
+  "id": "b1/ill_1.jpg",
+  "path": "letters/b1/ill_1.jpg",
+  "source": {"path": "data/v1.9/b1/ill_1.jpg", "sha256": "5bf8f7bb…"},
+  "figures": [
+    {"volume": "b1", "file": "txt.xml", "xmlId": "ill_1",
+     "type": null, "rend": "verso", "url": "../b1/ill_1.jpg",
+     "head": ["1. Brev 2, bl. [2v], udskrift"], "figDesc": null,
+     "letter": "2", "letterXmlId": "n2"}
+  ],
+  "pageBreaks": [
+    {"volume": "b1", "file": "txt.xml", "xmlId": "id767b1df6…",
+     "n": "2v", "rend": "supplied", "edRef": null,
+     "facs": "../b1/ill_1.jpg", "letter": "2", "letterXmlId": "n2"}
+  ]
+}
+```
+
+`id` is the file's vendor-relative path and the **join key**: a captions
+dataset, or any other editorial layer about the images, keys off it.
+`path` says where the file sits in this export; `source` is the provenance
+record's row for it, so the bytes stay checkable against the pinned commit.
+
+The edition points at an image in exactly two ways, and each gets its own
+list, in reading order:
+
+* **`figures`** — a plate the edition prints (`<figure>`), with its `type`
+  (only the two shared vignettes carry one: `vignet`), its `rend`
+  (`recto`/`verso`/`opening`), the `<graphic>` url **as written**, and its
+  `<head>` caption lines complete (a second line usually holds the photo
+  credit). `figDesc` is the figure's description, `null` where the edition
+  writes none or leaves it empty — which is the case for both vignettes.
+* **`pageBreaks`** — a `<pb facs="…">`, i.e. this file reproduces that
+  manuscript leaf; `n` is the leaf in the manuscript's own numbering.
+
+`letter` and `letterXmlId` name the letter a reference sits in and join
+straight to `letters/<volume>/<xmlId>.json`; they are `null` where it sits
+in no letter (the commentary volumes gather their plates in a division of
+their own; `ded` numbers dedications, not letters). Both lists may be
+empty: `b241/ill_k10.jpg` and `b79/ill_k4.jpg` are vendored but referenced
+nowhere in the vendored TEI, and several files are referenced only from a
+page break. Everything in this file is the vendor layer — the edition's own
+words or the provenance record's; nothing was written for it here.
+
+`unshippedReferences` is the honest remainder: image references in the TEI
+that this export ships no file for, listed rather than dropped. Eight of
+them, from two causes the file deliberately does not label, because a third
+cause would go unnoticed if it did: `ded`'s own plates are not vendored
+(`ded` is outside the corpus), and one reference is dangling upstream.
+
+### Source quirks, preserved rather than repaired
 
 * Two `graphic` urls write their volume directory in uppercase
   (`../B120/ill_31.jpg`). The files are exported under the lowercase
-  directory the repository actually uses; resolve image references
+  directory the repository actually uses, and the manifest's `id` names
+  that file while `url` keeps the uppercase; resolve image references
   case-insensitively (or lowercase the directory component) and both
   resolve.
 * One reference is dangling at its written path: b241's letter 249 has
   `facs="../b241/ill_k15.jpg"`, and the source repository holds no such
   file — it exists as `ded/ill_k15.jpg`, referenced correctly from the
-  dedications' commentary. The reference travels verbatim; the export
-  does not guess on the source's behalf. The test suite pins this as the
-  only dangling reference.
+  dedications' commentary. The reference travels verbatim, and appears in
+  `unshippedReferences`; the export does not guess on the source's behalf.
+  The test suite pins this as the only dangling reference.
+* `b79/ill_24.jpg` and `b308/ill_24.jpg` are two copies of one plate,
+  filed in two volumes. They stay two entries with two ids; the export
+  merges nothing.
 
 ## The editorial layers
 
