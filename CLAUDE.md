@@ -171,7 +171,11 @@ datasets the same way; the method is what matters.
   vendored files are referenced *nowhere* (`b241/ill_k10.jpg`,
   `b79/ill_k4.jpg` — b241's kom.xml prints no plates at all), and
   `b79/ill_24.jpg`/`b308/ill_24.jpg` are two copies of one plate in two
-  volumes: two ids, never merged.
+  volumes: two ids, never merged. Content-wise the unreferenced
+  `b241/ill_k10.jpg` is itself a byte-identical copy of b259's
+  *referenced* plate `b259/ill_k10.jpg` (sha256 match, found
+  2026-08-26) — the only image whose content appears nowhere in the
+  edition is `b79/ill_k4.jpg`.
 - `persName` in bodies carries normalized `key`s (the person-index join);
   correspDesc `<name>`s are raw strings — hence `aliases.json`. In
   kom.xml, `@n="*"` on a persName marks a note's *biographical subject*

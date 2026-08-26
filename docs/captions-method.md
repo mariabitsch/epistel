@@ -30,7 +30,15 @@ one extension: **the image itself is admissible primary grounding.**
    (`scripts/prepare_caption_grounding.py`): the image file + the
    edition's own `<head>` captions + the letter's parsed reading text +
    the relevant commentary notes. Packets are regenerable and gitignored
-   (`data/context/grounding/captions-trial/`).
+   (`data/context/grounding/captions/`; the trial round's four sat in
+   `captions-trial/`). Since the full round the packets are derived
+   automatically from `export/images.json`: occurrence letters straight
+   off the manifest, kom.xml figures via their enclosing commentary note
+   and the letters referencing it, all of a letter's notes included —
+   never a silent cap. Images with identical content (same source
+   sha256) share one packet: shared alt text, caption per id against its
+   own letter; an id with no occurrences at all stands caption-less with
+   a reason, like the bio-less persons (Maria, 2026-08-26).
 2. **Draft**: one multimodal Claude Opus agent per image. The rule in
    the prompt: *outside knowledge is inadmissible — admissible grounding
    is the image itself plus the packet; even a true claim is an error if

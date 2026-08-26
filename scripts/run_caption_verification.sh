@@ -1,18 +1,21 @@
 #!/bin/bash
-# Adversarial verification of one caption draft (the captions trial round).
+# Adversarial verification of one caption draft (the captions rounds).
 # Usage: run_caption_verification.sh <slug> <image-path> <verifier: codex|grok>
+# Round dirs default to the full round; override for the trial round:
+#   CAPTIONS_ROUND=captions-trial run_caption_verification.sh ...
 # Composes: shared instruction + grounding packet + draft JSON into one
 # prompt, attaches the image, captures raw output to the audit dir.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 SLUG="$1"; IMG="$2"; WHO="$3"
-GEN="data/context/generated/captions-trial"
+ROUND="${CAPTIONS_ROUND:-captions}"
+GEN="data/context/generated/$ROUND"
 PROMPT="$(sed -n '/^You are an adversarial verifier/,$p' "$GEN/verifier-prompt.md")
 
 The grounding packet (contents inline):
 ---
-$(cat "data/context/grounding/captions-trial/$SLUG.md")
+$(cat "data/context/grounding/$ROUND/$SLUG.md")
 ---
 The draft JSON under verification (contents inline):
 ---
