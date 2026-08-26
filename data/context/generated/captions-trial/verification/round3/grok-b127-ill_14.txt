@@ -1,0 +1,5 @@
+I'll verify the draft against the image and the grounding packet only — no outside knowledge. Let me look at the card itself first.{
+  "image": "b127/ill_14.jpg",
+  "flags": [],
+  "visualNotes": "Ingen visuel modsigelse. Synligt men ubeskrevet (udeladelser, ikke fejl): jakkens ærmer er mørklilla/sorte, ikke røde som livet; gule sko; kvinden har armbånd; bænklædet er lysere og stribet i forhold til vinduets grønne drape; svag blyantspåtegning (~27) nederst til venstre på bagsiden."
+}

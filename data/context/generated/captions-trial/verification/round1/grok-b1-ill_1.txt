@@ -1,0 +1,5 @@
+Investigate: I'll read the image against the packet and check every claim in the alt and caption for grounding and visual accuracy.{
+  "image": "b1/ill_1.jpg",
+  "flags": [],
+  "visualNotes": "Matcher billedet. Tysk blok ligger under adressen og til venstre for »Berlin«/stemplet (udkastets »til venstre« holder). Nederste felt har desuden et rundt, delvis ulæseligt stempel og brunblæks-påtegninger; det store røde ciffer ved Berlin ligner et 4-tal. Intet af det modsiger alt/caption."
+}

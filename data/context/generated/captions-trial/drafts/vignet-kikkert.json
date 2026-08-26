@@ -1,0 +1,30 @@
+{
+  "id": "vignet/vig-brev-kikkert.jpg",
+  "alt": "Enkel stregtegning i sort på hvid bund: to lange, svagt opadbuede vandrette streger løber mellem to lodrette streger uden helt at nå dem. På den nederste streg står en lille figur i profil med høj hat og lang frakke og holder en lang kikkert for øjet, rettet mod højre; ellers er fladen mellem stregerne tom. Øverst til højre, uden for den højre lodrette streg, står et par ord skrevet i hånden med skråskrift.",
+  "caption": "»Den Person med Kikkerten det er mig«, står der i brevet, hvor tegningen sidder. Omgivelser har broen ingen af — og kunstkenderne er ifølge brevet uenige om hvorfor.",
+  "sources": [
+    "billedet: to lange, svagt opadbuede vandrette streger løber mellem to lodrette streger uden helt at nå dem (størst gab mod højre); fladen er tom bortset fra figuren (bekræftet på 2-8x forstørrede udsnit)",
+    "billedet: sort streg på hvid/lys bund — derfor »stregtegning i sort på hvid bund« (om materialet, blæk/blyant, siges intet)",
+    "billedet: en lille figur i profil på den nederste streg, ca. en tredjedel inde fra venstre, med høj spids hat og lang frakke, begge arme løftet om et langt rør, der udvider sig mod den fjerne ende og holdes for øjet, rettet mod højre",
+    "billedet: et par ord i håndskrevet skråskrift øverst til højre, placeret uden for den højre lodrette streg",
+    "pakken, brev 129's læsetekst: »Den Person med Kikkerten det er mig« — citeret ordret",
+    "pakken, brev 129's læsetekst: »Det er Knippelsbro« — grundlaget for at kalde motivet »broen« i captionen",
+    "pakken, brev 129's læsetekst: »Flere Kunstkjendere have været uenige om, hvorfor Maleren slet ikke har anbragt nogen som helst Omgivelse« — grundlaget for »Omgivelser har broen ingen af« og »kunstkenderne ... uenige om hvorfor«",
+    "pakken, manifest-post: figuren ligger i b127/txt.xml med letter »129« og type »vignet« — grundlaget for »i brevet, hvor tegningen sidder«"
+  ],
+  "note": "Håndskriften øverst til højre: første ord ligner »Tre«, andet ord ligner »Kroner« (altså »Trekroner«, som brevteksten selv nævner: »naar man retter den mod Trekroner«). Jeg kan ikke læse det med sikkerhed ved 400x221 px, så alt-teksten siger kun, at der står håndskrevne ord — læsningen er bevidst holdt ude af både alt og caption. Værd at få en modlæser til at se på netop det.\n\nBevidste fravalg: (1) Intet om hvem der har tegnet, og intet om materiale (blæk/pen/blyant). Brevet omtaler selv »Maleren« i tredje person og spøgefuldt, og hverken billedet eller pakken siger, hvem tegneren er — derfor står »Maleren« ikke i captionen, og SK tillægges ikke tegningen. (2) Alt-teksten kalder ikke motivet en bro og siger ikke, at figuren er brevskriveren; begge dele kommer fra brevteksten, ikke fra det, man ser, og hører derfor til i captionen.\n\nUsikkert i billedet: om de to lodrette streger er en tegnet ramme eller kanten af papiret/udklippet — de er ujævne og lidt skæve, og håndskriften sidder uden for den højre. Den øverste bue når ikke helt ud til den venstre lodrette streg og har en lille fortykkelse ved sin højre ende (formentlig et penselstrøg/en streg, ikke et selvstændigt motiv). Figurens ansigt er få streger; køn, ansigtstræk og fodtøj kan ikke afgøres.\n\nUdgaven har ingen head/figDesc til denne figur (pakken), så caption og alt hviler udelukkende på billedet + brev 129's egen tekst.",
+  "repairs": [
+    {
+      "flag": "codex fejl: »fladen mellem dem er tom« modsiges af figuren",
+      "action": "omskrevet: tomheden nævnes nu efter figuren (»ellers er fladen … tom«)"
+    },
+    {
+      "flag": "grok tvivl: »spænder mellem« — buerne når ikke de lodrette streger",
+      "action": "omskrevet til »løber mellem … uden helt at nå dem« — bekræftet af billedet og af codex' visualNote om samme gab"
+    },
+    {
+      "flag": "Marias sprogrunde (doktor-runden), 2026-08-26",
+      "action": "uændret (Opus' formulering godkendt som den står)"
+    }
+  ]
+}

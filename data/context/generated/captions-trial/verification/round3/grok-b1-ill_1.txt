@@ -1,0 +1,5 @@
+**Investigate** — I'll check the attached letter image against the packet and the draft, then return only the JSON verdict.{
+  "image": "b1/ill_1.jpg",
+  "flags": [],
+  "visualNotes": "Intet modsiger udkastet. Venstre panel er næsten blankt bortset fra gennemsigtning. I nederste felt: rundt, delvis udvisket stempel, »680« og to navnelignende påtegninger i anden hånd; i midterfeltet et stort rødt ciffer og øverst mørke tal/bogstaver — dækket af »tal og påtegninger«. Lakseglet har intet synligt aftryk; farven er mat orangebrun."
+}

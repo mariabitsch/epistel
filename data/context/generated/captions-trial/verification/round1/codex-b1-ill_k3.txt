@@ -1,0 +1,154 @@
+Reading additional input from stdin...
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03d5f-cd90-73e2-a33c-75ad24523439
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b1/ill_k3.jpg
+
+Billedfilen selv: `data/vendor/b1/ill_k3.jpg` (tilladt primærkilde).
+
+## Manifest-post (export/images.json)
+```json
+{
+ "id": "b1/ill_k3.jpg",
+ "path": "letters/b1/ill_k3.jpg",
+ "source": {
+  "path": "data/v1.9/b1/ill_k3.jpg",
+  "sha256": "0d7042917e1c2faceb8f19f9a9be8a7193a8cb854d7aee257c532c0e6e5fa27d"
+ },
+ "figures": [
+  {
+   "volume": "b1",
+   "file": "kom.xml",
+   "xmlId": "ill_k3",
+   "type": null,
+   "rend": "recto",
+   "url": "../b1/ill_k3.jpg",
+   "head": [
+    "3. Familiegravstedet på Assistens Kirkegård",
+    "(foto: David Cain)"
+   ],
+   "figDesc": null,
+   "letter": null,
+   "letterXmlId": null
+  }
+ ],
+ "pageBreaks": []
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 3. Familiegravstedet på Assistens Kirkegård
+- (foto: David Cain)
+
+## Brev 39 — overskrift og læsetekst
+Overskrift: · til familien
+
+Vort Gravsted vil jeg til Foraaret have gjort saaledes istand.   Den opretstaaende lille Støtte (hvorpaa staaer det om Faders første Kone) tages bort. Gitteret lukkes der bag ved. Gitteret gjøres smukt istand. Lige indenfor Gitteret, hvor hiin lille Støtte stod, anbringes en tilhuggen Gravsteen med et Marmor-Kors †. Paa Pladen af denne Gravsteen anbringes de Ord som før stode paa hiin lille Støtte. Lænet til denne Gravsteen anbringes den Tavle, med Faders og Moders Navne samt det Øvrige, der jo er Faders egen Redaktion. Saa gjøres der en Tavle svarende til denne Tavle, paa hvilken det skrives (men med en mindre Skrift og saaledes at der bliver større Plads tilovers) det som nu staaer paa den store flade Steen, der ligger over Graven, hvilken store Steen reent borttages. Denne Tavle lænes ogsaa op mod Gravstenen.Hele Gravstedet jævnes saa og besaaes en fiin Art lavt Græs, kun udvises i de 4 Hjørner en ganske lille bitte Plads med bar Jord; og i hvert saadant Hjørne anbringes en lille Busk af tyrkiske Roser troer jeg man kalder dem, nogle ganske smaa bitte mørkerøde. vertePaa den Tavle (paa hvilken det skrives der stod paa den store flade Steen, nemlig Navnene paa min afdøde Søster og Broder) bliver saaledes saa rigelig Plads, at der ogsaa mit Navn skal anbringes  Søren Aabye født d. 5 Mai 1813 dødog saa bliver der Plads nok til et lille Vers, som kan sættes med en Petit:  Det er en liden Tid,Saa har jeg vunden,Saa er den ganske StridMed Eet forsvunden,Saa kan jeg hvile migI RosensaleOg uafladelig :|:Min Jesum tale.Af Brorson No 231, No 1 i det Afsnit: om Bestandighed og Fremvæxt i Troen.
+
+## Kommentarnote b-1776 (b1/kom.xml, ordret, tags fjernet)
+det om Faders første Kone sigter til følgende gravtekst: »KIRSTINE NIELSDATTER / KIERKEGAARD / FØD ROYEN, / DØDE DEN 23 MARTII 1796, / 38 AAR GAMMEL, OG ER BEGRAVEN / UNDER DENNE STEEN, / SOM HENDES EFTERLADTE / MAND HAR HELLIGET / HENDES MINDE.« Se illustration 3. [illustration her]
+
+## Kommentarnote b-1774 (b1/kom.xml, ordret, tags fjernet)
+Vort Gravsted M.P. Kierkegaards familiegravsted på Assistens Kirkegaard på Nørrebro i København.
+
+## Kommentarnote b-1775 (b1/kom.xml, ordret, tags fjernet)
+til Foraaret se tekstredegørelsen, s. 42.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b1/ill_k3.jpg",
+  "alt": "Et familiegravsted fotograferet i sort-hvid, bag et jerngitter og under træer. Øverst rejser sig en sten med et kors på toppen og en indskriftstavle for Kirstine Nielsdatter Kierkegaard, født Royen, død 23. marts 1796. Foran stenen står på en lavere sokkel to skråtstillede tavler lænet op ad den: den venstre med Søren Michael, Maren Kirstine og Søren Aabye Kierkegaards navne og et vers, den højre med Anne Kierkegaard født Lund og Michael Pedersen Kierkegaard; omkring gravstedet græs med nedfaldne blade.",
+  "caption": "Gravstedet, som brev 39 beskriver det på forhånd: korset, gravteksten om faderens første kone øverst, de to tavler lænet op nedenfor. Pladsen, Kierkegaard bad om til sit eget navn, er fyldt ud: »DØD D. 11 NOVEMBER 1855«.",
+  "credit": "(foto: David Cain)",
+  "sources": [
+    "pakken, udgavens head: »3. Familiegravstedet på Assistens Kirkegård« — at motivet er et familiegravsted",
+    "billedet: sort-hvidt fotografi; jerngitter bag monumentet, træer og løvhæng ovenover, græs med nedfaldne blade forneden",
+    "billedet: den øverste sten bærer et kors på toppen og en indskriftstavle",
+    "billedet, den øverste tavles tekst: »KIRSTINE NIELSDATTER / KIERKEGAARD / FØD ROYEN, / DØDE DEN 23 MARTII 1796« — navn, fødenavn og dødsdato",
+    "pakken, kommentarnote b-1776: gravteksten for Kirstine Nielsdatter Kierkegaard er den, brev 39 kalder »det om Faders første Kone«, og noten henviser udtrykkeligt til »Se illustration 3«",
+    "billedet: to skråtstillede tavler står lænet op ad stenen på en lavere sokkel",
+    "billedet, venstre tavles tekst: »M. P. KIERKEGAARDS GRAVSTED / SØREN MICHAEL KIERKEGAARD / MAREN KIRSTINE KIERKEGAARD ... SØREN AABYE KIERKEGAARD / FØDT D. 5 MAI 1813 / DØD D. 11 NOVEMBER 1855« efterfulgt af verset »DET ER EN LIDEN TID ... MIN JESUM TALE«",
+    "billedet, højre tavles tekst: »ANNE KIERKEGAARD / FØD LUND ... MICHAEL PEDERSEN / KIERKEGAARD«",
+    "pakken, brev 39's læsetekst: planen om korset (»en tilhuggen Gravsteen med et Marmor-Kors †«), om at de gamle ord flyttes med (»Paa Pladen af denne Gravsteen anbringes de Ord som før stode paa hiin lille Støtte«), om de to tavler, der lænes op mod gravstenen, og om at der skal blive plads til »ogsaa mit Navn ... Søren Aabye født d. 5 Mai 1813 død«",
+    "billedet sammenholdt med brev 39: dødsdatoen »DØD D. 11 NOVEMBER 1855« står nu på tavlen, dér hvor brevet kun havde »død« og tom plads"
+  ],
+  "note": "Alle tre indskrifter er læselige i fotografiet; den øverste stemmer ordret med kommentarnote b-1776, og verset på venstre tavle er det samme Brorson-vers, brev 39 beder om (»Det er en liden Tid ... Min Jesum tale«) — jeg har ikke sat verset i captionen for at holde den under 40 ord. Citatet i captionen er sat med versaler, fordi indskriften på stenen er hugget med versaler; hvis Maria hellere vil have normal skrivemåde, kan det skrives »død d. 11 november 1855«, men så er det ikke længere stenens egen form. Fravalgt som ubelagt: at fotografiet skulle være taget på et bestemt tidspunkt (kun fotografens navn er kendt fra udgavens head), at gravstedet stadig ser sådan ud i dag, og at det er brevets istandsættelse, der frembragte netop dette monument — captionen siger, at brevet beskriver det på forhånd, ikke at fotografiet dokumenterer arbejdet. Usikkert i billedet: bag gitteret ses en tæt slyngende beplantning og hvad der ligner tagsten på en lav mur eller et tag — jeg har holdt begge dele ude af alt-teksten, fordi jeg ikke kan afgøre, hvad det er. Fotografiets brede sten på jorden foran monumentet kan jeg heller ikke bestemme; brev 39's »store flade Steen« skulle netop »reent borttages«, og jeg påstår intet om, hvad der ligger der."
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{
+  "image": "b1/ill_k3.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "bag et jerngitter",
+      "field": "alt",
+      "problem": "Billedet viser et gitter, men materialet kan ikke fastslås som jern ud fra billedet eller grounding-pakken."
+    }
+  ],
+  "visualNotes": "Ingen øvrige tydelige modsigelser; bag gitteret ses også tagsten eller en lav mur, men dette er ikke nødvendigt for beskrivelsen."
+}
+tokens used
+12.584
+{
+  "image": "b1/ill_k3.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "bag et jerngitter",
+      "field": "alt",
+      "problem": "Billedet viser et gitter, men materialet kan ikke fastslås som jern ud fra billedet eller grounding-pakken."
+    }
+  ],
+  "visualNotes": "Ingen øvrige tydelige modsigelser; bag gitteret ses også tagsten eller en lav mur, men dette er ikke nødvendigt for beskrivelsen."
+}

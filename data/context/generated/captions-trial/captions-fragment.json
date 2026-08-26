@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "what": "DRAFT captions for four trial images (the captions trial round) — alt text + Maria Notabene caption per image, keyed by export/images.json manifest ids",
+    "method": "grounding-only drafting (image + grounding packet admissible) by Claude Opus agents; adversarial verification by two foreign model families (OpenAI Codex, xAI Grok) to zero flags; arbitration against the image by Claude Fable. See docs/captions-method.md and drafts/*.json for the full audit trail incl. sources, doubts and repairs. Final voice pass (doktor-runden) by Maria Bitsch, 2026-08-26.",
+    "license": "CC BY-NC-SA 4.0 (editorial layer) — pending Maria's approval of the round",
+    "date": "2026-08-26",
+    "status": "APPROVED voice, pending Maria's final go for the dataset"
+  },
+  "captions": {
+    "b1/ill_1.jpg": {
+      "alt": "Foldet, gulnet brevark, set fra den side der bærer adressen. I midterfeltet står med håndskrift »Cand: Theol: P. C. Kierkegaard« og »unter Linden 20 drey Treppen«, med stor skrift »Berlin« og til venstre nogle linjer på tysk om det medfølgende; til højre et ovalt stempel med teksten »HAMBURG 6/4«. Spredt over arket ligger røde og sorte tal og påtegninger, nederst i midten en rund, orangerød laksegl, og papiret har tydelige foldespor, brune pletter og skrift fra arkets anden side, der skinner igennem.",
+      "caption": "Skrevet på brevets eget ark: broderens adresse i Berlin, »unter Linden 20 drey Treppen«, og på tysk, hvad der følger med — en lille kasse med to bøger. Lakseglet sidder der endnu."
+    },
+    "b1/ill_k3.jpg": {
+      "alt": "Et familiegravsted fotograferet i sort-hvid, med et gitter og træer bagved. Øverst rejser sig en sten med et kors på toppen og en indskriftstavle for Kirstine Nielsdatter Kierkegaard, født Royen, »DØDE DEN 23 MARTII 1796«. Foran stenen står på en lavere sokkel to tavler lænet op ad den: den venstre med Søren Michael, Maren Kirstine og Søren Aabye Kierkegaards navne og et vers, den højre med Anne Kierkegaard født Lund og Michael Pedersen Kierkegaard; omkring gravstedet græs med nedfaldne blade.",
+      "caption": "Gravstedet, som brev 39 beskriver det på forhånd: korset, gravteksten om faderens første kone øverst, de to tavler lænet op ad stenen. Pladsen, Kierkegaard bad om til sit eget navn, er fyldt ud: »DØD D. 11 NOVEMBER 1855«.",
+      "credit": "(foto: David Cain)"
+    },
+    "b127/ill_14.jpg": {
+      "alt": "Et koloreret kort: en ung mand med mønstret turban, rød jakke over en lyseblå vest og mønstrede vinrøde bukser sidder på en stenbænk med et lutlignende strengeinstrument i skødet og strækker den ene hånd op mod en ung kvinde, der læner sig ud af et vindue ovenover og holder en lille buket ned mod hans hånd; et grønt klæde hænger ud af vinduet, et andet ligger på bænken, og bagved ses et landskab med et højt smalt tårn, bygninger og bjerge under en gylden himmel. Nedenunder ses kortets bagside med fem håndskrevne verselinjer på tysk — under dem står »des Knaben Wunderhorn« — og derunder nogle linjer på dansk skrevet med en anden hånd i brunligt blæk. I bagsidens fire hjørner sidder runde orange mærker.",
+      "caption": "Kortet fulgte med brev 139, hvor Kierkegaard dvæler ved blomsten i kvindens hånd: hvem rækker den til hvem? »Det veed ingen Trediemand.« Bagsiden har både Kierkegaard og Regine skrevet på."
+    },
+    "vignet/vig-brev-kikkert.jpg": {
+      "alt": "Enkel stregtegning i sort på hvid bund: to lange, svagt opadbuede vandrette streger løber mellem to lodrette streger uden helt at nå dem. På den nederste streg står en lille figur i profil med høj hat og lang frakke og holder en lang kikkert for øjet, rettet mod højre; ellers er fladen mellem stregerne tom. Øverst til højre, uden for den højre lodrette streg, står et par ord skrevet i hånden med skråskrift.",
+      "caption": "»Den Person med Kikkerten det er mig«, står der i brevet, hvor tegningen sidder. Omgivelser har broen ingen af — og kunstkenderne er ifølge brevet uenige om hvorfor."
+    }
+  }
+}

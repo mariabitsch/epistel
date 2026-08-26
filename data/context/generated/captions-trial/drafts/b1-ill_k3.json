@@ -1,0 +1,37 @@
+{
+  "id": "b1/ill_k3.jpg",
+  "alt": "Et familiegravsted fotograferet i sort-hvid, med et gitter og træer bagved. Øverst rejser sig en sten med et kors på toppen og en indskriftstavle for Kirstine Nielsdatter Kierkegaard, født Royen, »DØDE DEN 23 MARTII 1796«. Foran stenen står på en lavere sokkel to tavler lænet op ad den: den venstre med Søren Michael, Maren Kirstine og Søren Aabye Kierkegaards navne og et vers, den højre med Anne Kierkegaard født Lund og Michael Pedersen Kierkegaard; omkring gravstedet græs med nedfaldne blade.",
+  "caption": "Gravstedet, som brev 39 beskriver det på forhånd: korset, gravteksten om faderens første kone øverst, de to tavler lænet op ad stenen. Pladsen, Kierkegaard bad om til sit eget navn, er fyldt ud: »DØD D. 11 NOVEMBER 1855«.",
+  "credit": "(foto: David Cain)",
+  "sources": [
+    "pakken, udgavens head: »3. Familiegravstedet på Assistens Kirkegård« — at motivet er et familiegravsted",
+    "billedet: sort-hvidt fotografi; gitteret løber bag og ved siden af monumentet (kameraet står på gravstedet, intet gitter i forgrunden), træer og løvhæng ovenover, græs med nedfaldne blade forneden",
+    "billedet: den øverste sten bærer et kors på toppen og en indskriftstavle",
+    "billedet, den øverste tavles tekst: »KIRSTINE NIELSDATTER / KIERKEGAARD / FØD ROYEN, / DØDE DEN 23 MARTII 1796« — navn, fødenavn og dødsdato",
+    "pakken, kommentarnote b-1776: gravteksten for Kirstine Nielsdatter Kierkegaard er den, brev 39 kalder »det om Faders første Kone«, og noten henviser udtrykkeligt til »Se illustration 3«",
+    "billedet: to skråtstillede tavler står lænet op ad stenen på en lavere sokkel",
+    "billedet, venstre tavles tekst: »M. P. KIERKEGAARDS GRAVSTED / SØREN MICHAEL KIERKEGAARD / MAREN KIRSTINE KIERKEGAARD ... SØREN AABYE KIERKEGAARD / FØDT D. 5 MAI 1813 / DØD D. 11 NOVEMBER 1855« efterfulgt af verset »DET ER EN LIDEN TID ... MIN JESUM TALE«",
+    "billedet, højre tavles tekst: »ANNE KIERKEGAARD / FØD LUND ... MICHAEL PEDERSEN / KIERKEGAARD«",
+    "pakken, brev 39's læsetekst: planen om korset (»en tilhuggen Gravsteen med et Marmor-Kors †«), om at de gamle ord flyttes med (»Paa Pladen af denne Gravsteen anbringes de Ord som før stode paa hiin lille Støtte«), om de to tavler, der lænes op mod gravstenen, og om at der skal blive plads til »ogsaa mit Navn ... Søren Aabye født d. 5 Mai 1813 død«",
+    "billedet sammenholdt med brev 39: dødsdatoen »DØD D. 11 NOVEMBER 1855« står nu på tavlen, dér hvor brevet kun havde »død« og tom plads"
+  ],
+  "note": "Alle tre indskrifter er læselige i fotografiet; den øverste stemmer ordret med kommentarnote b-1776, og verset på venstre tavle er det samme Brorson-vers, brev 39 beder om (»Det er en liden Tid ... Min Jesum tale«) — jeg har ikke sat verset i captionen for at holde den under 40 ord. Citatet i captionen er sat med versaler, fordi indskriften på stenen er hugget med versaler; hvis Maria hellere vil have normal skrivemåde, kan det skrives »død d. 11 november 1855«, men så er det ikke længere stenens egen form. Fravalgt som ubelagt: at fotografiet skulle være taget på et bestemt tidspunkt (kun fotografens navn er kendt fra udgavens head), at gravstedet stadig ser sådan ud i dag, og at det er brevets istandsættelse, der frembragte netop dette monument — captionen siger, at brevet beskriver det på forhånd, ikke at fotografiet dokumenterer arbejdet. Usikkert i billedet: bag gitteret ses en tæt slyngende beplantning og hvad der ligner tagsten på en lav mur eller et tag — jeg har holdt begge dele ude af alt-teksten, fordi jeg ikke kan afgøre, hvad det er. Fotografiets brede sten på jorden foran monumentet kan jeg heller ikke bestemme; brev 39's »store flade Steen« skulle netop »reent borttages«, og jeg påstår intet om, hvad der ligger der.",
+  "repairs": [
+    {
+      "flag": "codex tvivl + grok fejl: »bag et jerngitter« (materiale + omvendt rumlighed)",
+      "action": "omskrevet til »med et gitter og træer bagved« — grok havde ret i placeringen (arbitreret mod billedet), og materialet påstås ikke"
+    },
+    {
+      "flag": "grok tvivl: »død 23. marts 1796« vs. stenens »MARTII«",
+      "action": "citerer nu stenen ordret: »DØDE DEN 23 MARTII 1796« — kildens egen form bevares"
+    },
+    {
+      "flag": "grok visualNote (ikke flag): kun den højre tavle hælder tydeligt",
+      "action": "»skråtstillede« droppet; der står nu kun »to tavler lænet op ad den« — arbitreret mod billedet"
+    },
+    {
+      "flag": "Marias sprogrunde (doktor-runden), 2026-08-26",
+      "action": "»lænet op nedenfor« → »lænet op ad stenen« (referent skærpet); den indskudte relativsætning bevidst beholdt — Marias kald: værkets tungeste sætning må gerne være svær"
+    }
+  ]
+}

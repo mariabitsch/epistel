@@ -1,0 +1,12 @@
+**Investigate** — I'll verify the draft against the image and the grounding packet only, then return the JSON.{
+  "image": "vignet/vig-brev-kikkert.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "to lange, svagt opadbuede vandrette streger spænder mellem to lodrette streger",
+      "field": "alt",
+      "problem": "Buernes ender møder ikke de lodrette streger. Især til højre er der et tydeligt tomt mellemrum før den lodrette streg, så »spænder mellem« overdriver layoutet."
+    }
+  ],
+  "visualNotes": "Håndskriften øverst til højre læses som »Tre Kroner« (to ord); pakken nævner »Trekroner« i brev 129. De to buer når ikke ind til de lodrette streger (størst gab til højre); den øverste bue har en lille fortykkelse i højre ende. Figuren står på den nederste streg og optager rummet mellem buerne. Den venstre lodrette streg ligger i billedkanten og er svagere end den højre."
+}
