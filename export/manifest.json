@@ -59,6 +59,7 @@
   }
  },
  "schemas": {
+  "images": "schema/images.schema.json",
   "letter": "schema/letter.schema.json",
   "manifest": "schema/manifest.schema.json",
   "volumes": "schema/volumes.schema.json"

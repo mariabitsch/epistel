@@ -14,8 +14,8 @@ Two levels of guarding, on purpose:
 * **When available**: if ``fastjsonschema`` is importable (a deliberately
   optional, pure-Python dev dependency — e.g. in a local ``.venv``), the
   committed export is validated against its own schemas: the manifest, the
-  volume index and all 336 envelopes. Where it is not installed the test
-  skips, visibly.
+  volume index, the image manifest and all 336 envelopes. Where it is not
+  installed the test skips, visibly.
 """
 
 import json
@@ -30,7 +30,7 @@ except ImportError:  # The optional validator; the suite says so, loudly.
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EXPORT = os.path.join(ROOT, "export")
 
-SCHEMAS = ("manifest", "volumes", "letter")
+SCHEMAS = ("manifest", "volumes", "letter", "images")
 
 
 def _read_json(*parts):
@@ -80,6 +80,9 @@ class SchemaValidationTest(unittest.TestCase):
 
     def test_the_volume_index_validates(self):
         self.validators["volumes"](_read_json(EXPORT, "volumes.json"))
+
+    def test_the_image_manifest_validates(self):
+        self.validators["images"](_read_json(EXPORT, "images.json"))
 
     def test_every_envelope_validates(self):
         validated = 0

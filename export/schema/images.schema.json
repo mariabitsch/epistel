@@ -1,0 +1,117 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "epistel image manifest",
+ "description": "Every vendored illustration file: its provenance, its place in the export, and every reference the edition makes to it. Vendor layer only (CC0); descriptions of our own would be an editorial layer. See docs/export-format.md.",
+ "type": "object",
+ "required": ["images", "unshippedReferences"],
+ "additionalProperties": false,
+ "properties": {
+  "images": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": ["id", "path", "source", "figures", "pageBreaks"],
+    "additionalProperties": false,
+    "properties": {
+     "id": {
+      "description": "The file's vendor-relative path, e.g. b1/ill_1.jpg. The join key: a captions dataset would key off this.",
+      "type": "string",
+      "pattern": "^[a-z0-9]+/[A-Za-z0-9_.-]+\\.jpe?g$"
+     },
+     "path": {
+      "description": "Where the file sits inside this export.",
+      "type": "string",
+      "pattern": "^letters/"
+     },
+     "source": {
+      "description": "Upstream path and sha256 from the provenance record; with the manifest's pinned commit, a checkable address for the exact bytes.",
+      "type": "object",
+      "required": ["path", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+       "path": {"type": "string"},
+       "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+     },
+     "figures": {
+      "description": "Every <figure> printing this file, in reading order. May be empty: some vendored files are referenced only from a page break, or not at all.",
+      "type": "array",
+      "items": {"$ref": "#/definitions/figure"}
+     },
+     "pageBreaks": {
+      "description": "Every <pb facs> reproducing a manuscript leaf with this file, in reading order. May be empty.",
+      "type": "array",
+      "items": {"$ref": "#/definitions/pageBreak"}
+     }
+    }
+   }
+  },
+  "unshippedReferences": {
+   "description": "Image references in the vendored TEI that this export ships no file for: ded's own plates (ded is outside the corpus) and one reference dangling upstream. Listed rather than dropped; never repaired.",
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": ["volume", "file", "element", "url", "letter", "letterXmlId"],
+    "additionalProperties": false,
+    "properties": {
+     "volume": {"$ref": "#/definitions/volume"},
+     "file": {"$ref": "#/definitions/file"},
+     "element": {"type": "string", "enum": ["figure", "pb"]},
+     "url": {"type": "string"},
+     "letter": {"$ref": "#/definitions/letter"},
+     "letterXmlId": {"$ref": "#/definitions/letter"}
+    }
+   }
+  }
+ },
+ "definitions": {
+  "volume": {
+   "description": "The vendored directory the reference was written in.",
+   "type": "string",
+   "pattern": "^[a-z0-9]+$"
+  },
+  "file": {"type": "string", "enum": ["txt.xml", "kom.xml"]},
+  "letter": {
+   "description": "The letter the reference sits in, joining to letters/<volume>/<xmlId>.json; null where it sits in none (the commentary's plate sections, ded's dedications).",
+   "type": ["string", "null"]
+  },
+  "figure": {
+   "type": "object",
+   "required": ["volume", "file", "xmlId", "type", "rend", "url", "head", "figDesc", "letter", "letterXmlId"],
+   "additionalProperties": false,
+   "properties": {
+    "volume": {"$ref": "#/definitions/volume"},
+    "file": {"$ref": "#/definitions/file"},
+    "xmlId": {"description": "The figure's xml:id, the edition's own.", "type": "string"},
+    "type": {"description": "TEI @type; only the two shared vignettes carry one.", "type": ["string", "null"]},
+    "rend": {"description": "TEI @rend: recto, verso or opening.", "type": ["string", "null"]},
+    "url": {"description": "The <graphic> url exactly as written, uppercase volume directories included.", "type": "string"},
+    "head": {
+     "description": "The edition's caption lines, plain text, verbatim and complete (a second line usually holds the photo credit). Empty where the edition writes none.",
+     "type": "array",
+     "items": {"type": "string"}
+    },
+    "figDesc": {"description": "The figure's description; null where absent or left empty.", "type": ["string", "null"]},
+    "letter": {"$ref": "#/definitions/letter"},
+    "letterXmlId": {"$ref": "#/definitions/letter"}
+   }
+  },
+  "pageBreak": {
+   "type": "object",
+   "required": ["volume", "file", "xmlId", "n", "rend", "edRef", "facs", "letter", "letterXmlId"],
+   "additionalProperties": false,
+   "properties": {
+    "volume": {"$ref": "#/definitions/volume"},
+    "file": {"$ref": "#/definitions/file"},
+    "xmlId": {"type": "string"},
+    "n": {"description": "The leaf, in the manuscript's own numbering (1r, 2v).", "type": ["string", "null"]},
+    "rend": {"type": ["string", "null"]},
+    "edRef": {"description": "The pagination series; absent on the manuscript's leaves, which is where facsimile references sit.", "type": ["string", "null"]},
+    "facs": {"description": "The @facs value exactly as written.", "type": "string"},
+    "letter": {"$ref": "#/definitions/letter"},
+    "letterXmlId": {"$ref": "#/definitions/letter"}
+   }
+  }
+ }
+}
