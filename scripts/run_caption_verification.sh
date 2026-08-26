@@ -27,7 +27,9 @@ mkdir -p "$GEN/verification"
 OUT="$GEN/verification/$WHO-$SLUG.txt"
 
 if [ "$WHO" = codex ]; then
-  codex exec -i "$IMG" -- "$PROMPT" > "$OUT" 2>&1
+  # </dev/null: codex reads stdin when it is an open pipe and hangs
+  # forever in background runs (found the hard way, 2026-08-26).
+  codex exec -i "$IMG" -- "$PROMPT" > "$OUT" 2>&1 < /dev/null
 else
   # macOS ARG_MAX is 1MB; downscale large images for the grok call and
   # note it — the verifier then saw a smaller copy, not the vendored file.
@@ -42,6 +44,6 @@ import json, sys
 prompt = sys.argv[1]; b64 = sys.argv[2]
 print(json.dumps([{"type": "text", "text": prompt},
                   {"type": "image", "data": b64, "mimeType": "image/jpeg"}]))
-' "$PROMPT" "$B64")" --max-turns 10 > "$OUT" 2>&1
+' "$PROMPT" "$B64")" --max-turns "${GROK_MAX_TURNS:-10}" > "$OUT" 2>&1 < /dev/null
 fi
 echo "wrote $OUT"
