@@ -16,8 +16,11 @@ client-side search, `/tidslinje/`, `/personer/`, `/om/`. 413 tests green
 (that number is machine-guarded; see Working here). The front page opens
 with a factual lead (Maria's own text) and Maria Notabene's foreword, set
 in the letters' frame. Since 2026-08-25 the corpus is also published as
-**data**: a typed JSON export in `export/`, released via git tags
-(first release `v0.1.0`); `docs/export-format.md` is its contract.
+**data**: a typed JSON export in `export/` — letter envelopes + semantic
+HTML bodies, the volume index, the image manifest and the editorial
+layers, each with a JSON Schema — released via git tags (first release
+`v0.1.0`, `schemaVersion` now 0.2.0); `docs/export-format.md` is its
+contract.
 
 ## Working here
 
@@ -75,7 +78,11 @@ Guarantees the next team inherits (all tested):
   visible text equals the parsed reading text), deterministic output, the
   committed `export/` cannot drift from a fresh run, and the editorial
   layers travel verbatim under their own license (CC BY-NC-SA 4.0),
-  distinct from the vendor layers' CC0.
+  distinct from the vendor layers' CC0. Since schemaVersion 0.2.0 the
+  vendored illustrations are a dataset too (`export/images.json`): every
+  file with its provenance row and every place the edition points at it,
+  vendor-verbatim — and the references no file answers are listed, not
+  dropped.
 - **Every editorial dataset is independently disposable**: a build with no
   `data/context/` files still yields a complete, honest site (no timeline,
   no bios, no summaries — but 336 letters, 298 person pages, search).
@@ -85,8 +92,10 @@ Guarantees the next team inherits (all tested):
   `pipeline/corpus.py` (what "the corpus" is; why ded is excluded),
   `pipeline/context.py` (editorial loaders), `pipeline/provenance.py`
   (pinned SHA + the per-file record; neither the Om page nor the export
-  can drift from PROVENANCE.md), `exporter/export.py` +
-  `exporter/body.py` (the export's layout and vocabulary),
+  can drift from PROVENANCE.md), `pipeline/images.py` (where the TEI
+  points at its illustration files), `exporter/export.py` +
+  `exporter/body.py` (the export's layout and vocabulary) +
+  `exporter/images.py` (the image manifest),
   `sitegen/persons.py` (register + slugs), `sitegen/search.py` (facets +
   inverted index; å/ø/æ folding duplicated in JS, test-guarded).
 
@@ -155,6 +164,14 @@ datasets the same way; the method is what matters.
   `choice`/`abbr`/`expan`, `witDetail`); the parser keeps variants out of
   the reading flow but preserves them. Two pagination series (manuscript
   leaves / SKS print pages), a few `pb` with `@facs`.
+- Images are pointed at two ways: 40 illustrated `<figure>`s (only the two
+  shared vignettes carry a `@type`; captions live in one or two `<head>`
+  children, the second usually a photo credit) and 35 `<pb facs>`. Counted
+  at the pin and test-guarded, `export/images.json` being the join. Two
+  vendored files are referenced *nowhere* (`b241/ill_k10.jpg`,
+  `b79/ill_k4.jpg` — b241's kom.xml prints no plates at all), and
+  `b79/ill_24.jpg`/`b308/ill_24.jpg` are two copies of one plate in two
+  volumes: two ids, never merged.
 - `persName` in bodies carries normalized `key`s (the person-index join);
   correspDesc `<name>`s are raw strings — hence `aliases.json`. In
   kom.xml, `@n="*"` on a persName marks a note's *biographical subject*
@@ -260,14 +277,20 @@ test-held.
   optional `fastjsonschema` is importable, e.g. from a local `.venv`
   created with `python3 -m venv .venv && .venv/bin/pip install
   fastjsonschema` — and the editorial layers licensed.)
+- Image captions: `export/images.json` (0.2.0) carries the edition's own
+  `<head>` captions and nothing of ours. A captions dataset of our own —
+  the 6 kom-captions, alt text for display — would be an *editorial*
+  layer under `data/context/`, keyed by the manifest's image ids. Not
+  designed yet.
 - Småting: more TEI-annotation finds may come.
 
 ## Explicitly out of scope
 
 CMS, user accounts, editing, annotations, analytics, server components,
 runtime API calls, facsimile viewing on the *site* (the source's
-`ill_*.jpg` illustrations are vendored and travel with the export, where
-their TEI references resolve — but the site still displays none of them).
+`ill_*.jpg` illustrations are vendored, travel with the export — where
+their TEI references resolve — and are described by `export/images.json`,
+but the site still displays none of them).
 
 ---
 
