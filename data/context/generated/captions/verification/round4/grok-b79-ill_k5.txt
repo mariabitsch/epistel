@@ -1,0 +1,18 @@
+Investigate: I'll read the full prompt, grounding packet, and draft, then check the image against every claim.I’ll check the vendor image at full resolution so counts, lettering, and layout can be verified against the draft.I’ll check the captions method and earlier trial flags so I apply the same bar.{
+  "image": "b79/ill_k5.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "en lille lys prydelse på issen",
+      "field": "alt",
+      "problem": "På den klokkenederdels-figurs isse ses kun nogle korte streger. At prydelsen er »lys« (lysende eller lyst farvet) kan ikke aflæses af stregtegningen; stregerne kan lige så vel være hår eller en lille spids prydelse uden lysvirkning."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "danser en kreds af figurer i lange kjoler hen over en eng, og midt i kredsen står en figur",
+      "field": "alt",
+      "problem": "Figurerne omkring den klokkeformede nederdel danner ikke en sluttet ring. Der er nogle få draperede skikkelser ved siden af hende, siddende småfigurer foran og springende eller omvendte figurer til højre — en løs gruppe, ikke en kreds med hende i midten."
+    }
+  ],
+  "visualNotes": "Måneseglet sidder i en bølget skykontur, som alt-teksten ikke nævner. Ved det store hoveds kind står en lille nøgen figur i sivet; hånden ved brinken kan stadig anes. Jorddanserne er en klump, ikke en sluttet kreds. Prydelsen på den midterste dansers isse er nogle spidse streger, ikke et synligt lys."
+}

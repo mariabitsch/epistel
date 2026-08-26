@@ -1,6 +1,6 @@
 {
   "id": "b79/ill_k5.jpg",
-  "alt": "Et plancheblad med en stregtegning i sort på gulnet, aldersplettet papir; billedet er trykt på tværs af bladet. Over billedrammen står øverst til højre »Taf. XXX.«, under rammen står »Elfen, tanzend im Mondenschein.«, og inde i billedfeltet står øverst tallet »1.«. På himlen svæver seks figurer i lange, flagrende slør hånd i hånd i en ring omkring en månesegl; under ringen ses en stjerne. Nedenunder danser en kreds af figurer i lange kjoler hen over en eng, og midt i kredsen står en figur i vid, klokkeformet nederdel på tåspidserne med begge arme løftet og en lille lys prydelse på issen. I forgrunden sidder små buttede skikkelser med spidse huer på jorden, og en bue af små mærker løber gennem græsset. Til højre går flere nøgne småfigurer på hænder med benene i vejret, en mørkt skraveret skikkelse strækker to lange lemmer op i et V, og bagest ligger et menneskehoved, mange gange større end alle figurerne, med hagen på en græsklædt brink; det har krøllet hår, en lille spids hue på issen og ser smilende ud over engen. Øverst til højre tumler en mængde små figurer gennem luften, og en spids hue svæver imellem dem. Bagest står højt siv og græs.",
+  "alt": "Et plancheblad med en stregtegning i sort på gulnet, aldersplettet papir; billedet er trykt på tværs af bladet. Over billedrammen står øverst til højre »Taf. XXX.«, under rammen står »Elfen, tanzend im Mondenschein.«, og inde i billedfeltet står øverst tallet »1.«. På himlen svæver seks figurer i lange, flagrende slør hånd i hånd i en ring omkring en månesegl; under ringen ses en stjerne. Nedenunder danser figurer i lange kjoler hen over en eng, og blandt dem står en figur i vid, klokkeformet nederdel på tåspidserne med begge arme løftet og korte streger tegnet over issen. I forgrunden sidder små buttede skikkelser med spidse huer på jorden, og en bue af små mærker løber gennem græsset. Til højre går flere nøgne småfigurer på hænder med benene i vejret, en mørkt skraveret skikkelse strækker to lange lemmer op i et V, og bagest ligger et menneskehoved, mange gange større end alle figurerne, med hagen på en græsklædt brink; det har krøllet hår, og ved issen ses en lille spids hue og ser smilende ud over engen. Øverst til højre tumler en mængde små figurer gennem luften, og en spids hue svæver imellem dem. Bagest står højt siv og græs.",
   "caption": "Kierkegaard spørger Emil Boesen, om han har vundet den proportion over for verden, at han kan stikke hovedet ind i den og se sig om »i en Dands af Gnomer og Elverpiger«. Stikket er formentlig dette, siger udgaven — og hovedet ligger dér, til højre, med hagen på brinken.",
   "credit": null,
   "sources": [
@@ -36,6 +36,10 @@
     {
       "flag": "grok runde 3, tvivl: »én af dem har mistet sin hue« — fortælling om en forudgående handling, ikke noget synligt",
       "action": "arbitreret: omskrevet til det synlige (»en spids hue svæver imellem dem«)."
+    },
+    {
+      "flag": "codex runde 4, tvivl: huen kan tilhøre en figur bag hovedet; grok runde 4, tvivl (×2): »lys prydelse« (kun korte streger ses) og »kreds«/»midt i kredsen« (ikke en sluttet ring)",
+      "action": "arbitreret: alle tre generaliseret — »korte streger tegnet over issen«, »ved issen ses …«, »blandt dem står …«."
     }
   ]
 }

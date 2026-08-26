@@ -1,1 +1,0 @@
-Investigate: I'll read the full prompt, grounding packet, and draft, then check the image against every claim.

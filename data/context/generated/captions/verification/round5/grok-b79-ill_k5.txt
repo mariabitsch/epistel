@@ -1,0 +1,5 @@
+Investigate: I'll verify the draft alt and caption against only the image and the grounding packet, then return the JSON flags. Reading the full prompt first.I'll inspect the plate closely—counts, labels, and the figures the draft describes—before judging groundedness.I'll pull the vendor plate as well so I can count figures and read the printed labels against the draft.I'll crop the plate so I can count the ring, the handstanders, and the labels without guessing.{
+  "image": "b79/ill_k5.jpg",
+  "flags": [],
+  "visualNotes": "Ingen modsigelse af alt/caption. Synligt men udeladt: en hånd med spredte fingre på brinken til højre for det store hoved; månen sidder i en takket sky; den mørkt skraverede V-skikkelse er et hovedstand. Ikke alle de siddende skikkelser har synlig spids hue; de korte streger sidder rundt om klokkedanserens hoved, ikke kun over issen."
+}

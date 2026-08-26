@@ -1,0 +1,357 @@
+Reading additional input from stdin...
+2026-08-26T17:43:08.978751Z ERROR codex_models_manager::cache: failed to load models cache: missing field `base_instructions` at line 97 column 5
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03f2b-2d90-7bd1-9409-6c33baf1b3d7
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Note (added for the full round, 2026-08-26, after the trial):
+the edition abbreviates Søren Kierkegaard as »SK« (e.g. »Fra SK« in
+letter headings). Expanding »SK« to »Kierkegaard« or »Søren
+Kierkegaard« is NOT an ungrounded claim — the grounding packet's
+edition is Søren Kierkegaards Skrifter, and this instruction states it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b79/ill_k5.jpg
+
+Billedfil: `data/vendor/b79/ill_k5.jpg` (tilladt primærkilde).
+
+## Manifest-post: b79/ill_k5.jpg (export/images.json)
+```json
+{
+ "id": "b79/ill_k5.jpg",
+ "path": "letters/b79/ill_k5.jpg",
+ "source": {
+  "path": "data/v1.9/b79/ill_k5.jpg",
+  "sha256": "6752f81fce825de0882217dab5cf53cfa11df59179c126e88c7a8004f5aa2539"
+ },
+ "figures": [
+  {
+   "volume": "b79",
+   "file": "kom.xml",
+   "xmlId": "ill_k5",
+   "type": null,
+   "rend": "recto",
+   "url": "../b79/ill_k5.jpg",
+   "head": [
+    "5. »Elfen, tanzend im Mondenschein« ().",
+    "Tavle XXX i tillægget, W. Vollmer's Mythologie. Abbildungen"
+   ],
+   "figDesc": null,
+   "letter": null,
+   "letterXmlId": null
+  }
+ ],
+ "pageBreaks": []
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 5. »Elfen, tanzend im Mondenschein« ().
+- Tavle XXX i tillægget, W. Vollmer's Mythologie. Abbildungen
+
+## Brev 79 (b79) — overskrift og læsetekst
+Overskrift: Fra SK · 17. juli [1838] · til Emil Boesen
+
+    Kjære Emil!!   Du min Ven, den eneste, paa hvis Forbøn jeg udholdt den Verden, der i saa mange Maader forekom mig utaalelig; den eneste, der blev tilbage, da jeg lod Tvivl og Mistillid som et fremfarende Stormveir bortskylle og tilintetgjøre alt andet – mit Arrarat, hvor staaer det? Er det nu Veir, mener Du, til at lande, kan jeg nu forlade min Ark, ell. rettere min slet bemandede Skude (der er kun een Mand ombord og det er jeg selv, og som saadan kun  svag og næsten at ligne med hiin Matros i Gilleleie, der kun havde 1½ Arm og dog altid seilede ene) – min trofaste Stalbroder, som ikke har krympet Dig ved stundom at bøie Ryg for at afløse mig, naar mit Sind som min Ryg var fortrykket af som Atlas at bære paa den Verden, min egen Indbildning lod mig troe, jeg kunde bære, og en Hercules narrede mig til at paatage mig; den Verden, jeg nu seer nedstyrtet under mig, tilintetgjort for mig som jeg for den – min συζυγε, har Du udfoldet hele din Høide, hele den Reisning, man bør have over Verden, for hverken at forslæbe sig paa dens Kobberskillinger eller aldeles gaae glip af dens Herligheder – har Du vundet den Proportion ligeoverfor Verden, at Du kan jage saa at sige dit Hoved ind i Verden og see Dig om i den, saaledes som paa et Kobberstykke fremstilles et Mskhoved i naturlig Størrelse seende sig omkring i en Dands af Gnomer og Elverpiger? – Svar, jeg besværger Dig indenfor vort Venskabs Tryllekreds! Tal, høit »at jeg kan see Dig« ...... Disse og lignende Interjektions-Skrivelser, Tak-Adresser og udæskende Petitioner har mit Hoved conciperet efter mit Hjertets Dictat under min Personligheds Segl; men jeg har endnu bestandig forgjæves ventet paa den reglementerede Postbefordring ɔ:  den Stemningens Continuerlighed, uden hvilken de umuligen kunde komme Dig tilhænde og ved Godhed gaae videre – til Hjertet nemlig. For at imidlertid disse Breve til Dig, som Du er, – som Paulus siger, skrevne ikke med Pen og Blæk men indskrevne i Hjertet (cfr.2 Cor: 3, 2.), – kunne blive noget mere ell. om Du saa vil, som jeg vil, noget mindre; kort sagt: for at Tanken om Dig ikke skal vakle ustadig mell. en extatisk exacerberatio og en Somnambüle, narkotisk Henslumren en emolities cerebri, saa modtag disse Linier. Hvor dog Alt har forandret sig siden den Tid, da jeg saa hyppigt besøgte Dig, siden den Tid, da alle de Omsætninger skete, hvis Frugter udgjøre et Depositum i vor Fiskus, et Mellemværende, vi vist med Glæde begge en god Tid endnu vil erindre; et Mellemværende, der kun adskiller i samme Grad som det forener, et Mellemværende, der som den rette Linie paa den fælleds Grundlinie danner Nabovinkler med livlig Omskiftning af Vinklernes Størrelse. Verden har taget meget fra mig, saare meget, men endnu, Gud skee Lov, ikke mere end den har givet. At den kan tage Mere, meget Mere, naar man ikke passer paa itide at indgaae i det Compagnie, der endnu aldrig har haft Kasse-Mangel og endnu aldrig er udeblevet til Terminen, det har jeg erfaret eminus (i Fægtning paa Afstand). – Kan Du huske, da jeg engang paa Dit Værelse sang med en besynderlig Ahnelse det Vers:»Jeg har Dig seet i høie Keisersale,Jeg deler tro Din Kummer og Din Nød,« –og Du søgte at slaae det Hele hen i Spøg.? Det blev  kun altfor sandt. At Du er bleven mig tro, at Du endnu er min συζυγος og ikke er bleven ἑτεϱοζυγων απιστοις, det veed jeg; men at jeg er dethroniseret, en Exmonarch, det veed jeg ogsaa. Thi kan vel nogen afsat Fyrste i strængere Forstand siges at være »uden Land« end et Msk. paa 25 Aar, der er uden Forhaabninger; kan vel nogen fordreven Konge i absolutere Betydning føle sig frarevet enhver Udsigt til igjen at faae Fodfæste i sit ved Erobringer forøgede Arverige end jeg? Eller kan nogen landsforviist Fyrste bittrere føle sine Undersaatters Troløshed end en stakkels Forfatter, der er uden Læsere? Og hvad er vel mere urimeligt end en homme de lettres, der læser til en Embedsexamen? Og er ikke hele mit Liv saa forkvaklet, at der, hvis det ikke skeer netop quia absurdum est,  umulig kan komme Mening i det, end sige, at jeg selv skulde kunde bringe Mening deri. Jeg har taget Hoffmanns Wercke med mig herud, og skjøndt jeg vel føler, hvor beslægtet jeg i mange Maader er med ham, saa er dog min Sorg over Verden og i Verden dog endnu ikke slaaet saa fortvivlet over i sin Modsætning, ell. min Sorg efter Verden saa aldeles gaaet op i en hoffmannske produktiv Realisation af det Ønske, at hele Verden sad paa Bloksbjerget, undfanget med en saadan Forbittrelse, at man selv tilbringer sin meste Tid sammesteds for at see, om ogsaa Verden behørig pines og plages der og tilsidst i tilintetgjørende Raserie føler sig selv alene i en Valts paa Liv og Død med Hexe og Trolde,  piint af Tanken om, at det var dog ikke det rette Punkt til derfra at rokke Verden; thi det er dog vist og sandt, at hvor Fanden saa det archimediske Punkt ligger, paa Bloksbjerg ligger det ikke. – Det jeg behøver er en Stemme, gjennemtrængende som et Lynceus Blik, forfærdende som Giganternes Suk, udholdende som en Naturlyd, af Omfang fra den dybeste Bas til de meest smeltende Brysttoner, moduleret fra den meest hellig-sagte Hvidsken til Raseriets ildsprudende Energie. Det er det jeg behøver for at faae Luft, for at faae udtalt det, der ligger mig paa Sinde, for at faae baade Vredens og Sympathiens viscera rystede. Derfor skriver jeg til Dig, og jo mere jeg tænker paa vort Stikord: »en Kirke i det Fjerne staaer«  desto mere føler ogsaa jeg Sandheden af, hvad Du engang bemærkede, at den var kommen betydelig nærmere, men mere end Tilhører kan jeg dog for det første ikke blive. Min  Tale egner sig ikke dertil, den er uomskaaren, uevangelistisk, natlig-hæs som et Maageskrig, ell. hendøende som Velsignelsen paa den Stummes Læber. Tal derfor Du.d. 17 Juli. Din for evig  S. K. E: Sk: den foregaaende Underskrift, der vel ikke har noget Opsving, hvorved den kan fængsle Dig, men vel maaskee en Simpelhed, hvorved den tækkes Dig, vil jeg bede Dig at læse først og derpaa igjen sidst og saaledes lade den danne et Slags Omqvæd, og see hele Brevet saa at sige indenfor denne Parenthes, hvis Tegn Du jo ikke behøver blot at lade dannes af en slet og ret krum Linie, men af ☾ ☽, en op- og nedgaaende Maane, ell. min egen Personligheds vice a vice, en Parenthes, hvori Du er i Sandhed optaget, og det haaber jeg Du ogsaa føler Dig hjemme i –.
+
+## Kommentarnote b-1804 (b79/kom.xml, ordret)
+*Denne note omslutter selve figuren i kommentarbindet.*
+Lemma: paa et Kobberstykke ... et Mskhoved ... en Dands af Gnomer og Elverpiger
+
+sigter formentlig til stikket, tavle XXX, »Elfen, tanzend im Mondenschein« (»Elverdans i måneskin«) i tillægget, W. Vollmer's Mythologie. Abbildungen, til W. Vollmer Vollständiges Wörterbuch der Mythologie aller Nationen, Stuttgart 1836, ktl. 1942-1943. Se illustration 5.
+
+## Kommentarnote b-1792 (b79/kom.xml, ordret)
+Lemma: Emil
+
+Emil Ferdinand Boesen (1812-81), da. præst; immatrikuleredes 1829 i Københavns Universitet, april 1834 cand.theol., derefter lærer ved det v. Westenske Institut og på vanførehjemmet J.P. Langgaards orthopædiske Institut på Store Tuborg N for København, hvor han også hver anden søn- og helligdag holdt gudstjeneste for de fysisk handicappede piger og unge kvinder ml. 13 og 20 år; vedblev at studere filosofi, filologi og kirkehistorie, især oldkirkens historie, og planlagde en kirkehistorisk afhandling om skriftemålet; fra 1849 residerende kapellan og fra 1861 sognepræst i Horsens () og fra 1863 sognepræst og stiftsprovst ved domkirken i Aarhus i Østjylland. Jf. Stamtavle over Slægten Boesen, udarbejdet af Th. Hauch-Fausbøll, Kbh. 1931, s. 32. Venskabet med SK gik tilbage til barndommen, hvor der gennem tilslutning til det hernhuttiske Societet i København var en nær forbindelse ml. familien Boesen i Stormgade og familien Kierkegaard på Nytorv.
+
+## Kommentarnote b-1793 (b79/kom.xml, ordret)
+Lemma: mit Arrarat ... kan jeg nu forlade min Ark
+
+hentyder til beretningen om syndflodens ophør i 1 Mos 8,6-19. Her fortælles det, at fyrre dage efter, at arken var stødt på grund på Ararats bjerg, åbnede Moses lugen i arken og sendte en ravn ud, som fløj frem og tilbage, indtil vandet var tørret bort fra jorden. Derpå sendte han en due ud, men da den ikke fandt et sted, hvor den kunne sætte sig, fordi der endnu var vand over hele jorden, vendte den tilbage. Noa ventede så i syv dage og sendte duen ud igen, og ved aftenstid vendte den tilbage med et frisk olivenblad i næbbet; da var Noa klar over, at vandet var forsvundet fra jorden. Efter yderligere syv dage sendte han atter duen ud, og den vendte ikke tilbage. Derpå bød Gud Noa at gå ud af arken sammen med sin familie og alle de dyr, Gud havde påbudt ham at tage med; og det gjorde Noa.
+
+## Kommentarnote b-1795 (b79/kom.xml, ordret)
+Lemma: Gilleleie
+
+Gilleleje, fiskerleje i Nordøstsjælland beliggende ud til Kattegat Ø for Gilbjerghoved og 23 km NV for Helsingør; havde i midten af 1830'erne små 100 beboelser og o. 450 indbyggere. SK opholdt sig i Nordsjælland fra den 17. juni til weekenden den 22.-23. aug. 1835; under opholdet boede han på Gilleleje Kro. Se journalen AA:1-12, i SKS 17, 7-30.
+
+## Kommentarnote b-1796 (b79/kom.xml, ordret)
+Lemma: Stalbroder
+
+el. staldbroder, person, der står i nært venskabsforhold til en, ven, kammerat.
+
+## Kommentarnote b-1797 (b79/kom.xml, ordret)
+Lemma: krympet Dig
+
+våndet, kviet dig.
+
+## Kommentarnote b-1798 (b79/kom.xml, ordret)
+Lemma: som Atlas at bære paa den Verden
+
+I den gr. mytologi er Atlas opr. en kæmpe, som bærer himmelhvælvet. If. Hesiod er han søn af titanen Japetos og Okeanos' datter Klymene og blev som straf for sin deltagelse i titanernes kamp mod guderne anbragt langt ude mod vest, hvor han bar himlen, ofte fremstillet som en kugle, på nakken og skuldrene. Se fx Paul Fr. A. Nitsch neues mythologisches Wörterbuch, 2. udg. ved Fr. G. Klopfer, bd. 1-2, Leipzig og Sorau 1821 [1793], ktl. 1944-1945 (forkortet Nitsch neues mythologisches Wörterbuch); bd. 1, s. 347-351.
+
+## Kommentarnote b-1800 (b79/kom.xml, ordret)
+Lemma: en Hercules narrede mig til at paatage mig
+
+hentyder til myten om Atlas' døtre hesperidernes guldæbler, hvor det fortælles, at da Herakles (på lat. Hercules) som et af sine arbejder skulle stjæle disse æbler fra hespiridernes have, der bevogtedes af en kæmpemæssig drage, tilbød Atlas at gøre det for ham, hvis han til gengæld ville holde himmelhvælvet for Atlas imens (). Det gik Herakles ind på, og Atlas plukkede æblerne. Imidlertid blev Atlas så begejstret for den nyvundne frihed, at han selv ville bringe æblerne til Eurysteus og dermed slippe for sit tunge og ensomme hverv med at bære himmelhvælvet. Også det gik Herakles ind på – men kun tilsyneladende. Herakles bad nemlig Atlas om at holde himlen et sidste øjeblik, mens han selv kunne lægge en pude over sine skuldre. Da Atlas gjorde det, stak Herakles af med æblerne. Se fx Nitsch neues mythologisches Wörterbuch () bd. 1, s. 829-832, se også s. 348 og s. 862f. – Hercules: lat. form af Herakles, i gr. mytologi søn af Zeus og Amfitryons hustru, Alkmene, og således en heros, dvs. halvt gud og halvt menneske, men siden optaget blandt guderne.
+
+## Kommentarnote b-1801 (b79/kom.xml, ordret)
+Lemma: συζυγε
+
+gr., vokativ af σύζυγος (sýzygos), (rejse)fælle, medarbejder, kammerat, ven. Ordet anvendes i vokativ i Fil 4,3: »σύζυγε γνήσιε« (»min retsindige Medbroder« (NT-1819)), i Novum Testamentum graece, udg. af G.C. Knapp, bd. 1-2, 4. udg., Halle 1829 [1797], ktl. 14-15 (forkortet Novum Testamentum graece).
+
+## Kommentarnote b-1802 (b79/kom.xml, ordret)
+Lemma: Kobberskillinger
+
+skillinger el. småmønter af kobber, kobbermønter.
+
+## Kommentarnote b-1803 (b79/kom.xml, ordret)
+Lemma: ligeoverfor Verden
+
+i forhold til.
+
+## Kommentarnote b-1805 (b79/kom.xml, ordret)
+Lemma: Tal, høit »at jeg kan see Dig«
+
+hentyder til det lat. udtryk »loquere ut videam te« (»tal, så jeg kan se dig«), der af Erasmus af Rotterdam tillægges Sokrates, som skal have sagt det til en ung mand. If. anekdoten havde den unge mands slave introduceret ham til Sokrates og fortalt, at den unge mands velhavende far havde sendt ham for at iagttage hans klogskab, jf. Apophthegmata 3, 70.
+
+## Kommentarnote b-1806 (b79/kom.xml, ordret)
+Lemma: Petitioner
+
+bønskrifter, adresser, andragender.
+
+## Kommentarnote b-1807 (b79/kom.xml, ordret)
+Lemma: komme (...) tilhænde
+
+i hænde.
+
+## Kommentarnote b-1808 (b79/kom.xml, ordret)
+Lemma: Paulus siger ... ikke med Pen og Blæk men ... i Hjertet (cfr. 2 Cor: 3, 2.)
+
+jf. 2 Kor 3,2-3, hvor Paulus til korintherne skriver: »I ere vort Brev, indskrevet i vore Hierter, som kiendes og læses af alle Mennesker, i det I aabenbart sees at være Christi Brev, besørget af os, skrevet ikke med Blæk, men med den levende Guds Aand, ikke i Steen-Tavler, men i Hiertets Kiød-Tavler« (NT-1819).
+
+## Kommentarnote b-1809 (b79/kom.xml, ordret)
+Lemma: exacerberatio
+
+el. exacerbatio, lat., forbitrelse, fortørnelse, ophidselse.
+
+## Kommentarnote b-1810 (b79/kom.xml, ordret)
+Lemma: Somnambüle
+
+af fr., søvngænger, en person, der kan henfalde el. sætte sig i en hypnotisk tilstand, en person, der befinder sig i trance og i denne tilstand mener at kunne opfatte ellers usanselige ting el. fænomener.
+
+## Kommentarnote b-1811 (b79/kom.xml, ordret)
+Lemma: emolities cerebri
+
+egl. emollitio cerebri, lat., hjerneblødhed (hjernelidelse ved forstyrrelse i blodkredsløbet, der gør dele af hjernevævet til en blød masse), åndssvækkelse, sløvhed o.l.
+
+## Kommentarnote b-1812 (b79/kom.xml, ordret)
+Lemma: Omsætninger
+
+omdannelser, forvandlinger.
+
+## Kommentarnote b-1813 (b79/kom.xml, ordret)
+Lemma: Fiskus
+
+el. fiscus, lat., (penge)kurv, (penge)kasse, især om kongens el. statens kasse.
+
+## Kommentarnote b-1816 (b79/kom.xml, ordret)
+Lemma: eminus
+
+lat., på afstand, langt borte fra (ofte i militært sprog).
+
+## Kommentarnote b-1817 (b79/kom.xml, ordret)
+Lemma: »Jeg har Dig seet ... Jeg deler tro Din Kummer og Din Nød,«
+
+frit citat fra omkvædet i en seks strofer lang anonym vise »Bertrands Afskedskvad« el. »Bertrands Afskedssang«, formentlig af fr. oprindelse. Første strofe lyder: »Dig elskte Frankrig! mit Farvel jeg byder, / Farvel, o du, mit elskte Fødeland! / Mig Æren kalder og dens Bud jeg lyder, / Ei længer i dit Skjød jeg dvæle kan. / Napoleon! din Stjerne monne dale, / O! større Helt var ei paa Jorden fød; / Jeg stod hos Dig i gyldne Keisersale, / Jeg deler troe Din Kummer og Din Nød. / Jeg stod hos Dig i gyldne Keisersale, / Jeg deler tro Din Kummer og Din Nød.« Her citeret efter General Bertrands Afskedsqvad til Frankrig. Romance for Pianoforte eller Guitarre, udg. hos C.C. Lose, Kbh. [u.å.]. Se også Visebog for Hvermand, samlede af Jul. Strandberg, bd. 2, 2. opl., Kbh. 1867 [1862]; bd. 2, s. 44f. Den fr. general H.G. Bertrand (1793-1844), der siden 1805 fulgte Napoleon på alle hans felttog, fulgte også den degraderede kejser Napolen, da han i 1815 blev sendt i fangenskab på øen St. Helena, hvor han trofast tjente Napoleon indtil dennes død i 1821. »Bertrands Afskedskvad« forherliger denne trofasthed over for den styrtede kejser. Visen var meget populær i 1830'erne og i øvrigt mange år efter, se fx Anton Nielsen Landsbyliv i Trediverne, Kbh. 1894, s. 47f.
+
+## Kommentarnote b-1818 (b79/kom.xml, ordret)
+Lemma: συζυγος
+
+.
+
+## Kommentarnote b-1819 (b79/kom.xml, ordret)
+Lemma: ἑτεϱοζυγων απιστοις
+
+gr. (heterozygōn apístois), en, der drager i samme åg som de vantro, dvs. gør fælles sag med de vantro, frit citat fra 2 Kor 6,14, hvor Paulus skriver: »Μὴ γίνεσϑε ἑτεϱοζυγοῦντες ἀπίστοις« (»Drager ikke i ulige Aag med de Vantroe!« (NT-1819)), i Novum Testamentum graece ().
+
+## Kommentarnote b-1820 (b79/kom.xml, ordret)
+Lemma: afsat Fyrste i strængere Forstand siges at være »uden Land«
+
+hentyder formentlig til den da. konge Christoffer II (1276-1332, regent fra 1320), der fik tilnavnet »Kongen uden Land«, el. til den eng. konge Johan uden Land (John Lackland (1167-1216, regent fra 1199)), under hvis regering landet led en række tilbageslag, bl.a. lensunderkastelse under paven i 1213.
+
+## Kommentarnote b-1821 (b79/kom.xml, ordret)
+Lemma: paa 25 Aar
+
+SK fyldte 25 år den 5. maj 1838.
+
+## Kommentarnote b-1823 (b79/kom.xml, ordret)
+Lemma: homme de lettres
+
+lærd, videnskabsmand.
+
+## Kommentarnote b-1824 (b79/kom.xml, ordret)
+Lemma: læser til en Embedsexamen
+
+SK begyndte at læse til eksamen (den teologiske embedseksamen) i aug.-sept. 1838, se fx Not15:4, i SKS 19, 433,10, se også sidste del af journalen DD, i SKS 17, 259-278, og størstedelen af journalen EE, i SKS 18, 7-63, der reflekterer SKs eksamenslæsning.
+
+## Kommentarnote b-1825 (b79/kom.xml, ordret)
+Lemma: quia absurdum est
+
+lat., fordi det er absurd (fornuftsstridigt, forrykt).
+
+## Kommentarnote b-1826 (b79/kom.xml, ordret)
+Lemma: Hoffmanns Wercke
+
+sml. E.T.A. Hoffmann's ausgewählte Schriften bd. 1-10, Berlin 1827-28, ktl. 1712-1716. – Hoffmanns: Ernst Theodor Amadeus Hoffmann (1776-1822), ty. forf., udgiver, jurist og musiker.
+
+## Kommentarnote b-1827 (b79/kom.xml, ordret)
+Lemma: med mig herud
+
+Hvor 'herud' er, har ikke ladet sig identificere.
+
+## Kommentarnote b-1828 (b79/kom.xml, ordret)
+Lemma: slaaet (...) over i sin Modsætning
+
+spiller på det hegelianske udtryk, der i den spekulative logik angiver, hvorledes begrebet if. fornuftens dialektiske natur med nødvendighed 'slår om' el. 'slår over' i sin modsætning, hvorved sandheden fremstår i en højere enhed, der 'opbevarer' såvel forskelligheden som ligheden ml. begrebet og dets modsætning. Se fx den ty. filosof G.W.F. Hegels Encyclopädie der philosophischen Wissenschaften im Grundrisse, udg. af L. v. Henning, C.L. Michelet og L. Boumann, bd. 1-3, Berlin 1840-45 [1817], ktl. 561-563; bd. 1 Die Logik, § 82 »Zusatz« og § 133, i Georg Wilhelm Friedrich Hegel's Werke. Vollständige Ausgabe bd. 1-18, Berlin 1832-45; bd. 6, s. 160 og s. 264 (Jub. bd. 8 System der Philosophie. Erster Theil. Die Logik, s. 198 og s. 301f.).
+
+## Kommentarnote b-3100 (b79/kom.xml, ordret)
+Lemma: Sorg efter Verden
+
+sorg, dvs. bedrøvelse, if. verden, i verdens forstand; sml. tankegangen i 2 Kor 7,9-10, hvor Paulus til korintherne skriver, at han er glad, »fordi I blev bedrøvede til omvendelse. Jeres bedrøvelse var nemlig efter Guds vilje, så I altså ikke har lidt skade af os. For bedrøvelse efter Guds vilje virker omvendelse til frelse, som ikke fortrydes, men bedrøvelse i verdens forstand virker død«.
+
+## Kommentarnote b-3101 (b79/kom.xml, ordret)
+Lemma: hele Verden sad paa Bloksbjerget
+
+formentlig i betydningen: hele verden var pokker i vold. – If. folkelig overtro var 'Bloksbjerg' el. 'Blocksberg' det sted, hvor heksene, troldene og de onde ånder samledes Valborgsnat (Valpurgisnat, dvs. natten til 1. maj) for at feste. Navnet 'Bloksbjerg' henviser til Brocken, det højeste bjerg i Harzen; det har også været brugt om andre bjerge i Tyskland, Ungarn og Sverige.
+
+## Kommentarnote b-1831 (b79/kom.xml, ordret)
+Lemma: det rette Punkt ... rokke Verden (...) det archimediske Punkt
+
+sigter til den gr. matematiker, fysiker og opfinder Arkimedes (o. 287-212 f.Kr.) fra Syrakus på Sicilien, der tillægges udsagnet: »Giv mig et sted at stå, og jeg skal bevæge jorden.« Jf. Marcellus-biografien, kap. 14, 7, i den gr. forf. Plutarks sammenlignende biografier Vitae parallelae (lat., De parallelle Liv), hvor det om Arkimedes' faste overbevisning om de geometriske loves mekaniske anvendelighed fortælles, at han hævdede, »at man med en given Kraft var i Stand til at kunne bevæge enhversomhelst given Byrde, ja skal endog, i overdreven Tillid til sit Bevises Styrke, have paastaaet at kunne bevæge selve vor Jord, saafremt han imidlertid kunde have en anden Jord at træde over paa«, Plutark's Levnetsbeskrivelser, overs. af S. Tetens, bd. 1-4, Kbh. 1800-11, ktl. 1197-1200; bd. 3, 1804, s. 272.
+
+## Kommentarnote b-3102 (b79/kom.xml, ordret)
+Lemma: Det jeg behøver er en Stemme ... Sympathiens viscera rystede
+
+sml. følgende passage i en af diapsalmerne i første del af Enten – Eller (1843): »Det, jeg behøver, er en Stemme gjennemtrængende som et Lynceus-Blik, forfærdende som Giganternes Suk, udholdende som en Naturlyd, spottende som et riimfrostigt Vindpust, ondskabsfuldt som Echos hjerteløse Haanen, af Omfang fra den dybeste Bas til de mest smeltende Brysttoner, modeleret fra en hellig-sagte Hvidsken til Raseriets Energi. Det er det jeg behøver for at faae Luft, for at faae udtalt, hvad der ligger mig paa Sinde, for at faae baade Vredens og Sympathiens Indvolde rystede.« SKS 2, 32,17-24. – Lynceus Blik: den gr. sagnfigur Lynkeus var berømt for sit skarpe, alt gennemskuende blik. Se fx Nitsch neues mythologisches Wörterbuch () bd. 2, s. 177. – Giganternes Suk: I gr. mytologi er giganterne de kæmpevæsner, som Gaia ('jord') fødte af blodet fra den kastrerede Uranos ('himmel'). I kampen mod de olympiske guder blev giganterne besejret; nogle blev indespærret i vulkaner, andre blev begravet under øer og bjerge, hvorfra de udspyede ild. Se fx Nitsch neues mythologisches Wörterbuch () bd. 1, s. 751. – en Naturlyd ... fra den dybeste Bas til ... smeltende Brysttoner: hentyder formentlig til det naturfænomen, som den ty. naturfilosof og mystiker G.H. Schubert omtaler i sin bog Die Symbolik des Traumes, 2. udg., Bamberg 1821 [1814], ktl. 776, s. 38: »In der That, die Natur scheint ganz mit unserm versteckten Poeten einverstanden, und gemeinschaftlich mit ihm über unsere elende Lust und lustiges Elend zu spotten, wenn sie bald aus Gräbern uns anlacht, bald an Hochzeitbetten ihre Trauerklagen hören lässet, und auf diese Weise Klage mit Lust, Fröhlichkeit mit Trauer wunderlich paart, gleich jener Naturstimme, der Luftmusik auf Ceilon [nuv. Sri Lanka], welche im Tone einer tiefklagenden, herzzerschneidenden Stimme, furchtbar lustige Menuetten singt.« – Brysttoner: toner med resonans fra brystkassen; kraftige, fyldige toner. – hellig-sagte Hvidsken: allusion til 1 Kong 19,11-12 om profeten Elias på Guds bjerg Horeb, hvor Gud Herren lovede Elias at gå forbi. Forud for Herren kom en voldsom storm, derpå et jordskælv efterfulgt af en ild, men Herren var hverken i stormen, i jordskælvet eller i ilden. Endelig lød der en sagte susen (»en stille sagte Lyd«, GT-1740), og Elias trådte frem med tilhyllet ansigt, og Herren talte til ham. – viscera: lat., indvolde.
+
+## Kommentarnote b-1837 (b79/kom.xml, ordret)
+Lemma: »en Kirke i det Fjerne staaer«
+
+citat fra tableauet »En gammel Mand med en Perspektivkasse« i »Sanct Hansaften-Spil« i Adam Oehlenschläger (på titelbladet: Adam Øhlenslæger) Digte, Kbh. 1803, hvor det bl.a. hedder: »Ak Tiden kommer, Tiden gaaer. / En Kirke i det Fierne staaer. / Ved Altret er en Marmelsteen, / den ruger paa de Elsktes Been. / Seer kun hvor langsomt, sørgelig, / den trætte Vandrer nærmer sig, / mens Solen bag den røde Muur / gaaer ned i hellige Natur«, s. 280. De to første verslinjer citerer SK også i sin dedikation til Emil Boesen i Af en endnu Levendes Papirer (1838), se Dedikation 1, i SKS 28, 493,2-4.
+
+## Kommentarnote b-1838 (b79/kom.xml, ordret)
+Lemma: d. 17 Juli
+
+se tekstredegørelsen, s. 226.
+
+## Kommentarnote b-1839 (b79/kom.xml, ordret)
+Lemma: E: Sk:
+
+efterskrift.
+
+## Kommentarnote b-1840 (b79/kom.xml, ordret)
+Lemma: vice a vice
+
+Udtrykket har ikke ladet sig identificere. Måske er der tænkt på udtrykket vis-à-vis, fr., den ene over for den anden, ansigt til ansigt.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b79/ill_k5.jpg",
+  "alt": "Et plancheblad med en stregtegning i sort på gulnet, aldersplettet papir; billedet er trykt på tværs af bladet. Over billedrammen står øverst til højre »Taf. XXX.«, under rammen står »Elfen, tanzend im Mondenschein.«, og inde i billedfeltet står øverst tallet »1.«. På himlen svæver seks figurer i lange, flagrende slør hånd i hånd i en ring omkring en månesegl; under ringen ses en stjerne. Nedenunder danser figurer i lange kjoler hen over en eng, og blandt dem står en figur i vid, klokkeformet nederdel på tåspidserne med begge arme løftet og korte streger tegnet over issen. I forgrunden sidder små buttede skikkelser med spidse huer på jorden, og en bue af små mærker løber gennem græsset. Til højre går flere nøgne småfigurer på hænder med benene i vejret, en mørkt skraveret skikkelse strækker to lange lemmer op i et V, og bagest ligger et menneskehoved, mange gange større end alle figurerne, med hagen på en græsklædt brink; det har krøllet hår, og ved issen ses en lille spids hue og ser smilende ud over engen. Øverst til højre tumler en mængde små figurer gennem luften, og en spids hue svæver imellem dem. Bagest står højt siv og græs.",
+  "caption": "Kierkegaard spørger Emil Boesen, om han har vundet den proportion over for verden, at han kan stikke hovedet ind i den og se sig om »i en Dands af Gnomer og Elverpiger«. Stikket er formentlig dette, siger udgaven — og hovedet ligger dér, til højre, med hagen på brinken.",
+  "credit": null,
+  "sources": [
+    "billedet, over rammen øverst til højre: »Taf. XXX.« — svarer til pakkens head-linje »Tavle XXX i tillægget, W. Vollmer's Mythologie. Abbildungen«",
+    "billedet, under rammen: skriveskriftslinjerne »Elfen,« / »tanzend im Mondenschein.« — svarer til pakkens head-linje »5. »Elfen, tanzend im Mondenschein« ().«",
+    "billedet, øverst i billedfeltet: tallet »1.«",
+    "billedet, øverste halvdel: seks figurer i lange, flagrende slør holder hinanden i hænderne i en ring om en månesegl med takket inderkant; sekstakket stjerne under ringen",
+    "billedet, midterfeltet: figur på tåspidser i vid, klokkeformet nederdel med begge arme løftet og en stråleglans/krans om hovedet, omgivet af en kreds af dansende figurer i lange kjoler",
+    "billedet, forgrunden til venstre: små buttede skikkelser med spidse huer siddende på jorden; en bue af små mærker gennem græsset (om det er fodaftryk eller græstotter, kan ikke afgøres — derfor blot »mærker«)",
+    "billedet, højre side: flere nøgne småfigurer på hænder med benene lodret i vejret",
+    "billedet, midt for neden: en mørkt skraveret skikkelse med to lange lemmer strakt op i et V (armene op eller benene op kan ikke afgøres — derfor »lemmer«)",
+    "billedet, højre side: et menneskehoved i en helt anden målestok end figurerne, hagen hvilende på en græsklædt brink, krøllet hår, lille spids hue på issen, smilende, blikket rettet ud over engen; en hånd med udspredte fingre ligger på brinken ved siden af hovedet",
+    "billedet, øverst til højre: mængde af små figurer i luften, tegnet med lettere streg; en enkelt hue falder frit i luften ved siden af en figur",
+    "billedet, baggrunden: højt siv og græs langs brinken; papiret gulnet og plettet",
+    "pakken, brev 79's læsetekst: »har Du vundet den Proportion ligeoverfor Verden, at Du kan jage saa at sige dit Hoved ind i Verden og see Dig om i den, saaledes som paa et Kobberstykke fremstilles et Mskhoved i naturlig Størrelse seende sig omkring i en Dands af Gnomer og Elverpiger?« — grundlag for hele captionens første sætning; citatet »i en Dands af Gnomer og Elverpiger« er ordret herfra",
+    "pakken, brev 79's overskrift: Fra SK · 17. juli [1838] · til Emil Boesen — grundlag for at kalde skriveren Kierkegaard og modtageren Emil Boesen",
+    "pakken, kommentarnote b-1804 (noten omslutter selve figuren): »sigter formentlig til stikket, tavle XXX, »Elfen, tanzend im Mondenschein« ... Se illustration 5.« — grundlag både for koblingen mellem billedet og brevstedet, for forbeholdet »formentlig« og for ordet »stikket«"
+  ],
+  "note": "Tvivl og fravalg: (1) Koblingen mellem billedet og brevet er udgavens egen, og den er forbeholden: b-1804 siger »sigter formentlig til stikket«. Captionen bærer forbeholdet videre (»formentlig ... siger udgaven«) og påstår ikke, at Kierkegaard havde netop dette blad for øje. (2) »Stikket« er kommentarens eget ord; brevet siger »Kobberstykke«. Trykteknikken kan ikke afgøres af billedet, og jeg hævder den ikke selv. (3) Brevet siger »et Mskhoved i naturlig Størrelse«; hvad man kan se, er, at hovedet er i en helt anden målestok end figurerne. Captionen siger kun, at hovedet ligger der — »naturlig Størrelse« er brevets påstand, ikke min. (4) Den lille spidse hue sidder synligt på issen af det store hoved, men det kan ikke udelukkes, at den hører til en figur bag hovedet; den er derfor beskrevet, hvor den ses, og ikke tilskrevet. Den er ude af captionen. (5) Om det store hoved hører til en krop, kan ikke afgøres: en hånd ligger på brinken ved siden af det, men jeg kan ikke følge en arm sikkert fra hoved til hånd i stregvirvaret. Alt-teksten siger derfor kun, at hånden ligger der. (6) Måneseglets fase (til- eller aftagende) er en tolkning af, hvilken side der er belyst — udeladt; kun formen beskrives. (7) Den mørkt skraverede skikkelse midt for neden vender jeg ikke: fødder og hænder ligner hinanden i tegningen, så jeg skriver »lemmer«. (8) Buen af små mærker i græsset kunne være fodaftryk efter dansen (en elverring), men kunne lige så godt være græstotter — generaliseret til »mærker«, koblingen ikke antydet. (9) Jeg kalder ikke figurerne elver, gnomer eller nisser i alt-teksten, selv om både billedets egen tyske billedtekst og brevet gør det: alt-teksten skal beskrive, ikke navngive efter en tolkning. Captionen citerer brevets ord i brevets stavemåde. (10) Ikke brugt fra b-1804: den bibliografiske apparatur (W. Vollmer Vollständiges Wörterbuch der Mythologie aller Nationen, Stuttgart 1836, ktl. 1942-1943). Bogtitlen står allerede i udgavens egen billedtekst, og ktl.-nummeret er viden, brevet ikke selv har. (11) Ikke brugt: brevets øvrige indhold (Ararat og arken, Atlas og Hercules, Hoffmanns Wercke, den afsatte fyrste, de 25 år, »en Kirke i det Fjerne staaer«) og de tilhørende noter. Captionen holder sig til det ene sted, hvor brevet taler om et billede. (12) Det tyske »Elfen« er sat med lang s i trykket (»Elſen«); jeg gengiver det som udgavens head gør, med almindeligt f/s-bogstav. (13) Tallet »1.« inde i billedfeltet er plancheens egen figurnummerering og er ikke forvekslet med udgavens »5.«, der nummererer illustrationen i kommentarbindet; ingen af tallene er brugt i captionen. (14) Manifestet har `letter: null` for denne figur — den sidder i kom.xml inde i note b-1804, ikke i brevteksten. Koblingen til brev 79 kommer altså fra noten, ikke fra en figur i brevet.",
+  "repairs": [
+    {
+      "flag": "codex runde 1, fejl: »skriveskrift« — teksten fremstår trykt; grok runde 1, tvivl: »stråleglans« (snarere spids prydelse) og hånden ved hovedet kan ikke ses sikkert",
+      "action": "arbitreret: skriftmediet droppet (ren citation), »stråleglans« generaliseret til »lille lys prydelse på issen«, hånden udeladt."
+    },
+    {
+      "flag": "codex runde 2, fejl: stjernen fremstår femtakket, ikke sekstakket",
+      "action": "arbitreret: takketallet droppet (to læsere, to tal). Grok runde 2: ren."
+    },
+    {
+      "flag": "grok runde 3, tvivl: den takkede kontur tilhører skyen omkring seglet, ikke månens inderkant",
+      "action": "arbitreret: »med takket inderkant« droppet. Codex runde 3: ren."
+    },
+    {
+      "flag": "grok runde 3, tvivl: »én af dem har mistet sin hue« — fortælling om en forudgående handling, ikke noget synligt",
+      "action": "arbitreret: omskrevet til det synlige (»en spids hue svæver imellem dem«)."
+    },
+    {
+      "flag": "codex runde 4, tvivl: huen kan tilhøre en figur bag hovedet; grok runde 4, tvivl (×2): »lys prydelse« (kun korte streger ses) og »kreds«/»midt i kredsen« (ikke en sluttet ring)",
+      "action": "arbitreret: alle tre generaliseret — »korte streger tegnet over issen«, »ved issen ses …«, »blandt dem står …«."
+    }
+  ]
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{"image":"b79/ill_k5.jpg","flags":[],"visualNotes":""}
+tokens used
+13.026
+{"image":"b79/ill_k5.jpg","flags":[],"visualNotes":""}

@@ -1,0 +1,5 @@
+Investigate: I'll verify the draft against the letter image and the grounding packet only — no outside knowledge — and flag ungrounded or visually wrong claims.{
+  "image": "b70/ill_7.jpg",
+  "flags": [],
+  "visualNotes": "Ingen visuel modsigelse. Adressen nederst til venstre er to adskilte linjer (stort, slænget Til over navnet), som alt-teksten gengiver som ét citat. Den revne er et bid i nederste kants midte-højre, ikke hele kanten. Første korte linje over underskriften har et tydeligt D-initial (pakkens »Deres«)."
+}
