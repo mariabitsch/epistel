@@ -21,6 +21,12 @@ are visible but are not, misread handwriting, wrong colours, wrong
 counts, wrong layout. If handwriting in the image is ambiguous, any
 confident reading of it must be flagged unless the packet confirms it.
 
+Note (added for the full round, 2026-08-26, after the trial):
+the edition abbreviates Søren Kierkegaard as »SK« (e.g. »Fra SK« in
+letter headings). Expanding »SK« to »Kierkegaard« or »Søren
+Kierkegaard« is NOT an ungrounded claim — the grounding packet's
+edition is Søren Kierkegaards Skrifter, and this instruction states it.
+
 Do NOT flag: matters of taste, style, or voice; omissions (things the
 texts could have said but don't); the curator's mild irony. Only
 groundedness and visual accuracy.
