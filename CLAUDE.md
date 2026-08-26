@@ -278,10 +278,13 @@ test-held.
   created with `python3 -m venv .venv && .venv/bin/pip install
   fastjsonschema` — and the editorial layers licensed.)
 - Image captions: `export/images.json` (0.2.0) carries the edition's own
-  `<head>` captions and nothing of ours. A captions dataset of our own —
-  the 6 kom-captions, alt text for display — would be an *editorial*
-  layer under `data/context/`, keyed by the manifest's image ids. Not
-  designed yet.
+  `<head>` captions and nothing of ours. Our own captions dataset (alt
+  text + a Maria Notabene caption per image, an *editorial* layer keyed
+  by the manifest's image ids) is designed and trial-proven:
+  `docs/captions-method.md` is the playbook, the trial round's audit
+  trail sits in `data/context/generated/captions-trial/` (4 of 40 images
+  done, approved by Maria). The full round — and `data/context/captions.json`
+  itself — is still to run.
 - Småting: more TEI-annotation finds may come.
 
 ## Explicitly out of scope
