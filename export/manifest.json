@@ -1,5 +1,5 @@
 {
- "schemaVersion": "0.1.1",
+ "schemaVersion": "0.2.0",
  "language": "da",
  "source": {
   "repository": "https://github.com/kb-dk/SKS_tei",
@@ -17,7 +17,7 @@
    "license": "CC0-1.0"
   },
   "images": {
-   "path": "letters/",
+   "path": "images.json",
    "count": 40,
    "license": "CC0-1.0"
   },
