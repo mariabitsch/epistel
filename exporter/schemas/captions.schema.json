@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "epistel captions dataset",
-  "description": "The editorial captions layer over the image manifest (context/captions.json in the export, copied verbatim from data/context/captions.json) — one entry per manifest image id, holding an alt text, a nullable Maria Notabene caption, a nullable photo credit, and the entry's audit fields (sources, note, repairs). CC BY-NC-SA 4.0; see docs/captions-method.md.",
+  "description": "The editorial captions layer over the image manifest (context/captions.json in the export, copied verbatim from data/context/captions.json) — one entry per manifest image id, holding an alt text, a nullable Maria Notabene caption, a nullable photo credit, the entry's source lines and the drafter's recorded doubts. The rounds' repair logs are development history and live in the repository's audit trail, not here. CC BY-NC-SA 4.0; see docs/captions-method.md.",
   "type": "object",
   "additionalProperties": false,
   "required": ["_meta", "captions"],
@@ -36,7 +36,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "alt", "caption", "credit", "sources", "note", "repairs"],
+        "required": ["id", "alt", "caption", "credit", "sources", "note"],
         "properties": {
           "id": {
             "type": "string",
@@ -54,19 +54,7 @@
             "minItems": 1,
             "items": { "type": "string", "minLength": 1 }
           },
-          "note": { "type": ["string", "null"] },
-          "repairs": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "required": ["flag", "action"],
-              "properties": {
-                "flag": { "type": "string", "minLength": 1 },
-                "action": { "type": "string", "minLength": 1 }
-              }
-            }
-          }
+          "note": { "type": ["string", "null"] }
         }
       }
     }

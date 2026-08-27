@@ -17,6 +17,13 @@ This script flattens all of that to one entry per manifest id, ordered by
 ``export/images.json``, and writes the dataset with its ``_meta``. It is
 deterministic: same inputs, same file. Rerun it after touching a draft;
 the diff is the review artifact, as everywhere else in this repository.
+
+The dataset carries what the bios' precedent carries: the texts, their
+``sources`` lines and the drafter's recorded doubts (``note``) -- editorial
+honesty that belongs with the product. The repair logs (verifier flags and
+what was done about them) are development history and stay in the drafts;
+the dataset -- and with it the export -- does not repeat them (Maria,
+2026-08-27).
 """
 
 import json
@@ -61,7 +68,7 @@ META = {
 }
 
 # The dataset's field order, kept stable for readable diffs.
-FIELDS = ("id", "alt", "caption", "credit", "sources", "note", "repairs")
+FIELDS = ("id", "alt", "caption", "credit", "sources", "note")
 
 
 def _read_json(path):
@@ -69,7 +76,7 @@ def _read_json(path):
         return json.load(file)
 
 
-def _entry(image_id, alt, caption, credit, sources, note, repairs):
+def _entry(image_id, alt, caption, credit, sources, note):
     return {
         "id": image_id,
         "alt": alt,
@@ -77,7 +84,6 @@ def _entry(image_id, alt, caption, credit, sources, note, repairs):
         "credit": credit,
         "sources": sources,
         "note": note,
-        "repairs": repairs,
     }
 
 
@@ -98,7 +104,6 @@ def _full_round_entries():
                     draft["credit"],
                     draft["sources"],
                     draft["note"],
-                    draft["repairs"],
                 )
         else:
             entries[draft["id"]] = _entry(
@@ -108,7 +113,6 @@ def _full_round_entries():
                 draft["credit"],
                 draft["sources"],
                 draft["note"],
-                draft["repairs"],
             )
     return entries
 
@@ -133,7 +137,6 @@ def _trial_entries():
             text.get("credit"),
             draft["sources"],
             draft["note"],
-            draft["repairs"],
         )
     return entries
 

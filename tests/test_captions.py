@@ -89,15 +89,20 @@ class CaptionsDatasetTest(unittest.TestCase):
         self.assertEqual(meta["license"], "CC BY-NC-SA 4.0")
         self.assertIn("docs/captions-method.md", meta["method"])
 
-    def test_every_entry_carries_alt_sources_and_its_audit_fields(self):
+    def test_every_entry_carries_exactly_the_published_fields(self):
+        # sources and note travel with the dataset -- grounding and recorded
+        # doubt are editorial honesty, the bios' precedent. The repair logs
+        # (verifier flags and what was done) are development history and
+        # stay in the committed audit trail, never in the dataset (Maria,
+        # 2026-08-27).
+        fields = ["alt", "caption", "credit", "id", "note", "sources"]
         for entry in self.data["captions"]:
             with self.subTest(id=entry["id"]):
+                self.assertEqual(sorted(entry), fields)
                 self.assertTrue(entry["alt"].strip())
                 self.assertTrue(entry["sources"])
                 for source in entry["sources"]:
                     self.assertTrue(source.strip())
-                for repair in entry["repairs"]:
-                    self.assertEqual(sorted(repair), ["action", "flag"])
 
     def test_only_the_unreferenced_files_stand_captionless(self):
         captionless = {

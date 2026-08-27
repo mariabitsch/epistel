@@ -277,7 +277,9 @@ hand-curated data), `summaries` (Maria Notabene's letter summaries),
 `_meta` for the join keys), and — since 0.3.0 — `captions` (an alt text
 and, where the edition gives the image a place to speak from, a Maria
 Notabene caption per image, keyed by `images.json`'s image ids, each
-entry carrying its sources, doubts and repair log; the first editorial
+entry carrying its source lines and the drafter's recorded doubts — the
+rounds' repair logs are development history and stay in the source
+repository, not in the export; the first editorial
 layer with a schema of its own, `schema/captions.schema.json`. Two
 entries hold `"caption": null` on purpose — the two files the edition
 never refers to — and byte-identical duplicate images share their alt

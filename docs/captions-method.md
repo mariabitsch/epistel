@@ -24,11 +24,19 @@ Per image, keyed by the manifest ids in `export/images.json`:
 - `caption` — Maria Notabene's caption (`docs/notabene.md` §§2–5).
 - `credit` — the edition's photo credit verbatim, where it has one.
 - `sources` — one traceability line per factual claim.
-- `note` — the drafter's doubts and deliberate omissions.
-- `repairs` — every verifier flag and what was done about it.
+- `note` — the drafter's doubts and deliberate omissions. (The notes are
+  long, and that is data in itself: captions proved harder to write than
+  summaries — fewer items, more time, more recorded doubt.)
+- `repairs` — every verifier flag and what was done about it. Lives in
+  the draft files (the audit trail) only: repairs are development
+  history, and the dataset — and with it the export — does not repeat
+  them (Maria, 2026-08-27; the bios' precedent, where repair logs sit in
+  `generated/repairs-*.json`).
 
 The final dataset becomes `data/context/captions.json` (editorial layer,
-CC BY-NC-SA 4.0, independently disposable like every other dataset).
+CC BY-NC-SA 4.0, independently disposable like every other dataset):
+alt/caption/credit plus `sources` and `note`, which travel with the
+product as editorial honesty.
 
 ## The flow
 

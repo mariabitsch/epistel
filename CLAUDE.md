@@ -128,8 +128,10 @@ what it is and where it came from:
 - `captions.json` (40): the illustrations' editorial layer (CC BY-NC-SA
   4.0, unlike its CC0 neighbours — its `_meta` says so) — per manifest id
   from `export/images.json`: alt text, Maria Notabene caption, photo
-  credit where the edition names one, plus the audit fields (sources,
-  note, repairs). Written by the two caption rounds of 2026-08-26
+  credit where the edition names one, plus sources and the drafter's
+  recorded doubts (`note` — long on purpose: captions were harder than
+  summaries). The repair logs stay in the audit trail, never in the
+  dataset. Written by the two caption rounds of 2026-08-26
   (`docs/captions-method.md` is the playbook; drafts, flags and repairs
   in `generated/captions*/`), assembled deterministically by
   `scripts/assemble_captions.py`, schema-guarded (source of truth
