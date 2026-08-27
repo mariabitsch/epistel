@@ -19,7 +19,8 @@ export/
   manifest.json                 schemaVersion, provenance, license per layer
   volumes.json                  volume titles, groups, document order, warnings
   images.json                   every illustration file and its references
-  schema/*.schema.json          JSON Schemas (draft-07) for the above
+  context/*.json                the editorial layers, verbatim (see below)
+  schema/*.schema.json          JSON Schemas (draft-07)
   letters/<volume>/<xmlId>.json one envelope per letter (metadata)
   letters/<volume>/<xmlId>.html the letter's transcription (see Vocabulary)
   letters/<volume>/ill_*.jpg    the source's illustrations (see Images)
@@ -60,7 +61,7 @@ disk carry no order of their own.
 
 ```json
 {
-  "schemaVersion": "0.2.0",
+  "schemaVersion": "0.3.0",
   "language": "da",
   "source": {"repository": "...", "commit": "..."},
   "layers": {
@@ -69,6 +70,7 @@ disk carry no order of their own.
     "images": {"path": "images.json", "count": 40, "license": "CC0-1.0"}
   },
   "schemas": {
+    "captions": "schema/captions.schema.json",
     "images": "schema/images.schema.json",
     "letter": "schema/letter.schema.json",
     "manifest": "schema/manifest.schema.json",
@@ -83,7 +85,8 @@ letters; `images.json` is where each one says so.
 
 The schemas (JSON Schema **draft-07** — the draft the validation ecosystem
 supports universally) formally describe the manifest, the volume index, the
-image manifest and the letter envelope, with `additionalProperties: false`
+image manifest, the letter envelope and the captions layer, with
+`additionalProperties: false`
 throughout: a field
 this document does not know cannot validate. The prose vocabulary table
 below remains the contract for the HTML *bodies*, which JSON Schema cannot
@@ -266,12 +269,19 @@ cause would go unnoticed if it did: `ded`'s own plates are not vendored
 `export/context/` holds the curated datasets, copied **byte for byte** from
 `data/context/` — their `_meta` blocks state what each file is, where it
 came from and how it was verified, and that record is part of the product.
-Six files, each declared in the manifest with its entry count and each
+Seven files, each declared in the manifest with its entry count and each
 disposable on its own: `publications` and `residences` (the timeline's
 hand-curated data), `summaries` (Maria Notabene's letter summaries),
 `bios` (person biographies drawn from the edition's commentary),
 `bio_keys` and `aliases` (the two curated join tables; see each file's
-`_meta` for the join keys). An export without any of them — or without the
+`_meta` for the join keys), and — since 0.3.0 — `captions` (an alt text
+and, where the edition gives the image a place to speak from, a Maria
+Notabene caption per image, keyed by `images.json`'s image ids, each
+entry carrying its sources, doubts and repair log; the first editorial
+layer with a schema of its own, `schema/captions.schema.json`. Two
+entries hold `"caption": null` on purpose — the two files the edition
+never refers to — and byte-identical duplicate images share their alt
+text but never a caption). An export without any of them — or without the
 whole directory — is a smaller but complete export.
 
 **License**: unlike the TEI-derived layers, this layer has an author, and

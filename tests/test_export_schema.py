@@ -30,7 +30,7 @@ except ImportError:  # The optional validator; the suite says so, loudly.
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EXPORT = os.path.join(ROOT, "export")
 
-SCHEMAS = ("manifest", "volumes", "letter", "images")
+SCHEMAS = ("manifest", "volumes", "letter", "images", "captions")
 
 
 def _read_json(*parts):
@@ -83,6 +83,14 @@ class SchemaValidationTest(unittest.TestCase):
 
     def test_the_image_manifest_validates(self):
         self.validators["images"](_read_json(EXPORT, "images.json"))
+
+    def test_the_captions_layer_validates(self):
+        # The first editorial layer with a schema of its own: the captions
+        # travel byte for byte from data/context, and the exported copy
+        # must satisfy the contract that ships beside it.
+        self.validators["captions"](
+            _read_json(EXPORT, "context", "captions.json")
+        )
 
     def test_every_envelope_validates(self):
         validated = 0

@@ -10,9 +10,10 @@ audit trails live in `data/context/generated/captions-trial/` and
 drafts' verified end states by `scripts/assemble_captions.py` and
 guarded by `tests/test_captions.py` (join integrity against the
 manifest, the caption-less decisions, the duplicate-pair rules, a
-draft-07 schema in `data/context/captions.schema.json`). It is not yet
-part of the export; shipping it there is a `schemaVersion` decision of
-its own.*
+draft-07 schema, source of truth `exporter/schemas/captions.schema.json`).
+Since `schemaVersion` 0.3.0 the layer travels in the export too:
+`context/captions.json`, verbatim, CC BY-NC-SA 4.0, its schema published
+in `schema/`.*
 
 ## The product
 

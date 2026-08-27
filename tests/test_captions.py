@@ -39,7 +39,7 @@ from pipeline.context import load_context
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONTEXT = os.path.join(ROOT, "data", "context")
 CAPTIONS = os.path.join(CONTEXT, "captions.json")
-SCHEMA = os.path.join(CONTEXT, "captions.schema.json")
+SCHEMA = os.path.join(ROOT, "exporter", "schemas", "captions.schema.json")
 MANIFEST = os.path.join(ROOT, "export", "images.json")
 
 # The two files the edition refers to nowhere (see CLAUDE.md's source
@@ -128,12 +128,14 @@ class CaptionsDatasetTest(unittest.TestCase):
 
 
 class CaptionsSchemaTest(unittest.TestCase):
-    """`export/schema`-style guarding for the dataset (draft-07, closed).
+    """The dataset's schema (draft-07, closed), guarded at its source.
 
-    The schema lives beside the dataset, not in ``export/schema/``: the
-    captions are not part of the export yet -- shipping them there is a
-    ``schemaVersion`` decision of its own. Same two-level pattern as
-    ``test_export_schema``: structure always, validation when the optional
+    The schema's source of truth is ``exporter/schemas/`` like every export
+    schema -- since schemaVersion 0.3.0 the captions travel in the export,
+    and ``test_export_schema`` holds the published copy. Here the *source*
+    dataset is validated against it, so a hand edit in ``data/context``
+    cannot drift from the contract before the next export run. Same
+    two-level pattern: structure always, validation when the optional
     ``fastjsonschema`` is importable.
     """
 

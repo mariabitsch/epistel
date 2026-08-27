@@ -43,12 +43,15 @@ from .body import render_body
 from .images import image_manifest
 
 # Bumped when the shape of the export changes. Consumers pin releases; this
-# number is what a release tag promises. 0.2.0: images.json joins the
-# export — a new file, a new schema, and the images layer now points at
-# its manifest rather than at the directory the files sit in. Additive for
-# anything reading letters or volumes. 0.1.1 (Maria's versioning call) was
-# the schemas joining the export and the editorial layers' license.
-SCHEMA_VERSION = "0.2.0"
+# number is what a release tag promises. 0.3.0: the captions dataset joins
+# the editorial layers (context/captions.json — alt texts and Maria
+# Notabene captions for the illustrations, keyed by images.json's ids)
+# with the first editorial-layer schema. Additive. 0.2.0: images.json
+# joins the export — a new file, a new schema, and the images layer now
+# points at its manifest rather than at the directory the files sit in.
+# 0.1.1 (Maria's versioning call) was the schemas joining the export and
+# the editorial layers' license.
+SCHEMA_VERSION = "0.3.0"
 
 # SPDX identifiers. The vendor-derived layers inherit the edition's CC0.
 CC0 = "CC0-1.0"
@@ -68,6 +71,7 @@ CONTEXT_FILES = {
     "bios": "bios",
     "bio_keys": "bridges",
     "aliases": "aliases",
+    "captions": "captions",
 }
 
 # The editorial layer has an author, and its license is her decision

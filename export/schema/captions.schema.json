@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "epistel captions dataset",
-  "description": "data/context/captions.json: the editorial captions layer over export/images.json — one entry per manifest image id, holding an alt text, a nullable Maria Notabene caption, a nullable photo credit, and the entry's audit fields (sources, note, repairs). CC BY-NC-SA 4.0; see docs/captions-method.md.",
+  "description": "The editorial captions layer over the image manifest (context/captions.json in the export, copied verbatim from data/context/captions.json) — one entry per manifest image id, holding an alt text, a nullable Maria Notabene caption, a nullable photo credit, and the entry's audit fields (sources, note, repairs). CC BY-NC-SA 4.0; see docs/captions-method.md.",
   "type": "object",
   "additionalProperties": false,
   "required": ["_meta", "captions"],
