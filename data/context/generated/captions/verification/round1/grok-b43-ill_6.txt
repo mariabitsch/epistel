@@ -1,0 +1,5 @@
+{
+  "image": "b43/ill_6.jpg",
+  "flags": [],
+  "visualNotes": "Hilsenen begynder i billedet med stort T (Til); Kierkegaard-navnet dér er understreget. Blyantsmærket øverst til højre er et tal plus et lille efterfølgende bogstav (a). Det indskudte står i sidens nedre halvdel, ikke i den lodrette midte. Nederst til højre et lille 6; i højre kant et lille brunt mærke. Ingen af delene modsiger udkastets påstande."
+}

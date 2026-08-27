@@ -1,0 +1,5 @@
+Investigate: I'll verify the draft alt and caption against the letter image and the grounding packet only, then return the JSON flags.I'll check the captions playbook and the trial round so I match the same strictness on groundedness and visual claims.I'll look at the vendor file more closely and compare the draft's visual claims to what's actually on the page.{
+  "image": "b208/ill_k8.jpg",
+  "flags": [],
+  "visualNotes": "Ingen modsigelse. De to orange mærker danner visuelt et 2-tal; alt-teksten beskriver dem konservativt som streger. 3-tallet i blyantspåtegningen nederst er hævet. Margentilføjelsen er flerinjet. Efter det lange udstregningsstrøg fortsætter uoverstreget tekst (»jeg kan det«) på samme linje — ikke i strid med at en hel linje er streget ud. Spredte små pletter."
+}

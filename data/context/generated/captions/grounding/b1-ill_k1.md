@@ -1,0 +1,242 @@
+# Grounding: b1/ill_k1.jpg
+
+Billedfil: `data/vendor/b1/ill_k1.jpg` (tilladt primærkilde).
+
+## Manifest-post: b1/ill_k1.jpg (export/images.json)
+```json
+{
+ "id": "b1/ill_k1.jpg",
+ "path": "letters/b1/ill_k1.jpg",
+ "source": {
+  "path": "data/v1.9/b1/ill_k1.jpg",
+  "sha256": "bca39018d18f8df2784e6cbccc12e2471093ab7d0f9f4647caf7075f5662c7e1"
+ },
+ "figures": [],
+ "pageBreaks": [
+  {
+   "volume": "b1",
+   "file": "txt.xml",
+   "xmlId": "id018a8d58-98d2-4f07-a502-313a8efac953",
+   "n": "1v",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b1/ill_k1.jpg",
+   "letter": "2",
+   "letterXmlId": "n2"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- (ingen — ingen figur har en head)
+
+## Brev 2 (b1) — overskrift og læsetekst
+Overskrift: Fra SK · 25. marts 1829 · til P.C. Kierkegaard
+
+Kjære Broder!Længe før end jeg havde ventet, modtog jeg Svar fra Dig. Ikke saa længe som Du maatte blive efter mit Brev tøvede jeg efter Dit, og det er mig kjært, at Du har fundet Behag i det. Hvad det angaaer, at Du troer, at jeg har læst Ciceros Breve, saa er det slet ikke Tilfælde, jeg har ikke læst et eneste af dem. Næste Aar kommer jeg formodentlig til at læse dem. Endnu er vel Artium ei saa vanskelig; men den kan maaskee blive det til den Tid jeg skal op; thi der er en Mand ved Navn Asp, cand:theolog: et juris, som har skrevet en Bog angaaende Artiums Forstrængelse. Han forlanger saaledes, at der skal gives op til denne Examen Stereometrie og Trigonometrie, han forlanger, at der skal skrives tydsk og fransk Stiil, og at det engelske Sprog ikke burde saaledes forsømmes, som det hidtil er bleven; men, at det skulde læres og at der ogsaa i dette Sprog skulde skrives Stiil. Han foreslaaer ogsaa, at den, der fik 0 i nogen Ting, skulde tage en nye Examen i denne Videnskab til Foraaret. En Ting, han i sin Bog klager over, er at de latinske Medicinere blive tilsidesatte for Barbersvende. Dog vil jeg ikke haabe, at hans Forslag gaae igjenem, da det vilde være i høi Grad ubehageligt for mig, dersom jeg skulde til at tage fat paa det engelske Sprog, det sidste Aar jeg er i Skolen. Allerede fra sidste Examen er det bestemt, at jeg først kommer op i Aaret 1830, da jeg er vel ung. Religion og Ny Testamente læser Bindesbøll, Historie læser naturligviis Warncke med mig. Mathematik læser Marthensen med mig, Ursin har gandske forladt Skolen. Græsk læser jeg med Professoren, noget, som jeg ei troede vilde finde Sted, da han forrige Aar blev meget kjed af, at læse Græsk med 1ste A. At Professorens Sygdom har været meget farlig maa Du heller ei troe, da han allerede i lang Tid har læst med os og hans Been er  fuldkommen helbredet. Naar Du skriver ham til, skal Du ikke udlade Dig for fuldstændig angaaende Aarsagen til denne Sygdom, da Du veed, at jeg kun har den igjenem hans Karl. Kan Du skaffe mig Noget at vide om Fritz Lange, om hans Øine forbedre sig, eller endog blive slettere, skal det være mig meget kjerkomment. Her har jeg hørt, at han, der, hvor han opholdt sig havde taget store Briller paa efter Doctorens Raad, og at han er falden paa Gaden og faaet Stumperne ind i Øinene, og deraf er bleven gandske blind, dette troer jeg dog ikke og haaber det heller ikke. Jeg har meget rigtig funden den Bog, som Du forlangte og Fader har ligeledes opfyldt Dit Ønske, at kjøbe en dansk Bibel, hvilke Bøger efter Dit Forlangende følge med i en lille Kasse indsyt i Læret snøret og forseglet. Til Frue Fenger er den i Brevet anmodede Hilsen overbragt, og hun bad at hilse ham meget kjærligt. Den ene Bog nemlig: P: Halds Disputats, havde hun modtaget og den er allerede afsendt. Den anden (Bispernes Hyrdebrev af 1817), lovede hun, at vilde see, at faae fat paa og den kunde da i dette Tilfælde sendes med de øvrige. Jeg haaber, at Du befinder Dig vel som de Fleste hos os paa Petrea nær, der har skrantet i nogen Tid. Nicoline er i god Bedring, Fingeren er saavidt kommen sig; men den er endnu Noget øm. Alle hilse Dig, Fader, Moder, Nicoline, Lund, Petrea, Niels, Md: Lund, Ole Lunds Døttre; men fornemlig være Du hilset     Khavn 25 Martii 1829    fraDin hengivne BroderSøren. Ferdinand skriver formodentlig et Par Ord paa den anden  Side. 1. Brev 2, bl. [2v], udskrift Herren   Cand: Theol: P. C. Kierkegaard  unter Linden 20 drey Treppen    Hiermit 1 Kastchen in Leinen, mit 2 gedruckteBücher gem. P C K.Berlin Franco Hamburg den Werth 8 Rbthl Silber.  
+
+## Kommentarnote b-45 (b1/kom.xml, ordret)
+Lemma: Broder
+
+SKs ældre bror Peter Christian Kierkegaard ().
+
+## Kommentarnote b-46 (b1/kom.xml, ordret)
+Lemma: Svar fra Dig
+
+Dette brev synes at være gået tabt. I sin dagbog () har P.C. Kierkegaard under »Søndagen den 15« marts 1829 noteret, at han havde modtaget SKs brev (se Brev 1 i SKS 28, 9-11), og at han straks skrev et brev til søsteren Nicoline () pga. hendes dårlige arm (se SKS 28, 11,11f.), hvorpå han fortsætter: »Indlagt blev et Svar til Søren, som jeg ligeledes fik istand: jeg advarede ham deri mod Gjentagelsen af de samme Ord i sine Breve, men paalagde ham forresten at fortsætte Brevvexlingen, anbefalede ham at læse Ciceros Breve eller Homer udenom [pensum], skrev Noget om Skolevidenskabernes forskjellige Vigtighed og paalagde ham at skrive, hvorledes det gaaer med hans Studier, naar han skal dimitteres m. m. Derefter Noget om hans Nyheder, om Professorens [Michael Nielsens] Sygdom [se SKS 28, 10,8-21] – tilsidst en Anviisning at lade mig tilsende en dansk Bibel, Krebs Anleitung, P. Halds Disputats og Bispernes Hyrdebrev: de to sidste til FF [J. Ferdinand Fenger ()].« Sml. fortegnelsen over modtagne og afsendte breve i marts 1829 i dagbogen, hvor brevet er registreret som afsendt den 16. marts, s. 26.
+
+## Kommentarnote b-47 (b1/kom.xml, ordret)
+Lemma: maatte blive efter
+
+vente efter el. på.
+
+## Kommentarnote b-3001 (b1/kom.xml, ordret)
+Lemma: tøvede (...) efter
+
+ventede efter el. på.
+
+## Kommentarnote b-48 (b1/kom.xml, ordret)
+Lemma: Ciceros Breve
+
+sigter til den rom. politiker, jurist og filosof M. Tullius Ciceros (106-43 f.Kr.) korrespondance, der omfatter 864 overleverede breve (med ham selv som afsender af størsteparten), og som falder i fire grupper: til venner (lat. ad familiares), til broderen Quintus (lat. ad Quintum fratrem), til den rom. senator, Cæsars morder, Marcus Junius Brutus (lat. ad Brutum) og til studiekammeraten og forlæggeren Titus Pomponius Atticus (lat. ad Atticum). Der er både breve af privat karakter og breve, der har talens og essayets præg.
+
+## Kommentarnote b-49 (b1/kom.xml, ordret)
+Lemma: Næste Aar kommer jeg formodentlig til at læse dem
+
+If. Michael Nielsens () »Skole-Vidnesbyrd« for SK opgav han som læst af Ciceros breve (): »de 40 første i Weiskes Udg.« Jf. Auswahl der besten Briefe Cicero's (i Encyclopädie der lateinischen Classiker. Zweite der Redekunst gewidmete Abtheilung. Zweiter Theil Cicero's Briefe), udg. af Benjamin Weiske, 3. opl., Braunschweig 1824 [1796], ktl. 1245, indeholdende Ciceros breve på latin, og Erklärende Anmerkungen zur Auswahl der besten Briefe Cicero's (i Erklärende Anmerkungen zur Encyclopädie der lateinischen Classiker. Neunter Theil), udg. af Benjamin Weiske, Braunschweig 1796, ktl. 1246. Nielsens »Skole-Vidnesbyrd« er trykt som nr. V i B&A bd. 1, s. 4f., og optaget i SKS-E.
+
+## Kommentarnote b-50 (b1/kom.xml, ordret)
+Lemma: Artium
+
+el. examen artium ().
+
+## Kommentarnote b-51 (b1/kom.xml, ordret)
+Lemma: Asp, cand: theolog: et juris
+
+Niels Peter Asp (1797-1880), da. jurist og præst; tog 1819 juridisk embedseksamen, studerede filologi fra 1821, men opgav det og blev huslærer, studerede teologi fra 1827 og blev 1828 cand.theol., fra 1830 personlig kapellan i Stokkemark og fra 1833 i Nakskov og Branderslev på Lolland.
+
+## Kommentarnote b-52 (b1/kom.xml, ordret)
+Lemma: en Bog angaaende Artiums Forstrængelse ... det engelske Sprog ... skulde skrives Stiil
+
+sigter til N.P. Asp Frimodige Yttringer om de Studerendes nuværende Stilling i Staten, Kbh. 1829. Her henvises til afsnittet »Skjærpelse af examen artium«, s. 24-38, se især s. 34: »Endvidere burde tydske og franske Stile-Øvelser flittigen vedligeholdes i Skolerne, og Prøve i samme præsteres ved examen artium. (...) Ligeledes synes Prøve i det engelske Sprog, samt nogenlunde Kjendskab i den franske, engelske og tydske Litteratur billigen [med rimelighed] at kunne fordres af den videnskabeligen dannede Ungdom.« Og s. 35: »Foruden Plan-Geometrien burde ogsaa Stereometrien og Trigonometrien ufravigeligen læres i Skolerne; thi F. Ex. uden at have lært Trigonometrien er det umueligt at forstaae Astronomien, som foredrages til examen philosophicum; og Physikken bliver naturligviis ogsaa dunkel og uinteressant eller mindre interessant, naar man ikke tilfulde indseer Rigtigheden af de i samme forekommende mathematiske Beviser.« – Forstrængelse: formentlig med betydningen: skærpelse af kravene. – gives op: opgives. – Stereometrie: rumgeometri. – Trigonometrie: beregning af siderne og vinklerne i en trekant.
+
+## Kommentarnote b-3002 (b1/kom.xml, ordret)
+Lemma: Han foreslaaer ... den, der fik 0 ... en nye Examen ... til Foraaret
+
+sigter til følgende passager i afsnittet »Skjærpelse af examen artium« i N.P. Asp Frimodige Yttringer om de Studerendes nuværende Stilling i Staten (), hvor Asp skriver, s. 34: »At Nul taales i nogensomhelst Disciplin ved exsamen artium, synes fast utilgiveligt, da der ligesom kastes Vrag paa denne eller hiin Videnskab, i hvis Rubrik et Nul kan tolereres.« Og videre, s. 37, hvor Asp argumenterer for de strengere eksamensregler i den tidligere gældende forordning af 22. marts 1805, § 20: »Dersom man i een af Rubrikkerne for Religion, Historie, Geographie, Hebraisk, de nyere Sprog erholdt Karakteren 'maadelig', var man forpligtet til i det næstfølgende Aars April Maaned at underkaste sig en extraordinair Examen i den eller de af bemeldte Discipliner, for hvilke man var tilkendt 'maadelig'.«
+
+## Kommentarnote b-53 (b1/kom.xml, ordret)
+Lemma: han i sin Bog ... at de latinske Medicinere blive tilsidesatte for Barbersvende
+
+sigter til afsnittet »Det chirurgiske Academies Henlæggelse under Universitetet, samt Forandring i Bestemmelserne om de ustuderede Chirurger, etc.« i N.P. Asp Frimodige Yttringer om de Studerendes nuværende Stilling i Staten (), s. 54-64. – de latinske Medicinere: de personer, der har studeret medicin ved universitetet. – Barbersvende: se fx s. 56f., hvor Asp påstår, at den største gruppe af dem, der dyrker kirurgi, er »Barbeer-Svende og Drenge« og består af »de allersimpleste Personer, som uden enten at besidde nogen Sands for det chirurgiske Studium eller blot den sande Betydning af dette, have grebet denne Plan som et blot Nød-Middel til en Art af Beskjæftigelse eller (...) have valgt den saakaldte Doctorstand, fordi de uden al Kundskab, ganske raae, uvidende og blottede for Hverdagsmenneskers Cultur, strax kunne ved denne blotte Yttring af deres Ønske tilstedes Adgang til offentlige Forelæsninger, og saaledes ufortjent og uden Nytte komme i Samqvem med dannede og dertil videnskabeligen dannede Individer.« – På SKs tid fungerede de barberer, som havde underkastet sig kirurgisk eksamen ved Det kirurgiske Akademi, stadig som kirurger med ret til at behandle udvortes sygdomme, men barberernes beføjelser overgik efterhånden til universitetsuddannede læger.
+
+## Kommentarnote b-54 (b1/kom.xml, ordret)
+Lemma: det sidste Aar jeg er i Skolen
+
+.
+
+## Kommentarnote b-55 (b1/kom.xml, ordret)
+Lemma: at jeg først kommer op i Aaret 1830
+
+SK blev dimitteret i efteråret 1830 fra Borgerdydsskolen i København til Københavns Universitet.
+
+## Kommentarnote b-56 (b1/kom.xml, ordret)
+Lemma: Religion og Ny Testamente læser Bindesbøll
+
+Severin Claudius Wilken Bindesbøll (1798-1871), da. biskop; 1821 cand.theol., 1822-31 notar ved Det Teologiske Fakultet, 1825-32 og atter 1834-38 tillige lærer i dansk og religion ved Bogerdydsskolen i København, fra foråret 1832 til april 1834 på studierejse bl.a. til Tyskland, Italien og Frankrig; fra 1838 sognepræst i Nakskov og Branderslev på Lolland, fra 1851 biskop over Aalborg stift i Nordjylland og fra 1856 biskop over Lolland-Falster stift.
+
+## Kommentarnote b-57 (b1/kom.xml, ordret)
+Lemma: Historie læser naturligviis Warncke
+
+.
+
+## Kommentarnote b-58 (b1/kom.xml, ordret)
+Lemma: Mathematik læser Marthensen
+
+G.J. Martensen (1800-67), da. lærer og embedsmand; underviste i matematik ved Borgerdydsskolen i København, blev senere kontorchef i finansministeriet.
+
+## Kommentarnote b-59 (b1/kom.xml, ordret)
+Lemma: Ursin har gandske forladt Skolen
+
+.
+
+## Kommentarnote b-60 (b1/kom.xml, ordret)
+Lemma: Græsk læser jeg med Professoren
+
+Michael Nielsen ().
+
+## Kommentarnote b-61 (b1/kom.xml, ordret)
+Lemma: Naar Du skriver ham til, skal Du ikke udlade dig ... denne Sygdom
+
+sml. følgende passage i P.C. Kierkegaards brev, dateret »Berlin, 15. Maj 1829«, til Michael Nielsen: »Kjære Herr Professor! / Med megen Bekymring har jeg i Breve fra Hjemmet i Vinter næsten ikke faaet andre Efterretninger Dem angaaende end, snart at De var upasselig [følte Dem utilpas], snart endog alvorlig syg, hvilket da ogsaa tildeels har afholdt mig fra at skrive Dem til, men nu, da Efterretningerne om Deres Helbred lyde gunstigere, kan jeg ikke undlade først at bevidne Dem min hjertelige Glæde derover og mit Ønske, at Forsynet endnu længe vil skjenke Dem Kraft til at fortsætte Deres paa saa Mange velsignede Virksomhed – og dernæst at fortælle Dem Lidt om, hvorledes jeg har det og hvad jeg tager mig for her.« Citeret efter Holger Lund Borgerdydsskolen i Kjøbenhavn (), s. 175-179; s. 175. – skriver ham til: fast udtryk i breve: skriver til ham. – udlade dig: ytre dig.
+
+## Kommentarnote b-63 (b1/kom.xml, ordret)
+Lemma: Fritz Lange, om hans Øine forbedre sig ... blive slettere
+
+Frederik Olaus Lange (1798-1862), da. teolog, klassisk filolog og skolemand; dimitteredes 1815 fra Borgerdydsskolen i København til Københavns Universitet, underviste fra efteråret 1816 til o. 1828 og atter fra slutningen af 1829 til efteråret 1833 i græsk ved Borgerdydsskolen; 1825 cand.theol., 1828 til efteråret 1829 på rejse til Tyskland, Italien og Holland, »tildeels for ved Brugen af Bade at styrke sit svækkede Syn« (biografien i T.H. Erslews Almindeligt Forfatter-Lexicon bd. 1-3, Kbh. 1843-53, ktl. 954-969; bd. 2, 1847, s. 94); fra 1833 overlærer ved og fra 1841 rektor for den lærde skole i Vordingborg; 1836 dr.phil. på en filologisk afhandling om kasus i sprogene (jf. ktl. 610); fra 1847 docent i pædagogik ved Københavns Universitet; fik i 1849 titel af professor. SK havde i sit bibliotek Langes Det græske Sprogs Grammatik, til Skolernes Brug, 3. forbedrede udg., Kbh. 1835 [1826], ktl. 992. På grund af en svær øjenbetændelse blev Langes syn stadig svagere, og han blev efterhånden blind, jf. biografien i Dansk Biografisk Lexikon, 3. udg., bd. 8, Kbh. 1981, s. 480.
+
+## Kommentarnote b-64 (b1/kom.xml, ordret)
+Lemma: den Bog, som Du forlangte
+
+. Herom skriver P.C. Kierkegaard i sin dagbog () under »Løverdagen 7 Marts« 1829: »tillige maa jeg saa til at faae Krebs Anleitung zum Lateinischschreiben, hvori jeg just ikke er gaaet frem siden jeg forlod Danmark.« Hermed sigter P.C. Kierkegaard til den ty. filolog Johann Philipp Krebs Anleitung zum Lateinischschreiben in Regeln und Beyspielen zur Uebung. Zum Gebrauch der Jugend, Frankfurt am Main 1816, el. 3. forbedrede udg., Frankfurt am Main 1822.
+
+## Kommentarnote b-3004 (b1/kom.xml, ordret)
+Lemma: Dit Ønske, at kjøbe en dansk Bibel
+
+. Herom skriver P.C. Kierkegaard i sin dagbog () under »Løverdagen 7 Marts« 1829: »Hvad jeg ikke maa forsømme at lade mig tilsende med næste Post er en Bibel, da FF [J. Ferdinand Fenger ()] nu snart reiser bort og jeg altsaa ikke længere kan gjøre Brug af hans«.
+
+## Kommentarnote b-3304 (b1/kom.xml, ordret)
+Lemma: indsyt
+
+ældre form for: indsyet.
+
+## Kommentarnote b-65 (b1/kom.xml, ordret)
+Lemma: Læret
+
+el. lærred.
+
+## Kommentarnote b-66 (b1/kom.xml, ordret)
+Lemma: Frue Fenger
+
+Martha Helene Fenger, f. Meinert (1775-1856), enke efter sognepræst ved Vor Frelsers Kirke på Christianshavn Rasmus Fenger (1761-1825), mor til Johannes Ferdinand Fenger (). – Frue: titel, som tilkom hustruer (inden for borgerstanden) til ægtemænd, der havde rang if. rangforordningen ().
+
+## Kommentarnote b-67 (b1/kom.xml, ordret)
+Lemma: P: Halds Disputats
+
+. Hermed sigtes til De summa animi perfectione specimen exegeticum [lat., En fortolkningsmodel for sjælens højeste fuldkommenhed], Kbh. 1828, med hvilken afhandling cand.theol. Peter Tetens Hald (1802-64) i 1828 erhvervede den teologiske licentiatgrad. Som privatdocent holdt Hald fra 1830 forelæsninger ved Københavns Universitet over kirkehistorie, naturlig teologi og apologetik og blev fra 1833 residerende kapellan ved Budolphi Kirke i Aalborg i Nordjylland.
+
+## Kommentarnote b-68 (b1/kom.xml, ordret)
+Lemma: Bispernes Hyrdebrev af 1817
+
+. Her sigtes til Antistitum ecclesiæ Danicæ, Slesvico-Holsaticæ et Lauenburgensis epistola encyclica ad clerum de tertio Reformationis Jubilæo diebus XXXI octobris, I et II Novembris MDCCCXVII pie celebrando [lat., Hyrdebrev fra biskopperne i Den danske, slesvig-holstenske og lauenburgske Kirke til præstestanden om, hvordan reformationens trehundredeårs jubilæum bør andægtigt fejres den 31. oktober, 1. og 2. november 1817], Kbh. [1817].
+
+## Kommentarnote b-69 (b1/kom.xml, ordret)
+Lemma: Petrea ... har skrantet i nogen Tid
+
+Petrea () fødte den 12. nov. 1829 sit første barn, datteren Anna Henriette Lund.
+
+## Kommentarnote b-70 (b1/kom.xml, ordret)
+Lemma: Nicoline
+
+.
+
+## Kommentarnote b-71 (b1/kom.xml, ordret)
+Lemma: Fingeren er saavidt kommen sig
+
+.
+
+## Kommentarnote b-73 (b1/kom.xml, ordret)
+Lemma: Moder
+
+Anne Kierkegaard ().
+
+## Kommentarnote b-74 (b1/kom.xml, ordret)
+Lemma: Lund
+
+enten Johan Christian Lund () eller Henrik Ferdinand Lund ().
+
+## Kommentarnote b-75 (b1/kom.xml, ordret)
+Lemma: Niels
+
+Niels Andreas Kierkegaard ().
+
+## Kommentarnote b-76 (b1/kom.xml, ordret)
+Lemma: Md:
+
+madam el. madamme Marina Magdalene Lund ().
+
+## Kommentarnote b-77 (b1/kom.xml, ordret)
+Lemma: Ole Lunds Døttre
+
+sigter til døtrene af grosserer Ole Troelsen Lund og hustru Karen Lund, f. Mouritsdatter Monberg: Anna Cathrine Lund (1800-59); Anna Lund (1807-79); og Mette Juliane Lund (1814-89).
+
+## Kommentarnote b-3006 (b1/kom.xml, ordret)
+Lemma: Khavn 25 Martii 1829
+
+Under »Torsdagen den 9 April« 1829 skriver P.C. Kierkegaard i sin dagbog (): »Da jeg kom hjem fandt jeg et Brev fra Søren med et Par Ord fra Ferdinand []«, sml. fortegnelsen over modtagne og afsendte breve i april 1829 i dagbogen, hvor brevet er registreret som modtaget den 9. april, s. 35.
+
+## Kommentarnote b-78 (b1/kom.xml, ordret)
+Lemma: Ferdinand skriver formodentlig et Par Ord paa den anden Side
+
+sigter til følgende brev, skrevet af SKs svoger Henrik Ferdinand Lund () på modstående side: »Saavidt jeg erindrer forglemte jeg at datere mit sidste Brev; det blev skrevet d. 13de og disse Lienier skrives d. 25 Martii, – / Kiære Peter! / Jeg lovede, uadspurgt at underrette Dig om Petreas Befindende skiøndt det vil bedrøve Dig at min lille Mutter siden sidst har gaaet en slem Skole igiennem; men jeg nærer det faste Haab at indskiøndt Begyndelsen er slem kan Enden med Guds Hielp blive god. – Det eneste der bekymrer mig er at der er Sandsynlighed for at den første halve Tid vil blive haard at gaae paa. – Dog lad det trøste os at det staaer ene i den Guds Haand, der hidentil [hidindtil] har været saa god imod os. – / Vi ere opvaagnede i den prosaiske Verden og adskillige smaae huuslige Bekymringer have giæstet os. Som f. Ex. er vores Pige nu endeligen død paa Hospitalet og den næste paa en galant Maade jaget bort efterat hun først havde foruroliget mig meget med at udstudere hendes Sindelag og efterat hun først havde slaaet Benet over paa Mselle Petit der nu befinder sig paa Veterienairskolen. – / Jeg har en Hilsen at bringe Dig fra Necoline, hvis Finger jeg i Dag har taget i nøie Øiesyn; den er nu ganske og aldeles helbredet. – Ligl: [ligeledes] en Hilsen fra min Moder og fra os alle, men i Særdeleshed fra min Kone, som har i Sinde at skrive et langt Brev til Dig. – Og hermed [min] inderlige Hilsen fra Din stedse hengivne Svoger / H: F: Lund. / Professor Thiele har holdt stadseligt Bryllup med Frøken Holten og beboer <afgl:> [afgangne, afdøde] Prof: [C.A.] Lorentzen[s] Leilighed paa Charlottenborg, hvilken nu naturligviis er ganske moderniseret. – Professor Lunding er død. Kasseren i Banken, Bøwing, er død, hvorved en forfærdelig Mængde Ansøgninger ere komne for Dagen. – En stor Mængde ere faldne paa de frosne Gader og have derved lemlæstet sig. – Mange og farlige Sygdomme have indfunden sig især hos gamle Folk. Søen er tillagt [dækket med is]. Coursen det samme. – «
+
+## Kommentarnote b-80 (b1/kom.xml, ordret)
+Lemma: unter Linden 20 drey Treppen
+
+.
+
+## Kommentarnote b-81 (b1/kom.xml, ordret)
+Lemma: Hiermit 1 Kastchen in Leinen, mit 2 gedruckte Bücher gem. P C K
+
+ty., Hermed [følger] 1 æske i linned, med 2 trykte bøger mærket P C K [Peter Christian Kierkegaard]. – Under »Fredagen den 10 April« 1829 skriver P.C. Kierkegaard i sin dagbog (): »Jeg afhentede den Pakke, der var mig annonceret med Sørens Brev, og som indeholdt en dansk Bibel og Krebs Anleitung zum lateinisch. Stilschreiben [].« – gem.: gemerkt.
+
+## Kommentarnote b-82 (b1/kom.xml, ordret)
+Lemma: Franco Hamburg
+
+.
+
+## Kommentarnote b-83 (b1/kom.xml, ordret)
+Lemma: den Werth 8 Rbthl Silber
+
+ty., til en værdi af 8 rigsbankdaler sølv.

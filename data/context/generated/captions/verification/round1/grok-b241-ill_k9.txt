@@ -1,0 +1,12 @@
+Investigate: I'll verify the draft alt and caption against the image and the packet only — outside knowledge out, visual misdescription in.{
+  "image": "b241/ill_k9.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "den ottende linje stopper efter omkring en tredjedel",
+      "field": "alt",
+      "problem": "Den ottende linje går forbi den lodrette midterfold og fylder omkring to tredjedele af papirets bredde; det tomme stykke til højre er omkring en tredjedel. »Omkring en tredjedel« er en visuel fejlmåling."
+    }
+  ],
+  "visualNotes": "Linje 8 ender lidt til højre for midterfolden (ca. ⅔ bredde), ikke efter ⅓. Første linje er indrykket. Flere små blækklatter i selve skriften (bl.a. ved »forpligtet« og omkring midten af tekstblokken) ud over den nævnte plet. En svagere lodret bøjning ses i venstre tredjedel. Afslutningsordet over underskriften er synligt som én kort linje og kan ikke læses sikkert fra billedet alene."
+}

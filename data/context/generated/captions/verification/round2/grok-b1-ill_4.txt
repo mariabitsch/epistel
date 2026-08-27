@@ -1,0 +1,18 @@
+Investigate: I'll verify the draft alt and caption against the image and the packet only, then return the flags JSON.I'll inspect the image itself and the captions method so the flags stay within the groundedness rule.I'll look closer at the stamp, the handwriting, and how earlier verifiers treated similar claims.{
+  "image": "b1/ill_4.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "fra mærket peger en smal, trekantet papirflig nedad",
+      "field": "alt",
+      "problem": "Det trekantede hvide felt under mærket kan være en rift/åbning i arket, ikke en papirflig der ligger ovenpå og peger. Flødefarven og den gennemslående skrift ophører ved kanten; der er skygge kun ved spidsen, som af en opriftet papirkant mod underlaget. At kalde feltet en flig er en visuel identifikation, billedet ikke entydigt bærer."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "det lille guldfarvede mærke sidder med en afrevet papirflig under sig",
+      "field": "caption",
+      "problem": "Samme genstand som i alt-teksten: det synlige er et trekantet lyst felt under mærket. »Papirflig« forudsætter et stykke papir, der stadig sidder der; »afrevet« er desuden en procespåstand (at fligen er revet af), som hverken billedet eller pakken viser — kun feltet og en revet-udseende kant. Udkastets egen note siger, at brudt/ubrudt ikke påstås, men captionen gør det med »afrevet«."
+    }
+  ],
+  "visualNotes": "Trekanten under mærket er hvidere end arket og uden gennemslag — ligner hul/rift mere end pålagt flig. Mærket har tydeligt stående figur, plante til venstre, rund genstand nederst til højre, og en bue af versaler (delvis ...VERIT...). Øverst til venstre to små røde prikker ved påskriften. Efter 180° drejning læses adressen i overensstemmelse med pakken: lille »Til« ved folden, »Hr Magister Kierkegaard. –«, »hersteds.«"
+}

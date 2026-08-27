@@ -1,0 +1,36 @@
+{
+  "id": "b171/ill_19.jpg",
+  "alt": "To sider af et håndskrevet brev fotograferet ved siden af hinanden på lyst, foldet papir. Venstre side er næsten tom: midt på den sidder en oval rød lakklat, og til venstre for den står en adresse skrevet på tværs af siden i flere linjer; nederst ved midterfolden står med blyant »1850 12/4«. Gennem papiret skimtes spejlvendt skrift fra bagsiden, og lodrette og vandrette foldelinjer krydser siden. Højre side er tæt beskrevet med brunt blæk i skråtstillet håndskrift: en datolinje øverst til højre, derunder en tiltale, et afsnit på omkring femten linjer og til sidst en liste, hvor de enkelte opslagsord er understreget og de to øverste er samlet af en klamme, der peger over mod en fælles tekst til højre.",
+  "caption": "Adressesiden til venstre, brevets første side til højre: den røde lak og adressen til »Hr Mag. art. S. Kierkegaard« i København — og så Henrik Lunds undskyldning for sin lange tavshed. Onklen havde bedt om en oversigt over trækfuglenes ankomsttider, og listen begynder nederst på siden med understregede fuglenavne, hvor Sanglærken og Guulspurven deler klamme og ankomsttid.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »19. Brev 202, bl. [2v] og [1r]« — rækkefølgen [2v] før [1r] svarer til det, billedet viser: udskriftssiden til venstre, brevets første side til højre",
+    "billedet, venstre side: oval rød lakklat midt på siden",
+    "billedet, venstre side: adresse skrevet på tværs af siden i flere linjer, til venstre for lakken",
+    "billedet, venstre side: blyantspåskriften »1850 12/4« nederst i midten",
+    "billedet, venstre side: spejlvendt gennemskin af skrift fra bagsiden; lodrette og vandrette foldelinjer",
+    "billedet, højre side: datolinje øverst til højre, tiltale, ét afsnit på ca. femten linjer, derefter en liste",
+    "billedet, højre side: listens opslagsord er understreget, og de to øverste er samlet af en klamme, der peger over mod én fælles tekst til højre",
+    "pakken, brev 202's læsetekst: »Hr Mag. art. S. Kierkegaard« (citeret ordret fra udskriften) og »fr. Kjøbenhavn.« — grundlag for »i København«",
+    "pakken, brev 202's overskrift: Fra Henrik Lund · 12. april 1850 · til SK — grundlag for at navngive skriveren Henrik Lund",
+    "pakken, brev 202's læsetekst: »At jeg i saa lang Tid ikke har skrevet Dig til, haaber jeg Du undskylder« — grundlag for »undskyldning for sin lange tavshed«",
+    "pakken, brev 202's læsetekst: »Kjære Onkel!« — grundlag for »Onklen«",
+    "pakken, brev 202's læsetekst: »at give Dig en Oversigt over Ankomsttiden af de vigtigste Trækfugle« — grundlag for, hvad opgaven gik ud på",
+    "pakken, brev 202's læsetekst: listen åbner med »Sanglærken« og »Guulspurven« over ét fælles svar (»blive naar Vinteren er meget mild ... komme alm. tilbage sidst i Januar ell først i Februar«) — grundlag for »deler klamme og ankomsttid«"
+  ],
+  "note": "Tvivl og fravalg: (1) Jeg siger ikke, at arket er ét foldet ark (bifolium), selv om fold og papir ser sammenhængende ud i billedet — udgaven siger kun »bl. [2v] og [1r]«, og hvordan de to blade sidder sammen, kan jeg ikke afgøre. Captionen siger derfor blot, hvad der er til venstre og til højre. (2) Seglets tilstand: den røde lak ser hel ud i scanningen, men om det er et ubrudt segl eller en åbnet klat, kan jeg ikke se sikkert — captionen og alt-teksten siger kun, at den er der. Af samme grund står der »lakssegl« i captionen (funktionen fremgår af udskriftssiden) og det neutrale »lakklat« i alt-teksten. (3) Adressens vinkel: skriften på venstre side står drejet i forhold til siden, men om det er en kvart omgang eller mindre, tør jeg ikke fastslå — jeg skriver »på tværs af siden«. (4) Udskriftens fulde ordlyd (»Hjørnet af Rosenborg- og Tornebuskgaden. 1ste Sal«, afsenderpåtegningen »H. Lund Underl. i Odense«) er læselig i pakkens læsetekst, men jeg kan ikke selv læse den sikkert i billedet og har derfor kun citeret navnelinjen; gadenavnet er udeladt af captionen for at holde antallet af citater nede. (5) Blyantsdatoen »1850 12/4« er gengivet i alt-teksten som det, den er — cifre på papiret. Jeg tilskriver den ikke en senere hånd og bruger den ikke i captionen, selv om medium og skriftbillede adskiller sig fra brevets: hvem der har skrevet den og hvornår, siger hverken billedet eller pakken. (6) Kommentarnoterne er ikke brugt som viden: hverken b-1101/b-1186 (Henrik Lund som underlæge ved feltlazarettet i Odense), b-1104 (at SKs brev med opgaven ikke synes bevaret) eller de mange artsbestemmelser er kommet i captionen. Særlig b-1104 var fristende — at bestillingsbrevet er væk, mens svaret ligger her — men det er viden, brevet ikke selv har. (7) Det lange fuglenavn under Sanglærken/Guulspurven-klammen (»Stær«, »Viben«, »Glenten«, »Kirsebærknækkeren«, »Heiren«) kan jeg delvis læse i billedet, men jeg citerer intet fra håndskriften ud over det, pakkens læsetekst gengiver. (8) Brevets øvrige indhold (skovskaden, den udstoppede fugl hos buntmageren på Østergade, den afsluttende hilsen) står på sider, billedet ikke viser, og er ladt ude. (9) »Kjære Onkel!« er ikke citeret i captionen — jeg omtaler ham som »Onklen«, da brevets modtager i øvrigt fremgår af udskriften og af metadata ved siden af billedet.",
+  "repairs": [
+    {
+      "flag": "codex runde 1, fejl: »Udskriften til venstre« — codex læser »udskrift« som transskription og finder ingen belæg",
+      "action": "arbitreret: sagligt er venstre side adressesiden (segl + adresse, som begge modlæsere selv læser), og »udskrift« er udgavens term andetsteds — men termen står ikke i denne pakke, så omskrevet til det selvindlysende »Adressesiden«."
+    },
+    {
+      "flag": "grok runde 1 (genkørsel), fejl: »nederst i midten« om blyantsnotatet »1850 12/4« — det sidder ved midterfolden, på/ved højre blad",
+      "action": "arbitreret mod billedet: notatet sidder nederst ved midterfolden — formuleringen rettet dertil; den er sand under begge læsninger af hvilket blad, det tilhører."
+    },
+    {
+      "flag": "codex runde 2, tvivl: »lakssegl« — funktionen som segl kan ikke bekræftes",
+      "action": "arbitreret: »den røde lak« — alt-teksten sagde allerede »lakklat«. Grok runde 2: ren."
+    }
+  ]
+}

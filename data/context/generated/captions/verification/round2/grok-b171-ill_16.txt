@@ -1,0 +1,5 @@
+**Investigate** — adversarial grounding check of one image draft: I'll read the attached letter photograph against the packet and flag only ungrounded or visually wrong claims.The image is the primary source; I’ll look at the vendored file and the draft claims against what is actually on the sheet.I’ll check the caption method and earlier rounds on this image so the flags match the pipeline’s standard, then judge the draft itself.I’ll crop the printed labels and the heading so I can check letterforms and layout against the draft, not against memory.{
+  "image": "b171/ill_16.jpg",
+  "flags": [],
+  "visualNotes": "Midternavnet står som »Museum.« med punktum. Foran museets søjlerække ses også en række lavere, afrundede træer, ikke kun de to høje; venstre og højre vignet har ligeledes små figurer. I sideborternes ruder anes hhv. et landskabsagtigt motiv og en menneskeskikkelse, stadig ikke sikkert bestemmelige. Brødteksten ender midt i sætningen om Königstraße. Det blege mærke øverst til højre ligner et ciffer; nederst til højre et lille »1«. Bundkanten kaster også en svag skygge."
+}

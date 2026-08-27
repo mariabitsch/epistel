@@ -1494,7 +1494,7 @@ def _dataset_note(meta):
 # a fact about this repository, so it is written here rather than counted at
 # build time -- and a test counts the suite with unittest discovery and
 # compares it with the built page, so the sentence cannot go stale quietly.
-AUTOMATED_TESTS = 413
+AUTOMATED_TESTS = 426
 
 # The figures the Om page states about the site it belongs to. Every one of
 # them is recounted from the built pages in the test suite

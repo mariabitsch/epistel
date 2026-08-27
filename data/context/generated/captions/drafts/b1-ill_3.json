@@ -1,0 +1,46 @@
+{
+  "id": "b1/ill_3.jpg",
+  "alt": "To fotografier under hinanden, hvert af et udfoldet brevark set fra den side, der bærer adressen. Begge ark er skrevet med brunt blæk i den samme hånd: »Til« på en linje for sig, derunder »Hr Pastor Dr. Kierkegaard«, og længere nede »At aabne efter min Død.« Det øverste ark er stort og har tydelige foldelinjer i et gitter; det bærer rester af mørk, næsten sort lak ved både øverste og nederste kant, og ved den nederste lakklat ses desuden en lys, oval plet. Langs det øverste arks højre kant står en lodret, kun delvis læselig påskrift med blyant. Det nederste ark er lavere, har svagere foldelinjer og rød lak ved både venstre og højre kant; dets nederste halvdel er tom.",
+  "caption": "To udskrifter til den samme mand, Kierkegaards bror, og uden på begge den samme besked: »At aabne efter min Død.« Øverst brev 20, det med den sorte lak; nederst brev 22, det med den røde.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »3. Udskrift til Brev 20 (øverst) og til Brev 22 (nederst)« — eneste grundlag for at det øverste ark hører til brev 20 og det nederste til brev 22, og for ordet »udskrift«",
+    "billedet: to adskilte fotografier under hinanden, hvert af et foldet ark med adressen udvendigt",
+    "billedet, øverste ark: gitter af tydelige foldelinjer",
+    "billedet, øverste ark: mørk, næsten sort lak ved øverste kant og ved nederste kant; en lys, oval plet ved siden af den nederste klat",
+    "billedet, øverste ark: lodret påskrift med blyant langs højre kant, kun delvis læselig (ikke gengivet)",
+    "billedet, nederste ark: rød lak ved venstre og ved højre kant; nederste halvdel af arket uden skrift",
+    "billedet, begge ark: brunt blæk, samme hånd, tre linjer — »Til«, »Hr Pastor Dr. Kierkegaard«, »At aabne efter min Død.«",
+    "pakken, brev 22's læsetekst: »Til   Hr Pastor Dr. Kierkegaard   At aabne efter min Død.« — bekræfter læsningen af håndskriften på arkene",
+    "pakken, brev 20's læsetekst: samme udskrift ordret, »Til   Hr Pastor Dr. Kierkegaard   At aabne efter min Død.«",
+    "pakken, brev 20's læsetekst: »Kjere Broder!« — grundlag for »Kierkegaards bror« om modtageren",
+    "pakken, brev 20's læsetekst: »min fordums Forlovede, Frue Regine Schlegel, arver ubetinget al den Smule, jeg kan efterlade mig« — grundlag for »gør Regine Schlegel til arving«",
+    "pakken, brev 20's læsetekst: »at mig var og er en Forlovelse lige saa forpligtende som et Ægteskab« — grundlag for ledsætningen om forlovelsen",
+    "pakken, brev 22's læsetekst: »Den Ubenævnte, hvis Navn engang vil nævnes,« hvem hele Forfatter-Virksomheden dediceres, er min fordums Forlovede: Frue Regine Schlegel.« — grundlag for citatet og for at det er hende",
+    "pakken, brev 20's og brev 22's overskrifter: begge »Fra SK … til P.C. Kierkegaard« — grundlag for at det er samme modtager i begge tilfælde",
+    "pakken, manifest-posten: figure med rend=\"verso\" og to pageBreaks med n=\"1v\" (brev 20 og brev 22) — grundlag for at arkene vises fra bagsiden, dvs. adressesiden"
+  ],
+  "note": "Tvivl og fravalg: (1) At det øverste ark er brev 20 og det nederste brev 22 hviler ALENE på udgavens head (»øverst«/»nederst«); billedet selv kan ikke skelne dem, da de to udskrifter er ordret ens. Manifestet knytter figuren til brev 22, mens begge breves pageBreaks peger på samme fil — det modsiger ikke head'en, men den er den eneste kilde til rækkefølgen. (2) Lakkens farver: den øverste er mørk og kan i scanningen være meget mørkebrun eller blåsort snarere end ren sort — derfor »mørk, næsten sort« i alt-teksten; captionen siger kortere »sort lak«, hvilket bør efterprøves af modlæserne. Jeg tolker IKKE farverne (sørgelak o.l.) — det er der intet belæg for. (3) Om seglene er brudt eller hele kan jeg ikke afgøre af billedet; det påstås ingen af stederne. (4) Den lodrette blyantspåskrift langs det øverste arks højre kant ligner et arkivsignatur-lignende »D · Pk. 3. Læg 5«, men er for utydelig til at gengives — kun dens tilstedeværelse er nævnt. (5) Den lyse ovale plet ved den nederste lakklat kan være lakrest, papirskade eller aftryk; alt-teksten siger kun, at den er der. (6) Håndens ejermand er ikke påstået noget sted: at brevene er fra SK står i overskrifterne, men hvem der har skrevet selve udskriften uden på arkene, kan billedet ikke afgøre. (7) Tidsafstanden mellem de to breve er bevidst ikke nævnt: brev 20 er »udateret [nov. 1849]« (udgavens firkantede parentes), brev 22 »aug. 1851« — et årstal-spænd ville udglatte en usikkerhed, kilden selv markerer. (8) Broderens fornavne (P.C. / Peter Christian, kommentarnote b-1771) er udeladt; brevet siger selv kun »Kjere Broder!«, og udskriften siger »Hr Pastor Dr. Kierkegaard«. (9) Ikke brugt: kommentarnote b-1773 om at P.C. Kierkegaard fik de to breve udleveret efter begravelsen i nov. 1855 og om Schlegels afslag — stort, fristende stof, men viden brevene ikke selv har. (10) Ikke brugt: b-1767 om dedikationsudkastene til Om min Forfatter-Virksomhed og b-1772 om forlovelsens datoer — samme grund. (11) Plancenummeret »3.« i head'en er udgavens egen nummerering og gentages ikke. (12) Arkenes fysiske mål er ikke angivet nogen af stederne; »stort« og »lavere« i alt-teksten er relative mellem de to fotografier, ikke absolutte.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, tvivl: alt-tekstens »lukket med … lak« påstår en tillukket tilstand — arket vises fladt udfoldet med foldegitter",
+      "action": "arbitreret mod billedet: korrekt, arkene ligger udfoldede og lakken er rester — »lukket med« → »bærer rester af«."
+    },
+    {
+      "flag": "codex runde 1, tvivl: captionens »forseglet med sort lak« — billedet fastslår ikke »ren sort«",
+      "action": "overrulet med begrundelse: i scanningen står den øverste lak sort (grok: »farven er i scanningen sort«; arbitrators egen læsning enig), og alt-teksten bærer allerede det hedgede »næsten sort«. Sort/rød-kontrasten er billedets tydeligste informationsbærende forskel og beholdes."
+    },
+    {
+      "flag": "codex+grok runde 2: »sammenfoldet«/»forseglet« påstår stadig en tilstand — arkene er udfoldede, lakken rester",
+      "action": "arbitreret mod billedet: »sammenfoldet brev« → »udfoldet brevark«; captionens »forseglet med« omskrevet til farvernes pegen (»det med den sorte lak« / »det med den røde«)."
+    },
+    {
+      "flag": "grok runde 2, tvivl: »længere nede til højre« gælder kun det øverste ark — på det nederste står linjen nærmere midten",
+      "action": "arbitreret mod billedet: placeringen generaliseret til »længere nede«."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
+    }
+  ]
+}

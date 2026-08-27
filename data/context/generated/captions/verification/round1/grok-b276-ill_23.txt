@@ -1,0 +1,12 @@
+**Investigate** — adversarial grounding check of one image draft: only the photo and the packet count; I will flag ungrounded or visually wrong claims, then return the JSON object.{
+  "image": "b276/ill_23.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "en mindre lakklat med en sprøjt og nogle få dråber ved siden af",
+      "field": "alt",
+      "problem": "Ved den midterste lakklat ses én hovedklat og ét adskilt, mindre lakfragment til højre (rimeligt kaldt en sprøjt). Yderligere »nogle få dråber« er ikke tydeligt synlige; det grålige slør ud mod højre er skygge/misfarvning, ikke lakdråber."
+    }
+  ],
+  "visualNotes": "Midterklatten: én satellit, ikke flere dråber. Ellers matcher billedet udkastet: cremefarvet ark med gitterfold; stor revnet rød lakklump øverst uden signetaftryk; to omvendte linjer til venstre for den og brun plet til højre; »S T« / »Hr Magister Kierkegaard.« i feltet under; nederste halvdel drejet 90° med datering, tiltale, kort brødtekst og »Deres« / »R. N.«; anden adresse med lang paraf til venstre; lys »1849 20/7« øverst til højre, også omvendt; lille blegt rødt mærke nederst til venstre."
+}

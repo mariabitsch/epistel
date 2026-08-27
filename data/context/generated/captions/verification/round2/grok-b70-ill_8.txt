@@ -1,0 +1,18 @@
+**Investigate** — adversarial grounding check of one image draft: I'll look at the photograph and the packet, then flag only ungrounded or visually wrong claims.I'll check the trial verifier prompt and a completed verification so I match the flag style this pipeline actually uses.The draft already carries a round-1 repair, so I’ll re-check the image and packet independently against the current alt and caption.{
+  "image": "b70/ill_8.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "i den nedre tredjedel er et ord streget kraftigt ud som en mørk klat",
+      "field": "alt",
+      "problem": "Klatten sidder lidt under midten af det blålige ark, med flere tætte linjer under sig. Det er nedre halvdel, ikke sikkert nedre tredjedel. Udkastets egen note siger »midt på det blålige ark«."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "kun den ene artikel i den",
+      "field": "caption",
+      "problem": "Brevets læsetekst siger, at der i bogen *omtales* en lille æsthetisk artikel, og identificerer den som trykt i »Fædrelandet« 1848 No 188-91. »Artikel i den« gør artiklen til en del af bogen; det følger ikke af »omtales etsteds«."
+    }
+  ],
+  "visualNotes": "Venstre kants hak er korrekt. Sløjfen nederst til højre udgår fra den næstsidste af de tre korte linjer og understreger den sidste. To små blækklatter på det cremefarvede ark (ved det korte ord øverst og over navnet). Blegt mærke nederst til højre på det blålige ark."
+}

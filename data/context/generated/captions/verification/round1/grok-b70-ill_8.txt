@@ -1,0 +1,12 @@
+I'll verify the draft against the image and the grounding packet only — looking for ungrounded claims and visual misdescription.I’ll check the trial round’s verification standard so the flags match how this pipeline treats handwriting, paraphrase, and visual claims.I’ll check the original vendor file and a couple of trial flags so I can judge line count, the blot, and the torn edge against the same standard.I’ll check how the full-round verifiers have treated similar letter photographs, so the flags stay consistent.I’ll look at a sibling letter photograph’s verification only to calibrate how strictly paraphrase and edge descriptions are treated — not this image’s verdict.I’ll look once more at the sheet edges and the blot’s position, then give the verdict.{
+  "image": "b70/ill_8.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "en ujævn, revet kant i højre side",
+      "field": "alt",
+      "problem": "Den klart afrevne bid er et lille trekantet hak i venstre kant, omtrent i højde med det blålige arks nederste venstre hjørne. Højre kant er kun let ujævn og slidt, ikke tydeligt revet."
+    }
+  ],
+  "visualNotes": "Venstre kant har det tydelige hak; højre er nogenlunde ret. Lodret midterfold er den dominerende foldelinje. Overstregningen på det blålige ark sidder lidt under midten, ikke helt i nederste tredjedel. Nederst til højre på det blålige ark et lille blegt mærke; to små blækklatter på det cremefarvede ark, én ved det korte ord øverst og én over navnet."
+}

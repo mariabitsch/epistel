@@ -1,0 +1,12 @@
+Investigate: I'll verify the draft alt and caption against the image and the grounding packet only — no outside knowledge. First I look at the photograph itself, then I check each claim.I'll inspect the vendored plate itself so I can check counts, stains, folds, and the salutation against the draft.One visual count is wrong: the left margin shows two round dark dots, not three. The rest of the alt and the caption hold against the plate and the packet.{
+  "image": "b171/ill_18.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "i venstre margen ses tre små runde mørke prikker",
+      "field": "alt",
+      "problem": "Venstre margen har to små runde mørke prikker, vandret parvist omtrent midtvejs; en tredje af samme slags er ikke synlig."
+    }
+  ],
+  "visualNotes": "To prikker, ikke tre. Øverste brune plet sidder venstre for midten, med en mindre satellit til højre. Første foldelinje ligger lidt under en tredjedel. Mærket nederst til højre ligner et tal (7). Alt-teksten ender afbrudt på »og «."
+}

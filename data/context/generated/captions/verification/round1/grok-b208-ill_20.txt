@@ -1,0 +1,31 @@
+Downscaled Image 1: 507.1 KB (3331x2198) → 371.3 KB (1910x1260)
+Investigate: I'll read the full grounding packet and draft, then check the image against every claim in the alt text and caption.I'll look at the vendor scan more closely and check the trial-round verifier standard so flags stay only on ungrounded or visually wrong claims.I'll crop the left-page list, item 8, and the struck-through number so I can check those claims against the scan.{
+  "image": "b208/ill_20.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "hvert punkt indledes med en bogtitel i anførselstegn",
+      "field": "alt",
+      "problem": "Punkt 8 indledes med »Begrebet«; kun »Angest« står i anførselstegn. Punkterne 4–7 har hele titlen i anførselstegn. »Hvert« holder ikke."
+    },
+    {
+      "severity": "fejl",
+      "claim": "under hver titel er sat to indrykkede linjer med tal, en vandret streg og en sum",
+      "field": "alt",
+      "problem": "Punkt 8 har kun én indrykket linje (»I Rest-Oplag hos Dem.. 85«), ingen Luno-linje, ingen vandret streg og ingen sum. Skemaet gælder kun punkterne 4–7."
+    },
+    {
+      "severity": "fejl",
+      "claim": "et firecifret tal, der er overstreget eller udtværet",
+      "field": "alt",
+      "problem": "Tallet over linje 9–10 er trecifret: 970 med skrå overstregning. Pakkens læsetekst har »970«. Den diagonale streg kan ligne et 1-tal, men både billede og pakke modsiger »firecifret«."
+    },
+    {
+      "severity": "fejl",
+      "claim": "hvor mange »Stadier paa Livets Vei«, »Philosophiske Smuler« og Begrebet »Angest« der ligger tilbage hos C.A. Reitzel og hos Luno",
+      "field": "caption",
+      "problem": "På opslaget og i læseteksten har Begrebet »Angest« kun restoplag hos Reitzel (85); der er ingen Luno-linje. »Hos C.A. Reitzel og hos Luno« gælder Stadier og Smuler, ikke Angest."
+    }
+  ],
+  "visualNotes": "Punkt 8 bryder listens skema. Det overstregede tal i Mit Forlangende-kolonnen er 970 (lyst/gråt, som 87 og 312). Højre side har ca. 10+15 linjer i de to afsnit plus den påbegyndte linje, nærmere 25 end »godt tyve«. Mellem summerne og de to navngivne kolonner står enhedspriser (»a 3rd« o.l.). Over »Hvad« sidder et indføjelsestegn. De to navngivne kolonner rummer beløb, ikke restoplagstallene; de sidder i de indrykkede linjer under titlerne."
+}

@@ -12,14 +12,14 @@ cheap to build, cheap to run, and safe to throw away.
 **State:** live at <https://epistel-demo.netlify.app/> (public repo
 mariabitsch/epistel; every push to main deploys). 638 static pages — 336
 letter pages, 298 person pages (143 with bios), index with facets +
-client-side search, `/tidslinje/`, `/personer/`, `/om/`. 413 tests green
+client-side search, `/tidslinje/`, `/personer/`, `/om/`. 426 tests green
 (that number is machine-guarded; see Working here). The front page opens
 with a factual lead (Maria's own text) and Maria Notabene's foreword, set
 in the letters' frame. Since 2026-08-25 the corpus is also published as
 **data**: a typed JSON export in `export/` — letter envelopes + semantic
 HTML bodies, the volume index, the image manifest and the editorial
 layers, each with a JSON Schema — released via git tags (first release
-`v0.1.0`, `schemaVersion` now 0.2.0); `docs/export-format.md` is its
+`v0.1.0`, `schemaVersion` now 0.3.0); `docs/export-format.md` is its
 contract.
 
 ## Working here
@@ -82,7 +82,9 @@ Guarantees the next team inherits (all tested):
   vendored illustrations are a dataset too (`export/images.json`): every
   file with its provenance row and every place the edition points at it,
   vendor-verbatim — and the references no file answers are listed, not
-  dropped.
+  dropped. Since 0.3.0 the captions layer (`data/context/captions.json`)
+  travels with the other editorial layers, with its schema published in
+  `schema/` — the first editorial layer to carry one.
 - **Every editorial dataset is independently disposable**: a build with no
   `data/context/` files still yields a complete, honest site (no timeline,
   no bios, no summaries — but 336 letters, 298 person pages, search).
@@ -123,6 +125,20 @@ what it is and where it came from:
   persons honestly bio-less with reasons. Henriette Lund's entry is a
   grounded augmentation from her otherNotes (the Fenger method) — its
   `note` field records the two-round adversarial verification.
+- `captions.json` (40): the illustrations' editorial layer (CC BY-NC-SA
+  4.0, unlike its CC0 neighbours — its `_meta` says so) — per manifest id
+  from `export/images.json`: alt text, Maria Notabene caption, photo
+  credit where the edition names one, plus sources and the drafter's
+  recorded doubts (`note` — long on purpose: captions were harder than
+  summaries). The repair logs stay in the audit trail, never in the
+  dataset. Written by the two caption rounds of 2026-08-26
+  (`docs/captions-method.md` is the playbook; drafts, flags and repairs
+  in `generated/captions*/`), assembled deterministically by
+  `scripts/assemble_captions.py`, schema-guarded (source of truth
+  `exporter/schemas/captions.schema.json`) and exported since
+  schemaVersion 0.3.0. The two files the edition never references
+  stand caption-less on purpose; byte-identical duplicates share alt
+  but never caption.
 - `bio_keys.json`: the second join table — body↔kom persName key drift
   (4 bridges: Paludan-Müller, Calderón, Edvard Collin, F.C. Petersen),
   evidence per entry, loaded like every other optional dataset.
@@ -134,7 +150,12 @@ what it is and where it came from:
   guess; beware the Agerskov trap: same surname, different man).
 - `generated/` (committed on purpose): the swarm's **audit trail** — raw
   batch output, the adversarial verifiers' flags, the repairs. This is the
-  evidence behind "modlæsningsrunde" on the Om page.
+  evidence behind "modlæsningsrunde" on the Om page. For the captions the
+  trail is complete end to end — prompts, grounding packets (under
+  `generated/captions*/grounding/`, byte-identical to a fresh script
+  run), raw drafts, per-round verification, repairs — kept that way on
+  purpose: the round doubles as a reconstructable demonstration of the
+  method.
 - `grounding/` (gitignored): regenerable via
   `python3 scripts/prepare_grounding.py`.
 
@@ -171,7 +192,11 @@ datasets the same way; the method is what matters.
   vendored files are referenced *nowhere* (`b241/ill_k10.jpg`,
   `b79/ill_k4.jpg` — b241's kom.xml prints no plates at all), and
   `b79/ill_24.jpg`/`b308/ill_24.jpg` are two copies of one plate in two
-  volumes: two ids, never merged.
+  volumes: two ids, never merged. Content-wise the unreferenced
+  `b241/ill_k10.jpg` is itself a byte-identical copy of b259's
+  *referenced* plate `b259/ill_k10.jpg` (sha256 match, found
+  2026-08-26) — the only image whose content appears nowhere in the
+  edition is `b79/ill_k4.jpg`.
 - `persName` in bodies carries normalized `key`s (the person-index join);
   correspDesc `<name>`s are raw strings — hence `aliases.json`. In
   kom.xml, `@n="*"` on a persName marks a note's *biographical subject*
@@ -277,14 +302,12 @@ test-held.
   optional `fastjsonschema` is importable, e.g. from a local `.venv`
   created with `python3 -m venv .venv && .venv/bin/pip install
   fastjsonschema` — and the editorial layers licensed.)
-- Image captions: `export/images.json` (0.2.0) carries the edition's own
-  `<head>` captions and nothing of ours. Our own captions dataset (alt
-  text + a Maria Notabene caption per image, an *editorial* layer keyed
-  by the manifest's image ids) is designed and trial-proven:
-  `docs/captions-method.md` is the playbook, the trial round's audit
-  trail sits in `data/context/generated/captions-trial/` (4 of 40 images
-  done, approved by Maria). The full round — and `data/context/captions.json`
-  itself — is still to run.
+- Image captions, remaining step: the dataset is **done**
+  (2026-08-26/27 — `data/context/captions.json`, all 40 manifest ids,
+  see the Data layers section) and ships in the export since
+  schemaVersion 0.3.0. What remains is display: showing the images with
+  their captions on the *site* (the hash+immutable asset track is
+  ready).
 - Småting: more TEI-annotation finds may come.
 
 ## Explicitly out of scope

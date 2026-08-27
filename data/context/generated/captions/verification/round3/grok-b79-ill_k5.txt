@@ -1,0 +1,18 @@
+I'll read the full prompt, then check the image and draft against the grounding packet only.{
+  "image": "b79/ill_k5.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "en månesegl med takket inderkant",
+      "field": "alt",
+      "problem": "Månens inderkant fremstår jævn; den bølgede, takkede kontur tilhører den sky der omgiver seglet, ikke selve månen."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "én af dem har mistet sin hue",
+      "field": "alt",
+      "problem": "En spids hue ses i luften ved de tumlende figurer, men billedet viser ikke at nogen har mistet den — det er en fortælling om en forudgående handling, ikke noget synligt."
+    }
+  ],
+  "visualNotes": "Skyen omkring måneseglet har en bølget, takket kant; seglets inderkant er jævn. En hue svæver frit i luften øverst til højre. Små figurer kigger frem af græsset ved det store hoved. Ellers stemmer alt-tekstens rum og tællinger med billedet i den drejede læseretning (Taf. XXX. øverst)."
+}

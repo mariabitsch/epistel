@@ -1,0 +1,311 @@
+Reading additional input from stdin...
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03ed4-399c-71d2-952d-5519adba992a
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Note (added for the full round, 2026-08-26, after the trial):
+the edition abbreviates Søren Kierkegaard as »SK« (e.g. »Fra SK« in
+letter headings). Expanding »SK« to »Kierkegaard« or »Søren
+Kierkegaard« is NOT an ungrounded claim — the grounding packet's
+edition is Søren Kierkegaards Skrifter, and this instruction states it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b208/ill_20.jpg
+
+Billedfil: `data/vendor/b208/ill_20.jpg` (tilladt primærkilde).
+
+## Manifest-post: b208/ill_20.jpg (export/images.json)
+```json
+{
+ "id": "b208/ill_20.jpg",
+ "path": "letters/b208/ill_20.jpg",
+ "source": {
+  "path": "data/v1.9/b208/ill_20.jpg",
+  "sha256": "310e3fe7ae566dabcb3b408d9ea9b3366b5c014b7360e9e1d627ff26368abcdb"
+ },
+ "figures": [
+  {
+   "volume": "b208",
+   "file": "txt.xml",
+   "xmlId": "ill_20",
+   "type": null,
+   "rend": "opening",
+   "url": "../b208/ill_20.jpg",
+   "head": [
+    "20. Brev 224, bl. [1v]-[2r], med C.A. Reitzels tilføjelser med blæk og blyant nederst bl. [1v]"
+   ],
+   "figDesc": null,
+   "letter": "224",
+   "letterXmlId": "n224"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b208",
+   "file": "txt.xml",
+   "xmlId": "id5fba1d67-b77f-4e35-a070-895a078e8b01",
+   "n": "1v",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b208/ill_20.jpg",
+   "letter": "224",
+   "letterXmlId": "n224"
+  },
+  {
+   "volume": "b208",
+   "file": "txt.xml",
+   "xmlId": "s2r",
+   "n": "2r",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b208/ill_20.jpg",
+   "letter": "224",
+   "letterXmlId": "n224"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 20. Brev 224, bl. [1v]-[2r], med C.A. Reitzels tilføjelser med blæk og blyant nederst bl. [1v]
+
+## Brev 224 (b208) — overskrift og læsetekst
+Overskrift: Fra SK · juli-aug. 1847 · til C.A. Reitzel
+
+Høistærede!     Boglade-PriisMit Forlangende.1) »Frygt og Bæven«     I Rest-Oplag hos Dem selv... 13    ––––––––––– Luno.. 191.      204.a 1rd204.rd100rd.2) »Forord«      I Rest-Oplag hos Dem selv.. 195    ––––––––––– Luno... 122.      317.a 3ℳ 158rd 3ℳ.70rd NB.Bogladeprisen er, som jeg senere seer 3ℳ 8 ß, men nu gider jeg ikke regne om igjen.  3) »Gjentagelsen«     I Rest-Oplag hos Dem selv.. 38    ––––––––––– Luno... 215.      253a 5ℳ.210rd 5ℳ. 100.      Boglade PriisMit Forlangende.4) »Stadier paa Livets Vei.«     I Rest-Oplag hos Dem 108    ––––––––––– Luno  172       280a 3rd840rd400rd5) »Philosophiske Smuler«     I Rest-Oplag hos Dem.. 96    ––––––––––– Luno.. 200      296.a 4ℳ 246rd 4ℳ.100rd.6) »En literair Anmeldelse«     I Rest-Oplag hos Dem 224.    ––––––––––– Luno 170.      394.a 3ℳ 197rd70rd7) »Tre Taler ved tænkte Leiligheder«     I Rest-Oplag hos Dem 93    ––––––––––– Luno 226      319a 4ℳ.212rd 4ℳ.90rd8) Begrebet »Angest«     I Rest-Oplag hos Dem.. 85a 1rd85rd40rd       970        20. Brev 224, bl. [1v]-[2r], med C.A. Reitzels tilføjelser med blæk og blyant nederst bl. [1v] 9  Climaci Efterskrift 381 Exp a 3 Rbdlr10Opbyggelige Taler 22½ Ark 225  87 312  Hvad »afsluttende Efterskrift« angaaer, da er det mig  ikke muligt nærmere at specificere, da jeg dertil mangler de fornødne Oplysninger. Ifølge Lunos Brev af 30 Juli 47. har De i Febr. 46 modtaget ... 250 Ex: og Juli 11 ... 244. Men ifølge Deres Opgjørelse af 4d Mai 47 havde De i Rest-Oplag 89. Naar De da altsaa d. 4d Mai 47 har et Rest-Oplag af 89, og dog d. 11 Juli 47 fra Luno faaer 244 Ex:: saa maa der vel være solgt en Deel. Imidlertid vil De af det Specificerede see omtrent min Maalestok. Jeg har af intet Rest-Oplag forlangt Halvdelen af Boglade-Prisen, og ved flere kun forlangt et betydeligt Stykke under Halvdelen. Hvad »afsluttende Efterskrift« angaaer, vil da mit Forlangende være 40 pC. af Rest-Oplagets Boglade-Priis.Hvad »opbyggelige Taler i forskjellig Stiil og Aand« angaaer, da er denne Bog jo udkommen i 47, saa jeg altsaa ingen Forestilling kan have om, hvad der af den er solgt. Lunos Regning af 10d Martz 47 var stor 287rd 12 ß. Heraf har jeg selv betalt Luno 87rd, da han ønskede dem for Udlæg med Papir. De 200rd har De været saa god at lade overføre paa Deres Regning med Luno. Men De vil selv indsee, at førend jeg nærmere bestemmer Noget, maa jeg dog have en Forestilling om Afsætningen, samt have de 87rd udenfor. Skulde De imidlertid, hvad jeg jo selv ogsaa ønsker for at faae den Sag i Orden, ville have dem med, saa gjør blot et Bud i Forhold til min Maalestok, som De nu maa kjende den. Der er dog upaatvivleligt ikke solgt saa lidt af den. Overhovedet seer jeg dog nu, ved ret engang at tage den Sag frem, at der, med Undtagelse af den »literaire Anmeldelse« endda ikke er solgt saa daarligt.Det følger da af sig selv, at her bestandigt kun  er Talen om Rest-Oplagene, ikke om Eiendoms-Ret til et nyt Oplag.Hvad Enten – Eller angaaer, da maa det vel overlades til en anden Gang. Og saa paa Mandag Aften!Deres S. Kierkegaard. 
+
+## Kommentarnote b-2900 (b208/kom.xml, ordret)
+Lemma: Høistærede
+
+. Brevet er til forlagsboghandler C.A. Reitzel ().
+
+## Kommentarnote b-2902 (b208/kom.xml, ordret)
+Lemma: Mit Forlangende
+
+ved salget af restoplagene til forlagsboghandler C.A. Reitzel ().
+
+## Kommentarnote b-2903 (b208/kom.xml, ordret)
+Lemma: »Frygt og Bæven«
+
+Frygt og Bæven, af pseudonymen Johannes de silentio, var udkommet den 16. okt. 1843 i et trykoplag formentlig på 525 eksemplarer, se tekstredegørelsen i SKS K4, 75 og 97f. Bogen var i kommission hos C.A. Reitzel.
+
+## Kommentarnote b-2904 (b208/kom.xml, ordret)
+Lemma: Rest-Oplag hos Dem selv
+
+resten af det salgsoplag, C.A. Reitzel havde modtaget ved udgivelsen i okt. 1843 el. siden havde modtaget. – I sin skrivelse af 9. juli 1847 sendte bogtrykker Bianco Luno () en opgørelse til C.A. Reitzel med angivelse af det restoplag, som beroede hos Luno af følgende skrifter: 191 eksemplarer af Frygt og Bæven; 122 af Forord; 215 af Gjentagelsen; 172 af Stadier paa Livets Vei; 200 af Philosophiske Smuler; 170 af En literair Anmeldelse; 226 af Tre Taler ved tænkte Leiligheder; samt 176 af Opbyggelige Taler i forskjellig Stiil og Aand (dvs. Opbyggelige Taler i forskjellig Aand ()). Til venstre for hver af disse titler har Reitzel efter modtagelsen noteret størrelsen på de restoplag, der beroede hos ham, nemlig 13 eksemplarer af Frygt og Bæven; 195 af Forord; 38 af Gjentagelsen; 108 af Stadier paa Livets Vei; 96 af Philosophiske Smuler; 224 af En literair Anmeldelse; 93 af Tre Taler ved tænkte Leiligheder; og 300 af Opbyggelige Taler i forskjellig Aand. Herefter har Reitzel ladet opgørelsen tilgå SK, der nederst på brevet har skrevet: »NB. Begrebet 'Angest' er slet ikke anført. / NB. Afsluttende uvidenskabelig Efterskrift er slet ikke anført.« (KA, D pk. 7 læg 5.) Når bortses fra oplagstallene for Opbyggelige Taler i forskjellig Aand, genfindes både de af Luno og de af Reitzel angivne restoplag i SKs oversigt og i samme rækkefølge.
+
+## Kommentarnote b-2905 (b208/kom.xml, ordret)
+Lemma: Luno
+
+bogtrykker Bianco Luno (). Restoplaget hos Bianco Luno udgør differencen ml. trykoplaget og salgsoplaget. Det var alm. praksis, at en forfatter, der – som SK – var sin egen forlægger, kunne lade den del af trykoplaget, der ikke blev sendt som salgsoplag til kommissionæren, blive liggende på lager hos bogtrykkeren.
+
+## Kommentarnote b-3184 (b208/kom.xml, ordret)
+Lemma: 1rd
+
+rigsdaler. Den da. møntfod var ved forordning af 31. juli 1818 delt i rigsbankdaler (i samtiden ofte blot kaldt 'rigsdaler' og forkortet 'rd.'), mark (forkortet 'mk.') og skilling (forkortet 'sk.'), i 1875 afløst af kroner (2 kroner for 1 rigsdaler). Der gik 16 skilling på en mark, og 96 skilling, svarende til 6 mark, på 1 rigsbankdaler. I Hof- og Stadsretten havde en dommer 1.200-1.800 og en fuldmægtig 400-500 rd. i årsløn. En pige i huset fik højst 30 rd. om året foruden kost og logi. Et par sko kostede 3 rd. og et pund rugbrød 2-4 sk.
+
+## Kommentarnote b-2906 (b208/kom.xml, ordret)
+Lemma: »Forord«
+
+Forord, af pseudonymen Nicolaus Notabene, var udkommet den 17. juni 1844 i et trykoplag på 525 eksemplarer, se tekstredegørelsen i SKS K4, 533 og 562. Bogen var i kommission hos C.A. Reitzel.
+
+## Kommentarnote b-2907 (b208/kom.xml, ordret)
+Lemma: Bogladeprisen er ... 3ℳ8 ß
+
+dvs. 3 mk. 8 sk. svarende til 56 sk., hvilket er den bogladepris, der angives i tekstredegørelsen i SKS K4, 533. – ℳ...ß: alm. betegnelse for mark og skilling.
+
+## Kommentarnote b-2908 (b208/kom.xml, ordret)
+Lemma: »Gjentagelsen«
+
+Gjentagelsen, af pseudonymen Constantin Constantius, var udkommet den 16. okt. 1843 i et trykoplag formentlig på 525 eksemplarer, se tekstredegørelsen i SKS K4, 7 og 29. Bogen var i kommission hos C.A. Reitzel.
+
+## Kommentarnote b-2909 (b208/kom.xml, ordret)
+Lemma: »Stadier paa Livets Vei.«
+
+Stadier paa Livets Vei, udg. af pseudonymen Hilarius Bogbinder, var udkommet den 30. april 1845 i et trykoplag på 525 eksemplarer, se tekstredegørelsen i SKS K6, 7 og 88. Bogen var i kommission hos C.A. Reitzel.
+
+## Kommentarnote b-2910 (b208/kom.xml, ordret)
+Lemma: »Philosophiske Smuler«
+
+Philosophiske Smuler, af pseudonymen Johannes Climacus (), udg. af S. Kierkegaard, var udkommet den 13. juni 1844 i et trykoplag formentlig på 500 eksemplarer, se tekstredegørelsen i SKS K4, 171 og 195. Bogen var i kommission hos C.A. Reitzel.
+
+## Kommentarnote b-2911 (b208/kom.xml, ordret)
+Lemma: »En literair Anmeldelse«
+
+En literair Anmeldelse var udkommet den 30. marts 1846 i et trykoplag på 525 eksemplarer, se tekstredegørelsen i SKS K8, 7 og 45. Bogen var i kommission hos C.A. Reitzel.
+
+## Kommentarnote b-2912 (b208/kom.xml, ordret)
+Lemma: »Tre Taler ved tænkte Leiligheder«
+
+Tre Taler ved tænkte Leiligheder var udkommet den 29. april 1845 i et trykoplag formentlig på 500 eksemplarer, se tekstredegørelsen i SKS K5, 381 og 402. Bogen var i kommission hos C.A. Reitzel.
+
+## Kommentarnote b-2913 (b208/kom.xml, ordret)
+Lemma: Begrebet »Angest«
+
+Begrebet Angest, af pseudonymen Vigilius Haufniensis, var udkommet den 17. juni 1844 i et trykoplag på 250 eksemplarer, se tekstredegørelsen i SKS K4, 307 og 332, samt Brev 222 af 30. juli 1847 fra Bianco Luno til SK, i SKS 28, 340,10. Bogen var i kommission hos C.A. Reitzel.
+
+## Kommentarnote b-2914 (b208/kom.xml, ordret)
+Lemma: Climaci Efterskrift 381 Exp a 3 Rbdlr
+
+Afsluttende uvidenskabelig Efterskrift, af pseudonymen Johannes Climacus (se nedenfor), udg. af S. Kierkegaard, var udkommet den 27. feb. 1846 i et trykoplag på 500 eksemplarer, se tekstredegørelsen i SKS K7, 7 og 93. Bogen var i kommission hos C.A. Reitzel. SK skriver lige efter oversigten, at han ikke kan afgøre restoplaget af Afsluttende uvidenskabelig Efterskrift. C.A. Reitzel har derfor noteret til de videre forhandlinger, at restoplaget er på 381 eksemplarer, og at bogladeprisen er 3 rigsbankdaler (), jf. tekstredegørelsen i SKS K7, 7. – Climaci: lat., genitiv af Climacus, dvs. Johannes Climacus. Navnet Climacus hentyder formentlig til den gr. teolog og munk Johannes Klimax el. på lat. Climacus (o. 525-616), der levede 40 år som eneboer ved foden af Sinajbjerget og var forfatter til værket Κλῖμαξ τοῦ παϱαδείσου (gr. (Klímax toû paradeísou), på lat. Scala paradisi, Paradisstigen), heraf hans tilnavn; se i øvrigt den fyldigere kommentar i SKS K4, 197.
+
+## Kommentarnote b-2916 (b208/kom.xml, ordret)
+Lemma: Opbyggelige Taler
+
+Opbyggelige Taler i forskjellig Aand var udkommet den 13. marts 1847 i et trykoplag på 525 eksemplarer, se tekstredegørelsen i SKS K8, 153 og 195. Bogen var til en begyndelse i kommission hos C.A. Reitzel.
+
+## Kommentarnote b-3185 (b208/kom.xml, ordret)
+Lemma: 22½ Ark
+
+Opbyggelige Taler i forskjellig Aaand er på 364 sider svarende til 22¾ ark a 16 sider.
+
+## Kommentarnote b-3186 (b208/kom.xml, ordret)
+Lemma: 225
+
+dvs. 225 rd. (), i blyant noteret af C.A. Reitzel for at minde sig selv om, at han skulle betale SK et forfatterhonorar på 225 rd. for Opbyggelige Taler i forskjellig Aand, når den overgik fra at være en kommissionsbog til at blive en honorarbog ().
+
+## Kommentarnote b-3187 (b208/kom.xml, ordret)
+Lemma: 87
+
+dvs. 87 rd., i blyant noteret af C.A. Reitzel på brevet for at huske sig selv på, at han ud over forfatterhonoraret på 225 rd. skulle refundere SK de 87 rd., han allerede havde betalt Bianco Luno for papiret ().
+
+## Kommentarnote b-2917 (b208/kom.xml, ordret)
+Lemma: Lunos Brev af 30 Juli 47
+
+sigter til brev af 30. juli 1847 fra Bianco Luno til SK, se Brev 222 i SKS 28, 340.
+
+## Kommentarnote b-2918 (b208/kom.xml, ordret)
+Lemma: Deres Opgjørelse af 4d Mai 47
+
+Opgørelsen af mellemværendet ml. SK og C.A. Reitzel pr. 4. maj 1847, anført i debet og kredit, findes i Kierkegaard Arkivet (KA, D pk. 7 læg 6). Af opgørelsen fremgår det, at C.A. Reitzel den 25. Feb. 1846 havde modtaget 250 eksemplarer af Afsluttende uvidenskabelige Efterskrift, og at der pr. 4. maj 1847 var en beholdning på 89 + 49 eksemplarer af Afsluttende uvidenskabelig Efterskrift. Lægges disse 138 eksemplarer til de 244, som Reitzel (if. brevet af 30. juli 1847 fra Bianco Luno) senere modtog, giver det et restoplag pr. 4. maj 1847 på 382 eksemplarer ().
+
+## Kommentarnote b-3188 (b208/kom.xml, ordret)
+Lemma: »opbyggelige Taler i forskjellig Stiil og Aand«
+
+sigter til Opbyggelige Taler i forskjellig Aand (), som i renskriften, ms. 4.1, bar titlen Opbyggelige Taler i forskjellig Stiil og Aand, se tekstredegørelsen i SKS K8, 173, 177, 183 og 185 med illustration 15. If. opgørelserne fra Bianco Luno og C.A. Reitzel beroede der et restoplag hos dem på hhv. 176 og 300, i alt 476 eksemplarer (). If. Bianco Lunos regning af 10. marts 1847 () var bogen blevet trykt i 525 eksemplarer på trykpapir til salg og i 20 eksemplarer på velin til gaver; se tekstredegørelsen i SKS K8, 195.
+
+## Kommentarnote b-3189 (b208/kom.xml, ordret)
+Lemma: udkommen i 47
+
+den 13. marts 1847 ().
+
+## Kommentarnote b-2919 (b208/kom.xml, ordret)
+Lemma: Lunos Regning af 10d Martz 47 var stor 287rd 12 ß
+
+Regningen fra Bianco Luno () på 287 rd. 12 sk. () for produktion, inklusive papir, af Opbyggelige Taler i forskjellig Aand findes i Kierkegaard Arkivet (KA, D pk. 7 læg 4). – ß: .
+
+## Kommentarnote b-3190 (b208/kom.xml, ordret)
+Lemma: selv betalt Luno 87rd ... for Udlæg med Papir
+
+På regningen af 10. marts 1847 fra Bianco Luno () har Luno skrevet: »Mig herpaa betalt 87 Rbdr. [rigsbankdaler ()] hvorfor herved qvitteres.«
+
+## Kommentarnote b-2920 (b208/kom.xml, ordret)
+Lemma: De 200rd har De ... lade overføre paa Deres Regning med Luno
+
+Hvornår C.A. Reitzel har overført de 200 rd. () til Bianco Luno, er ikke identificeret, men betalingen af dem indgik i aftalen med C.A. Reitzel om ændring af Opbyggelige Taler i forskjellig Aand fra at være en kommissionsbog til at blive en honorarbog ().
+
+## Kommentarnote b-2921 (b208/kom.xml, ordret)
+Lemma: have de 87rd udenfor
+
+dvs. holde de 87rd., som SK allerede havde betalt (), uden for aftalen med C.A. Reitzel om ændring af Opbyggelige Taler i forskjellig Aand fra at være en kommissionsbog til at blive en honorarbog ().
+
+## Kommentarnote b-2922 (b208/kom.xml, ordret)
+Lemma: kun er Talen om Rest-Oplagene, ikke om Eiendoms-Ret til et nyt Oplag
+
+De videre forhandlinger med C.A. Reitzel endte i slutningen af aug. 1847 med en aftale, som findes nedskrevet i Reitzels protokol over Forhandlinger med Forfattere, Redacteurer &c 1835-[1858], s. 27 (trykt i F. Brandt og E. Thorkelin Søren Kierkegaard og pengene, 2. udg., Kbh. 1993 [1935], s. 31). Af aftalen fremgår det, at C.A. Reitzel for en samlet sum af 1.200 rd. () af SK købte »Rest-Oplagene med Forlagsret for dette Oplag«, dvs. for dette første oplag af følgende kommissionsbøger: Gjentagelsen, Frygt og Bæven, Philosophiske Smuler, Begrebet Angest, Forord, Tre Taler ved tænkte Leiligheder, Stadier paa Livets Vei, Afsluttende uvidenskabelig Efterskrift og En literair Anmeldelse. Efter angivelse af betalingsterminerne for de 1.200 rd. slutter aftalen med følgende: »Endvidere har jeg overtaget Forlaget af 'Opbyggel. Taler' [Opbyggelige Taler i forskjellig Aand] mod et Honorar af 225 Rbd: [], hvorved alle Omkostninger ved Trykningen overtages af mig. Honoraret betales den 31. Aug. d. A. [dette år]« (sml. tekstredegørelsen til Opbyggelige Taler i forskjellig Aand i SKS K8, 197). Beløbet på de 1.200 rd. svarede til 33% af den samlede salgsværdi af de nævnte titler. Og som antydet fastsatte aftalen terminerne for Reitzels betaling af de 1.200 rd., hvilket skulle ske i seks portioner a 200 rd. over en periode, der strakte sig fra den 15. dec. 1847 til ultimo maj 1849. Uden for aftalen om salg af restoplag af kommissionsbøger holdt SK angiveligt følgende tre titler: Af en endnu Levendes Papirer (1838); To opbyggelige Taler 1843, hvoraf restoplaget var solgt til forlagsboghandler P.G. Philipsen i maj 1845, se Brev 221, i SKS 28, 339; og Enten – Eller, der var udsolgt (), se også Brev 225, i SKS 28, 346.
+
+## Kommentarnote b-2923 (b208/kom.xml, ordret)
+Lemma: Hvad Enten – Eller angaaer ... overlades til en anden Gang
+
+Allerede i 1845 havde C.A. Reitzel berørt emnet, se journaloptegnelsen NB:194, fra slutningen af april 1847, hvor SK skriver, »at Reitzel allerede for to Aar siden har talt om et nyt Oplag, at det er mig, der forhindrer det«, SKS 20, 116,19f. Skønt Reitzel åbenbart atter bragte emnet på bane her i begyndelsen af aug. 1847, indledte SK imidlertid konkrete forhandlinger med forlagsboghandler P.G. Philipsen om at overtage udgivelsen af andet oplag af Enten – Eller, forhandlinger, der dog forliste, se Brev 226-229, i SKS 28, 347-349.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b208/ill_20.jpg",
+  "alt": "Et opslag af et håndskrevet brev, to sider fotograferet ved siden af hinanden på gulnet papir, skrevet med brunsort blæk i en spinkel, hældende hånd. På venstre side står en nummereret liste, punkterne 4 til 8, hvor punkterne indledes med bogtitler i anførselstegn; under titlerne i punkt 4 til 7 er sat to indrykkede linjer med tal, en vandret streg og en sum, mens punkt 8 kun har en enkelt indrykket linje, og ude til højre står to talkolonner under to overskrifter, der er skrevet lodret øverst på siden og adskilt af lodrette streger. Under listen følger en linje løbende tekst og derefter to linjer nummereret 9 og 10, hvor nogle af tallene nederst er lysere og gråligere end resten af skriften; over dem står et overstreget tal, »970«. Højre side er fyldt af løbende tekst i samme hånd, godt tyve linjer fordelt på to afsnit og en enkelt påbegyndt linje nederst. Begge sider har brede, tomme marginer, og midt i opslaget ses foldekanten mellem de to blade.",
+  "caption": "Kierkegaard gør sit eget forfatterskab op i to kolonner, »Boglade Priis« og »Mit Forlangende«: hvor mange »Stadier paa Livets Vei« og »Philosophiske Smuler« der ligger tilbage hos C.A. Reitzel og hos Luno — af Begrebet »Angest« kun restoplaget hos Reitzel — og hvad Kierkegaard vil have for dem. Nederst på venstre side har Reitzel siden skrevet sine egne tal ind, med blæk og blyant.",
+  "credit": null,
+  "sources": [
+    "billedet: to sider ved siden af hinanden, gulnet papir, brunsort blæk, spinkel hældende håndskrift, brede marginer, synlig foldekant mellem bladene",
+    "billedet, venstre side: nummereret liste 4)–8), hver med en titel i anførselstegn, derunder to indrykkede taltunge linjer, vandret streg og sum",
+    "billedet, venstre side: to talkolonner ude til højre under to lodret skrevne overskrifter, afgrænset af lodrette streger øverst på siden",
+    "billedet, venstre side nederst: en linje løbende tekst, derefter linjerne »9« og »10« med tal, hvoraf nogle er lysere og gråligere end blækket (grundlag for »blæk og blyant« sammen med udgavens head — hvilke tal der er hvad, tilskrives ikke)",
+    "billedet, venstre side nederst: et firecifret tal over de to sidste linjer, overstreget eller udtværet (udeladt af captionen, se note)",
+    "billedet, højre side: løbende tekst i samme hånd, godt tyve linjer i to afsnit plus en påbegyndt linje nederst",
+    "pakken, udgavens head: »20. Brev 224, bl. [1v]-[2r], med C.A. Reitzels tilføjelser med blæk og blyant nederst bl. [1v]« — grundlag for, at opslaget er brev 224, at venstre side er bl. [1v], og at tilføjelserne nederst dér er Reitzels, med blæk og blyant",
+    "pakken, brev 224's overskrift: Fra SK · juli-aug. 1847 · til C.A. Reitzel — grundlag for at kalde skriveren Kierkegaard og modtageren C.A. Reitzel",
+    "pakken, brev 224's læsetekst, umiddelbart før punkt 4: »Boglade PriisMit Forlangende.« — de to kolonneoverskrifter, citeret i denne forekomsts form (tidligere i brevet står »Boglade-Priis«)",
+    "pakken, brev 224's læsetekst: »4) »Stadier paa Livets Vei.««, »5) »Philosophiske Smuler««, »8) Begrebet »Angest«« — titlerne citeret i brevets egen form, også den skæve anførsel om Angest alene",
+    "pakken, brev 224's læsetekst: »I Rest-Oplag hos Dem selv« og »Luno« gentaget under hver titel — grundlag for »ligger tilbage hos C.A. Reitzel og hos Luno«",
+    "pakken, brev 224's læsetekst: »Mit Forlangende« og »Jeg har af intet Rest-Oplag forlangt Halvdelen af Boglade-Prisen« — grundlag for »hvad Kierkegaard vil have for dem«"
+  ],
+  "note": "Tvivl og fravalg: (1) Jeg har ikke læst håndskriften selv. Alt, der citeres, er hentet fra pakkens læsetekst; billedet bruges kun til det, der robust kan ses (opsætning, kolonner, streger, blækkets farve, lysere tal nederst). De lodrette kolonneoverskrifter på venstre side ligner »Boglade Priis« og »Mit Forlangende«, men det er læsetekstens gentagelse af netop de to ord lige før punkt 4, der er autoriteten for citatet — øjet er kun vidne. (2) Udgaven siger, at Reitzels tilføjelser nederst bl. [1v] er skrevet med både blæk og blyant. I billedet er tallene ved linje 9 og 10 tydeligt lysere og gråligere end resten, men jeg tilskriver ikke enkelttal til blyant eller blæk, og jeg gengiver ingen af dem — captionen siger kun, at Reitzel har skrevet sine tal ind dér. (3) Over de to sidste linjer på venstre side står et firecifret tal, der er overstreget eller udtværet; læseteksten har »970« på den plads, men jeg kan ikke se det sikkert nok i billedet til at gengive tallet, og det er udeladt i både alt og caption. (4) Ikke brugt: kommentarnoterne om trykoplagenes størrelse (525, 500, 250 eksemplarer), Bianco Lunos stilling som bogtrykker, møntfoden, og aftalen fra slutningen af aug. 1847 om de 1.200 rd. Alt sammen er viden, brevet ikke selv har, og efter reglen utilladeligt — derfor står »Luno« nøgent, som brevet selv skriver navnet. (5) Bevidst fravalgt, selv om det er brevets bedste replik: »Bogladeprisen er, som jeg senere seer 3ℳ 8 ß, men nu gider jeg ikke regne om igjen.« Den hører til punkt 2 og står altså ikke på det opslag, billedet viser; captionen holder sig til de sider, man ser. (6) Punkt 9 og 10 (»Climaci Efterskrift« og »Opbyggelige Taler«) er ikke nævnt i captionen, som kun løfter tre titler frem af hensyn til længden; de er ikke fravalgt af tvivl. (7) Ordet »forfatterskab« er min sammenfatning af listens indhold — hver linje er en af Kierkegaards egne bøger — ikke et ord fra kilden. (8) Højre sides antal linjer er angivet omtrentligt (»godt tyve«), fordi afsnitsovergangene og den afsluttende linje gør en præcis optælling usikker. (9) Papirets farve er beskrevet som gulnet og blækket som brunsort, sådan som scanningen viser dem; jeg udtaler mig ikke om papirtype, format eller »naturlig størrelse«.",
+  "repairs": [
+    {
+      "flag": "codex+grok runde 1, fejl: »hvert punkt« med titel i anførselstegn og to-linjers skema — punkt 8 (»Begrebet ›Angest‹«) afviger på begge punkter",
+      "action": "arbitreret mod billedet: skemaet scopet til punkt 4–7, punkt 8's enkeltlinje nævnt."
+    },
+    {
+      "flag": "codex+grok runde 1, fejl: »et firecifret tal« — tallet er trecifret, 970, og står i pakkens læsetekst",
+      "action": "arbitreret mod billede+pakke: citeret som »970« (overstreget)."
+    },
+    {
+      "flag": "grok runde 1, fejl: captionen lod »hos C.A. Reitzel og hos Luno« gælde alle tre titler — Begrebet Angest har kun restoplag hos Reitzel",
+      "action": "arbitreret mod pakken: Luno-delen scopet til Stadier og Smuler, Angests Reitzel-restoplag udskilt."
+    }
+  ]
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{"image":"b208/ill_20.jpg","flags":[],"visualNotes":"Ingen visuelle modsigelser af draftens beskrivelse."}
+tokens used
+28.485
+{"image":"b208/ill_20.jpg","flags":[],"visualNotes":"Ingen visuelle modsigelser af draftens beskrivelse."}

@@ -1,0 +1,12 @@
+**Investigate** — adversarial grounding check of the alt and caption for `vignet/vig-brev-blomst.jpg` against the image and the packet only. I'll look at the drawing first, then score every claim.The attached drawing is in view. I’ll check the vendored file next so edge-crop claims in the alt can be scored against the actual image, not the chat thumbnail.I’ll check the trial playbook and prior verifications so the flags sit at the same strictness as the rest of the round.I’ll inspect the vendored file at pixel level so edge-crop and stroke-layer claims can be checked rather than guessed.The stem does hit the frame. Next I’ll look at the flower head, leaf, and stem crops to check the shape claims.{
+  "image": "vignet/vig-brev-blomst.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "under midterpartiet hænger et rundet blad ned",
+      "field": "alt",
+      "problem": "Den rundede, lukkede form sidder på blomsterhovedet, ikke på stænglen, og ligner et nedhængende kronblad eller en lob af midterpartiets egen kontur. Billedet afgør ikke, at det er et blad; plantens blad er det lange ved stænglen. Udkastets note medgiver selv, at formen er tvetydig."
+    }
+  ],
+  "visualNotes": "Stænglen rammer nederste venstre hjørne som tyk, tilspidsende streg; øverste kronblad og bladspidsen når over- og højre kant. Ingen skrift, ingen ramme. Den hængende oval er en lukket sløjfe på blomsterhovedet, kugleformet snarere end aflang. Højre kronblade er også dobbeltoptrukne."
+}

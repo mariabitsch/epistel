@@ -1,0 +1,5 @@
+I'll verify this draft against the image and the grounding packet only — no outside knowledge. Let me look at the photograph and the texts carefully.I’ll look at the vendored image more closely so I can check layout, the strikethrough, the tear, and the line counts against the draft.{
+  "image": "b70/ill_8.jpg",
+  "flags": [],
+  "visualNotes": "Det blålige arks håndskrift løber vinkelret på det cremefarvede arks (90°). Lille »8« i højre crememargen og en lille brun plet på det cremefarvede ark under det blå; intet af det modsiger udkastet."
+}

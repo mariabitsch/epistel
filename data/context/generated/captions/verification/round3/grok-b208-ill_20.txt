@@ -1,0 +1,6 @@
+Downscaled Image 1: 507.1 KB (3331x2198) → 371.3 KB (1910x1260)
+I'll verify the draft against the grounding packet and the image only — reading the full prompt first, then checking every claim.{
+  "image": "b208/ill_20.jpg",
+  "flags": [],
+  "visualNotes": "Ingen visuel modstrid. Synligt på venstre side, men ubeskrevet: mellem summerne og de to navngivne kolonner står enhedspriser (a 3rd, a 4ℳ o.l.) ved punkt 4–7; det overstregede 970 sidder i den højre talkolonne, ikke frit over linje 9–10; linje 9–10 rummer også titler, ikke kun tal."
+}

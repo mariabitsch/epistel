@@ -1,0 +1,12 @@
+I'll start by reading the full prompt and grounding materials so I can verify the draft against the image only.{
+  "image": "b308/ill_24.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "annulleret med koncentriske ringe",
+      "field": "alt",
+      "problem": "Det nederste frimærke er annulleret med et rundt, mere udfyldt stempel. De tydelige koncentriske ringe sidder på det øverste mærke, som alt-teksten kun kalder »et rundt stempel«. En sikker læsning af ringe på det nederste mærke er visuelt forkert."
+    }
+  ],
+  "visualNotes": "Koncentriske ringe er på det øverste frimærke, ikke det nederste. Det ovale stempel har F i begge sider (ud over tal). Det nederste arks poststempel ved det røde segl vender på hovedet. »POST« kan også ses øverst på det nederste frimærke."
+}

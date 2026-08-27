@@ -1,0 +1,13 @@
+Downscaled Image 1: 331.6 KB (2048x3244) → 252.8 KB (1233x1953)
+I'll verify the draft against the image and the packet only — visual accuracy first, then whether every claim is grounded.I'll inspect the blank lower half and the date line more closely — those are the spots most likely to be over-read.I'll calibrate against the method notes and the recto of the same letter, without reading prior verdicts on this image.{
+  "image": "b120/ill_32.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "svag, ulæselig skrift, der skinner igennem fra papirets anden side",
+      "field": "alt",
+      "problem": "I den blanke nederste halvdel anes kun meget svag, blågrå skygge/mønster, især til venstre. Selv med kontrast kan der ikke læses spejlvendte bogstaver. At det er skrift, og at den kommer fra papirets anden side, er en slutning; billedet bærer ikke belæg for kilden."
+    }
+  ],
+  "visualNotes": "Elleve linjer øverst, centreret datolinje i øverste halvdel, tre indrykkede linjer med afsluttende streg — det matcher. Venstre margen er rummelig (linjer fylder ca. 70–80 % af bredden). Orddeling synlig mindst ved vale=/dixi, obstrinx-/set og psal-/morum. Nederst til højre et lille gråblåt, udvisket mærke på bundkanten. Ingen læselig spejlskrift i den blanke felt."
+}

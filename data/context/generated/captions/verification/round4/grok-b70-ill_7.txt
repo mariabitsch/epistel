@@ -1,0 +1,12 @@
+I'll verify this draft against the image and the grounding packet only — no outside knowledge. First I'm reading the letter photograph itself, then I'll check every claim in the alt text and caption.{
+  "image": "b70/ill_7.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "Om det sidste er der skudt ord ind over linjen",
+      "field": "caption",
+      "problem": "»Det sidste« peger grammatisk på det netop nævnte »beholde et selv«. De indskudte ord sidder visuelt i næste sætning, over »Exemplar … er mig kjært« (»At sende Dem et saadant Exemplar …«), ikke ved »bestemt for Dem selv«. Pakkens læsetekst placerer også »af hvad jeg skriver« dér. Alt-teksten lokaliserer indskuddet korrekt som blot »mellem to af linjerne« uden indholdskobling."
+    }
+  ],
+  "visualNotes": "Indskuddet er i andet afsnits tredje linje, i sætningen »At sende Dem et saadant Exemplar … er mig kjært«, ikke ved »bestemt for Dem selv«. »Til« står alene og større på egen linje over »Hr Prof: Heiberg«. Blyantsmærket nederst tv. ligner et »1«. Ud over den lodrette midterfold anes en svag vandret knæklinje i bladets nedre del. Stor topmargin over tiltalen."
+}

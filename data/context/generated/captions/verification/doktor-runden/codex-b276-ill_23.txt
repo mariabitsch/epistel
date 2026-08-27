@@ -1,0 +1,199 @@
+Reading additional input from stdin...
+2026-08-26T18:27:20.324503Z ERROR codex_models_manager::cache: failed to load models cache: missing field `base_instructions` at line 97 column 5
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03f53-aa6b-7310-b018-9d1ebaf3a80b
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Note (added for the full round, 2026-08-26, after the trial):
+the edition abbreviates Søren Kierkegaard as »SK« (e.g. »Fra SK« in
+letter headings). Expanding »SK« to »Kierkegaard« or »Søren
+Kierkegaard« is NOT an ungrounded claim — the grounding packet's
+edition is Søren Kierkegaards Skrifter, and this instruction states it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b276/ill_23.jpg
+
+Billedfil: `data/vendor/b276/ill_23.jpg` (tilladt primærkilde).
+
+## Manifest-post: b276/ill_23.jpg (export/images.json)
+```json
+{
+ "id": "b276/ill_23.jpg",
+ "path": "letters/b276/ill_23.jpg",
+ "source": {
+  "path": "data/v1.9/b276/ill_23.jpg",
+  "sha256": "191927c2b90a3dc827333f0137dbb3cdbbca7cd2cdc5adcccab7d0ad9910682c"
+ },
+ "figures": [
+  {
+   "volume": "b276",
+   "file": "txt.xml",
+   "xmlId": "ill_23",
+   "type": null,
+   "rend": "verso",
+   "url": "../b276/ill_23.jpg",
+   "head": [
+    "23. Brev 285, nederst bl. [1r] og øverst [2v]"
+   ],
+   "figDesc": null,
+   "letter": "285",
+   "letterXmlId": "n285"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b276",
+   "file": "txt.xml",
+   "xmlId": "id66046fe3-0b02-4b52-b427-93b99d66d55b",
+   "n": "1r",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b276/ill_23.jpg",
+   "letter": "285",
+   "letterXmlId": "n285"
+  },
+  {
+   "volume": "b276",
+   "file": "txt.xml",
+   "xmlId": "idb74baa09-33c1-402b-81a3-00264e08e8d9",
+   "n": "2v",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b276/ill_23.jpg",
+   "letter": "285",
+   "letterXmlId": "n285"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 23. Brev 285, nederst bl. [1r] og øverst [2v]
+
+## Brev 285 (b276) — overskrift og læsetekst
+Overskrift: Fra Rasmus Nielsen · 20. juli 1849 · til SK
+
+23. Brev 285, nederst bl. [1r] og øverst [2v]Fredag d 20 Juli 1849. Kjære Hr Magister!»Systemet« er kommet; det arriverede hertil i Forgaars med »Omnibussen«. Deres R. N.        S T   Hr Magister Kierkegaard.    S T  Hr Magister Kierkegaard.  Et sort Forsøg paa at forbedre en slet Forsegling.
+
+## Kommentarnote b-5504 (b276/kom.xml, ordret)
+Lemma: Fredag d 20 Juli 1849
+
+Rasmus Nielsen holdt i 1849 sin sommerferie i Lyngby (el. Kongens Lyngby), en landsby med o. 3.500 indbyggere, beliggende ved Lyngby Sø i Nordsjælland, o. 10 km NNV for København (se kort 3, C6).
+
+## Kommentarnote b-5505 (b276/kom.xml, ordret)
+Lemma: Hr Magister
+
+.
+
+## Kommentarnote b-5506 (b276/kom.xml, ordret)
+Lemma: »Systemet« er kommet
+
+Der sigtes til H.L. Martensen Den christelige Dogmatik, Kbh. 1849, ktl. 653 (averteret som udkommet i Adresseavisen, nr. 167, den 19. juli 1849).
+
+## Kommentarnote b-5507 (b276/kom.xml, ordret)
+Lemma: det arriverede hertil i Forgaars med »Omnibussen«
+
+Omnibus, lat., egl. 'for alle', var en betegnelse for en stor lukket vogn til offentlig personbefordring i fast rute; bus. I København kørte de første, hestetrukne omnibusser fra o. 1842 og snart efter blev der indført en rute til Lyngby. Denne dagvogn medbragte tillige varer, fx bøger.
+
+## Kommentarnote b-5508 (b276/kom.xml, ordret)
+Lemma: S T
+
+.
+
+## Kommentarnote b-5509 (b276/kom.xml, ordret)
+Lemma: Et sort Forsøg paa at forbedre en slet Forsegling
+
+se illustration 23, i SKS 28, 442. – sort: uheldigt, mislykket.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b276/ill_23.jpg",
+  "alt": "Et cremefarvet brevark fotograferet udfoldet, med tydelige foldespor i et gittermønster. Øverst ved arkets kant sidder en stor, uregelmæssig klump rødt lak uden aftryk, og til venstre for den står to linjer håndskrift, vendt på hovedet i forhold til resten; ved siden af klumpen er en brun plet. I feltet nedenunder står med brunligt blæk »S T« og under det »Hr Magister Kierkegaard.« Midt på arket sidder en mindre lakklat med et mindre fragment ved siden af og en grålig skygge ud mod højre. Den nederste halvdel er skrevet på tværs, drejet en kvart omgang: en datolinje, en tiltale, tre linjer tekst og en underskrift på to korte linjer, og til venstre for dem endnu en gang »S T« og »Hr Magister Kierkegaard.« med en lang svungen streg. I øverste højre hjørne står en lys, tynd påskrift med et årstal og en brøk, kun delvis læselig, også på hovedet, og i nederste venstre hjørne ses et lille blegt rødt mærke.",
+  "caption": "Beskeden fylder én sætning. Ved den store lakklat øverst står linjen — vendt på hovedet i forhold til adressen — »Et sort Forsøg paa at forbedre en slet Forsegling«.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »23. Brev 285, nederst bl. [1r] og øverst [2v]« — billedet hører til brev 285 og viser dele af to blade af brevets eget ark",
+    "pakken, brev 285's overskrift: »Fra Rasmus Nielsen · 20. juli 1849 · til SK« — grundlag for at kalde skriveren Rasmus Nielsen",
+    "pakken, brev 285's læsetekst: »»Systemet« er kommet; det arriverede hertil i Forgaars med »Omnibussen«.« — citeret ordret som »»Systemet« er kommet«; hele beskeden mellem tiltale og underskrift er denne ene sætning",
+    "pakken, brev 285's læsetekst: »Et sort Forsøg paa at forbedre en slet Forsegling.« — citeret ordret; punktummet udeladt inde i captionens egen sætning",
+    "billedet: cremefarvet ark med vandrette og lodrette foldespor, der danner et gittermønster",
+    "billedet, øverste kant: stor, uregelmæssig klump rødt lak, tyk og revnet, uden aflæseligt aftryk",
+    "billedet, øverste felt: to linjer håndskrift lige ved den store lakklat, vendt 180 grader i forhold til adressen nedenunder; ved forstørrelse og vending læses »Et sort Forsøg paa at forbedre en slet Forsegling« i to linjer",
+    "billedet, øverste felt: brun plet i papiret til højre for lakklatten",
+    "billedet, midterfeltet: »S T« over »Hr Magister Kierkegaard.« med brunligt blæk (læst ved forstørrelse; samme ordlyd som læseteksten)",
+    "billedet, midt på arket: mindre klat rødt lak med en sprøjt af lak ved siden af, nogle få små dråber og en grålig skygge/misfarvning ud mod højre",
+    "billedet, nederste halvdel: brevteksten skrevet drejet en kvart omgang — datolinje »Fredag d. 20 Juli 1849.«, tiltalen »Kjære Hr Magister!«, tre linjer tekst og underskriften »Deres« / »R. N.« (læst ved forstørrelse; ordlyden er læsetekstens)",
+    "billedet, nederste halvdel til venstre: endnu en gang »S T« og »Hr Magister Kierkegaard.« i samme drejning som brevteksten, efterfulgt af en lang svungen streg — svarer til, at læseteksten trykker adressen to gange",
+    "billedet, øverste højre hjørne: lys, tynd påskrift »1849 20/7«, vendt på hovedet som den øverste linje",
+    "billedet, nederste venstre hjørne: lille blegt rødt mærke"
+  ],
+  "note": "Tvivl og fravalg: (1) Hvem der har skrevet »Et sort Forsøg paa at forbedre en slet Forsegling«, siger hverken billedet eller pakken. Udgaven trykker linjen inde i brev 285's tekst, men navngiver ingen hånd; skriften ved lakklatten virker bredere og kraftigere end brevtekstens, hvad der kunne pege på en anden hånd — det er en formodning, jeg ikke bygger på. Captionen siger derfor kun »står linjen«. (2) Den grålige skygge ved den midterste lakklat kan være svidning fra lakket, en skygge fra løftet papir eller en plet; jeg kan ikke afgøre hvad og skriver derfor kun »en grålig skygge«. (3) Ingen af de to lakklatter har et aflæseligt aftryk (intet signet, ingen bogstaver) — de er beskrevet efter form og farve alene. (4) »1849 20/7« står med lys, tynd streg, som ligner blyant, men det påstår jeg ikke; jeg siger »lys, tynd skrift«. At det andet tal læses »20/7« og ikke fx »20/2«, hviler på pakkens datering (20. juli 1849) — læsningen er altså sporbar, men ikke uafhængig af pakken. Hvem der har skrevet påskriften og hvornår, siger jeg intet om. (5) Det blege røde mærke i nederste venstre hjørne er for utydeligt til at tyde (det kunne være et bogstav, et tal eller et stempelaftryk); kun dets tilstedeværelse er nævnt, og det indgår ikke i captionen. (6) Adressen står to gange på arket, i to forskellige drejninger, og læseteksten trykker den også to gange. Hvorfor — en fejlstart, en overstreget begyndelse, en gentagelse — siger hverken billedet eller pakken, og jeg gætter ikke. (7) Udgavens kodikologiske oplysning (»nederst bl. [1r] og øverst [2v]«) er ikke omsat til en forklaring af, hvordan arket er foldet, eller til en påstand om, at arket er sin egen konvolut. Alt-teksten beskriver kun det, fotografiet viser: ét ark med foldespor og skrift i forskellige drejninger. (8) Kommentarnoterne er bevidst ikke brugt: b-5504 (Rasmus Nielsens sommerferie i Lyngby), b-5506 (at »Systemet« er H.L. Martensens Den christelige Dogmatik) og b-5507 (omnibusruten til Lyngby) tilføjer alle viden, brevet ikke selv har. At nævne bogens titel var den største fristelse — brevet nøjes med »Systemet«, og det gør captionen også. (9) Heller ikke b-5509's forklaring »sort: uheldigt, mislykket« er brugt; læseren møder ordet, som kilden har det. (10) Brevteksten er ikke transskriberet fra billedet i alt-teksten — den gotiske kursiv er kun delvis læsbar for mig ved forstørrelse; jeg beskriver linjernes antal og art og lader læseteksten om ordlyden. (11) Blækket i den nederste halvdel virker mørkere end i midterfeltets adresse, men lys og scanning kan forklare det; jeg påstår hverken to hænder eller to blæktyper og nævner kun farven ét sted.",
+  "repairs": [
+    {
+      "flag": "codex runde 1, tvivl: »1849 20/7« kan ikke læses sikkert (og udkaster/verifier læser den forskelligt)",
+      "action": "arbitreret: aflæsningen droppet — beskrevet som »årstal og en brøk, kun delvis læselig«."
+    },
+    {
+      "flag": "grok runde 1, tvivl: »nogle få dråber« — kun ét adskilt fragment ses sikkert",
+      "action": "arbitreret: generaliseret til »et mindre fragment«."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
+    }
+  ]
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{"image":"b276/ill_23.jpg","flags":[],"visualNotes":""}
+tokens used
+7.340
+{"image":"b276/ill_23.jpg","flags":[],"visualNotes":""}

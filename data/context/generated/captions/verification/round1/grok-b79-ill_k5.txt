@@ -1,0 +1,20 @@
+Investigate: I'll read the full prompt, grounding packet, and draft, then check the image against every claim.I’ll check the trial verifiers’ threshold so I flag the same way, then go through the image claim by claim.I'll rotate the plate to the labels' reading orientation and check the figures against that view.The plate reads landscape: labels and figures line up once it is turned clockwise. Two details in the alt still do not sit securely on that view.```json
+{
+  "image": "b79/ill_k5.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "en stråleglans om hovedet",
+      "field": "alt",
+      "problem": "I den drejede visningsretning har den midterste danser et lille spidst mærke på issen — krone, hårprydelse eller hårtop — ikke en tydelig stråleglans eller aureole rundt om hovedet. Stjernen over hende er allerede beskrevet for sig."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "en hånd lagt ved siden af sig",
+      "field": "alt",
+      "problem": "Ved det store hoved ses ikke sikkert en hånd i hovedets målestok på brinken. De nærmeste hænder tilhører de små håndstående figurer foran hovedet og en flyvende småfigur til højre. Linjevirvaret gør en stor hånd mulig, men den er ikke aflæselig."
+    }
+  ],
+  "visualNotes": "Tavlen er landskabsformat trykt på tværs; visningsretningen er 90° med uret (Taf. XXX. øverst til højre, billedteksten under rammen). I den retning står den mørkt skraverede skikkelse tydeligt på hænder med benene i et V; alt-tekstens »lemmer« er forsigtigere end billedet. Omkring det store hoved er der små figurer i sivet, ikke nævnt. Faldende hue og fodaftryksbuen er klare."
+}
+```

@@ -1,0 +1,5 @@
+Investigate: I'll verify this one caption against the image and the packet only — no outside knowledge — and return just the JSON.I'll check the trial method and this image's stamp at closer range so the visual claims are judged against the same bar.{
+  "image": "b1/ill_4.jpg",
+  "flags": [],
+  "visualNotes": "Matcher billedet. Lille separat påskrift ved øverste halvdel's højre kant lige over folden (ikke én af de to skrå linjer). Små røde prikker øverst til venstre. Brunlig slitage langs den vandrette fold. Gennemslået skrift er grålig og tydeligst i øverste halvdel og den øvre del af nederste; nederste tredjedel er næsten blank. Intet modsiger alt/caption."
+}

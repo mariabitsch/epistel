@@ -1,0 +1,33 @@
+{
+  "id": "b79/ill_10.jpg",
+  "alt": "Nærbillede af en klat rød lak på et brunligt ark papir. Lakken har en ophøjet, rund rand og et indre felt med et relief af et hoved i profil; hen over lakken løber flere revner, og mod højre er den brudt, så et stykke mangler. Under og omkring lakken er papiret revet, så en lys, laset kant af bare papirfibre står frem. Arket er fotograferet på hvid bund med slagskygge.",
+  "caption": "Kierkegaards signet, trykket i rød lak på brev 89 til Emil Boesen: »Alt bliver imellem os, Du veed jeg ynder ikke Folkesnak.« Lakken er brudt, og papiret omkring den er revet.",
+  "credit": "(foto: © Fondation Martin Bodmer, Cologny (Genève))",
+  "sources": [
+    "billedet: en uregelmæssig, tyk klat rød lak midt på et brunligt, let foldet ark papir",
+    "billedet: lakaftrykket har en ophøjet, rund rand og indenfor den et indre felt med et relief af et hoved i profil, slidt men læseligt",
+    "billedet: flere revner løber hen over lakken, og mod højre er randen brudt, så et stykke af aftrykket mangler",
+    "billedet: papiret under og omkring lakken er revet; en lysere, laset kant med bare fibre står frem — grundlaget for »et stykke af papiret er fulgt med«",
+    "billedet: arket ligger på hvid bund og kaster slagskygge (fotografiets opstilling, ikke genstanden)",
+    "pakken, udgavens head: »10. SKs signet af mandehoved i profil i rød lak på Brev 89« — grundlag for »Kierkegaards signet«, for »rød lak« og for at billedet hører til brev 89",
+    "pakken, udgavens head: »(foto: © Fondation Martin Bodmer, Cologny (Genève))« — gengivet ordret i credit",
+    "pakken, manifest-posten: figure i b79/txt.xml med letter »89« og desuden en pb med facs mod samme fil i brev 89 — samme brev begge steder",
+    "pakken, brev 89's overskrift: Fra SK · stemplet 25. maj [1843] · til Emil Boesen — grundlag for modtagerens navn og for at kalde skriveren Kierkegaard",
+    "pakken, brev 89's læsetekst: »Alt bliver imellem os, Du veed jeg ynder ikke Folkesnak.« (citeret ordret)"
+  ],
+  "note": "Tvivl og fravalg: (1) Udgaven kalder motivet »mandehoved i profil«. I billedet er relieffet så slidt og revnet, at jeg ikke selv kan bekræfte hverken hoved eller profilretning; alt-teksten siger derfor kun, at et relief anes, og captionen nøjes med udgavens ord »signet«. Jeg mener at se en næse mod højre og nogle buede linjer nederst til venstre, der kunne være hals eller draperi, men det er for usikkert til at gengive. (2) »Lakken er brudt, og et stykke af papiret er fulgt med«: at seglet blev brudt ved åbning af brevet er en slutning, ikke en oplysning fra pakken. Det, jeg faktisk ser, er revner i lakken, et manglende stykke af aftrykket og revet papir under det — beskrevet som sådan i alt-teksten. Formuleringen holder sig til den synlige tilstand og påstår ikke, hvem der brød seglet eller hvornår. (3) Jeg skriver ikke, at seglet »lukkede« brevet: udgaven siger kun, at det sidder på Brev 89, ikke at det holdt brevet lukket — selv om adressen »An dem Hrn Cand: E Boesen ... Copenhagen« i læseteksten viser, at brevet har været foldet og adresseret udenpå. Fravalgt som slutning. (4) Kommentarnoterne er ikke brugt til at tilføje viden: at SK opholdt sig i Berlin (b-2178, b-2179), at arbejdet er Gjentagelsen (b-2180) og det næste Frygt og Bæven (b-2181), Grobecker (b-2185) — alt sammen sandt ifølge kommentaren, men ikke noget brevet selv siger, og intet af det angår billedet. (5) Brevets store emne — sygdommen, arbejdet til kl. 3, stokken, »ich falle um und bin hin« — er ladt ude; captionen skal handle om seglet, og det citat, der møder seglet, er det om folkesnakken. (6) Farven på papiret beskrives som brunlig; om tonen skyldes ældning, belysning eller selve papiret, kan ikke afgøres. (7) Ingen mål er nævnt: billedet er et nærbillede uden målestok, og pakken oplyser ingen størrelse. (8) pb-posten har rend »supplied« og n »1v«; jeg bruger den kun til at fastslå, at forekomsterne peger på samme brev, ikke til at sige noget om seglets placering på arket.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, tvivl (×2): det indre felt er rundt, ikke ovalt; »et stykke af papiret er fulgt med« er en årsagsslutning",
+      "action": "arbitreret: feltets form udeladt; captionen omskrevet til det synlige (»papiret omkring den er revet«). Codex var ren."
+    },
+    {
+      "flag": "grok runde 2, tvivl: relieffet er tydeligere end »kun anes« — et mandehoved i profil, som også udgavens head angiver",
+      "action": "arbitreret mod billede+head: relieffet beskrevet som »et svagt relief af et hoved i profil«. Codex' r2-flag (»et oval felt«) pegede på en formulering, der allerede var fjernet."
+    },
+    {
+      "flag": "grok runde 3, tvivl: relieffet er tydeligere end »svagt«; codex runde 2+3 citerede »et oval felt« fra en source-linje, der ikke var fulgt med reparationen",
+      "action": "arbitreret: »svagt« droppet (head + grok: hoved i profil), source-linjen bragt i overensstemmelse."
+    }
+  ]
+}

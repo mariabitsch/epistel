@@ -1,0 +1,139 @@
+Reading additional input from stdin...
+2026-08-26T17:02:11.517850Z ERROR codex_models_manager::cache: failed to load models cache: missing field `base_instructions` at line 97 column 5
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03f05-b2ac-7b31-9bf0-74f5fdd39e39
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Note (added for the full round, 2026-08-26, after the trial):
+the edition abbreviates Søren Kierkegaard as »SK« (e.g. »Fra SK« in
+letter headings). Expanding »SK« to »Kierkegaard« or »Søren
+Kierkegaard« is NOT an ungrounded claim — the grounding packet's
+edition is Søren Kierkegaards Skrifter, and this instruction states it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b79/ill_k4.jpg
+
+Billedfil: `data/vendor/b79/ill_k4.jpg` (tilladt primærkilde).
+
+## Manifest-post: b79/ill_k4.jpg (export/images.json)
+```json
+{
+ "id": "b79/ill_k4.jpg",
+ "path": "letters/b79/ill_k4.jpg",
+ "source": {
+  "path": "data/v1.9/b79/ill_k4.jpg",
+  "sha256": "b5297364812538f9620ac2783d815b9756fbf5871d3b2bb781a0f63ae646456b"
+ },
+ "figures": [],
+ "pageBreaks": []
+}
+```
+
+## Udgavens egne billedtekster (head)
+- (ingen — ingen figur har en head)
+
+## Ingen forekomster i udgaven
+Dette billede refereres ingen steder i den vendorede udgave — hverken fra en figur, et sidebrud eller en kommentarnote. Tilladt grounding er alene billedfilen selv og dens proveniensrække (manifest-posten ovenfor). Billedet skal stå caption-løst med begrundelse; kun alt-teksten udkastes.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b79/ill_k4.jpg",
+  "alt": "Fotografi af et enkelt ark gammelt papir, cremefarvet og set fladt forfra. Arket er foldet: to vandrette foldelinjer deler det i tre bånd, og en lodret fold løber ned gennem midten. Det midterste bånd er mørkere og mere gulbrunt end det øverste og nederste, med grålige skjolder langs folderne og små rustbrune pletter spredt ud over fladen. I det midterste bånds øverste del står fire linjer håndskrift i mørkt blæk, tæt skrevet med tynde strøg; den fjerde linje er kort. Efter et mellemrum følger endnu en enkelt linje af samme hånd. Nedenunder er skrevet et stort tal, »240«, med rødt. Papiret er krøllet og slidt langs foldekanterne.",
+  "caption": null,
+  "credit": null,
+  "sources": [
+    "billedet: ét ark papir i cremehvide og gulbrune toner, fotograferet fladt og fyldende hele billedfladen",
+    "billedet: to vandrette foldelinjer, der deler arket i tre omtrent lige brede bånd, samt en lodret fold ned gennem midten",
+    "billedet: det midterste bånd er tydeligt mørkere/gulbrunt i forhold til de to lysere bånd; grålige skjolder samler sig ved den nederste fold og ved kanterne af den øverste",
+    "billedet: små rustbrune pletter spredt over den midterste flade, tættest under skriften",
+    "billedet: fire linjer håndskrift i mørkt blæk øverst i det midterste bånd; fjerde linje er kort (den ser ud til at afslutte et ord delt hen over linjeskiftet)",
+    "billedet: efter et blankt mellemrum én enkelt linje mere, skrevet med samme hånd og blæk",
+    "billedet: et stort »240« skrevet med rødt under skriften",
+    "billedet: krøller, revner og slid langs foldekanterne, kraftigst i nederste venstre hjørne",
+    "pakkens manifest-post: \"figures\": [], \"pageBreaks\": [] — billedet har ingen forekomster i udgaven, hverken figur, sidebrud eller kommentarnote; grundlaget for caption = null",
+    "pakkens manifest-post: \"source\": {\"path\": \"data/v1.9/b79/ill_k4.jpg\"} — filen hører til bind b79's vendorede filer"
+  ],
+  "note": "Tvivl og fravalg: (1) Captionen er null, fordi pakken siger det ligeud: manifest-posten har tomme \"figures\" og \"pageBreaks\", og der findes ingen head-billedtekst. Filen ligger i b79's mappe, men udgaven peger ingen steder hen på den, så der er ikke ét brev, en Notabene-billedtekst kunne være grounded i. En caption ville skulle hentes udefra, og udefrakommende viden er utilladelig — billedet står ærligt caption-løst. (2) Håndskriften er gotisk kursiv og for mig kun delvis læsbar. Jeg mener at kunne skimte enkelte ord, men jeg gengiver intet af den — hverken i alt eller i sources. Der findes ingen læsetekst i pakken at holde en tydning op imod, så selv en rigtig læsning ville være ubelagt. Af samme grund siger alt-teksten kun »fire linjer« og »en enkelt linje mere« uden at røbe indhold. (3) Arkets foldemønster, de mørke bånd og slidet ligner et brev eller et omslag, der har været foldet sammen og båret rundt — men »brev« og »omslag« er tolkninger af det, jeg ser, og alt-teksten siger derfor kun »ark papir« med foldelinjer. (4) Det røde »240« ligner et arkiv- eller katalognummer skrevet af en senere hånd; hverken nummerets funktion eller hånden kan belægges, så alt-teksten nævner kun tallet, farven og at det er stort. Tallets cifre er til gengæld tydelige nok til at gengives. (5) Skriveredskabet bag det røde tal (kridt, farveblyant, rødblæk) kan jeg ikke afgøre og nævner ikke. (6) De rustbrune pletter beskrives som pletter; deres årsag (fugt, jerngalle, alder) påstås ikke. (7) Om det er arkets forside eller bagside, vi ser, siger jeg ikke — folderne kunne pege begge veje. (8) Arkets mål og papirtype er ikke nævnt: intet i billedet giver en målestok. (9) Filnavnet ill_k4 antyder en planche fra et kommentarbind, men pakken viser netop ingen forekomst — antydningen er ikke brugt til noget.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, tvivl: »spids pen« — skriveredskabet er en slutning, som udkastets egen note afviser andetsteds",
+      "action": "arbitreret: generaliseret til »tynde strøg«. Codex var ren."
+    }
+  ]
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{
+  "image": "b79/ill_k4.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "to vandrette foldelinjer deler det i tre bånd",
+      "field": "alt",
+      "problem": "Foldelinjerne deler ikke arket i tre omtrent lige brede bånd; det øverste og nederste område er væsentligt større end det midterste."
+    }
+  ],
+  "visualNotes": "Arket er højt orienteret, og de tre synlige områder er tydeligt ulige i størrelse."
+}
+tokens used
+12.099
+{
+  "image": "b79/ill_k4.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "to vandrette foldelinjer deler det i tre bånd",
+      "field": "alt",
+      "problem": "Foldelinjerne deler ikke arket i tre omtrent lige brede bånd; det øverste og nederste område er væsentligt større end det midterste."
+    }
+  ],
+  "visualNotes": "Arket er højt orienteret, og de tre synlige områder er tydeligt ulige i størrelse."
+}

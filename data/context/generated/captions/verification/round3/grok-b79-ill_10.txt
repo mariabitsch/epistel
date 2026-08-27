@@ -1,0 +1,12 @@
+I'll verify the draft against the image and the grounding packet only — no outside knowledge.{
+  "image": "b79/ill_10.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "et svagt relief af et hoved i profil",
+      "field": "alt",
+      "problem": "Relieffet er tydeligere end »svagt« dækker. Billedet viser et læsbart hoved i profil (næse vendt mod højre, mund, hage, hals) med flere skarpe, ophøjede folder af draperi ved skulderen, inden for en ophøjet cirkelramme. Udgavens head kalder motivet uden forbehold »mandehoved i profil«. Prikker og en revne i ansigtet berettiger ikke at kalde hele relieffet svagt."
+    }
+  ],
+  "visualNotes": "Profilen vender mod højre; draperiet ved hals/skulder har tydelige folder. Lakken er prikket af mørke pletter, især i det brudte parti til højre. Den lyse, laset papirkant ligger især under og nedadtil omkring seglet, ikke foroven. Den indre cirkelramme om portrættet er skarp."
+}

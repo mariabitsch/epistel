@@ -1,0 +1,5 @@
+Investigate: I'll check the attached drawing against the draft's alt and caption, and only flag claims that aren't in the image or the grounding packet.I'll inspect the original vendor file so I can check the draft's visual claims against the actual drawing, not just the chat preview.I'll crop the flower head, stem, and leaf so I can check the draft's shape claims against the actual strokes.{
+  "image": "vignet/vig-brev-blomst.jpg",
+  "flags": [],
+  "visualNotes": "No contradiction with alt or caption. Visible but unnamed: a small V-shaped lobe hangs left of the rounded closed form under the flower head; the stem is two parallel strokes from the flower to the leaf junction, then a thick exit-stroke with a thinner companion line. Top petal and leaf tip do meet the image edges (ink on y=0 and x=129). No text, no frame."
+}

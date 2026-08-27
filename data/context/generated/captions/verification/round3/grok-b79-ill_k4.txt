@@ -1,0 +1,5 @@
+Investigate: I'll verify the draft alt against the attached image and the packet only — visual accuracy and groundedness, nothing else.I'll check the trial round's verifier notes so I match the same strictness on groundedness and visual claims.{
+  "image": "b79/ill_k4.jpg",
+  "flags": [],
+  "visualNotes": "Matcher billedet. Skriften sidder med et tomt felt under den øverste fold, mere i midterbåndets øvre midte end helt oppe. De rustbrune pletter samler sig især omkring »240«. En stor gulbrun vandskjold fylder nederste venstre del af midterbåndet; papiret er sprækket ved øverste venstre fold. Caption = null er rigtigt belagt i pakken."
+}

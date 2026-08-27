@@ -1,0 +1,12 @@
+Investigate mode: I'll read the full grounding packet and the draft JSON, then check the alt text and caption against the image and packet only.I'll look at the image itself next, then check each claim in the alt text and caption against what is visible and what the packet actually says.{
+  "image": "b171/ill_k7.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "et utydeligt blyantsspor øverst til højre",
+      "field": "alt",
+      "problem": "Et gråt spor er synligt øverst til højre i det tomme felt, men hverken billedet eller pakken belægger, at mediet er blyant; det kan også være afsmitning, gennemsigt eller slitage."
+    }
+  ],
+  "visualNotes": "Over hvert fabeldyr en opadrettet kvast af aks, ikke kun smalle blade. Guldet er olivenbronze. Højre dyrs hoved i profil, venstre mere frontalt. Hver roset har fire røde prikker i kors."
+}

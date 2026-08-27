@@ -1,0 +1,6 @@
+Downscaled Image 1: 331.6 KB (2048x3244) → 252.8 KB (1233x1953)
+Investigate: I'll verify the draft against the image and the packet only — no outside knowledge — and look closely at the manuscript for visual mismatches.I'll zoom in on the date line, the lower block, and the lower-right mark so I can check those readings against the image.{
+  "image": "b120/ill_32.jpg",
+  "flags": [],
+  "visualNotes": "Øverste blok er 11 linjer (udkastet siger forsigtigt »omkring ti«). Datolinjen sidder vandret centreret ca. to femtedele nede, ikke i arkets geometriske midte; de tre indrykkede linjer ligger omtrent ved 50 %. Orddeling synlig ved vale=/dixi, obstrinx-/isset og psal-/morum. Nederste halvdel har svage, køligt grålige skygger (tydeligst til venstre); lille udvisket gråligt mærke sidder ved nederste kant, lidt til venstre for højre hjørne. Venstre papirkant er lidt mørkere og uregelmæssig."
+}

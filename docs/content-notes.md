@@ -23,7 +23,7 @@ English.*
   claim the build cannot check against the record beside the files would be
   worse than none.
 - **Deterministic and offline.** The build fetches nothing from the
-  network. Same files in, same pages out, on any machine, every time. 413
+  network. Same files in, same pages out, on any machine, every time. 426
   automated tests run against the real vendored files — not against
   fixtures.
 - **Scope.** Of the 15 vendored directories, 14 form the corpus — one for

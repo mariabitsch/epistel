@@ -1,0 +1,5 @@
+I'll verify the draft against the image and the grounding packet only — groundedness and visual accuracy, nothing else.I'll check the trial-round verifier calibration and look more closely at a few visual details that might not match the draft.{
+  "image": "b43/ill_5.jpg",
+  "flags": [],
+  "visualNotes": "Dateringslinjen rummer også et stednavn før brøken. Tydeligst folde spor er en vandret midterfals (ved Copi/Høistærede), plus et lille hak i højre kant dér. Intet af det modsiger udkastet."
+}

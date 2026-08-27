@@ -1,0 +1,12 @@
+I'll verify the draft against the image and the grounding packet only — looking for ungrounded claims and visual misdescription.{
+  "image": "b70/ill_7.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "Om det sidste er der skudt ord ind over linjen: at sende Heiberg et sådant eksemplar »er mig kjært at gjøre, og kan derfor ikke blive mig en Vane.«",
+      "field": "caption",
+      "problem": "Kolonnet efter »over linjen« kan læses som om det følgende citat er de indskudte ord. De citerede ord står på grundlinjen i samme størrelse som brødteksten og matcher pakkens læsetekst dér; det synlige indskud er nogle få mindre ord over linjen ved »Exemplar … er mig kjært« (pakkens læsetekst har her »af hvad jeg skriver«). Hvis kolonnet kun skulle indlede sætningen hvori indskuddet sidder, er syntaksen tvetydig."
+    }
+  ],
+  "visualNotes": "Indskuddet er nogle få mindre ord over 2. afsnits 3. linje, ikke den citerede grundlinjesætning. Ellers stemmer alt-tekstens inventar med billedet: ét cremefarvet blad mod hvid bund, brunsort løbende skrift, tiltale venstre og dato højre, to afsnit i øvre halvdel, ét tæt overstreget ord i 2. afsnits 1. linje, »Til« + »Hr Prof: Heiberg« nederst venstre, to korte linjer over »S. Kierkegaard.« nederst højre, lodret midterfold, uregelmæssigt revet nederkant, lille rødt mærke midt på øverste kant med svag rund misfarvning nedenunder, blegt blyantsmærke nederst venstre."
+}

@@ -1,0 +1,12 @@
+Investigate — I'll check every claim in the draft against the image and the packet, and flag anything that isn't grounded or that misdescribes what the photograph actually shows.I'll check the captions playbook and any trial-round flags so I can apply the same bar this draft was written against.{
+  "image": "b79/ill_k4.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "tæt skrevet med en spids pen",
+      "field": "alt",
+      "problem": "Skriveredskabet er en slutning: billedet viser tynde, mørke blækstrøg, men ingen pen, og pakken siger intet om redskabet. Udkastets egen note (5) nægter af samme grund at navngive redskabet bag det røde tal."
+    }
+  ],
+  "visualNotes": "De fire linjer sidder nærmere midten af det mørke bånd end dets øverste kant. Til højre for »240« en større, bleg cirkulær skjold, forskellig fra de små rustbrune pletter. Øverste venstre fold er revnet igennem. Arket er fotograferet på hvid bund med slagskygge."
+}

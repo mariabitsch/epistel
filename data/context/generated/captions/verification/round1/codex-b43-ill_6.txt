@@ -1,0 +1,202 @@
+Reading additional input from stdin...
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03ed2-ab9e-7fc0-9501-aecf8b059eea
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b43/ill_6.jpg
+
+Billedfil: `data/vendor/b43/ill_6.jpg` (tilladt primærkilde).
+
+## Manifest-post: b43/ill_6.jpg (export/images.json)
+```json
+{
+ "id": "b43/ill_6.jpg",
+ "path": "letters/b43/ill_6.jpg",
+ "source": {
+  "path": "data/v1.9/b43/ill_6.jpg",
+  "sha256": "567600921ef8f83b54923718368eabd3562dc3ce32e0b800928baab1d0a2f291"
+ },
+ "figures": [
+  {
+   "volume": "b43",
+   "file": "txt.xml",
+   "xmlId": "ill_6",
+   "type": null,
+   "rend": "recto",
+   "url": "../b43/ill_6.jpg",
+   "head": [
+    "6. Brev 59, bl. [1r]"
+   ],
+   "figDesc": null,
+   "letter": "59",
+   "letterXmlId": "n59"
+  }
+ ],
+ "pageBreaks": []
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 6. Brev 59, bl. [1r]
+
+## Brev 59 (b43) — overskrift og læsetekst
+Overskrift: Fra Chr. Molbech · 29. april 1847 · til SK
+
+6. Brev 59, bl. [1r]til Mag.S. A. Kierkegaard.29. Apr. 1847. »Hvad man giører, giør man snart« – Dette omtrent siger De i en modtagen venskabelig lille Billet, hvormed fulgte en stor Bog. Efter dette Princip skulde jeg endnu før og snarere have besvaret denne Billet, endskiøndt den kun er et Par Dage gammel. Men dog kommer dette Svar – naar det ikke skal regnes til Svar paa Tilskrifter, der fordre det øieblikligt, da jeg naturligviis giør Undtagelser – hos mig, der hører til de procrastinerende Naturer, umaadelig hastigt. Jeg faaer Breve, der undertiden vente eet eller halvandet Aar paa Svar – og dog faar det. Sædvanligst er dog et Brev, hvorpaa jeg intet, eller næsten intet kan svare til Skriverens Tilfredshed, det, som maa bie længst. Jeg er ikke ganske i det klare med, om Deres Billet hører under denne Kategorie; det kom jo ganske an paa, om De har skrevet den i Forventning af Svar; og da hvilket? – Men jeg vil helst antage, at De har ventet et Svar, og det et saadant, som jeg ikke kan give; i Følge heraf svarer jeg ikke, eller først om halvandet Aar – Da jeg muligen kunde være lovlig Undskyldt for slet ikke at svare. De seer heraf, denne Billet er intet Svar paa Deres. At den imidlertid bringer dennes og Bogens Forfatter en oprigtig og hiertelig Tak for begge Dele, og tillige for den mærkværdige Bogs uventede, overraskende Forgænger – er noget, der følger af simpel Høflighed, og ligger saaledes paa en Maade udenfor Svaret. Saameget i det mindste vil jeg da ogsaa sige: at det interessanteste i Deres Billet var mig Efterretningen om, at Oplaget af »den store Bog« er udsolgt – et Phænomen i Vor Literaturhistorie, som kan behøve at studeres, ved at studere Bogen. Dette har jeg foresat mig, og allerede læst to Gange i »Enten – Eller« i to Dage. Dette siger ikke lidt hos mig, der aldrig læser danske Bøger (»Aldrig« betyder naturligviis aldrig reent aldrig.) Ja, jeg maa jo dog engang, i det mindste som extraordinarius Professor histor. literar. (og i følge Tillægget hertil i min Bestalling) lære at kiende en dansk Forfatter, som jeg hidtil kun »in der Ferne« har beundret, men hvis elskværdige Personlighed vist nok langt oftere, end han troer, er mig nær.Deres hengivne  M.  
+
+## Kommentarnote b-2436 (b43/kom.xml, ordret)
+Lemma: Mag. S. A. Kierkegaard
+
+.
+
+## Kommentarnote b-2437 (b43/kom.xml, ordret)
+Lemma: »Hvad man giører, giør man snart«
+
+frit citat fra SKs brev fra april 1847 til Chr. Molbech, Brev 58 i SKS 28, 104,13. Sml. Joh 13,27, hvor Jesus under det sidste måltid med sine disciple siger til Judas: »hvad du giør, det giør snart!« (NT-1819).
+
+## Kommentarnote b-2438 (b43/kom.xml, ordret)
+Lemma: lille Billet
+
+. – Billet: kort skriftlig meddelelse.
+
+## Kommentarnote b-2439 (b43/kom.xml, ordret)
+Lemma: en stor Bog
+
+sigter til Enten – Eller (); bd. 1 består af 470 sider og bd. 2 af 352 sider i oktav.
+
+## Kommentarnote b-2440 (b43/kom.xml, ordret)
+Lemma: de procrastinerende Naturer
+
+de naturer, der udsætter (fra den ene dag til den anden), nøler, trækker i langdrag.
+
+## Kommentarnote b-2441 (b43/kom.xml, ordret)
+Lemma: i Følge heraf
+
+i konsekvens heraf.
+
+## Kommentarnote b-3142 (b43/kom.xml, ordret)
+Lemma: Bogens Forfatter
+
+sigter formentlig til bogens pseudonyme udgiver, Victor Eremita ().
+
+## Kommentarnote b-2442 (b43/kom.xml, ordret)
+Lemma: den mærkværdige Bogs
+
+den bemærkelsesværdige bog.
+
+## Kommentarnote b-2443 (b43/kom.xml, ordret)
+Lemma: Forgænger
+
+sigter formentlig til Opbyggelige Taler i forskjellig Aand, der udkom den 13. marts 1847, se tekstredegørelsen i SKS K8, 153, og hvoraf SK sendte Chr. Molbech et eksemplar med dedikation, se Dedikation 36, i SKS 28, 501.
+
+## Kommentarnote b-2444 (b43/kom.xml, ordret)
+Lemma: Oplaget af »den store Bog« er udsolgt – et Phænomen ... behøve at studeres
+
+sml. følgende passage i journaloptegnelsen NB:194, fra den 30. april 1847: »At Enten – Eller er udsolgt skriver Molbeck mig til (i en Billet af 29d April 47) igaar er 'et Phænomen i vor Tids Literatur-Historie, som kan behøve at studeres' – og hvorfor? Etatsraaden [] veed ikke, at den er udsolgt for længere siden, han veed ikke, at Joh. Climacus i afsluttende Efterskrift allerede for eet Aar siden har forklaret sig desangaaende, han veed ikke, at Reitzel allerede for to Aar siden har talt om et nyt Oplag, at det er mig, der forhindrer det; han drømmer ikke om, hvorledes jeg i Omvendthedens dialektiske og i Sandhedens om muligt lidt rensende Tjeneste modarbeider mig selv.« SKS 20, 116,14-23; se kommentarerne dertil. – Oplaget af »den store Bog« er udsolgt: sigter til, at 1. opl. af Enten – Eller var udsolgt ().
+
+## Kommentarnote b-2446 (b43/kom.xml, ordret)
+Lemma: »Enten – Eller«
+
+.
+
+## Kommentarnote b-2447 (b43/kom.xml, ordret)
+Lemma: extraordinarius Professor histor. literar.
+
+lat., ekstraordinær prof. i litteraturhistorie ().
+
+## Kommentarnote b-2448 (b43/kom.xml, ordret)
+Lemma: min Bestalling
+
+min ansættelse, beskikkelse, udnævnelse.
+
+## Kommentarnote b-2449 (b43/kom.xml, ordret)
+Lemma: »in der Ferne«
+
+ty. »på afstand«. Sml. dog journaloptegnelsen NB:18, fra marts 1846, hvor SK beretter om et besøg, Chr. Molbech har aflagt ham. Herom skriver SK bl.a.: »Han priste min Særhed, og min sære Levemaade, fordi den begunstigede min Arbeiden.« SKS 20, 29,15f.
+
+## Kommentarnote b-2450 (b43/kom.xml, ordret)
+Lemma: M.
+
+Christian Molbech ().
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b43/ill_6.jpg",
+  "alt": "Fotografi af et gulligt brevark, tæt beskrevet på den ene side med brunsort blæk i en hurtig, hældende kursiv. Øverst til venstre står »til Mag. S. A. Kierkegaard.«, øverst til højre »29. Apr. 1847.«; derunder løber teksten linje efter linje næsten helt ud til begge kanter, med enkelte ord understreget og et par ord skudt ind over linjen midt på siden. Nederst til højre slutter den med to indrykkede linjer og et enkelt bogstav med punktum. I øverste højre hjørne står et tal skrevet med blyant, og nederst på arket en påtegning med blyant med bogstaver og tal. Arkets underkant er uregelmæssig.",
+  "caption": "Molbech regner sig selv til »de procrastinerende Naturer« og skriver til Kierkegaard, at denne billet slet ikke er noget svar. Alligevel er den her et par dage efter, og den fylder hele siden ud, ned til det enkelte »M.« nederst.",
+  "credit": null,
+  "sources": [
+    "billedet: ét brevark, beskrevet på den ene side, gulligt papir, brunsort blæk, hurtig hældende kursiv",
+    "billedet, øverste venstre hjørne: tiltalelinjen »til Mag. S. A. Kierkegaard.« (gengivet med normal ordmellemrum; pakkens læsetekst har den uden mellemrum, »Mag.S. A.«)",
+    "billedet, øverste højre: datolinjen »29. Apr. 1847.« — samme dato som pakkens overskrift på brev 59",
+    "billedet: teksten går næsten ud til begge sidekanter og fylder arket fra tiltalelinjen til bunden",
+    "billedet: enkelte ord er understreget flere steder på siden",
+    "billedet, midt på siden: et par ord er skrevet ind over linjen med mindre skrift",
+    "billedet, nederst til højre: to indrykkede linjer og derunder et enkelt bogstav med punktum — læses som »Deres hengivne« og »M.«, i overensstemmelse med pakkens læsetekst, der slutter »Deres hengivne  M.«",
+    "billedet, øverste højre hjørne: et tal skrevet med blyant (ligner »142« med et efterfølgende tegn)",
+    "billedet, nederst: en påtegning med blyant med bogstaver og tal",
+    "billedet: arkets underkant er uregelmæssig (uskåren kant)",
+    "pakken, udgavens head: »6. Brev 59, bl. [1r]« — den viste side er brev 59's første blad, forsiden; manifestets figur har rend »recto«",
+    "pakken, brev 59's overskrift: »Fra Chr. Molbech · 29. april 1847 · til SK« — grundlag for at kalde skriveren Molbech og modtageren Kierkegaard",
+    "pakken, brev 59's læsetekst: »hos mig, der hører til de procrastinerende Naturer« (citeret ordret som »de procrastinerende Naturer«)",
+    "pakken, brev 59's læsetekst: »De seer heraf, denne Billet er intet Svar paa Deres.« — grundlag for »at denne billet slet ikke er noget svar«",
+    "pakken, brev 59's læsetekst: »en modtagen venskabelig lille Billet, hvormed fulgte en stor Bog« og »endskiøndt den kun er et Par Dage gammel« — grundlag for »et par dage efter«"
+  ],
+  "note": "Tvivl og fravalg: (1) Blyantspåtegningerne er ikke tydet og ikke tolket. Hjørnetallet ligner »142« med et efterfølgende tegn, og linjen nederst ligner bogstaver, tallet 2336 og »V,1«, men jeg citerer dem ikke, og jeg siger hverken »arkivnummer«, »signatur« eller »bibliotekets påtegning« — det ville være en slutning om, hvem der har skrevet dem og hvorfor. (2) De indskudte ord midt på siden ligner »Oplaget af«, hvilket passer med læseteksten (»at Oplaget af »den store Bog« er udsolgt«), men jeg gengiver dem ikke i alt-teksten; kun det, man ser: at et par ord er skudt ind over linjen. Jeg siger heller ikke, hvis hånd tilføjelsen er. (3) Understregningerne er mange (bl.a. under noget der ligner »lille Billet«, »øieblikligt«, »intet«, »to Gange«, »aldrig«), men flere er svære at knytte sikkert til et bestemt ord i opløsningen her, og jeg tolker dem ikke som skriverens fremhævelser frem for en senere hånds. Alt-teksten siger derfor kun, at enkelte ord er understreget. (4) Jeg påstår ikke, at arket er skrevet med Molbechs egen hånd — brevet er fra ham og underskrevet »M.«, men om han har ført pennen selv, kan hverken billedet eller pakken afgøre. Captionen siger »skriver til Kierkegaard« om forfatterskabet, ikke om hånden. (5) Kommentarnote b-2450 identificerer »M.« som Christian Molbech; jeg bruger den ikke, fordi pakkens egen overskrift allerede navngiver afsenderen. (6) Ikke brugt, fordi de tilføjer viden, brevet ikke selv har: b-2437 (Joh 13,27 bag det citerede ordsprog og at billetten er SK's brev 58), b-2439 (Enten – Ellers sidetal), b-2443 (Opbyggelige Taler i forskjellig Aand og dedikationen), b-2444 (SK's egen forbitrede journaloptegnelse NB:194 om netop denne billet), b-2449 (Molbechs besøg hos SK). (7) »bl. [1r]« siger, at vi ser første blads forside. Siden begynder, hvor læseteksten begynder, og slutter, hvor den slutter, så hele brevet står her — men jeg påstår ikke, at der ikke findes flere blade eller beskrevne sider bagved, og jeg kalder ikke arket for »ét blad i alt«. (8) Farverne (gulligt papir, brunsort blæk) er beskrevet, som de ses i denne gengivelse; papirets faktiske tone og blækkets farve kan ikke afgøres af et fotografi. Et lille brunt mærke i højre kant er udeladt som ubetydeligt. (9) Linjeantallet er ikke talt og ikke oplyst — jeg skriver »linje efter linje« i stedet for et tal, jeg ikke kan tælle sikkert i opløsningen. (10) Oplagt alternativ fokus for captionen, hvis den skal flyttes: nyheden om, at oplaget af »den store Bog« er udsolgt, »et Phænomen i Vor Literaturhistorie, som kan behøve at studeres« — og at Molbech, der »aldrig læser danske Bøger«, har læst i Enten – Eller to gange på to dage. Jeg valgte prokrastinationen, fordi den er brevets egen spøg og hænger sammen med det, man faktisk ser: en side, der er fyldt helt ud.",
+  "repairs": []
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{"image":"b43/ill_6.jpg","flags":[{"severity":"fejl","claim":"Alligevel er den her et par dage efter","field":"caption","problem":"Groundingsteksten siger, at den modtagne billet kun er et par dage gammel; den dokumenterer ikke, at dette brev eller billedet er 'her' et par dage efter."}],"visualNotes":""}
+tokens used
+7.933
+{"image":"b43/ill_6.jpg","flags":[{"severity":"fejl","claim":"Alligevel er den her et par dage efter","field":"caption","problem":"Groundingsteksten siger, at den modtagne billet kun er et par dage gammel; den dokumenterer ikke, at dette brev eller billedet er 'her' et par dage efter."}],"visualNotes":""}

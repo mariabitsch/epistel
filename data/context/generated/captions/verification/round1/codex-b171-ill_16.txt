@@ -1,0 +1,338 @@
+Reading additional input from stdin...
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03ecb-bfdc-7bc3-b787-21b2bfb8e4a6
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b171/ill_16.jpg
+
+Billedfil: `data/vendor/b171/ill_16.jpg` (tilladt primærkilde).
+
+## Manifest-post: b171/ill_16.jpg (export/images.json)
+```json
+{
+ "id": "b171/ill_16.jpg",
+ "path": "letters/b171/ill_16.jpg",
+ "source": {
+  "path": "data/v1.9/b171/ill_16.jpg",
+  "sha256": "80d1aaf8e0c06a07ab8a7c32bfad33725e4c89f074243e5c01816ede099362ab"
+ },
+ "figures": [
+  {
+   "volume": "b171",
+   "file": "txt.xml",
+   "xmlId": "ill_16",
+   "type": null,
+   "rend": "recto",
+   "url": "../b171/ill_16.jpg",
+   "head": [
+    "16. Brev 176, bl. [1r]"
+   ],
+   "figDesc": null,
+   "letter": "176",
+   "letterXmlId": "n176"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b171",
+   "file": "txt.xml",
+   "xmlId": "id6920786f-406e-4ecd-bf99-919dd4ea6598",
+   "n": "1r",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b171/ill_16.jpg",
+   "letter": "176",
+   "letterXmlId": "n176"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 16. Brev 176, bl. [1r]
+
+## Brev 176 (b171) — overskrift og læsetekst
+Overskrift: Fra SK · 13. dec. [1841] · til Henriette Lund
+
+16. Brev 176, bl. [1r] Min kjære Jette!d. 13 Dec.Berlin. Dit Brev af 25d Novb: har jeg rigtigt modtaget, og seer af dets Datum, at det allerede længe har været færdig. Dette fornøier mig meget, min kjære Jette, og dersom Sophie skulde, i Kraft af min Skrivelse til hende, paa nogen Maade vilde paaminde Dig om at skrive mig til, saa veed Du nu, ligesom jeg veed det, at det, i en god Forstand, kommer bag efter. Som Dit Brev nu i og for sig har fornøiet mig, saa glæder det mig ogsaa, at det er saa net og skjønt skrevet, at det næsten ansporer mig til at gjøre mig Umage med min Skrift. Det er paa en ualmindelig Art Papir jeg skriver dette Brev; imidlertid ikke for at bøde paa min Skrift, men fordi jeg veed, at det har været Din Geburtsdag i den Tid, i hvilken jeg har været fraværende fra Kbhvn. Dersom jeg nu havde været i Byen paa den Dag, saa havde jeg formodentlig bragt Dig en lille Foræring. Dette lader sig nu ikke gjøre. Jeg har netop idag gaaet omkring i Königstraße og seet paa alle de skjønne Ting,  Kræmmerne pryde deres Vinduer med; men at sende Sligt med Posten er altid en meget betænkelig Sag, dersom man ellers ønsker, at det skal komme heelt og holdent til Kbhvn. Jeg har derfor opgivet denne Plan. Paa en udmærket Art Papir modtager Du derfor en Gratulation fra mig. Og ikke sandt, lille Jette, at modtage et saadant Brev fra Berlin, er for Dig dog en ret mærkelig Ting, som Du idetmindste aldrig før har oplevet. Jeg forestiller mig, naar I nu løbe derhjemme i Dagligstuen, og det pludselig ringer, og ind træder en Mand i en rød Kjole med et Sølv-Skildt paa Brystet, og tager en Mængde Breve frem og deriblandt ogsaa et til Jette Lund, og tilføier: det koster 3 ß; og derpaa Din Fader er saa god at udlægge de 3 ß, og Du nu modtager dette Brev, og nu selv faar Lov at bryde Seglet, og Du nu med al Flid og Omhyggelighed stræber at læse, hvad jeg skriver Dig til. Rammen om dette Brev forestiller 3 store Bygninger i Berlin, som Du omtrent kjender ligesaa meget til som jeg. Her i Berlin er der et Sted unter den Linden, hvor man for godt Kjøb reiser i alle tre Verdensdele. Du vil ved Hjælp af disse Afbildninger for endnu bedre Kjøb, hjemme i Dagligstuen, kunne reise i Berlin. Foran Musæet vil Du af Tegningen see, at der staaer nogle Træer. Det er et lille temmelig bart Anlæg. Men tæt udenfor Musæets Dør staaer der en uhyre Kumme af Steen, meget større end den, Du daglig seer paa gammel Torv ved Springvandet. Den er af Steen, men saa glat som et Speil, og saare skjøn. Du fortæller mig, hvad jeg allerede af samtlige Breve fra den lille Skrive-Forening har erfaret, at Troels Lund er bleven forlovet. Jeg har ventet paa Dit Brev for at give Dig Leilighed til at gratulere ham fra mig. Kjære Jette modtag nu min Hilsen, modtag tillige en Hilsen til Henrich, Michael, Carl, Sophie, Wilhelm, fra din Onkel. S. K. 
+
+## Kommentarnote b-927 (b171/kom.xml, ordret)
+Lemma: Jette
+
+SKs niece Anna Henriette (kaldt Jette) Lund (1829-1909), datter af Petrea og Ferdinand Lund ().
+
+## Kommentarnote b-928 (b171/kom.xml, ordret)
+Lemma: d. 13 Dec.
+
+den 13. dec. 1841, på hvilket tidspunkt SK opholdt sig i Berlin ().
+
+## Kommentarnote b-930 (b171/kom.xml, ordret)
+Lemma: Dit Brev af 25d Novb:
+
+Et brev af 25. nov. 1841 fra Henriette Lund synes ikke at være bevaret.
+
+## Kommentarnote b-3075 (b171/kom.xml, ordret)
+Lemma: rigtigt modtaget
+
+.
+
+## Kommentarnote b-931 (b171/kom.xml, ordret)
+Lemma: Sophie
+
+SKs niece og Henriette Lunds to år ældre kusine Sophie Lund ().
+
+## Kommentarnote b-932 (b171/kom.xml, ordret)
+Lemma: min Skrivelse til hende
+
+En skrivelse fra SK, skrevet i nov. el. begyndelsen af dec. 1841 til Sophie Lund, synes ikke at være bevaret.
+
+## Kommentarnote b-933 (b171/kom.xml, ordret)
+Lemma: skrive mig til
+
+fast udtryk i breve: skrive til mig.
+
+## Kommentarnote b-934 (b171/kom.xml, ordret)
+Lemma: en ualmindelig Art Papir jeg skriver dette Brev
+
+se tekstredegørelsen, s. 373; og se illustration 16 i SKS 28, 287.
+
+## Kommentarnote b-935 (b171/kom.xml, ordret)
+Lemma: Din Geburtsdag
+
+Henriette Lunds fødselsdag var den 12. nov.; i 1841 fyldte hun 12 år. – Om ordet 'Geburtsdag', .
+
+## Kommentarnote b-936 (b171/kom.xml, ordret)
+Lemma: den Tid, i hvilken jeg har været fraværende fra Kbhvn.
+
+SK rejste fra København til Berlin den 25. okt. 1841 ().
+
+## Kommentarnote b-937 (b171/kom.xml, ordret)
+Lemma: Königstraße
+
+forretningsgade i Berlin, der løber ml. kongeslottet og Alexander Platz.
+
+## Kommentarnote b-938 (b171/kom.xml, ordret)
+Lemma: Kræmmerne
+
+person, der driver handel med kram, dvs. forskelligartede varer, som sælges en detail fra en butik (krambod).
+
+## Kommentarnote b-939 (b171/kom.xml, ordret)
+Lemma: mærkelig
+
+bemærkelsesværdig.
+
+## Kommentarnote b-940 (b171/kom.xml, ordret)
+Lemma: en Mand i en rød Kjole med et Sølv-Skildt paa Brystet
+
+sigter til postbuddet.
+
+## Kommentarnote b-941 (b171/kom.xml, ordret)
+Lemma: det koster 3 ß
+
+sigter til 'bærepenge' for ombæring af et brev fra postgården i København til modtageren, se § 7 i »Almindelige Bemærkninger« i »2det Tillæg. Brevpostgangen og Brevposttaxten« i C. Bartholin Almindelig Brev- og Formularbog bd. 1-2, Kbh. 1844, ktl. 933; bd. 2, s. 114f.: »Bærepengene for Brevenes Ombæring ere uden Hensyn til Portoen fastsatte saaledes: / 1. For Breve, der ombæres i Staden, paa Christianshavn og Castellet, 2 Sk. [skilling] pr. Brev. / 2. For Breve, der ombæres til Vester-, Nørre- Øster- og Amagerbro, 4 Sk. pr. Brev. / 3. For Breve til Frederiksberg, Strandveien, Nørre- og Vesteralleer, samt saa langt Byens Grund rækker, 6 Sk. pr. Brev.« – ß: gængs forkortelse for skilling. Den da. møntfod var ved forordning af 31. juli 1818 delt i rigsbankdaler (i samtiden ofte blot kaldt 'rigsdaler' og forkortet 'rd.'), mark og skilling, i 1875 afløst af kroner (2 kroner for 1 rigsdaler). Der gik 16 skilling på en mark, og 96 skilling, svarende til 6 mark, på 1 rigsbankdaler. Et par sko kostede 3 rigsdaler og et pund rugbrød 2-4 skilling.
+
+## Kommentarnote b-942 (b171/kom.xml, ordret)
+Lemma: Din Fader
+
+Henrik Ferdinand Lund (1803-75), da. embedsmand; SKs svoger, gift med hans søster Petrea Severine Lund, f. Kierkegaard (1801-34); assistent og fra 1841 kontorchef i Nationalbanken.
+
+## Kommentarnote b-943 (b171/kom.xml, ordret)
+Lemma: bryde Seglet
+
+det laksegl, der lukkede brevkuverten; sml. illustration 3 i SKS 28, 44.
+
+## Kommentarnote b-944 (b171/kom.xml, ordret)
+Lemma: Rammen ... forestiller 3 store Bygninger i Berlin
+
+»Opernhaus«, »Museum« og »Schauspielhaus«, se illustration 16 i SKS 28, 287.
+
+## Kommentarnote b-945 (b171/kom.xml, ordret)
+Lemma: unter den Linden
+
+Unter den Linden, hovedgade i Berlins bymidte, der løber ml. Pariser Platz og kongeslottet.
+
+## Kommentarnote b-946 (b171/kom.xml, ordret)
+Lemma: for godt Kjøb
+
+til en fordelagtig pris, billigt.
+
+## Kommentarnote b-947 (b171/kom.xml, ordret)
+Lemma: paa gammel Torv ved Springvandet
+
+sigter til den stenkumme, der dengang stod til venstre for det store springvand på Gammel Torv i København (se kort 2, B1).
+
+## Kommentarnote b-948 (b171/kom.xml, ordret)
+Lemma: den lille Skrive-Forening
+
+sigter til den gruppe af SKs niecer og nevøer, der skrev til ham under hans ophold i Berlin ().
+
+## Kommentarnote b-949 (b171/kom.xml, ordret)
+Lemma: Troels Lund er bleven forlovet
+
+Troels Lund (1802-67), teatermaler; fra 1835 medlem af Kunstakademiet, fra 1842 ansat ved Det kgl. Teater som arkitekturmaler, fra marts 1849 valgt medlem af Københavns borgerrepræsentation. Troels Lund var bror til Ferdinand Lunds () kusine og anden kone Anna Cathrine Lund (1800-59). Troels Lund blev den 23. juli 1842 gift med Sophie Petrine Andersen (1817-97); forlovelsesdatoen er ikke identificeret. Se fx oversigten »Forfatterindens nærmeste Familjeforhold« i Henriette Lunds Erindringer fra Hjemmet (), to upaginerede sider forrest i bogen.
+
+## Kommentarnote b-950 (b171/kom.xml, ordret)
+Lemma: Henrich
+
+SKs nevø og Henriette Lunds ældre fætter Henrik Lund ().
+
+## Kommentarnote b-951 (b171/kom.xml, ordret)
+Lemma: Michael
+
+SKs nevø og Henriette Lunds ældre fætter Michael Lund ().
+
+## Kommentarnote b-952 (b171/kom.xml, ordret)
+Lemma: Carl
+
+SKs nevø og Henriette Lunds yngre fætter Carl Lund ().
+
+## Kommentarnote b-953 (b171/kom.xml, ordret)
+Lemma: Sophie
+
+.
+
+## Kommentarnote b-954 (b171/kom.xml, ordret)
+Lemma: Wilhelm
+
+SKs nevø og Henriette Lunds yngre bror Wilhelm Lund ().
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b171/ill_16.jpg",
+  "alt": "Et håndskrevet brevark med en trykt dekorationsramme i gulgrøn farve. Øverst i rammen sidder tre landskabsvignetter med klassicistiske søjlebygninger, hver med sit navn under sig i gotiske bogstaver: »Opernhaus« til venstre, »Museum« i midten og »Schauspielhaus« til højre. Midtervignetten er størst og viser en lang søjlefacade med høje træer og nogle små figurer foran. Rammen fortsætter ned ad begge sider som snoede rocailleornamenter og tynde ranker, med en lille skråtstillet billedramme om et utydeligt motiv midt i hver sidebort, og lukkes forneden af en bort med et vifteformet skalmotiv i midten. Inden for rammen står brevteksten med brunt blæk i gotisk kursiv: tiltalen »Min kjære Jette!« øverst i midten, »d. 13 Dec.« ude til højre og »Berlin.« under den til venstre, derefter tre afsnit, der fylder skrivefeltet på nær en stribe forneden. Papiret er cremefarvet med spredte små brune pletter og et blegt blyantsmærke øverst i højre hjørne; arket er fotograferet mod hvid bund, og dets højre kant kaster en smal skygge.",
+  "caption": "Jettes fødselsdag faldt, mens Kierkegaard var i Berlin, og planen om en foræring fra Königstraße opgav han. Hun fik i stedet sin gratulation på dette papir, hvis ramme »forestiller 3 store Bygninger i Berlin« — og foran museet står de træer, brevet beder hende se efter på tegningen.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »16. Brev 176, bl. [1r]« — billedet er brev 176's første blad, forsiden; ingen fotokredit i head, derfor credit = null",
+    "pakken, manifest-posten: figure med rend »recto« og pageBreak n=»1r«, begge i b171/txt.xml og begge knyttet til letter »176«",
+    "billedet: trykt dekorationsramme i gulgrøn farve om et håndskrevet skrivefelt (farven beskrives, som den ses; trykteknikken kan ikke afgøres og påstås ikke)",
+    "billedet: tre landskabsvignetter øverst med klassicistiske søjlebygninger, den midterste størst, med høje træer og små figurer foran facaden",
+    "billedet: navnene står i gotiske bogstaver under vignetterne: »Opernhaus«, »Museum.«, »Schauspielhaus« — læst direkte i billedet",
+    "billedet: sideborterne er snoede rocailleornamenter og tynde ranker; midt i hver bord sidder en lille skråtstillet billedramme om et motiv, der er for utydeligt til at bestemmes",
+    "billedet: nederste bort med et vifteformet skalmotiv i midten",
+    "billedet: brunt blæk, gotisk kursiv; »Min kjære Jette!«, »d. 13 Dec.« og »Berlin.« er tydeligt læsbare og svarer ordret til pakkens læsetekst",
+    "billedet: teksten er brudt i tre afsnit og holder op et stykke over rammens nedre kant; papiret er cremefarvet med spredte små brune pletter, og øverst i højre hjørne står et blegt blyantsmærke",
+    "billedet: arket ligger mod hvid bund, højre kant kaster en smal skygge",
+    "pakken, brev 176's overskrift: Fra SK · 13. dec. [1841] · til Henriette Lund — grundlag for at kalde skriveren Kierkegaard og modtageren Jette (brevets egen tiltale er »Min kjære Jette!«)",
+    "pakken, brev 176's læsetekst: »jeg veed, at det har været Din Geburtsdag i den Tid, i hvilken jeg har været fraværende fra Kbhvn.« sammen med dateringslinjen »Berlin.« — grundlag for »Jettes fødselsdag faldt, mens Kierkegaard var i Berlin«",
+    "pakken, brev 176's læsetekst: »Jeg har netop idag gaaet omkring i Königstraße og seet paa alle de skjønne Ting, Kræmmerne pryde deres Vinduer med; men at sende Sligt med Posten er altid en meget betænkelig Sag ... Jeg har derfor opgivet denne Plan.« — grundlag for »planen om en foræring fra Königstraße opgav han«",
+    "pakken, brev 176's læsetekst: »Paa en udmærket Art Papir modtager Du derfor en Gratulation fra mig.« — grundlag for »Hun fik i stedet sin gratulation på dette papir«",
+    "pakken, brev 176's læsetekst: »Rammen om dette Brev forestiller 3 store Bygninger i Berlin« (citeret ordret)",
+    "pakken, brev 176's læsetekst: »Foran Musæet vil Du af Tegningen see, at der staaer nogle Træer.« — grundlag for sidste led, og for at brevet peger på selve dette billede"
+  ],
+  "note": "Tvivl og fravalg: (1) Blyantsmærket øverst i højre hjørne kan ikke læses sikkert — det ligner et sidestillet ciffer eller to (»13«? »B«?). Alt-teksten siger derfor kun, at mærket er der, og captionen nævner det ikke. (2) Rammens fremstillingsmåde er ikke påstået. Ornamentet ser trykt ud og blækket er tydeligt håndskrevet, men om rammen er litograferet, stukket eller præget kan ikke ses; alt-teksten siger »trykt«, hvilket er det, brevet selv forudsætter, når det taler om »en ualmindelig Art Papir«, som Kierkegaard har købt. Hvis modlæsningen finder »trykt« for stærkt, kan ordet stryges uden tab. (3) De to små skråtstillede billedrammer midt i sideborterne rummer hver et motiv — i højre bord anes en menneskeskikkelse, i venstre noget bygnings- eller landskabsagtigt — men opløsningen rækker ikke til at bestemme dem, og de er derfor generaliseret til »et utydeligt motiv«. (4) Bygningerne er benævnt med de navne, der STÅR i billedet, ikke med identifikationer: kommentarnote b-944 (»Opernhaus«, »Museum« og »Schauspielhaus«) er ikke nødvendig og er ikke brugt som kilde. (5) Kommentarnoterne er i det hele taget holdt ude af captionen: b-935 (Henriette Lunds fødselsdag den 12. nov.; hun fyldte 12 i 1841), b-927 (hendes fulde navn og leveår), b-937 (Königstraße som forretningsgade), b-947 (stenkummen på Gammel Torv) og b-941 (de 3 skilling bærepenge) er alle fristende, men tilføjer viden, brevet ikke selv har. Alderen »12 år« er derfor ikke nævnt nogen steder, selv om den ville gøre captionen varmere. (6) Kommentarnote b-934 henviser til tekstredegørelsen s. 373 om papiret; den er ikke slået op og ikke brugt. (7) Håndskriften er kun sikkert læsbar for mig i tiltalen, datoen og stednavnet. Alt andet, jeg citerer, kommer fra pakkens læsetekst, aldrig fra min egen læsning af billedet. (8) Brevteksten på dette blad ender midt i sætningen »... seet paa alle de skjønne Ting«, hvilket passer med, at det er blad 1 recto; jeg har ikke skrevet det i alt-teksten, fordi det kræver, at man kan læse linjen. (9) Bevidst fravalgt i captionen: postbuddet i den røde kjole med sølvskiltet, de 3 skilling, stenkummen foran museet og gratulationen til Troels Lund. Stenkummen er brevets bedste billede, men den kan ikke ses på tegningen, og captionen holder sig til det, arket viser. (10) »Kierkegaard« er valgt frem for »Søren« efter stemmebiblens skel mellem drengebrevene og de voksne breve; brevet er underskrevet »din Onkel. S. K.«, så »onklen« ville også være dækket, hvis en fælles form på tværs af Lund-billederne foretrækkes. (11) Papirets spredte brune pletter er nævnt, men ikke tolket (gennemslag, ælde, blæk — kan ikke afgøres). (12) »Klassicistiske« om søjlebygningerne er en stilbetegnelse; den bygger alene på det, der ses (frontoner, søjlerækker, trapper), og kan generaliseres til »søjlebygninger«, hvis modlæsningen flager den.",
+  "repairs": []
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{
+  "image": "b171/ill_16.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "trykt dekorationsramme",
+      "field": "alt",
+      "problem": "Rammens fremstillingsmåde kan ikke fastslås sikkert ud fra billedet alene; den kan beskrives som en gulgrøn dekorationsramme."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "gotisk kursiv",
+      "field": "alt",
+      "problem": "Skriftens præcise typografiske eller kalligrafiske betegnelse er ikke bekræftet af grounding-pakken; håndskrevet kursiv er sikkert synligt."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "et blegt blyantsmærke øverst i højre hjørne",
+      "field": "alt",
+      "problem": "Et lyst mærke ses, men at identificere det som blyant er ikke sikkert visuelt fastslåeligt."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "Kierkegaard",
+      "field": "caption",
+      "problem": "Grounding-pakken angiver afsenderen som SK, men udfolder ikke eksplicit denne identifikation som Kierkegaard."
+    }
+  ],
+  "visualNotes": "Billedet viser et brevark med gulgrøn ornamenteret ramme, tre bygningstegninger øverst og håndskrevet tekst. Ingen væsentlige visuelle modsigelser til beskrivelsen."
+}
+tokens used
+25.971
+{
+  "image": "b171/ill_16.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "trykt dekorationsramme",
+      "field": "alt",
+      "problem": "Rammens fremstillingsmåde kan ikke fastslås sikkert ud fra billedet alene; den kan beskrives som en gulgrøn dekorationsramme."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "gotisk kursiv",
+      "field": "alt",
+      "problem": "Skriftens præcise typografiske eller kalligrafiske betegnelse er ikke bekræftet af grounding-pakken; håndskrevet kursiv er sikkert synligt."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "et blegt blyantsmærke øverst i højre hjørne",
+      "field": "alt",
+      "problem": "Et lyst mærke ses, men at identificere det som blyant er ikke sikkert visuelt fastslåeligt."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "Kierkegaard",
+      "field": "caption",
+      "problem": "Grounding-pakken angiver afsenderen som SK, men udfolder ikke eksplicit denne identifikation som Kierkegaard."
+    }
+  ],
+  "visualNotes": "Billedet viser et brevark med gulgrøn ornamenteret ramme, tre bygningstegninger øverst og håndskrevet tekst. Ingen væsentlige visuelle modsigelser til beskrivelsen."
+}

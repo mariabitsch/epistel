@@ -1,0 +1,12 @@
+I'll start by reading the full prompt and grounding packet so I can verify the draft against the image and packet only.I'll inspect the attached plate closely and check every visual claim in the draft against the image and the packet.The vendor files are allowed as primary sources — I’ll inspect those copies so stamp text and cancellations can be checked at full resolution.{
+  "image": "b308/ill_24.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "ligeledes et rødbrunt frimærke i øverste højre hjørne annulleret med koncentriske ringe",
+      "field": "alt",
+      "problem": "Det nederste frimærke er annulleret med et rundt, cirkulært stempel hen over portrættet, ikke med koncentriske ringe. Det øverste mærkes ringstempel (mange tydelige koncentriske cirkler) genfindes ikke på det nederste."
+    }
+  ],
+  "visualNotes": "Øverste mærke har også »FRIMÆRKE« lodret til højre; nederste har læseligt »POST« foroven (annulleringen dækker ikke den tekst). Det ovale stempel har bogstaverne F. og P. foruden tal. Tværskriften til venstre er nærmere et dusin linjer. Det røde segl har et ottekantet præg; det sorte et ovalt relief. Det runde poststempel ved det røde segl er vendt på hovedet og indeholder skrift."
+}

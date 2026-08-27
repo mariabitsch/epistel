@@ -1,0 +1,18 @@
+I'll verify the draft against the image and the grounding packet only — groundedness and visual accuracy, nothing else.I'll check the trial-round verifier prompt and a couple of prior flags so I calibrate severity the same way.The original plate should show helmet, bird colours, and the stain more clearly than the compressed attachment.Checking how previous verifier flags were worded, so this report matches the expected format.{
+  "image": "b171/ill_17.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "fjerbusket hjelm",
+      "field": "alt",
+      "problem": "Hjelmen har en lille mørk kam eller knop på toppen; fjer er ikke tydeligt synlige. »Fjerbusket« er en specifik identifikation, billedet ikke bærer."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "en brunlig plet med et lille hul midt på siden",
+      "field": "alt",
+      "problem": "Pletten med hullet sidder i højre side af arket, på en vandret foldelinje, ikke i sidens geometriske midte. »Midt på siden« er misvisende for layoutet."
+    }
+  ],
+  "visualNotes": "Krigerens hjelm har en lille mørk kam, ikke en synlig fjerbusk; han holder et kort sværd i højre hånd og har skæg og gyldne støvler. Hullet sidder til højre på den midterste fold, ikke centralt. Venstre ornamentsøjle går langt længere ned end højre ranke. Fuglens vinger er overvejende guld og grønne, med et muligt lille blåligt parti. Captionen er pakkegrundet; ingen flag dér."
+}

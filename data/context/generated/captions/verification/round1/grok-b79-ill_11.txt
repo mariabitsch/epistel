@@ -1,0 +1,18 @@
+I'll verify the draft against the image and the grounding packet, checking every visual claim and every wording that needs a source.{
+  "image": "b79/ill_11.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "to afsnit på tilsammen omkring ti linjer",
+      "field": "alt",
+      "problem": "De to brødtekstafsnit er visuelt 7 linjer (ca. 5 + 2), ikke omkring ti. Tiltalelinje, underskrift og datolinje er i samme sætning holdt uden for tællingen, så hedgen »omkring« dækker ikke forskellen."
+    },
+    {
+      "severity": "fejl",
+      "claim": "resten af siden er blank",
+      "field": "caption",
+      "problem": "Den nedre del af bladet er ikke blank: nederst til venstre står en tydelig blyantspåskrift (»1850« og brøken 29/4), som alt-teksten selv beskriver."
+    }
+  ],
+  "visualNotes": "Brødteksten er to afsnit på 7 linjer i alt. Datolinjen har synlig stedforkortelse før det læste »29 Apr: 1850« (pakken: Kbhvn.). Underskriften til højre er en stor D-sløjfe; den lader sig læse i overensstemmelse med pakken, men er ikke påstået læst. Blyanten nederst tv. modsiger captionens »blank«. Et par ganske små rødlige pletter ved nederste højre kant."
+}

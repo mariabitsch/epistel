@@ -1,0 +1,390 @@
+# Grounding: b79/ill_k6.jpg
+
+Billedfil: `data/vendor/b79/ill_k6.jpg` (tilladt primærkilde).
+
+## Manifest-post: b79/ill_k6.jpg (export/images.json)
+```json
+{
+ "id": "b79/ill_k6.jpg",
+ "path": "letters/b79/ill_k6.jpg",
+ "source": {
+  "path": "data/v1.9/b79/ill_k6.jpg",
+  "sha256": "7bcc31689c30a5e3b4c10dad26e8a7fadb2b1237eb3070903fa459d40ca44e57"
+ },
+ "figures": [
+  {
+   "volume": "b79",
+   "file": "kom.xml",
+   "xmlId": "ill_k6",
+   "type": null,
+   "rend": "recto",
+   "url": "../b79/ill_k6.jpg",
+   "head": [
+    "6. Brev 115 af 7. marts 1850 fra Emil Boesen, bl. [1r].",
+    "Eksempel på Boesens svært læselige håndskrift ()"
+   ],
+   "figDesc": null,
+   "letter": null,
+   "letterXmlId": null
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b79",
+   "file": "txt.xml",
+   "xmlId": "id599a0e9d-c9bf-4df1-989d-3291d3fc18de",
+   "n": "1r",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b79/ill_k6.jpg",
+   "letter": "115",
+   "letterXmlId": "n115"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 6. Brev 115 af 7. marts 1850 fra Emil Boesen, bl. [1r].
+- Eksempel på Boesens svært læselige håndskrift ()
+
+## Brev 115 (b79) — overskrift og læsetekst
+Overskrift: Fra Emil Boesen · 7. marts 1850 · til SK
+
+Horsensd 7de Marts 1850. Kjære!Du har vel undret Dig over, at jeg endnu ikke har skrevet til Dig; jeg har dog ofte tænkt paa Dig og ønsket, jeg kunde gaae hen og besøge Dig, eller møde Dig, naar jeg gik ud af Byen, ud af Landeveien; som det da ogsaa er Længsel efter Dig, der nu har bragt mig til at tage Papiret frem. Jeg længes efter at faae at vide, hvordan Alt gaaer ovre hos Dig, om der er skeet noget Mærkeligt, siden jeg reiste, og hvorledes Du selv har det. Lidt af hvad der er udkommet, har jeg læst, fEx: Stillings Piece, der er bestemtere og har stærkere Kræfter, end jeg havde tænkt; herovre bryder man sig Intet om Saadant; Bekjendtskabet til Dig grunder sig meest paa hvad der nu for nylig har staaet i Kirketidenden og saa Enten – Eller; den lille Helveg skulde holde sig til sin Kirkehistorie. Jeg er selv nogenlunde rask, og der er Meget, jeg skal sætte mig ind i; men jeg kan ikke holde mig ude fra mig selv, og trænger snart til en Ferie og til at komme over til Eder; jeg lever her alene og maa gaae min egen Gang, og Du kan vel vide, at denne Tid har været vanskelig nok for mig. Om Søndagen er jeg gjerne i Præstekjolen fra 9 til 3 12, først Skriftemaal, saa Altergang, naar Sognepræsten har prædiket; saa skal jeg prædike i Hospitalet, og saa til Aftensang i Hovedkirken; og naar jeg skal til at udarbeide Prædikenen, er jeg gjerne meget fattig, og naar jeg skal til at tale saa høit, at man kan høre hvad jeg siger, især i Hovedkirken, har jeg vanskeligt ved at lade Tankerne følge med Ordene, eller en Stemning hentager mig formeget; med Hensyn til det Ydre troer jeg, det gaaer ret anstændigt. I Hospitalskirken har jeg et underligt Publicum, et Par gamle, skikkelige Koner, nogle halv tovlige og fordrukne, jævnligt et Par Msk: af den grevelige Familie paa Boller og saa Enkelte af Byens Folk. Skriftetalerne gjør dybeste Indtryk paa mig selv.Sognepræsten er en besynderlig, utilgjængelig En, og Kirke-Forretningerne ere deelte imellem ham og mig paa en kjedsommelig Maade; hidtil er jeg kommet godt ud af det med ham; men nu vil Communal-Bestyrelsen have ham fra Formandskabet i Skole-Commissionen og heelt ud af den, og mig i hans Sted, hvilket sagtens giver Anledning til Rivninger; jeg har just ikke saastor Lyst til at blive Skole-Com: Formand, da Skolevæsenet er her i stor Forvirring, og der er ingen Udsigter til at faae tilstrækkelige Penge til at bringe det i Orden, og jeg forstaaer mig maaskee heller ikke godt nok paa det. Her er en underlig Blanding af Respect for det Traditionelle i Kirken og Ligegyldighed for den. Jeg er glad og taknemmelig for at være bleven Præst, men føler mig tit fattig og tiggefærdig; og saa savner jeg Eder, hvad jeg vel kan have godt af. Moders Død har smertet mig meget, den kom for hurtig for mig; det er ikke behageligt at vænnes fra; men Moder troer jeg jo, har det godt; desværre er Fader faldet og har slaaet sig saa slemt, at han maa holde Sengen; inderlig gjerne vil jeg tale med ham endnu engang, og jeg synes, det nødvendig maa skee. – Du skriver, at skulde jeg støde paa Vanskeligheder, som Du kunde løse, saa skal jeg skrive; Tak! de kan nok komme; der var et Tilfælde, da det faldt mig vanskeligt at tage Beslutning, men det gik dog. Nu er der 3 Ting, jeg vil bede Dig om, og alle 3 Ting kan Du meget  let, besøge Fader, som Du vil glæde meget derved, og trænger til et godt Ord; besøge Louise Holtermann, Du glæder hende meget dermed, hun trænger ogsaa til at tale et Par Ord med Dig, og det kan Du jo let; gid hun ikke maa faae formegen Hjemve, naar hun kommer her; og saa skrive til mig; naar jeg kom til Dig, saa var Du den, der talte meest, saa bør Du ogsaa tale meest til mig nu jeg ikke kan komme til Dig. Fader, Louise H: og jeg ere alle 3 meget bløde. – Naar jeg har holdt Confirmation, er det Bestemmelsen, at jeg strax kommer over for at hente L:, hvortil jeg glæder mig meget; jeg er glad over hende og daglig stolt af hende, og gladere for hvert Brev, hun skriver til mig; det er rigtig Skade for Dig, at Du ikke kjendte hende, før jeg. –Jeg boer meget uroligt, i Dag bliver der holdt stort Heste-Marked ligeudenfor mine Vinduer, og her er en bestandig Løben gjennem Huset, fra den tidlige Morgen til den sildige Aften. – d. 8de Kan Du ikke lære mig den Hemmelighed at danne Themaer til Prædikener godt?Lev vel! Kjære, Tak for alt Godt! Opfyld snart de 3 Ønsker! Din Emil Boesen.TilHr: Magister S. Kierkegaard.Rosenborggade i     bet:   Kjøbenhavn. –
+
+## Brev 83 (b79) — overskrift og læsetekst
+Overskrift: Fra SK · 1. jan. 1842 · til Emil Boesen
+
+Min kjære Emil!d. 1 Jan. 42.Glædeligt Nytaar. Tak for det Gl. Tak for Brevet, som jo paa en Maade tilhører begge, da jeg modtog det i det gl. og besvarer det i det ny. Lad mig imidlertid gjøre en almdl. Bemærkning din Skrift betræffende. Du skriver saa utydeligt, at det er forskrækkeligt, det ene Bogstav løber saa blødt over i det andet, at det Hele løber sammen, men et saadant Sammenløb er ikke det Total-Indtryk man kunde ønske. Du spørger om min Elvira er ligesaa interessant nærved, dette Spørgsmaal er jeg paa en Maade noget nærmere ved at kunne besvare, da jeg i Aften i en Loge har siddet Scenen ualmdl. nær. Dette Svar er Du vel ikke tilfreds med, men mer kan jeg ikke sige. Forøvrigt skal man ikke spøge med Sligt, Lidenskaben har som bekjendt en ganske egen Dialektik. Hvad for øvrigt den Historie angaaer, i hvilken jeg paa en Maade spiller Hoved-Rollen, jeg mener den i Kiøbenhavn, da kan Du nok begribe, at den ikke saaledes er afsluttet. Jeg har visselig handlet forsvarligt, ell. maaskee rettere ridderligt, og kun forsaavidt maaskee uforsvarligt. At gjøre hende ulykkelig, kan Du vel begribe ikke var min Hensigt. Hvordan Sagen egl. hænger sammen, og hvad min Hensigt er, derom har jeg aldrig udtalt mig end ikke til et eneste Msk. At Du har været brav nok til ikke at trænge ind paa mig, brav nok til at blive uforandret den samme, til at troe skjøndt Du ikke saae, det skal jeg vist ikke saa let glemme Dig. Istedetfor at alle Verdens Angreb har ladet mig uanfægtede, ell. blot lokket et Smiil paa mine Læber og en Sarcasme over dem, saa har Du altid været mig langt nærmere paa Livet, idet Du bestandig indskjærpede mig, at jeg skulde tage lidt mere Hensyn til mig selv. Deraf var det mig klart, at Du, skjøndt Du ikke ret kunde hitte Rede i det Hele, vel aldrig vilde sigte mig for  Egoisme men snarere for en overspændt Sympathie. End ikke til Dig har jeg villet udtale mig, fordi jeg ingenlunde ansaae Sagen for  afgjort, og min Ridderlighed  forbyder mig at tale til Trediemand om mit sande Forhold til en Pige. Af et af Dine foregaaende Breve seer jeg, at hun aabenbart har betroet sig til hendes Søstre. Det maa hun om, mig kan det hverken friste til at blive lidt vred paa hende, ell. til at følge hendes Exempel, ikke til det Første, fordi jeg i en vis Forstand maatte ønske det, ikke til det Sidste, fordi jeg altid er mig selv. Hun har faaet en Magt over mig ved mig, som hun ved sig selv aldrig havde faaet, jeg har betroet hende ved hvilket Middel der er størst Sandsynlighed for at binde mig, dette Middel har jeg tilladt hende at bruge imod mig. Alt dette behøvede jeg visselig ikke at have gjort, og dog fortryder jeg det ingenlunde. At blive klog paa mig er og bliver altid en vanskelig Sag, jeg har om man saa vil desto værre et saadant Herredømme over mine Følelser, naar jeg vil skjule dem, at man ikke let skal see mig i Kortet. At lade hende hele hendes Liv blive staaende mell. 11 og 5 var aldrig min Hensigt. Kan hun hade mig, nu vel, saa er hun frelst, mskligt talt. At hun har mig at takke derfor, det veed hun ikke, og skal hell. aldrig faa det at vide. Kan hun det ikke, skimter der dog bestandigt for hende et Haab, nu vel, saa faae vi at see. Jeg skal ved Leilighed personligt forvisse mig derom. Som jeg i et foregaaende Brev har sagt: at bedrage hele Verden, det er mig en ligegyldig Ting, men jeg sætter i Sandhed ikke min Ære i at bedrage en ung Pige. At lade hende ahne mit uhyre stormfulde Liv og dets Smerter og derpaa sige hende paa Grund heraf forlader jeg Dig, det vilde have været at knuse hende, det vilde have været usselt, at indvie hende i mine Sorger og saa ikke vilde være hende behjælpelig i at bære det Indtryk, hun fik deraf. Hun er stolt, Familien ligesaa i høieste Grad. At vække dette hos hende at kaste hende i Familiens Arme, at stille Alt saaledes, at det ved denne Fortolkning blev desperat, var det eneste, der lod sig gjøre. At gjøre det er ikke saa let, og jeg tør vel sige, at der hører min øvede Forstillelse, mit Kjendskab til Lidenskab o: s: v: dertil. – Saa meget vil jeg blot sige Dig. Detaillen kan og vil jeg her ikke udvikle. Du har været mig trofast, da Du egl. Intet vidste, Du vil vist ikke være det mindre nu, da Du seer, at jeg, saavidt jeg troer, at jeg tør gjøre det, aabner mig for Dig. Mine Breve til alle andre Msker lyde naturligviis fra en ganske anden Kant, det vil sige, de nævne hende ikke, og ere altid skrevne i munter Overgivenhed, med al mulig Ironi. Hvad jeg vil skjule, det skjuler jeg, og end ikke Fraværelse og allehaande blandede Følelser paa Grund af Fraværelse etc formaae at dirke mig op. Kun til Dig betroer jeg mig, det er jeg vant til og jeg bygger paa Din Taushed, for Himlens Skyld ikke et Ord til noget Msk om hvad jeg her har skrevet; dermed vil jeg ogsaa bede Dig at tilgive mig, at jeg ikke før har sagt ell. skrevet Dig det til. Der faldt engang jeg talte med Dig nogle forblommede Ord, som Du vel  lagde Mærke til, men dog ingenlunde paaagtede tilstrækkeligt. Jeg maae handle som jeg bedst kan. Jeg betroer mig ikke til noget andet Msk. uden til Dig, fordi jeg veed Du kan tie. Sæt en Uvedkommende kjendte min Stemning, saa var formdl. Alt forspildt. Jeg vilde da ikke faae at vide, om hun er istand til at hade mig. Om mig er der nu som altid slet ikke Spørgsmaal. Det er det Du egl. bebreider mig, men det faaer nu saa at være. Jeg er vant til at herske over mine Følelser og de skal forstumme. Jeg arbeider og dermed Punktum. Kun det vil jeg sige en Barmhjertigheds-Gjerning gjør jeg aldrig mod hende, hun er for god til man skulde vise Barmhjertighed mod hende. Tavshed. Jeg kan vel begribe, at Du egl. ikke forundrer Dig over, hvad jeg her skriver Dig til, har Du Noget at sige, saa skriv, Du er og bliver dog altid det Msk, der ene af Alle har Sæde og Stemme i mine mange og mangelunde Tankers Raad. Skriv kraftigt og – tydeligt – og hurtigt – Du spørger, hvad det er jeg arbeider paa. Svar: det vilde blive for vidtløftigt nu at fortælle  Dig, kun saa meget: det er den videre Udførelse af Enten Eller. Vær stærk min kjære Emil! Ikke vil jeg fremstille mig som det Forbillede, det være langtfra mig, men troe mig, jeg har mangelunde Smerter, mange tunge Øieblikke, men endnu har jeg ikke fortvivlet. Den Tid maa imidlertid komme da jeg ogsaa for Verden maa kaste Masken, maa vise, hvad der boer i mig. Det vil vist ikke blive en Tid uden Kamp og Gjenvordigheder, jeg frygter den med Guds Hjælp ikke; men ogsaa dertil hørte, at jeg maatte staae alene, at den Vedkommende først maatte faae et andet Indtryk af mig. Endnu engang vær stærk, du har bedet mig om at holde paa Dig, det kan jeg vel ikke og det behøves vel hell. ei, men mine Breve kan dog ikke gjøre Dig svag. Hils din Fader og Moder. Modtag min Hilsen min kjære Emil. din S. K.   Min Addresse er JägerstraßeNo 57 eine Treppe hoch. Det vilde være for vidtløftigt og for kjedsommeligt at fortælle Dig alle de Plager jeg har haft med en Bedrager af Vært. Nu bor jeg godt, stort og fornemt med Fløi-Dørene aabne for min Stue og Gud være lovet som altid ogsaa for mit Sind.   An dem Hern Cand: theol. Emil Boesen.     Copenhagen   fr.    Philosophgangen  
+
+## Kommentarnote b-1987 (b79/kom.xml, ordret)
+*Denne note omslutter selve figuren i kommentarbindet.*
+Lemma: Du skriver saa utydeligt ... det Hele løber sammen
+
+sml. illustration 6.
+
+## Kommentarnote b-2318 (b79/kom.xml, ordret)
+Lemma: Horsens d 7de Marts 1850
+
+og .
+
+## Kommentarnote b-2319 (b79/kom.xml, ordret)
+Lemma: gik ud af Byen, ud af Landeveien
+
+sigter formentlig til en af de to landeveje, der hhv. nordpå førte til Skanderborg og sydpå til Vejle.
+
+## Kommentarnote b-2320 (b79/kom.xml, ordret)
+Lemma: noget Mærkeligt
+
+bemærkelsesværdigt, interessant.
+
+## Kommentarnote b-2321 (b79/kom.xml, ordret)
+Lemma: siden jeg reiste
+
+Emil Boesen forlod København ml. den 19. og den 22. dec. 1849 ().
+
+## Kommentarnote b-2322 (b79/kom.xml, ordret)
+Lemma: Stillings Piece
+
+sigter til P.M. Stillings stærkt SK-påvirkede stridsskrift Om den indbildte Forsoning af Tro og – Viden med særligt Hensyn til Prof. Martensens »christelige Dogmatik.« Kritisk-polemisk Afhandling, Kbh. 1850, ktl. 802 (forkortet Om den indbildte Forsoning af Tro og – Viden), averteret som udkommet i Berlingske Tidende, nr. 303, den 22. dec. 1849; skriftet består af 8 upaginerede og 95 paginerede sider. Senere fulgte pjecen Et Par Spørgsmaal til Professor C.E. Scharling i Anledning af hans saakaldte Anmeldelse af Dr. Martensens christelige Dogmatik, Kbh. 1850, averteret som udkommet i Adresseavisen, nr. 113, den 16. maj 1850; pjecen er på 23 sider. Med reference til striden om tro og viden foranlediget af H.L. Martensens Den christelige Dogmatik, Kbh. 1849, ktl. 653, averteret som udkommet i Adresseavisen, nr. 167, den 19. juli 1849, skrev Emil Boesen i et brev af 26. okt. 1849 til sin svoger stiftsprovst C.F. Balslev, at »Søren Kierkegaard kommer til at staae med Palmer i Hænderne, og han kan lade de Andre slaaes uden personlig at tage Deel i Striden, i det Mindste ikke for Øieblikket«, citeret i B&A bd. 2, s. 108, fra et brev i privat eje; citatet er ikke verificeret. – Stillings: Peter Michael Stilling (1812-69), da. filosof; opgav teologistudiet kort før eksamen, men fik senere dispensation til at disputere for den filosofiske magistergrad med afhandlingen Den moderne Atheisme eller den saakaldte Neohegelianismes Conseqvenser af den hegelske Philosophie, Kbh. 1844, ktl. 801. Han havde i begyndelsen af 1840'erne gjort sig til talsmand for en konservativ hegelianisme, som han i slutningen af årtiet – under påvirkning fra SKs skrifter – tog stærkt afstand fra. Efter en studierejse virkede han 1846-50 som privatdocent.
+
+## Kommentarnote b-2323 (b79/kom.xml, ordret)
+Lemma: hvad der nu for nylig har staaet i Kirketidenden
+
+henviser til L. Helwegs artikel »Prof. Martensens Dogmatik og dens Angribere« i Dansk Kirketidende, udg. af R. Th. Fenger og C.J. Brandt (bd. 1-8, 1845-53, ktl. 321-325), nr. 21 og nr. 22, hhv. den 24. feb. og den 3. marts 1850, bd. 5, sp. 345-357 og sp. 369-373. Heri skriver Helweg () om SKs bekæmpelse af den spekulative teologi, sp. 349-353, og om P.M. Stillings kritiske afhandling Om den indbildte Forsoning af Tro og – Viden (), sp. 369f.
+
+## Kommentarnote b-2325 (b79/kom.xml, ordret)
+Lemma: Enten – Eller
+
+Enten – Eller. Et Livs-Fragment, udg. af Victor Eremita, bd. 1-2, Kbh. 1843; 2. udg. udkom i ét bind den 14. maj 1849, se tekstredegørelsen til Enten – Eller i SKS K2-3, 65.
+
+## Kommentarnote b-2326 (b79/kom.xml, ordret)
+Lemma: den lille Helveg skulde holde sig til sin Kirkehistorie
+
+sigter til Ludvig Nicolaus Helveg el. Helweg (1818-83), da. præst og kirkehistoriker; 1840 cand.theol., fik s.å. accessit for en prisopgave i orientalsk filologi, 1840-43 huslærer på Fyn, blev 1843 redaktør af tidsskriftet For Literatur og Kritik, udg. af »Fyens Stifts literære Selskab«, 1848 medstifter af »Selskabet for Danmarks Kirkehistorie«, 1855 dr.phil. på en kirkehistorisk afhandling om de da. domkapitler, og fra 1857 residerende kapellan ved St. Knuds Kirke i Odense.
+
+## Kommentarnote b-2327 (b79/kom.xml, ordret)
+Lemma: jeg lever her alene
+
+Emil Boesen blev først gift den 1. maj 1850 ().
+
+## Kommentarnote b-2328 (b79/kom.xml, ordret)
+Lemma: 9 til 3 ½
+
+kl. 9 formiddag til kl. 15.30 om eftermiddagen.
+
+## Kommentarnote b-2329 (b79/kom.xml, ordret)
+Lemma: først Skriftemaal, saa Altergang, naar Sognepræsten har prædiket
+
+Skriftemålet fandt sted kl. 9 forud for højmessen, der begyndte kl. 10. Altergang lå i forlængelse af højmessen. If. Dannemarkes og Norges Kirke-Ritual, Kbh. 1762 [1685], der stadig var gældende i 1850, var skriftemål og altergang kirkelige handlinger og ikke en integreret del af højmesseritualet. – Sognepræsten: siden juni 1841 Peter Tetens (1791-1876), der i 1861 blev afløst af Emil Boesen, jf. S.V. Wiberg En almindelig dansk Præstehistorie () bd. 1, s. 682.
+
+## Kommentarnote b-2330 (b79/kom.xml, ordret)
+Lemma: prædike i Hospitalet
+
+Som residerende kapellan var Emil Boesen også hospitalspræst ().
+
+## Kommentarnote b-2331 (b79/kom.xml, ordret)
+Lemma: Aftensang i Hovedkirken
+
+aftensang el. eftermiddagsgudstjeneste, formentlig kl. 14 i Vor Frelsers Kirke i Horsens (). Gudstjenesterne synes ikke at være blevet annonceret i Horsens Avis eller Skanderborg Amtstidende, heller ikke i nr. 35, lørdag den 2. marts 1850.
+
+## Kommentarnote b-3301 (b79/kom.xml, ordret)
+Lemma: hentager mig formeget
+
+overvælder mig for meget, får for meget magt over mig.
+
+## Kommentarnote b-2332 (b79/kom.xml, ordret)
+Lemma: tovlige
+
+gengivelse af den dialektale udtale af 'tåbelige', tossede.
+
+## Kommentarnote b-2333 (b79/kom.xml, ordret)
+Lemma: den grevelige Familie paa Boller
+
+sigter til den grevelige familie efter Mogens Frijs til Frijsenborg, der i 1663 erhvervede Boller Hovedgård, beliggende i Bjerre herred, SØ for Horsens. Da grev Christian Frijs, den sidste mandlige efterkommer efter Mogens Frijs, døde i 1763, overgik Boller og de øvrige dele af grevskabet Frijsenbrog til hans døtre. I 1844 blev Boller Hovedgård lagt endeligt ind under Grevskabet Frijsenborg og tilhørte dette grevskabs ejer, grev C. Juel-Wind-Frijs. Se J.P. Trap Statistisk-topografisk Beskrivelse af Kongeriget Danmark, »Speciel Deel«, bd. 2, del II (), s. 856 og s. 857f.
+
+## Kommentarnote b-2334 (b79/kom.xml, ordret)
+Lemma: Skriftetalerne
+
+den korte tale, af ca. 10 minutters varighed, som præsten holdt under skriftemålet i skriftestolen, et særligt aflukket rum i kirken.
+
+## Kommentarnote b-2335 (b79/kom.xml, ordret)
+Lemma: Kirke-Forretningerne
+
+kirkelige handlinger så som skriftemål, dåb, konfirmation, bryllup og begravelse.
+
+## Kommentarnote b-3125 (b79/kom.xml, ordret)
+Lemma: Communal-Bestyrelsen
+
+bestod af en borgmester, der tillige var byfoged og rådstueskriver (dvs. forestod skriveforretningerne på rådhuset), samt af tolv borgerrepræsentanter. Se J.P. Trap Statistisk-topografisk Beskrivelse af Kongeriget Danmark, »Speciel Deel«, bd. 2, del II (), s. 640.
+
+## Kommentarnote b-2336 (b79/kom.xml, ordret)
+Lemma: Formandskabet i Skole-Commissionen
+
+If. promemoria af 30. dec. 1809 var sognepræsten født medlem af skolekommissionen; ofte var han også kommissionens formand.
+
+## Kommentarnote b-2337 (b79/kom.xml, ordret)
+Lemma: tiggefærdig
+
+så fattig, at man (næsten) er nødt til at tigge, ludfattig.
+
+## Kommentarnote b-2338 (b79/kom.xml, ordret)
+Lemma: Moders Død
+
+Sophie Frederikke Boesen () døde i en alder af 70 år den 8. jan. og blev bisat fra Vor Frue Kirke i København den 14. jan. 1850, jf. Vor Frue Kirkes ministerialbog for døde, gældende for okt. 1835 - marts 1853, s. 396.
+
+## Kommentarnote b-2339 (b79/kom.xml, ordret)
+Lemma: det er ikke behageligt at vænnes fra
+
+hentyder formentlig til slutningen på hver af de fire 'stemninger' i Frygt og Bæven (1843). »Stemning I« slutter således: »Naar Barnet skal vænnes fra, da sværter Moderen sit Bryst, det var jo og [også] Synd, at Brystet skulde see lifligt ud, naar Barnet ikke maa faae det. Saa troer Barnet, at Brystet har forandret sig, men Moderen hun er den samme, hendes Blik er kjærligt og ømt som altid. Held den, der ikke behøvede forfærdeligere Midler for at vænne Barnet fra!« SKS 4, 108,5-9. »Stemning II« således: »Naar Barnet er blevet stort og skal vænnes fra, da skjuler Moderen jomfrueligt sin Barm, saa har Barnet ingen Moder mere. Held det Barn, der ikke anderledes tabte Moderen!« SKS 4, 109,14-16. »Stemning III« således: »Naar Barnet skal vænnes fra, da er ei heller Moderen uden Sorg, at hun og Barnet mere og mere skilles ad; at Barnet, der først laae under hendes Hjerte, senere dog hvilede ved hendes Bryst, ikke skal være saa nær mere. Saa sørge de sammen den korte Sorg. Held den, der beholdt Barnet saa nær, og ikke behøvede at sørge mere!« SKS 4, 110,17-21. Og »Stemning IV« således: »Naar Barnet skal vænnes fra, da har Moderen den stærkere Føde ved Haanden, at Barnet ikke skal omkomme. Held den, der har den stærkere Føde ved Haanden!« SKS 4, 111,15-17.
+
+## Kommentarnote b-2340 (b79/kom.xml, ordret)
+Lemma: Fader
+
+Johannes Boesen ().
+
+## Kommentarnote b-2341 (b79/kom.xml, ordret)
+Lemma: Du skriver ... støde paa Vanskeligheder ... skal jeg skrive
+
+se SKs brev af 7. jan. 1850 til Emil Boesen, Brev 114 i SKS 28, 187,19f.
+
+## Kommentarnote b-2342 (b79/kom.xml, ordret)
+Lemma: besøge Fader
+
+If. folketællingen feb. 1850 (Vestre kvarter) boede Johannes Boesen () i Stormgade matrikelnr. 196, stuen.
+
+## Kommentarnote b-2343 (b79/kom.xml, ordret)
+Lemma: besøge Louise Holtermann
+
+Emil Boesens forlovede (). Hvor Lovise Holtermann logerede i København, har ikke ladet sig lokalisere.
+
+## Kommentarnote b-2344 (b79/kom.xml, ordret)
+Lemma: naar hun kommer her
+
+If. næste afsnit i brevet vil Emil Boesen rejse til København i sidste halvdel af april 1850 for at hente sin forlovede, Lovise Holtermann, til Horsens som sin ægtefælle ().
+
+## Kommentarnote b-2345 (b79/kom.xml, ordret)
+Lemma: skrive til mig
+
+se SKs brev, stemplet den 12. april 1850, til Emil Boesen, Brev 116 i SKS 28, 190-192.
+
+## Kommentarnote b-2346 (b79/kom.xml, ordret)
+Lemma: Naar jeg har holdt Confirmation
+
+If. »Supplement til Horsens Kirkes Chordegns Ministerialbog autoriseret 31 Dec 1828, indeholdende Confirmerede fra Aar 1838« og frem til 1863, holdt sognepræsten forårskonfirmation på 1. søndag efter påske og den residerende kapellan på 2. søndag efter påske. Af ministerialbogen, bl. 92, fremgår det, at Emil Boesen i 1850 havde forårskonfirmation på 2. søndag efter påske, der faldt den 14. april.
+
+## Kommentarnote b-3126 (b79/kom.xml, ordret)
+Lemma: for at hente L:
+
+Lovise Holtermann ().
+
+## Kommentarnote b-3128 (b79/kom.xml, ordret)
+Lemma: i Dag ... holdt stort Heste-Marked
+
+Om markeder oplyses det i J.P. Trap Statistisk-topografisk Beskrivelse af Kongeriget Danmark, »Speciel Deel«, bd. 2, del II (), s. 640: »Af Markeder holdes i Horsens hver Onsdag i Fasten indtil den stille Uge med Heste, i Mai med Kvæg, i Juni og Septbr. med sædvanlige Varer og i Decbr. med Heste.« Emil Boesens brev er dateret den 7. marts 1850, der faldt på en torsdag ml. 3. søndag i fasten og midfaste søndag.
+
+## Kommentarnote b-2347 (b79/kom.xml, ordret)
+Lemma: d. 8de
+
+den 8. marts 1850 var en fredag, hvor Emil Boesen formentlig var begyndt at tænke på sin prædiken til midfastesøndag.
+
+## Kommentarnote b-2348 (b79/kom.xml, ordret)
+Lemma: danne Themaer til Prædikener
+
+udtænke et tema for hver enkelt af de foreskrevne prædiketekster og bygge den dertilhørende prædiken over et sådant tema, i fagsprog: at skrive tematiske prædikener.
+
+## Kommentarnote b-2349 (b79/kom.xml, ordret)
+Lemma: Emil Boesen
+
+SKs nære ven Emil Boesen ().
+
+## Kommentarnote b-2350 (b79/kom.xml, ordret)
+Lemma: Magister S. Kierkegaard
+
+SK erhvervede den 29. sept. 1841 den filosofiske magistergrad på afhandlingen Om Begrebet Ironi med stadigt Hensyn til Socrates, i SKS 1, 59-357.
+
+## Kommentarnote b-2352 (b79/kom.xml, ordret)
+Lemma: Rosenborggade
+
+SK boede i Rosenborggade matrikelnr. 156 A, 1. sal, gadenr. 7 (se kort 2, C1), fra okt. flyttedag 1848 til april flyttedag 1850, da han flyttede til Nørregade matrikelnr. 43, 2. sal i forhuset, gadenr. 35 (se kort nr. 2, B1).
+
+## Kommentarnote b-2353 (b79/kom.xml, ordret)
+Lemma: bet:
+
+betalt, dvs. portoen er betalt af afsenderen ().
+
+## Kommentarnote b-1983 (b79/kom.xml, ordret)
+Lemma: Emil
+
+SKs nære ven Emil Boesen ().
+
+## Kommentarnote b-1984 (b79/kom.xml, ordret)
+Lemma: d. 1 Jan. 42
+
+den 1. jan. 1842, på hvilket tidspunkt SK opholdt sig i Berlin ().
+
+## Kommentarnote b-1985 (b79/kom.xml, ordret)
+Lemma: Tak for Brevet
+
+Emil Boesens brev synes ikke at være bevaret.
+
+## Kommentarnote b-1986 (b79/kom.xml, ordret)
+Lemma: betræffende
+
+angående.
+
+## Kommentarnote b-1988 (b79/kom.xml, ordret)
+Lemma: Du spørger om min Elvira
+
+.
+
+## Kommentarnote b-3107 (b79/kom.xml, ordret)
+Lemma: i Aften i en Loge har siddet Scenen ualmdl. nær
+
+If. Almanach für Freunde der Schauspielkunst auf das Jahr 1842 (), s. 24, var det operaen Die Stumme von Portici, der var på repertoiret i Opernhaus den 1. jan. 1842.
+
+## Kommentarnote b-1989 (b79/kom.xml, ordret)
+Lemma: den Historie angaaer, i hvilken jeg ... spiller Hoved-Rollen
+
+hentyder til historien om SKs brudte forlovelse med Regine Olsen ().
+
+## Kommentarnote b-1990 (b79/kom.xml, ordret)
+Lemma: at troe skjøndt Du ikke saae
+
+allusion til Joh 20,29, hvor Jesus siger til Thomas: »Salige er de, som ikke har set og dog tror.« Se også 1 Pet 1,8.
+
+## Kommentarnote b-3300 (b79/kom.xml, ordret)
+Lemma: uanfægtede
+
+dvs. uanfægtet.
+
+## Kommentarnote b-1991 (b79/kom.xml, ordret)
+Lemma: Trediemand
+
+(en) tredje person, som er sagen og forholdet ml. de to uvedkommende, (en) udenforstående.
+
+## Kommentarnote b-1992 (b79/kom.xml, ordret)
+Lemma: et af Dine foregaaende Breve ... betroet sig til hendes Søstre
+
+Brevet synes ikke at være bevaret. Sml. SKs brev af 14. dec. 1841 til Emil Boesen, se Brev 82 i SKS 28, 152,22-27. – hendes Søstre: .
+
+## Kommentarnote b-1994 (b79/kom.xml, ordret)
+Lemma: desto værre
+
+desværre.
+
+## Kommentarnote b-3108 (b79/kom.xml, ordret)
+Lemma: staaende mell. 11 og 5
+
+talemåde i betydningen: i uafgjorthed, i uvished om en afgørelse, i en kritisk el. pinagtig situation.
+
+## Kommentarnote b-1996 (b79/kom.xml, ordret)
+Lemma: i et foregaaende Brev ... bedrage hele Verden ... mig en ligegyldig Ting
+
+sigter til SKs brev af 14. dec. 1841 til Emil Boesen, nr. 82 i SKS 29, 152,9-12.
+
+## Kommentarnote b-1997 (b79/kom.xml, ordret)
+Lemma: Familien
+
+Regine Olsens familie ().
+
+## Kommentarnote b-1998 (b79/kom.xml, ordret)
+Lemma: allehaande
+
+alle slags.
+
+## Kommentarnote b-1999 (b79/kom.xml, ordret)
+Lemma: skrevet Dig det til
+
+fast udtryk i breve: skrevet det til dig.
+
+## Kommentarnote b-2000 (b79/kom.xml, ordret)
+Lemma: den videre Udførelse af Enten Eller
+
+sigter formentlig til »Forførerens Dagbog« i første del af Enten – Eller ().
+
+## Kommentarnote b-2001 (b79/kom.xml, ordret)
+Lemma: det være langtfra mig
+
+det kunne ikke falde mig ind.
+
+## Kommentarnote b-2002 (b79/kom.xml, ordret)
+Lemma: mangelunde
+
+mange (forskellige) slags, mangeartede.
+
+## Kommentarnote b-2003 (b79/kom.xml, ordret)
+Lemma: din Fader og Moder
+
+Johannes og Sophie Boesen ().
+
+## Kommentarnote b-2004 (b79/kom.xml, ordret)
+Lemma: Jägerstraße No 57 eine Treppe hoch
+
+Jägerstraße nr. 57, 1. sal, beliggende på hjørnet af Jägerstraße og Charlottenstraße ved Gendarmenmarkt i midten af Berlin i nærheden af Unter den Linden. Her lejede SK sig ind i huset hos apoteker G. Lange, der ejede huset og dér drev apoteket »König Salomon«, fra 1. juli 1841 i Jägerstraße 57, indtil da i Jägerstraße 51, se J.W. Boike's Allgemeiner Wohnungsanzeiger für Berlin auf das Jahr 1841 (), s. 233, se også udgaven fra 1842, s. 240.
+
+## Kommentarnote b-2005 (b79/kom.xml, ordret)
+Lemma: en Bedrager af Vært
+
+sigter til viktualiehandler A. Röhring, SKs husvært i Mittelstraße ().
+
+## Kommentarnote b-3288 (b79/kom.xml, ordret)
+Lemma: An dem Hern
+
+dvs. An den Herrn.
+
+## Kommentarnote b-2006 (b79/kom.xml, ordret)
+Lemma: Cand: theol.
+
+Emil Boesen blev cand.theol. i 1834.
+
+## Kommentarnote b-2007 (b79/kom.xml, ordret)
+Lemma: fr.
+
+franko el. franco ().
+
+## Kommentarnote b-2008 (b79/kom.xml, ordret)
+Lemma: Philosophgangen
+
+.

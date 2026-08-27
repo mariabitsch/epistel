@@ -1,5 +1,5 @@
 {
- "schemaVersion": "0.2.0",
+ "schemaVersion": "0.3.0",
  "language": "da",
  "source": {
   "repository": "https://github.com/kb-dk/SKS_tei",
@@ -39,6 +39,12 @@
    "license": "CC-BY-NC-SA-4.0",
    "licenseNote": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/"
   },
+  "captions": {
+   "path": "context/captions.json",
+   "count": 40,
+   "license": "CC-BY-NC-SA-4.0",
+   "licenseNote": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
   "publications": {
    "path": "context/publications.json",
    "count": 38,
@@ -59,6 +65,7 @@
   }
  },
  "schemas": {
+  "captions": "schema/captions.schema.json",
   "images": "schema/images.schema.json",
   "letter": "schema/letter.schema.json",
   "manifest": "schema/manifest.schema.json",

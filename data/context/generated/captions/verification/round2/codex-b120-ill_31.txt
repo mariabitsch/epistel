@@ -1,0 +1,164 @@
+Reading additional input from stdin...
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03ece-3ba1-71a1-8e2c-8cba81ae8190
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b120/ill_31.jpg
+
+Billedfil: `data/vendor/b120/ill_31.jpg` (tilladt primærkilde).
+
+## Manifest-post: b120/ill_31.jpg (export/images.json)
+```json
+{
+ "id": "b120/ill_31.jpg",
+ "path": "letters/b120/ill_31.jpg",
+ "source": {
+  "path": "data/v1.9/b120/ill_31.jpg",
+  "sha256": "30f9f44dba08cc9d8561c898f2f3f1eb2fad9a5966832774f566a4e5b276e28c"
+ },
+ "figures": [
+  {
+   "volume": "b120",
+   "file": "txt.xml",
+   "xmlId": "ill_31",
+   "type": null,
+   "rend": "recto",
+   "url": "../B120/ill_31.jpg",
+   "head": [
+    "Brev 121, bl. [1r]"
+   ],
+   "figDesc": null,
+   "letter": "121",
+   "letterXmlId": "n121"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b120",
+   "file": "txt.xml",
+   "xmlId": "id7ec0fd7a-74e3-43cd-b848-485696b6234b",
+   "n": "1r",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b120/ill_31.jpg",
+   "letter": "121",
+   "letterXmlId": "n121"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- Brev 121, bl. [1r]
+
+## Brev 121 (b120) — overskrift og læsetekst
+Overskrift: Fra SK · 2. juni 1840 · til Københavns Universitet
+
+   Brev 121, bl. [1r] S. V. Theologorum ordini in universitate Hafniensi!     S. P. D.     Severinus Aabye Kierkegaard.      Natus sum Hauniæ 1813 d. 5. Mai, Michael Petersen Kierkegaard, olim mercatorem, jam defunctum veneror. Dimissus c. laude ex schola privata Haufniensi 1830, quum priora examina hujus nostræ universitatis L E P E O. absolvissem, ad theologiam animum et mentem ita contuli, ut exegeticas et historicas disciplinas amplecti atque retinere maxime mihi haberem propositum. Frequentavi igitur assidue prælectiones hujus nostræ universitatis; quibus temporibus quanti ad me ex hisce prælectionibus redundaverint fructus, quanta subsidia, equidem non possum non hodie grato animo recordari. Decursu vero temporum, quum in dies magis magisque fines theologiæ egrederer, pleno vento ad illud philosophiæ studium, quod tunc temporis  præcipue inter nos innotuit atque esplenduit, delatus, in animum induxi Brev 121, bl. [1v]neque me, qui theologiæ, neque theologiam esse, quæ mihi satisfaceret, et omnino theologiæ valedixi. Quæ quum ita essent, libere fateor, me, ni mors patris me voto quodammodo obstrinxisset, nunquam a me impetrasse, ut vestigia jam derelicta studia jam oblivioni  tradita denuo succiperem. Fluctus igitur renatare conatus, qui quondam feliciora auspicatus eram, nunc beatior ad vos redeo professores summe venerabiles, et studia mea vobis quam maxime commendata velim.    Hauniædie 2 Junii. 1840.    Ex vetere Testamento legi: Genesin, XVI psalmos ex primo libro psalmorum, librum quartum psalmorum, IX pr: capita Exodi. – 
+
+## Kommentarnote b-2488 (b120/kom.xml, ordret)
+Lemma: S. V. Theologorum ordini in universitate Hafniensi ... Hauniæ die 2 Junii. 1840
+
+lat., Søren Aabye Kierkegaard hilser hjerteligt det højstærede kollegium af teologer på Københavns Universitet. / Jeg blev født i København den 5. maj 1813 og mindes [min fader,] den tidligere købmand, nu afdøde Michael Petersen Kierkegaard med ærefrygt. Da jeg som dimittend med førstekarakter fra en privatskole i København havde bestået de indledende eksaminer på dette vort universitet, indkaldt med udmærkelse, rettede jeg min opmærksomhed og koncentration mod teologien således, at jeg besluttede mig for særligt at fordybe mig i og opholde mig ved de eksegetiske og historiske discipliner. Jeg har derfor flittigt overværet forelæsningerne på dette vort universitet. Hvor stort et udbytte, der dengang skyllede ind over mig fra netop disse forelæsninger, og til hvilken støtte de var, kan jeg i dag slet ikke mindes uden taknemlighed. Mens jeg, som tiden gik, imidlertid bevægede mig længere og længere væk fra teologiens enemærker, var alle sejl sat til for det studium af filosofien, som på det tidspunkt blev kendt og lyste op hos os. Optaget heraf indså jeg, at hverken kunne jeg tilfredsstille teologien, eller teologien tilfredsstille mig, så jeg opgav teologien fuldstændigt. Jeg indrømmer åbent, at jeg ikke af mig selv var nået frem til den beslutning, at jeg atter skulle træde ind på den sti, jeg havde forladt, og genoptage de studier, der var gået i glemsel, hvis min faders død ikke havde forpligtet mig ved en form for løfte. Idet jeg altså har anstrengt mig for at svømme tilbage gennem bølgerne – i sin tid kom jeg heldigere fra start – vender jeg nu tilbage til jer, højstærede professorer, og jeg ønsker hermed at anbefale jer mine studier på det kraftigste. / København den 2. juni 1840. – S. V.: lat. forkortelse enten for 'summe venerabili' el. for 'summe venerabilium'. – S. P. D.: fast forkortelse for den lat. brevhilsen 'salutem plurimam dicit'. – Michael Petersen Kierkegaard: egl. Michael Pedersen Kierkegaard (1756-1838), døbt Michel den 12. dec. 1756 i Sædding Kirke, jf. »Ministerial-Bog over særdeles Kirkelige-Forretninger i Sæding fra Aar 1703«, fol. 134; løste i 1780 borgerskab som hosekræmmer i København, opnåede otte år senere tilladelse til at importere kolonialvarer og videresælge dem en gros, trak sig i en alder af 40 år tilbage med en betragtelig formue, som han i tiden efter forøgede, formentlig som rentier og investor. Efter sin første kones død giftede han sig i 1797 med Anne Lund, med hvem han fik syv børn, tre døtre, som var de ældste, og fire sønner, hvoraf P.C. Kierkegaard var den ældste og SK den yngste. Købte i 1808 ejendommen på Nytorv, Vestre kvarter, matrikelnr. 2 (se kort 2, B1-2), hvor han boede fra 1809 til sin død. – c. laude: cum laude, lat., med udmærkelse (førstekarakter ved eksamen). – ex schola privata Haufniensi: lat., sigter til Borgerdydsskolen, københavnsk privatskole for borgerskabets sønner, stiftet af Selskabet for Borgerdyd og åbnet den 1. maj 1787, to år senere delt i to skoler, hvoraf den ene blev til Borgerdydskolen på Christianshavn og den anden til Borgerdydsskolen i København, der fra 1813 fik til huse på første og anden sal i Den Gyldendalske Boghandels Gård i Klareboderne 8, gadenr. 3 (se kort 2, C2), og som på samme tid var kommet under Michael Nielsens ledelse (se nedenfor). Fra Borgerdydsskolen kunne drengene dimitteres til Københavns Universitet for dér at tage den adgangsgivende 'examen artium', svarende til senere tiders studentereksamen. – L E P E O: fast lat. forkortelse for 'laude (el. laudabilis ()) et publico encomio ornatus', normalt gengivet på da. med udtrykket 'indkaldt med udmærkelse'; tilføjelsen 'publico encomio ornatus' betyder egl. 'hædret med offentlig ros', hvilket hentyder til den praksis, at en studerende, der havde taget eksamen med karakteren 'udmærkelse' i tillæg som en yderligere anerkendelse kunne blive 'indkaldt' til ros hos rektor (jf. 'laudabilis præ ceteris' ()).
+
+## Kommentarnote b-2489 (b120/kom.xml, ordret)
+Lemma: Ex vetere Testamento legi: Genesin ... IX pr: capita Exodi
+
+lat., Af Det gamle Testamente har jeg læst: Første Mosebog, 16 salmer fra Salmernes første Bog, Salmernes fjerde Bog, de første 9 kapitler i Anden Mosebog.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b120/ill_31.jpg",
+  "alt": "Fotografi af et håndskrevet brev: ét blad cremefarvet papir, beskrevet på den ene side med brunt blæk i en skråt hældende kursivhånd. Den øverste halvdel af arket står tom. Midt på siden står tre linjer for sig: en lang linje, derunder tre bogstavforkortelser, og længere ude til højre et navn. Nederste halvdel rummer en tætskrevet tekstblok på omkring femten linjer. To korte indskud er skrevet ind over linjerne i blokkens øverste del, og et enkelt ord nær blokkens slutning er streget ud med tykt, mørkt blæk. Øverst i højre hjørne står ét ord for sig med en anden, mere løkket skrift, og nederst i venstre hjørne står et kort nummer af tal og bogstaver. Et svagt lodret spor løber ned gennem arket nær højre kant.",
+  "caption": "Brev 121 er på latin, og halvdelen af arket står blankt, før hilsenen begynder: den 2. juni 1840 henvender Kierkegaard sig til de teologiske professorer på Københavns Universitet under sit eget navn sat på latin, »Severinus Aabye Kierkegaard«. Han begynder med sin fødsel og sin afdøde fader, og siden standser midt i sætningen om, at alle sejl var sat til for filosofien; at han opgav teologien helt, står først på bagsiden. Eksamensformlerne »c. laude« og »L E P E O« er presset ind over linjerne, og ét ord er streget så grundigt ud, at det ikke er til at læse.",
+  "credit": null,
+  "sources": [
+    "billedet: ét blad lyst, cremefarvet papir fotograferet med hvid baggrund omkring; kun den ene side er beskrevet",
+    "billedet: brunt blæk, skråt hældende kursivhånd, hele siden skrevet med samme hånd bortset fra ordet i øverste højre hjørne",
+    "billedet: den øverste halvdel af arket er tom; hilsenen begynder omtrent midt på siden",
+    "billedet: tre selvstændige linjer midt på siden — en lang linje, derunder en kort forkortelse på tre bogstaver, og længere til højre et navn",
+    "billedet: tekstblok på ca. tyve tætskrevne linjer i nederste halvdel (linjetallet er talt løst og gengives derfor kun i alt-teksten som »omkring tyve«)",
+    "billedet: to korte indskud skrevet ind over linjerne øverst i tekstblokken; de læses som »c. laude« og »L E P E O« — begge former står også i pakkens læsetekst netop dér, hvor de sidder i billedet",
+    "billedet: ét ord midt i tekstblokken er streget ud med tykt, mørkt blæk og kan ikke læses",
+    "pakkens læsetekst, brev 121: »quod tunc temporis  præcipue inter nos innotuit« — det dobbelte mellemrum står netop dér, hvor udstregningen sidder i billedet",
+    "billedet: ét ord for sig i øverste højre hjørne, skrevet med en anden, mere løkket skrift end brevets (læses som »Kierkegaard«, men gengives ikke i captionen)",
+    "billedet: kort nummer af tal og bogstaver nederst i venstre hjørne; for utydeligt til at gengives",
+    "billedet: svagt lodret spor gennem arket nær højre kant (fold eller kant — kan ikke afgøres, derfor »spor«)",
+    "pakken, udgavens head: »Brev 121, bl. [1r]« — grundlag for, at dette er brevets første blad, forsiden",
+    "pakken, manifestet: figure med rend »recto« og pageBreak n=»1r« i brev 121 (b120) — samme grundlag",
+    "pakken, brev 121's overskrift: Fra SK · 2. juni 1840 · til Københavns Universitet — grundlag for datoen og for at kalde skriveren Kierkegaard",
+    "pakkens læsetekst, brev 121: »S. V. Theologorum ordini in universitate Hafniensi!« og navnet »Severinus Aabye Kierkegaard« står øverst, efter »S. P. D.« — grundlag for, at navnet indgår i hilsenen og ikke er en underskrift under brevet",
+    "kommentarnote b-2488 (ordret i pakken): »Søren Aabye Kierkegaard hilser hjerteligt det højstærede kollegium af teologer på Københavns Universitet« — grundlag for »de teologiske professorer på Københavns Universitet« og for, at det er en hilsen",
+    "kommentarnote b-2488 (ordret i pakken): »Jeg blev født i København den 5. maj 1813 og mindes [min fader,] den tidligere købmand, nu afdøde Michael Petersen Kierkegaard med ærefrygt« — grundlag for »sin fødsel og sin afdøde fader«",
+    "kommentarnote b-2488 (ordret i pakken): »var alle sejl sat til for det studium af filosofien« — grundlag for sætningen om sejlene; den latinske form »pleno vento ad illud philosophiæ studium« står som læsetekstens sidste ord før pb-markøren »Brev 121, bl. [1v]«",
+    "pakkens læsetekst: pb-markøren »Brev 121, bl. [1v]« står inde i sætningen (»in animum ... neque me«) — grundlag for »standser midt i sætningen«",
+    "kommentarnote b-2488 (ordret i pakken): »så jeg opgav teologien fuldstændigt« — svarer til »omnino theologiæ valedixi«, som i læseteksten står EFTER [1v]-markøren; grundlag for »står først på bagsiden«",
+    "kommentarnote b-2488 (ordret i pakken): »c. laude: cum laude, lat., med udmærkelse (førstekarakter ved eksamen)« og »L E P E O: fast lat. forkortelse ... normalt gengivet på da. med udtrykket 'indkaldt med udmærkelse'« — grundlag for at kalde de to indskud eksamensformler"
+  ],
+  "note": "Tvivl og fravalg: (1) Kommentarnote b-2488 er brugt som oversættelse af brevets egne ord (latin → dansk), ikke som tilføjet viden — captionen siger intet, brevet ikke selv siger. Notens lange biografiske ekskurser (faderens borgerskab 1780, Nytorv-ejendommen, Borgerdydsskolens historie, dåben i Sædding) er bevidst ikke brugt: de er viden uden om brevet. Note b-2489 (læselisten fra Det gamle Testamente) er heller ikke brugt — den hører til brevets slutning, altså ikke til dette blad. (2) Jeg kalder ikke brevet en »ansøgning«, et »eksamensbrev« eller lignende: hverken billedet, overskriften eller læseteksten siger, hvad det formelt er, og genrebetegnelsen ville være min tilføjelse. Overskriftens modtager er »Københavns Universitet«; jeg bruger brevets egen adressat, de teologiske professorer, som noten oversætter den. (3) Navnet »Severinus Aabye Kierkegaard« står i billedet under »S. P. D.« og altså i hilsenens hoved, ikke som underskrift nederst. Det var min første fejl, og captionen siger derfor »under sit eget navn«, ikke »underskrevet«. At navnet er latiniseret, kan jeg belægge: brevet er latin igennem, og formen afviger fra overskriftens SK. (4) Den udstregede plet midt i tekstblokken: jeg kan se, at noget er streget ud, men ikke hvad — og jeg gætter ikke. At læseteksten har et dobbelt mellemrum netop dér, støtter, at udgaven også lod ordet stå ulæst; jeg har ikke gjort det til en påstand om udgavens praksis. (5) Ordet øverst i højre hjørne læses som »Kierkegaard« med en anden, mere løkket skrift. Jeg gengiver det ikke i captionen og kalder det ikke en arkivpåtegning — hvem der har skrevet det og hvornår, kan hverken billedet eller pakken sige. (6) Nummeret nederst til venstre ligner »1 H. 189 9« eller »1H. 189 g«, men er for utydeligt til at gengives; det er derfor kun beskrevet som et kort nummer, hverken læst eller tolket som signatur/arkivnummer. (7) De to indskud over linjerne læser jeg som »c. laude« og »L E P E O«, fordi begge former står i læseteksten netop dér i sætningen; håndskriften alene ville ikke bære dem. Et tredje muligt indskud kan anes, men jeg tør ikke fastholde det. (8) Papirets alder, format, vandmærke og »naturlig størrelse« er ikke nævnt: intet af det kan afgøres af billedet. Det lodrette spor nær højre kant kalder jeg hverken fold eller beskæring i captionen — det er udeladt dér og hedger i alt-teksten. (9) Blækkets farve kalder jeg brun; på skærmen varierer den mellem brun og næsten sort i de tungest skrevne partier, og jeg har valgt hovedindtrykket. (10) Jeg har ikke talt linjerne præcist; »omkring tyve« er et skøn, som med vilje kun står i alt-teksten. (11) Manifestets versal-quirk i figure-url'en (»../B120/ill_31.jpg«) er en kildedetalje uden betydning for billedteksten og er ikke nævnt.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, tvivl: »omkring tyve linjer« — grok tæller 15",
+      "action": "arbitreret mod billedet: arbitrators egen tælling giver også 15 — rettet til »omkring femten linjer«. Codex var ren."
+    },
+    {
+      "flag": "grok runde 1, tvivl: »midt i blokken« om udstregningen — den sidder i næstsidste linje",
+      "action": "arbitreret mod billedet: bekræftet, udstregningen sidder i blokkens næstsidste linje — rettet til »nær blokkens slutning«."
+    }
+  ]
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{"image":"b120/ill_31.jpg","flags":[{"severity":"fejl","claim":"at han opgav teologien helt, står først på bagsiden","field":"caption","problem":"Grounding packet places the phrase about abandoning theology after the 1v page break, but not at the beginning of the verso; the verso begins mid-sentence with “neque me”."}],"visualNotes":""}
+tokens used
+9.107
+{"image":"b120/ill_31.jpg","flags":[{"severity":"fejl","claim":"at han opgav teologien helt, står først på bagsiden","field":"caption","problem":"Grounding packet places the phrase about abandoning theology after the 1v page break, but not at the beginning of the verso; the verso begins mid-sentence with “neque me”."}],"visualNotes":""}

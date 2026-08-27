@@ -1,0 +1,32 @@
+{
+  "id": "b241/ill_k9.jpg",
+  "alt": "Et bredt, lavt stykke lyst papir beskrevet med håndskrift i mørkt blæk. Otte linjer løbende skrift fylder papirets bredde; den ottende linje ender tidligere end de øvrige og efterlader et tomt stykke til højre. Nederst til højre står to kortere linjer: et enkelt ord og under det underskriften »S. Kierkegaard« med en stor sløjfe på det sidste bogstav. Over anden linje er et lille ord skrevet ind. Papiret har en lodret foldelinje ned gennem midten og en vandret på tværs af den nederste del, begge med et svagt blågrønt skær. Langs højre kant sidder flere brunlige og grå pletter, og en lille mørk plet ses nede midt på arket.",
+  "caption": "Otte linjer og en underskrift: en anbefaling »paa det Varmeste«. Hvem ansøgeren var, ved vi ikke.",
+  "credit": null,
+  "sources": [
+    "billedet: bredt, lavt lyst papirstykke med håndskrift i mørkt blæk",
+    "billedet: otte linjer løbende skrift over papirets bredde, hvor den ottende stopper efter omkring en tredjedel — grundlag for captionens »Otte linjer«",
+    "billedet: to kortere linjer nederst til højre, den nederste tydeligt læselig som underskriften »S. Kierkegaard« med stor sløjfe på sidste bogstav",
+    "billedet: et lille ord skrevet ind over anden linje",
+    "billedet: lodret foldelinje gennem midten og vandret foldelinje over den nederste del, begge med svagt blågrønt skær",
+    "billedet: flere brunlige og grå pletter langs højre kant og en lille mørk plet nede midt på arket",
+    "pakken, manifest-posten: eneste forekomst er et pageBreak i b241/txt.xml med facs=»../b241/ill_k9.jpg«, n=»1r«, rend=»supplied«, letter »256« — grundlag for at knytte billedet til brev 256",
+    "pakken, brev 256's overskrift: »Fra SK · udateret · til ukendt« — grundlag for at kalde skriveren Kierkegaard og for at ansøgeren ikke navngives",
+    "pakken, brev 256's læsetekst: »paa det Varmeste at anbefale ham« (citeret ordret som »paa det Varmeste«)",
+    "pakken, brev 256's læsetekst: »Da Ansøgeren gjennem en Række Aar er mig nøiere Bekjendt« — grundlag for »han har kendt gennem en række år«",
+    "pakken, brev 256's læsetekst: »Hvor almindelig derfor end denne Anbefaling kan lyde, saa meget er vist, Ansøgerens Værdighed er ualmindelig« — grundlag for captionens anden sætning, med de fire ord citeret ordret",
+    "pakken, kommentarnote b-5237 (lemma »Ansøgeren«): »Hvem ansøgeren er, har ikke ladet sig identificere.« — grundlag for »Hvem ansøgeren var, ved vi ikke«",
+    "pakken: ingen figur og dermed ingen head — derfor credit = null"
+  ],
+  "note": "Tvivl og fravalg: (1) Håndskriften er kun delvis læsbar for mig. Det eneste, jeg transskriberer fra billedet selv, er underskriften »S. Kierkegaard«; alt andet ordvalg i captionen kommer fra pakkens læsetekst, ikke fra mit eget øje. Linjeinddelingen i billedet svarer til læseteksten, men jeg påstår ingen ord-for-ord-korrespondance. (2) Ordet over underskriften er ikke gengivet i alt-teksten; læseteksten har »ærbødigst« dér, men jeg kan ikke læse det sikkert i billedet, så alt-teksten siger blot »et enkelt ord«. (3) Linjetallet otte gælder den løbende tekst og tæller ikke de to korte afslutningslinjer med. Tallet er min optælling af billedet; hvis en modlæser tæller anderledes, skal det afgøres mod billedet. (4) Det lille indskud over anden linje: læseteksten har »skjønt« på det sted, men jeg tilskriver ikke indskuddet noget ord — alt-teksten siger kun, at der står et lille ord over linjen. Detaljen er lille, så den kan meget vel blive omstridt af modlæserne. (5) Det blågrønne skær langs foldelinjerne kan være reparation, opklæbning eller en scanningsartefakt; alt-teksten beskriver kun, hvad der ses, uden at forklare det. (6) Pletterne langs højre kant er ikke tolket (fugt, skimmel, lim) — kun beskrevet. (7) Papirets format er bredt og lavt, men jeg påstår ikke, at det er afskåret, en strimmel eller et fragment; heller ikke størrelsen, som billedet ikke oplyser. (8) pageBreak'et bærer rend=»supplied«: bladbetegnelsen »1r« er udgavens egen tilføjelse. Jeg gengiver den derfor ikke og påstår ikke, at billedet viser hele brevet — den synlige tekst løber ganske vist fra læsetekstens første ord til underskriften, men manifestet dokumenterer kun dette ene facs, ikke at brevet kun har ét blad. Captionens »Otte linjer og en underskrift« beskriver derfor billedet, ikke brevets samlede omfang. (9) Kommentarnote b-5237 er brugt, selv om kommentaren ellers kun må bruges til at forstå: den tilføjer ingen viden ud over brevets egen anonymitet (overskriften siger allerede »til ukendt«) — den bekræfter, at anonymiteten ikke er vores uvidenhed alene. Dette er et skøn og bør efterprøves i arbitreringen. (10) Ingen datering nævnt: brevet er udateret, og usikkerheden om dateringen er ikke sagen her — anonymiteten er. (11) Bevidst udeladt: hvad brevet skulle bruges til, hvem det var stilet til, og hvilken stilling der blev søgt. Intet af det står i pakken.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, fejl: ottende linje fylder omkring to tredjedele — det er det tomme stykke, der er en tredjedel",
+      "action": "arbitreret mod billedet: brøken droppet, kun det robuste beskrevet (linjen ender tidligere, tomt stykke til højre). Codex var ren."
+    },
+    {
+      "flag": "overlaps-undersøgelsen (doktor-runden, Maria 2026-08-26): captionen gengav brevets ærinde parallelt med Notabenes resumé (HØJ overlap)",
+      "action": "forkortet mod billedet — subtraktivt/omstillet, ingen nye påstande. Tidligere ordlyd i audit-sporet (git)."
+    }
+  ]
+}

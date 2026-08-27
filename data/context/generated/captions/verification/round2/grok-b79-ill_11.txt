@@ -1,0 +1,12 @@
+I'll verify the draft against the attached image and the grounding packet only — groundedness and visual accuracy, nothing else.{
+  "image": "b79/ill_11.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "Skriften fylder kun den øverste halvdel af bladet; resten står ubeskrevet.",
+      "field": "alt",
+      "problem": "Den nedre halvdel er ikke ubeskrevet. Samme alt-tekst beskriver straks efter blyantspåskriften »1850« og brøken »29/4« nederst til venstre, som billedet viser. Påstanden modsiger både billedet og teksten selv. Det er den samme visuelle fejl som runde 1's »resten af siden er blank«, kun omformuleret."
+    }
+  ],
+  "visualNotes": "Blyantspåskriften 1850 29/4 nederst til venstre ligger på den ellers tomme nedre halvdel og er det, der gør »ubeskrevet« forkert. Ganske små rødlige pletter anes ved nederste højre kant. Datolinjen har synlig skrift før »29 Apr: 1850« (stedforkortelsen), i tråd med pakkens »Kbhvn. d 29 Apr: 1850«. To brødtekstafsnit, højrestillet underskrift med sløjfe, og at blækskriften ophører omkring midten, stemmer."
+}

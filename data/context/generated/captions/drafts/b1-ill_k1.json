@@ -1,0 +1,31 @@
+{
+  "id": "b1/ill_k1.jpg",
+  "alt": "Et fladt fotograferet opslag af et håndskrevet brev: to tætskrevne sider på lyst, gulnet papir, skrevet med brunsort blæk i en spids, gammeldags kursivskrift, med en lodret fold ned gennem midten og svage vandrette foldespor. Den venstre side rummer slutningen af et brev; enkelte ord er streget ud og erstattet med indskud skrevet med mindre bogstaver mellem linjerne, og siden ender med datolinjen »Khavn 25 Martii 1829«, en underskrift i tre korte linjer og — efter et blankt mellemrum — en enkelt linje nederst. Den højre side begynder forfra med tiltalen »Kiære Peter!« skrevet med en anden, mere skråtstillet hånd; øverst til højre står et par tilføjede linjer og under dem en kortere linje, og siden slutter med et sammenslynget navnetræk, hvorunder der følger et efterskrift på seks-syv linjer. Inde på den højre side sidder et blegt ovalt stempel i rødbrunt, og ude ved sidens ydre kant er papiret plettet brunt i et uregelmæssigt felt.",
+  "caption": "Søren slutter brevet til broderen Peter, daterer det »Khavn 25 Martii 1829« og tilføjer nederst på siden: »Ferdinand skriver formodentlig et Par Ord paa den anden Side.« Og på den modstående side står de — »Kiære Peter!«, skrevet med en anden hånd.",
+  "credit": null,
+  "sources": [
+    "pakkens manifest-post: `figures: []` og én `pageBreaks`-forekomst med `facs: \"../b1/ill_k1.jpg\"`, `letter: \"2\"` — grundlag for at knytte billedet til brev 2 og for at billedet ikke har nogen billedtekst i udgaven",
+    "pakken, afsnittet »Udgavens egne billedtekster (head)«: »(ingen — ingen figur har en head)« — grundlag for credit: null",
+    "pakken, brev 2's overskrift: Fra SK · 25. marts 1829 · til P.C. Kierkegaard — grundlag for at skriveren er Søren og modtageren broderen",
+    "pakken, brev 2's læsetekst: »Kjære Broder!« (åbningen) — grundlag for »broderen«",
+    "pakken, brev 2's læsetekst: »Khavn 25 Martii 1829« (citeret ordret; ordlyden er desuden læselig i billedets venstre side, tredjesidste tekstlinje)",
+    "pakken, brev 2's læsetekst, brevets sidste sætning: »Ferdinand skriver formodentlig et Par Ord paa den anden Side.« (citeret ordret; linjen står i billedet som den nederste, adskilte linje på venstre side)",
+    "billedet, højre side øverst til venstre: tiltalen »Kiære Peter!« er læselig i skriften",
+    "billedet: højre sides skrift er tydeligt en anden hånd end venstre sides — mere skråtstillet, andre bogstavformer, andet navnetræk",
+    "billedet, venstre side: udstregninger og indskud med mindre bogstaver mellem linjerne (bl.a. ved »en lille Kasse« og ved parentesen om Bispernes Hyrdebrev, som pakkens læsetekst også trykker)",
+    "billedet: lodret fold ned gennem midten, svage vandrette foldespor",
+    "billedet, højre side ved inderkanten: blegt ovalt stempel i rødbrunt; ved ydre kant et uregelmæssigt brunt plettet felt",
+    "billedet, højre side: sammenslynget navnetræk efterfulgt af et efterskrift på seks-syv linjer efter et blankt mellemrum"
+  ],
+  "note": "Tvivl og fravalg: (1) Udgaven giver billedet ingen billedtekst overhovedet — det hænger på et `pb facs` i brev 2, ikke på en `figure` med `head`. Captionen er derfor skrevet udelukkende af brevets egen tekst plus billedet; der er ingen udgivertekst at støtte sig til. (2) Håndskriften er kun stedvis læselig for mig. Jeg citerer intet, som ikke også står i pakkens trykte læsetekst, og jeg har kun brugt to steder, hvor jeg selv kan genkende ordene i billedet (datolinjen og »Kiære Peter!«). Resten af skriften er beskrevet som skrift, ikke gengivet. (3) Jeg har IKKE identificeret »Ferdinand«. Kommentarnote b-78 siger, hvem han er, og gengiver hele hans brev ordret, men det er viden, brevet ikke selv har — brevet siger kun, at Ferdinand formodentlig skriver et par ord på den anden side. Captionen lader billedet bekræfte formodningen uden at påstå, hvis hånden er. (4) Af samme grund er intet fra b-78's transskription brugt: hverken Petreas befindende, tjenestepigen, Nicolines finger eller de døde professorer. (5) Jeg påstår ikke, at de to sider er ét foldet ark. Folden er synlig, og manifestets `pageBreaks`-post kalder siden »1v«, men den er `rend: \"supplied\"` — udgavens egen supplering — og bladtællingen kan jeg ikke afgøre af scanningen. Captionen siger derfor »den modstående side«, brevets eget udtryk. (6) Det ovale stempel er ulæseligt for mig. Det ligner et bibliotek- eller arkivstempel, men det er en tolkning; alt-teksten siger kun, at stemplet er der. (7) Det brune felt ved højre kant kunne være rester af lak eller et segl — brevet nævner ganske vist »snøret og forseglet«, men dét gælder kassen med bøgerne, ikke arket. Derfor kaldes feltet kun »plettet«, og koblingen til forseglingen er bevidst ikke gjort. (8) Rettelserne mellem linjerne er med i alt-teksten, men holdt ude af captionen: én ting pr. billedtekst, og vendingen mod den modstående side er den, brevet selv lægger op til. Jeg tilskriver heller ikke de fineste indskud en bestemt hånd — de svarer til ordlyd, læseteksten trykker, men hvem der har ført pennen, kan jeg ikke se. (9) Brevets øvrige indhold (Asps eksamenspjece, Fritz Langes øjne, Nicolines finger, bøgerne i kassen) er ladt ude — captionen holder sig til det, siden på billedet viser. (10) Blækket ser brunsort ud i scanningen; farvegengivelsen kan skyldes reproduktionen, og alt-teksten siger derfor »brunsort« og ikke mere.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, tvivl: »centreret« om hjørneblokkens korte linje — grok ser venstrestillet ombrydning",
+      "action": "arbitreret mod billedet: linjens placering under blokken kan læses begge veje — »centreret« droppet efter konsensus-reglen. Codex var ren."
+    },
+    {
+      "flag": "grok runde 2, tvivl: underskriften er ikke »centreret« (højrestillet), og stemplet sidder ikke ved inderkanten men inde i tekstfeltet",
+      "action": "arbitreret: begge positionspåstande generaliseret (»centreret« droppet; »Inde på den højre side«). Codex runde 2: ren."
+    }
+  ]
+}

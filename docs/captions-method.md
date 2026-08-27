@@ -2,8 +2,18 @@
 
 *How the image captions dataset is made. Established 2026-08-26 by a
 trial round over four images; the full round (all 40 images in
-`export/images.json`) follows the same playbook. The trial round's
-complete audit trail lives in `data/context/generated/captions-trial/`.*
+`export/images.json`) ran the same day by the same playbook, verified
+to zero flags with both foreign readers, doktor-runde folded in. The
+audit trails live in `data/context/generated/captions-trial/` and
+`data/context/generated/captions/`. The dataset itself —
+`data/context/captions.json` — is assembled deterministically from the
+drafts' verified end states by `scripts/assemble_captions.py` and
+guarded by `tests/test_captions.py` (join integrity against the
+manifest, the caption-less decisions, the duplicate-pair rules, a
+draft-07 schema, source of truth `exporter/schemas/captions.schema.json`).
+Since `schemaVersion` 0.3.0 the layer travels in the export too:
+`context/captions.json`, verbatim, CC BY-NC-SA 4.0, its schema published
+in `schema/`.*
 
 ## The product
 
@@ -14,11 +24,19 @@ Per image, keyed by the manifest ids in `export/images.json`:
 - `caption` — Maria Notabene's caption (`docs/notabene.md` §§2–5).
 - `credit` — the edition's photo credit verbatim, where it has one.
 - `sources` — one traceability line per factual claim.
-- `note` — the drafter's doubts and deliberate omissions.
-- `repairs` — every verifier flag and what was done about it.
+- `note` — the drafter's doubts and deliberate omissions. (The notes are
+  long, and that is data in itself: captions proved harder to write than
+  summaries — fewer items, more time, more recorded doubt.)
+- `repairs` — every verifier flag and what was done about it. Lives in
+  the draft files (the audit trail) only: repairs are development
+  history, and the dataset — and with it the export — does not repeat
+  them (Maria, 2026-08-27; the bios' precedent, where repair logs sit in
+  `generated/repairs-*.json`).
 
 The final dataset becomes `data/context/captions.json` (editorial layer,
-CC BY-NC-SA 4.0, independently disposable like every other dataset).
+CC BY-NC-SA 4.0, independently disposable like every other dataset):
+alt/caption/credit plus `sources` and `note`, which travel with the
+product as editorial honesty.
 
 ## The flow
 
@@ -29,8 +47,26 @@ one extension: **the image itself is admissible primary grounding.**
 1. **Grounding packet** per image
    (`scripts/prepare_caption_grounding.py`): the image file + the
    edition's own `<head>` captions + the letter's parsed reading text +
-   the relevant commentary notes. Packets are regenerable and gitignored
-   (`data/context/grounding/captions-trial/`).
+   the relevant commentary notes. The script writes to a gitignored
+   workspace (`data/context/grounding/captions/`), and the round's
+   packets are committed in the audit trail — the full round's 38 in
+   `data/context/generated/captions/grounding/` (verified byte-identical
+   to a fresh run), the trial's four originals in
+   `data/context/generated/captions-trial/grounding/` — so every link
+   of the generation chain is a readable document in the repository
+   (Maria, 2026-08-27). The chain is also joined machine-readably:
+   `data/context/generated/captions/timeline.json`
+   (`scripts/build_caption_timeline.py`) holds each image's ordered
+   stages — prompt, draft state, verdicts, repairs, doktor-runde,
+   final — with every text state extracted from the verification
+   prompts that embed it. Since the full round the packets are derived
+   automatically from `export/images.json`: occurrence letters straight
+   off the manifest, kom.xml figures via their enclosing commentary note
+   and the letters referencing it, all of a letter's notes included —
+   never a silent cap. Images with identical content (same source
+   sha256) share one packet: shared alt text, caption per id against its
+   own letter; an id with no occurrences at all stands caption-less with
+   a reason, like the bio-less persons (Maria, 2026-08-26).
 2. **Draft**: one multimodal Claude Opus agent per image. The rule in
    the prompt: *outside knowledge is inadmissible — admissible grounding
    is the image itself plus the packet; even a true claim is an error if

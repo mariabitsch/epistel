@@ -1,0 +1,304 @@
+Reading additional input from stdin...
+2026-08-26T15:52:01.558528Z ERROR codex_models_manager::cache: failed to load models cache: missing field `base_instructions` at line 97 column 5
+OpenAI Codex v0.146.1
+--------
+workdir: /Users/maria/playground/epistel
+model: gpt-5.6-luna
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: low
+reasoning summaries: none
+session id: 01a03ec5-71d7-7d43-a24d-91ea9e90fe08
+--------
+user
+You are an adversarial verifier in a grounding-only editorial pipeline
+for a Danish digital edition of Søren Kierkegaard's letters. A drafting
+model has written, for ONE image, a Danish alt text (`alt`) and a short
+Danish caption (`caption`) in a curator's voice.
+
+THE RULE YOU ENFORCE: outside knowledge is inadmissible. The only
+admissible grounding is (a) the attached image itself and (b) the
+grounding packet file. Even a TRUE claim must be flagged if it cannot be
+traced to the image or the packet. You are also a second pair of eyes on
+the image: flag any visual misdescription — things the alt/caption say
+are visible but are not, misread handwriting, wrong colours, wrong
+counts, wrong layout. If handwriting in the image is ambiguous, any
+confident reading of it must be flagged unless the packet confirms it.
+
+Do NOT flag: matters of taste, style, or voice; omissions (things the
+texts could have said but don't); the curator's mild irony. Only
+groundedness and visual accuracy.
+
+Read the grounding packet and the draft JSON at the paths given below.
+Then respond with ONLY a JSON object, no prose around it:
+
+{
+  "image": "<image id>",
+  "flags": [
+    {
+      "severity": "fejl" | "tvivl",
+      "claim": "<the claim in the draft, quoted>",
+      "field": "alt" | "caption",
+      "problem": "<why it is ungrounded or visually wrong>"
+    }
+  ],
+  "visualNotes": "<anything you see in the image that contradicts or is
+                  missing from the draft's description, briefly>"
+}
+
+An empty `flags` array means the draft passed.
+
+The grounding packet (contents inline):
+---
+# Grounding: b120/ill_12.jpg
+
+Billedfil: `data/vendor/b120/ill_12.jpg` (tilladt primærkilde).
+
+## Manifest-post: b120/ill_12.jpg (export/images.json)
+```json
+{
+ "id": "b120/ill_12.jpg",
+ "path": "letters/b120/ill_12.jpg",
+ "source": {
+  "path": "data/v1.9/b120/ill_12.jpg",
+  "sha256": "9f318d8d46f5c6dcb2030d02085a3681d23a0ef154a76dfe0ddd570e2d48e200"
+ },
+ "figures": [
+  {
+   "volume": "b120",
+   "file": "txt.xml",
+   "xmlId": "ill_12",
+   "type": null,
+   "rend": "verso",
+   "url": "../b120/ill_12.jpg",
+   "head": [
+    "12. Brev 122, bl. [1r]"
+   ],
+   "figDesc": null,
+   "letter": "122",
+   "letterXmlId": "n122"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b120",
+   "file": "txt.xml",
+   "xmlId": "ida751e2c3-34a1-4fd1-8002-ddbff5cf2201",
+   "n": "1r",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b120/ill_12.jpg",
+   "letter": "122",
+   "letterXmlId": "n122"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 12. Brev 122, bl. [1r]
+
+## Brev 122 (b120) — overskrift og læsetekst
+Overskrift: Fra SK · 2. juni 1841 · til kong Christian VIII
+
+   12. Brev 122, bl. [1r] Til Kongen!     Kjøbenhavnd. 2den Juni 1841.For Deres Majestæt vover Undertegnede herved at fremtræde med allerunderdanigst Ansøgning om Tilladelse til at maatte indlevere sin for Magister-Graden udarbeidede Dissertation, »om Begrebet Ironi med stadigt Hensyn til Socrates«, i Modersmaalet, dog saaledes,  at der vedføies samme latinske Theses, og at det mundtlige  Forsvar bliver paa Latin.Søren Aabye Kierkegaard, Candidat i Theologien med Laudabilis fra Juni 1840, ansøger allerunderdanigst om Tilladelse til at maatte indlevere sin for Magister-Graden udarbeidede Dissertation, »om Begrebet Ironi med stadigt Hensyn til Socrates«, i Modersmaalet, dog saaledes, at der vedføies samme latinske Theses og at det mundtlige Forsvar bliver paa Latin.  Idet jeg fordrister mig til allerunderdanigst at henlede Deres Majestæts allerhøieste Opmærksomhed paa denne min Ansøgning, er det fornemlig Forestillingen om, at ved kongelig Naade en lignende Begunstigelse er bleven saa vel Mag:Hammerich, som Mag:Adler til Deel, der giver mig Mod til at haabe, og det saa meget mere som de ydre Omstændigheder synes aldeles eensartede. Hvad nemlig den Gjenstand angaaer, jeg har foretaget mig til Behandling, da tilhører vel paa en Maade Begrebet Ironi Oldtiden, men tilhører den dog egentlig ogsaa kun forsaavidt, som den moderne Tid hermed tager sin Begyndelse, saaledes at dette Begrebs Opfattelse i strængeste Forstand maa hævdes den nyere Tid. Hertil kommer, at dette Begreb atter i den Tid, som ligger os nærmest, har gjort sig gjeldende i riig individuel Mangfoldighed. Denne dets Fremtræden i vor Tid maatte der ogsaa tages et væsentligt Hensyn til. I Betragtning heraf tillader jeg mig allerunderdanigst at hendrage Deres Majestæts allerhøieste Opmærksomhed paa, hvor vanskeligt ja umuligt det vilde blive, uden at den fri, personlige Fremstilling for meget vilde lide, udtømmende at behandle denne Gjenstand i det Sprog, der hidtil var de Lærdes. Men ligesom Gjenstandens Beskaffenhed maatte anbefale dette mit Andragende, saaledes forhaaber jeg ved mine Examina, som alle ere fuldendte med bedste Characteer og Examen philologico-philosophicum med Udmærkelse, at have aflagt Prøver paa at være i Besiddelse af saa megen Indsigt i de lærde Sprog, at jeg ikke kan ansees at have gjort mig uværdig til en saadan Begunstigelse. Hertil kommer, at jeg i længere Tid har beskjæftiget mig med at undervise i det latinske Sprog og derved haft Leilighed til ikke at glemme, hvad jeg har lært, og maaskee at lære Mere. I denne Henseende tillader jeg mig allerunderdanigst at lade følge en Copie af en Attest fra Borgerdydsskolens Bestyrer Hr Professor Nielsen.»Hr Candidatus theol: S. Aabye Kierkegaard udmærkede sig som Discipel i denne Skole ved Flid og Hoved og ved en aandrig Opfattelse af Underviisningsgjenstande i Almindelighed og af Sprogenes Form og Aand i Særdeleshed. Han vakte da allerede de store Forventninger om Retsindighed, Selvstændighed og Dygtighed, om det skarpe, klare og omfattende Blik, den dybe, levende og alvorlige Aand, og den i alle Retninger ypperlige Fremstillingsgave, han siden har afgivet Prøver paa. Omstændighederne have vel ikke gjort det nødvendigt for ham at undervise, men han har dog ofte følt Trang dertil. Saaledes har han flere Aar paa min Anmodning understøttet mig med de svagere Candidater i Latinsk Stiil og heldig virket til at vække dem til en Tænkning, der ikke var beregnet blot paa Examen, men vedblev at vise sig virksom paa deres senere Liv; i et Par Aar, da jeg ikke selv formedelst svage Øine kunde rette øverste Classes Stile, gjorde han det for mig med den nu modnere Indsigt i Sproget, jeg kjendte hos ham i Skolen; i eet Skoleaar læste han efter sit Ønske Latin i 2den Classe, og bragte den vidt i Latin og dens hele aandelige Udvikling; nogle af dem dimitteredes i Aar, da han ogsaa velvillig understøttede mig i Latin og Stiil i øverste Classe og gjorde det ligesaa godt som jeg selv. – Saavidt jeg altsaa formaaer at dømme, har han et ikke almindeligt Herredømme over det latinske Sprogs baade mundtlige og skriftlige Behandling.« Borgerdydsskolen i Kjøbenhavn d Novb: 1840. M. Nielsen.    Om allernaadigst Bønhørelse anholder    allerunderdanigst Søren Aabye Kierkegaard Candidat i Theologien.
+
+## Kommentarnote b-2490 (b120/kom.xml, ordret)
+Lemma: Kongen
+
+Christian VIII (1786-1848), konge fra dec. 1839 til sin død den 20 jan. 1848.
+
+## Kommentarnote b-3155 (b120/kom.xml, ordret)
+Lemma: Candidat i Theologien
+
+SK tog teologisk embedseksamen den 3. juli 1840 og blev således teologisk kandidat.
+
+## Kommentarnote b-2491 (b120/kom.xml, ordret)
+Lemma: Laudabilis
+
+lat., 'rosværdig', 'prisværdig' (første karakter ved eksamen).
+
+## Kommentarnote b-2492 (b120/kom.xml, ordret)
+Lemma: Juni 1840
+
+.
+
+## Kommentarnote b-2493 (b120/kom.xml, ordret)
+Lemma: for Magister-Graden udarbeidede Dissertation
+
+disputats udarbejdet med henblik på erhvervelse af magistergraden, en akademisk grad, der blev taget ved forsvar af en disputats ved Det filosofiske Fakultet, indført 1824, afskaffet 1854, hvor magistergraden med disputats ligestilledes med doktorgraden, hvorefter indehaveren skulle tituleres dr.
+
+## Kommentarnote b-2494 (b120/kom.xml, ordret)
+Lemma: »om Begrebet Ironi med stadigt Hensyn til Socrates«
+
+SK indleverede sin disputats til dekanen for Det filosofiske Fakultet, prof. F.C. Sibbern, den 3. juni 1841, se tekstredegørelsen i SKS K1, 129, og den blev antaget til forsvar den 16. juli 1841, se bagsiden af titelbladet i disputatsoplaget af afhandlingen, i SKS 1, 62, med kommentar.
+
+## Kommentarnote b-2495 (b120/kom.xml, ordret)
+Lemma: fornemlig
+
+el. fornemmelig, i særlig grad, især.
+
+## Kommentarnote b-2496 (b120/kom.xml, ordret)
+Lemma: Mag: Hammerich
+
+Martin Johannes Hammerich (1811-81), da. teolog, skolemand, litteraturhistoriker og politiker; 1833 cand.theol., fik ved kgl. resolution af 15. jan. 1836 – som den første i Danmark – tilladelse til at forsvare en disputats affattet på dansk for den filosofiske magistergrad; han erhvervede den 5. april 1836 graden på afhandlingen Om Ragnarokmythen og dens Betydning i den oldnordiske Religion (SK modtog et eksemplar med dedikation, ktl. 1950), jf. forordet i den trykte afhandling, s. I-XII, især s. XII. Fra 1842 bestyrer for Borgerdydskolen på Christianshavn.
+
+## Kommentarnote b-2497 (b120/kom.xml, ordret)
+Lemma: Mag: Adler
+
+Adolph Peter Adler (1812-69), da. præst og forf.; 1836 cand.theol., fik ved kgl. resolution af 8. maj 1840 tilladelse til at forsvare en disputats affattet på dansk for den filosofiske magistergrad; han erhvervede den 25. juni 1840 graden på afhandlingen Den isolerede Subjectivitet i dens vigtigste Skikkelser. Fra 1841 sognepræst i Hasle og Rutsker på Bornholm.
+
+## Kommentarnote b-2498 (b120/kom.xml, ordret)
+Lemma: foretaget mig
+
+taget for mig.
+
+## Kommentarnote b-2499 (b120/kom.xml, ordret)
+Lemma: tilhører ... Begrebet Ironi Oldtiden ... maa hævdes den nyere Tid
+
+sml. fx indledningen til første del »Socrates' Standpunkt opfattet som Ironi« og indledningen til anden del »Om Begrebet Ironi« i disputatsen Om Begrebet Ironi med stadigt Hensyn til Socrates, i SKS 1, 71-74 og 281-284.
+
+## Kommentarnote b-3156 (b120/kom.xml, ordret)
+Lemma: Denne dets Fremtræden i vor Tid ... tages et væsentligt Hensyn til
+
+sml. den skriftlige vurdering, prof. F.C. Sibbern som »den første Censurerende« udformede efter modtagelse af afhandlingen. Her nævner Sibbern, at SK har indgivet en ansøgning om at måtte affatte sin disputats på dansk, og tilføjer, at »Æmnet, saaledes som Forfatteren med Hensyn til den nyeste Philosophie har behandlet det, lidet egner sig til at behandles paa [latin]«, SKS K1, 132f.
+
+## Kommentarnote b-2501 (b120/kom.xml, ordret)
+Lemma: den fri, personlige Fremstilling
+
+sml. følgende passage i F.C. Sibbers skriftlige vurdering (): »I det Enkelte kunde man vist ønske, at Eet og Andet, som hører en lavere Stilart til, maatte ved Afhandlingens sidste Gjennemsyn bortskjæres som yppige Skud; men forresten [hvad det øvrige angår] læses Afhandlingen fra Stilens Side med Lethed.« SKS K1, 133. Afsluttende skriver Sibbern om afhandlingen: »Saa stor den er, læses den dog med Lethed i en ei lang Tid, da Sproget flyder let«, SKS K1, 134. Sml. også følgende passage i prof. J.N. Madvigs votum: »Fremstillingen lider af en selvbehagelig Jagen efter det Piqvante og Vittige, der ikke saa sjelden slaaer over i det reentud Plat-Smagløse.« SKS K1, 134. Sml. endvidere følgende passage i prof. F.C. Petersens votum: »Ved en ordnende og sammentrængende Bebarbeidelse vilde dette Skrift vinde meget, men da ogsaa jeg er af den Mening [som anført af Madvig], at en saadan vel ikke vilde opnaaes, da Forf. ifølge sin Personlighed vel hverken kan eller vil foretage en saadan Forandring, maae man vel indskrænke sig til at antyde, hvad der i denne Henseende savnes, men dog andrage paa, at adskillige Udskeielser i den sarkastiske og raillerende [spøgende, spottende] Stilart borttages, som upassende i et akademisk Skrift.« SKS K1, 136. Sml. tillige prof. P.O. Brøndsteds votum, hvor han i forlængelse af de foregående udtalelser skriver, at disse »bære Vidne mod Forf. om, at han stundom ikke modstod en indvortes Fristelse til at overspringe det Gjerde som adskiller baade den rette Ironi og den billige Satire fra platte Overdrivelsers uvederqvægende Gebet. Der ere mange og drøie af den Slags Steder. Skulde et individuelt Liebhaberi til deslige Lækkerheder hindre Forfatteren i at lade sig beraade i denne Henseende, saa faaer man vel at trøste sig med, at det ikkun er Facultetets Sag at yde Indsigten og Kundskaberne Anerkjendelse, men ingenlunde at bevirke en bedre Smag hos dem der, ifølge deres Indsigt og Kundskaber, burde have en bedre Smag.« SKS K1, 137.
+
+## Kommentarnote b-2502 (b120/kom.xml, ordret)
+Lemma: det Sprog, der hidtil var de Lærdes
+
+latin.
+
+## Kommentarnote b-2503 (b120/kom.xml, ordret)
+Lemma: forhaaber
+
+nærer forventning om, håber på.
+
+## Kommentarnote b-2504 (b120/kom.xml, ordret)
+Lemma: mine Examina
+
+lat., eksaminer. Der sigtes til eksaminer aflagt ved Københavns Universitet: 'Examen artium', svarende til senere tiders studentereksamen, bestået i okt. 1830 med karakteren 'laudabilis' (); Examen philologico-philosophicum, den filologisk-filosofiske eksamen, 1. del bestået i april 1831 med karakteren 'laudabilis' (i latin, græsk, hebraisk, historie) og 'laudabilis præ ceteris', aldeles udmærket, (i lavere matematik) og 2. del i okt. 1831 med karakteren 'laudabilis præ ceteris' (i teoretisk filosofi, praktisk filosofi, fysik, højere matematik); samt 'teologisk attestats', teologisk embedseksamen, bestået 3. juli 1840 med karakteren 'laudabilis'.
+
+## Kommentarnote b-2506 (b120/kom.xml, ordret)
+Lemma: Examen philologico-philosophicum
+
+se foregående kommentar.
+
+## Kommentarnote b-2507 (b120/kom.xml, ordret)
+Lemma: i længere Tid ... undervise i det latinske Sprog
+
+se prof. Michael Nielsens attest, i SKS 28, 204,24-34.
+
+## Kommentarnote b-2508 (b120/kom.xml, ordret)
+Lemma: en Attest fra Borgerdydsskolens Bestyrer Hr Professor Nielsen
+
+Den originale attest findes i KA, D pk. 6, trykt som nr. XIII i B&A bd. 1, s. 12. – Borgerdydsskolens: . – Professor Nielsen: Michael Nielsen (1776-1846), da. skolemand; fra 1811 medbestyrer og fra 1813 til 1844 enebestyrer af Borgerdydsskolen i København, fik i 1822 titel af professor. Michael Nielsen underviste især i latin, men også i græsk i de øverste klasser.
+
+## Kommentarnote b-2509 (b120/kom.xml, ordret)
+Lemma: Candidatus theol:
+
+candidatus theologiæ, lat., forkortet cand.theol., kandidat i teologien, dvs. person, der har taget teologisk embedseksamen.
+
+## Kommentarnote b-3158 (b120/kom.xml, ordret)
+Lemma: Discipel i denne Skole
+
+SK gik i den københavnske Borgerdydsskole fra 1821 til okt. 1830.
+
+## Kommentarnote b-2510 (b120/kom.xml, ordret)
+Lemma: den ... ypperlige Fremstillingsgave, han siden har afgivet Prøver paa
+
+sigter formentlig først og fremmeste til Af en endnu Levendes Papirer (); muligvis også til de fire bladartikler: »Ogsaa et Forsvar for Qvindens høie Anlæg«, under mærket »A.«, i Kjøbenhavns flyvende Post, nr. 34, den 17. dec. 1834, s. [4]-[6], i SKS 14, 7-10; »Kjøbenhavnspostens Morgenbetragtninger i Nr. 43«, under mærket »B.«, i Kjøbenhavns flyvende Post, nr. 76, den 18. feb. 1836, s. [1]-[6], i SKS 14, 11-16; »Om Fædrelandets Polemik« I-II, under mærket »B.«, i Kjøbenhavns flyvende Post, føljeton, nr. 82-83, den 12. og 15. marts 1836, s. [1]-[8] og s. [1]-[4], i SKS 14, 17-26; og »Til Hr. Orla Lehmann«, under eget navn, i Kjøbenhavns flyvende Post, nr. 87, den 10. april 1836, s. [1]-[8], i SKS 14, 27-35.
+
+## Kommentarnote b-2511 (b120/kom.xml, ordret)
+Lemma: en Tænkning, der
+
+SK tilføjer 'en' foran 'Tænkning' og udelader 'en' efter komma.
+
+## Kommentarnote b-2512 (b120/kom.xml, ordret)
+Lemma: 2den Classe
+
+næstsidste klasse inden dimmision; 2. klasse var ligesom 1. el. øverste klasse (sidste klasse inden dimission) toårig.
+
+## Kommentarnote b-2513 (b120/kom.xml, ordret)
+Lemma: dens
+
+i klassens.
+
+## Kommentarnote b-2514 (b120/kom.xml, ordret)
+Lemma: i øverste Classe
+
+SK har herefter udeladt »i den travleste Tid«. – øverste Classe: .
+
+## Kommentarnote b-2515 (b120/kom.xml, ordret)
+Lemma: ligesaa
+
+SK skriver 'ligesaa' for 'lige saa'.
+
+## Kommentarnote b-2516 (b120/kom.xml, ordret)
+Lemma: Bønhørelse
+
+imødekommelse af anmodning. – I brev af 7. juli 1841 til konsistorium erklærer F.C. Sibbern som dekan for Det filosofiske Fakultet, at der er enighed om at anbefale SKs ansøgning om tilladelse til at indlevere sin disputats på dansk, jf. SKS K1, 137f. I skrivelse af 20. juli 1841 fra universitetets rektor, prof. H.C. Ørsted til Direktionen for Universitetet og de lærde Skoler anbefales SKs ansøgning om at måtte indlevere sin disputats i modersmålet, og den 29. juli 1841 foretog Direktionen for Universitetet og de lærde Skoler indstilling til kongen (); dagen efter forelå tilladelsen: »Kongelig Resolution / Vi ville [vil] allernaadigst have Cand.Theol. Søren Aabye Kierkegaard forundt Tilladelse til at erhverve Magistergraden ved den af ham indsendte i det danske Sprog forfattede philosophiske Afhandling, dog saaledes at Disputationen skeer paa Latin over latinske Theser, der angive Afhandlingens Hovedmomenter, og som blive at tilføie den, efter at være bleven approberede af det philosophiske Facultet. / Kjøbenhavn d: 30 Juli 1841 / Christian R.« (RA, 241 Universitets- og skoledirektion. 1805-1847 Forestillinger. 1841/ 2194). Efter en lille måneds tid meddelte konsistorium i skrivelse af 28. aug. 1841 til Det filosofiske Fakultet med kopi til SK, at tilladelsen var givet, se SKS K1, 140.
+
+## Kommentarnote b-2517 (b120/kom.xml, ordret)
+Lemma: anholder
+
+anmoder, andrager.
+---
+The draft JSON under verification (contents inline):
+---
+{
+  "id": "b120/ill_12.jpg",
+  "alt": "Fotografi af et gulnet, håndskrevet ark med iturevne kanter og lyse, halvgennemsigtige strimler langs overkanten. Øverst til venstre står trykt »N. 4.« ved siden af et kronet monogram med romertallet VIII over et våbenskjold med løver, og til højre for det med frakturskrift »Fierde Klasse« efterfulgt af et håndskrevet tal, »til Documenter efter Stempelpapirs Forordningens §. 5. litt. d.« og »42 Rigsbankskilling Sølv.«; nedenunder linjen »Bentzen. 1841. Falkenskiold«. Øverst til højre er der med store, svungne bogstaver skrevet »Til Kongen!«. Resten af siden er skrevet med brunt blæk i to spalter, tilsyneladende med samme hånd: den venstre har en dateringslinje og ét afsnit på ni linjer og er derefter tom hele vejen ned, mens den højre er fuldskrevet med to afsnit helt ud til arkets nederste kant, hvor det sidste ord er delt midt over. Nederst til venstre står en kort påtegning i en anden hånd med tal og en datobrøk.",
+  "caption": "»Til Kongen!« står der øverst, med sving: Kierkegaard beder Christian VIII om lov til at indlevere sin magisterafhandling »om Begrebet Ironi med stadigt Hensyn til Socrates« »i Modersmaalet«. Ærindet står to gange på det stemplede ark — kort i venstre spalte, udførligt i højre, og den udførlige når ikke at blive færdig på bladet.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »12. Brev 122, bl. [1r]« — grundlag for, at arket er brev 122's første blad (og for »på bladet«)",
+    "pakken, brev 122's overskrift: »Fra SK · 2. juni 1841 · til kong Christian VIII« — grundlag for at kalde skriveren Kierkegaard og modtageren Christian VIII",
+    "billedet, øverst til højre: »Til Kongen!« skrevet i hånden med store, svungne bogstaver (samme ord åbner brevets læsetekst i pakken)",
+    "billedet, øverst til venstre: trykt frakturtekst »N. 4.«, »Fierde Klasse«, »til Documenter efter Stempelpapirs Forordningens §. 5. litt. d.«, »42 Rigsbankskilling Sølv.« — grundlag for »det stemplede ark«; ordet stempelpapir er arkets eget",
+    "billedet, øverst til venstre: kronet monogram med romertallet VIII over et våbenskjold med løver (beskrevet neutralt i alt-teksten; ikke navngivet i captionen)",
+    "billedet, under den trykte blok: den håndskrevne linje »Bentzen. 1841. Falkenskiold«",
+    "billedet, venstre spalte: dateringslinje »Kjøbenhavn d 2den Juni 1841.« og derunder ét afsnit på ni linjer, hvorefter spalten er tom",
+    "billedet, venstre spalte, læst mod pakkens læsetekst: afsnittet er »Søren Aabye Kierkegaard, Candidat i Theologien med Laudabilis fra Juni 1840, ansøger allerunderdanigst om Tilladelse til at maatte indlevere sin for Magister-Graden udarbeidede Dissertation, »om Begrebet Ironi med stadigt Hensyn til Socrates«, i Modersmaalet ...«",
+    "billedet, højre spalte, læst mod pakkens læsetekst: spalten begynder »For Deres Majestæt vover Undertegnede herved at fremtræde med allerunderdanigst Ansøgning om Tilladelse til at maatte indlevere sin for Magister-Graden udarbeidede Dissertation ...« — samme ærinde som venstre spalte, hvilket er grundlaget for »Ærindet står to gange«",
+    "pakkens læsetekst, ordret citeret i captionen: »om Begrebet Ironi med stadigt Hensyn til Socrates« og »i Modersmaalet«",
+    "billedet, højre spalte: to afsnit, det andet skrevet helt ud til arkets nederste kant, hvor ordet er delt midt over (»ud=«); pakkens læsetekst fortsætter langt forbi dette punkt — grundlag for »når ikke at blive færdig på bladet«",
+    "billedet, nederst til venstre: kort påtegning i en anden, tyndere hånd med en datobrøk og nogle tal"
+  ],
+  "note": "Tvivl og fravalg: (1) Monogrammet er kronet og bærer tydeligt romertallet VIII over det danske våbenskjold, og brevet går ifølge overskriften til Christian VIII — men selve bogstaverne i navnetrækket er så udsmykkede, at jeg ikke kan læse dem sikkert. Jeg kalder det derfor ikke kongens navnetræk i captionen, og alt-teksten siger kun »et kronet monogram med romertallet VIII«. (2) Det håndskrevne tal efter »Fierde Klasse« ligner »36058«, men cifrene er små og delvis udtværede; tallet gengives ikke. (3) Linjen »Bentzen. 1841. Falkenskiold« læser jeg med rimelig sikkerhed, men hvad navnene betyder (stempelpapirets kontrollanter? forvaltere?) siger hverken billedet eller pakken noget om — derfor står linjen kun som ordlyd i alt-teksten og slet ikke i captionen. (4) Påtegningen nederst til venstre ligner »Indk. 4/6 41 ad ... 981, 1064. C.«; jeg er kun sikker på datobrøken og på, at det er en anden hånd. Jeg gengiver den ikke, og jeg bruger ikke den nærliggende slutning, at arket blev modtaget to dage efter brevets datering — det er tolkning. (5) Jeg citerer intet fra selve håndskriften: de citerede ord kommer fra pakkens læsetekst, og billedet er kun brugt til at afgøre, HVOR på arket de står. Skriften er læselig nok til, at jeg kan følge spalterne ord for ord, men ikke til at jeg vil transskribere selv. (6) At de to spalter er skrevet med samme hånd står som »tilsyneladende« i alt-teksten; captionen hviler ikke på det. (7) Bevidst udeladt som udefrakommende viden: hele kommentarapparatet — Hammerich og Adler, der fik samme tilladelse før ham, Sibberns og Madvigs bedømmelser, og især udfaldet (den kongelige resolution af 30. juli 1841). Det er fristende at fortælle læseren, at han fik lov; brevet selv ved det ikke. (8) Også udeladt: at ansøgningen om at måtte skrive om ironi er stilet i kancelliets allerunderdanigste tonefald. Pointen ville pege mod brevskriveren, og det gør stemmen ikke. (9) Udgavens linearisering afviger fra arkets: i læseteksten kommer højre spaltes afsnit før venstre spaltes, mens dateringslinjen på arket sidder over venstre spalte. Captionen taler derfor kun om spalternes placering, aldrig om rækkefølge. (10) Manifestets rend=»verso« er ikke brugt — det angår udgavens ombrydning, ikke bladet, hvis head udtrykkeligt siger »bl. [1r]«. (11) Ingen fotokredit i udgavens head, og figDesc er tom: credit er null. (12) Arkets fysiske tilstand (revne kanter, reparationsstrimler langs overkanten) står i alt-teksten, men ikke i captionen: det er nutidens konservering, ikke brevets sag.",
+  "repairs": []
+}
+---
+Both documents are quoted above in full; do not try to read files. Respond with ONLY the JSON object.
+codex
+{
+  "image": "b120/ill_12.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "Fotografi af et gulnet, håndskrevet ark",
+      "field": "alt",
+      "problem": "Billedet dokumenterer et gulnet, håndskrevet ark, men ikke sikkert at det er et fotografi."
+    }
+  ],
+  "visualNotes": ""
+}
+tokens used
+17.283
+{
+  "image": "b120/ill_12.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "Fotografi af et gulnet, håndskrevet ark",
+      "field": "alt",
+      "problem": "Billedet dokumenterer et gulnet, håndskrevet ark, men ikke sikkert at det er et fotografi."
+    }
+  ],
+  "visualNotes": ""
+}

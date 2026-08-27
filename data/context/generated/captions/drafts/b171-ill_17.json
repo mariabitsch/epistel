@@ -1,0 +1,35 @@
+{
+  "id": "b171/ill_17.jpg",
+  "alt": "Et håndskrevet brevark fotograferet forfra. Langs øverste kant og et stykke ned ad begge sider løber en guldfarvet ramme af snoede ranker og små blade; nederste kant er uden ornament. I venstre bord står en kriger med hjelm, harnisk, rød kappe og et rundt gyldent skjold på en høj ornamentsokkel, og under ham hænger et lille grønt og rødt skjoldformet felt. Øverst til højre flyver en farvelagt fugl med rødt hoved, grøn spættet krop, blå og gyldne vinger og lang hale. Inden for rammen står brevteksten med brun blæk i ældre, tæt kursiv, indledt med »Min kjære Sophie!« og datoen »d. 22 Jan. 42.« ude til højre, og afsluttet med en underskrift nederst til højre. Arket har vandrette foldelinjer, en mørkebrun plet ved øverste kant, en brunlig plet med et lille hul i sidens højre halvdel ved en foldelinje og nogle små mørke pletter ude ved højre kant.",
+  "caption": "Guldranker, en kriger med skjold og en broget fugl om brevet til niecen Sophie Lund, dateret »d. 22 Jan. 42«. Rammen får sin egen sætning på arkets bagside, hvor onklen har indrettet brevet, så hendes bror Carl kan »klippe den fri«.",
+  "credit": null,
+  "sources": [
+    "pakken, udgavens head: »17. Brev 193, bl. [1r]« — billedet er brev 193's forside; ingen fotokredit i head, derfor credit = null",
+    "pakken, manifest-posten: figure med rend »recto« og pageBreak n=»1r« i b171/txt.xml, begge knyttet til letter »193«",
+    "billedet: guldfarvet rankeornament langs øverste kant og et stykke ned ad venstre og højre side; nederste kant uden ornament (teknikken — tryk, guldstøbning eller håndtegning — kan ikke afgøres og påstås ikke)",
+    "billedet: figur i venstre bord med fjerbusket hjelm, skælformet harnisk, rød kappe, kort sværd ved hoften og et rundt gyldent skjold, stående på en ornamentsokkel; under soklen et lille grønt og rødt skjoldformet felt",
+    "billedet: fugl i flugt øverst til højre, rødt hoved, grøn spættet krop, blå og gyldne vinger, lang hale",
+    "billedet: brun blæk, gotisk kursiv; tiltalen »Min kjære Sophie!« og datoen »d. 22 Jan. 42.« er tydeligt læsbare og svarer ordret til pakkens læsetekst",
+    "billedet: vandrette foldelinjer; mørkebrun plet ved øverste kant; brunlig plet med et lille hul i, midt på siden på en foldelinje; tre små mørke pletter ved højre kant (årsagerne er ikke tolket)",
+    "pakken, brev 193's overskrift: Fra SK · 22. jan. 1842 · til Sophie Lund og Carl Lund — grundlag for datoen i captionen",
+    "pakken, brev 193's læsetekst: brevet til Sophie er underskrevet »Din Onkel.«, halvdelen til Carl ligeså — grundlag for »onklen« og for »niecen« / »hendes bror«",
+    "pakken, kommentarnote b-921: »SKs niece og Carl Lunds ældre søster Sophie Wilhelmine Lund« — bruges kun til at bekræfte slægtskabet, brevets egen underskrift siger det samme",
+    "pakken, brev 193's læsetekst (Carl-halvdelen): »Da Rammen om dette Brev formdl. vil friste Dig, saa har jeg indrettet det saaledes, at Du kan klippe den fri.« — grundlag for anden captionsætning og for citatet »klippe den fri«",
+    "pakken, kommentarnote b-798, lemma »Rammen om dette Brev«: »se illustration 17« — udgaven peger selv på DETTE billede som den ramme, Carl må klippe fri"
+  ],
+  "note": "Tvivl og fravalg: (1) Rammens fremstillingsmåde er udeladt overalt. Guldrankerne ser trykte ud og figurerne håndkolorerede, men hverken billedet eller pakken siger det — alt-teksten siger kun, hvordan rammen ser ud. (2) Krigeren beskrives efter det, man ser (hjelm med fjerbusk, harnisk, rød kappe, rundt skjold). Han ligner en antik/romersk kriger, men den benævnelse er en tolkning og er fravalgt både i alt og caption. (3) Fuglen er ikke artsbestemt — »broget fugl«; farverne er dem, der ses. (4) Kommentarnote b-922 (»på hvilket tidspunkt SK opholdt sig i Berlin«) er IKKE brugt: brevet siger ikke selv, hvor det er skrevet, og noten ville tilføje viden, brevet ikke har. Samme fravalg gælder b-926's udredning om fru Eckardt og b-791's henvisning til brev 172. (5) Håndskriften er gotisk kursiv og for mig kun sikkert læsbar i tiltalen og dateringen; alt andet citeres udelukkende fra pakkens læsetekst, aldrig fra min egen læsning af billedet. Underskriften nederst til højre svarer efter form til læstekstens »Din Onkel.«, men jeg kalder den i alt-teksten kun »en underskrift«, da jeg ikke kan læse den sikkert. (6) Pletten med hullet midt på siden sidder på en foldelinje og ligner spor efter lak eller opklæbning — det er en tolkning og er ikke skrevet. Den dækker ikke tekst, den sidder mellem to linjer; det er ikke nævnt, da jeg ikke kan garantere det for hele pletten. (7) De tre små mørke pletter ved højre kant er nævnt, men ikke tolket (gennemslag, blæk, huller — kan ikke afgøres). (8) Bevidst fravalgt i captionen: hele indholdet af Sophie-halvdelen (ballet, den hvide kjole, rådet om at holde sig rank) — det står allerede i brevets resumé, og captionen holder sig til det, man ser på arket. (9) Citatet »klippe den fri« stammer fra bl. [1v], altså arkets bagside (billede 18), ikke fra den side, man ser her. Captionen siger det derfor udtrykkeligt: »på arkets bagside«. (10) Ordet »Rammen« er udgavens og brevets eget; jeg påstår ikke, at Carl faktisk klippede den ud — brevet lover kun, at han kan. (11) Rankernes udstrækning ned ad siderne er beskrevet upræcist (»et stykke ned ad begge sider«), fordi venstre og højre bord ender i forskellig højde og udløber i tynde slyngninger uden tydeligt stop.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, tvivl: »fjerbusket hjelm« — kun en lille mørk kam/knop ses, fjer kan ikke bekræftes",
+      "action": "arbitreret mod billedet: bekræftet ved eget syn — »fjerbusket« droppet, hjelmen står ubestemt. Codex var ren."
+    },
+    {
+      "flag": "grok runde 1, tvivl: pletten med hullet sidder ikke »midt på siden«, men i højre side ved en vandret foldelinje",
+      "action": "arbitreret mod billedet: bekræftet — placeringen rettet til sidens højre halvdel ved en foldelinje."
+    },
+    {
+      "flag": "grok runde 2, tvivl: »gotisk kursiv« — paleografisk term uden belæg i billede eller pakke",
+      "action": "arbitreret som på ill_16: generaliseret til »ældre, tæt kursiv«. Codex runde 2: ren."
+    }
+  ]
+}

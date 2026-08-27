@@ -1,0 +1,12 @@
+Investigate: I'll check the image against the draft claims, then flag only ungrounded or visually wrong wording.I'll check the trial verifier prompt and earlier flags so I apply the same bar.I'll re-read the printed heading on the original file so the fraktur isn't a guess.{
+  "image": "b120/ill_12.jpg",
+  "flags": [
+    {
+      "severity": "tvivl",
+      "claim": "»42 Rigsbankskilling Sølv.«",
+      "field": "alt",
+      "problem": "Det trykte frakturord efter »42« står ikke i pakken. I billedet er lang s + k/t tvetydigt, så ordet også kan læses »Rigsbankstilling«. Den sikre gengivelse »skilling« er ikke belagt."
+    }
+  ],
+  "visualNotes": "Lodret fold midt på arket. Våbenskjoldet er delt af et kors, ikke kun løver. Linjen Bentzen/1841 er mørkere end det brune kropsblæk. Tallet efter »Fierde Klasse« ligner 36058. Højre spaltes sidste linje ender i orddeling (»ud-«). Bundpåtegningen ligner »Indk. 4/6 41 …«."
+}

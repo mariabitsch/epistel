@@ -1,0 +1,29 @@
+{
+  "id": "b79/ill_k4.jpg",
+  "alt": "Fotografi af et enkelt ark gammelt papir, cremefarvet og set fladt forfra. Arket er foldet: to vandrette foldelinjer deler det i tre ulige høje bånd, og en lodret fold løber ned gennem midten. Det midterste bånd er mørkere og mere gulbrunt end det øverste og nederste, med grålige skjolder langs folderne og små rustbrune pletter spredt ud over fladen. I det midterste bånds øverste del står fire linjer håndskrift i mørkt blæk, tæt skrevet med tynde strøg; den fjerde linje er kort. Efter et mellemrum følger endnu en enkelt linje af samme hånd. Nedenunder er skrevet et stort tal, »240«, med rødt. Papiret er krøllet og slidt langs foldekanterne.",
+  "caption": null,
+  "credit": null,
+  "sources": [
+    "billedet: ét ark papir i cremehvide og gulbrune toner, fotograferet fladt og fyldende hele billedfladen",
+    "billedet: to vandrette foldelinjer, der deler arket i tre omtrent lige brede bånd, samt en lodret fold ned gennem midten",
+    "billedet: det midterste bånd er tydeligt mørkere/gulbrunt i forhold til de to lysere bånd; grålige skjolder samler sig ved den nederste fold og ved kanterne af den øverste",
+    "billedet: små rustbrune pletter spredt over den midterste flade, tættest under skriften",
+    "billedet: fire linjer håndskrift i mørkt blæk øverst i det midterste bånd; fjerde linje er kort (den ser ud til at afslutte et ord delt hen over linjeskiftet)",
+    "billedet: efter et blankt mellemrum én enkelt linje mere, skrevet med samme hånd og blæk",
+    "billedet: et stort »240« skrevet med rødt under skriften",
+    "billedet: krøller, revner og slid langs foldekanterne, kraftigst i nederste venstre hjørne",
+    "pakkens manifest-post: \"figures\": [], \"pageBreaks\": [] — billedet har ingen forekomster i udgaven, hverken figur, sidebrud eller kommentarnote; grundlaget for caption = null",
+    "pakkens manifest-post: \"source\": {\"path\": \"data/v1.9/b79/ill_k4.jpg\"} — filen hører til bind b79's vendorede filer"
+  ],
+  "note": "Tvivl og fravalg: (1) Captionen er null, fordi pakken siger det ligeud: manifest-posten har tomme \"figures\" og \"pageBreaks\", og der findes ingen head-billedtekst. Filen ligger i b79's mappe, men udgaven peger ingen steder hen på den, så der er ikke ét brev, en Notabene-billedtekst kunne være grounded i. En caption ville skulle hentes udefra, og udefrakommende viden er utilladelig — billedet står ærligt caption-løst. (2) Håndskriften er gotisk kursiv og for mig kun delvis læsbar. Jeg mener at kunne skimte enkelte ord, men jeg gengiver intet af den — hverken i alt eller i sources. Der findes ingen læsetekst i pakken at holde en tydning op imod, så selv en rigtig læsning ville være ubelagt. Af samme grund siger alt-teksten kun »fire linjer« og »en enkelt linje mere« uden at røbe indhold. (3) Arkets foldemønster, de mørke bånd og slidet ligner et brev eller et omslag, der har været foldet sammen og båret rundt — men »brev« og »omslag« er tolkninger af det, jeg ser, og alt-teksten siger derfor kun »ark papir« med foldelinjer. (4) Det røde »240« ligner et arkiv- eller katalognummer skrevet af en senere hånd; hverken nummerets funktion eller hånden kan belægges, så alt-teksten nævner kun tallet, farven og at det er stort. Tallets cifre er til gengæld tydelige nok til at gengives. (5) Skriveredskabet bag det røde tal (kridt, farveblyant, rødblæk) kan jeg ikke afgøre og nævner ikke. (6) De rustbrune pletter beskrives som pletter; deres årsag (fugt, jerngalle, alder) påstås ikke. (7) Om det er arkets forside eller bagside, vi ser, siger jeg ikke — folderne kunne pege begge veje. (8) Arkets mål og papirtype er ikke nævnt: intet i billedet giver en målestok. (9) Filnavnet ill_k4 antyder en planche fra et kommentarbind, men pakken viser netop ingen forekomst — antydningen er ikke brugt til noget.",
+  "repairs": [
+    {
+      "flag": "grok runde 1, tvivl: »spids pen« — skriveredskabet er en slutning, som udkastets egen note afviser andetsteds",
+      "action": "arbitreret: generaliseret til »tynde strøg«. Codex var ren."
+    },
+    {
+      "flag": "codex runde 2, fejl: de tre bånd er ikke tilnærmelsesvis lige høje",
+      "action": "arbitreret: »tre ulige høje bånd«. Grok runde 2: ren."
+    }
+  ]
+}

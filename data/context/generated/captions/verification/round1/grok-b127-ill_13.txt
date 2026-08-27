@@ -1,0 +1,18 @@
+Investigate mode: I'll check the letter image against the draft's alt and caption, flagging only ungrounded or visually wrong claims.I’ll check the trial playbook and the original plate so I can judge line counts, the signature, and the cancellation against what’s actually on the page.{
+  "image": "b127/ill_13.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "en kort underskrift på tre tegn",
+      "field": "alt",
+      "problem": "Underskriften på billedet er »Din S. K.« (bekræftet af pakkens læsetekst og citeret sådan i captionen), altså væsentligt mere end tre tegn. Selv hvis kun initialerne tælles, er »S. K.« to bogstaver med punktummer, ikke tre tegn."
+    },
+    {
+      "severity": "tvivl",
+      "claim": "Bladets nederste tredjedel er ubeskrevet",
+      "field": "alt",
+      "problem": "Den ubeskrevne flade under underskriften udgør nærmere en fjerdedel af bladet end en tredjedel. Nederste tredjedel rummer også slutningen af det nederste afsnit, overstregningerne og underskriften, så den er ikke ubeskrevet."
+    }
+  ],
+  "visualNotes": "Underskriften til højre under overstregningerne er »Din S. K.«, ikke tre tegn. Den tomme flade under underskriften er stor, men nærmere en fjerdedel af bladet; overstregning og underskrift sidder i det, der ville være nederste tredjedel. Første afsnit har ca. 23 linjer (altens »godt tyve« er i nærheden). Svag lodret fold gennem den nedre halvdel. Anførselstegn om åbningscitatet på første tekstlinje. Lille prik øverst til venstre."
+}

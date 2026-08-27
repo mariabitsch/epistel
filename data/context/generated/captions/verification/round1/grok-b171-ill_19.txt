@@ -1,0 +1,13 @@
+Downscaled Image 1: 478.8 KB (3314x2647) → 340.4 KB (1736x1387)
+Investigate: I'll check the image against the draft alt/caption and the packet, flagging only ungrounded claims and visual misreads.{
+  "image": "b171/ill_19.jpg",
+  "flags": [
+    {
+      "severity": "fejl",
+      "claim": "nederst i midten står med blyant »1850 12/4«",
+      "field": "alt",
+      "problem": "Påskriften sidder nederst på højre blad (1r), inde ved midterfolden under brevteksten, ikke på venstre side. Alt-teksten knytter den til beskrivelsen af venstre side."
+    }
+  ],
+  "visualNotes": "Blyantsdatoen »1850 12/4« står nederst til venstre på højre blad, ikke på udskriftssiden. Lakken sidder i venstre sides højre felt ind mod folden, ikke i sidens midte. Venstre kant har et »8«; til højre for lakken små påtegninger; højre blad har svagt gennemskin og et lille tal nederst til højre."
+}
