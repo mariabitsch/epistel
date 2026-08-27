@@ -54,7 +54,12 @@ one extension: **the image itself is admissible primary grounding.**
    to a fresh run), the trial's four originals in
    `data/context/generated/captions-trial/grounding/` — so every link
    of the generation chain is a readable document in the repository
-   (Maria, 2026-08-27). Since the full round the packets are derived
+   (Maria, 2026-08-27). The chain is also joined machine-readably:
+   `data/context/generated/captions/timeline.json`
+   (`scripts/build_caption_timeline.py`) holds each image's ordered
+   stages — prompt, draft state, verdicts, repairs, doktor-runde,
+   final — with every text state extracted from the verification
+   prompts that embed it. Since the full round the packets are derived
    automatically from `export/images.json`: occurrence letters straight
    off the manifest, kom.xml figures via their enclosing commentary note
    and the letters referencing it, all of a letter's notes included —
