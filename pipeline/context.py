@@ -4,10 +4,12 @@
 same job for the second, much smaller body of data the site shows -- the
 curated datasets in ``data/context``: the books Kierkegaard published in his
 lifetime, the addresses he lived at, Maria Notabene's summaries of the
-letters, the biographies drawn out of the edition's own commentary, and two
-join tables -- correspondent names to the people named in the letters
-(``aliases.json``), and the commentary's persName keys to the bodies' where
-the two key spaces drift apart (``bio_keys.json``).
+letters, the biographies drawn out of the edition's own commentary, the
+captions for the edition's illustrations (``captions.json``, keyed by
+``export/images.json``'s image ids), and two join tables -- correspondent
+names to the people named in the letters (``aliases.json``), and the
+commentary's persName keys to the bodies' where the two key spaces drift
+apart (``bio_keys.json``).
 
 They are a *different kind of truth* and the code keeps them apart on purpose:
 
@@ -42,6 +44,8 @@ datasets, and otherwise::
      "bios_without": {"Victor Eremita": "Ikke et biografisk emne i ..."},
      "aliases": {"SK": ["Kierkegaard, Søren Aabye"]},
      "aliases_unmapped": {"ukendt": "Udgaven kender ikke afsenderen ..."},
+     "captions": {"b1/ill_1.jpg": {"alt": ..., "caption": ...,
+                                   "credit": None, "note": ...}},
      "meta": {"publications": {...}, ...}}
 
 The list-shaped files are turned into lookups here rather than in the display,
@@ -67,6 +71,7 @@ SUMMARIES_FILE = "summaries.json"
 BIOS_FILE = "bios.json"
 BIO_KEYS_FILE = "bio_keys.json"
 ALIASES_FILE = "aliases.json"
+CAPTIONS_FILE = "captions.json"
 
 
 def load_context(context_dir):
@@ -97,6 +102,7 @@ def load_context(context_dir):
     _load_bios(context, os.path.join(context_dir, BIOS_FILE))
     _load_bio_keys(context, os.path.join(context_dir, BIO_KEYS_FILE))
     _load_aliases(context, os.path.join(context_dir, ALIASES_FILE))
+    _load_captions(context, os.path.join(context_dir, CAPTIONS_FILE))
 
     if len(context) == 1:
         return None
@@ -211,6 +217,33 @@ def _load_aliases(context, path):
         entry["form"]: entry.get("reason") for entry in data.get("unmapped") or []
     }
     context["meta"]["aliases"] = data.get("_meta") or {}
+
+
+def _load_captions(context, path):
+    """The illustration captions, keyed by ``export/images.json``'s image ids.
+
+    Every entry carries an alt text; ``caption`` is ``None`` for the files
+    the edition refers to nowhere -- that is a recorded decision (the
+    entry's ``note`` in the dataset says why), not a gap for the display to
+    fill. The audit fields (``sources``, ``repairs``) stay in the file;
+    what travels here is what a display could say next to an image.
+    """
+    if not os.path.isfile(path):
+        return
+    data = _read(path)
+    entries = data.get("captions")
+    if not isinstance(entries, list) or not entries:
+        raise ValueError("%s holds no captions" % path)
+    context["captions"] = {
+        entry["id"]: {
+            "alt": entry["alt"],
+            "caption": entry.get("caption"),
+            "credit": entry.get("credit"),
+            "note": entry.get("note"),
+        }
+        for entry in entries
+    }
+    context["meta"]["captions"] = data.get("_meta") or {}
 
 
 def _read(path):

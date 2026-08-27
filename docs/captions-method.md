@@ -2,8 +2,17 @@
 
 *How the image captions dataset is made. Established 2026-08-26 by a
 trial round over four images; the full round (all 40 images in
-`export/images.json`) follows the same playbook. The trial round's
-complete audit trail lives in `data/context/generated/captions-trial/`.*
+`export/images.json`) ran the same day by the same playbook, verified
+to zero flags with both foreign readers, doktor-runde folded in. The
+audit trails live in `data/context/generated/captions-trial/` and
+`data/context/generated/captions/`. The dataset itself —
+`data/context/captions.json` — is assembled deterministically from the
+drafts' verified end states by `scripts/assemble_captions.py` and
+guarded by `tests/test_captions.py` (join integrity against the
+manifest, the caption-less decisions, the duplicate-pair rules, a
+draft-07 schema in `data/context/captions.schema.json`). It is not yet
+part of the export; shipping it there is a `schemaVersion` decision of
+its own.*
 
 ## The product
 

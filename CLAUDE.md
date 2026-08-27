@@ -12,7 +12,7 @@ cheap to build, cheap to run, and safe to throw away.
 **State:** live at <https://epistel-demo.netlify.app/> (public repo
 mariabitsch/epistel; every push to main deploys). 638 static pages — 336
 letter pages, 298 person pages (143 with bios), index with facets +
-client-side search, `/tidslinje/`, `/personer/`, `/om/`. 413 tests green
+client-side search, `/tidslinje/`, `/personer/`, `/om/`. 425 tests green
 (that number is machine-guarded; see Working here). The front page opens
 with a factual lead (Maria's own text) and Maria Notabene's foreword, set
 in the letters' frame. Since 2026-08-25 the corpus is also published as
@@ -123,6 +123,17 @@ what it is and where it came from:
   persons honestly bio-less with reasons. Henriette Lund's entry is a
   grounded augmentation from her otherNotes (the Fenger method) — its
   `note` field records the two-round adversarial verification.
+- `captions.json` (40): the illustrations' editorial layer (CC BY-NC-SA
+  4.0, unlike its CC0 neighbours — its `_meta` says so) — per manifest id
+  from `export/images.json`: alt text, Maria Notabene caption, photo
+  credit where the edition names one, plus the audit fields (sources,
+  note, repairs). Written by the two caption rounds of 2026-08-26
+  (`docs/captions-method.md` is the playbook; drafts, flags and repairs
+  in `generated/captions*/`), assembled deterministically by
+  `scripts/assemble_captions.py`, schema-guarded
+  (`captions.schema.json`). The two files the edition never references
+  stand caption-less on purpose; byte-identical duplicates share alt
+  but never caption.
 - `bio_keys.json`: the second join table — body↔kom persName key drift
   (4 bridges: Paludan-Müller, Calderón, Edvard Collin, F.C. Petersen),
   evidence per entry, loaded like every other optional dataset.
@@ -281,14 +292,13 @@ test-held.
   optional `fastjsonschema` is importable, e.g. from a local `.venv`
   created with `python3 -m venv .venv && .venv/bin/pip install
   fastjsonschema` — and the editorial layers licensed.)
-- Image captions: `export/images.json` (0.2.0) carries the edition's own
-  `<head>` captions and nothing of ours. Our own captions dataset (alt
-  text + a Maria Notabene caption per image, an *editorial* layer keyed
-  by the manifest's image ids) is designed and trial-proven:
-  `docs/captions-method.md` is the playbook, the trial round's audit
-  trail sits in `data/context/generated/captions-trial/` (4 of 40 images
-  done, approved by Maria). The full round — and `data/context/captions.json`
-  itself — is still to run.
+- Image captions, remaining steps: the dataset itself is **done**
+  (2026-08-26/27 — `data/context/captions.json`, all 40 manifest ids,
+  see the Data layers section). What remains is display and
+  distribution: showing the images with their captions on the *site*
+  (the hash+immutable asset track is ready), and shipping the layer in
+  the *export* — the latter is a `schemaVersion` bump (0.3.0) and
+  Maria's call.
 - Småting: more TEI-annotation finds may come.
 
 ## Explicitly out of scope
