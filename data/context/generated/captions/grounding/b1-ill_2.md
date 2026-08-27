@@ -1,0 +1,257 @@
+# Grounding: b1/ill_2.jpg
+
+Billedfil: `data/vendor/b1/ill_2.jpg` (tilladt primærkilde).
+
+## Manifest-post: b1/ill_2.jpg (export/images.json)
+```json
+{
+ "id": "b1/ill_2.jpg",
+ "path": "letters/b1/ill_2.jpg",
+ "source": {
+  "path": "data/v1.9/b1/ill_2.jpg",
+  "sha256": "d0ae3bab1db015993090b948c925c9793e3d49c07e0bc339cc6b9366083e0930"
+ },
+ "figures": [
+  {
+   "volume": "b1",
+   "file": "txt.xml",
+   "xmlId": "ill_2",
+   "type": null,
+   "rend": "verso",
+   "url": "../b1/ill_2.jpg",
+   "head": [
+    "2. Brev 3, bl. [1v]. Nederst SKs tilføjelse i brevet fra faderen til P.C. Kierkegaard"
+   ],
+   "figDesc": null,
+   "letter": "3",
+   "letterXmlId": "n3"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b1",
+   "file": "txt.xml",
+   "xmlId": "ida0be0f62-36e1-4a4d-a8cd-9b4b09f69ddf",
+   "n": "1v",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b1/ill_2.jpg",
+   "letter": "3",
+   "letterXmlId": "n3"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 2. Brev 3, bl. [1v]. Nederst SKs tilføjelse i brevet fra faderen til P.C. Kierkegaard
+
+## Brev 3 (b1) — overskrift og læsetekst
+Overskrift: Fra M.P. Kierkegaard og SK · 13. og 15. juli 1829 · til P.C. Kierkegaard
+
+Khavn den 13 Julii 1829. Meget kiære Søn  Dit Brev af 28-30 f. M. erholdt jeg i Dag 8te Dage. Her vedlagt sender jeg Dig et Creditiv paa Herrn H. F. Klettwig i Göttingen stor 60ve Fr: d'or, fra Hr Etatsraad Donner i Altona. Den mener jeg Du med første Post afsender til dens Adresse ledsaget af et meget høfligt Brev fra Dig selv, hvori Du underretter ham om at Du omtrent midt i October agter at indtræffe i Göttingen; at Du indsender Creditivet fordi Du ikke gierne vil føre det omkring med Dig paa en Reyse som Du agter at tiltræde ved August Maaneds Udgang i det Sachsiske og som maaskee for endeel bliver en Fodreyse, desaarsag Du og udbeder Dig Tilladelse til at tilsende ham Din Kuffert med Pakkeposten, behørig emballeret og Forseglet og beder ham modtage den i Bevaring indtil Du kom̄er; Sluttelig anmoder Du ham om, ved et par Ord med næste Post, at underrette Dig om den rigtige Modtagelse af Dit Brev, giør mange Undskyldninger for den foraarsagende Uleylighed og skriver Dit Navn og Din Adresse tydelig under Brevet. – I næste Maaned skal jeg see at sende Dig en Vexel paa 20 eller 25 Fr. d'or og haaber saaledes at Du ikke skal komme gandske tomhændet til Göttingen, men ved Din Ankomst dertil endnu have en halvsnes Fr: d'or i Lomen.Med Rudelbach er jeg bange for at det er reent galt. Hans Venner her iagttage en forunderlig Taushed; men derimod begynder man iblandt Folk, som ved af ham at sige, uden just at interessere sig for ham, at mumle om, at det ikke er rigtig fat med ham; ja jeg har endog hørt en sige, at han ikke har faaet Embedet. – Skulde dette være sandt, saa raader jeg Dig ikke at reyse til ham; thi Dit Besøg vilde under saadanne Omstændigheder genere, være ham ubehagelig og til Besvær, og han desuden formodentlig mangle Tiid og Sindsroe til med sindig Eftertanke at giennemgaae Din Afhandling som egentlig skulde være Hensigten med Din Reyse til ham; Du maatte altsaa være betænkt paa en anden Censor til at giennemgaae den, og jeg har tænkt paa Tholuch, ifald det ikke maatte synes alt for ubeskeden at forlange det af ham. Du kunde da afkorte Din Reyse og efter et passeligt Ophold i Halle gaae lige til Göttingen hvor Du da formodentlig ville ankomme ved October Maaneds Begyndelse. Alt dette henstilles til Din egen alvorlige Overveyelse.  2. Brev 3, bl. [1v]. Nederst SKs tilføjelse i brevet fra faderen til P.C. Kierkegaard Den 15 JuliiJeg har talt med Oldenborg og han har lovet at besørge de omskrevne Bøger, for saavidt samme kan faaes, og Dig dem tilsendt med Posten dersom det med Scharlings Reyse skulde gaae formeget i Langdrag, eller maaskee ikke blive noget af; hvad Bøgerne koste har jeg sagt ham, at han kan modtage hos mig. Jeg mener, at hvis man kan faae dem, saa sendes baade Grundtvigs Værdens Krønike og hans Roskilderiim. Efter Oldenborgs Yttringer kunde det maaske have sine Vanskeligheder at faae de forlangte Disputatser; dog om alt dette underretter han Dig nok selv; thi efter hans Sigende skriver han Dig og til i denne Uge, Du vil altsaa faae baade hans og mit Brev paa engang. –Skriv mig til igien saasnart Du faaer dette og see endelig at komme paa Bunden med hvordan det har sig med Rudelbach, at Du kan tilmelde mig det.Lorentzen er kommet for en 14 Dagstiid siden. Det er et meget behagelig og interessant ungt Menniske; men han behøver ikke mit Huus synderlig, da han har baade Søster og Broder her i Byen og desuden, hiemkomende fra en udenlandsk Reyse, og det en italiensk, snart bliver inddraget i fine og fornemme omgangs Sirkler. Han har kun været her Eengang; men med Wilhelm Lund troer jeg han omgaaes noget.Med Søren ved jeg ikke hvordan det har sig; jeg kan ikke faae ham til at skrive Dig til; er det Aands Fattigdom at han ikke kan finde paa noget at skrive, eller barnlig Forfængelighed at han intet vil skrive uden hvad han kunde vente at faae Roes for, og da han ikke er sikker i sin Sag i den Henseende saa vil han heller intet skrive?Jeg maae slutte, thi Du seer nok paa mit Skrivt at jeg kan ikke skrive mere. – Du hilses kiærligst fra Dine Sødskende, Lunderne, min Fætter og hans Familie; men især fra Din gode Moder og mig Din hengivne Fader  M P Kierkegaard    P. S. Just somSøren er i Begreb med at føre dette Brev ind i Copiebogen faar jeg et Besøg af Lorentzen, som bad med megen Magtpaaliggenhed at hilse mange Gange fra ham. Jeg (Søren) skriver snart til Dig for tillige at gjendrive Fader.
+
+## Kommentarnote b-84 (b1/kom.xml, ordret)
+Lemma: Søn
+
+Peter Christian Kierkegaard ().
+
+## Kommentarnote b-85 (b1/kom.xml, ordret)
+Lemma: Dit Brev af 28-30 f. M.
+
+Under »Søndagen den 28 Junii« 1829 skriver P.C. Kierkegaard i sin dagbog (): »da Arbeidet [med afhandlingen om løgn ()] ei vilde gaae, skrev jeg et langt Brev til Fader og mældte deri blandt mere mine nyeste Efterretninger fra FF [J. Ferdinand Fenger ()]; at jeg havde begyndt Indskrivningen fausto omine [lat., som et heldbringende varsel] den 18 og hvad Tid den tager; mit Besøg hos den gamle Clausen [stiftsprovst H.G. Clausen, der var i Berlin sammen med sin søn prof. H.N. Clausen] og (i Anledning af hs [hans] Yttringer) min egen Mening, at den Evang. Kirketidende [henviser formentlig til Evangelische Kirchen-Zeitung, udg. af E.W. Hengstenberg, bd. 1-5, Berlin 1827-29] formeget opkaster sig til at udnævne Personer til Χ. [Christne] eller Rationalister; om Tholucks [] og min Samtale med ham samt de Bøger jeg ønsker til ham; om Rudelbachs Strid ved Colloqviet []; om Prof. Nielsen [] der lader til at billige min Plan; Scharlings Reise []; mine Pengeaffairer, Aarsagen til at jeg tog det dyre Logis; at jeg Intet vil sende hjem af min Bagage; min Kuffert etc. – Dette Brev blev imidlertid ikke sendt bort [af sted].« Og under »Tirsdagen den 30 Junii« 1829 skriver P.C. Kierkegaard: »Brevet til Fader blev i dag sendt bort [af sted].« Sml. fortegnelsen over modtagne og afsendte breve i juni 1829 i dagbogen, hvor brevet er registreret som afsendt den 30. juni, s. 58.
+
+## Kommentarnote b-86 (b1/kom.xml, ordret)
+Lemma: et Creditiv
+
+el. et kreditbrev, skrivelse, hvorved udstederen (C.H. Donner) giver modtageren (P.C. Kierkegaard) ret til at disponere over et beløb hos tredjemand (H.F. Klettwig). – Under »Torsdagen den 23 Julii« 1829 skriver P.C. Kierkegaard i sin dagbog (): »Brev fra Fader med Creditiv paa H.F. Kletwig i Göttingen (60 Fredr.)«, sml. fortegnelsen over modtagne og afsendte breve i juli 1829 i dagbogen, hvor brevet er registreret som modtaget den 23. juli, s. 65. Og under »Søndagen den 26. Julii« skriver han videre: »bragte jeg strax om Morgenen Brevet til Fader og det til Kletwig paa Posthuset«, sml. fortegnelsen over modtagne og afsendte breve i juli 1829 i dagbogen, hvor begge breve er registreret som afsendt den 26. juli (»t. Fader / t. Kletwig med Creditbrevet«), s. 65.
+
+## Kommentarnote b-87 (b1/kom.xml, ordret)
+Lemma: Herrn H. F. Klettwig i Göttingen
+
+klædehandler, grosserer og bankier Heinrich Ferdinand Klettwig (o. 1770-1842), fra 1831-34 oldermand; firmaet var i 1829 beliggende på hjørnet af korntorvet og flyttede i begyndelsen af 1830'ene til Zindelstraße nr. 673 (nuv. nr. 3) i Göttingen; fra 1834 blev svigersønnen Adolph Valentin Reibstein medindehaver og firmaet ændrede navn til H.F. Klettwig & Sohn og efter en omorganisering i midten af 1842 til H.F. Klettwig & Reibstein. Se R. Schoene Zur Geschichte der Firma H.F. Klettwig & Reibstein insbesondere ihre Entwicklung vom Waren- zum Bankgeschäft, Göttingen 1930, s. 1-13. – Göttingen: by i delstaten Niedersachsen, ca. 250 km S for Hamborg.
+
+## Kommentarnote b-88 (b1/kom.xml, ordret)
+Lemma: 60ve
+
+tresindstyve.
+
+## Kommentarnote b-89 (b1/kom.xml, ordret)
+Lemma: Fr: d'or
+
+Franc d'or, guldfrank (fr. hovedmønt i guld).
+
+## Kommentarnote b-90 (b1/kom.xml, ordret)
+Lemma: Etatsraad Donner i Altona
+
+bankier, skibsreder og storkøbmand Conrad Hinrich Donner (1774-1854) fra Altona. Efter at have været købmand for da. Asiatisk Kompagni grundlagde han 1798 sit eget firma; senere drev han også bankvirksomhed og blev efterhånden meget velhavende. Han var kendt for sin velgørenhed og for sin støtte til kunstnere og håndværkere. – Etatsraad: C.H. Donner var i 1824 blevet udnævnt til da. etatsråd og blev i 1840 udnævnt til da. konferensråd. – Altona: vigtig havneby i Holsten (daværende ty. hertugdømme under den da. krone), beliggende NV for Hamborg.
+
+## Kommentarnote b-91 (b1/kom.xml, ordret)
+Lemma: i det Sachsiske
+
+Sachsen, ty. kongerige indtil 1918.
+
+## Kommentarnote b-92 (b1/kom.xml, ordret)
+Lemma: desaarsag
+
+af hvilken grund, hvorfor.
+
+## Kommentarnote b-93 (b1/kom.xml, ordret)
+Lemma: og udbeder
+
+også.
+
+## Kommentarnote b-94 (b1/kom.xml, ordret)
+Lemma: kom̄er
+
+kommer.
+
+## Kommentarnote b-3003 (b1/kom.xml, ordret)
+Lemma: den rigtige Modtagelse af Dit Brev
+
+at dit brev er vel modtaget.
+
+## Kommentarnote b-95 (b1/kom.xml, ordret)
+Lemma: i Lomen
+
+på lommen.
+
+## Kommentarnote b-96 (b1/kom.xml, ordret)
+Lemma: Rudelbach
+
+Andreas Gottlob Rudelbach (1792-1862), da. teolog, præst og forf.; 1820 cand.theol., 1822 mag.art. på en afhandling om etikkens grundlag og principper (jf. ktl. 750), 1841 dr.theol. ved universitetet i Erlangen; forelæste i 1824 om de symbolske bøger ved Det filosofiske Fakultet, udgav 1825-28 sammen med Grundtvig Theologisk Maanedsskrift (jf. ktl. 346-351); fra slutningen af maj 1829 superintendent, konsistorialråd og hovedpræst i Glauchau i Sachsen, nedlagde sit embede i 1845 og vendte tilbage til København; forelæste 1847-48 som privatdocent ved Københavns Universitet, fra 1848 sognepræst ved Skt. Mikkels Kirke i Slagelse og Hejninge Kirke på Sjælland. A.G. Rudelbach var i sine yngre år en stærk tilhænger af N.F.S. Grundtvig og kæmpede sammen med ham indædt mod rationalismen, men brød senere åbent med ham og nærmede sig mere og mere J.P. Mynster () og H.L. Martensen (). Sammen med sine to ugifte søstre, Christiane Sophie og Juliane Marie Rudelbach, kom A.G. Rudelbach i SKs barndomshjem.
+
+## Kommentarnote b-97 (b1/kom.xml, ordret)
+Lemma: at han ikke har faaet Embedet
+
+sigter til, at der i forbindelse med udnævnelsen af A.G. Rudelbach til superintendent i Glauchau opstod en stærk opposition imod ham fra den rationalistiske fløj. I forlængelse af den prøveprædiken, A.G. Rudelbach skulle holde i hofkirken i Dresden, fulgte et kollokvium, hvor han gik til angreb på rationalismen, der på den tid var herskende i Sachsen, jf. biografien i Dansk Biografisk Lexikon, udg. af C.F. Bricka, bd. 14, Kbh. 1900, s. 408-412; s. 410.
+
+## Kommentarnote b-98 (b1/kom.xml, ordret)
+Lemma: Din Afhandling
+
+sigter til den afhandling, De notione atque turpitudine mendacii commentatio (lat., En afhandling om begrebet løgn og dens skændige fremtræden), hvormed P.C. Kierkegaard senere erhvervede den filosofiske doktorgrad i Göttingen ().
+
+## Kommentarnote b-100 (b1/kom.xml, ordret)
+Lemma: Tholuch
+
+Friedrich August Gotttreu Tholuck (1799-1877), ty. teolog og præst; fra 1823 prof. i Berlin og fra 1826 i Halle; hans nytestamentlige kommentarer (til Romerbrevet (1824), til Johannesevangeliet (1827) og til Hebræerbrevet (1836)), som lagde mindre vægt på det filologiske end på det religiøse indhold, øvede stor indflydelse på de yngre teologers bibelstudium. Fr. Tholuck, hvis teologi havde et missionerende præg, var en stærk modstander af rationalismen og tilsluttede sig formidlingsteologien. 1827-29 virkede han fra tid til anden som præst for det ty. gesandtskab i Rom. – If. P.C. Kierkegaards dagbog () havde han kontakt med Tholuck i Berlin, fx skriver han under »Torsdagen den 11 Junii« 1829 følgende: »Slag ½9 var jeg hos Tholuck og snakkede en Deel med ham, indtil han maatte ind til nogle andre Fremmede i Sideværelset; men da han havde expederet dem, gik jeg ud med ham og gjennemvandrede, jeg troer et Par Gange, hele Byen, indtil vi unter [den] Linden skiltes ad Klokken 11¼. Han taler Dansk, men rigtignok meget slet; dog kunde jeg forstaae ham, kun Construktionerne ere reent desperate. – Vi talede om Rudelbachs nye Strid med Aon [Ammon] og Seltenreich, hvor han lader til at have havt Uret og ligesomt søgt et Martyrium, ogsaa hs [hans] Prædiken havde ei vundet Bifald; den skal have været lang og lærd, og han læste den for [].« I øvrigt har P.C. Kierkegaard noteret flere detaljer fra indholdet af samtalen med Tholuck.
+
+## Kommentarnote b-101 (b1/kom.xml, ordret)
+Lemma: passeligt
+
+passende.
+
+## Kommentarnote b-102 (b1/kom.xml, ordret)
+Lemma: Halle
+
+Halle an der Saale, ty. by i Sachsen ().
+
+## Kommentarnote b-103 (b1/kom.xml, ordret)
+Lemma: Oldenborg
+
+Theodor Wilhelm Oldenburg ().
+
+## Kommentarnote b-104 (b1/kom.xml, ordret)
+Lemma: de omskrevne Bøger
+
+de tidligere (skriftligt) omtalte bøger. Det brev, hvori P.C. Kierkegaard har omtalt disse bøger, synes at være gået tabt.
+
+## Kommentarnote b-105 (b1/kom.xml, ordret)
+Lemma: Scharlings Reyse
+
+Carl Emil Scharling (1803-77), da. teolog og udgiver; dimitteredes 1820 fra Borgerdydsskolen i København til Københavns Universitet; var i en årrække lærer ved Borgerdydsskolen indtil sept. 1829; 1825 cand.theol., jan. 1828 mag.art. på en historisk afhandling om Stedingerne, et lille frisiske bondefolk, 1836 dr.theol. på afhandlingen De Paulo apostolo ejusque adversariis (lat., Om apostlen Paulus og hans modstandere) (jf. ktl. 105); fra sept. 1829 til efteråret 1830 på studierejse til Frankrig, Schweiz og Tyskland; 1830-34 lektor i religion og moral ved Sorø Akademi, fra 1834 prof. i teologi (moral og nytestamentlig eksegese) ved Københavns Universitet; 1842-43 rektor for Københavns Universitet.
+
+## Kommentarnote b-106 (b1/kom.xml, ordret)
+Lemma: gaae formeget i Langdrag
+
+trække for meget i langdrag.
+
+## Kommentarnote b-107 (b1/kom.xml, ordret)
+Lemma: Grundtvigs Værdens Krønike og hans Roskilderiim
+
+Nikolai Frederik Severin Grundtvig (1783-1872), da. teolog, præst, (salme)digter, historiker, mytolog m.m.; 1803 cand.theol., 1805-08 huslærer på Langeland, holdt 1810 sin dimisprædiken, 1811 ordineret, 1811-13 personlig kapellan hos sin far i Udby på Sydsjælland, fra 1821 sognepræst i Præstø på Sydsjælland, fra 1822 residerende kapellan ved Vor Frelsers Kirke på Christianshavn (se kort 2, C4), nedlagde sit embede i 1826 i anledning af retssagen mod ham for i Kirkens Gienmæle (1825) at have fremsat injurierende udtalelser mod prof. i teologi H.N. Clausen, blev s.å. idømt censur. Med kgl. understøttelse foretog Grundtvig i 1829-31 tre studierejser til England, og med kgl. tilladelse fungerede han fra 1832 som fri prædikant ved aftensang i Frederiks Tyske Kirke (nuværende Christians Kirke) på Christianshavn (se kort 2, B3-4), fra 1839 og til sin død præst ved Vartov Hospitalskirke (se kort 2, A2). – Værdens Krønike: Kort Begreb af Verdens Krønike i Sammenhæng, Kbh. 1812; el. Kort Begreb af Verdens Krønike, betragtet i Sammenhæng, bd. 1, Kbh. 1814; el. Udsigt over Verdens-Krøniken fornemmelig i det Lutherske Tidsrum, Kbh. 1817. – Roskilderiim: Roskilde-Riim, Kbh. 1814.
+
+## Kommentarnote b-108 (b1/kom.xml, ordret)
+Lemma: de forlangte Disputatser
+
+Hvilke disputatser, der sigtes til, har ikke ladet sig identificere.
+
+## Kommentarnote b-109 (b1/kom.xml, ordret)
+Lemma: skriver han Dig og til
+
+fast udtryk i breve: skriver han også til dig.
+
+## Kommentarnote b-110 (b1/kom.xml, ordret)
+Lemma: komme paa Bunden med
+
+formentlig i betydningen: nå til bunds i, få udgrundet.
+
+## Kommentarnote b-111 (b1/kom.xml, ordret)
+Lemma: tilmelde mig det
+
+give mig meddelelse om det.
+
+## Kommentarnote b-112 (b1/kom.xml, ordret)
+Lemma: Lorentzen
+
+Carl Henrik Lorenzen (1807-59), da. skolemand; dimitteredes 1827 fra latinskolen i Haderslev, studerede derpå filologi og filosofi ved universitetet i Halle; vendte efter en rejse til Italien i 1829 tilbage til København, studerede filologi ved Københavns Universitet, tog i 1830 den befalede præliminæreksamen og var fra 1831 til 1844 adjunkt i tysk og naturhistorie ved Sorø Akademi. – Under »Fredagen den 22 Maj« 1829 skriver P.C. Kierkegaard i sin dagbog (): »Meget af Dagen gik med til et langt Brev til Fader, hvori (...) en dygtig Anbefaling af Lorentsen«, sml. fortegnelsen over modtagne og afsendte breve i maj 1829 i dagbogen, hvor dette brev er registreret som afsendt den 23. maj, s. 48.
+
+## Kommentarnote b-113 (b1/kom.xml, ordret)
+Lemma: Søster og Broder her i Byen
+
+De pågældende søskende til C.H. Lorenzen er ikke identificeret.
+
+## Kommentarnote b-114 (b1/kom.xml, ordret)
+Lemma: udenlandsk Reyse, og det en italiensk
+
+.
+
+## Kommentarnote b-115 (b1/kom.xml, ordret)
+Lemma: omgangs Sirkler
+
+omgangscirkler, omgangskredse.
+
+## Kommentarnote b-3007 (b1/kom.xml, ordret)
+Lemma: med Wilhelm Lund ... han omgaaes noget
+
+Under »Onsdagen den 20« maj 1829 skriver P.C. Kierkegaard i sin dagbog (): »Om Formiddagen var Lorentsen [] hos mig og for hans Skyld skrev jeg et Brev til Wilhelm Lund, der indeholdt en Anbefaling af Overbringeren, videre min Glæde over hans Hjemkomst og Haab snart at see ham her«. Og videre under »Torsdagen den 21 besøgte jeg Lorentsen og bragte ham dette Brev[,] tillige medgav jeg ham paa Visitkort Hilsener til Fader, Hahn, Oldenburg [] og Fru Fenger []«. – Wilhelm Lund: Peter Wilhelm Lund (1801-80), naturforsker, palæontolog, bror til SKs svogre Johan Christian Lund () og Henrik Ferdinand Lund (). Opholdt sig 1825-29 i Brasilien, hvor han foretog meteorologiske, biologiske og zoologiske feltstudier. Var sommeren 1829 i København; efter en længere rejse til naturvidenskabelige centre i Europa vendte han tilbage og tilbragte sommeren 1831 i København. Rejste i 1833 atter til Brasilien, hvorfra han aldrig vendte tilbage; døde i Lagoa Santa. Blev i 1829 doktor ved universitetet i Kiel og i 1831 medlem af Videnskabernes Selskab.
+
+## Kommentarnote b-117 (b1/kom.xml, ordret)
+Lemma: Søren
+
+sigter til SK.
+
+## Kommentarnote b-119 (b1/kom.xml, ordret)
+Lemma: Dine Sødskende
+
+søstrene Nicoline Christine () og Petrea Severine () samt brødrene Niels Andreas () og SK.
+
+## Kommentarnote b-120 (b1/kom.xml, ordret)
+Lemma: Lunderne
+
+sigter til Johan Christian Lund () og Henrik Ferdinand Lund (), måske også til deres mor, Marina Magdalene Lund (), og til Wilhelm Lund ().
+
+## Kommentarnote b-121 (b1/kom.xml, ordret)
+Lemma: min Fætter og hans Familie
+
+sigter til Michael Andersen Kierkegaard (1776-1867), da. silke- og klædehandler både en gros og en detail, søn af M.P. Kierkegaards farbror Anders Christensen Kierkegaard. M.A. Kierkegaard var født i Sædding (), men kom som stor dreng til København og trådte i lære hos sin fætter M.P. Kierkegaard, som i 1797 solgte sin forretning til M.A. Kierkegaard og til Christen Agerskov, der i kompagniskab drev firmaet videre som M.A. Kierkegaard & Agerskov. I 1800 giftede M.A. Kierkegaard sig med Anne Sophie Kieldsen (1779-1815), med hvem han fik fire børn: Anna Kirstine Elisabeth (kaldt Lise) Kierkegaard (1801-67), i 1825 gift Faber; Andrea Thomine (kaldt Mine) Kierkegaard, i 1834 gift Hegedahl (); Julie Augusta Kierkegaard, i 1835 gift Thomsen (); og Hans Peter Kierkegaard (). Nogle år efter sin første kones død giftede M.A. Kierkegaard sig i 1821 med Øllegaard Baggesen (1772-1855), ægteskabet var barnløst. Se O. Kierkegaard og P.F. Parup Fæstebonden i Sædding Christen Jespersen Kierkegaard's Efterslægt, Kbh. 1941, nr. 23 og nr. 50-53, s. 10 og s. 14f. M.A. Kierkegaard boede i St. Købmagergade matrikelnr. 49 (se kort 2, C2).
+
+## Kommentarnote b-122 (b1/kom.xml, ordret)
+Lemma: Din gode Moder
+
+.
+
+## Kommentarnote b-123 (b1/kom.xml, ordret)
+Lemma: M P Kierkegaard
+
+.
+
+## Kommentarnote b-124 (b1/kom.xml, ordret)
+Lemma: Copiebogen
+
+bog, der indeholder afskrifter af alle afsendte breve, regninger osv. M.P. Kierkegaards her omtalte kopibog synes at være gået tabt.
+
+## Kommentarnote b-3008 (b1/kom.xml, ordret)
+Lemma: Jeg (Søren) skriver ... for tillige at gjendrive Fader
+
+Et sådant brev fra SK til P.C. Kierkegaard er ikke identificeret.

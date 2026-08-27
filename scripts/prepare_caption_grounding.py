@@ -29,8 +29,13 @@ context the trial curated by hand is derived automatically:
   An unreferenced id *inside* a duplicate pair likewise stands
   caption-less; only the alt text is shared.
 
-Output: ``data/context/grounding/captions/<slug>.md`` — gitignored like
-the rest of ``data/context/grounding/`` (regenerable).
+Output: ``data/context/grounding/captions/<slug>.md`` — a gitignored
+workspace like the rest of ``data/context/grounding/``. The round's
+packets are additionally committed as part of the audit trail in
+``data/context/generated/captions/grounding/`` (verified byte-identical
+to a fresh run; see the README there), so a fresh run belongs in the
+workspace and a deliberate update of the committed copies is a reviewed
+diff, like ``export/``.
 
 Run from the repo root: ``python3 scripts/prepare_caption_grounding.py``
 """

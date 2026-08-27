@@ -150,7 +150,12 @@ what it is and where it came from:
   guess; beware the Agerskov trap: same surname, different man).
 - `generated/` (committed on purpose): the swarm's **audit trail** — raw
   batch output, the adversarial verifiers' flags, the repairs. This is the
-  evidence behind "modlæsningsrunde" on the Om page.
+  evidence behind "modlæsningsrunde" on the Om page. For the captions the
+  trail is complete end to end — prompts, grounding packets (under
+  `generated/captions*/grounding/`, byte-identical to a fresh script
+  run), raw drafts, per-round verification, repairs — kept that way on
+  purpose: the round doubles as a reconstructable demonstration of the
+  method.
 - `grounding/` (gitignored): regenerable via
   `python3 scripts/prepare_grounding.py`.
 

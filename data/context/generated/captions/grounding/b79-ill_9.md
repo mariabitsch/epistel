@@ -1,0 +1,222 @@
+# Grounding: b79/ill_9.jpg
+
+Billedfil: `data/vendor/b79/ill_9.jpg` (tilladt primærkilde).
+
+## Manifest-post: b79/ill_9.jpg (export/images.json)
+```json
+{
+ "id": "b79/ill_9.jpg",
+ "path": "letters/b79/ill_9.jpg",
+ "source": {
+  "path": "data/v1.9/b79/ill_9.jpg",
+  "sha256": "8f76e184c1b52739e20058ecad4e74eca1dcf805a860804a860c831844e05ca2"
+ },
+ "figures": [
+  {
+   "volume": "b79",
+   "file": "txt.xml",
+   "xmlId": "ill_9",
+   "type": null,
+   "rend": "recto",
+   "url": "../b79/ill_9.jpg",
+   "head": [
+    "9. Brev 81: udskrift og SKs signet »SAK« i rød lak"
+   ],
+   "figDesc": null,
+   "letter": "81",
+   "letterXmlId": "n81"
+  }
+ ],
+ "pageBreaks": [
+  {
+   "volume": "b79",
+   "file": "txt.xml",
+   "xmlId": "id04fc31ef-7f16-438b-bf14-8e2ac14e225b",
+   "n": "2v",
+   "rend": "supplied",
+   "edRef": null,
+   "facs": "../b79/ill_9.jpg",
+   "letter": "81",
+   "letterXmlId": "n81"
+  }
+ ]
+}
+```
+
+## Udgavens egne billedtekster (head)
+- 9. Brev 81: udskrift og SKs signet »SAK« i rød lak
+
+## Brev 81 (b79) — overskrift og læsetekst
+Overskrift: Fra SK · 16. nov. [18]41 · til Emil Boesen
+
+Kjære Emil!d. 16 Novb. 41.  Modtag herved min Tak for at Du gjør, hvad dit Brev udsiger og beviser – at Du tænker paa mig. Og oprigtigt talt tiltrods for al den Egoisme, som al Verden tilskriver mig, saa troer jeg dog nok at jeg fortjener det af En og Anden, af Dig ønsker jeg det, og for Dig haver ogsaa mit Hjerte udvidet sig og udvider sig endnu i dette Øieblik idet jeg tænker paa Dig. Tvivler Du derom? Og dog synes dit Brev etsteds at skjule en lille Bebreidelse i Anledning af de Ord af mig, »Jeg troer Ingen«. Som om Du var regnet med. Troer Du da ikke jeg er saa klog, at jeg, dersom jeg virkelig ikke troede Dig, ogsaa vilde undlade at sige Dig, at jeg overhovedet ikke troer Noget Msk. Du er maaskee det eneste Msk. jeg har sagt det til. De andre lader jeg som jeg troer, desto umiddelbarere Kilder faar jeg altid for mine Efterretninger, min Anskuelse fremgaar da som et beregnet Resultat af disse. Udtrykket var forøvrigt maaskee brugt noget hæftigt, jeg vilde sige, at jeg ikke tiltroede Dig absolut Øvelse nok til at anstille Observationer, og da det nu var mig af Vigtighed, at hun berøvedes enhver Leilighed til den fjerneste Ahnelse, da det var mig saa vigtigt saa uhyre vigtigt, at jeg først vilde ansee alt for fortvivlet i det Øieblik dette skete, saa vil Du let kunde forklare Dig dette Udtryk, især naar Du tillige tænker paa den Færdighed jeg, med Rette ell. Urette tiltroer mig selv i d. H. Bliv nu ikke vred over dette Sidste, Sagen selv laae mig saa meget paa Sinde, at jeg vilde gjøre Alt for at prøve Dig, ja om Du end havde været den mest forfinede Iagttager Verden nogensinde har seet, saa vilde jeg maaskee dog have sagt noget Lignende. Til Gengjeld for denne lille Afbigt, maa jeg nu rykke ud med en lille Udgydelse, som Du skal have saa umiddelbar som mulig. Det var i Anledning af en Yttring i Dit Brev, at det maaskee var rigtigst slet ikke at give mig Efterretning om hende, og det uagtet jeg paa det instændigste havde forlangt det: »Død und Pestilense vil han være min Formynder, vil han gjøre mig umyndig, vil han gjøre mig til et forkjelet Barn, og saa ovenikjøbet lige ud sige det«. Du kan vel nu gjøre Dig en Forestilling om Rythmen i dette Foredrag, som blev holdt paa mit Værelse med ualmdl.  Energie og det saa meget mere som jeg den Dag havde aflagt Kork-Støvlerne og gik med tynde Dto, og desaarsag lettere kunde faae den høitragiske Gang, der paa eengang er let og kraftfuld. Du vilde altsaa overlade mig til mine Drømmerier. Deri tager Du netop feil. Jeg drømmer ikke jeg vaager. Jeg digter hende ikke jeg erindrer hende ikke, men jeg kalder mig til Regnskab. Her er min Grændse. Jeg kan digte Alt troer jeg, men hvor der er Tale om Pligt, Forpligtelse, Ansvar, Skyld etc. der kan og der vil jeg ikke digte. Havde hun hævet Forbindelsen med mig; ja da skulde min Sjæl snart have kjørt Glemselens Plov over hende, hun skulde have tjent mig som andre før hende har gjort det – men nu, nu tjener jeg hende. Om det stod i hendes Magt at omgive mig med aarvaagne Speidere der altid erindrede mig om hende, hun vilde ikke være bleven erindret saa nøiagtigt som nu i al sin Ret i al sin Skjønhed i al sin Smerte. Fortæl Du derfor kun. Min Sjæl har ved disse sidste Begivenheder faaet en Daab, som den trængte til, men den Daab er visselig ikke skeet ved Besprængelse, jeg er steget ned i Vandene, det har sortnet for mit Øie, men jeg stiger atter op igjen. Der er dog Intet der udvikler et Msk. i den Grad som at fastholde en Plan, tiltrods for al Verden. Om det end var noget Slet, det vilde dog i høi Grad udvikle et Msk. Skriv Du derfor kun og skriv, om jeg tør bede, hver Gang Du har en Depesche, lidt tydeligere. Jeg flyer ikke Tanken om hende, men naar jeg da tænker paa den stakkels Pige – og dog hun er for god til at kalde hende en Stakkels Pige – og dog er hun en Stakkels Pige – og dog har min Aandskraft været den Skyldige, der har knækket den stolteste Pige – som Du seer er jeg i en Møllegang og jeg behøver blot een Time daglig  paa den Maade at træde Mølle, og saa lade min Hypochondrie være en vranten Kudsk, der stedse raaber Hyp, Hyp, og med sin Svøbe rammer de ømmeste Stæder, saa har jeg Motion nok for den Dag, saa behøver jeg al mulig Aandskraft for at sige Stop, nu tænker jeg paa andre Ting. Og dog er min Sjæl sund, sundere end den nogensinde har været. Saaledes forholder nu dette sig. Lad Byen snakke. Lad Svoger Christian og andre Peernittengryn vaase hist op og herned. Han som anseer det for for meget at indsætte sin Kone til Universal-Arving, han maatte jo troe jeg rasede, hvis han hørte, at jeg med Glæde skulde nedlægge min Formue heel og holden i hendes Hænder, hvis hun ønskede det eller ei. Du kan neppe udholde, siger Du, at Byen taler saaledes. Mig  er det ubeskriveligt glædeligt; thi det er det eneste, der kan være til Gavn for hende. – – – Af Alt hvad Du skriver er der kun een Ting, jeg seer lidt betænkelig paa og det er, at hun har ladet Henrich, Michael etc. komme til sig. Hun er klog, og et Aar under mine Auspicier har ikke just gjort hende eenfoldigere, og blandt Andet lært hende, at jeg bemærker endog den ubetydeligste Ubetydelighed. Min Operations-Plan m: H: t: Børnene maa forandres. Det gjør mig ondt; men jeg troer Ingen, ikke som om det nogensinde var falden mig ind at yttre Noget til dem, men hun vil maaskee i en bevæget Stemning til dem see Noget mere etc. Du har med stor Forsigtighed undgaaet Alt. Du veed den sidste Gang før min Afreise var hun vist i Theatret, du veed ogsaa, hvorledes jeg undgik hende. At møde hende vilde altid have været urigtigt, hun vilde dog altid have regnet paa, at der var nogen Følelse for hende tilbage. Og nu Du selv. Har Du noget Ansvar, har Du brudt nogen Forpligtelse, og er det virkelig nok til at forstyrre Dig, at gaae forbi et Vindue og see hende lee. Digt hende, saa sidder hun endnu smukkere indenfor, og leer og græder og gjør Alt hvad Du vil. Lad mig, min kjære Emil, sige Dig dette. Bliver Du vred, saa skjul det ikke for mig. Du bør ikke give efter for Sligt. Om min Sjæl er for  egoistisk ell. for stor til at forstyrres af Sligt  det veed jeg ikke, men mig kunde det ikke forstyrre. Der er Ingen, der sørger for Dig, Ingen, der har et gyldigt Krav paa Dig, om Du forsvinder i Tvivl ell. Du forklares i Skyerne, der er Ingen der bryder sig derom, uden det ell. de faae Msk, der staae omkring, men som Intet fordrer af Dig uden at Du skal føle dig vel, føle Dig med hele Din Sjæl i Eet. Har min Nærværelse maaskee stundom virket skadelig paa Dig, saa lad min Fraværelse virke desto bedre, men lad den fremfor Alt virke een Ting, at vi inderligere endnu mere fuldtonigt sympathetisk maa mødes, naar den Tid engang kommer. Jeg har tabt meget ell. berøvet mig meget i Verden, Dig skal jeg ikke tabe, jeg har sparket til Verden, jeg haaner den, Gud give jeg ikke i en vis Forstand havde saa meget Ret dertil, Dig skal jeg fastholde og netop ved at fastholde Dig beviise at jeg er Din S. K. Hils din Fader og din Moder.  9. Brev 81: udskrift og SKs signet »SAK« i rød lak An dem Her Cand. theol. E. Boesen     Copenhagen   Philosophgangen    fr.  
+
+## Kommentarnote b-1882 (b79/kom.xml, ordret)
+Lemma: Emil
+
+SKs nære ven Emil Boesen ().
+
+## Kommentarnote b-1883 (b79/kom.xml, ordret)
+Lemma: d. 16 Novb. 41
+
+den 16. nov. 1841, på hvilket tidspunkt SK opholdt sig i Berlin ().
+
+## Kommentarnote b-1884 (b79/kom.xml, ordret)
+Lemma: dit Brev
+
+Emil Boesens brev synes ikke at være bevaret.
+
+## Kommentarnote b-1885 (b79/kom.xml, ordret)
+Lemma: for Dig haver ogsaa mit Hjerte udvidet sig
+
+hentyder til 2 Kor 6,11, hvor Paulus til korintherne skriver: »Vor Mund er opladt til Eder, Corinthier; vort Hierte har udvidet sig« (NT-1819).
+
+## Kommentarnote b-1886 (b79/kom.xml, ordret)
+Lemma: de Ord af mig, »Jeg troer Ingen«
+
+se Brev 80, i SKS 28, 145,7.
+
+## Kommentarnote b-1887 (b79/kom.xml, ordret)
+Lemma: hun
+
+SKs tidligere forlovede Regine Olsen ().
+
+## Kommentarnote b-1888 (b79/kom.xml, ordret)
+Lemma: i d. H.
+
+i den henseende.
+
+## Kommentarnote b-1889 (b79/kom.xml, ordret)
+Lemma: Afbigt
+
+undskyldning.
+
+## Kommentarnote b-1890 (b79/kom.xml, ordret)
+Lemma: Død und Pestilense
+
+da.-ty., død og pest! Eden 'Død og Pestilence' brugtes i samtiden bl.a. i St. St. Blichers novelle »Høstferierne« (1840), jf. Nyeste Noveller og Digte, Kbh. 1840, s. 72 (). I formen 'Død og Pestilents' bruges den også flere gange af kaptajn Gribskov i Apothekeren og Doktoren. Et Syngespil i to Acter, af Gottlob Stephanie (den Yngre), med musik af Ditters von Dittersdorf, overs. af Lars Knudsen, Kbh. 1789 [ty. 1786], der fra premieren den 17. nov. 1789 til nov. 1841 blev opført i alt 82 gange på Det kgl. Teater.
+
+## Kommentarnote b-1891 (b79/kom.xml, ordret)
+Lemma: Kork-Støvlerne
+
+støvler med tykke såler af kork, som bl.a. virkede isolerende. If. en kvitteret regning for 1849 fra skomagermester Jacob Søfverborg og kvitterede regninger for de følgende par år fra sønnen, skomagermester Wilhelm Søfverborg (KA, D pk. 8 læg 26), gik SK i korkstøvler.
+
+## Kommentarnote b-1892 (b79/kom.xml, ordret)
+Lemma: Dto
+
+ditto.
+
+## Kommentarnote b-1893 (b79/kom.xml, ordret)
+Lemma: den høitragiske Gang
+
+hentyder formentlig til 'koturne', den høje, tyksålede fodbeklædning, som især anvendtes af skuespillerne i den antikke tragedie.
+
+## Kommentarnote b-1895 (b79/kom.xml, ordret)
+Lemma: Besprængelse
+
+bestænkelse.
+
+## Kommentarnote b-1896 (b79/kom.xml, ordret)
+Lemma: jeg er steget ned i Vandene
+
+hentyder til den dåbspraksis, hvor dåbskandidaten stiger ned i vand, fx i en flod el. i en sø, for at blive døbt. Jesus steg ned i Jordanfloden, da han blev døbt af Johannes Døber, se Matt 3,13-17.
+
+## Kommentarnote b-1897 (b79/kom.xml, ordret)
+Lemma: Depesche
+
+egl. depeche, et statsligt ilbrev, især brugt om breve fra en regering til dens ambassadør i et andet land.
+
+## Kommentarnote b-1898 (b79/kom.xml, ordret)
+Lemma: træde Mølle
+
+hentyder til en trædemølle, kraftmaskine, hvis væsentligste del er et trædehjul, der drives rundt af mennesker el. dyr.
+
+## Kommentarnote b-1899 (b79/kom.xml, ordret)
+Lemma: Svoger Christian
+
+sigter til SKs svoger Johan Christian Lund (1799-1875), da. silke- og klædehandler, gift med SKs søster Nicoline Christine Lund, f. Kierkegaard (1799-1832).
+
+## Kommentarnote b-1900 (b79/kom.xml, ordret)
+Lemma: Peernittengryn
+
+personer, der lægger vægt på ubetydelige el. ligegyldige ting; nøjeregnende, pedantiske, smålige personer.
+
+## Kommentarnote b-1901 (b79/kom.xml, ordret)
+Lemma: Han som ... for meget at indsætte sin Kone til Universal-Arving
+
+Hvad der sigtes til, er ikke identificeret.
+
+## Kommentarnote b-1902 (b79/kom.xml, ordret)
+Lemma: min Formue
+
+SKs far, Michael Pedersen Kierkegaard, efterlod sig en betydelig formue, der i marts 1839 blev opgjort til o. 125.000 rigsdaler, hvoraf SK og hans ældre bror P.C. Kierkegaard () hver arvede en fjerdedel, til dels i fast ejendom, idet de hver arvede en halvdel af huset Nytorv matrikelnr. 2, svarende til 9.500 rigsdaler plus en bankhæftelse på 753 rigsdaler (jf. F. Brandt og E. Thorkelin Søren Kierkegaard og pengene, 2. udg., Kbh. 1993 [1935] (forkortet Søren Kierkegaard og pengene), s. 67f. og s. 74).
+
+## Kommentarnote b-1903 (b79/kom.xml, ordret)
+Lemma: Henrich
+
+SKs nevø Henrik Lund ().
+
+## Kommentarnote b-1904 (b79/kom.xml, ordret)
+Lemma: Michael
+
+SKs nevø Michael Lund ().
+
+## Kommentarnote b-1905 (b79/kom.xml, ordret)
+Lemma: etc.
+
+sigter til SKs øvrige nevøer og niecer: Carl Lund (), Sophie Lund (), Henriette Lund () samt Wilhelm Lund ().
+
+## Kommentarnote b-1906 (b79/kom.xml, ordret)
+Lemma: Børnene
+
+se de foregående kommentarer.
+
+## Kommentarnote b-1908 (b79/kom.xml, ordret)
+Lemma: den sidste Gang før min Afreise var hun vist i Theatret
+
+I et notat, 159.9, om ophævelse af forlovelsen med Regine Olsen (), skrevet i nov. 1849, noterer SK følgende: »Torsdag d. 21 [okt. 1841] opførtes Kean, hvor Prinzlau gav Gjesterolle, og der var jeg i Theateret.« SKS 28, 263,19-21. Der sigtes til Kean. Skuespil i fem Acter af Alexandre Dumas, overs. af C. Borgaard (i Det kongelige Theaters Repertoire, nr. 103, bd. 5), Kbh. 1838 [fr. 1836 af den fr. forf. Alexandre Davy Dumas (1802-70)]. Fra premieren den 5. juni 1838 og frem til den 21. okt. 1841 blev stykket opført i alt 21 gange på Det kgl. Teater. Ved opførelsen den 21. okt. 1841 gæsteoptrådte den da. skuespiller F.F.J.C. Printzlau (1814-59) i titelrollen som skuespiller Kean; ved de øvrige forestillinger beklædte W.C. Holst denne rolle. Jf. A. Aumont og E. Collin Det danske Nationalteater 1748-1889. En statistisk Fremstilling af Det kongelige Teaters Historie fra Skuepladsens Aabning paa Kongens Nytorv 18. December 1748 til Udgangen af Sæsonen 1888-89 bd. 2 (»Femte Afsnit: I. Skuespil- og Opera-Repertoiret, A.–K.«), Kbh. 1897, s. 454f.
+
+## Kommentarnote b-1909 (b79/kom.xml, ordret)
+Lemma: regnet paa
+
+regnet el. kalkuleret med.
+
+## Kommentarnote b-1910 (b79/kom.xml, ordret)
+Lemma: forklares i Skyerne
+
+allusion dels til beretningen i Matt 17,1-8 om Jesu forklarelse, dvs. forvandling på bjerget, hvor det fortælles, at en lysende sky overskyggede ham og de tre disciple, der var sammen med ham. Dels til de forestillinger om, hvad der skal ske ved Jesu genkomst, som Paulus bringer til udtryk i 1 Thess 4,17: »Så skal vi, der lever og endnu er her, rykkes bort i skyerne sammen med dem [de døde] for at møde Herren i luften, og så skal vi altid være sammen med Herren.« Udtrykket benyttes i »Ægteskabets æsthetiske Gyldighed« i anden del af Enten – Eller (1843), i SKS 3, 32,22.
+
+## Kommentarnote b-1911 (b79/kom.xml, ordret)
+Lemma: uden det ell. de
+
+undtagen.
+
+## Kommentarnote b-1912 (b79/kom.xml, ordret)
+Lemma: sympathetisk
+
+egl. 'medlidende', medfølende, deltagende.
+
+## Kommentarnote b-1913 (b79/kom.xml, ordret)
+Lemma: din Fader og din Moder
+
+kontorchef ved rentekammeret (hvor statens indtægter og udgifter bestyredes), justitsråd Johannes Boesen (1768-1859) og Sophie Frederikke Boesen, f. Hammerich (1779-1850). Jf. Stamtavle over Slægten Boesen (), s. 25.
+
+## Kommentarnote b-3286 (b79/kom.xml, ordret)
+Lemma: An dem Her
+
+dvs. An den Herrn.
+
+## Kommentarnote b-1914 (b79/kom.xml, ordret)
+Lemma: Cand. theol.
+
+Emil Boesen blev cand.theol. i 1834.
+
+## Kommentarnote b-1915 (b79/kom.xml, ordret)
+Lemma: Philosophgangen
+
+.
+
+## Kommentarnote b-1916 (b79/kom.xml, ordret)
+Lemma: fr.
+
+franko el. franco, fast udtryk for, at portoen er forudbetalt.

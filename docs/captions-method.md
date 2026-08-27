@@ -47,9 +47,14 @@ one extension: **the image itself is admissible primary grounding.**
 1. **Grounding packet** per image
    (`scripts/prepare_caption_grounding.py`): the image file + the
    edition's own `<head>` captions + the letter's parsed reading text +
-   the relevant commentary notes. Packets are regenerable and gitignored
-   (`data/context/grounding/captions/`; the trial round's four sat in
-   `captions-trial/`). Since the full round the packets are derived
+   the relevant commentary notes. The script writes to a gitignored
+   workspace (`data/context/grounding/captions/`), and the round's
+   packets are committed in the audit trail — the full round's 38 in
+   `data/context/generated/captions/grounding/` (verified byte-identical
+   to a fresh run), the trial's four originals in
+   `data/context/generated/captions-trial/grounding/` — so every link
+   of the generation chain is a readable document in the repository
+   (Maria, 2026-08-27). Since the full round the packets are derived
    automatically from `export/images.json`: occurrence letters straight
    off the manifest, kom.xml figures via their enclosing commentary note
    and the letters referencing it, all of a letter's notes included —
